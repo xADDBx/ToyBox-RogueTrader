@@ -35,7 +35,8 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8
-
+    - name: List
+      run: dir
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v2
@@ -45,7 +46,7 @@ jobs:
     
     - name: Install NuGet package
       run: nuget install ${{ env.GAME_NAME }}GameAssemblies -Source github -OutputDirectory GameFiles -DependencyVersion Highest -DirectDownload -PreRelease -Verbosity detailed
-
+      
     - name: Restore the application
       run: msbuild /t:Build /p:Configuration=Build /p:${{ env.GAME_NAME }}Data=GameFiles\UserDataDir /p:${{ env.GAME_NAME }}InstallDir=GameFiles\Assemblies /p:OutputPath Out
 
