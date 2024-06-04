@@ -51,7 +51,7 @@ jobs:
       run: dotnet nuget add source ${{ env.PACKAGE_LINK }} --username ${{ env.GITHUB_NAME }} --password ${{ secrets.GITHUB_TOKEN }} --name github --store-password-in-clear-text  
 
     - name: Install NuGet package
-      run: nuget install ${{ env.PACKAGE_NAME }} -s github -o GameFiles
+      run: nuget install ${{ env.PACKAGE_NAME }} -OutputDirectory GameFiles
 
     - name: Restore the application
       run: msbuild /t:Build /p:Configuration=Build /p:${{ env.GAME_NAME }}Data=GameFiles\UserDataDir /p:${{ env.GAME_NAME }}InstallDir=GameFiles\Assemblies -o Out
