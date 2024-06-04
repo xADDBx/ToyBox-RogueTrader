@@ -19,7 +19,7 @@ on:
 env:
   GAME_NAME: "Wrath"
   GITHUB_NAME: "xADDBx"
-  READ_PACKAGE_KEY: ${{ secrets.GITHUB_TOKEN }}
+  READ_PACKAGE_KEY: ${{ secrets.READ_PACKAGE_KEY }}
 
 jobs:
 
