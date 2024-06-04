@@ -49,17 +49,8 @@ jobs:
     - name: Restore
       run: dotnet restore
 
-    - name: Print
-      run: echo "$pwd"
-    - name: Print2
-      run: echo "$(pwd)"
-    - name: Print3
-      run: echo "$GITHUB_WORKSPACE"
-    - name: Print4
-      run: echo "[Environment]::CurrentDirectory"
-
     - name: Build Project
-      run: msbuild /p:Configuration=Release /p:${{ env.GAME_NAME }}Data="$(pwd)\GameFiles\UserDataDir" /p:${{ env.GAME_NAME }}InstallDir="$(pwd)\GameFiles\Assemblies" /p:OutputPath=Out
+      run: msbuild /p:Configuration=Release /p:${{ env.GAME_NAME }}Data="$(pwd)\GameFiles\UserDataDir" /p:${{ env.GAME_NAME }}InstallDir="$(pwd)\GameFiles\Assemblies" /p:OutputPath=Out -v:diag
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3
