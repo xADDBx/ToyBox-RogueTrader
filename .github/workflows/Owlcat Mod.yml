@@ -26,6 +26,7 @@ jobs:
       GITHUBNAME: "xADDBx"
       PACKAGE_LINK: "https://nuget.pkg.github.com/xADDBx/index.json"
       PACKAGE_NAME: "WrathGameAssemblies"
+      API_KEY: $(( secrets.READ_PACKAGE_KEY))
 
     steps:
     - name: Checkout
@@ -33,13 +34,15 @@ jobs:
 
     - name: Set up .NET
       uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8
 
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v2
       
     - name: Add NuGet package source from GitHub
-      run: dotnet nuget add source --username $GITHUBNAME --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github 
+      run: dotnet nuget add source --username $GITHUBNAME --password $(API_KEY) --name github 
 
     - name: Install NuGet package
       run: dotnet nuget install $PACKAGE_NAME -s $PACKAGE_LINK -o GameFiles
