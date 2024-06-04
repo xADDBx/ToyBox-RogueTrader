@@ -47,7 +47,7 @@ jobs:
       run: nuget search "Game" -Source github -PreRelease -Verbosity detailed
     
     - name: Install NuGet package
-      run: nuget install ${{ env.GAME_NAME }}GameAssemblies -Source github -OutputDirectory GameFiles -Verbosity detailed
+      run: nuget install ${{ env.GAME_NAME }}GameAssemblies -Source github -OutputDirectory GameFiles -Version 2.3.0-am -Verbosity detailed
 
     - name: Restore the application
       run: msbuild /t:Build /p:Configuration=Build /p:${{ env.GAME_NAME }}Data=GameFiles\UserDataDir /p:${{ env.GAME_NAME }}InstallDir=GameFiles\Assemblies -o Out
