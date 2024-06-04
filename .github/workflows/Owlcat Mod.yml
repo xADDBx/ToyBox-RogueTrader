@@ -19,7 +19,7 @@ on:
 env:
   GAME_NAME: "Wrath"
   GITHUB_NAME: "xADDBx"
-  READ_PACKAGE_KEY: ${{ secrets.READ_PACKAGE_KEY }}
+  READ_PACKAGE_KEY: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
 
@@ -39,15 +39,6 @@ jobs:
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v2
-    
-    - name: Install winget
-      uses: Cyberboss/install-winget@v1
-    
-    - name: Install NuGet.exe
-      run: winget install -e --id Microsoft.NuGet --disable-interactivity --accept-source-agreements -v 4.1.0
-
-    - name: List
-      run: dir %LOCALAPPDATA%\Microsoft\WinGet\Packages
       
     - name: Add NuGet Source
       run: nuget sources add -name github -source https://nuget.pkg.github.com/${{ env.GITHUB_NAME }}/index.json -username ${{ env.GITHUB_NAME }} -password ${{ env.READ_PACKAGE_KEY }} -StorePasswordInClearText -Verbosity detailed
