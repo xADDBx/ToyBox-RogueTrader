@@ -46,9 +46,12 @@ jobs:
     
     - name: Install NuGet.exe
       run: winget install Microsoft.NuGet --disable-interactivity --accept-source-agreements
+
+    - name: Add NuGet Source
+      run: nuget sources Add -Name github -Source ${{ env.PACKAGE_LINK}} -StorePasswordInClearText -Password {{ env.READ_PACKAGE_KEY }} -UserName {{ env.GITHUB_NAME }} -Verbosity detailed
       
     - name: Set NuGet Source ApiKey
-      run: nuget setapikey ${{ env.READ_PACKAGE_KEY }} -Source ${{ env.PACKAGE_LINK }}
+      run: nuget setapikey ${{ env.READ_PACKAGE_KEY }} -Source ${{ env.PACKAGE_LINK }} -Verbosity detailed
     
     - name: Install NuGet package
       run: nuget install ${{ env.GAME_NAME }}GameAssemblies -Source ${{ env.PACKAGE_LINK }} -OutputDirectory GameFiles -Verbosity detailed
