@@ -47,7 +47,7 @@ jobs:
       run: winget install -e --id Microsoft.NuGet --disable-interactivity --accept-source-agreements -v 4.1.0
 
     - name: Add NuGet Source
-      run: nuget sources add -name github -source https://nuget.pkg.github.com/${{ env.GITHUB_NAME }}/index.json -username USERNAME -password ${{ env.READ_PACKAGE_KEY }} -StorePasswordInClearText -Verbosity detailed
+      run: nuget sources add -name github -source https://nuget.pkg.github.com/${{ env.GITHUB_NAME }}/index.json -username ${{ env.GITHUB_NAME }} -password ${{ env.READ_PACKAGE_KEY }} -StorePasswordInClearText -Verbosity detailed
 
     - name: List Source Packages
       run: nuget search "Game" -Source github -Verbosity detailed
