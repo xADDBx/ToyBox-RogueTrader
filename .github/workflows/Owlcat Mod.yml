@@ -56,6 +56,8 @@ jobs:
         $prefixPath = Join-Path -Path $currentPath -ChildPath 'GameFiles'
         $subdirectory = Get-ChildItem -Path $prefixPath -Directory | Select-Object -First 1 -ExpandProperty Name
         $fullPath = Join-Path -Path $prefixPath -ChildPath $subdirectory
+        $currentDirName = Split-Path -Path $currentPath -Leaf
+        echo "currentDirName=$currentDirName" >> $env:GITHUB_ENV
         echo "fullPath=$fullPath" >> $env:GITHUB_ENV
       shell: pwsh
 
@@ -66,4 +68,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: Build Files
-        path: ${{ github.workspace }}\Out
+        path: ${{ github.workspace }}\${{ env.currentDirName }}\Out
