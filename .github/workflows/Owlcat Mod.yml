@@ -48,9 +48,13 @@ jobs:
       
     - name: Restore
       run: dotnet restore
+    - name: Print1
+      run: dir "$(pwd)\GameFiles\"
+    - name: Print2
+      run: dir "$(pwd)\GameFiles\Assemblies\"
 
     - name: Build Project
-      run: msbuild /p:Configuration=Release /p:${{ env.GAME_NAME }}Data="$(pwd)\GameFiles\UserDataDir" /p:${{ env.GAME_NAME }}InstallDir="$(pwd)\GameFiles\Assemblies" /p:OutputPath=Out -v:diag
+      run: msbuild /p:Configuration=Release /p:${{ env.GAME_NAME }}Data="$(pwd)\GameFiles\UserDataDir" /p:${{ env.GAME_NAME }}InstallDir="$(pwd)\GameFiles\Assemblies" /p:OutputPath=Out -v:d
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3
