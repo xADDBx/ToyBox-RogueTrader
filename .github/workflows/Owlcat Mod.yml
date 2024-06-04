@@ -42,7 +42,7 @@ jobs:
       uses: microsoft/setup-msbuild@v2
       
     - name: Add NuGet package source from GitHub
-      run: dotnet nuget add source --username $GITHUBNAME --password $(API_KEY) --name github 
+      run: dotnet nuget add source --username $GITHUBNAME --password $API_KEY --name github 
 
     - name: Install NuGet package
       run: dotnet nuget install $PACKAGE_NAME -s $PACKAGE_LINK -o GameFiles
