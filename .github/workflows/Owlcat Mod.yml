@@ -60,7 +60,7 @@ jobs:
       shell: pwsh
 
     - name: Build Project
-      run: msbuild /p:Configuration=Release /p:${{ env.GAME_NAME }}Data="${{ $env.fullPath }}\UserDataDir" /p:${{ env.GAME_NAME }}InstallDir="${{ $env.fullPath }}\Assemblies" /p:OutputPath=${{ github.workspace }}\Out
+      run: msbuild /p:Configuration=Release /p:${{ env.GAME_NAME }}Data="${{ env.fullPath }}\UserDataDir" /p:${{ env.GAME_NAME }}InstallDir="${{ env.fullPath }}\Assemblies" /p:OutputPath=${{ github.workspace }}\Out
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3
