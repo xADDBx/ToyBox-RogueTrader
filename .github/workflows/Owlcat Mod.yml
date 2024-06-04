@@ -52,7 +52,7 @@ jobs:
     - name: Find subdirectory
       id: find-dir
       run: |
-        $prefixPath = '$(pwd)\GameFiles\'
+        $prefixPath = '\GameFiles\'
         $subdirectory = Get-ChildItem -Path $prefixPath -Directory | Select-Object -First 1 -ExpandProperty Name
         $fullPath = Join-Path -Path $prefixPath -ChildPath $subdirectory
         Write-Output "::set-output name=fullPath::$fullPath"
