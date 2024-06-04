@@ -48,7 +48,7 @@ jobs:
       run: winget install Microsoft.NuGet --disable-interactivity --accept-source-agreements
 
     - name: Add NuGet Source
-      run: nuget sources add -name github -source ${{ env.PACKAGE_LINK }} -username {{ env.GITHUB_NAME }} -password {{ env.READ_PACKAGE_KEY }} -StorePasswordInClearText -Verbosity detailed
+      run: nuget sources add -name github -source ${{ env.PACKAGE_LINK }} -username ${{ env.GITHUB_NAME }} -password ${{ env.READ_PACKAGE_KEY }} -StorePasswordInClearText -Verbosity detailed
       
     - name: Set NuGet Source ApiKey
       run: nuget setapikey ${{ env.READ_PACKAGE_KEY }} -Source github -Verbosity detailed
