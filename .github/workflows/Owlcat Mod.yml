@@ -50,7 +50,6 @@ jobs:
       run: dotnet restore
 
     - name: Find subdirectory
-      id: find-dir
       run: |
         $currentPath = "${{ github.workspace }}"
         $prefixPath = Join-Path -Path $currentPath -ChildPath 'GameFiles'
@@ -62,10 +61,17 @@ jobs:
       shell: pwsh
 
     - name: Build Project
-      run: msbuild /p:Configuration=Release /p:${{ env.GAME_NAME }}Data="${{ env.fullPath }}\UserDataDir" /p:${{ env.GAME_NAME }}InstallDir="${{ env.fullPath }}\Assemblies" /p:OutputPath=Out
+      run: msbuild /p:Configuration=Release /p:${{ env.GAME_NAME }}Data="${{ env.fullPath }}\UserDataDir" /p:${{ env.GAME_NAME }}InstallDir="${{ env.fullPath }}\Assemblies" /p:OutputPath=Out\Build
+
+    - name: Find result
+      run: |
+        $currentPath = "${{ github.workspace }}"
+        $prefixPath = Join-Path -Path $currentPath -ChildPath "${{ env.currentDirName }}\Out"
+        $zipFile = Get-ChildItem -Path $prefixPath -Recurse -Filter "*.zip" | Select-Object -First 1 -ExpandProperty FullName
+        echo "zipFile=$zipFile" >> $env:GITHUB_ENV
+      shell: pwsh
 
     - name: Upload build artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
-        name: Build Files
-        path: ${{ github.workspace }}\${{ env.currentDirName }}\Out
+        path: ${{ env.zipFile }}
