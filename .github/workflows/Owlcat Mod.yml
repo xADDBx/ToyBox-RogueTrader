@@ -20,6 +20,7 @@ env:
   GAME_NAME: "Wrath"
   GITHUB_NAME: "xADDBx"
   PACKAGE_LINK: "https://nuget.pkg.github.com/xADDBx/index.json"
+  READ_PACKAGE_KEY: ${{ secrets.READ_PACKAGE_KEY }}
 
 jobs:
 
@@ -47,7 +48,7 @@ jobs:
       run: winget install Microsoft.NuGet --disable-interactivity --accept-source-agreements
       
     - name: Add NuGet package source from GitHub
-      run: dotnet nuget add source ${{ env.PACKAGE_LINK }} --username ${{ env.GITHUB_NAME }} --password ${{ secrets.GITHUB_TOKEN }} --name github --store-password-in-clear-text  
+      run: dotnet nuget add source ${{ env.PACKAGE_LINK }} --username ${{ env.GITHUB_NAME }} --password ${{ env.READ_PACKAGE_KEY }} --name github --store-password-in-clear-text  
 
     - name: Install NuGet package
       run: nuget install ${{ env.GAME_NAME }}GameAssemblies -Source ${{ env.PACKAGE_LINK}} -OutputDirectory GameFiles
