@@ -49,6 +49,12 @@ jobs:
     - name: Restore
       run: dotnet restore
 
+    - name: Print
+      run: echo %cd%
+
+    - name: Print2
+      run: dir
+
     - name: Build Project
       run: msbuild /p:Configuration=Release /p:${{ env.GAME_NAME }}Data="%cd%\GameFiles\UserDataDir" /p:${{ env.GAME_NAME }}InstallDir="%cd%\GameFiles\Assemblies" /p:OutputPath=Out
 
