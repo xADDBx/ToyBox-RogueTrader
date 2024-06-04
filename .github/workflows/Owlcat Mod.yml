@@ -40,12 +40,15 @@ jobs:
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v2
+
+    - name: Install NuGet.exe
+      run: dotnet tool install nuget --global
       
     - name: Add NuGet package source from GitHub
-      run: dotnet nuget add source ${{ env.PACKAGE_LINK }} --username ${{ env.GITHUB_NAME }} --password ${{ secrets.GITHUB_TOKEN }} --name github --store-password-in-clear-text  
+      run: nuget add source ${{ env.PACKAGE_LINK }} --username ${{ env.GITHUB_NAME }} --password ${{ secrets.GITHUB_TOKEN }} --name github --store-password-in-clear-text  
 
     - name: Install NuGet package
-      run: dotnet nuget install ${{ env.PACKAGE_NAME }} -s ${{ env.PACKAGE_LINK }} -o GameFiles
+      run: nuget install ${{ env.PACKAGE_NAME }} -s github -o GameFiles
 
     - name: Restore the application
       run: msbuild /t:Build /p:Configuration=Build /p:${{ env.GAME_NAME }}Data=GameFiles\UserDataDir /p:${{ env.GAME_NAME }}InstallDir=GameFiles\Assemblies -o Out
