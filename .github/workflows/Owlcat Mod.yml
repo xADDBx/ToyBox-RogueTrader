@@ -67,11 +67,13 @@ jobs:
       run: |
         $currentPath = "${{ github.workspace }}"
         $prefixPath = Join-Path -Path $currentPath -ChildPath "${{ env.currentDirName }}\Out"
-        $zipFile = Get-ChildItem -Path $prefixPath -Recurse -Filter "*.zip" | Select-Object -First 1 -ExpandProperty FullName
+        $zipFile = Get-ChildItem -Path $prefixPath -Recurse -Filter "*.zip" | Select-Object -First 1 -ExpandProperty BaseName
         echo "zipFile=$zipFile" >> $env:GITHUB_ENV
+        echo "prefixPath=$prefixPath" >> $enf:GITHUB_ENV
       shell: pwsh
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
       with:
-        file-path: ${{ env.zipFile }}
+        name: ${{ env.zipFile }}
+        path: ${{ env.prefixPath }}\Build
