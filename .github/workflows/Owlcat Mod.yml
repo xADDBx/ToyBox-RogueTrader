@@ -20,7 +20,6 @@ env:
   GAME_NAME: "Wrath"
   GITHUB_NAME: "xADDBx"
   PACKAGE_LINK: "https://nuget.pkg.github.com/xADDBx/index.json"
-  PACKAGE_NAME: "WrathGameAssemblies"
 
 jobs:
 
@@ -51,7 +50,7 @@ jobs:
       run: dotnet nuget add source ${{ env.PACKAGE_LINK }} --username ${{ env.GITHUB_NAME }} --password ${{ secrets.GITHUB_TOKEN }} --name github --store-password-in-clear-text  
 
     - name: Install NuGet package
-      run: nuget install ${{ env.PACKAGE_NAME }} -OutputDirectory GameFiles
+      run: nuget install ${{ env.GAME_NAME }}GameAssemblies -Source ${{ env.PACKAGE_LINK}} -OutputDirectory GameFiles
 
     - name: Restore the application
       run: msbuild /t:Build /p:Configuration=Build /p:${{ env.GAME_NAME }}Data=GameFiles\UserDataDir /p:${{ env.GAME_NAME }}InstallDir=GameFiles\Assemblies -o Out
