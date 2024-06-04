@@ -48,13 +48,21 @@ jobs:
       
     - name: Restore
       run: dotnet restore
+
+    - name: Find subdirectory
+      id: find-dir
+      run: |
+        $prefixPath = '$(pwd)\GameFiles\'
+        $subdirectory = Get-ChildItem -Path $prefixPath -Directory | Select-Object -First 1 -ExpandProperty Name
+        $fullPath = Join-Path -Path $prefixPath -ChildPath $subdirectory
+        Write-Output "::set-output name=fullPath::$fullPath"
+      shell: pwsh
+      
     - name: Print1
-      run: dir "$(pwd)\GameFiles\"
-    - name: Print2
-      run: dir "$(pwd)\GameFiles\Assemblies\"
+      run: echo ${{ steps.find-dir.outputs.fullPath }}
 
     - name: Build Project
-      run: msbuild /p:Configuration=Release /p:${{ env.GAME_NAME }}Data="$(pwd)\GameFiles\UserDataDir" /p:${{ env.GAME_NAME }}InstallDir="$(pwd)\GameFiles\Assemblies" /p:OutputPath=Out -v:d
+      run: msbuild /p:Configuration=Release /p:${{ env.GAME_NAME }}Data="${{ steps.find-dir.outputs.fullPath }}\UserDataDir" /p:${{ env.GAME_NAME }}InstallDir="${{ steps.find-dir.outputs.fullPath }}\Assemblies" /p:OutputPath=Out -v:d
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3
