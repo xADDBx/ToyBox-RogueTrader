@@ -48,7 +48,7 @@ jobs:
       run: winget install Microsoft.NuGet --disable-interactivity --accept-source-agreements
       
     - name: Add NuGet package source from GitHub
-      run: nuget add source ${{ env.PACKAGE_LINK }} --username ${{ env.GITHUB_NAME }} --password ${{ secrets.GITHUB_TOKEN }} --name github --store-password-in-clear-text  
+      run: dotnet nuget add source ${{ env.PACKAGE_LINK }} --username ${{ env.GITHUB_NAME }} --password ${{ secrets.GITHUB_TOKEN }} --name github --store-password-in-clear-text  
 
     - name: Install NuGet package
       run: nuget install ${{ env.PACKAGE_NAME }} -s github -o GameFiles
