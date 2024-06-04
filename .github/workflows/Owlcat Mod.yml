@@ -42,15 +42,12 @@ jobs:
       
     - name: Add NuGet Source
       run: nuget sources add -name github -source https://nuget.pkg.github.com/${{ env.GITHUB_NAME }}/index.json -username ${{ env.GITHUB_NAME }} -password ${{ env.READ_PACKAGE_KEY }} -StorePasswordInClearText -Verbosity detailed
-
-    - name: List Source Packages
-      run: nuget search "Game" -Source github -PreRelease -Verbosity detailed
     
     - name: Install NuGet package
-      run: nuget install ${{ env.GAME_NAME }}GameAssemblies -Source github -OutputDirectory GameFiles -Version 2.3.0-am -Verbosity detailed
+      run: nuget install ${{ env.GAME_NAME }}GameAssemblies -Source github -OutputDirectory GameFiles -Version * -Verbosity detailed
 
     - name: Restore the application
-      run: msbuild /t:Build /p:Configuration=Build /p:${{ env.GAME_NAME }}Data=GameFiles\UserDataDir /p:${{ env.GAME_NAME }}InstallDir=GameFiles\Assemblies -o Out
+      run: msbuild /t:Build /p:Configuration=Build /p:${{ env.GAME_NAME }}Data=GameFiles\UserDataDir /p:${{ env.GAME_NAME }}InstallDir=GameFiles\Assemblies /p:OutputPath Out
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3
