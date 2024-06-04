@@ -56,17 +56,14 @@ jobs:
         $prefixPath = Join-Path -Path $currentPath -ChildPath 'GameFiles'
         $subdirectory = Get-ChildItem -Path $prefixPath -Directory | Select-Object -First 1 -ExpandProperty Name
         $fullPath = Join-Path -Path $prefixPath -ChildPath $subdirectory
-        Write-Output "::set-output name=fullPath::$fullPath"
+        echo "fullPath=$fullPath" >> $env:GITHUB_ENV
       shell: pwsh
-      
-    - name: Print1
-      run: echo ${{ steps.find-dir.outputs.fullPath }}
 
     - name: Build Project
-      run: msbuild /p:Configuration=Release /p:${{ env.GAME_NAME }}Data="${{ steps.find-dir.outputs.fullPath }}\UserDataDir" /p:${{ env.GAME_NAME }}InstallDir="${{ steps.find-dir.outputs.fullPath }}\Assemblies" /p:OutputPath=Out -v:d
+      run: msbuild /p:Configuration=Release /p:${{ env.GAME_NAME }}Data="${{ $env.fullPath }}\UserDataDir" /p:${{ env.GAME_NAME }}InstallDir="${{ $env.fullPath }}\Assemblies" /p:OutputPath=${{ github.workspace }}\Out
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3
       with:
         name: Build Files
-        path: Out
+        path: ${{ github.workspace }}\Out
