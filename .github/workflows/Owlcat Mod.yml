@@ -19,8 +19,7 @@ on:
 env:
   GAME_NAME: "Wrath"
   GITHUB_NAME: "xADDBx"
-  PACKAGE_LINK: "https://nuget.pkg.github.com/xADDBx/index.json"
-  READ_PACKAGE_KEY: ${{ secrets.READ_PACKAGE_KEY }}
+  READ_PACKAGE_KEY: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
 
@@ -48,10 +47,7 @@ jobs:
       run: winget install Microsoft.NuGet --disable-interactivity --accept-source-agreements
 
     - name: Add NuGet Source
-      run: nuget sources add -name github -source ${{ env.PACKAGE_LINK }} -username ${{ env.GITHUB_NAME }} -password ${{ env.READ_PACKAGE_KEY }} -StorePasswordInClearText -Verbosity detailed
-      
-    - name: Set NuGet Source ApiKey
-      run: nuget setapikey ${{ env.READ_PACKAGE_KEY }} -Source github -Verbosity detailed
+      run: nuget sources add -name github -source https://nuget.pkg.github.com/${{ env.GITHUB_NAME }}/index.json -username USERNAME -password ${{ env.READ_PACKAGE_KEY }} -StorePasswordInClearText -Verbosity detailed
 
     - name: List Source Packages
       run: nuget search "Game" -Source github -Verbosity detailed
