@@ -10,7 +10,9 @@
 name: Owlcat Mod
 
 on:
-  create:
+  push:
+    tags:        
+      - '**'           # Push events to every tag not containing /
   pull_request_target:
       types: [labeled]
 
@@ -43,10 +45,10 @@ jobs:
 
 
     - name: Restore the application
-      run: msbuild /t:Build /p:Configuration=Build /p:$(GAMENAME)Data=GameFiles\UserDataDir /p:$(GAMENAME)InstallDir=GameFiles\Assemblies
+      run: msbuild /t:Build /p:Configuration=Build /p:$(GAMENAME)Data=GameFiles\UserDataDir /p:$(GAMENAME)InstallDir=GameFiles\Assemblies -o Out
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: MSIX Package
-        path: ${{ env.Wap_Project_Directory }}\AppPackages
+        name: Build Files
+        path: Out
