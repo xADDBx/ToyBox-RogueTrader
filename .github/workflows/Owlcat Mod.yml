@@ -48,13 +48,13 @@ jobs:
       run: winget install Microsoft.NuGet --disable-interactivity --accept-source-agreements
 
     - name: Add NuGet Source
-      run: nuget sources Add -Name github -Source ${{ env.PACKAGE_LINK}} -StorePasswordInClearText -Password {{ env.READ_PACKAGE_KEY }} -UserName {{ env.GITHUB_NAME }} -Verbosity detailed
+      run: nuget sources add -name github -source ${{ env.PACKAGE_LINK }} -username {{ env.GITHUB_NAME }} -password {{ env.READ_PACKAGE_KEY }} -StorePasswordInClearText -Verbosity detailed
       
     - name: Set NuGet Source ApiKey
-      run: nuget setapikey ${{ env.READ_PACKAGE_KEY }} -Source ${{ env.PACKAGE_LINK }} -Verbosity detailed
+      run: nuget setapikey ${{ env.READ_PACKAGE_KEY }} -Source github -Verbosity detailed
     
     - name: Install NuGet package
-      run: nuget install ${{ env.GAME_NAME }}GameAssemblies -Source ${{ env.PACKAGE_LINK }} -OutputDirectory GameFiles -Verbosity detailed
+      run: nuget install ${{ env.GAME_NAME }}GameAssemblies -Source github -OutputDirectory GameFiles -Verbosity detailed
 
     - name: Restore the application
       run: msbuild /t:Build /p:Configuration=Build /p:${{ env.GAME_NAME }}Data=GameFiles\UserDataDir /p:${{ env.GAME_NAME }}InstallDir=GameFiles\Assemblies -o Out
