@@ -45,7 +45,7 @@ jobs:
       uses: Cyberboss/install-winget@v1
     
     - name: Install NuGet.exe
-      run: winget install nuget --disable-interactivity --accept-source-agreements
+      run: winget install Microsoft.NuGet --disable-interactivity --accept-source-agreements
       
     - name: Add NuGet package source from GitHub
       run: nuget add source ${{ env.PACKAGE_LINK }} --username ${{ env.GITHUB_NAME }} --password ${{ secrets.GITHUB_TOKEN }} --name github --store-password-in-clear-text  
