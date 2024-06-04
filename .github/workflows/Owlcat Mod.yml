@@ -16,17 +16,17 @@ on:
   pull_request_target:
       types: [labeled]
 
+env:
+  GAMENAME: "Wrath"
+  GITHUBNAME: "xADDBx"
+  PACKAGE_LINK: "https://nuget.pkg.github.com/xADDBx/index.json"
+  PACKAGE_NAME: "WrathGameAssemblies"
+
 jobs:
 
   build:
     if: ${{ startsWith(github.ref, 'refs/tags/') || contains(github.event.pull_request.labels.*.name, 'safe to test') }}
     runs-on: windows-latest
-    env:
-      GAMENAME: "Wrath"
-      GITHUBNAME: "xADDBx"
-      PACKAGE_LINK: "https://nuget.pkg.github.com/xADDBx/index.json"
-      PACKAGE_NAME: "WrathGameAssemblies"
-      API_KEY: $(( secrets.GITHUB_TOKEN ))
 
     steps:
     - name: Checkout
@@ -42,7 +42,7 @@ jobs:
       uses: microsoft/setup-msbuild@v2
       
     - name: Add NuGet package source from GitHub
-      run: dotnet nuget add source $PACKAGE_LINK --username $GITHUBNAME --password $API_KEY --name github 
+      run: dotnet nuget add source $PACKAGE_LINK --username $GITHUBNAME --password $(( secrets.GITHUB_TOKEN )) --name github --store-password-in-clear-text  
 
     - name: Install NuGet package
       run: dotnet nuget install $PACKAGE_NAME -s $PACKAGE_LINK -o GameFiles
