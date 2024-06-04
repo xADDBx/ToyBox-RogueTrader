@@ -23,6 +23,7 @@ jobs:
     runs-on: windows-latest
     env:
       GAMENAME: "Wrath"
+      GITHUBNAME: "xADDBx"
       PACKAGE_LINK: "https://nuget.pkg.github.com/xADDBx/index.json"
       PACKAGE_NAME: "WrathGameAssemblies"
 
@@ -38,11 +39,10 @@ jobs:
       uses: microsoft/setup-msbuild@v2
       
     - name: Add NuGet package source from GitHub
-      run: dotnet nuget add source --username $((github.actor)) --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github 
+      run: dotnet nuget add source --username $GITHUBNAME --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github 
 
     - name: Install NuGet package
       run: dotnet nuget install $PACKAGE_NAME -s $PACKAGE_LINK -o GameFiles
-
 
     - name: Restore the application
       run: msbuild /t:Build /p:Configuration=Build /p:$(GAMENAME)Data=GameFiles\UserDataDir /p:$(GAMENAME)InstallDir=GameFiles\Assemblies -o Out
