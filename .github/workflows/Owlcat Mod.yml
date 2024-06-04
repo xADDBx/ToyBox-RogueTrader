@@ -52,6 +52,9 @@ jobs:
       
     - name: Set NuGet Source ApiKey
       run: nuget setapikey ${{ env.READ_PACKAGE_KEY }} -Source github -Verbosity detailed
+
+    - name: List Source Packages
+      run: nuget list -Source github -Verbosity detailed
     
     - name: Install NuGet package
       run: nuget install ${{ env.GAME_NAME }}GameAssemblies -Source github -OutputDirectory GameFiles -Verbosity detailed
