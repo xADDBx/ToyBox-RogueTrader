@@ -50,7 +50,7 @@ jobs:
       run: dotnet restore
 
     - name: Build Project
-      run: msbuild /p:Configuration=Release /p:${{ env.GAME_NAME }}Data=GameFiles\UserDataDir /p:${{ env.GAME_NAME }}InstallDir=GameFiles\Assemblies /p:OutputPath=Out
+      run: msbuild /p:Configuration=Release /p:${{ env.GAME_NAME }}Data="$(MSBuildProjectDirectory)\GameFiles\UserDataDir" /p:${{ env.GAME_NAME }}InstallDir="$(MSBuildProjectDirectory)\GameFiles\Assemblies" /p:OutputPath=Out
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3
