@@ -17,11 +17,10 @@ on:
       types: [labeled]
 
 env:
-  GAMENAME: "Wrath"
+  GAME_NAME: "Wrath"
   GITHUB_NAME: "xADDBx"
   PACKAGE_LINK: "https://nuget.pkg.github.com/xADDBx/index.json"
   PACKAGE_NAME: "WrathGameAssemblies"
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
 
@@ -43,13 +42,13 @@ jobs:
       uses: microsoft/setup-msbuild@v2
       
     - name: Add NuGet package source from GitHub
-      run: dotnet nuget add source $PACKAGE_LINK --username GITHUB_NAME --password GITHUB_TOKEN --name github --store-password-in-clear-text  
+      run: dotnet nuget add source ${{ env.PACKAGE_LINK }} --username ${{ env.GITHUB_NAME }} --password ${{ secrets.GITHUB_TOKEN }} --name github --store-password-in-clear-text  
 
     - name: Install NuGet package
-      run: dotnet nuget install $PACKAGE_NAME -s $PACKAGE_LINK -o GameFiles
+      run: dotnet nuget install ${{ env.PACKAGE_NAME }} -s ${{ env.PACKAGE_LINK }} -o GameFiles
 
     - name: Restore the application
-      run: msbuild /t:Build /p:Configuration=Build /p:$(GAMENAME)Data=GameFiles\UserDataDir /p:$(GAMENAME)InstallDir=GameFiles\Assemblies -o Out
+      run: msbuild /t:Build /p:Configuration=Build /p:${{ env.GAME_NAME }}Data=GameFiles\UserDataDir /p:${{ env.GAME_NAME }}InstallDir=GameFiles\Assemblies -o Out
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3
