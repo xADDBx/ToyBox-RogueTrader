@@ -36,11 +36,11 @@ namespace ModKit {
             LocalizationManager.Export();
         }
         private static void ResetGUI(ModEntry modEntry) => ModKitSettings.Load();
-        public static void Error(string str) {
+        public static void Error(string str, int skip = 1) {
             str = str.Yellow().Bold();
-            modLogger?.Error(str + "\n" + new System.Diagnostics.StackTrace(1, true).ToString());
+            modLogger?.Error(str + "\n" + new System.Diagnostics.StackTrace(skip, true).ToString());
         }
-        public static void Error(Exception ex) => Error(ex.ToString());
+        public static void Error(Exception ex) => Error(ex.ToString(), 2);
         public static void Warn(string str) {
             if (logLevel >= LogLevel.Warning)
                 modLogger?.Log("[Warn] ".Orange().Bold() + str);
