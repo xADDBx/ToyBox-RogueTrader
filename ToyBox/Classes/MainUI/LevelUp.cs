@@ -35,7 +35,10 @@ namespace ToyBox {
                     }
                     Label("This allows rechosing the third archetype.".Green());
                 },
-                () => Toggle("Ignore Archetypes Prerequisites".localize(), ref Settings.toggleIgnoreCareerPrerequisites),
+                () => {
+                    Toggle("Ignore Archetypes Prerequisites".localize(), ref Settings.toggleIgnoreCareerPrerequisites, 300.width());
+                    Label("Slightly Buggy UI. This allows picking any one career per stage regardless of prerequisites.".Green().localize() + " Warning: Picking e.g. Exemplar as second archetype will cause issues because you won't have a second archetype ability to upgrade.".localize().Yellow().Bold());
+                },
                 () => Toggle("Ignore Talent Prerequisites".localize(), ref Settings.toggleFeaturesIgnorePrerequisites),
                 () => Toggle("Ignore Required Stat Values".localize(), ref Settings.toggleIgnorePrerequisiteStatValue),
                 () => Toggle("Ignore Required Class Levels".localize(), ref Settings.toggleIgnorePrerequisiteClassLevel),

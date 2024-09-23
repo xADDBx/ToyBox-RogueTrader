@@ -44,19 +44,20 @@ Here is a summarized list of features. This list only includes a part of the fea
   skip quests you don't want to do. Be warned this may break your game progression if used carelessly.
   
 ### ToyBox Rogue - Ver 1.6.0 built for Rogue Trader *******
+* (***ADDB***) Fix for new version.
+* (***ADDB***) Implement Ignore Career Prerequisites better.
 * (***ADDB***) It is now possible to override origin for dialog purposes, making it possible to role play as a different (or multiple different) origins compared to what was chosen at character creation (Bag of Tricks => Dialog).
 * (***ADDB***) Something something static Harmony Patch Analyzer => Fixes; Initiative Rolls Cheats never worked???
-* (***ADDB***) Fix for new version.
 * (***ADDB***) Skip "Copying..." phase when no search query is used.
+* (***ADDB***) Fix the issue that Party tab browsers were flickering with Show All activated.
+* (***ADDB***) Something something Browser more resistent to malformed Blueprints?
 * (***ADDB***) Optimize "Collating..." phase. A lot. Like, really a lot.
 * (***ADDB***) Even more BP Loader optimizations. Ugh. (In relation to that added ToyBox => Settings => "Blueprint Loader Amount of Shards").
-* (***ADDB***) Something something Browser more resistent to malformed Blueprints?
 * (***ADDB***) Fixed blueprints sometimes loading twice in Search 'n Pick
 * (***ADDB / Microsoftenator***) Optimized Blueprint Loading times even more by improving Owlcat ReflectionBasedSerializer. (Probably ~25% to 50% on top of the previous reduction).
 * (***ADDB / Microsoftenator***) Fixed issue where the new BlueprintLoader could randomly blow up.
 * (***ADDB***) Implemented partial loading. This means, if you aren't looking at Search 'n Pick, other tabs don't need to load every Blueprint. This massively reduces load times after the game was loaded the first time. (Certain tabs load more than 10 times faster).
 * (***ADDB***) Threaded Blueprint Loading. When ToyBox needs to load blueprints it should now work faster. (Reduction of all Blueprint loading times of around ~25% to 50%).
-* (***ADDB***) Fix the issue that Party tab browsers were flickering with Show All activated.
 * (***ADDB***) Added options to use BPIdCache and Automatically build said cache (by forcing a preload) in ToyBox => Settings.
 * (***ADDB***) Added option to enable blueprint preloading in Settings.
 * (***ADDB***) Added options to change Blueprint Loading thread amount and chunk size in ToyBox => Settings.

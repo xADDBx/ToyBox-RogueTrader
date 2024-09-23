@@ -352,7 +352,7 @@ namespace ToyBox {
             } catch (Exception e) {
                 Mod.Debug(e.ToString());
 #if DEBUG
-                return "ERROR".red().bold() + $": caught exception {e}";
+                return "ERROR".Red().Bold() + $": caught exception {e}";
 #else
                 return "";
 #endif

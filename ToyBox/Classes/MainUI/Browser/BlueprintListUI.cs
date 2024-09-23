@@ -122,7 +122,7 @@ namespace ToyBox {
                             ActionButton(lockAction.name, () => { lockAction.action(blueprint, unit, repeatCount); }, Width(120));
                             Space(100);
 #if DEBUG
-                            Label(flagBP.GetDescription().green());
+                            Label(flagBP.GetDescription().Green());
 #endif
                         } else {
                             // FIXME - perf bottleneck 

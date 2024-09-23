@@ -10,8 +10,10 @@ using Kingmaker.Blueprints.Root;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.UI.MVVM.VM.CharGen.Phases.BackgroundBase;
+using Kingmaker.UI.MVVM.VM.ServiceWindows.CharacterInfo.Sections.Careers.CareerPath;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Levelup;
+using Kingmaker.UnitLogic.Progression;
 using Kingmaker.UnitLogic.Progression.Paths;
 using Kingmaker.UnitLogic.Progression.Prerequisites;
 using ModKit;
@@ -115,16 +117,26 @@ namespace ToyBox.BagOfPatches {
                 }
             }
         }
-        [HarmonyPatch(typeof(Prerequisite), nameof(Prerequisite.Meet), [typeof(ElementsList), typeof(IBaseUnitEntity)])]
-        public static class Prerequisite_Meet_Patch {
+        [HarmonyPatch(typeof(PartUnitProgression), nameof(PartUnitProgression.CanUpgradePath))]
+        public static class PartUnitProgression_CanUpgradePath_Patch {
             [HarmonyPostfix]
-            public static void Meet(Prerequisite __instance, IBaseUnitEntity unit, ref bool __result) {
-                if (__instance is PrerequisiteStat) {
-                    if (Settings.toggleIgnoreCareerPrerequisites && __instance.Owner is BlueprintCareerPath) {
-                        OwlLogging.Log($"PrerequisiteFact.MeetsInternal - {unit.CharacterName} - {__instance.GetCaptionInternal()} - {__result} -> {true}");
-                        __result = true;
-                    }
+            public static void Meet(PartUnitProgression __instance, BlueprintPath path, ref bool __result) {
+                if (Settings.toggleIgnoreCareerPrerequisites) {
+                    OwlLogging.Log($"PartUnitProgression_CanUpgradePath - {__instance.Owner.CharacterName} - {path.Name} - {__result} -> {true}");
+                    __result = __instance.GetPathRank(path) < path.Ranks;
                 }
+
+            }
+        }
+        [HarmonyPatch(typeof(CareerPathsListVM), nameof(CareerPathsListVM.GetPrerequisitesCareers))]
+        public static class CareerPathsListVM_GetPrerequisitesCareers_Patch {
+            [HarmonyPrefix]
+            public static void GetPrerequisitesCareers(CareerPathsListVM __instance, ref List<BlueprintCareerPath> result) {
+                if (Settings.toggleIgnoreCareerPrerequisites) {
+                    OwlLogging.Log($"CareerPathsListVM_GetPrerequisitesCareers - {__instance} -> remove all prerequisites");
+                    result = [];
+                }
+
             }
         }
         // This is needed because when leveling up, Owlcode creates a copy of the BlueprintUnit and applies all feats for the Preview.
