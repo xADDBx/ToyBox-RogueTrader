@@ -27,7 +27,7 @@ namespace ToyBox.BagOfPatches {
             }
             [HarmonyTargetMethods]
             public static IEnumerable<MethodInfo> GetMethods() {
-                yield return AccessTools.Method(typeof(UnitHelper), nameof(UnitHelper.CreateMoveCommandParamsRT));
+                yield return AccessTools.Method(typeof(UnitHelper), nameof(UnitHelper.WalkSpeedTypeByDistanceRT));
                 yield return AccessTools.Method(typeof(UnitCommandsRunner), nameof(UnitCommandsRunner.TryApproachAndInteract));
             }
             [HarmonyTranspiler]

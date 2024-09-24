@@ -43,6 +43,9 @@ Here is a summarized list of features. This list only includes a part of the fea
 - **Quest Resolution**: this allows you to view your active quests and advance them as needed to work around bugs or
   skip quests you don't want to do. Be warned this may break your game progression if used carelessly.
   
+### ToyBox Rogue - Ver 1.6.1 built for Rogue Trader 1.2.1.7
+* (***ADDB***) Fix max walk distance/Min sprint distance multipliers.
+
 ### ToyBox Rogue - Ver 1.6.0 built for Rogue Trader 1.2.1.7
 * (***ADDB***) Fix for new version.
 * (***ADDB***) Implement Ignore Career Prerequisites better.
