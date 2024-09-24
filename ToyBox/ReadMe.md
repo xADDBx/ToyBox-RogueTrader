@@ -43,7 +43,7 @@ Here is a summarized list of features. This list only includes a part of the fea
 - **Quest Resolution**: this allows you to view your active quests and advance them as needed to work around bugs or
   skip quests you don't want to do. Be warned this may break your game progression if used carelessly.
   
-### ToyBox Rogue - Ver 1.6.0 built for Rogue Trader *******
+### ToyBox Rogue - Ver 1.6.0 built for Rogue Trader 1.2.1.7
 * (***ADDB***) Fix for new version.
 * (***ADDB***) Implement Ignore Career Prerequisites better.
 * (***ADDB***) It is now possible to override origin for dialog purposes, making it possible to role play as a different (or multiple different) origins compared to what was chosen at character creation (Bag of Tricks => Dialog).
