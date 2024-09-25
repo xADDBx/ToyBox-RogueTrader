@@ -106,7 +106,7 @@ namespace ToyBox.classes.MainUI {
                         if (!colonyTraitBrowser.ContainsKey(colony)) {
                             colonyTraitBrowser[colony] = new(Mod.ModKitSettings.searchAsYouType);
                         }
-                        if (ColonyTraits == null && colonyTraitBrowser[colony].ShowAll) {
+                        if ((ColonyTraits?.Count() ?? 0) == 0 && colonyTraitBrowser[colony].ShowAll) {
                             ColonyTraits = BlueprintLoader.Shared.GetBlueprintsOfType<BlueprintColonyTrait>();
                         }
                         var traitBrowser = colonyTraitBrowser[colony];
@@ -171,13 +171,13 @@ namespace ToyBox.classes.MainUI {
             }
             DisclosureToggle("Edit Resources".localize(), ref editResources);
             if (editResources) {
-                if (ColonyResources == null) {
+                if ((ColonyResources?.Count() ?? 0) == 0) {
                     if (Event.current.type == EventType.Layout) {
                         ColonyResources = BlueprintLoader.Shared.GetBlueprintsOfType<BlueprintResource>();
                         resourceBrowser.DisplayShowAllGUI = false;
                     }
                 }
-                if (ColonyResources != null) {
+                if ((ColonyResources?.Count() ?? 0) != 0) {
                     using (HorizontalScope()) {
                         Label("Adjust Resource Factor by the following amount:".localize());
                         IntTextField(ref resourceAdjustment, null, MinWidth(200), AutoWidth());

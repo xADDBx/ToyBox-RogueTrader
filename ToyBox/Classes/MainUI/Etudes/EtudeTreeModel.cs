@@ -30,7 +30,7 @@ namespace ToyBox {
 
         public void ReloadBlueprintsTree() {
             etudes = BlueprintLoader.Shared.GetBlueprintsOfType<BlueprintEtude>();
-            if (etudes == null) return;
+            if ((etudes?.Count() ?? 0) == 0) return;
             loadedEtudes = new Dictionary<string, EtudeInfo>();
             var filteredEtudes = (from bp in etudes
                                   where etudeFilter.filter(bp)

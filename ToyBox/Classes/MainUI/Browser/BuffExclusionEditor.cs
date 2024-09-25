@@ -27,9 +27,8 @@ namespace ToyBox {
         private static bool _showBuffsToAdd = false;
 
 
-        public static void OnGUI(
-        ) {
-            if (_buffExceptions == null) {
+        public static void OnGUI() {
+            if ((_allBuffs?.Count ?? 0) == 0) {
                 _buffExceptions = BlueprintLoader.Shared.GetBlueprintsByGuids<BlueprintBuff>(settings.buffsToIgnoreForDurationMultiplier)
                     ?.OrderBy(b => b.GetDisplayName())
                     ?.ToList();
@@ -45,7 +44,6 @@ namespace ToyBox {
                 SetPaginationString();
             }
             VStack(null,
-
                 () => {
                     if (BlueprintLoader.Shared.IsLoading) {
                         Label(("Blueprints".Orange().Bold() + " loading: ").localize() + BlueprintLoader.Shared.progress.ToString("P2").Cyan().Bold());

@@ -60,7 +60,7 @@ namespace ToyBox.classes.MainUI {
             // load blueprints
             if (enchantments == null) {
                 var blueprints = BlueprintLoader.Shared.GetBlueprintsOfType<BlueprintItemEnchantment>();
-                if (blueprints?.Count() == 0) return;
+                if ((blueprints?.Count() ?? 0) == 0) return;
 
                 enchantments = blueprints.ToList();
                 enchantments.Sort((l, r) => {

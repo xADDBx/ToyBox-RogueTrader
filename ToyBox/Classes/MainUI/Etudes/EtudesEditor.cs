@@ -60,8 +60,8 @@ namespace ToyBox {
             if (loadedEtudes?.Count == 0) {
                 ReloadEtudes();
             }
-            if (_areas == null) _areas = BlueprintLoader.Shared.GetBlueprintsOfType<BlueprintArea>()?.OrderBy(a => a.name).ToList();
-            if (_areas == null) return;
+            if ((_areas?.Count ?? 0) == 0) _areas = BlueprintLoader.Shared.GetBlueprintsOfType<BlueprintArea>()?.OrderBy(a => a.name).ToList();
+            if ((_areas?.Count ?? 0) == 0) return;
             if (_parent == string.Empty) {
                 _parent = rootEtudeId;
                 _selected = _parent;

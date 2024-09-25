@@ -14,12 +14,12 @@ using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.AI.Blueprints;
 using System.IO;
 using System.Runtime.Serialization;
-using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Facts;
 using Kingmaker.GameInfo;
 using Kingmaker.Globalmap.Blueprints.SystemMap;
 using Kingmaker.Globalmap.Blueprints.Colonization;
 using Kingmaker.Globalmap.Blueprints;
+using Kingmaker.Visual.Sound;
 
 namespace ToyBox.classes.Infrastructure.Blueprints {
     public class BlueprintIdCache {
@@ -34,7 +34,8 @@ namespace ToyBox.classes.Infrastructure.Blueprints {
                 typeof(BlueprintAbility), typeof(BlueprintAreaEnterPoint), typeof(BlueprintUnit),
                 typeof(BlueprintBrain), typeof(BlueprintFeature), typeof(BlueprintUnitFact),
                 typeof(BlueprintPlanet), typeof(BlueprintColony), typeof(BlueprintStarSystemMap),
-                typeof(BlueprintColonyTrait), typeof(BlueprintResource), typeof(BlueprintColonyEventResult)
+                typeof(BlueprintColonyTrait), typeof(BlueprintResource), typeof(BlueprintColonyEventResult),
+                typeof(BlueprintUnitAsksList)
         };
 
         private static BlueprintIdCache _instance;
