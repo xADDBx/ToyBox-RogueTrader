@@ -15,13 +15,15 @@ namespace ToyBox {
         // Meaning, an entry [x, y] will, for every mod with version <= x mark every version >= y as incompatible
         public static bool IsGameVersionSupported(Version modVersion, UnityModManager.ModEntry.ModLogger logger, string linkToIncompatibilitiesFile) {
             try {
+                var gameVersion = GameVersion.GetVersion();
+                logger.Log($"Testing compatability with Game Version: {gameVersion}");
                 using var web = new WebClient();
                 var raw = web.DownloadString(linkToIncompatibilitiesFile);
                 var definition = new[] { new[] { "", "" } };
                 var versions = JsonConvert.DeserializeAnonymousType(raw, definition);
                 var currentOrNewer = versions.FirstOrDefault(v => new Version(v[0]) >= modVersion);
                 if (currentOrNewer == null) return true;
-                return new Version(GetNumifiedVersion(logger, currentOrNewer[1])) > new Version(GetNumifiedVersion(logger, GameVersion.GetVersion()));
+                return new Version(GetNumifiedVersion(logger, currentOrNewer[1])) > new Version(GetNumifiedVersion(logger, gameVersion));
             } catch (Exception ex) {
                 logger.Log(ex.ToString());
             }

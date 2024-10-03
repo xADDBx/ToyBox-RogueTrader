@@ -177,7 +177,7 @@ namespace ToyBox.classes.MainUI {
                         resourceBrowser.DisplayShowAllGUI = false;
                     }
                 }
-                if ((ColonyResources?.Count() ?? 0) != 0) {
+                if ((ColonyResources?.Count() ?? 0) > 0) {
                     using (HorizontalScope()) {
                         Label("Adjust Resource Factor by the following amount:".localize());
                         IntTextField(ref resourceAdjustment, null, MinWidth(200), AutoWidth());

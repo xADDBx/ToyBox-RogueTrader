@@ -211,7 +211,7 @@ namespace ToyBox {
                         if (Event.current.type == EventType.Layout && (blueprintPortraitBps?.Count() ?? 0) == 0) {
                             blueprintPortraitBps = BlueprintLoader.Shared.GetBlueprintsOfType<BlueprintPortrait>();
                         }
-                        if ((blueprintPortraitBps?.Count() ?? 0) != 0) {
+                        if ((blueprintPortraitBps?.Count() ?? 0) > 0) {
                             if (blueprintPortraitBrowser == null) {
                                 blueprintPortraitBrowser = new(true, true, false, true);
                                 blueprintPortraitBrowser.SearchLimit = 18;
@@ -250,7 +250,7 @@ namespace ToyBox {
                             if (Event.current.type == EventType.Layout && (blueprintVoiceBps?.Count() ?? 0) == 0) {
                                 blueprintVoiceBps = BlueprintLoader.Shared.GetBlueprintsOfType<BlueprintUnitAsksList>();
                             }
-                            if ((blueprintVoiceBps?.Count() ?? 0) != 0) {
+                            if ((blueprintVoiceBps?.Count() ?? 0) > 0) {
                                 if (blueprintVoiceBrowser == null) {
                                     blueprintVoiceBrowser = new(true, true);
                                     blueprintVoiceBrowser.SearchLimit = 18;

@@ -43,8 +43,11 @@ Here is a summarized list of features. This list only includes a part of the fea
 - **Quest Resolution**: this allows you to view your active quests and advance them as needed to work around bugs or
   skip quests you don't want to do. Be warned this may break your game progression if used carelessly.
   
+### ToyBox Rogue - Ver 1.6.3 built for Rogue Trader 1.2.1.10
+* (***ADDB***) Tried to fix: No Jealousy option doesn't work for Kibella when *exactly* one other character is romanced.
+
 ### ToyBox Rogue - Ver 1.6.2 built for Rogue Trader 1.2.1.7
-* (***ADDB***) BPs not loading in various menus.
+* (***ADDB***) Fix BPs not loading in various menus.
  
 ### ToyBox Rogue - Ver 1.6.1 built for Rogue Trader 1.2.1.7
 * (***ADDB***) Fix max walk distance/Min sprint distance multipliers.

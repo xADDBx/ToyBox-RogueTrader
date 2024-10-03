@@ -79,52 +79,19 @@ namespace ToyBox.BagOfPatches {
         // Path Romance Overrides
         // These modify the EtudeStatus condition for specific Owner blueprints 
         internal static readonly Dictionary<(string, string), bool> ConditionCheckOverridesLoveIsFree = new() {
-            #region Wrath
-            /*
-            // Lich Path
-            { ("7f532b681d64f3741a7aa0aebba7c4db", "977f3380-2938-4cc8-a26a-448edc6f9259"), false },  // Etude CamelliaRomance_Start status is:  Not Playing;   
-            { ("7f532b681d64f3741a7aa0aebba7c4db", "52632774-cbb4-4eea-ada6-37ec2708e07d"), false },  // Etude WenduagRomance_Active status is:  Not Playing;   
-            { ("7f532b681d64f3741a7aa0aebba7c4db", "12928be5-97e8-4e7c-ac5c-02d704289e7f"), false },  // Etude LannRomance_Active status is:  Not Playing;      
-            { ("7f532b681d64f3741a7aa0aebba7c4db", "2bbad7a7-5918-4c14-b909-f1a7bbce9248"), false },  // Etude ArueshalaeRomance_Active status is:  Not Playing;   
-            { ("7f532b681d64f3741a7aa0aebba7c4db", "55fd2fa2-9644-462a-a02e-23987e05fd62"), false },  // Etude DaeranRomance_Active status is:  Not Playing;      
-            { ("7f532b681d64f3741a7aa0aebba7c4db", "b0f684c1-0cc9-4ec7-a4a3-fe47e3d9847c"), false },  // Etude SosielRomance_Active status is:  Not Playing; 
-            */
-            #endregion
         };
         internal static readonly Dictionary<string, bool> EtudeStatusOverridesLoveIsFree = new() {
-            #region Wrath
-            /*
-            // Lich Path
-            { "2ebd861e55143014c8067c6832cdf21c", false },  // Cue_0048
-            // Vellexia
-            { "81b15ede1bb2a3e4e926d5ca4be3e193", true },   // Cue_0066
-            { "3aa48f68198afe14cb6de752ce80cc8f", true },   // Cue_0078
-            // Queen
-            { "7a160960668f2ef4180cb56edb8388e9", true },   // Cue_0044
-            */
-            #endregion
         };
 
         // Multiple Romances overrides
         // This modify the EtudeStatus condition for specific Owner blueprints 
         internal static readonly Dictionary<(string, string), bool> ConditionCheckOverrides = new() {
-            #region Wrath
-            /*
-            { ("39bd3b1e9fb6fef4c8e92674c02295df", "6a5a5f14-0531-421e-8225-f777fd22fa52"), true },  // Not Etude CamelliaRomance_Start status is:   Playing;   
-            { ("39bd3b1e9fb6fef4c8e92674c02295df", "0dadef83-142b-4126-9ef3-d2b3d6ac3c00"), true },  // Not Etude WenduagRomance_Active status is:   Playing;   
-            { ("39bd3b1e9fb6fef4c8e92674c02295df", "6af9fc46-b172-45f6-991b-95864d7535dd"), true },  // Not Etude LannRomance_Active status is:   Playing;      
-            { ("39bd3b1e9fb6fef4c8e92674c02295df", "08562d17-c875-477d-916f-484c86d6d56b"), true },  // Not Etude ArueshalaeRomance_Active status is:   Playing;   
-            { ("39bd3b1e9fb6fef4c8e92674c02295df", "eed10502-68fe-4f06-93f6-9a5a344194e1"), true },  // Not Etude DaeranRomance_Active status is:   Playing;      
-            { ("39bd3b1e9fb6fef4c8e92674c02295df", "79f99282-5d3a-4b2b-8d2e-61a0dc8f033f"), true },  // Not Etude SosielRomance_Active status is:   Playing; 
-            */
-            #endregion
+            // Cue_43 (I assume Kibella) check for any active romance
+            { ("f4b42351c500429ba9cfbccf352ddd3b", "6a8601e5d98a450f8ed8b644c1cf1fea"), false },
+            // Cue_43 (I assume Kibella) check jealousy dialog seen or active romances = 1 
+            { ("f4b42351c500429ba9cfbccf352ddd3b", "09f80fe401704413864b879f3bdfb970"), false }
         };
         internal static readonly Dictionary<string, bool> EtudeStatusOverrides = new() {
-            #region Wrath
-            /*
-            { "f4acc1a428ffbee42965a6f13fe270ac", false },  // Cue_0058
-            */
-            #endregion
         };
         internal static readonly Dictionary<string, bool> FlagInRangeOverrides = new() {
             // RomanceCount Flag, as conditioned in Jealousy_event Blueprint, Activated by Jealousy_preparation
