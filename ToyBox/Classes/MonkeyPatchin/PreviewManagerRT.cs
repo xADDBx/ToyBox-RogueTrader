@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using DG.Tweening;
+using HarmonyLib;
 using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items;
@@ -341,21 +342,25 @@ namespace ToyBox {
                                         : __instance.m_DialogColors.SelectedAnswer
                                   : __instance.m_DialogColors.DisabledAnswer;
                     if (answer.SelectConditions.HasConditions) {
-                        foreach (var condition in answer.SelectConditions.Conditions)
+                        var color2 = isAvail ? "#005800><b>" : "#800000>";
+                        text += "\n";
+                        foreach (var condition in answer.SelectConditions.Conditions) {
+                            string conditionText = "";
                             switch (condition) {
                                 case ConditionHaveFullCargo _ when !condition.Not:
-                                    __instance.SetAnswerText(string.Format(UIDialog.Instance.AnswerYouNeedFullCargo,
-                                                                           condition.GetCaption(), answer.DisplayText, __instance.ViewModel.Index));
-                                    goto label_8;
+                                    conditionText = string.Format(UIDialog.Instance.AnswerYouNeedFullCargo,
+                                                                        condition.GetCaption(), answer.DisplayText, __instance.ViewModel.Index);
+                                    break;
                                 case ContextConditionHasItem _ when !condition.Not:
-                                    __instance.SetAnswerText(string.Format(UIDialog.Instance.AnswerYouNeedItem, condition.GetCaption(),
-                                                                           answer.DisplayText, __instance.ViewModel.Index));
-                                    goto label_8;
+                                    conditionText = string.Format(UIDialog.Instance.AnswerYouNeedItem, condition.GetCaption(),
+                                                                           answer.DisplayText, __instance.ViewModel.Index);
+                                    break;
                                 default:
                                     continue;
                             }
-
-                        label_8:;
+                            text += $"<size=75%><color={color2}[{conditionText.MergeSpaces(true)}]</color></size>";
+                        }
+                        __instance.SetAnswerText(text);
                     }
                 }
 
