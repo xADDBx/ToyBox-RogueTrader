@@ -43,6 +43,9 @@ Here is a summarized list of features. This list only includes a part of the fea
 - **Quest Resolution**: this allows you to view your active quests and advance them as needed to work around bugs or
   skip quests you don't want to do. Be warned this may break your game progression if used carelessly.
   
+### ToyBox Rogue - Ver 1.6.5 built for Rogue Trader 1.2.1.12
+* (***ADDB***) It seems that previous versions of ToyBox broke the "A Card Inverted" quest. It took me a while to figure out because nobody really reported the issue directly, but this should be fixed now.
+
 ### ToyBox Rogue - Ver 1.6.4 built for Rogue Trader 1.2.1.12
 * (***ADDB***) Thanks to someone sending me a save; Actually fix the No Jealousy option for Kibella.
 

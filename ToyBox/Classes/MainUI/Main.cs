@@ -79,10 +79,12 @@ namespace ToyBox {
         public static List<GameObject> Objects;
         private static bool Load(UnityModManager.ModEntry modEntry) {
             try {
+                Mod.Log("Start Version Check");
                 if (!VersionChecker.IsGameVersionSupported(modEntry.Version, modEntry.Logger, LinkToIncompatibilitiesFile)) {
                     modEntry.Logger.Log("Fatal! The current Game Version has known incompatabilities with your current ToyBox version! Please Update.");
                     return false;
                 }
+                Mod.Log("Version is either compatible or Version Check failed. Continuing Load...");
                 Main.ModEntry = modEntry;
 #if DEBUG
                 modEntry.OnUnload = OnUnload;
@@ -94,7 +96,6 @@ namespace ToyBox {
                 UIHelpers.OnLoad();
                 LoadSettings(modEntry);
                 SettingsDefaults.InitializeDefaultDamageTypes();
-
 
                 HarmonyInstance = new Harmony(modEntry.Info.Id);
                 HarmonyInstance.PatchAll(Assembly.GetExecutingAssembly());

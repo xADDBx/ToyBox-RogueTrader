@@ -58,12 +58,12 @@ namespace ToyBox.classes.MonkeyPatchin {
                     if (InteractionHighlightController.Instance?.IsHighlighting ?? false) {
                         wasTurnedOffBefore = true;
                         wasTurnedOff = true;
-                        InteractionHighlightController.Instance.HighlightOff();
+                        InteractionHighlightController.Instance?.HighlightOff();
                         wasTurnedOff = false;
                     }
                 } else {
                     if (wasTurnedOffBefore && (!InteractionHighlightController.Instance?.IsHighlighting ?? false)) {
-                        InteractionHighlightController.Instance.HighlightOn();
+                        InteractionHighlightController.Instance?.HighlightOn();
                         wasTurnedOffBefore = false;
                     }
                 }
@@ -80,7 +80,7 @@ namespace ToyBox.classes.MonkeyPatchin {
                 if (!Main.Settings.highlightObjectsToggle) return;
                 interestingTick = value != Game.Instance.Player.IsInCombat;
                 if (!interestingTick) return;
-                if (InteractionHighlightController.Instance.IsHighlighting && value) {
+                if ((InteractionHighlightController.Instance?.IsHighlighting ?? false) && value) {
                     wasOnBeforeFightIntern = true;
                     wasOnBeforeFight = true;
                     InteractionHighlightController.Instance.HighlightOff();
@@ -94,7 +94,7 @@ namespace ToyBox.classes.MonkeyPatchin {
                 if (!interestingTick) return;
                 if (wasOnBeforeFightIntern && !value) {
                     wasOnBeforeFightIntern = false;
-                    InteractionHighlightController.Instance.HighlightOn();
+                    InteractionHighlightController.Instance?.HighlightOn();
                 }
                 interestingTick = false;
             }
