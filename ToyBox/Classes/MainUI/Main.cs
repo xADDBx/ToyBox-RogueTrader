@@ -82,7 +82,7 @@ namespace ToyBox {
                 Mod.Log("Start Version Check");
                 if (!VersionChecker.IsGameVersionSupported(modEntry.Version, modEntry.Logger, LinkToIncompatibilitiesFile)) {
                     modEntry.Logger.Log("Fatal! The current Game Version has known incompatabilities with your current ToyBox version! Please Update.");
-                    modEntry.Info.DisplayName = "ToyBox" + " - Update the mod to make it work again!".localize().Red().Bold();
+                    modEntry.Info.DisplayName = "ToyBox" + "Update the mod!".localize().Red().Bold().SizePercent(125);
                     return false;
                 }
                 Mod.Log("Version is either compatible or Version Check failed. Continuing Load...");
