@@ -241,38 +241,36 @@ namespace ToyBox.BagOfPatches {
                     __result = null;
                     return false;
                 }
-                Mod.Trace($"getting unit for speaker {__instance.Blueprint.name}");
-                var dialogPosition = Game.Instance.DialogController.DialogPosition;
-                Mod.Trace($"dialogPos: {dialogPosition}");
-                // Danger Danger! If you try to evaluate the following enumeration it can cause dialog to disappear so don't log it!
-                var second = Game.Instance.EntitySpawner.CreationQueue.Select(ce => ce.Entity).OfType<BaseUnitEntity>();
+                Vector3 dialogPosition = Game.Instance.DialogController.DialogPosition;
+                IEnumerable<BaseUnitEntity> enumerable = Game.Instance.EntitySpawner.CreationQueue.Select((EntitySpawnController.SpawnEntry ce) => ce.Entity).OfType<BaseUnitEntity>();
                 __instance.MakeEssentialCharactersConscious();
+                __instance.ReplacedSpeakerWithErrorSpeaker = false;
                 //Mod.Trace($"second: {second?.CollectionToString()} matching: {second.Select(__instance.SelectMatchingUnit).CollectionToString()}");
                 var overrides = DialogSpeaker_GetEntityOverrides;
                 var GUID = cue?.AssetGuid.ToString();
-                var hasOverride = GUID != null ? DialogSpeaker_GetEntityOverrides.ContainsKey(GUID) : false;
+                bool overrideValue = false;
+                var hasOverride = GUID != null ? DialogSpeaker_GetEntityOverrides.TryGetValue(GUID, out overrideValue) : false;
                 bool IsExCompanion(BaseUnitEntity unit) {
                     UnitPartCompanion unitPartCompanion = unit.GetCompanionOptional();
                     return unitPartCompanion != null && unitPartCompanion.State == CompanionState.ExCompanion;
                 }
-                bool isMaybeCompanion(BaseUnitEntity unit) {
+                bool IsMaybeCompanion(BaseUnitEntity unit) {
                     UnitPartCompanion unitPartCompanion = unit.GetCompanionOptional();
                     return unitPartCompanion != null;
                 }
-                var overrideValue = hasOverride && DialogSpeaker_GetEntityOverrides[GUID];
-                var unit = Shodan.AllBaseUnits.Concat(second)
+                
+                var unit = Shodan.AllBaseUnits.Concat(Game.Instance.Player.Party).Concat(Game.Instance.Player.RemoteCompanions)
                         //.Where(u => u.IsInGame && !u.Suppressed)
                         .Where(u => u.IsInGame && !u.Suppressed
-                                    || (hasOverride ? overrideValue : settings.toggleExCompanionDialog || !IsExCompanion(u))
-                                    )
-                        .Concat(second)
+                                    || (hasOverride ? overrideValue : settings.toggleExCompanionDialog || !IsExCompanion(u)))
+                        .Concat(enumerable)
                         .Select(new Func<BaseUnitEntity, BaseUnitEntity>(__instance.SelectMatchingUnit))
                         .NotNull()
                         .Distinct()
                         .Nearest(dialogPosition);
                 Mod.Debug($"found {unit?.CharacterName ?? "no one loaded".Cyan()} position: {unit?.Position.ToString() ?? "n/a"}");
                 if (unit == null) {
-                    unit = Game.Instance.Player.AllCharactersAndStarships.Where(isMaybeCompanion)
+                    unit = Game.Instance.Player.AllCharactersAndStarships.Where(IsMaybeCompanion)
                         .Where(u => !IsExCompanion(u) || settings.toggleExCompanionDialog)
                         .NotNull()
                         .Distinct()
@@ -294,8 +292,17 @@ namespace ToyBox.BagOfPatches {
                     __result = unit;
                     return false;
                 }
-                DialogDebug.Add((BlueprintScriptableObject)cue, "speaker doesnt exist", Color.red);
-                __result = null;
+                string text = "ToyBox: speaker[" + __instance.Blueprint.name + "] doesnt exist. Skipping Cue";
+                if (__instance.SpeakerPortrait != null || __instance.Blueprint.IsCompanion ||  __instance.DoNotReplaceSpeakerWithErrorSpeaker) {
+                    DialogDebug.Add(cue, text);
+                    __result = null;
+                    return false;
+                }
+                DialogDebug.Add((BlueprintScriptableObject)cue, "ToyBox: speaker doesnt exist", Color.red);
+                __result = __instance.ErrorSpeaker;
+                __instance.ReplacedSpeakerWithErrorSpeaker = true;
+                text = "ToyBox: speaker[" + __instance.Blueprint.name + "] doesnt exist, replaced with defaultUnit";
+                DialogDebug.Add(cue, text, Color.red);
                 return false;
             }
         }
