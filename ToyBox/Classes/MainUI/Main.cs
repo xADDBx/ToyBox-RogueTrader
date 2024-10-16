@@ -78,11 +78,19 @@ namespace ToyBox {
 
         public static List<GameObject> Objects;
         private static bool Load(UnityModManager.ModEntry modEntry) {
+            Settings = UnityModManager.ModSettings.Load<Settings>(modEntry);
             try {
                 Mod.Log("Start Version Check");
                 if (!VersionChecker.IsGameVersionSupported(modEntry.Version, modEntry.Logger, LinkToIncompatibilitiesFile)) {
                     modEntry.Logger.Log("Fatal! The current Game Version has known incompatabilities with your current ToyBox version! Please Update.");
-                    modEntry.Info.DisplayName = "ToyBox" + "Update the mod!".localize().Red().Bold().SizePercent(125);
+                    if (Settings.shouldTryUpdate) {
+                        modEntry.Info.DisplayName = "ToyBox" + " Trying to update the mod...".localize().Red().Bold().SizePercent(80);
+                        if (AutoUpdater.Update(modEntry.Logger, modEntry.Info.HomePage, modEntry.Info.Repository, "ToyBox")) {
+                            modEntry.Info.DisplayName = "ToyBox" + " Restart the game to finish the update!".localize().Green().Bold().SizePercent(80);
+                            return false;
+                        }
+                    }
+                    modEntry.Info.DisplayName = "ToyBox" + " Update the mod manually!".localize().Red().Bold().SizePercent(100);
                     return false;
                 }
                 Mod.Log("Version is either compatible or Version Check failed. Continuing Load...");
@@ -94,8 +102,6 @@ namespace ToyBox {
 
                 Mod.OnLoad(modEntry);
                 path = modEntry.Path;
-                UIHelpers.OnLoad();
-                LoadSettings(modEntry);
                 SettingsDefaults.InitializeDefaultDamageTypes();
 
                 HarmonyInstance = new Harmony(modEntry.Info.Id);
@@ -140,19 +146,6 @@ namespace ToyBox {
             return true;
         }
 #endif
-        private static void LoadSettings(UnityModManager.ModEntry modEntry) {
-            var thisToyBoxPath = modEntry.Path;
-            var thisSettingsPath = Path.Combine(thisToyBoxPath, "Settings.xml");
-            try {
-                if (!File.Exists(thisSettingsPath)) {
-                    Mod.Log("No ToyBox settings found... creating default settings".Yellow());
-                }
-            } catch (Exception e) {
-                Mod.Error(e);
-            }
-            Settings = UnityModManager.ModSettings.Load<Settings>(modEntry);
-
-        }
         private static bool OnToggle(UnityModManager.ModEntry modEntry, bool value) {
             Enabled = value;
             return true;
@@ -183,7 +176,7 @@ namespace ToyBox {
             if (!Enabled) return;
             IsModGUIShown = true;
             if (!IsInGame) {
-                Label(("Warning: ".Magenta().Bold() + $"This is an experimental preview of ToyBox for Rogue Trader.".Orange() + " Save early and often.\r\n".Yellow().Bold() + "Note:".Magenta().Bold() + " Not all features are functional at this time. If you notice a feature doesn't work please report that on GitHub or in the modding channels on the Owlcat Discord.".Orange()).localize());
+                Toggle("Should ToyBox automatically try to update an outdated version?".localize().Green(), ref Settings.shouldTryUpdate);
             }
             if (!IsInGame) {
                 Label("ToyBox has limited functionality from the main menu".localize().Yellow().Bold());

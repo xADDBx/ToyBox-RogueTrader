@@ -43,6 +43,7 @@
         <Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\StatefulRandom.dll*" Private="false" />
         <Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\UberLogger.dll*" Private="false" />
         <Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\UniRx.dll*" Private="false" />
+        <Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\System.IO.Compression.dll*" Private="false" />
     </ItemGroup>
 	<ItemGroup>
 		<None Include="ReadMe.md" />

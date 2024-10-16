@@ -290,6 +290,7 @@ namespace ToyBox {
         public bool togglePreloadBlueprints = false;
         public bool toggleUseBPIdCache = true;
         public bool toggleAutomaticallyBuildBPIdCache = true;
+        public bool shouldTryUpdate = true;
 
         // Save
         public override void Save(UnityModManager.ModEntry modEntry) => Save(this, modEntry);

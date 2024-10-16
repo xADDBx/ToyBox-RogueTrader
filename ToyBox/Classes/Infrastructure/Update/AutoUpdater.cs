@@ -1,0 +1,61 @@
+﻿using Kingmaker.GameInfo;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.IO.Compression;
+using System.Linq;
+using System.Net;
+using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
+using UnityModManagerNet;
+
+namespace ToyBox {
+    public static class AutoUpdater {
+        public static bool Update(UnityModManager.ModEntry.ModLogger logger, string repoLink, string repositoryJsonLink, string releaseName) {
+            try {
+                using var web = new WebClient();
+                var curDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+                var file = new FileInfo(Path.Combine(curDir, "TmpUpdate.zip"));
+                if (file.Exists) {
+                    file.Delete();
+                }
+                var definition = new {
+                    Releases = new[] {
+                        new {
+                            Id = "",
+                            Version = ""
+                        }
+                    }
+                };
+                var raw = web.DownloadString(repositoryJsonLink);
+                var result = JsonConvert.DeserializeAnonymousType(raw, definition);
+                string version = result.Releases[0].Version;
+                string downloadUrl = $"{repoLink}/releases/download/v{version}/{releaseName}-{version}.zip";
+
+                web.DownloadFile(downloadUrl, file.FullName);
+                using var zipFile = ZipFile.OpenRead(file.FullName);
+                foreach (ZipArchiveEntry entry in zipFile.Entries) {
+                    string fullPath = Path.GetFullPath(Path.Combine(curDir, entry.FullName));
+
+                    if (Path.GetFileName(fullPath).Length == 0) {
+                        Directory.CreateDirectory(fullPath);
+                    } else {
+                        Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
+                        entry.ExtractToFile(fullPath, overwrite: true);
+                    }
+                }
+                zipFile.Dispose();
+
+                file.Delete();
+
+                logger.Log($"Successfully updated mod to version {version}!");
+                return true;
+            } catch (Exception ex) {
+                logger.Log($"Error trying to update mod: \n{ex.ToString()}");
+            }
+            return false;
+        }
+    }
+}
