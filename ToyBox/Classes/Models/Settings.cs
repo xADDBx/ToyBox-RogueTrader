@@ -281,6 +281,7 @@ namespace ToyBox {
         public bool stripHtmlTagsFromNativeConsole = true;
         public bool stripHtmlTagsFromUMMLogsTab = true;
         public bool toggleDevopmentMode = false;
+        public bool toggleAlwaysUpdate = false;
         public bool toggleGuidsClipboard = false;
         public bool toggleRiskyToggles = false;
         public bool onlyShowLanguagesWithFiles = true;

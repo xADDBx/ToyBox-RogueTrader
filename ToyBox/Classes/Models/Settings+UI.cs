@@ -19,6 +19,7 @@ namespace ToyBox {
                     25.space();
                     Label(("Tells the game to reset the in game UI.".Green() + " Warning".Yellow() + " Using this in dialog or the book will dismiss that dialog which may break progress so use with care".Orange()).localize());
                 },
+                () => Toggle("Always try to update to latest mod version".localize(), ref Main.Settings.toggleAlwaysUpdate, AutoWidth()),
                 () => {
                     Toggle("Enable Game Development Mode".localize(), ref Main.Settings.toggleDevopmentMode);
                     Space(25);

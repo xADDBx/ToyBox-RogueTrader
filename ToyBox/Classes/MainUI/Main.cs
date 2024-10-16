@@ -78,14 +78,14 @@ namespace ToyBox {
 
         public static List<GameObject> Objects;
         private static bool Load(UnityModManager.ModEntry modEntry) {
-            Settings = UnityModManager.ModSettings.Load<Settings>(modEntry);
             try {
-                Mod.Log("Start Version Check");
+                Settings = UnityModManager.ModSettings.Load<Settings>(modEntry);
+                modEntry.Logger.Log("Start Version Check");
                 if (!VersionChecker.IsGameVersionSupported(modEntry.Version, modEntry.Logger, LinkToIncompatibilitiesFile)) {
                     modEntry.Logger.Log("Fatal! The current Game Version has known incompatabilities with your current ToyBox version! Please Update.");
                     if (Settings.shouldTryUpdate) {
                         modEntry.Info.DisplayName = "ToyBox" + " Trying to update the mod...".localize().Red().Bold().SizePercent(80);
-                        if (AutoUpdater.Update(modEntry.Logger, modEntry.Info.HomePage, modEntry.Info.Repository, "ToyBox")) {
+                        if (AutoUpdater.Update(modEntry.Logger, modEntry.Info.HomePage, modEntry.Info.Repository, "ToyBox", modEntry.Info.Version)) {
                             modEntry.Info.DisplayName = "ToyBox" + " Restart the game to finish the update!".localize().Green().Bold().SizePercent(80);
                             return false;
                         }
@@ -93,7 +93,14 @@ namespace ToyBox {
                     modEntry.Info.DisplayName = "ToyBox" + " Update the mod manually!".localize().Red().Bold().SizePercent(100);
                     return false;
                 }
-                Mod.Log("Version is either compatible or Version Check failed. Continuing Load...");
+                modEntry.Logger.Log("Version is either compatible or Version Check failed. Continuing Load...");
+
+                if (Settings.toggleAlwaysUpdate) {
+                    modEntry.Logger.Log("AlwaysUpdate enabled, trying to update...");
+                    if (AutoUpdater.Update(modEntry.Logger, modEntry.Info.HomePage, modEntry.Info.Repository, "ToyBox", modEntry.Info.Version)) {
+                        modEntry.Info.DisplayName = "ToyBox" + " Restart the game to finish the update!".localize().Green().Bold().SizePercent(40);
+                    }
+                }
                 Main.ModEntry = modEntry;
 #if DEBUG
                 modEntry.OnUnload = OnUnload;
@@ -177,8 +184,6 @@ namespace ToyBox {
             IsModGUIShown = true;
             if (!IsInGame) {
                 Toggle("Should ToyBox automatically try to update an outdated version?".localize().Green(), ref Settings.shouldTryUpdate);
-            }
-            if (!IsInGame) {
                 Label("ToyBox has limited functionality from the main menu".localize().Yellow().Bold());
             }
             if (!IsWide) {
