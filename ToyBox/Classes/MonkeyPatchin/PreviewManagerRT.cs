@@ -105,9 +105,17 @@ namespace ToyBox {
                         if (page.Answers[0].Get() is BlueprintAnswersList) break;
                     }
                     if (page.Cues.Count > 0) {
-                        foreach (var c in page.Cues)
-                            if (c.Get().CanShow())
+                        foreach (var c in page.Cues) {
+                            bool canShow = false;
+                            try {
+                                canShow = c.Get().CanShow();
+                            } catch (Exception ex) {
+                                Mod.Warn($"Answer Preview: Caught Exception\n{ex.ToString()}");
+                            }
+                            if (canShow) {
                                 toCheck.Enqueue(new Tuple<BlueprintCueBase, int>(c, currentDepth + 1));
+                            }
+                        }
                     }
                 } else
                         if (cueBase is BlueprintCheck check) {
@@ -115,9 +123,17 @@ namespace ToyBox {
                     toCheck.Enqueue(new Tuple<BlueprintCueBase, int>(check.Fail, currentDepth + 1));
                 } else
                             if (cueBase is BlueprintCueSequence sequence) {
-                    foreach (var c in sequence.Cues)
-                        if (c.Get().CanShow())
+                    foreach (var c in sequence.Cues) {
+                        bool canShow = false;
+                        try {
+                            canShow = c.Get().CanShow();
+                        } catch (Exception ex) {
+                            Mod.Warn($"Answer Preview: Caught Exception\n{ex.ToString()}");
+                        }
+                        if (canShow) {
                             toCheck.Enqueue(new Tuple<BlueprintCueBase, int>(c, currentDepth + 1));
+                        }
+                    }
                     if (sequence.Exit != null) {
                         var exit = sequence.Exit;
                         if (exit.Answers.Count > 0) {
@@ -208,34 +224,38 @@ namespace ToyBox {
 
         public static string ResultsText(this BlueprintAnswer answer) {
             var text = "";
-            var answerData = CollateAnswerData(answer, out var isRecursive);
-            if (isRecursive) {
-                text += $" <size=75%>[Repeats]</size>";
+            try {
+                var answerData = CollateAnswerData(answer, out var isRecursive);
+                if (isRecursive) {
+                    text += $" <size=75%>[Repeats]</size>";
+                }
+                var results = new List<string>();
+                foreach (var data in answerData) {
+                    var cue = data.Item1;
+                    var depth = data.Item2;
+                    var actions = data.Item3;
+                    var alignment = data.Item4;
+                    var alignmentRequirement = data.Item5;
+                    var line = new List<string>();
+                    if (actions.Length > 0) {
+                        line.AddRange(actions.SelectMany(action => PreviewUtilities.FormatActionAsList(action)
+                                                                                   .Select(actionText => actionText == "" ? "EmptyAction" : actionText)));
+                    }
+                    if (alignmentRequirement.FormatShift("SoulMarkRequired({0})") is { } soulMarkRequiredText) {
+                        line.Add(soulMarkRequiredText);
+                    }
+                    if (alignment.FormatShift("SoulMarkShift({0})") is { } soulMarkShiftText) {
+                        line.Add(soulMarkShiftText);
+                    }
+                    if (cue is BlueprintCheck check) {
+                        line.Add($"Check({check.Type}, DC {check.DC}, hidden {check.Hidden})");
+                    }
+                    if (line.Count > 0) results.Add($"{depth}: {line.Join()}");
+                }
+                if (results.Count > 0) text = $" \v<size=75%>[{results.Join()}]</size>";
+            } catch (Exception ex) {
+                Mod.Warn($"Caught exception while trying to create answer preview:\n{ex.ToString()}");
             }
-            var results = new List<string>();
-            foreach (var data in answerData) {
-                var cue = data.Item1;
-                var depth = data.Item2;
-                var actions = data.Item3;
-                var alignment = data.Item4;
-                var alignmentRequirement = data.Item5;
-                var line = new List<string>();
-                if (actions.Length > 0) {
-                    line.AddRange(actions.SelectMany(action => PreviewUtilities.FormatActionAsList(action)
-                                                                               .Select(actionText => actionText == "" ? "EmptyAction" : actionText)));
-                }
-                if (alignmentRequirement.FormatShift("SoulMarkRequired({0})") is { } soulMarkRequiredText) {
-                    line.Add(soulMarkRequiredText);
-                }
-                if (alignment.FormatShift("SoulMarkShift({0})") is { } soulMarkShiftText) {
-                    line.Add(soulMarkShiftText);
-                }
-                if (cue is BlueprintCheck check) {
-                    line.Add($"Check({check.Type}, DC {check.DC}, hidden {check.Hidden})");
-                }
-                if (line.Count > 0) results.Add($"{depth}: {line.Join()}");
-            }
-            if (results.Count > 0) text = $" \v<size=75%>[{results.Join()}]</size>";
             return text;
         }
 

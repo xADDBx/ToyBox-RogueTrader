@@ -43,6 +43,9 @@ Here is a summarized list of features. This list only includes a part of the fea
 - **Quest Resolution**: this allows you to view your active quests and advance them as needed to work around bugs or
   skip quests you don't want to do. Be warned this may break your game progression if used carelessly.
   
+### ToyBox Rogue - Ver 1.6.9 built for Rogue Trader 1.2.1.19
+* (***ADDB***) Fixed an issue where game files included faulty elements, which could potentially affect some answers not being shown is Dialog Preview was enabled. (Nobody confirmed any missing answers but I'll rate this as critical anyways).
+
 ### ToyBox Rogue - Ver 1.6.8 built for Rogue Trader 1.2.1.17
 * (***ADDB***) After getting another report about "A Card Inverted", it seems like Remote Companion Dialog had an issue about units who had yet to spawn, sometimes preventing dialog options to appear. This should be fixed now.
 * (***ADDB***) Implement auto-update for incompatible outdated versions (enabled by default).

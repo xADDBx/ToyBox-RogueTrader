@@ -6,7 +6,7 @@
 		<Description>ToyBox</Description>
 		<AppDesignerFolder>Properties</AppDesignerFolder>
 		<OutputType>Library</OutputType>
-		<Version>1.6.8</Version>
+		<Version>1.6.9</Version>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<LangVersion>latest</LangVersion>
         <Nullable>annotations</Nullable>
@@ -17,6 +17,7 @@
 		<RogueTraderData>$(LocalAppData)Low\Owlcat Games\Warhammer 40000 Rogue Trader</RogueTraderData>
 	</PropertyGroup>
     <ItemGroup>
+        <Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\System.IO.Compression*" Private="false" />
         <Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\Unity*.dll" Private="false" />
         <Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\Kingmaker*.dll" Private="false" />
         <Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\Utility*.dll" Private="false" />
@@ -43,7 +44,6 @@
         <Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\StatefulRandom.dll*" Private="false" />
         <Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\UberLogger.dll*" Private="false" />
         <Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\UniRx.dll*" Private="false" />
-        <Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\System.IO.Compression*" Private="false" />
     </ItemGroup>
 	<ItemGroup>
 		<None Include="ReadMe.md" />
