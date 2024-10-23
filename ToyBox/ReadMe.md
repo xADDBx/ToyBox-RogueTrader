@@ -43,6 +43,11 @@ Here is a summarized list of features. This list only includes a part of the fea
 - **Quest Resolution**: this allows you to view your active quests and advance them as needed to work around bugs or
   skip quests you don't want to do. Be warned this may break your game progression if used carelessly.
   
+### ToyBox Rogue - Ver 1.6.10 built for Rogue Trader 1.2.1.19
+* (***ADDB***) Added check for corrupted mod files.
+* (***ADDB***) Added notice gui when the mod is opened for the first time.
+* (***ADDB***) Changed auto-update to make it less error-prone.
+
 ### ToyBox Rogue - Ver 1.6.9 built for Rogue Trader 1.2.1.19
 * (***ADDB***) Fixed an issue where game files included faulty elements, which could potentially affect some answers not being shown is Dialog Preview was enabled. (Nobody confirmed any missing answers but I'll rate this as critical anyways).
 

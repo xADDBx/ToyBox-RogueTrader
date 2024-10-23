@@ -11,6 +11,30 @@ namespace ToyBox {
         public static string cultureSearchText = "";
         public static CultureInfo? uiCulture;
         public static List<CultureInfo> cultures = new();
+        public static void UpdateAndVerificationGUI() {
+
+            HStack("Checks & Updates".localize(), 1,
+                () => Label(""),
+                () => Toggle("Verify whether the mod files are corrupted.".localize(), ref Main.Settings.toggleIntegrityCheck, AutoWidth()),
+                () => {
+                    if (Main.Settings.toggleIntegrityCheck) {
+                        Toggle("Update if the mod files are corrupted.".localize(), ref Main.Settings.updateOnChecksumFail, AutoWidth());
+                    }
+                },
+                () => {
+                    if (Main.Settings.toggleIntegrityCheck) {
+                        Toggle("Disable the mod if files are corrupted.".localize(), ref Main.Settings.disableOnChecksumFail, AutoWidth());
+                    }
+                },
+                () => Toggle("Check if the local version has known issues.".localize(), ref Main.Settings.toggleVersionCompatability, AutoWidth()),
+                () => {
+                    if (Main.Settings.toggleVersionCompatability) {
+                        Toggle("Update if the local version has known issues.".localize(), ref Main.Settings.shouldTryUpdate, AutoWidth());
+                    }
+                },
+                () => Toggle("Always update to the latest mod version.".localize(), ref Main.Settings.toggleAlwaysUpdate, AutoWidth())
+            );
+        }
         public static void OnGUI() {
             HStack("Settings".localize(), 1,
                 () => Label("Mono Version".localize() + $": {Type.GetType("Mono.Runtime")?.GetMethod("GetDisplayName", BindingFlags.NonPublic | BindingFlags.Static)?.Invoke(null, null)?.ToString()}"),
@@ -19,7 +43,6 @@ namespace ToyBox {
                     25.space();
                     Label(("Tells the game to reset the in game UI.".Green() + " Warning".Yellow() + " Using this in dialog or the book will dismiss that dialog which may break progress so use with care".Orange()).localize());
                 },
-                () => Toggle("Always try to update to latest mod version".localize(), ref Main.Settings.toggleAlwaysUpdate, AutoWidth()),
                 () => {
                     Toggle("Enable Game Development Mode".localize(), ref Main.Settings.toggleDevopmentMode);
                     Space(25);
@@ -48,6 +71,8 @@ namespace ToyBox {
               () => { }
             );
 #if true
+            Div(0, 25);
+            UpdateAndVerificationGUI();
             Div(0, 25);
             HStack("Localization".localize(), 1,
                 () => {

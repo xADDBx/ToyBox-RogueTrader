@@ -292,6 +292,11 @@ namespace ToyBox {
         public bool toggleUseBPIdCache = true;
         public bool toggleAutomaticallyBuildBPIdCache = true;
         public bool shouldTryUpdate = true;
+        public bool updateOnChecksumFail = true;
+        public bool disableOnChecksumFail = false;
+        public bool hasSeenUpdatePage = false;
+        public bool toggleVersionCompatability = true;
+        public bool toggleIntegrityCheck = true;
 
         // Save
         public override void Save(UnityModManager.ModEntry modEntry) => Save(this, modEntry);

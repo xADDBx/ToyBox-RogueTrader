@@ -2,6 +2,7 @@
 // Special thanks to @SpaceHampster and @Velk17 from Pathfinder: Wrath of the Rightous Discord server for teaching me how to mod Unity games
 using HarmonyLib;
 using Kingmaker;
+using Kingmaker.AI.BehaviourTrees.Nodes;
 using Kingmaker.GameInfo;
 using Kingmaker.GameModes;
 using Kingmaker.UI.Common;
@@ -80,24 +81,46 @@ namespace ToyBox {
         private static bool Load(UnityModManager.ModEntry modEntry) {
             try {
                 Settings = UnityModManager.ModSettings.Load<Settings>(modEntry);
-                modEntry.Logger.Log("Start Version Check");
-                if (!VersionChecker.IsGameVersionSupported(modEntry.Version, modEntry.Logger, LinkToIncompatibilitiesFile)) {
-                    modEntry.Logger.Log("Fatal! The current Game Version has known incompatabilities with your current ToyBox version! Please Update.");
-                    if (Settings.shouldTryUpdate) {
-                        modEntry.Info.DisplayName = "ToyBox" + " Trying to update the mod...".localize().Red().Bold().SizePercent(80);
-                        if (AutoUpdater.Update(modEntry.Logger, modEntry.Info.HomePage, modEntry.Info.Repository, "ToyBox", modEntry.Info.Version)) {
-                            modEntry.Info.DisplayName = "ToyBox" + " Restart the game to finish the update!".localize().Green().Bold().SizePercent(80);
+
+                if (Settings.toggleIntegrityCheck) {
+                    modEntry.Logger.Log("Starting Integrity Check.");
+                    if (IntegrityChecker.Check(modEntry.Logger)) {
+                        modEntry.Logger.Log("Integrity Check succeeded.");
+                    } else {
+                        modEntry.Info.DisplayName = "ToyBox" + " Checksum verification failed!".localize().Yellow().Bold().SizePercent(80) + "\nMod files are likely corrupted...".localize().Yellow().Bold().SizePercent(50);
+                        if (Settings.updateOnChecksumFail) {
+                            if (Updater.Update(modEntry, true)) {
+                                modEntry.Info.DisplayName = "ToyBox" + " Restart the game to finish the update!".localize().Green().Bold().SizePercent(80);
+                                return false;
+                            }
+                        }
+                        if (Settings.disableOnChecksumFail) {
+                            modEntry.Info.DisplayName = "ToyBox" + " Checksum verification failed!".localize().Red().Bold().SizePercent(80);
                             return false;
                         }
                     }
-                    modEntry.Info.DisplayName = "ToyBox" + " Update the mod manually!".localize().Red().Bold().SizePercent(100);
-                    return false;
                 }
-                modEntry.Logger.Log("Version is either compatible or Version Check failed. Continuing Load...");
+
+                if (Settings.toggleVersionCompatability) {
+                    if (VersionChecker.IsGameVersionSupported(modEntry.Version, modEntry.Logger, LinkToIncompatibilitiesFile)) {
+                        modEntry.Logger.Log("Compatability Check succeeded");
+                    } else {
+                        modEntry.Logger.Log("Fatal! The current Game Version has known incompatabilities with your current ToyBox version! Please Update.");
+                        if (Settings.shouldTryUpdate) {
+                            modEntry.Info.DisplayName = "ToyBox" + " Trying to update the mod...".localize().Red().Bold().SizePercent(80);
+                            if (Updater.Update(modEntry, true)) {
+                                modEntry.Info.DisplayName = "ToyBox" + " Restart the game to finish the update!".localize().Green().Bold().SizePercent(80);
+                                return false;
+                            }
+                        }
+                        modEntry.Info.DisplayName = "ToyBox" + " Update the mod manually!".localize().Red().Bold().SizePercent(100);
+                        return false;
+                    }
+                }
 
                 if (Settings.toggleAlwaysUpdate) {
-                    modEntry.Logger.Log("AlwaysUpdate enabled, trying to update...");
-                    if (AutoUpdater.Update(modEntry.Logger, modEntry.Info.HomePage, modEntry.Info.Repository, "ToyBox", modEntry.Info.Version)) {
+                    modEntry.Logger.Log("Auto Updater enabled, trying to update...");
+                    if (Updater.Update(modEntry)) {
                         modEntry.Info.DisplayName = "ToyBox" + " Restart the game to finish the update!".localize().Green().Bold().SizePercent(40);
                     }
                 }
@@ -182,25 +205,25 @@ namespace ToyBox {
             }
             if (!Enabled) return;
             IsModGUIShown = true;
-            if (!IsInGame) {
-                Toggle("Should ToyBox automatically try to update an outdated version?".localize().Green(), ref Settings.shouldTryUpdate);
-                Label("ToyBox has limited functionality from the main menu".localize().Yellow().Bold());
-            }
-            if (!IsWide) {
-                using (HorizontalScope()) {
-                    ActionButton("Maximize Window".localize(), Actions.MaximizeModWindow);
-                    Label(("Note ".Magenta().Bold() + "ToyBox was designed to offer the best user experience at widths of 1920 or higher. Please consider increasing your resolution up of at least 1920x1080 (ideally 4k) and go to Unity Mod Manager 'Settings' tab to change the mod window width to at least 1920.  Increasing the UI scale is nice too when running at 4k".Orange().Bold()).localize());
+            if (Settings.hasSeenUpdatePage) {
+                if (!IsInGame) {
+                    Label("ToyBox has limited functionality from the main menu".localize().Yellow().Bold());
                 }
-            }
-            try {
-                var e = Event.current;
-                userHasHitReturn = e.keyCode == KeyCode.Return;
-                focusedControlName = GUI.GetNameOfFocusedControl();
-                if (_caughtException != null) {
-                    Label("ERROR".Red().Bold() + $": caught exception {_caughtException}");
-                    ActionButton("Reset".Orange().Bold(), () => { ResetGUI(modEntry); }, AutoWidth());
-                    return;
+                if (!IsWide) {
+                    using (HorizontalScope()) {
+                        ActionButton("Maximize Window".localize(), Actions.MaximizeModWindow);
+                        Label(("Note ".Magenta().Bold() + "ToyBox was designed to offer the best user experience at widths of 1920 or higher. Please consider increasing your resolution up of at least 1920x1080 (ideally 4k) and go to Unity Mod Manager 'Settings' tab to change the mod window width to at least 1920.  Increasing the UI scale is nice too when running at 4k".Orange().Bold()).localize());
+                    }
                 }
+                try {
+                    var e = Event.current;
+                    userHasHitReturn = e.keyCode == KeyCode.Return;
+                    focusedControlName = GUI.GetNameOfFocusedControl();
+                    if (_caughtException != null) {
+                        Label("ERROR".Red().Bold() + $": caught exception {_caughtException}");
+                        ActionButton("Reset".Orange().Bold(), () => { ResetGUI(modEntry); }, AutoWidth());
+                        return;
+                    }
 #if false
                 using (UI.HorizontalScope()) {
                     UI.Label("Suggestions or issues click ".green(), UI.AutoWidth());
@@ -210,34 +233,42 @@ namespace ToyBox {
                     UI.LinkButton("WoTR Discord", "https://discord.gg/wotr");
                 }
 #endif
-                TabBar(ref Settings.selectedTab,
-                    () => {
-                        if (BlueprintLoader.Shared.IsLoading) {
-                            Label("Blueprints".Orange().Bold() + " loading: " + BlueprintLoader.Shared.progress.ToString("P2").Cyan().Bold());
-                        } else Space(25);
-                    },
-                    (oldTab, newTab) => {
-                        if (partyTabID == -1) {
-                            for (int i = 0; i < tabs.Length; i++) {
-                                if (tabs[i].action == PartyEditor.OnGUI) {
-                                    partyTabID = i;
-                                    break;
+                    TabBar(ref Settings.selectedTab,
+                        () => {
+                            if (BlueprintLoader.Shared.IsLoading) {
+                                Label("Blueprints".Orange().Bold() + " loading: " + BlueprintLoader.Shared.progress.ToString("P2").Cyan().Bold());
+                            } else Space(25);
+                        },
+                        (oldTab, newTab) => {
+                            if (partyTabID == -1) {
+                                for (int i = 0; i < tabs.Length; i++) {
+                                    if (tabs[i].action == PartyEditor.OnGUI) {
+                                        partyTabID = i;
+                                        break;
+                                    }
                                 }
                             }
-                        }
-                        if (partyTabID != -1) {
-                            if (oldTab == partyTabID) {
-                                PartyEditor.UnloadPortraits();
+                            if (partyTabID != -1) {
+                                if (oldTab == partyTabID) {
+                                    PartyEditor.UnloadPortraits();
+                                }
                             }
-                        }
-                    },
-                    s => s.localize(),
-                    tabs
-                    );
-            } catch (Exception e) {
-                Console.Write($"{e}");
-                _caughtException = e;
-                ReflectionSearch.Shared.Stop();
+                        },
+                        s => s.localize(),
+                        tabs
+                        );
+                } catch (Exception e) {
+                    Console.Write($"{e}");
+                    _caughtException = e;
+                    ReflectionSearch.Shared.Stop();
+                }
+            } else {
+                Label("This mod will automatically conntect to the internet for various tasks. Here are the respective options (in the future found in the Settings tab).".localize().Green().Bold(), AutoWidth());
+                SettingsUI.UpdateAndVerificationGUI();
+                Label("");
+                bool shouldChange = false;
+                Button("I understand".localize().Green().Bold(), ref shouldChange);
+                Settings.hasSeenUpdatePage = shouldChange;
             }
         }
 
