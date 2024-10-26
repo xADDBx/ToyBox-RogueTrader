@@ -273,7 +273,7 @@ namespace ModKit {
                     if (_finishedSearch || isSearching) {
                         bool nothingToSearch = (!ShowAll && current.Count() == 0) || (ShowAll && (availableIsStatic ? _availableCache : available()).Count() == 0);
                         // If the search has at least one result
-                        if ((cachedSearchResults.Count > 0 || nothingToSearch || _resultsAreAllBPs) && (searchQueryChanged || _finishedSearch)) {
+                        if (((cachedSearchResults?.Count ?? 0) > 0 || nothingToSearch || _resultsAreAllBPs) && (searchQueryChanged || _finishedSearch)) {
                             Comparer<Definition> comparer = Comparer<Definition>.Create((x, y) => {
                                 var xKeys = sortKeys(x);
                                 var yKeys = sortKeys(y);
