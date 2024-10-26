@@ -14,7 +14,7 @@ namespace ToyBox {
     public static class Updater {
         private static string GetReleaseName(string version) => $"ToyBox-{version}.zip";
         private static string GetDownloadLink(string repoLink, string version) => $"{repoLink}/releases/download/v{version}/{GetReleaseName(version)}";
-        public static bool Update(UnityModManager.ModEntry modEntry, bool force = false) {
+        public static bool Update(UnityModManager.ModEntry modEntry, bool force = false, bool reinstallCurrentVersion = false) {
             var logger = modEntry.Logger;
             var curVersion = modEntry.Info.Version;
             FileInfo file = null;
@@ -45,7 +45,8 @@ namespace ToyBox {
                 bool repoHasNewVersion = new Version(VersionChecker.GetNumifiedVersion(logger, remoteVersion)) > new Version(VersionChecker.GetNumifiedVersion(logger, curVersion));
 
                 if (force || repoHasNewVersion) {
-                    string downloadUrl = GetDownloadLink(modEntry.Info.HomePage, remoteVersion);
+                    var version = reinstallCurrentVersion ? modEntry.Info.Version : remoteVersion;
+                    string downloadUrl = GetDownloadLink(modEntry.Info.HomePage, version);
                     logger.Log($"Downloading: {downloadUrl}");
                     web.DownloadFile(downloadUrl, file.FullName);
                     using var zipFile = ZipFile.OpenRead(file.FullName);

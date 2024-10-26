@@ -24,6 +24,7 @@ using System.Reflection;
 using System.Security.Policy;
 using ToyBox.classes.Infrastructure;
 using ToyBox.classes.MainUI;
+using ToyBox.classes.MonkeyPatchin;
 using UniRx;
 using UnityEngine;
 using UnityModManagerNet;
@@ -89,7 +90,7 @@ namespace ToyBox {
                     } else {
                         modEntry.Info.DisplayName = "ToyBox" + " Checksum verification failed!".localize().Yellow().Bold().SizePercent(80) + "\nMod files are likely corrupted...".localize().Yellow().Bold().SizePercent(50);
                         if (Settings.updateOnChecksumFail) {
-                            if (Updater.Update(modEntry, true)) {
+                            if (Updater.Update(modEntry, true, true)) {
                                 modEntry.Info.DisplayName = "ToyBox" + " Restart the game to finish the update!".localize().Green().Bold().SizePercent(80);
                                 return false;
                             }
@@ -133,6 +134,7 @@ namespace ToyBox {
                 Mod.OnLoad(modEntry);
                 path = modEntry.Path;
                 SettingsDefaults.InitializeDefaultDamageTypes();
+                EventBus.Subscribe(new HighlightObjectToggle());
 
                 HarmonyInstance = new Harmony(modEntry.Info.Id);
                 HarmonyInstance.PatchAll(Assembly.GetExecutingAssembly());
