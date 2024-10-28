@@ -16,6 +16,7 @@ using Kingmaker.EntitySystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.Localization;
 using Kingmaker.Mechanics.Entities;
+using Kingmaker.PubSubSystem;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Parts;
 using Kingmaker.Utility;
@@ -23,6 +24,7 @@ using ModKit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using UnityEngine;
 using Evalutors = Kingmaker.Designers.EventConditionActionSystem.Evaluators;
 using Random = System.Random;
@@ -380,5 +382,40 @@ namespace ToyBox.BagOfPatches {
                 }
             }
         }
+        /* Stop one single ending slide being faulty from skipping all others
+        [HarmonyPatch]
+        public static class BookPageStopDialogFix {
+            [HarmonyPatch(typeof(DialogController), nameof(DialogController.PlayBookPage)), HarmonyTranspiler]
+            public static IEnumerable<CodeInstruction> PreventStopDialog(IEnumerable<CodeInstruction> instructions) {
+                foreach (CodeInstruction instr in instructions) {
+                    if (instr.Calls(AccessTools.Method(typeof(DialogController), nameof(DialogController.StopDialog)))) {
+                        yield return new(OpCodes.Pop);
+                        yield return new(OpCodes.Ldarg_0);
+                        yield return new(OpCodes.Ldarg_1);
+                        yield return CodeInstruction.Call((DialogController controller, BlueprintBookPage page) => NoCueHandler(controller, page));
+                    } else {
+                        yield return instr;
+                    }
+                }
+            }
+            public static void NoCueHandler(DialogController controller, BlueprintBookPage page) {
+                string condition = $"Error trying to show BlueprintBookPage ({page}, {page.AssetGuid}, {controller.Dialog}, {controller.Dialog.AssetGuid}). Encountered invalid quest state.\nHere a list of possible cues and their needed quest states:\n";
+                foreach (var cue in page.Cues.Dereference<BlueprintCueBase>()) {
+                    condition += $"{cue.name}: ";
+                    condition += PreviewUtilities.FormatConditions(cue.Conditions) + "\n";
+                }
+                Mod.Log(condition);
+                // Ending slides - Epilogue_dialogue
+                if (controller.Dialog.AssetGuid == "44493af9e1ae4e378a6b5a413d4c69a1") {
+                    controller.AddAnswers(page.Answers.Dereference<BlueprintAnswerBase>(), null);
+                    EventBus.RaiseEvent<IBookPageHandler>(delegate (IBookPageHandler h) {
+                        h.HandleOnBookPageShow(page, controller.m_BookPageCues, controller.m_Answers);
+                    }, true);
+                } else {
+                    controller.StopDialog();
+                }
+            }
+        }
+        */
     }
 }
