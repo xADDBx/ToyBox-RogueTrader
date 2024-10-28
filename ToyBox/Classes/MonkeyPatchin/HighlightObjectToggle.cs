@@ -2,6 +2,7 @@
 using Kingmaker;
 using Kingmaker.Controllers.MapObjects;
 using Kingmaker.GameModes;
+using Kingmaker.PubSubSystem;
 using Kingmaker.UI.InputSystems;
 using Kingmaker.UI.Models.SettingsUI;
 using Kingmaker.Utility.GameConst;
@@ -15,7 +16,31 @@ using System.Threading;
 using System.Threading.Tasks;
 
 namespace ToyBox.classes.MonkeyPatchin {
-    public class HighlightObjectToggle {
+    public class HighlightObjectToggle : IGameModeHandler {
+        private static HashSet<GameModeType> TurnOffWhen = [GameModeType.Dialog, GameModeType.Cutscene, GameModeType.CutsceneGlobalMap];
+        private static bool wasTurnedOffBefore = false;
+        internal static bool wasTurnedOff = false;
+        public void OnGameModeStart(GameModeType gameMode) {
+            if (!Main.Settings.highlightObjectsToggle) return;
+            if (Game.Instance.Player.IsInCombat) return;
+            if (TurnOffWhen.Contains(gameMode)) {
+                if (InteractionHighlightController.Instance?.IsHighlighting ?? false) {
+                    wasTurnedOffBefore = true;
+                    wasTurnedOff = true;
+                    InteractionHighlightController.Instance?.HighlightOff();
+                    wasTurnedOff = false;
+                }
+            } else {
+                if (wasTurnedOffBefore && (!InteractionHighlightController.Instance?.IsHighlighting ?? false)) {
+                    InteractionHighlightController.Instance?.HighlightOn();
+                    wasTurnedOffBefore = false;
+                }
+            }
+        }
+        public void OnGameModeStop(GameModeType gameMode) {
+            return;
+        }
+
         [HarmonyPatch(typeof(KeyboardAccess))]
         private static class KeyboardAccess_Patch {
             public static bool justChanged = false;
@@ -27,7 +52,12 @@ namespace ToyBox.classes.MonkeyPatchin {
                 if (binding.Name.StartsWith(UISettingsRoot.Instance.UIKeybindGeneralSettings.HighlightObjects.name)) {
                     if (binding.Name.EndsWith(UIConsts.SuffixOn) && binding.InputMatched() && !justChanged) {
                         justChanged = true;
-                        InteractionHighlightController.Instance?.Highlight(!InteractionHighlightController.Instance?.IsHighlighting ?? false);
+                        try {
+                            InteractionHighlightController.Instance?.Highlight(!InteractionHighlightController.Instance?.IsHighlighting ?? false);
+                        } catch {
+                            justChanged = false;
+                            return false;
+                        }
                         Task.Run(() => {
                             Thread.Sleep(250);
                             justChanged = false;
@@ -36,37 +66,6 @@ namespace ToyBox.classes.MonkeyPatchin {
                     return false;
                 }
                 return true;
-            }
-        }
-        [HarmonyPatch(typeof(Game))]
-        private static class Game_Patch {
-            private static HashSet<GameModeType> turnOffWhen = null;
-            private static bool wasTurnedOffBefore = false;
-            internal static bool wasTurnedOff = false;
-            [HarmonyPatch(nameof(Game.DoStartMode))]
-            [HarmonyPrefix]
-            private static void DoStartMode(GameModeType type) {
-                if (!Main.Settings.highlightObjectsToggle) return;
-                if (Game.Instance.Player.IsInCombat) return;
-                if (turnOffWhen == null) {
-                    turnOffWhen = new() {
-                        GameModeType.Dialog,
-                        GameModeType.Cutscene
-                    };
-                }
-                if (turnOffWhen.Contains(type)) {
-                    if (InteractionHighlightController.Instance?.IsHighlighting ?? false) {
-                        wasTurnedOffBefore = true;
-                        wasTurnedOff = true;
-                        InteractionHighlightController.Instance?.HighlightOff();
-                        wasTurnedOff = false;
-                    }
-                } else {
-                    if (wasTurnedOffBefore && (!InteractionHighlightController.Instance?.IsHighlighting ?? false)) {
-                        InteractionHighlightController.Instance?.HighlightOn();
-                        wasTurnedOffBefore = false;
-                    }
-                }
             }
         }
         [HarmonyPatch(typeof(Player))]
@@ -83,7 +82,9 @@ namespace ToyBox.classes.MonkeyPatchin {
                 if ((InteractionHighlightController.Instance?.IsHighlighting ?? false) && value) {
                     wasOnBeforeFightIntern = true;
                     wasOnBeforeFight = true;
-                    InteractionHighlightController.Instance.HighlightOff();
+                    try {
+                        InteractionHighlightController.Instance.HighlightOff();
+                    } catch { }
                     wasOnBeforeFight = false;
                 }
             }
@@ -94,7 +95,9 @@ namespace ToyBox.classes.MonkeyPatchin {
                 if (!interestingTick) return;
                 if (wasOnBeforeFightIntern && !value) {
                     wasOnBeforeFightIntern = false;
-                    InteractionHighlightController.Instance?.HighlightOn();
+                    try {
+                        InteractionHighlightController.Instance?.HighlightOn();
+                    } catch { }
                 }
                 interestingTick = false;
             }
@@ -106,7 +109,7 @@ namespace ToyBox.classes.MonkeyPatchin {
             private static bool HighlightOff() {
                 if (!Main.Settings.highlightObjectsToggle) return true;
                 if (Game.Instance.Player.IsInCombat) return true;
-                if (!Player_Patch.wasOnBeforeFight && !Game_Patch.wasTurnedOff && !KeyboardAccess_Patch.justChanged) {
+                if (!Player_Patch.wasOnBeforeFight && !wasTurnedOff && !KeyboardAccess_Patch.justChanged) {
                     return false;
                 }
                 return true;
