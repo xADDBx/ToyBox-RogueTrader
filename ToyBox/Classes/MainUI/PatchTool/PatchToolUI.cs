@@ -82,6 +82,10 @@ public static class PatchToolUI {
         }
     }
     public static void FieldGUI(object parent, PatchOperation wouldBePatch, int indent, Type type, object @object, FieldInfo info) {
+        if (@object == null) {
+            Label("null", Width(400));
+            return;
+        }
         if (typeof(Enum).IsAssignableFrom(type)) {
             if (!_toggleStates.TryGetValue((parent, info, @object), out var state)) {
                 state = false;
@@ -107,10 +111,10 @@ public static class PatchToolUI {
                 });
             }
         } else if (typeof(UnityEngine.Object).IsAssignableFrom(type)) {
-            Label(@object?.ToString() ?? "null", Width(400));
+            Label(@object.ToString(), Width(400));
             Label("Unity Object");
         } else if (typeof(IReferenceBase).IsAssignableFrom(type)) {
-            Label(@object?.ToString() ?? "null", Width(400));
+            Label(@object.ToString(), Width(400));
             Label("Reference");
         } else if (_primitiveTypes.Contains(type)) {
             Label(@object.ToString(), Width(400));
@@ -144,40 +148,32 @@ public static class PatchToolUI {
                 }
             });
         } else if (PatchToolUtils.IsListOrArray(type)) {
-            if (@object == null) {
-                Label("null", Width(100));
+            int elementCount = 0;
+            if (type.IsArray) {
+                Array array = @object as Array;
+                elementCount = array.Length;
             } else {
-                int elementCount = 0;
-                if (type.IsArray) {
-                    Array array = @object as Array;
-                    elementCount = array.Length;
-                } else {
-                    IList list = @object as IList;
-                    elementCount = list.Count;
-                }
-                Label($"{elementCount} elements", Width(400));
-                if (!_toggleStates.TryGetValue((parent, info, @object), out var state)) {
-                    state = false;
-                }
-                DisclosureToggle("Show elements", ref state, 200);
-                _toggleStates[(parent, info, @object)] = state;
-                if (state) {
-                    int index = 0;
-                    Space(-750);
-                    using (VerticalScope()) {
-                        Label("");
-                        foreach (var elem in @object as IEnumerable) {
-                            ListItemGUI(wouldBePatch, parent, info, elem, index, indent);
-                            index += 1;
-                        }
+                IList list = @object as IList;
+                elementCount = list.Count;
+            }
+            Label($"{elementCount} elements", Width(400));
+            if (!_toggleStates.TryGetValue((parent, info, @object), out var state)) {
+                state = false;
+            }
+            DisclosureToggle("Show elements", ref state, 200);
+            _toggleStates[(parent, info, @object)] = state;
+            if (state) {
+                int index = 0;
+                Space(-750);
+                using (VerticalScope()) {
+                    Label("");
+                    foreach (var elem in @object as IEnumerable) {
+                        ListItemGUI(wouldBePatch, parent, info, elem, index, indent);
+                        index += 1;
                     }
                 }
             }
         } else {
-            if (@object == null) {
-                Label("null", Width(400));
-                return;
-            }
             Label(@object.ToString(), Width(400));
             if (!_toggleStates.TryGetValue((parent, info, @object), out var state)) {
                 state = false;
