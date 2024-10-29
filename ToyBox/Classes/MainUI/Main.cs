@@ -28,7 +28,7 @@ using ToyBox.classes.MonkeyPatchin;
 using UniRx;
 using UnityEngine;
 using UnityModManagerNet;
-using static ModKit.UI;
+using ToyBox.PatchTool;
 using LocalizationManager = ModKit.LocalizationManager;
 
 namespace ToyBox {
@@ -58,6 +58,9 @@ namespace ToyBox {
                     new NamedAction("Dialog & NPCs", DialogAndNPCs.OnGUI),
                     new NamedAction("Saves", GameSavesBrowser.OnGUI),
                     new NamedAction("Achievements", AchievementsUnlocker.OnGUI),
+#if DEBUG
+                    new NamedAction("Patch Tool", PatchToolUI.OnGUI),
+#endif
                     new NamedAction("Settings", SettingsUI.OnGUI)
         };
         private static int partyTabID = -1;
