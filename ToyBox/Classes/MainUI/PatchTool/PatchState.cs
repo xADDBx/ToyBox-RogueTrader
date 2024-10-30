@@ -34,12 +34,11 @@ public class PatchState {
     }
     public Patch CreatePatchFromState() {
         try {
+            IsDirty = true;
             if (UnderlyingPatch != null) {
                 UnderlyingPatch.Operations = Operations;
-                IsDirty = true;
                 return UnderlyingPatch;
             } else {
-                IsDirty = true;
                 return new(Blueprint.AssetGuid, Operations);
             }
         } catch (Exception ex) {
