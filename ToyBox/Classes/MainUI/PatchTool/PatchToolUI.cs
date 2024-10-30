@@ -26,6 +26,7 @@ public static class PatchToolUI {
     // private static string _target = "649ae43543fd4b47ae09a6547e67bcfc";
     private static string _target = "";
     private static string _pickerText = "";
+    public static int IndentPerLevel = 25;
     private static readonly HashSet<Type> _primitiveTypes = [typeof(string), typeof(bool), typeof(int), typeof(uint), typeof(long), typeof(ulong), typeof(float), typeof(double)];
     public static void SetTarget(string guid) {
         CurrentState = null;
@@ -52,7 +53,10 @@ public static class PatchToolUI {
             }
         }
         if (CurrentState != null) {
-            NestedGUI(CurrentState.Blueprint);
+            using (HorizontalScope()) {
+                Space(-IndentPerLevel);
+                NestedGUI(CurrentState.Blueprint);
+            }
         }
     }
     public static void ClearCache() {
@@ -61,7 +65,7 @@ public static class PatchToolUI {
         _toggleStates.Clear();
     }
 
-    public static void NestedGUI(object o, PatchOperation wouldBePatch = null, int indent = 0) {
+    public static void NestedGUI(object o, PatchOperation wouldBePatch = null) {
         if (_visited.Contains(o)) {
             Label("Already opened on another level!".Green());
             return;
@@ -78,14 +82,14 @@ public static class PatchToolUI {
                     if (field.Key.FieldType.IsGenericType) {
                         generics = field.Key.FieldType.GetGenericArguments().ToContentString();
                     }
+                    Space(IndentPerLevel);
                     Label($"{field.Key.Name} ({(isEnum ? "Enum: " : "")}{field.Key.FieldType.Name}{generics})", Width(500));
-                    FieldGUI(o, wouldBePatch, indent, field.Key.FieldType, field.Value, field.Key);
+                    FieldGUI(o, wouldBePatch, field.Key.FieldType, field.Value, field.Key);
                 }
             }
         }
     }
-    public static void FieldGUI(object parent, PatchOperation wouldBePatch, int indent, Type type, object @object, FieldInfo info) {
-        Space(indent);
+    public static void FieldGUI(object parent, PatchOperation wouldBePatch, Type type, object @object, FieldInfo info) {
         if (@object == null) {
             Label("Null", Width(500));
             return;
@@ -179,7 +183,7 @@ public static class PatchToolUI {
                 using (VerticalScope()) {
                     Label("");
                     foreach (var elem in @object as IEnumerable) {
-                        ListItemGUI(wouldBePatch, parent, info, elem, index, indent);
+                        ListItemGUI(wouldBePatch, parent, info, elem, index);
                         index += 1;
                     }
                 }
@@ -197,17 +201,18 @@ public static class PatchToolUI {
                 Space(-1200);
                 using (VerticalScope()) {
                     Label("");
-                    NestedGUI(@object, op, indent + 50);
+                    NestedGUI(@object, op);
                 }
             }
         }
     }
-    public static void ListItemGUI(PatchOperation wouldBePatch, object parent, FieldInfo info, object elem, int index, int indent) {
+    public static void ListItemGUI(PatchOperation wouldBePatch, object parent, FieldInfo info, object elem, int index) {
         PatchOperation tmpOp = new(PatchOperation.PatchOperationType.ModifyCollection, info.Name, null, null, parent.GetType(), PatchOperation.CollectionPatchOperationType.ModifyAtIndex, index);
         PatchOperation op = wouldBePatch.AddOperation(tmpOp);
         using (HorizontalScope()) {
+            Space(-13);
             Label($"[{index}]", Width(500));
-            FieldGUI(parent, op, indent + 50, elem.GetType(), elem, info);
+            FieldGUI(parent, op, elem.GetType(), elem, info);
         }
     }
 
