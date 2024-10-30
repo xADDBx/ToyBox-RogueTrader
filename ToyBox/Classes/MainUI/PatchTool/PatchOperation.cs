@@ -58,7 +58,7 @@ public class PatchOperation {
     public object Apply(object instance) {
         if (!PatchedObjectType.IsAssignableFrom(instance.GetType())) throw new ArgumentException($"Type to patch {PatchedObjectType} is not assignable from instance type {instance.GetType()}");
         bool IsPatchingCollectionDirectly = PatchToolUtils.IsListOrArray(PatchedObjectType);
-        
+
         var field = IsPatchingCollectionDirectly ? null : GetFieldInfo(PatchedObjectType);
 
         switch (OperationType) {

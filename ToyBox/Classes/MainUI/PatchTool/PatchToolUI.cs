@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using ModKit;
+using ModKit.Utility.Extensions;
 using Owlcat.Runtime.Visual.Overrides.HBAO;
 using System;
 using System.Collections;
@@ -12,7 +13,6 @@ using System.Threading.Tasks;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static UnityEngine.Rendering.VolumeComponent;
 
 namespace ToyBox.PatchTool; 
 public static class PatchToolUI {
@@ -73,51 +73,62 @@ public static class PatchToolUI {
         using (VerticalScope()) {
             foreach (var field in _fieldsByObject[o]) {
                 using (HorizontalScope()) {
-                    Space(indent);
                     bool isEnum = typeof(Enum).IsAssignableFrom(field.Key.FieldType);
-                    Label($"{field.Key.Name} ({(isEnum ? "Enum: " : "")}{field.Key.FieldType.Name})", Width(600));
+                    string generics = "";
+                    if (field.Key.FieldType.IsGenericType) {
+                        generics = field.Key.FieldType.GetGenericArguments().ToContentString();
+                    }
+                    Label($"{field.Key.Name} ({(isEnum ? "Enum: " : "")}{field.Key.FieldType.Name}{generics})", Width(500));
                     FieldGUI(o, wouldBePatch, indent, field.Key.FieldType, field.Value, field.Key);
                 }
             }
         }
     }
     public static void FieldGUI(object parent, PatchOperation wouldBePatch, int indent, Type type, object @object, FieldInfo info) {
+        Space(indent);
         if (@object == null) {
-            Label("null", Width(400));
+            Label("Null", Width(500));
             return;
         }
         if (typeof(Enum).IsAssignableFrom(type)) {
             if (!_toggleStates.TryGetValue((parent, info, @object), out var state)) {
                 state = false;
             }
-            DisclosureToggle(@object.ToString(), ref state, 400);
+            Label(@object.ToString(), Width(500));
+            DisclosureToggle("Show Values", ref state, 800);
+            Space(-800);
             _toggleStates[(parent, info, @object)] = state;
             if (state) {
-                if (!_editStates.TryGetValue((parent, info), out var curValue)) {
-                    curValue = 0;
+                using (VerticalScope()) {
+                    Label("");
+                    using (HorizontalScope()) {
+                        if (!_editStates.TryGetValue((parent, info), out var curValue)) {
+                            curValue = 0;
+                        }
+                        var vals = Enum.GetValues(type).Cast<object>();
+                        var enumNames = vals.Select(val => val.ToString()).ToArray();
+                        var tmp = (int)curValue;
+                        var cellsPerRow = Math.Min(4, enumNames.Length);
+                        SelectionGrid(ref tmp, enumNames, cellsPerRow, Width(200 * cellsPerRow));
+                        _editStates[(parent, info)] = tmp;
+                        Space(20);
+                        ActionButton("Change", () => {
+                            PatchOperation tmpOp = new(PatchOperation.PatchOperationType.ModifyPrimitive, info.Name, type, Enum.Parse(type, enumNames[tmp]), parent.GetType());
+                            PatchOperation op = wouldBePatch.AddOperation(tmpOp);
+                            CurrentState.AddOp(op);
+                            CurrentState.CreatePatchFromState().RegisterPatch();
+                        });
+                    }
                 }
-                var vals = Enum.GetValues(type).Cast<object>();
-                var enumNames = vals.Select(val => val.ToString()).ToArray();
-                var tmp = (int)curValue;
-                var cellsPerRow = Math.Min(6, enumNames.Length);
-                SelectionGrid(ref tmp, enumNames, cellsPerRow, Width(200 * cellsPerRow));
-                _editStates[(parent, info)] = tmp;
-                Space(20);
-                ActionButton("Change", () => {
-                    PatchOperation tmpOp = new(PatchOperation.PatchOperationType.ModifyPrimitive, info.Name, type, Enum.Parse(type, enumNames[tmp]), parent.GetType());
-                    PatchOperation op = wouldBePatch.AddOperation(tmpOp);
-                    CurrentState.AddOp(op);
-                    CurrentState.CreatePatchFromState().RegisterPatch();
-                });
             }
         } else if (typeof(UnityEngine.Object).IsAssignableFrom(type)) {
-            Label(@object.ToString(), Width(400));
+            Label(@object.ToString(), Width(500));
             Label("Unity Object");
-        } else if (typeof(IReferenceBase).IsAssignableFrom(type)) {
-            Label(@object.ToString(), Width(400));
+        } else if (typeof(BlueprintReferenceBase).IsAssignableFrom(type)) {
+            Label(@object.ToString(), Width(500));
             Label("Reference");
         } else if (_primitiveTypes.Contains(type)) {
-            Label(@object.ToString(), Width(400));
+            Label(@object.ToString(), Width(500));
             if (!_editStates.TryGetValue((parent, info), out var curValue)) {
                 curValue = "";
             }
@@ -156,15 +167,15 @@ public static class PatchToolUI {
                 IList list = @object as IList;
                 elementCount = list.Count;
             }
-            Label($"{elementCount} elements", Width(400));
+            Label($"{elementCount} Elements", Width(500));
             if (!_toggleStates.TryGetValue((parent, info, @object), out var state)) {
                 state = false;
             }
-            DisclosureToggle("Show elements", ref state, 200);
+            DisclosureToggle("Show Elements", ref state, 200);
             _toggleStates[(parent, info, @object)] = state;
             if (state) {
                 int index = 0;
-                Space(-750);
+                Space(-1200);
                 using (VerticalScope()) {
                     Label("");
                     foreach (var elem in @object as IEnumerable) {
@@ -174,7 +185,7 @@ public static class PatchToolUI {
                 }
             }
         } else {
-            Label(@object.ToString(), Width(400));
+            Label(@object.ToString(), Width(500));
             if (!_toggleStates.TryGetValue((parent, info, @object), out var state)) {
                 state = false;
             }
@@ -183,7 +194,7 @@ public static class PatchToolUI {
             if (state) {
                 PatchOperation tmpOp = new(PatchOperation.PatchOperationType.ModifyComplex, info.Name, null, null, parent.GetType());
                 PatchOperation op = wouldBePatch.AddOperation(tmpOp);
-                Space(-700);
+                Space(-1200);
                 using (VerticalScope()) {
                     Label("");
                     NestedGUI(@object, op, indent + 50);
@@ -192,15 +203,11 @@ public static class PatchToolUI {
         }
     }
     public static void ListItemGUI(PatchOperation wouldBePatch, object parent, FieldInfo info, object elem, int index, int indent) {
+        PatchOperation tmpOp = new(PatchOperation.PatchOperationType.ModifyCollection, info.Name, null, null, parent.GetType(), PatchOperation.CollectionPatchOperationType.ModifyAtIndex, index);
+        PatchOperation op = wouldBePatch.AddOperation(tmpOp);
         using (HorizontalScope()) {
-            PatchOperation tmpOp = new(PatchOperation.PatchOperationType.ModifyCollection, info.Name, null, null, parent.GetType(), PatchOperation.CollectionPatchOperationType.ModifyAtIndex, index);
-            PatchOperation op = wouldBePatch.AddOperation(tmpOp);
-            using (VerticalScope()) {
-                Label("");
-                using (HorizontalScope()) {
-                    FieldGUI(parent, op, indent + 50, elem.GetType(), elem, info);
-                }
-            }
+            Label($"[{index}]", Width(500));
+            FieldGUI(parent, op, indent + 50, elem.GetType(), elem, info);
         }
     }
 

@@ -34,7 +34,7 @@ public static class PatchToolUtils {
         }
     }
     public static bool IsListOrArray(Type t) {
-        return t.IsArray || typeof(IList<>).IsAssignableFrom(t);
+        return t.IsArray || typeof(IList<>).IsAssignableFrom(t) || t.GetInterfaces().Any(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IList<>));
     }
     private static Dictionary<Type, List<FieldInfo>> _fieldsCache = new();
     public static List<FieldInfo> GetFields(Type t) {
