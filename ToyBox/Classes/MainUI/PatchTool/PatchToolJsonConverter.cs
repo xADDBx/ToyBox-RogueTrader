@@ -18,7 +18,7 @@ public class PatchToolJsonConverter : JsonConverter {
         var typeString = (string)jsonObject["NewValueType"];
         if (!string.IsNullOrEmpty(typeString)) {
             var targetType = Type.GetType(typeString);
-            if (targetType != null) {
+            if (targetType != null && !((string)jsonObject["NewValue"]).IsNullOrEmpty()) {
                 operation.NewValue = jsonObject["NewValue"].ToObject(targetType);
             }
         }

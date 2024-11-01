@@ -53,10 +53,12 @@ public static class Patcher {
     public static SimpleBlueprint ApplyPatch(this Patch patch) {
         if (patch == null) return null;
         var current = ResourcesLibrary.TryGetBlueprint(patch.BlueprintGuid);
-        if (!OriginalBps.TryGetValue(current.AssetGuid, out var pair)) {
+        if (OriginalBps.TryGetValue(current.AssetGuid, out var pair)) {
+            current = DeepBlueprintCopy(pair);
+        } else {
             OriginalBps[current.AssetGuid] = DeepBlueprintCopy(current);
         }
-        var patched = OriginalBps[current.AssetGuid].ApplyPatch(patch);
+        var patched = current.ApplyPatch(patch);
         var entry = ResourcesLibrary.BlueprintsCache.m_LoadedBlueprints[current.AssetGuid];
         entry.Blueprint = patched;
         ResourcesLibrary.BlueprintsCache.m_LoadedBlueprints[current.AssetGuid] = entry;

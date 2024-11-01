@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using ModKit;
+using ModKit.Utility.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,6 +48,12 @@ public class PatchState {
         return null;
     }
     public void AddOp(PatchOperation op) {
+        Operations.ForEach(op => {
+            Mod.Log(op?.ToString() ?? "NullOp");
+            Mod.Log(op.OperationType.ToString() ?? "NullOpT");
+            Mod.Log(op.PatchedObjectType?.ToString() ?? "NullPOT");
+            Mod.Log(op.FieldName ?? "NullFM");
+        });
         var foD = Operations.FirstOrDefault(i => i.OperationType == PatchOperation.PatchOperationType.ModifyPrimitive && i.PatchedObjectType == op.PatchedObjectType && i.FieldName == op.FieldName);
         if (foD != default) {
             Operations.Remove(foD);

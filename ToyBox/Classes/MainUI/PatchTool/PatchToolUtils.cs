@@ -72,4 +72,26 @@ public static class PatchToolUtils {
             return copy;
         }
     }
+    public static HashSet<Type> GetInstantiableTypes(Type elementType) {
+        HashSet<Type> instantiableTypes = new();
+        foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies()) {
+            Type[] types;
+            try {
+                types = assembly.GetTypes();
+            } catch (ReflectionTypeLoadException ex) {
+                types = ex.Types.Where(t => t != null).ToArray();
+            }
+
+            foreach (var type in types) {
+                if (type == null) continue;
+
+                if (elementType.IsAssignableFrom(type) && !type.IsAbstract && !type.IsInterface) {
+                    instantiableTypes.Add(type);
+                }
+            }
+        }
+
+        return instantiableTypes;
+    }
+
 }

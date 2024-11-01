@@ -56,8 +56,8 @@ public class PatchOperation {
         return AccessTools.Field(type, FieldName);
     }
     public object Apply(object instance) {
-        if (!PatchedObjectType.IsAssignableFrom(instance.GetType())) throw new ArgumentException($"Type to patch {PatchedObjectType} is not assignable from instance type {instance.GetType()}");
-        bool IsPatchingCollectionDirectly = PatchToolUtils.IsListOrArray(PatchedObjectType);
+        if (!(OperationType == PatchOperationType.ModifyCollection) && !PatchedObjectType.IsAssignableFrom(instance.GetType())) throw new ArgumentException($"Type to patch {PatchedObjectType} is not assignable from instance type {instance.GetType()}");
+        bool IsPatchingCollectionDirectly = PatchToolUtils.IsListOrArray(instance?.GetType());
 
         var field = IsPatchingCollectionDirectly ? null : GetFieldInfo(PatchedObjectType);
 
@@ -71,25 +71,24 @@ public class PatchOperation {
                     }
                     switch (CollectionOperationType) {
                         case CollectionPatchOperationType.AddAtIndex: {
-                                if (collection is IList list) {
-                                    list.Insert(CollectionIndex, NewValue);
-                                    collection = list;
-                                } else if (collection.GetType() is Type type && type.IsArray) {
+                                if (collection.GetType() is Type type && type.IsArray) {
                                     Array array = collection as Array;
+                                    if (CollectionIndex == -1) CollectionIndex = array.Length;
                                     var elementType = type.GetElementType();
                                     Array newArray = Array.CreateInstance(elementType, array.Length + 1);
                                     Array.Copy(array, 0, newArray, 0, CollectionIndex);
-                                    newArray.SetValue(NewValue, CollectionIndex);
+                                    newArray.SetValue(Activator.CreateInstance(NewValueType), CollectionIndex);
                                     Array.Copy(array, CollectionIndex, newArray, CollectionIndex + 1, array.Length - CollectionIndex);
                                     collection = newArray;
+                                } else if (collection is IList list) {
+                                    if (CollectionIndex == -1) CollectionIndex = list.Count;
+                                    list.Insert(CollectionIndex, Activator.CreateInstance(NewValueType));
+                                    collection = list;
                                 }
                             } 
                             break;
                         case CollectionPatchOperationType.RemoveAtIndex: {
-                                if (collection is IList list) {
-                                    list.RemoveAt(CollectionIndex);
-                                    collection = list;
-                                } else if (collection.GetType() is Type type && type.IsArray) {
+                                if (collection.GetType() is Type type && type.IsArray) {
                                     Array array = collection as Array;
                                     var elementType = type.GetElementType();
                                     var tmpList = Activator.CreateInstance(typeof(List<>).MakeGenericType(elementType)) as IList;
@@ -99,21 +98,24 @@ public class PatchOperation {
                                     Array resizedArray = Array.CreateInstance(elementType, tmpList.Count);
                                     tmpList.CopyTo(resizedArray, 0);
                                     collection = resizedArray;
+                                } else if (collection is IList list) {
+                                    list.RemoveAt(CollectionIndex);
+                                    collection = list;
                                 }
                             } 
                             break;
                         case CollectionPatchOperationType.ModifyAtIndex: {
-                                if (collection is IList list) {
-                                    var orig = list[CollectionIndex];
-                                    var modified = NestedOperation.Apply(orig);
-                                    list[CollectionIndex] = modified;
-                                    collection = list;
-                                } else if (collection.GetType() is Type type && type.IsArray) {
+                                if (collection.GetType() is Type type && type.IsArray) {
                                     Array array = collection as Array;
                                     var orig = array.GetValue(CollectionIndex);
                                     var modified = NestedOperation.Apply(orig);
                                     array.SetValue(modified, CollectionIndex);
                                     collection = array;
+                                } else if (collection is IList list) {
+                                    var orig = list[CollectionIndex];
+                                    var modified = NestedOperation.Apply(orig);
+                                    list[CollectionIndex] = modified;
+                                    collection = list;
                                 }
                             }
                             break;
