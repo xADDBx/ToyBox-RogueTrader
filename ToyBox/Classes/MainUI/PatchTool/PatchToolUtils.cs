@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Attributes;
 using Kingmaker.Blueprints.JsonSystem;
 using ModKit;
 using ModKit.Utility.Extensions;
@@ -86,7 +87,16 @@ public static class PatchToolUtils {
                 if (type == null) continue;
 
                 if (elementType.IsAssignableFrom(type) && !type.IsAbstract && !type.IsInterface) {
-                    instantiableTypes.Add(type);
+                    var attributes = type.GetCustomAttributes(typeof(AllowedOnAttribute), inherit: false);
+                    if (attributes.Length > 0) {
+                        foreach (AllowedOnAttribute attr in attributes) {
+                            if (attr.Type == elementType) {
+                                instantiableTypes.Add(elementType);
+                            }
+                        }
+                    } else {
+                        instantiableTypes.Add(elementType);
+                    }
                 }
             }
         }
