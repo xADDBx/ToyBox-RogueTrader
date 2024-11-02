@@ -22,6 +22,7 @@ public static class PatchToolUI {
     private static Dictionary<((object, FieldInfo), int), bool> _listToggleStates = new();
     private static Dictionary<(object, FieldInfo), AddItemState> _addItemStates = new();
     private static Dictionary<Type, List<Type>> _compatibleTypes = new();
+    private static Dictionary<Type, List<Type>> _allowedTypes = new();
     private static HashSet<object> _visited = new();
     // private static string _target = "649ae43543fd4b47ae09a6547e67bcfc";
     private static string _target = "";
@@ -60,14 +61,19 @@ public static class PatchToolUI {
             _addItemStates[(parent, info)] = state;
 
             if (!_compatibleTypes.ContainsKey(elementType)) {
-                _compatibleTypes[elementType] = PatchToolUtils.GetInstantiableTypes(elementType).ToList();
+                (var all, var allowed) = PatchToolUtils.GetInstantiableTypes(elementType, parent);
+                if (allowed != null) {
+                    state.ToAddBrowser.DisplayShowAllGUI = true;
+                }
+                _allowedTypes[elementType] = allowed?.ToList();
+                _compatibleTypes[elementType] = all.ToList();
             }
 
             return state;
         }
         public void AddItemGUI() {
             using (VerticalScope()) {
-                ToAddBrowser.OnGUI(_compatibleTypes[ElementType], () => _compatibleTypes[ElementType], d => d, t => $"{t.Name}", t => [$"{t.Name}"], null,
+                ToAddBrowser.OnGUI(_allowedTypes[ElementType] ?? _compatibleTypes[ElementType], () => _compatibleTypes[ElementType], d => d, t => $"{t.Name}", t => [$"{t.Name}"], null,
                     (type, maybeType) => {
                         Label(type.Name, Width(400));
                         Space(200);

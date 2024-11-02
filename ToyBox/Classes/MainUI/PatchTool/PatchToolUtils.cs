@@ -73,8 +73,10 @@ public static class PatchToolUtils {
             return copy;
         }
     }
-    public static HashSet<Type> GetInstantiableTypes(Type elementType) {
-        HashSet<Type> instantiableTypes = new();
+    public static (HashSet<Type>, HashSet<Type>) GetInstantiableTypes(Type elementType, object maybeParent) {
+        HashSet<Type> allowedinstantiableTypes = typeof(BlueprintComponent).IsAssignableFrom(elementType) ? new() : null;
+        HashSet<Type> allinstantiableTypes = new();
+        Type parentType = maybeParent?.GetType();
         foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies()) {
             Type[] types;
             try {
@@ -87,21 +89,22 @@ public static class PatchToolUtils {
                 if (type == null) continue;
 
                 if (elementType.IsAssignableFrom(type) && !type.IsAbstract && !type.IsInterface) {
-                    var attributes = type.GetCustomAttributes(typeof(AllowedOnAttribute), inherit: false);
-                    if (attributes.Length > 0) {
-                        foreach (AllowedOnAttribute attr in attributes) {
-                            if (attr.Type == elementType) {
-                                instantiableTypes.Add(elementType);
+                    if (parentType != null && allowedinstantiableTypes != null) {
+                        var attributes = type.GetCustomAttributes(typeof(AllowedOnAttribute), inherit: false);
+                        if (attributes.Length > 0) {
+                            foreach (AllowedOnAttribute attr in attributes) {
+                                if (attr.Type.IsAssignableFrom(parentType)) {
+                                    allowedinstantiableTypes.Add(type);
+                                }
                             }
                         }
-                    } else {
-                        instantiableTypes.Add(elementType);
                     }
+                    allinstantiableTypes.Add(type);
                 }
             }
         }
 
-        return instantiableTypes;
+        return (allinstantiableTypes, allowedinstantiableTypes);
     }
 
 }
