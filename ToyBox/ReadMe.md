@@ -50,10 +50,11 @@ Here is a summarized list of features. This list only includes a part of the fea
   * Collection support (it is now possible to add and remove items to collections)
   * Flag enum support
   * Multiple tab support
+  * UI to manage existing patches
   * Fix some patch tool bugs
 
 ### ToyBox Rogue - Ver 1.6.11 (DEBUG) built for Rogue Trader 1.2.1.19
-* (***ADDB***) Debug Blueprint Patcher
+* (***ADDB***) Initial Blueprint Patcher Impl
 * (***ADDB***) Reinstall on checksum failure now reinstalls current version.
 * (***ADDB***) Fix very rare issue with Browser
 
