@@ -126,8 +126,10 @@ public class PatchOperation {
                 break;
             case PatchOperationType.ModifyUnityReference: {
                     throw new NotImplementedException("Modifying Unity Objects is not supported.");
-                } 
+                }
+#pragma warning disable CS0162 // Unreachable code detected
                 break;
+#pragma warning restore CS0162 // Unreachable code detected
             case PatchOperationType.ModifyComplex: {
                     var @object = field.GetValue(instance);
                     NestedOperation.Apply(@object);
@@ -141,7 +143,9 @@ public class PatchOperation {
             case PatchOperationType.ModifyBlueprintReference: {
                     throw new NotImplementedException("Blueprint References not yet implemented");
                 }
+#pragma warning disable CS0162 // Unreachable code detected
                 break;
+#pragma warning restore CS0162 // Unreachable code detected
             default: throw new NotImplementedException($"Unknown PatchOperation: {OperationType}");
         }
         return instance;

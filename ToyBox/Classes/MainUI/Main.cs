@@ -58,7 +58,7 @@ namespace ToyBox {
                     new NamedAction("Dialog & NPCs", DialogAndNPCs.OnGUI),
                     new NamedAction("Saves", GameSavesBrowser.OnGUI),
                     new NamedAction("Achievements", AchievementsUnlocker.OnGUI),
-                    new NamedAction("Patch Tool", PatchToolUI.OnGUI),
+                    new NamedAction("Patch Tool", PatchToolUIManager.OnGUI),
                     new NamedAction("Settings", SettingsUI.OnGUI)
         };
         private static int partyTabID = -1;

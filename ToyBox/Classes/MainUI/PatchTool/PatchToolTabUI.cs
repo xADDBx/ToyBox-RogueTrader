@@ -13,25 +13,25 @@ using UniRx;
 using UnityEngine;
 
 namespace ToyBox.PatchTool;
-public static class PatchToolUI {
-    public static PatchState CurrentState;
-    private static Dictionary<(object, FieldInfo), object> _editStates = new();
-    private static Dictionary<object, Dictionary<FieldInfo, object>> _fieldsByObject = new();
+public class PatchToolTabUI {
+    public PatchState CurrentState;
+    private Dictionary<(object, FieldInfo), object> _editStates = new();
+    private Dictionary<object, Dictionary<FieldInfo, object>> _fieldsByObject = new();
     // key: parent, containing field, object instance
-    private static Dictionary<(object, FieldInfo, object), bool> _toggleStates = new();
-    private static Dictionary<((object, FieldInfo), int), bool> _listToggleStates = new();
-    private static Dictionary<(object, FieldInfo), AddItemState> _addItemStates = new();
+    private Dictionary<(object, FieldInfo, object), bool> _toggleStates = new();
+    private Dictionary<((object, FieldInfo), int), bool> _listToggleStates = new();
+    private Dictionary<(object, FieldInfo), AddItemState> _addItemStates = new();
     private static Dictionary<Type, List<Type>> _compatibleTypes = new();
     private static Dictionary<Type, List<Type>> _allowedTypes = new();
-    private static HashSet<object> _visited = new();
+    private HashSet<object> _visited = new();
     // private static string _target = "649ae43543fd4b47ae09a6547e67bcfc";
-    private static string _target = "";
-    private static string _pickerText = "";
-    public static int IndentPerLevel = 25;
+    internal string Target = "";
+    private string _pickerText = "";
+    public int IndentPerLevel = 25;
     private static readonly HashSet<Type> _primitiveTypes = new() { typeof(string), typeof(bool), typeof(int), typeof(uint), typeof(long), typeof(ulong), typeof(float), typeof(double) };
     public class AddItemState {
         public Browser<Type, Type> ToAddBrowser = new(true, true, false, false) { DisplayShowAllGUI = false };
-        public static AddItemState Create(object parent, FieldInfo info, object @object, int index, PatchOperation wouldBePatch) {
+        public static AddItemState Create(object parent, FieldInfo info, object @object, int index, PatchOperation wouldBePatch, PatchToolTabUI ui) {
             Type elementType = null;
             Type type = info.FieldType;
             if (type.IsArray) {
@@ -56,9 +56,10 @@ public static class PatchToolUI {
                 Collection = @object,
                 Item = null,
                 IsExpanded = true,
-                WouldBePatch = wouldBePatch
+                WouldBePatch = wouldBePatch,
+                _ui = ui
             };
-            _addItemStates[(parent, info)] = state;
+            ui._addItemStates[(parent, info)] = state;
 
             if (!_compatibleTypes.ContainsKey(elementType)) {
                 (var all, var allowed) = PatchToolUtils.GetInstantiableTypes(elementType, parent);
@@ -86,11 +87,12 @@ public static class PatchToolUI {
         }
         public void Confirm(Type type) {
             PatchOperation op = new(PatchOperation.PatchOperationType.ModifyCollection, Info.Name, type, null, Parent.GetType(), PatchOperation.CollectionPatchOperationType.AddAtIndex, Index);
-            CurrentState.AddOp(WouldBePatch.AddOperation(op));
-            CurrentState.CreatePatchFromState().RegisterPatch();
-            _addItemStates.Remove((Parent, Info));
+            _ui.CurrentState.AddOp(WouldBePatch.AddOperation(op));
+            _ui.CurrentState.CreatePatchFromState().RegisterPatch();
+            _ui._addItemStates.Remove((Parent, Info));
         }
         public object Parent;
+        private PatchToolTabUI _ui;
         public FieldInfo Info;
         public int Index;
         public object Collection;
@@ -101,12 +103,12 @@ public static class PatchToolUI {
     }
 
 
-    public static void SetTarget(string guid) {
+    public void SetTarget(string guid) {
         CurrentState = null;
         ClearCache();
-        _target = guid;
+        Target = guid;
     }
-    public static void OnGUI() {
+    public void OnGUI() {
         _visited.Clear();
         using (HorizontalScope()) {
             Label("Enter target blueprint id", Width(200));
@@ -116,10 +118,10 @@ public static class PatchToolUI {
             });
         }
         Div();
-        if (CurrentState == null || CurrentState.IsDirty && !_target.IsNullOrEmpty()) {
+        if (CurrentState == null || CurrentState.IsDirty && !Target.IsNullOrEmpty()) {
             if (Event.current.type == EventType.Layout) {
                 ClearCache();
-                var bp = ResourcesLibrary.TryGetBlueprint(_target);
+                var bp = ResourcesLibrary.TryGetBlueprint(Target);
                 if (bp != null) {
                     CurrentState = new(bp);
                 }
@@ -132,7 +134,7 @@ public static class PatchToolUI {
             }
         }
     }
-    public static void ClearCache() {
+    public void ClearCache() {
         _editStates.Clear();
         _fieldsByObject.Clear();
         _toggleStates.Clear();
@@ -140,7 +142,7 @@ public static class PatchToolUI {
         _compatibleTypes.Clear();
     }
 
-    public static void NestedGUI(object o, PatchOperation wouldBePatch = null) {
+    public void NestedGUI(object o, PatchOperation wouldBePatch = null) {
         if (_visited.Contains(o)) {
             Label("Already opened on another level!".Green());
             return;
@@ -165,7 +167,7 @@ public static class PatchToolUI {
             }
         }
     }
-    public static void FieldGUI(object parent, PatchOperation wouldBePatch, Type type, object @object, FieldInfo info) {
+    public void FieldGUI(object parent, PatchOperation wouldBePatch, Type type, object @object, FieldInfo info) {
         if (@object == null) {
             Label("Null", Width(500));
             return;
@@ -308,7 +310,7 @@ public static class PatchToolUI {
                     using (HorizontalScope()) {
                         Space(1220);
                         ActionButton("Add Item", () => {
-                            AddItemState.Create(parent, info, @object, -1, wouldBePatch);
+                            AddItemState.Create(parent, info, @object, -1, wouldBePatch, this);
                         });
                     }
                     if (_addItemStates.TryGetValue((parent, info), out var activeAddItemState)) {
@@ -336,7 +338,7 @@ public static class PatchToolUI {
         }
     }
 
-    public static void ListItemGUI(PatchOperation wouldBePatch, object parent, FieldInfo info, object elem, int index, object collection) {
+    public void ListItemGUI(PatchOperation wouldBePatch, object parent, FieldInfo info, object elem, int index, object collection) {
         PatchOperation tmpOp = new(PatchOperation.PatchOperationType.ModifyCollection, info.Name, null, null, parent.GetType(), PatchOperation.CollectionPatchOperationType.ModifyAtIndex, index);
         PatchOperation op = wouldBePatch.AddOperation(tmpOp);
         using (HorizontalScope()) {
@@ -346,11 +348,11 @@ public static class PatchToolUI {
 
             Space(20);
             ActionButton("Add Before", () => {
-                AddItemState.Create(parent, info, collection, index, wouldBePatch);
+                AddItemState.Create(parent, info, collection, index, wouldBePatch, this);
             });
             Space(10);
             ActionButton("Add After", () => {
-                AddItemState.Create(parent, info, collection, index+1, wouldBePatch);
+                AddItemState.Create(parent, info, collection, index+1, wouldBePatch, this);
             });
             Space(10);
             ActionButton("Remove", () => {
@@ -362,7 +364,7 @@ public static class PatchToolUI {
         }
     }
 
-    public static void PopulateFieldsAndObjects(object o) {
+    public void PopulateFieldsAndObjects(object o) {
         Dictionary<FieldInfo, object> result = new();
         foreach (var field in PatchToolUtils.GetFields(o.GetType())) {
             result[field] = field.GetValue(o);
