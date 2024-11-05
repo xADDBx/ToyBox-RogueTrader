@@ -43,6 +43,15 @@ Here is a summarized list of features. This list only includes a part of the fea
 - **Quest Resolution**: this allows you to view your active quests and advance them as needed to work around bugs or
   skip quests you don't want to do. Be warned this may break your game progression if used carelessly.
   
+### ToyBox Rogue - Ver 1.6.12 built for Rogue Trader 1.2.1.19
+* (***ADDB***) Rewrite the Psychic Phenomena customizer since it seems like it might've caused crashes for some people.
+* (***ADDB***) Patch tool stuff:
+  * UI improvement (spaces should now be more consistent)
+  * Collection support (it is now possible to add and remove items to collections)
+  * Flag enum support
+  * Multiple tab support
+  * Fix some patch tool bugs
+
 ### ToyBox Rogue - Ver 1.6.11 (DEBUG) built for Rogue Trader 1.2.1.19
 * (***ADDB***) Debug Blueprint Patcher
 * (***ADDB***) Reinstall on checksum failure now reinstalls current version.
