@@ -59,6 +59,15 @@ namespace ToyBox.BagOfPatches {
     internal static partial class Misc {
         public static Settings Settings = Main.Settings;
         public static Player player = Game.Instance.Player;
+        private static BlueprintPsychicPhenomenaRoot.PsychicPhenomenaData[] _psychicPhenomenasFiltered = null;
+        private static BlueprintAbilityReference[] _minorPerilsFiltered = null;
+        private static BlueprintAbilityReference[] _majorPerilsFiltered = null;
+        public static void InvalidateFilteredWarpPhenomenaArrays() {
+            _psychicPhenomenasFiltered = null;
+            _minorPerilsFiltered = null;
+            _majorPerilsFiltered = null;
+
+        }
         [HarmonyPatch(typeof(RuleCalculatePsychicPhenomenaEffect))]
         public static class RuleCalculatePsychicPhenomenaEffect_Patch {
             [HarmonyPatch(nameof(RuleCalculatePsychicPhenomenaEffect.OnTrigger))]
@@ -87,19 +96,43 @@ namespace ToyBox.BagOfPatches {
             }
         }
         public static BlueprintPsychicPhenomenaRoot.PsychicPhenomenaData[] GetPsychicPhenomenaFiltered() {
-            var newArr = AccessTools.MakeDeepCopy<BlueprintPsychicPhenomenaRoot.PsychicPhenomenaData[]>(BlueprintRoot.Instance.WarhammerRoot.PsychicPhenomenaRoot.PsychicPhenomena);
-            newArr.RemoveAll(i => Settings.excludedRandomPhenomena.Contains(i.Bark.Entries[0].Text.name));
-            return newArr;
+            if (_psychicPhenomenasFiltered == null) {
+                BlueprintPsychicPhenomenaRoot.PsychicPhenomenaData[] newArr = null;
+                try {
+                    newArr = BlueprintRoot.Instance.WarhammerRoot.PsychicPhenomenaRoot.PsychicPhenomena.Clone() as BlueprintPsychicPhenomenaRoot.PsychicPhenomenaData[];
+                    newArr.RemoveAll(i => Settings.excludedRandomPhenomena.Contains(i.Bark.Entries[0].Text.name));
+                } catch (Exception ex) {
+                    Mod.Error(ex);
+                }
+                _psychicPhenomenasFiltered = newArr ?? [];
+            }
+            return _psychicPhenomenasFiltered;
         }
         public static BlueprintAbilityReference[] GetMinorPerilsFiltered() {
-            var newArr = AccessTools.MakeDeepCopy<BlueprintAbilityReference[]>(BlueprintRoot.Instance.WarhammerRoot.PsychicPhenomenaRoot.PerilsOfTheWarpMinor);
-            newArr.RemoveAll(i => Settings.excludedPerilsMinor.Contains(i.guid));
-            return newArr;
+            if (_minorPerilsFiltered == null) {
+                BlueprintAbilityReference[] newArr = null;
+                try {
+                    newArr = BlueprintRoot.Instance.WarhammerRoot.PsychicPhenomenaRoot.PerilsOfTheWarpMinor.Clone() as BlueprintAbilityReference[];
+                    newArr.RemoveAll(i => Settings.excludedPerilsMinor.Contains(i.guid));
+                } catch (Exception ex) {
+                    Mod.Error(ex);
+                }
+                _minorPerilsFiltered = newArr ?? [];
+            }
+            return _minorPerilsFiltered;
         }
         public static BlueprintAbilityReference[] GetMajorPerilsFiltered() {
-            var newArr = AccessTools.MakeDeepCopy<BlueprintAbilityReference[]>(BlueprintRoot.Instance.WarhammerRoot.PsychicPhenomenaRoot.PerilsOfTheWarpMajor);
-            newArr.RemoveAll(i => Settings.excludedPerilsMajor.Contains(i.guid));
-            return newArr;
+            if (_majorPerilsFiltered == null) {
+                BlueprintAbilityReference[] newArr = null;
+                try {
+                    newArr = BlueprintRoot.Instance.WarhammerRoot.PsychicPhenomenaRoot.PerilsOfTheWarpMajor.Clone() as BlueprintAbilityReference[];
+                    newArr.RemoveAll(i => Settings.excludedPerilsMajor.Contains(i.guid));
+                } catch (Exception ex) {
+                    Mod.Error(ex);
+                }
+                _majorPerilsFiltered = newArr ?? [];
+            }
+            return _majorPerilsFiltered;
         }
         // Disables the lockout for reporting achievements
         [HarmonyPatch(typeof(AchievementEntity), nameof(AchievementEntity.IsDisabled), MethodType.Getter)]

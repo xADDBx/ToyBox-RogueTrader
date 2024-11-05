@@ -182,9 +182,15 @@ namespace ToyBox {
                                     Space(50);
                                     Label(desc.Green(), Width(400));
                                     if (Settings.excludedRandomPhenomena.Contains(internalName)) {
-                                        ActionButton("Allow".localize(), () => Settings.excludedRandomPhenomena.Remove(internalName), AutoWidth());
+                                        ActionButton("Allow".localize(), () => {
+                                            Settings.excludedRandomPhenomena.Remove(internalName);
+                                            Misc.InvalidateFilteredWarpPhenomenaArrays();
+                                        }, AutoWidth());
                                     } else {
-                                        ActionButton("Disable".localize(), () => Settings.excludedRandomPhenomena.Add(internalName), AutoWidth());
+                                        ActionButton("Disable".localize(), () => {
+                                            Settings.excludedRandomPhenomena.Add(internalName);
+                                            Misc.InvalidateFilteredWarpPhenomenaArrays();
+                                        }, AutoWidth());
                                     }
                                 }
                                 ReflectionTreeView.DetailToggle("", psychicphenomena, psychicphenomena, 0);
@@ -199,9 +205,15 @@ namespace ToyBox {
                                 using (HorizontalScope()) {
                                     Label(BlueprintExtensions.GetSearchKey(minorPeril.Get(), true).Cyan(), Width(650));
                                     if (Settings.excludedPerilsMinor.Contains(minorPeril.guid)) {
-                                        ActionButton("Allow".localize(), () => Settings.excludedPerilsMinor.Remove(minorPeril.guid), AutoWidth());
+                                        ActionButton("Allow".localize(), () => {
+                                            Settings.excludedPerilsMinor.Remove(minorPeril.guid);
+                                            Misc.InvalidateFilteredWarpPhenomenaArrays();
+                                        }, AutoWidth());
                                     } else {
-                                        ActionButton("Disable".localize(), () => Settings.excludedPerilsMinor.Add(minorPeril.guid), AutoWidth());
+                                        ActionButton("Disable".localize(), () => {
+                                            Settings.excludedPerilsMinor.Add(minorPeril.guid);
+                                            Misc.InvalidateFilteredWarpPhenomenaArrays();
+                                        }, AutoWidth());
                                     }
                                 }
                                 ReflectionTreeView.DetailToggle("", minorPeril, minorPeril, 0);
@@ -216,9 +228,15 @@ namespace ToyBox {
                                 using (HorizontalScope()) {
                                     Label(BlueprintExtensions.GetSearchKey(majorPeril.Get(), true).Cyan(), Width(650));
                                     if (Settings.excludedPerilsMajor.Contains(majorPeril.guid)) {
-                                        ActionButton("Allow".localize(), () => Settings.excludedPerilsMajor.Remove(majorPeril.guid), AutoWidth());
+                                        ActionButton("Allow".localize(), () => {
+                                            Settings.excludedPerilsMajor.Remove(majorPeril.guid);
+                                            Misc.InvalidateFilteredWarpPhenomenaArrays();
+                                        }, AutoWidth());
                                     } else {
-                                        ActionButton("Disable".localize(), () => Settings.excludedPerilsMajor.Add(majorPeril.guid), AutoWidth());
+                                        ActionButton("Disable".localize(), () => {
+                                            Settings.excludedPerilsMajor.Add(majorPeril.guid);
+                                            Misc.InvalidateFilteredWarpPhenomenaArrays();
+                                        }, AutoWidth());
                                     }
                                 }
                                 ReflectionTreeView.DetailToggle("", majorPeril, majorPeril, 0);
