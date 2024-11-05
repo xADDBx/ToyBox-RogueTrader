@@ -10,12 +10,12 @@ public static class PatchToolUIManager {
     private static List<PatchToolTabUI> instances = new();
     private static int selectedIndex = -1;
     public static void OnGUI() {
-        Label("Tabs".Bold(), AutoWidth());
+        Label("Tabs".localize().Bold(), AutoWidth());
         using (HorizontalScope()) {
             Space(50);
             for (int i = 0; i < instances.Count; i++) {
                 using (HorizontalScope()) {
-                    var tabName = instances[i].Target.IsNullOrEmpty() ? "New Tab" : instances[i].Target;
+                    var tabName = instances[i].Target.IsNullOrEmpty() ? "New Tab".localize() : instances[i].Target;
                     if (i == selectedIndex) {
                         Label($"[{tabName}]", AutoWidth());
                     } else {
@@ -23,7 +23,7 @@ public static class PatchToolUIManager {
                             selectedIndex = i;
                         }, AutoWidth());
                     }
-                    ActionButton("Close", () => {
+                    ActionButton("Close".localize(), () => {
                         instances.RemoveAt(i);
                         if (selectedIndex >= instances.Count) {
                             selectedIndex = instances.Count - 1;
@@ -41,7 +41,7 @@ public static class PatchToolUIManager {
         if (selectedIndex >= 0 && selectedIndex < instances.Count) {
             instances[selectedIndex].OnGUI();
         } else {
-            Label("No tabs open.");
+            Label("No tabs open.".localize());
         }
     }
 }

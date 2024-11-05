@@ -78,7 +78,7 @@ public class PatchToolTabUI {
                     (type, maybeType) => {
                         Label(type.Name, Width(400));
                         Space(200);
-                        ActionButton("Add as new entry", () => {
+                        ActionButton("Add as new entry".localize(), () => {
                             Confirm(type);
                         });
                     }
@@ -111,9 +111,9 @@ public class PatchToolTabUI {
     public void OnGUI() {
         _visited.Clear();
         using (HorizontalScope()) {
-            Label("Enter target blueprint id", Width(200));
+            Label("Enter target blueprint id".localize(), Width(200));
             TextField(ref _pickerText, null, Width(350));
-            ActionButton("Pick Blueprint", () => {
+            ActionButton("Pick Blueprint".localize(), () => {
                 SetTarget(_pickerText);
             });
         }
@@ -144,7 +144,7 @@ public class PatchToolTabUI {
 
     public void NestedGUI(object o, PatchOperation wouldBePatch = null) {
         if (_visited.Contains(o)) {
-            Label("Already opened on another level!".Green());
+            Label("Already opened on another level!".localize().Green());
             return;
         }
         _visited.Add(o);
@@ -178,7 +178,7 @@ public class PatchToolTabUI {
                 state = false;
             }
             Label(@object.ToString(), Width(500));
-            DisclosureToggle("Show Values", ref state, 800);
+            DisclosureToggle("Show Values".localize(), ref state, 800);
             Space(-800);
             _toggleStates[(parent, info, @object)] = state;
             if (state) {
@@ -221,7 +221,7 @@ public class PatchToolTabUI {
                                     }
                                 }
                                 _editStates[(parent, info)] = tmp;
-                                ActionButton("Change", () => {
+                                ActionButton("Change".localize(), () => {
                                     var underlyingType = Enum.GetUnderlyingType(type);
                                     var convertedValue = Convert.ChangeType(tmp, underlyingType);
                                     var newValue = Enum.ToObject(type, convertedValue);
@@ -236,7 +236,7 @@ public class PatchToolTabUI {
                             SelectionGrid(ref tmp, enumNames, cellsPerRow, Width(200 * cellsPerRow));
                             _editStates[(parent, info)] = tmp;
                             Space(20);
-                            ActionButton("Change", () => {
+                            ActionButton("Change".localize(), () => {
                                 PatchOperation tmpOp = new(PatchOperation.PatchOperationType.ModifyPrimitive, info.Name, type, Enum.Parse(type, enumNames[tmp]), parent.GetType());
                                 PatchOperation op = wouldBePatch.AddOperation(tmpOp);
                                 CurrentState.AddOp(op);
@@ -248,10 +248,10 @@ public class PatchToolTabUI {
             }
         } else if (typeof(UnityEngine.Object).IsAssignableFrom(type)) {
             Label(@object.ToString(), Width(500));
-            Label("Unity Object");
+            Label("Unity Object".localize());
         } else if (typeof(BlueprintReferenceBase).IsAssignableFrom(type)) {
             Label(@object.ToString(), Width(500));
-            Label("Reference");
+            Label("Reference".localize());
         } else if (_primitiveTypes.Contains(type)) {
             Label(@object.ToString(), Width(500));
             if (!_editStates.TryGetValue((parent, info), out var curValue)) {
@@ -261,7 +261,7 @@ public class PatchToolTabUI {
             TextField(ref tmp, null, Width(300));
             _editStates[(parent, info)] = tmp;
             Space(20);
-            ActionButton("Change", () => {
+            ActionButton("Change".localize(), () => {
                 object result = null;
                 if (type == typeof(string)) {
                     result = tmp;
@@ -292,11 +292,11 @@ public class PatchToolTabUI {
                 IList list = @object as IList;
                 elementCount = list.Count;
             }
-            Label($"{elementCount} Entries", Width(500));
+            Label($"{elementCount} " + "Entries".localize(), Width(500));
             if (!_toggleStates.TryGetValue((parent, info, @object), out var state)) {
                 state = false;
             }
-            DisclosureToggle("Show Entries", ref state, 200);
+            DisclosureToggle("Show Entries".localize(), ref state, 200);
             _toggleStates[(parent, info, @object)] = state;
             if (state) {
                 int index = 0;
@@ -309,12 +309,12 @@ public class PatchToolTabUI {
                     }
                     using (HorizontalScope()) {
                         Space(1220);
-                        ActionButton("Add Item", () => {
+                        ActionButton("Add Item".localize(), () => {
                             AddItemState.Create(parent, info, @object, -1, wouldBePatch, this);
                         });
                     }
                     if (_addItemStates.TryGetValue((parent, info), out var activeAddItemState)) {
-                        Label("New Item:", Width(500));
+                        Label("New Item:".localize(), Width(500));
                         activeAddItemState.AddItemGUI();
                     }
                 }
@@ -324,7 +324,7 @@ public class PatchToolTabUI {
             if (!_toggleStates.TryGetValue((parent, info, @object), out var state)) {
                 state = false;
             }
-            DisclosureToggle("Show fields", ref state, 200);
+            DisclosureToggle("Show fields".localize(), ref state, 200);
             _toggleStates[(parent, info, @object)] = state;
             if (state) {
                 PatchOperation tmpOp = new(PatchOperation.PatchOperationType.ModifyComplex, info.Name, null, null, parent.GetType());
@@ -347,15 +347,15 @@ public class PatchToolTabUI {
             FieldGUI(parent, op, elem.GetType(), elem, info);
 
             Space(20);
-            ActionButton("Add Before", () => {
+            ActionButton("Add Before".localize(), () => {
                 AddItemState.Create(parent, info, collection, index, wouldBePatch, this);
             });
             Space(10);
-            ActionButton("Add After", () => {
+            ActionButton("Add After".localize(), () => {
                 AddItemState.Create(parent, info, collection, index+1, wouldBePatch, this);
             });
             Space(10);
-            ActionButton("Remove", () => {
+            ActionButton("Remove".localize(), () => {
                 PatchOperation removeOp = new(PatchOperation.PatchOperationType.ModifyCollection, info.Name, null, null, parent.GetType(), PatchOperation.CollectionPatchOperationType.RemoveAtIndex, index);
                 PatchOperation opRemove = wouldBePatch.AddOperation(removeOp);
                 CurrentState.AddOp(opRemove);
