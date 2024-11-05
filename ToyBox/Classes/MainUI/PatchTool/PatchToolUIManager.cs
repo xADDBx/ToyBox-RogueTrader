@@ -11,6 +11,8 @@ public static class PatchToolUIManager {
     private static int selectedIndex = -1;
     private static bool showExistingPatchesUI = false;
     public static void OnGUI() {
+        Label("Note:".localize().Green().Bold() + " " + "As with Etudes Editor, this is a very powerful feature. You naturally won't break your game by simply changing the damage of a weapon, but this feature allows a lot of things that could potentially causes issues. Beware of that and always work on a backup save.".localize().Green());
+        Label("Warning:".localize().Yellow().Bold() + " " + "After finishing creating a patch, it is advised to restart the game before playing on a proper save.".localize().Yellow());
         DisclosureToggle("Manage existing patches".localize(), ref showExistingPatchesUI, 200);
         if (showExistingPatchesUI) {
             PatchListUI.OnGUI();

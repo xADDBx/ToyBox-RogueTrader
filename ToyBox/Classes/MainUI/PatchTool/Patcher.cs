@@ -52,6 +52,8 @@ public static class Patcher {
     public static SimpleBlueprint ApplyPatch(this Patch patch) {
         if (patch == null) return null;
         var current = ResourcesLibrary.TryGetBlueprint(patch.BlueprintGuid);
+        // TODO: Instead of creating a copy, a proper unpatch would work by creating inverse operations
+        // based on the stored original blueprint and the applied patch
         if (OriginalBps.TryGetValue(current.AssetGuid, out var pair)) {
             current = DeepBlueprintCopy(pair);
         } else {
