@@ -64,7 +64,7 @@ public static class PatchToolUtils {
         if (head == null) {
             return leaf;
         } else {
-            var copy = head.DeepCopy() as PatchOperation;
+            var copy = head.Copy();
             PatchOperation cur = copy;
             while (cur.NestedOperation != null) {
                 cur = cur.NestedOperation;

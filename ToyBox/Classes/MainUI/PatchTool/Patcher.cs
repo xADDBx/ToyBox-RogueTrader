@@ -76,6 +76,6 @@ public static class Patcher {
         }
     }
     public static SimpleBlueprint DeepBlueprintCopy(SimpleBlueprint blueprint) {
-        return blueprint.DeepCopy() as SimpleBlueprint;
+        return blueprint.Copy();
     }
 }

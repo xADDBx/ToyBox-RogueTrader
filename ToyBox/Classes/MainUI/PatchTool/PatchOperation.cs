@@ -119,34 +119,13 @@ public class PatchOperation {
                                 }
                             }
                             break;
-                        default: throw new NotImplementedException();
+                        default: throw new NotImplementedException($"Unknown CollectionOperation: {CollectionOperationType}");
                     }
                     field.SetValue(instance, collection);
                 } 
                 break;
             case PatchOperationType.ModifyUnityReference: {
-                    if (PatchedObjectType.IsAssignableFrom(typeof(UnityEngine.Object))) {
-                        JObject jobject = (JObject)NewValue;
-                        string text = (string)jobject["guid"];
-                        long? num = (long?)jobject["fileid"];
-                        UnityEngine.Object @object = null;
-                        if (UnityObjectConverter.AssetList) {
-                            UnityEngine.Object tmp = UnityObjectConverter.AssetList.Get(text, num.Value);
-                            if (@object != null) {
-                                @object = tmp;
-                            }
-                        }
-                        if (@object == null) {
-                            foreach (BlueprintReferencedAssets blueprintReferencedAssets in UnityObjectConverter.ModificationAssetLists) {
-                                UnityEngine.Object tmp = blueprintReferencedAssets.Get(text, num.Value);
-                                if (tmp != null) {
-                                    @object = tmp;
-                                    break;
-                                }
-                            }
-                        }
-                        field.SetValue(instance, @object);
-                    }
+                    throw new NotImplementedException("Modifying Unity Objects is not supported.");
                 } 
                 break;
             case PatchOperationType.ModifyComplex: {
@@ -155,10 +134,15 @@ public class PatchOperation {
                     field.SetValue(instance, @object);
                 }
                 break;
-            default: {
+            case PatchOperationType.ModifyPrimitive: {
                     field.SetValue(instance, Convert.ChangeType(NewValue, NewValueType));
                 } 
                 break;
+            case PatchOperationType.ModifyBlueprintReference: {
+                    throw new NotImplementedException("Blueprint References not yet implemented");
+                }
+                break;
+            default: throw new NotImplementedException($"Unknown PatchOperation: {OperationType}");
         }
         return instance;
     }

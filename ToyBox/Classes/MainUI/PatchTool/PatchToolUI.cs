@@ -153,12 +153,13 @@ public static class PatchToolUI {
             foreach (var field in _fieldsByObject[o]) {
                 using (HorizontalScope()) {
                     bool isEnum = typeof(Enum).IsAssignableFrom(field.Key.FieldType);
+                    bool isFlagEnum = field.Key.FieldType.IsDefined(typeof(FlagsAttribute), false);
                     string generics = "";
                     if (field.Key.FieldType.IsGenericType) {
                         generics = field.Key.FieldType.GetGenericArguments().ToContentString();
                     }
                     Space(IndentPerLevel);
-                    Label($"{field.Key.Name} ({(isEnum ? "Enum: " : "")}{field.Key.FieldType.Name}{generics})", Width(500));
+                    Label($"{field.Key.Name} ({(isFlagEnum ? "Flag " : "")}{(isEnum ? "Enum: " : "")}{field.Key.FieldType.Name}{generics})", Width(500));
                     FieldGUI(o, wouldBePatch, field.Key.FieldType, field.Value, field.Key);
                 }
             }
@@ -170,6 +171,7 @@ public static class PatchToolUI {
             return;
         }
         if (typeof(Enum).IsAssignableFrom(type)) {
+            var isFlagEnum = type.IsDefined(typeof(FlagsAttribute), false);
             if (!_toggleStates.TryGetValue((parent, info, @object), out var state)) {
                 state = false;
             }
@@ -182,21 +184,63 @@ public static class PatchToolUI {
                     Label("");
                     using (HorizontalScope()) {
                         if (!_editStates.TryGetValue((parent, info), out var curValue)) {
-                            curValue = 0;
+                            if (isFlagEnum) curValue = Convert.ChangeType(@object, Enum.GetUnderlyingType(type));
+                            else curValue = 0;
                         }
                         var vals = Enum.GetValues(type).Cast<object>();
                         var enumNames = vals.Select(val => val.ToString()).ToArray();
-                        var tmp = (int)curValue;
+                        var enumValues = vals.Select(Convert.ToInt64).ToArray();
                         var cellsPerRow = Math.Min(4, enumNames.Length);
-                        SelectionGrid(ref tmp, enumNames, cellsPerRow, Width(200 * cellsPerRow));
-                        _editStates[(parent, info)] = tmp;
-                        Space(20);
-                        ActionButton("Change", () => {
-                            PatchOperation tmpOp = new(PatchOperation.PatchOperationType.ModifyPrimitive, info.Name, type, Enum.Parse(type, enumNames[tmp]), parent.GetType());
-                            PatchOperation op = wouldBePatch.AddOperation(tmpOp);
-                            CurrentState.AddOp(op);
-                            CurrentState.CreatePatchFromState().RegisterPatch();
-                        });
+                        if (isFlagEnum) {
+                            var tmp = Convert.ToInt64(curValue);
+                            int totalFlags = vals.Count();
+                            int rows = (totalFlags + cellsPerRow - 1) / cellsPerRow;
+
+                            using (VerticalScope()) {
+                                int flagIndex = 0;
+                                for (int row = 0; row < rows; row++) {
+                                    using (HorizontalScope()) {
+                                        for (int col = 0; col < cellsPerRow && flagIndex < totalFlags; col++, flagIndex++) {
+                                            var flagName = enumNames[flagIndex];
+                                            var flagValue = enumValues[flagIndex];
+                                            var isSet = (tmp & flagValue) != 0;
+                                            bool newIsSet = isSet;
+
+                                            Toggle(flagName, ref newIsSet, Width(200));
+
+                                            if (newIsSet != isSet) {
+                                                if (newIsSet) {
+                                                    tmp |= flagValue;
+                                                } else {
+                                                    tmp &= ~flagValue;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                _editStates[(parent, info)] = tmp;
+                                ActionButton("Change", () => {
+                                    var underlyingType = Enum.GetUnderlyingType(type);
+                                    var convertedValue = Convert.ChangeType(tmp, underlyingType);
+                                    var newValue = Enum.ToObject(type, convertedValue);
+                                    PatchOperation tmpOp = new(PatchOperation.PatchOperationType.ModifyPrimitive, info.Name, type, newValue, parent.GetType());
+                                    PatchOperation op = wouldBePatch.AddOperation(tmpOp);
+                                    CurrentState.AddOp(op);
+                                    CurrentState.CreatePatchFromState().RegisterPatch();
+                                });
+                            }
+                        } else {
+                            var tmp = (int)curValue;
+                            SelectionGrid(ref tmp, enumNames, cellsPerRow, Width(200 * cellsPerRow));
+                            _editStates[(parent, info)] = tmp;
+                            Space(20);
+                            ActionButton("Change", () => {
+                                PatchOperation tmpOp = new(PatchOperation.PatchOperationType.ModifyPrimitive, info.Name, type, Enum.Parse(type, enumNames[tmp]), parent.GetType());
+                                PatchOperation op = wouldBePatch.AddOperation(tmpOp);
+                                CurrentState.AddOp(op);
+                                CurrentState.CreatePatchFromState().RegisterPatch();
+                            });
+                        }
                     }
                 }
             }
