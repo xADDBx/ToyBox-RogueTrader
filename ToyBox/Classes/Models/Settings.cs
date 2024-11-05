@@ -297,6 +297,7 @@ namespace ToyBox {
         public bool hasSeenUpdatePage = false;
         public bool toggleVersionCompatability = true;
         public bool toggleIntegrityCheck = true;
+        public HashSet<string> disabledPatches = new();
 
         // Save
         public override void Save(UnityModManager.ModEntry modEntry) => Save(this, modEntry);

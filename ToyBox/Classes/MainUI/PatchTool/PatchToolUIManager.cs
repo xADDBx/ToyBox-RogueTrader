@@ -9,7 +9,14 @@ namespace ToyBox.PatchTool;
 public static class PatchToolUIManager {
     private static List<PatchToolTabUI> instances = new();
     private static int selectedIndex = -1;
+    private static bool showExistingPatchesUI = false;
     public static void OnGUI() {
+        DisclosureToggle("Manage existing patches".localize(), ref showExistingPatchesUI, 200);
+        if (showExistingPatchesUI) {
+            PatchListUI.OnGUI();
+            Div();
+            Space(20);
+        }
         Label("Tabs".localize().Bold(), AutoWidth());
         using (HorizontalScope()) {
             Space(50);

@@ -1,31 +1,25 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using ModKit;
-using ModKit.Utility.Extensions;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ToyBox.PatchTool; 
+namespace ToyBox.PatchTool;
 public static class Patcher {
     public static Dictionary<string, SimpleBlueprint> OriginalBps = new();
     public static Dictionary<string, Patch> AppliedPatches = new();
     public static Dictionary<string, Patch> KnownPatches = new();
-    private static bool _init = false;
+    public static bool IsInitialized = false;
+    public static string PatchDirectoryPath => Path.Combine(Main.ModEntry.Path, "Patches");
+    public static string PatchFilePath(Patch patch) => Path.Combine(PatchDirectoryPath, $"{patch.BlueprintGuid}_{patch.PatchId}.json");
     public static void PatchAll() {
-        if (!_init) {
-            var userPatchesFolder = Path.Combine(Main.ModEntry.Path, "Patches");
-            Directory.CreateDirectory(userPatchesFolder);
+        if (!IsInitialized) {
+            Directory.CreateDirectory(PatchDirectoryPath);
             var settings = new JsonSerializerSettings();
             settings.Converters.Add(new PatchToolJsonConverter());
-            foreach (var file in Directory.GetFiles(userPatchesFolder)) {
+            foreach (var file in Directory.GetFiles(PatchDirectoryPath)) {
                 try {
                     var patch = JsonConvert.DeserializeObject<Patch>(File.ReadAllText(file), settings);
                     KnownPatches[patch.BlueprintGuid] = patch;
@@ -33,11 +27,13 @@ public static class Patcher {
                     Mod.Log($"Error trying to load patch file {file}:\n{ex.ToString()}");
                 }
             }
-            _init = true;
+            IsInitialized = true;
         }
         foreach (var patch in KnownPatches.Values) {
             try {
-                patch.ApplyPatch();
+                if (!Main.Settings.disabledPatches.Contains(patch.PatchId)) {
+                    patch.ApplyPatch();
+                }
             } catch (Exception ex) {
                 Mod.Log($"Error trying to patch blueprint {patch.BlueprintGuid} with patch {patch.PatchId}:\n{ex.ToString()}");
             }
@@ -50,6 +46,9 @@ public static class Patcher {
         }
         return blueprint;
     }
+    // As previous troubles with the BlueprintLoader indicate,
+    // replacing an existing instance of a Blueprint after its been loaded can be problematic.
+    // Suggest restarting the game after finishing the patches...
     public static SimpleBlueprint ApplyPatch(this Patch patch) {
         if (patch == null) return null;
         var current = ResourcesLibrary.TryGetBlueprint(patch.BlueprintGuid);
@@ -64,11 +63,19 @@ public static class Patcher {
         ResourcesLibrary.BlueprintsCache.m_LoadedBlueprints[current.AssetGuid] = entry;
         return patched;
     }
+    public static void RestoreOriginal(string blueprintGuid) {
+        if (OriginalBps.TryGetValue(blueprintGuid, out var pair)) {
+            var entry = ResourcesLibrary.BlueprintsCache.m_LoadedBlueprints[blueprintGuid];
+            entry.Blueprint = pair;
+            ResourcesLibrary.BlueprintsCache.m_LoadedBlueprints[blueprintGuid] = entry;
+            AppliedPatches.Remove(blueprintGuid);
+        }
+    }
     public static void RegisterPatch(this Patch patch) {
         try {
-            var userPatchesFolder = Path.Combine(Main.ModEntry.Path, "Patches");
-            Directory.CreateDirectory(userPatchesFolder);
-            File.WriteAllText(Path.Combine(userPatchesFolder, $"{patch.BlueprintGuid}_{patch.PatchId}.json"), JsonConvert.SerializeObject(patch, Formatting.Indented));
+            var userPatchesFolder = 
+            Directory.CreateDirectory(PatchDirectoryPath);
+            File.WriteAllText(PatchFilePath(patch), JsonConvert.SerializeObject(patch, Formatting.Indented));
             KnownPatches[patch.BlueprintGuid] = patch;
             patch.ApplyPatch();
         } catch (Exception ex) {
