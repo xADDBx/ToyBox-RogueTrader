@@ -14,26 +14,6 @@ using System.Threading.Tasks;
 
 namespace ToyBox.PatchTool; 
 public static class PatchToolUtils {
-    [HarmonyPatch]
-    public static class PatchToolPatches {
-        private static bool Initialized = false;
-        [HarmonyPriority(Priority.LowerThanNormal)]
-        [HarmonyPatch(typeof(BlueprintsCache), nameof(BlueprintsCache.Init)), HarmonyPostfix]
-        public static void Init_Postfix() {
-            try {
-                if (Initialized) {
-                    Mod.Log("Already initialized blueprints cache.");
-                    return;
-                }
-                Initialized = true;
-
-                Mod.Log("Patching blueprints.");
-                Patcher.PatchAll();
-            } catch (Exception e) {
-                Mod.Log(string.Concat("Failed to initialize.", e));
-            }
-        }
-    }
     public static bool IsListOrArray(Type t) {
         return t.IsArray || typeof(IList<>).IsAssignableFrom(t) || t.GetInterfaces().Any(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IList<>));
     }

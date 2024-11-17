@@ -53,4 +53,13 @@ public static class PatchToolUIManager {
             Label("No tabs open.".localize());
         }
     }
+    public static void OpenBlueprintInTab(string guid) {
+        var existing = instances.FirstOrDefault(tab => tab.Target.Equals(guid, StringComparison.InvariantCultureIgnoreCase));
+        if (existing != default) {
+            selectedIndex = instances.IndexOf(existing);
+        } else {
+            instances.Add(new PatchToolTabUI(guid));
+            selectedIndex = instances.Count - 1;
+        }
+    }
 }

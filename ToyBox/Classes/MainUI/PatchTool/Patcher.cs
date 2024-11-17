@@ -39,41 +39,38 @@ public static class Patcher {
             }
         }
     }
-    public static SimpleBlueprint ApplyPatch(this SimpleBlueprint blueprint, Patch patch) {
+    private static SimpleBlueprint ApplyPatch(this SimpleBlueprint blueprint, Patch patch) {
         AppliedPatches[blueprint.AssetGuid] = patch;
         foreach (var operation in patch.Operations) {
             operation.Apply(blueprint);
         }
         return blueprint;
     }
-    // As previous troubles with the BlueprintLoader indicate,
-    // replacing an existing instance of a Blueprint after its been loaded can be problematic.
-    // Suggest restarting the game after finishing the patches...
     public static SimpleBlueprint ApplyPatch(this Patch patch) {
         if (patch == null) return null;
         var current = ResourcesLibrary.TryGetBlueprint(patch.BlueprintGuid);
-        // TODO: Instead of creating a copy, a proper unpatch would work by creating inverse operations
-        // based on the stored original blueprint and the applied patch
-        if (OriginalBps.TryGetValue(current.AssetGuid, out var pair)) {
-            current = DeepBlueprintCopy(pair);
-        } else {
+
+        if (!OriginalBps.ContainsKey(current.AssetGuid)) {
             OriginalBps[current.AssetGuid] = DeepBlueprintCopy(current);
         }
-        var patched = current.ApplyPatch(patch);
-        var entry = ResourcesLibrary.BlueprintsCache.m_LoadedBlueprints[current.AssetGuid];
-        entry.Blueprint = patched;
-        ResourcesLibrary.BlueprintsCache.m_LoadedBlueprints[current.AssetGuid] = entry;
-        return patched;
+        var copy = DeepBlueprintCopy(OriginalBps[current.AssetGuid]);
+        var patched = copy.ApplyPatch(patch);
+        var patchedCurrent = DeepBlueprintCopy(patched, current);
+        Mod.Debug($"Assert: current == patchedCurrent: {current == patchedCurrent}");
+        Mod.Debug($"Assert: patched == copy: {patched == copy}");
+        Mod.Debug($"Assert: current != patched: {current != patched}");
+        Mod.Debug($"Assert: current != copy: {current != copy}");
+        return patchedCurrent;
     }
     public static void RestoreOriginal(string blueprintGuid) {
-        if (OriginalBps.TryGetValue(blueprintGuid, out var pair)) {
-            var entry = ResourcesLibrary.BlueprintsCache.m_LoadedBlueprints[blueprintGuid];
-            entry.Blueprint = pair;
-            ResourcesLibrary.BlueprintsCache.m_LoadedBlueprints[blueprintGuid] = entry;
+        if (OriginalBps.TryGetValue(blueprintGuid, out var copy)) {
+            var bp = ResourcesLibrary.TryGetBlueprint(blueprintGuid);
+            DeepBlueprintCopy(copy, bp);
             AppliedPatches.Remove(blueprintGuid);
         }
     }
     public static void RegisterPatch(this Patch patch) {
+        if (patch == null) return;
         try {
             var userPatchesFolder = 
             Directory.CreateDirectory(PatchDirectoryPath);
@@ -84,7 +81,7 @@ public static class Patcher {
             Mod.Log($"Error registering patch for blueprint {patch.BlueprintGuid} with patch {patch.PatchId}:\n{ex.ToString()}");
         }
     }
-    public static SimpleBlueprint DeepBlueprintCopy(SimpleBlueprint blueprint) {
-        return blueprint.Copy();
+    public static SimpleBlueprint DeepBlueprintCopy(SimpleBlueprint blueprint, SimpleBlueprint target = null) {
+        return blueprint.Copy(target);
     }
 }

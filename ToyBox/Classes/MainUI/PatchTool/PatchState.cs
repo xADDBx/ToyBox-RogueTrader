@@ -22,7 +22,7 @@ public class PatchState {
         UnderlyingPatch = patch;
         var bp = ResourcesLibrary.TryGetBlueprint(patch.BlueprintGuid);
         if (!Patcher.AppliedPatches.ContainsKey(patch.BlueprintGuid)) {
-            bp.ApplyPatch(patch);
+            patch.ApplyPatch();
         }
         Operations = patch.Operations;
         SetupFromBlueprint(bp);

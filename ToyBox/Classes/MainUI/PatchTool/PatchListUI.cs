@@ -46,6 +46,10 @@ public static class PatchListUI {
                         }, Width(100));
                     }
                     Space(50);
+                    ActionButton("Modify".localize(), () => {
+                        PatchToolUIManager.OpenBlueprintInTab(patch.BlueprintGuid);
+                    });
+                    Space(50);
                     ActionButton("Delete".localize(), () => {
                         DeletePatch(patch);
                     });

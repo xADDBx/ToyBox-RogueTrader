@@ -101,6 +101,10 @@ public class PatchToolTabUI {
         public bool IsExpanded;
         public PatchOperation WouldBePatch;
     }
+    public PatchToolTabUI() { }
+    public PatchToolTabUI(string guid) {
+        Target = guid;
+    }
 
 
     public void SetTarget(string guid) {
@@ -118,7 +122,7 @@ public class PatchToolTabUI {
             });
         }
         Div();
-        if (CurrentState == null || CurrentState.IsDirty && !Target.IsNullOrEmpty()) {
+        if ((CurrentState == null || CurrentState.IsDirty) && !Target.IsNullOrEmpty()) {
             if (Event.current.type == EventType.Layout) {
                 ClearCache();
                 var bp = ResourcesLibrary.TryGetBlueprint(Target);

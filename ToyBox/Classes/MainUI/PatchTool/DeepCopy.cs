@@ -11,16 +11,16 @@ namespace System {
             return (type.IsValueType & type.IsPrimitive);
         }
 
-        public static Object DeepCopy(this Object originalObject) {
-            return InternalCopy(originalObject, new Dictionary<Object, Object>(new ReferenceEqualityComparer()));
+        public static Object DeepCopy(this Object originalObject, Object targetObject = null) {
+            return InternalCopy(originalObject, new Dictionary<Object, Object>(new ReferenceEqualityComparer()), targetObject);
         }
-        private static Object InternalCopy(Object originalObject, IDictionary<Object, Object> visited) {
+        private static Object InternalCopy(Object originalObject, IDictionary<Object, Object> visited, Object targetObject = null) {
             if (originalObject == null) return null;
             var typeToReflect = originalObject.GetType();
             if (IsPrimitive(typeToReflect)) return originalObject;
             if (visited.ContainsKey(originalObject)) return visited[originalObject];
             if (typeof(Delegate).IsAssignableFrom(typeToReflect)) return null;
-            var cloneObject = CloneMethod.Invoke(originalObject, null);
+            var cloneObject = targetObject ?? CloneMethod.Invoke(originalObject, null);
             if (typeToReflect.IsArray) {
                 var arrayType = typeToReflect.GetElementType();
                 if (IsPrimitive(arrayType) == false) {
@@ -51,8 +51,11 @@ namespace System {
                 fieldInfo.SetValue(cloneObject, clonedFieldValue);
             }
         }
+        public static T Copy<T>(this T original, T target = null) where T : class {
+            return (T)DeepCopy(original, target);
+        }
         public static T Copy<T>(this T original) {
-            return (T)DeepCopy((Object)original);
+            return (T)DeepCopy(original);
         }
     }
 
