@@ -1,6 +1,8 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
+using Kingmaker.UnitLogic;
 using ModKit;
+using ModKit.DataViewer;
 using ModKit.Utility.Extensions;
 using System;
 using System.Collections;
@@ -11,6 +13,8 @@ using System.Text;
 using System.Threading.Tasks;
 using UniRx;
 using UnityEngine;
+using static Kingmaker.Visual.Sound.SoundEventsEmitter;
+using static Unity.Burst.Intrinsics.X86.Avx;
 
 namespace ToyBox.PatchTool;
 public class PatchToolTabUI {
@@ -24,6 +28,9 @@ public class PatchToolTabUI {
     private static Dictionary<Type, List<Type>> _compatibleTypes = new();
     private static Dictionary<Type, List<Type>> _allowedTypes = new();
     private HashSet<object> _visited = new();
+    private bool _showBlueprintPicker = false;
+    private bool _showPatchManager = false;
+    private bool _showFieldsEditor = false;
     internal string Target = "";
     private string _pickerText = "";
     public int IndentPerLevel = 25;
@@ -113,14 +120,17 @@ public class PatchToolTabUI {
     }
     public void OnGUI() {
         _visited.Clear();
-        using (HorizontalScope()) {
-            Label("Enter target blueprint id".localize(), Width(200));
-            TextField(ref _pickerText, null, Width(350));
-            ActionButton("Pick Blueprint".localize(), () => {
-                SetTarget(_pickerText);
-            });
+        DisclosureToggle("Show Blueprint Picker", ref _showBlueprintPicker);
+        if (_showBlueprintPicker) {
+            using (HorizontalScope()) {
+                Space(20);
+                Label("Enter target blueprint id".localize(), Width(200));
+                TextField(ref _pickerText, null, Width(350));
+                ActionButton("Pick Blueprint".localize(), () => {
+                    SetTarget(_pickerText);
+                });
+            }
         }
-        Div();
         if ((CurrentState == null || CurrentState.IsDirty) && !Target.IsNullOrEmpty()) {
             if (Event.current.type == EventType.Layout) {
                 ClearCache();
@@ -131,9 +141,55 @@ public class PatchToolTabUI {
             }
         }
         if (CurrentState != null) {
-            using (HorizontalScope()) {
-                Space(-IndentPerLevel);
-                NestedGUI(CurrentState.Blueprint);
+            Space(15);
+            Div();
+            Space(15);
+            DisclosureToggle("Show Patch Manager".localize(), ref _showPatchManager);
+            if (_showPatchManager) {
+                using (HorizontalScope()) {
+                    Space(20);
+                    using (VerticalScope()) {
+                        using (HorizontalScope()) {
+                            Label($"Current Patch targets bp: {BlueprintExtensions.GetTitle(CurrentState.Blueprint).Cyan()}({CurrentState.Blueprint.name ?? CurrentState.Blueprint.AssetGuid}) and has {CurrentState.Operations.Count.ToString().Cyan()} operations.");
+                            Space(30);
+                            using (VerticalScope()) {
+                                int count = 0;
+                                foreach (var op in CurrentState.Operations.ToList()) {
+                                    count++;
+                                    using (HorizontalScope()) {
+                                        Label($"Operation: {op.OperationType}", Width(200));
+                                        Space(20);
+                                        Label($"Field: {op.FieldName}", Width(300));
+                                        Space(20);
+                                        ReflectionTreeView.DetailToggle("Inspect".localize(), op, op, 0);
+                                        Space(20);
+                                        if (count == CurrentState.Operations.Count) {
+                                            ActionButton("Remove".localize(), () => {
+                                                CurrentState.Operations.Remove(op);
+                                            });
+                                        }
+                                    }
+                                    ReflectionTreeView.OnDetailGUI(op);
+                                }
+                            }
+                        }
+                        Space(10);
+                        ActionButton("Apply Changes".localize(), () => {
+                            CurrentState.CreateAndRegisterPatch();
+                        });
+                    }
+                }
+            }
+            Space(15);
+            Div();
+            Space(15);
+            DisclosureToggle("Show Fields Editor".localize(), ref _showFieldsEditor);
+            if (_showFieldsEditor) {
+                using (HorizontalScope()) {
+                    Space(20);
+                    Space(-IndentPerLevel);
+                    NestedGUI(CurrentState.Blueprint);
+                }
             }
         }
     }
