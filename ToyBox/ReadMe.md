@@ -43,6 +43,9 @@ Here is a summarized list of features. This list only includes a part of the fea
 - **Quest Resolution**: this allows you to view your active quests and advance them as needed to work around bugs or
   skip quests you don't want to do. Be warned this may break your game progression if used carelessly.
   
+### ToyBox Rogue - Ver 1.6.13 built for Rogue Trader 1.2.1.19
+* (***ADDB***) Patch tool blueprint picker and blueprint references support. With this the feature is now more or less mature.
+
 ### ToyBox Rogue - Ver 1.6.12 built for Rogue Trader 1.2.1.19
 * (***ADDB***) Rewrite the Psychic Phenomena customizer since it seems like it might've caused crashes for some people.
 * (***ADDB***) Patch tool stuff:
@@ -54,9 +57,9 @@ Here is a summarized list of features. This list only includes a part of the fea
   * Fix some patch tool bugs
 
 ### ToyBox Rogue - Ver 1.6.11 (DEBUG) built for Rogue Trader 1.2.1.19
-* (***ADDB***) Initial Blueprint Patcher Impl
+* (***ADDB***) Initial Blueprint Patcher Impl.
 * (***ADDB***) Reinstall on checksum failure now reinstalls current version.
-* (***ADDB***) Fix very rare issue with Browser
+* (***ADDB***) Fix very rare issue with Browser.
 
 ### ToyBox Rogue - Ver 1.6.10 built for Rogue Trader 1.2.1.19
 * (***ADDB***) Added check for corrupted mod files.

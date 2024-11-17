@@ -33,7 +33,9 @@ namespace ModKit {
         }
         public static void OnSaveGUI(ModEntry entry) {
             ModKitSettings.Save();
-            LocalizationManager.Export();
+            if (LocalizationManager.isEnabled) {
+                LocalizationManager.Export();
+            }
         }
         private static void ResetGUI(ModEntry modEntry) => ModKitSettings.Load();
         public static void Error(string str, int skip = 1) {

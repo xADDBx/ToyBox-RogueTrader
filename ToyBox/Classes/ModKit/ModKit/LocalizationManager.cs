@@ -35,7 +35,7 @@ namespace ModKit {
         private static Language _localDefault;
         private static Language _local;
         private static bool IsDefault;
-        private static bool isEnabled = false;
+        internal static bool isEnabled = false;
         public static string FilePath { get; private set; }
 
         public static void Enable() {
