@@ -33,7 +33,10 @@ public class PatchState {
             Operations = UnderlyingPatch.Operations;
         }
     }
-    public Patch CreatePatchFromState() {
+    public void CreateAndRegisterPatch() {
+        CreatePatch().RegisterPatch();
+    }
+    public Patch CreatePatch() {
         try {
             IsDirty = true;
             if (UnderlyingPatch != null) {

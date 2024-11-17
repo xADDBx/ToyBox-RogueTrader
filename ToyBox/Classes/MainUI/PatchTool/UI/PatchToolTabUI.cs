@@ -24,7 +24,6 @@ public class PatchToolTabUI {
     private static Dictionary<Type, List<Type>> _compatibleTypes = new();
     private static Dictionary<Type, List<Type>> _allowedTypes = new();
     private HashSet<object> _visited = new();
-    // private static string _target = "649ae43543fd4b47ae09a6547e67bcfc";
     internal string Target = "";
     private string _pickerText = "";
     public int IndentPerLevel = 25;
@@ -88,7 +87,7 @@ public class PatchToolTabUI {
         public void Confirm(Type type) {
             PatchOperation op = new(PatchOperation.PatchOperationType.ModifyCollection, Info.Name, type, null, Parent.GetType(), PatchOperation.CollectionPatchOperationType.AddAtIndex, Index);
             _ui.CurrentState.AddOp(WouldBePatch.AddOperation(op));
-            _ui.CurrentState.CreatePatchFromState().RegisterPatch();
+            _ui.CurrentState.CreateAndRegisterPatch();
             _ui._addItemStates.Remove((Parent, Info));
         }
         public object Parent;
@@ -232,7 +231,7 @@ public class PatchToolTabUI {
                                     PatchOperation tmpOp = new(PatchOperation.PatchOperationType.ModifyPrimitive, info.Name, type, newValue, parent.GetType());
                                     PatchOperation op = wouldBePatch.AddOperation(tmpOp);
                                     CurrentState.AddOp(op);
-                                    CurrentState.CreatePatchFromState().RegisterPatch();
+                                    CurrentState.CreateAndRegisterPatch();
                                 });
                             }
                         } else {
@@ -244,7 +243,7 @@ public class PatchToolTabUI {
                                 PatchOperation tmpOp = new(PatchOperation.PatchOperationType.ModifyPrimitive, info.Name, type, Enum.Parse(type, enumNames[tmp]), parent.GetType());
                                 PatchOperation op = wouldBePatch.AddOperation(tmpOp);
                                 CurrentState.AddOp(op);
-                                CurrentState.CreatePatchFromState().RegisterPatch();
+                                CurrentState.CreateAndRegisterPatch();
                             });
                         }
                     }
@@ -284,7 +283,7 @@ public class PatchToolTabUI {
                     PatchOperation tmpOp = new(PatchOperation.PatchOperationType.ModifyPrimitive, info.Name, type, result, parent.GetType());
                     PatchOperation op = wouldBePatch.AddOperation(tmpOp);
                     CurrentState.AddOp(op);
-                    CurrentState.CreatePatchFromState().RegisterPatch();
+                    CurrentState.CreateAndRegisterPatch();
                 }
             });
         } else if (PatchToolUtils.IsListOrArray(type)) {
@@ -363,7 +362,7 @@ public class PatchToolTabUI {
                 PatchOperation removeOp = new(PatchOperation.PatchOperationType.ModifyCollection, info.Name, null, null, parent.GetType(), PatchOperation.CollectionPatchOperationType.RemoveAtIndex, index);
                 PatchOperation opRemove = wouldBePatch.AddOperation(removeOp);
                 CurrentState.AddOp(opRemove);
-                CurrentState.CreatePatchFromState().RegisterPatch();
+                CurrentState.CreateAndRegisterPatch();
             });
         }
     }
