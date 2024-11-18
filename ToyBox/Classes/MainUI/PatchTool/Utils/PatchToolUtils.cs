@@ -86,5 +86,18 @@ public static class PatchToolUtils {
 
         return (allinstantiableTypes, allowedinstantiableTypes);
     }
+    public static Type GetBlueprintReferenceKind(Type type) {
+        Type currentType = type;
 
+        while (currentType != null && currentType != typeof(BlueprintReferenceBase)) {
+            if (currentType.IsGenericType) {
+                Type genericTypeDefinition = currentType.GetGenericTypeDefinition();
+                if (genericTypeDefinition == typeof(BlueprintReference<>)) {
+                    return currentType.GetGenericArguments()[0];
+                }
+            }
+            currentType = currentType.BaseType;
+        }
+        return null;
+    }
 }

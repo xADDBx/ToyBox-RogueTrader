@@ -4,6 +4,7 @@ using Kingmaker.UnitLogic;
 using ModKit;
 using ModKit.DataViewer;
 using ModKit.Utility.Extensions;
+using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -19,22 +20,22 @@ using static Unity.Burst.Intrinsics.X86.Avx;
 namespace ToyBox.PatchTool;
 public class PatchToolTabUI {
     public PatchState CurrentState;
-    private Dictionary<(object, FieldInfo), object> _editStates = new();
-    private Dictionary<object, Dictionary<FieldInfo, object>> _fieldsByObject = new();
+    private Dictionary<(object, FieldInfo), BlueprintPickerGUI> pickerGUIs = new();
+    private Dictionary<(object, FieldInfo), object> editStates = new();
+    private Dictionary<object, Dictionary<FieldInfo, object>> fieldsByObject = new();
     // key: parent, containing field, object instance
-    private Dictionary<(object, FieldInfo, object), bool> _toggleStates = new();
-    private Dictionary<((object, FieldInfo), int), bool> _listToggleStates = new();
-    private Dictionary<(object, FieldInfo), AddItemState> _addItemStates = new();
-    private static Dictionary<Type, List<Type>> _compatibleTypes = new();
-    private static Dictionary<Type, List<Type>> _allowedTypes = new();
-    private HashSet<object> _visited = new();
-    private bool _showBlueprintPicker = false;
-    private bool _showPatchManager = false;
-    private bool _showFieldsEditor = false;
+    private Dictionary<(object, FieldInfo, object), bool> toggleStates = new();
+    private Dictionary<((object, FieldInfo), int), bool> listToggleStates = new();
+    private Dictionary<(object, FieldInfo), AddItemState> addItemStates = new();
+    private static Dictionary<Type, List<Type>> compatibleTypes = new();
+    private static Dictionary<Type, List<Type>> allowedTypes = new();
+    private HashSet<object> visited = new();
+    private bool showBlueprintPicker = false;
+    private bool showPatchManager = false;
+    private bool showFieldsEditor = false;
     internal string Target = "";
-    private string _pickerText = "";
     public int IndentPerLevel = 25;
-    private static readonly HashSet<Type> _primitiveTypes = new() { typeof(string), typeof(bool), typeof(int), typeof(uint), typeof(long), typeof(ulong), typeof(float), typeof(double) };
+    private static readonly HashSet<Type> primitiveTypes = new() { typeof(string), typeof(bool), typeof(int), typeof(uint), typeof(long), typeof(ulong), typeof(float), typeof(double) };
     public class AddItemState {
         public Browser<Type, Type> ToAddBrowser = new(true, true, false, false) { DisplayShowAllGUI = false };
         public static AddItemState Create(object parent, FieldInfo info, object @object, int index, PatchOperation wouldBePatch, PatchToolTabUI ui) {
@@ -63,24 +64,24 @@ public class PatchToolTabUI {
                 Item = null,
                 IsExpanded = true,
                 WouldBePatch = wouldBePatch,
-                _ui = ui
+                ui = ui
             };
-            ui._addItemStates[(parent, info)] = state;
+            ui.addItemStates[(parent, info)] = state;
 
-            if (!_compatibleTypes.ContainsKey(elementType)) {
+            if (!compatibleTypes.ContainsKey(elementType)) {
                 (var all, var allowed) = PatchToolUtils.GetInstantiableTypes(elementType, parent);
                 if (allowed != null) {
                     state.ToAddBrowser.DisplayShowAllGUI = true;
                 }
-                _allowedTypes[elementType] = allowed?.ToList();
-                _compatibleTypes[elementType] = all.ToList();
+                allowedTypes[elementType] = allowed?.ToList();
+                compatibleTypes[elementType] = all.ToList();
             }
 
             return state;
         }
         public void AddItemGUI() {
             using (VerticalScope()) {
-                ToAddBrowser.OnGUI(_allowedTypes[ElementType] ?? _compatibleTypes[ElementType], () => _compatibleTypes[ElementType], d => d, t => $"{t.Name}", t => [$"{t.Name}"], null,
+                ToAddBrowser.OnGUI(allowedTypes[ElementType] ?? compatibleTypes[ElementType], () => compatibleTypes[ElementType], d => d, t => $"{t.Name}", t => [$"{t.Name}"], null,
                     (type, maybeType) => {
                         Label(type.Name, Width(400));
                         Space(200);
@@ -93,12 +94,12 @@ public class PatchToolTabUI {
         }
         public void Confirm(Type type) {
             PatchOperation op = new(PatchOperation.PatchOperationType.ModifyCollection, Info.Name, type, null, Parent.GetType(), PatchOperation.CollectionPatchOperationType.AddAtIndex, Index);
-            _ui.CurrentState.AddOp(WouldBePatch.AddOperation(op));
-            _ui.CurrentState.CreateAndRegisterPatch();
-            _ui._addItemStates.Remove((Parent, Info));
+            ui.CurrentState.AddOp(WouldBePatch.AddOperation(op));
+            ui.CurrentState.CreateAndRegisterPatch();
+            ui.addItemStates.Remove((Parent, Info));
         }
         public object Parent;
-        private PatchToolTabUI _ui;
+        private PatchToolTabUI ui;
         public FieldInfo Info;
         public int Index;
         public object Collection;
@@ -107,8 +108,10 @@ public class PatchToolTabUI {
         public bool IsExpanded;
         public PatchOperation WouldBePatch;
     }
-    public PatchToolTabUI() { }
-    public PatchToolTabUI(string guid) {
+    public PatchToolTabUI() {
+        pickerGUIs[(this, null)] = new();
+    }
+    public PatchToolTabUI(string guid) : this() {
         Target = guid;
     }
 
@@ -117,19 +120,13 @@ public class PatchToolTabUI {
         CurrentState = null;
         ClearCache();
         Target = guid;
+        showBlueprintPicker = false;
     }
     public void OnGUI() {
-        _visited.Clear();
-        DisclosureToggle("Show Blueprint Picker", ref _showBlueprintPicker);
-        if (_showBlueprintPicker) {
-            using (HorizontalScope()) {
-                Space(20);
-                Label("Enter target blueprint id".localize(), Width(200));
-                TextField(ref _pickerText, null, Width(350));
-                ActionButton("Pick Blueprint".localize(), () => {
-                    SetTarget(_pickerText);
-                });
-            }
+        visited.Clear();
+        DisclosureToggle("Show Blueprint Picker", ref showBlueprintPicker);
+        if (showBlueprintPicker) {
+            pickerGUIs[(this, null)].OnGUI(SetTarget);
         }
         if ((CurrentState == null || CurrentState.IsDirty) && !Target.IsNullOrEmpty()) {
             if (Event.current.type == EventType.Layout) {
@@ -144,8 +141,8 @@ public class PatchToolTabUI {
             Space(15);
             Div();
             Space(15);
-            DisclosureToggle("Show Patch Manager".localize(), ref _showPatchManager);
-            if (_showPatchManager) {
+            DisclosureToggle("Show Patch Manager".localize(), ref showPatchManager);
+            if (showPatchManager) {
                 using (HorizontalScope()) {
                     Space(20);
                     using (VerticalScope()) {
@@ -183,8 +180,8 @@ public class PatchToolTabUI {
             Space(15);
             Div();
             Space(15);
-            DisclosureToggle("Show Fields Editor".localize(), ref _showFieldsEditor);
-            if (_showFieldsEditor) {
+            DisclosureToggle("Show Fields Editor".localize(), ref showFieldsEditor);
+            if (showFieldsEditor) {
                 using (HorizontalScope()) {
                     Space(20);
                     Space(-IndentPerLevel);
@@ -194,24 +191,27 @@ public class PatchToolTabUI {
         }
     }
     public void ClearCache() {
-        _editStates.Clear();
-        _fieldsByObject.Clear();
-        _toggleStates.Clear();
-        _addItemStates.Clear();
-        _compatibleTypes.Clear();
+        pickerGUIs.Clear();
+        editStates.Clear();
+        fieldsByObject.Clear();
+        toggleStates.Clear();
+        addItemStates.Clear();
+        listToggleStates.Clear();
+        compatibleTypes.Clear();
+        allowedTypes.Clear();
     }
 
     public void NestedGUI(object o, PatchOperation wouldBePatch = null) {
-        if (_visited.Contains(o)) {
+        if (visited.Contains(o)) {
             Label("Already opened on another level!".localize().Green());
             return;
         }
-        _visited.Add(o);
-        if (!_fieldsByObject.ContainsKey(o)) {
+        visited.Add(o);
+        if (!fieldsByObject.ContainsKey(o)) {
             PopulateFieldsAndObjects(o);
         }
         using (VerticalScope()) {
-            foreach (var field in _fieldsByObject[o]) {
+            foreach (var field in fieldsByObject[o]) {
                 using (HorizontalScope()) {
                     bool isEnum = typeof(Enum).IsAssignableFrom(field.Key.FieldType);
                     bool isFlagEnum = field.Key.FieldType.IsDefined(typeof(FlagsAttribute), false);
@@ -233,18 +233,18 @@ public class PatchToolTabUI {
         }
         if (typeof(Enum).IsAssignableFrom(type)) {
             var isFlagEnum = type.IsDefined(typeof(FlagsAttribute), false);
-            if (!_toggleStates.TryGetValue((parent, info, @object), out var state)) {
+            if (!toggleStates.TryGetValue((parent, info, @object), out var state)) {
                 state = false;
             }
             Label(@object.ToString(), Width(500));
             DisclosureToggle("Show Values".localize(), ref state, 800);
             Space(-800);
-            _toggleStates[(parent, info, @object)] = state;
+            toggleStates[(parent, info, @object)] = state;
             if (state) {
                 using (VerticalScope()) {
                     Label("");
                     using (HorizontalScope()) {
-                        if (!_editStates.TryGetValue((parent, info), out var curValue)) {
+                        if (!editStates.TryGetValue((parent, info), out var curValue)) {
                             if (isFlagEnum) curValue = Convert.ChangeType(@object, Enum.GetUnderlyingType(type));
                             else curValue = 0;
                         }
@@ -279,7 +279,7 @@ public class PatchToolTabUI {
                                         }
                                     }
                                 }
-                                _editStates[(parent, info)] = tmp;
+                                editStates[(parent, info)] = tmp;
                                 ActionButton("Change".localize(), () => {
                                     var underlyingType = Enum.GetUnderlyingType(type);
                                     var convertedValue = Convert.ChangeType(tmp, underlyingType);
@@ -293,7 +293,7 @@ public class PatchToolTabUI {
                         } else {
                             var tmp = (int)curValue;
                             SelectionGrid(ref tmp, enumNames, cellsPerRow, Width(200 * cellsPerRow));
-                            _editStates[(parent, info)] = tmp;
+                            editStates[(parent, info)] = tmp;
                             Space(20);
                             ActionButton("Change".localize(), () => {
                                 PatchOperation tmpOp = new(PatchOperation.PatchOperationType.ModifyPrimitive, info.Name, type, Enum.Parse(type, enumNames[tmp]), parent.GetType());
@@ -309,16 +309,33 @@ public class PatchToolTabUI {
             Label(@object.ToString(), Width(500));
             Label("Unity Object".localize());
         } else if (typeof(BlueprintReferenceBase).IsAssignableFrom(type)) {
+            var guid = (@object as BlueprintReferenceBase).Guid;
+            if (guid.IsNullOrEmpty()) guid = "Null or Empty Reference";
+            Label(guid, Width(500));
+            if (!pickerGUIs.TryGetValue((parent, info), out var gui)) {
+                gui = new();
+                pickerGUIs[(parent, info)] = gui;
+            }
+            var t = PatchToolUtils.GetBlueprintReferenceKind(type);
+            if (t != null) {
+                Space(-20);
+                gui.OnGUI(guid => {
+                    PatchOperation tmpOp = new(PatchOperation.PatchOperationType.ModifyBlueprintReference, info.Name, type, guid, parent.GetType());
+                    PatchOperation op = wouldBePatch.AddOperation(tmpOp);
+                    CurrentState.AddOp(op);
+                    CurrentState.CreateAndRegisterPatch();
+                }, t);
+            } else {
+                Label("Non-Generic Reference. If you're seeing this please report to mod author!".Yellow().Bold());
+            }
+        } else if (primitiveTypes.Contains(type)) {
             Label(@object.ToString(), Width(500));
-            Label("Reference".localize());
-        } else if (_primitiveTypes.Contains(type)) {
-            Label(@object.ToString(), Width(500));
-            if (!_editStates.TryGetValue((parent, info), out var curValue)) {
+            if (!editStates.TryGetValue((parent, info), out var curValue)) {
                 curValue = "";
             }
             string tmp = (string)curValue;
             TextField(ref tmp, null, Width(300));
-            _editStates[(parent, info)] = tmp;
+            editStates[(parent, info)] = tmp;
             Space(20);
             ActionButton("Change".localize(), () => {
                 object result = null;
@@ -352,11 +369,11 @@ public class PatchToolTabUI {
                 elementCount = list.Count;
             }
             Label($"{elementCount} " + "Entries".localize(), Width(500));
-            if (!_toggleStates.TryGetValue((parent, info, @object), out var state)) {
+            if (!toggleStates.TryGetValue((parent, info, @object), out var state)) {
                 state = false;
             }
             DisclosureToggle("Show Entries".localize(), ref state, 200);
-            _toggleStates[(parent, info, @object)] = state;
+            toggleStates[(parent, info, @object)] = state;
             if (state) {
                 int index = 0;
                 Space(-1200);
@@ -372,7 +389,7 @@ public class PatchToolTabUI {
                             AddItemState.Create(parent, info, @object, -1, wouldBePatch, this);
                         });
                     }
-                    if (_addItemStates.TryGetValue((parent, info), out var activeAddItemState)) {
+                    if (addItemStates.TryGetValue((parent, info), out var activeAddItemState)) {
                         Label("New Item:".localize(), Width(500));
                         activeAddItemState.AddItemGUI();
                     }
@@ -380,11 +397,11 @@ public class PatchToolTabUI {
             }
         } else {
             Label(@object.ToString(), Width(500));
-            if (!_toggleStates.TryGetValue((parent, info, @object), out var state)) {
+            if (!toggleStates.TryGetValue((parent, info, @object), out var state)) {
                 state = false;
             }
             DisclosureToggle("Show fields".localize(), ref state, 200);
-            _toggleStates[(parent, info, @object)] = state;
+            toggleStates[(parent, info, @object)] = state;
             if (state) {
                 PatchOperation tmpOp = new(PatchOperation.PatchOperationType.ModifyComplex, info.Name, null, null, parent.GetType());
                 PatchOperation op = wouldBePatch.AddOperation(tmpOp);
@@ -428,6 +445,6 @@ public class PatchToolTabUI {
         foreach (var field in PatchToolUtils.GetFields(o.GetType())) {
             result[field] = field.GetValue(o);
         }
-        _fieldsByObject[o] = result;
+        fieldsByObject[o] = result;
     }
 }

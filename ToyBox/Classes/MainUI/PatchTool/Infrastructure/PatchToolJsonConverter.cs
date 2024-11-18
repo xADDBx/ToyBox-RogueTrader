@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Kingmaker.Blueprints;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,11 @@ public class PatchToolJsonConverter : JsonConverter {
         if (!string.IsNullOrEmpty(typeString)) {
             var targetType = Type.GetType(typeString);
             if (targetType != null && !((string)jsonObject["NewValue"]).IsNullOrEmpty()) {
-                operation.NewValue = jsonObject["NewValue"].ToObject(targetType);
+                if (typeof(BlueprintReferenceBase).IsAssignableFrom(targetType)) {
+                    operation.NewValue = jsonObject["NewValue"].ToObject(typeof(string));
+                } else {
+                    operation.NewValue = jsonObject["NewValue"].ToObject(targetType);
+                }
             }
         }
 

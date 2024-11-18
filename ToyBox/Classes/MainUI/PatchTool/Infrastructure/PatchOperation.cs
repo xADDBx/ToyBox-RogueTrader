@@ -141,11 +141,11 @@ public class PatchOperation {
                 } 
                 break;
             case PatchOperationType.ModifyBlueprintReference: {
-                    throw new NotImplementedException("Blueprint References not yet implemented");
+                    var bpRef = Activator.CreateInstance(NewValueType) as BlueprintReferenceBase;
+                    bpRef.guid = NewValue as string;
+                    field.SetValue(instance, Convert.ChangeType(bpRef, NewValueType));
                 }
-#pragma warning disable CS0162 // Unreachable code detected
                 break;
-#pragma warning restore CS0162 // Unreachable code detected
             default: throw new NotImplementedException($"Unknown PatchOperation: {OperationType}");
         }
         return instance;
