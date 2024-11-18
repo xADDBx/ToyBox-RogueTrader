@@ -35,7 +35,7 @@ namespace ToyBox.classes.Infrastructure.Blueprints {
                 typeof(BlueprintBrain), typeof(BlueprintFeature), typeof(BlueprintUnitFact),
                 typeof(BlueprintPlanet), typeof(BlueprintColony), typeof(BlueprintStarSystemMap),
                 typeof(BlueprintColonyTrait), typeof(BlueprintResource), typeof(BlueprintColonyEventResult),
-                typeof(BlueprintUnitAsksList)
+                typeof(BlueprintUnitAsksList), typeof(BlueprintAbilityFXSettings)
         };
 
         private static BlueprintIdCache _instance;
