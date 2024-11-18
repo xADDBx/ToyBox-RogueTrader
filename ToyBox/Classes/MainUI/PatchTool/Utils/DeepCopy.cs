@@ -11,7 +11,7 @@ namespace System {
             return (type.IsValueType & type.IsPrimitive);
         }
 
-        public static Object DeepCopy(this Object originalObject, Object targetObject = null) {
+        public static Object DeepCopy(Object originalObject, Object targetObject = null) {
             return InternalCopy(originalObject, new Dictionary<Object, Object>(new ReferenceEqualityComparer()), targetObject);
         }
         private static Object InternalCopy(Object originalObject, IDictionary<Object, Object> visited, Object targetObject = null) {
