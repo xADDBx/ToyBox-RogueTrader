@@ -312,21 +312,31 @@ public class PatchToolTabUI {
             var guid = (@object as BlueprintReferenceBase).Guid;
             if (guid.IsNullOrEmpty()) guid = "Null or Empty Reference";
             Label(guid, Width(500));
-            if (!pickerGUIs.TryGetValue((parent, info), out var gui)) {
-                gui = new();
-                pickerGUIs[(parent, info)] = gui;
+            if (!toggleStates.TryGetValue((parent, info, @object), out var state)) {
+                state = false;
             }
-            var t = PatchToolUtils.GetBlueprintReferenceKind(type);
-            if (t != null) {
-                Space(-20);
-                gui.OnGUI(guid => {
-                    PatchOperation tmpOp = new(PatchOperation.PatchOperationType.ModifyBlueprintReference, info.Name, type, guid, parent.GetType());
-                    PatchOperation op = wouldBePatch.AddOperation(tmpOp);
-                    CurrentState.AddOp(op);
-                    CurrentState.CreateAndRegisterPatch();
-                }, t);
-            } else {
-                Label("Non-Generic Reference. If you're seeing this please report to mod author!".Yellow().Bold());
+            DisclosureToggle("Edit Reference".localize(), ref state, 200);
+            toggleStates[(parent, info, @object)] = state;
+            if (state) {
+                if (!pickerGUIs.TryGetValue((parent, info), out var gui)) {
+                    gui = new();
+                    pickerGUIs[(parent, info)] = gui;
+                }
+                var t = PatchToolUtils.GetBlueprintReferenceKind(type);
+                if (t != null) {
+                    Space(-1200);
+                    using (VerticalScope()) {
+                        Label("");
+                        gui.OnGUI(newGuid => {
+                            PatchOperation tmpOp = new(PatchOperation.PatchOperationType.ModifyBlueprintReference, info.Name, type, newGuid, parent.GetType());
+                            PatchOperation op = wouldBePatch.AddOperation(tmpOp);
+                            CurrentState.AddOp(op);
+                            CurrentState.CreateAndRegisterPatch();
+                        }, t);
+                    }
+                } else {
+                    Label("Non-Generic Reference. If you're seeing this please report to mod author!".Yellow().Bold());
+                }
             }
         } else if (primitiveTypes.Contains(type)) {
             Label(@object.ToString(), Width(500));
