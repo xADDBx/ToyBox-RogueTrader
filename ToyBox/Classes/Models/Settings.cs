@@ -297,7 +297,16 @@ namespace ToyBox {
         public bool hasSeenUpdatePage = false;
         public bool toggleVersionCompatability = true;
         public bool toggleIntegrityCheck = true;
+
+        // Patch Tool
         public HashSet<string> disabledPatches = new();
+        public bool showPatchToolEnums = true;
+        public bool showPatchToolComplexTypes = true;
+        public bool showPatchToolBlueprintReferences = true;
+        public bool showPatchToolCollections = true;
+        public bool showPatchToolPrimitiveTypes = true;
+        public bool showPatchToolUnityObjects = false;
+
 
         // Save
         public override void Save(UnityModManager.ModEntry modEntry) => Save(this, modEntry);

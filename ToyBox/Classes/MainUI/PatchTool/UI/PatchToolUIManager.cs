@@ -13,8 +13,9 @@ public static class PatchToolUIManager {
     private static bool showExistingPatchesUI = false;
     public static void OnGUI() {
         Space(-25);
-        Label("Warning:".localize().Yellow().Bold() + " " + "This is a very powerful feature. You won't break your game by simply changing the damage of a weapon, but this feature allows doing a lot of things that could potentially causes issues. Beware of that and always keep a backup.".localize().Orange());
+        Label("Warning:".localize().Yellow().Bold() + " " + "This is a very powerful feature. You won't break your game by simply changing the damage of a weapon,".localize().Yellow() + " " + "but this feature allows doing a lot of things that could potentially causes issues.".localize().Orange().Bold() + " " + "Beware of that and always keep a backup.".localize().Yellow());
         Label("Note:".localize().Green().Bold() + " " + "After finishing creating a patch, it is advised to restart the game before playing on a proper save.".localize().Green());
+        Label("Warning:".localize().Yellow().Bold() + " " + "This feature is new. Please reach out if anything seems buggy or you encounter any issues.".localize().Yellow());
         Space(15);
         Div();
         Space(15);

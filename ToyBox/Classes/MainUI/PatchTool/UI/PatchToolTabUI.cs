@@ -114,8 +114,6 @@ public class PatchToolTabUI {
     public PatchToolTabUI(string guid) : this() {
         Target = guid;
     }
-
-
     public void SetTarget(string guid) {
         CurrentState = null;
         ClearCache();
@@ -180,6 +178,22 @@ public class PatchToolTabUI {
             Space(15);
             Div();
             Space(15);
+            Label("Configure which types of fields to show:".localize());
+            using (HorizontalScope()) {
+                Toggle("Primitives".localize(), ref Main.Settings.showPatchToolPrimitiveTypes);
+                Space(10);
+                Toggle("Enums".localize(), ref Main.Settings.showPatchToolEnums);
+                Space(10);
+                Toggle("Blueprint References".localize(), ref Main.Settings.showPatchToolBlueprintReferences);
+                Space(10);
+                Toggle("Collections".localize(), ref Main.Settings.showPatchToolCollections);
+                Space(10);
+                Toggle("Complex Types".localize(), ref Main.Settings.showPatchToolComplexTypes);
+                Space(10);
+                Toggle("Show Unity Objects".localize(), ref Main.Settings.showPatchToolUnityObjects);
+            }
+
+            Space(15);
             DisclosureToggle("Show Fields Editor".localize(), ref showFieldsEditor);
             if (showFieldsEditor) {
                 using (HorizontalScope()) {
@@ -200,8 +214,7 @@ public class PatchToolTabUI {
         compatibleTypes.Clear();
         allowedTypes.Clear();
     }
-
-    public void NestedGUI(object o, PatchOperation wouldBePatch = null) {
+    private void NestedGUI(object o, PatchOperation wouldBePatch = null) {
         if (visited.Contains(o)) {
             Label("Already opened on another level!".localize().Green());
             return;
@@ -213,20 +226,37 @@ public class PatchToolTabUI {
         using (VerticalScope()) {
             foreach (var field in fieldsByObject[o]) {
                 using (HorizontalScope()) {
-                    bool isEnum = typeof(Enum).IsAssignableFrom(field.Key.FieldType);
-                    bool isFlagEnum = field.Key.FieldType.IsDefined(typeof(FlagsAttribute), false);
-                    string generics = "";
-                    if (field.Key.FieldType.IsGenericType) {
-                        generics = field.Key.FieldType.GetGenericArguments().ToContentString();
+                    if (ShouldDisplayField(field.Key.FieldType)) {
+                        bool isEnum = typeof(Enum).IsAssignableFrom(field.Key.FieldType);
+                        bool isFlagEnum = field.Key.FieldType.IsDefined(typeof(FlagsAttribute), false);
+                        string generics = "";
+                        if (field.Key.FieldType.IsGenericType) {
+                            generics = field.Key.FieldType.GetGenericArguments().ToContentString();
+                        }
+                        Space(IndentPerLevel);
+                        Label($"{field.Key.Name} ({(isFlagEnum ? "Flag " : "")}{(isEnum ? "Enum: " : "")}{field.Key.FieldType.Name}{generics})", Width(500));
+                        FieldGUI(o, wouldBePatch, field.Key.FieldType, field.Value, field.Key);
                     }
-                    Space(IndentPerLevel);
-                    Label($"{field.Key.Name} ({(isFlagEnum ? "Flag " : "")}{(isEnum ? "Enum: " : "")}{field.Key.FieldType.Name}{generics})", Width(500));
-                    FieldGUI(o, wouldBePatch, field.Key.FieldType, field.Value, field.Key);
                 }
             }
         }
     }
-    public void FieldGUI(object parent, PatchOperation wouldBePatch, Type type, object @object, FieldInfo info) {
+    private bool ShouldDisplayField(Type fieldType) {
+        if (primitiveTypes.Contains(fieldType)) {
+            return Main.Settings.showPatchToolPrimitiveTypes;
+        } else if (typeof(Enum).IsAssignableFrom(fieldType)) {
+            return Main.Settings.showPatchToolEnums;
+        } else if (typeof(BlueprintReferenceBase).IsAssignableFrom(fieldType)) {
+            return Main.Settings.showPatchToolBlueprintReferences;
+        } else if (PatchToolUtils.IsListOrArray(fieldType)) {
+            return Main.Settings.showPatchToolCollections;
+        } else if (typeof(UnityEngine.Object).IsAssignableFrom(fieldType)) {
+            return Main.Settings.showPatchToolUnityObjects;
+        } else {
+            return Main.Settings.showPatchToolComplexTypes;
+        }
+    }
+    private void FieldGUI(object parent, PatchOperation wouldBePatch, Type type, object @object, FieldInfo info) {
         if (@object == null) {
             Label("Null", Width(500));
             return;
@@ -423,8 +453,7 @@ public class PatchToolTabUI {
             }
         }
     }
-
-    public void ListItemGUI(PatchOperation wouldBePatch, object parent, FieldInfo info, object elem, int index, object collection) {
+    private void ListItemGUI(PatchOperation wouldBePatch, object parent, FieldInfo info, object elem, int index, object collection) {
         PatchOperation tmpOp = new(PatchOperation.PatchOperationType.ModifyCollection, info.Name, null, null, parent.GetType(), PatchOperation.CollectionPatchOperationType.ModifyAtIndex, index);
         PatchOperation op = wouldBePatch.AddOperation(tmpOp);
         using (HorizontalScope()) {
@@ -449,8 +478,7 @@ public class PatchToolTabUI {
             });
         }
     }
-
-    public void PopulateFieldsAndObjects(object o) {
+    private void PopulateFieldsAndObjects(object o) {
         Dictionary<FieldInfo, object> result = new();
         foreach (var field in PatchToolUtils.GetFields(o.GetType())) {
             result[field] = field.GetValue(o);
