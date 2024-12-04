@@ -6,6 +6,8 @@ using Kingmaker.Blueprints.Area;
 using Kingmaker.Cheats;
 using Kingmaker.Controllers.Rest;
 using Kingmaker.Designers;
+using Kingmaker.Designers.EventConditionActionSystem.Actions;
+using Kingmaker.DialogSystem.Blueprints;
 using Kingmaker.EntitySystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.GameModes;
@@ -24,6 +26,7 @@ using Kingmaker.Utility;
 using Kingmaker.View;
 using Kingmaker.View.MapObjects;
 using ModKit;
+using ModKit.Utility;
 using Owlcat.Runtime.Core.Utility;
 using System;
 using System.Collections.Generic;
@@ -146,6 +149,12 @@ namespace ToyBox {
                     }
                 }
             }
+        }
+
+        public static void GoToTradeWindow() {
+
+            var bpa = ResourcesLibrary.TryGetBlueprint<BlueprintAnswer>("d9307ba41f354ad2be00085eca5d0264");
+            (bpa.OnSelect.Actions[0] as Conditional).IfTrue.Actions[0].Run();
         }
 
 #if false

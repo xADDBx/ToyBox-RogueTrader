@@ -52,6 +52,7 @@ namespace ToyBox {
         private const string RerollInteractionSkillChecks = "Reset Interactables";
         private const string ChangeParty = "Change Party";
         private const string ChangWeather = "Change Weather";
+        private const string GoToTradeWindow = "Open Trade Window";
 
         // other
         private const string TimeScaleMultToggle = "Main/Alt Timescale";
@@ -96,6 +97,7 @@ namespace ToyBox {
                                        () => Settings.togglekillOnEngage = !Settings.togglekillOnEngage,
                                        title => ToggleTranscriptForState(title, Settings.togglekillOnEngage)
                                        );
+            KeyBindings.RegisterAction(GoToTradeWindow, () => { Actions.GoToTradeWindow(); });
         }
         public static void ResetGUI() { }
 
@@ -203,6 +205,7 @@ namespace ToyBox {
                    () => BindableActionButton(ChangWeather, true),
                    () => NonBindableActionButton("Give All Items".localize(), () => CheatsUnlock.CreateAllItems("")),
                    () => NonBindableActionButton("Identify All".localize(), () => Actions.IdentifyAll()),
+                   () => BindableActionButton(GoToTradeWindow, true), 
                    () => { }
                 );
             Div(0, 25);
