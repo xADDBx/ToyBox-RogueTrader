@@ -261,7 +261,6 @@ public class PatchToolTabUI {
         }
     }
     private void FieldGUI(object parent, PatchOperation wouldBePatch, Type type, object @object, FieldInfo info, int index = -1) {
-        bool shouldSet = Event.current.type == EventType.Repaint;
         if (typeof(Enum).IsAssignableFrom(type)) {
             var isFlagEnum = type.IsDefined(typeof(FlagsAttribute), false);
             if (!toggleStates.TryGetValue((parent, info, index), out var state)) {
