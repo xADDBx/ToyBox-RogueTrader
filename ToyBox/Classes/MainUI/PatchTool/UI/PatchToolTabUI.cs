@@ -266,7 +266,7 @@ public class PatchToolTabUI {
             if (!toggleStates.TryGetValue((parent, info, index), out var state)) {
                 state = false;
             }
-                if (state) {
+            if (state) {
                 Label(@object.ToString().Cyan(), Width(500));
             } else {
                 Label(@object.ToString(), Width(500));
