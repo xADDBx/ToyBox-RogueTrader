@@ -8,6 +8,7 @@ using Kingmaker.Enums;
 using Kingmaker.PubSubSystem;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Alignments;
+using Kingmaker.Visual.CharacterSystem;
 using Kingmaker.Visual.Sound;
 using ModKit;
 using ModKit.Utility;
@@ -18,16 +19,353 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using ToyBox.classes.Infrastructure;
+using Unity.Collections;
 using UnityEngine;
 
 namespace ToyBox {
+
     public partial class PartyEditor {
+
         public class ToyBoxAlignmentProvider : IAlignmentShiftProvider {
+
             AlignmentShift IAlignmentShiftProvider.AlignmentShift => new() { Description = "ToyBox Party Editor".LocalizedStringInGame() };
         }
+
+        public class CharacterSkeletonReplacer {
+
+            public Skeleton oldSkeleton;
+            public Skeleton newSkeleton;
+            public Dictionary<string, BodyPart> bodyParts;
+            public Dictionary<string, BodyPart> groupOF;
+            public Dictionary<string, BodyPart> groupSC;
+            public Dictionary<string, BodyPart> groupSZ;
+            public Dictionary<string, BodyPart> groupIT;
+
+            public CharacterSkeletonReplacer(BaseUnitEntity character) {
+
+                if (character.View?.CharacterAvatar?.Skeleton is Skeleton skeleton) {
+
+                    oldSkeleton = skeleton;
+                    newSkeleton = DuplicateSkeleton(skeleton);
+                    bodyParts = new Dictionary<string, BodyPart>();
+                    groupOF = new Dictionary<string, BodyPart>();
+                    groupSC = new Dictionary<string, BodyPart>();
+                    groupSZ = new Dictionary<string, BodyPart>();
+                    groupIT = new Dictionary<string, BodyPart>();
+
+                    var partsTable = new Dictionary<string, List<string>> {
+
+                        { "OF_position",
+                            new List<string> { "Position" }},
+                        { "OF_shouldersX",
+                            new List<string> { "R_Clavicle", "L_Clavicle" }},
+                        { "OF_shouldersZ",
+                            new List<string> { "R_Clavicle", "L_Clavicle" }},
+                        { "OF_upper_arms",
+                            new List<string> { "R_Up_arm", "L_Up_arm" }},
+                        { "OF_fore_arms",
+                            new List<string> { "R_ForeArm", "L_ForeArm" }},
+                        { "OF_upper_legs",
+                            new List<string> { "R_Pre_Up_Leg", "L_Pre_Up_Leg" }},
+                        { "SC_pelvisX",
+                            new List<string> { "Pelvis" }},
+                        { "SC_pelvisY",
+                            new List<string> { "Pelvis" }},
+                        { "SC_pelvisZ",
+                            new List<string> { "Pelvis" }},
+                        { "SC_neck",
+                            new List<string> { "Neck" }},
+                        { "SC_shoulders",
+                            new List<string> { "R_Clavicle", "L_Clavicle" }},
+                        { "SC_upper_arms",
+                            new List<string> { "R_Up_arm", "L_Up_arm" }},
+                        { "SC_fore_arms",
+                            new List<string> { "R_ForeArm", "L_ForeArm" }},
+                        { "SC_upper_torso",
+                            new List<string> { "Spine_3" }},
+                        { "SC_middle_torso",
+                            new List<string> { "Spine_2" }},
+                        { "SC_lower_torso",
+                            new List<string> { "Spine_1" }},
+                        { "SC_stomach",
+                            new List<string> { "Stomach" }},
+                        { "SC_upper_legs",
+                            new List<string> { "R_Pre_Up_Leg", "L_Pre_Up_Leg" }},
+                        { "SC_lower_legs",
+                            new List<string> { "R_Up_leg", "L_Up_leg" }},
+                        { "SC_foots",
+                            new List<string> { "R_foot", "L_foot" }},
+                        { "SC_toes",
+                            new List<string> { "R_toe", "L_toe" }},
+                        { "SZ_head",
+                            new List<string> { "Head" }},
+                        { "SZ_neck",
+                            new List<string> { "Neck_ADJ" }},
+                        { "SZ_shoulders",
+                            new List<string> { "R_Clavicle_ADJ", "L_Clavicle_ADJ" }},
+                        { "SZ_upper_arms",
+                            new List<string> { "R_Up_arm_ADJ", "L_Up_arm_ADJ" }},
+                        { "SZ_fore_arms",
+                            new List<string> { "R_ForeArm_ADJ", "R_ForeArm_Twist_ADJ", "L_ForeArm_ADJ", "L_ForeArm_Twist_ADJ" }},
+                        { "SZ_hands",
+                            new List<string> { "R_Hand", "L_Hand" }},
+                        { "SZ_upper_torso",
+                            new List<string> { "Spine_3_ADJ" }},
+                        { "SZ_middle_torso",
+                            new List<string> { "Spine_2_ADJ" }},
+                        { "SZ_lower_torso",
+                            new List<string> { "Spine_1_ADJ" }},
+                        { "SZ_stomach",
+                            new List<string> { "Stomach_ADJ" }},
+                        { "SZ_pelvis",
+                            new List<string> { "Pelvis_ADJ" }},
+                        { "SZ_upper_legs",
+                            new List<string> { "R_Up_leg_ADJ", "L_Up_leg_ADJ" }},
+                        { "SZ_middle_legs",
+                            new List<string> { "R_leg_ADJ", "L_leg_ADJ" }},
+                        { "SZ_lower_legs",
+                            new List<string> { "R_Ankle_ADJ", "L_Ankle_ADJ" }},
+                        { "SZ_foots",
+                            new List<string> { "R_foot_ADJ", "L_foot_ADJ" }},
+                        { "SZ_toes",
+                            new List<string> { "R_toe_ADJ", "L_toe_ADJ" }},
+                        { "IT_backpack_and_cloak",
+                            new List<string> { "C_back_weapon_slot_08", "C_back_weapon_slot_11" }},
+                        { "IT_weapon_in_hand",
+                            new List<string> { "R_WeaponBone", "L_WeaponBone" }},
+                        { "IT_weapon_in_holsters",
+                            new List<string> { "R_front_weapon_slot_01", "R_front_weapon_slot_02", "C_front_weapon_slot_03", "L_front_weapon_slot_04", "L_front_weapon_slot_05" }},
+                        { "IT_back_weapon_right",
+                            new List<string> { "R_back_weapon_slot_06", "R_back_weapon_slot_09" }},
+                        { "IT_back_weapon_left",
+                            new List<string> { "L_back_weapon_slot_07", "L_back_weapon_slot_10" }}
+                    };
+
+                    CreateBodyParts(partsTable, bodyParts);
+                }
+            }
+
+            public void CreateBodyParts(Dictionary<string, List<string>> bodyPartsTable, Dictionary<string, BodyPart> bodyParts) {
+
+                foreach (string key in bodyPartsTable.Keys) {
+
+                    if (key.StartsWith("OF_")) {
+
+                        groupOF[key] = new BodyPart(0);
+                        bodyParts[key] = groupOF[key];
+
+                    } else if (key.StartsWith("SC_")) {
+
+                        groupSC[key] = new BodyPart(1);
+                        bodyParts[key] = groupSC[key];
+
+                    } else if (key.StartsWith("SZ_")) {
+
+                        groupSZ[key] = new BodyPart(1);
+                        bodyParts[key] = groupSZ[key];
+
+                    } else if (key.StartsWith("IT_")) {
+
+                        groupIT[key] = new BodyPart(1);
+                        bodyParts[key] = groupIT[key];
+
+                    } else {
+
+                        bodyParts[key] = new BodyPart(1);
+                    }
+
+                    var isOffsetPart = groupOF.ContainsKey(key);
+
+                    foreach (string value in bodyPartsTable[key]) {
+
+                        if (oldSkeleton.BonesByName.ContainsKey(value)) {
+
+                            bodyParts[key].isEmpty = false;
+
+                            var name = value;
+                            var index = oldSkeleton.Bones.IndexOf(oldSkeleton.BonesByName[name]);
+                            var offset = oldSkeleton.Bones[index].ApplyOffset = isOffsetPart;
+                            var oldValue = isOffsetPart ? oldSkeleton.Bones[index].Offset : oldSkeleton.Bones[index].Scale;
+                            var boneData = new BoneDataStruct { boneName = name, boneIndex = index, applyOffset = offset, originalValue = oldValue };
+
+                            bodyParts[key].bonesData.Add(boneData);
+                        }
+                    }
+                }
+            }
+
+            public Skeleton DuplicateSkeleton(Skeleton skeleton) {
+
+                var tempSkeleton = new Skeleton();
+                var newBoneJobArray = new NativeArray<Skeleton.BoneData>(skeleton.Bones.Count, Allocator.Persistent);
+
+                for (int i = 0; i < skeleton.Bones.Count; i++) {
+
+                    newBoneJobArray[i] = new Skeleton.BoneData { ApplyOffset = skeleton.Bones[i].ApplyOffset, Offset = skeleton.Bones[i].Offset, Scale = skeleton.Bones[i].Scale };
+                }
+
+                tempSkeleton.m_BoneDataForJob = newBoneJobArray;
+                tempSkeleton.name = skeleton.name;
+                tempSkeleton.Bones = skeleton.Bones;
+                tempSkeleton.hideFlags = skeleton.hideFlags;
+                tempSkeleton.AnimationSetOverride = skeleton.AnimationSetOverride;
+                tempSkeleton.CharacterFxBonesMap = skeleton.CharacterFxBonesMap;
+                tempSkeleton.RaceBoneHierarchyObject = skeleton.RaceBoneHierarchyObject;
+                tempSkeleton.m_DollRoomZoomPreset = skeleton.m_DollRoomZoomPreset;
+                tempSkeleton.m_IsDirty = skeleton.m_IsDirty;
+                tempSkeleton.m_BonesByName = skeleton.m_BonesByName;
+                tempSkeleton.m_IsDirty = skeleton.m_IsDirty;
+
+                return tempSkeleton;
+            }
+
+            public void ApplyBonesModification(BaseUnitEntity character, bool loadPerSaveData) {
+
+                if (character?.View?.CharacterAvatar?.Skeleton != newSkeleton) {
+
+                    character.View.CharacterAvatar.Skeleton = newSkeleton;
+                }
+
+                var specificBodyParts = new Dictionary<string, BodyPart>();
+
+                foreach (string key in bodyParts.Keys) {
+
+                    foreach (BoneDataStruct bone in bodyParts[key].bonesData) {
+
+                        var tarrgetBone = newSkeleton.m_BoneDataForJob[bone.boneIndex];
+                        var parameter = bodyParts[key].parameter;
+
+                        if (Main.Settings.perSave.characterSkeletonReplacers.ContainsKey(character.HashKey()) && loadPerSaveData) {
+
+                            var boneData = Main.Settings.perSave.characterSkeletonReplacers[character.HashKey()];
+                            parameter = boneData.GetValueOrDefault(key, 1);
+
+                        } else {
+
+                            if (!Main.Settings.perSave.characterSkeletonReplacers.ContainsKey(character.HashKey())) {
+
+                                Main.Settings.perSave.characterSkeletonReplacers[character.HashKey()] = new Dictionary<string, float>();
+                            }
+
+                            Main.Settings.perSave.characterSkeletonReplacers[character.HashKey()][key] = parameter;
+                        }
+
+                        bodyParts[key].parameter = parameter;
+
+                        if (groupOF.ContainsKey(key) || groupIT.ContainsKey(key) || key.StartsWith("SC_pelvis")) {
+
+                            specificBodyParts[key] = bodyParts[key];
+
+                        } else {
+
+                            tarrgetBone.Scale = bone.originalValue * parameter;
+                        }
+
+                        newSkeleton.m_BoneDataForJob[bone.boneIndex] = tarrgetBone;
+                    }
+                }
+
+                var m1 = bodyParts.ContainsKey("SC_lower_torso") ? bodyParts["SC_lower_torso"].parameter : 1;
+                var m2 = bodyParts.ContainsKey("SC_middle_torso") ? bodyParts["SC_middle_torso"].parameter : 1;
+                var m3 = bodyParts.ContainsKey("SC_upper_torso") ? bodyParts["SC_upper_torso"].parameter : 1;
+                var m4 = bodyParts.ContainsKey("SC_shoulders") ? bodyParts["SC_shoulders"].parameter : 1;
+                var m5 = bodyParts.ContainsKey("SC_upper_arms") ? bodyParts["SC_upper_arms"].parameter : 1;
+                var m6 = bodyParts.ContainsKey("SC_fore_arms") ? bodyParts["SC_fore_arms"].parameter : 1;
+                var m7 = bodyParts.ContainsKey("SZ_hands") ? bodyParts["SZ_hands"].parameter : 1;
+
+                var bM = m1 * m2 * m3;
+                var nM = bM * m4 * m5 * m6 * m7;
+
+                foreach (string key in specificBodyParts.Keys) {
+
+                    foreach (BoneDataStruct bone in specificBodyParts[key].bonesData) {
+
+                        var tarrgetBone = newSkeleton.m_BoneDataForJob[bone.boneIndex];
+                        var parameter = specificBodyParts[key].parameter;
+                        var isRight = bone.boneName.StartsWith("R_");
+
+                        tarrgetBone.ApplyOffset = bone.applyOffset;
+
+                        if (key == "OF_position") {
+
+                            tarrgetBone.Offset.x = bone.originalValue.x + parameter * -0.1f;
+
+                        } else if (key.Contains("shouldersX")) {
+
+                            tarrgetBone.Offset.z = bone.originalValue.z + (isRight ? parameter * 0.1f : parameter * -0.1f);
+
+                        } else if (key.Contains("shouldersZ")) {
+
+                            tarrgetBone.Offset.x = bone.originalValue.x + (isRight ? parameter * -0.1f : parameter * -0.1f);
+
+                        } else if (key.Contains("upper_arms")) {
+
+                            tarrgetBone.Offset.x = bone.originalValue.x + (isRight ? parameter * -0.1f : parameter * 0.1f);
+
+                        } else if (key.Contains("fore_arms")) {
+
+                            tarrgetBone.Offset.z = bone.originalValue.z + (isRight ? parameter * -0.1f : parameter * 0.1f);
+
+                        } else if (key.Contains("upper_legs")) {
+
+                            tarrgetBone.Offset.x = bone.originalValue.x + (isRight ? parameter * 0.1f : parameter * -0.1f);
+
+                        } else if (key == "SC_pelvisX") {
+
+                            tarrgetBone.Scale.x = bone.originalValue.x * parameter;
+
+                        } else if (key == "SC_pelvisY") {
+
+                            tarrgetBone.Scale.y = bone.originalValue.y * parameter;
+
+                        } else if (key == "SC_pelvisZ") {
+
+                            tarrgetBone.Scale.z = bone.originalValue.z * parameter;
+
+                        } else if (key == "IT_weapon_in_holsters") {
+
+                            tarrgetBone.Scale = bone.originalValue * parameter;
+
+                        } else if (key == "IT_weapon_in_hand") {
+
+                            tarrgetBone.Scale = (bone.originalValue * parameter) / nM;
+
+                        } else if (key == "IT_backpack_and_cloak" || key == "IT_back_weapon_right" || key == "IT_back_weapon_left") {
+
+                            tarrgetBone.Scale = (bone.originalValue * parameter) / bM;
+                        }
+
+                        newSkeleton.m_BoneDataForJob[bone.boneIndex] = tarrgetBone;
+                    }
+                }
+            }
+
+            public class BodyPart {
+
+                public bool isEmpty = true;
+                public float parameter;
+                public List<BoneDataStruct> bonesData;
+
+                public BodyPart(float genericParameter) {
+
+                    parameter = genericParameter;
+                    bonesData = new List<BoneDataStruct>();
+                }
+            }
+
+            public struct BoneDataStruct {
+
+                public string boneName;
+                public int boneIndex;
+                public bool applyOffset;
+                public Vector3 originalValue;
+            }
+        }
+
         public static IAlignmentShiftProvider ToyboxAlignmentProvider => new ToyBoxAlignmentProvider();
 
-        public static Dictionary<string, float> lastScaleSize = new();
+        public static Dictionary<string, CharacterSkeletonReplacer> skeletonReplacers = new();
+        public static Dictionary<string, Vector3> lastScaleSize = new();
         private static readonly Dictionary<string, PortraitData> _portraitsByID = new();
         private static bool _portraitsLoaded = false;
         private static Browser<string, string> portraitBrowser;
@@ -36,6 +374,10 @@ namespace ToyBox {
         private static bool listCustomPortraits = false;
         private static bool listCustomVoices = false;
         private static bool listBlueprintPortraits = false;
+        private static bool listSkeletonOffsets = false;
+        private static bool listSkeletonScales = false;
+        private static bool listSkeletonSizes = false;
+        private static bool listSkeletonItems = false;
         private static IEnumerable<BlueprintPortrait> blueprintPortraitBps = null;
         private static IEnumerable<BlueprintUnitAsksList> blueprintVoiceBps = null;
         private static string newPortraitName = "";
@@ -135,8 +477,8 @@ namespace ToyBox {
                 }
             }
         }
-        public static List<Action> OnStatsGUI(BaseUnitEntity ch) {
-            List<Action> todo = new();
+        public static List<System.Action> OnStatsGUI(BaseUnitEntity ch) {
+            List<System.Action> todo = new();
             using (HorizontalScope()) {
                 100.space();
                 using (VerticalScope()) {
@@ -146,6 +488,21 @@ namespace ToyBox {
                     } else {
                         Label("Current Blueprint Portrait".localize());
                         OnPortraitGUI(ch.UISettings.PortraitBlueprint, 0.25f, false, (int)(0.25f * 692));
+                    }
+                    using (HorizontalScope()) {
+                        Label("Gender".localize(), Width(180));
+                        Space(25);
+                        var gender = ch.Descriptor().GetCustomGender() ?? ch.Descriptor().Gender;
+                        var isFemale = gender == Gender.Female;
+                        using (HorizontalScope(Width(100))) {
+                            if (Toggle(isFemale ? "Female".localize() : "Male".localize(), ref isFemale,
+                                RichText.Bold("♀".Color(RGBA.magenta)),
+                                RichText.Bold("♂".Color(RGBA.aqua)),
+                                0, largeStyle, GUI.skin.box, Width(200), Height(20))) {
+                                ch.Descriptor().SetCustomGender(isFemale ? Gender.Female : Gender.Male);
+                            }
+                        }
+                        Label(RichText.Green("Changing your gender may cause visual glitches".localize()));
                     }
                     Div(0, 20, 755);
                     DisclosureToggle("Show Custom Portrait Picker".localize(), ref listCustomPortraits);
@@ -182,7 +539,7 @@ namespace ToyBox {
                                         for (var ii = 0; ii < count;) {
                                             var tmp = ii;
                                             using (HorizontalScope()) {
-                                                for (; ii < Math.Min(tmp + 6, count); ii++) {
+                                                for (; ii < System.Math.Min(tmp + 6, count); ii++) {
                                                     var customID = definitions[ii];
                                                     // 6 Portraits per row; 692px per image + buffer
                                                     OnPortraitGUI(customID, (ummWidth - 100) / (6 * 780));
@@ -224,7 +581,7 @@ namespace ToyBox {
                                         for (var ii = 0; ii < count;) {
                                             var tmp = ii;
                                             using (HorizontalScope()) {
-                                                for (; ii < Math.Min(tmp + 6, count); ii++) {
+                                                for (; ii < System.Math.Min(tmp + 6, count); ii++) {
                                                     // 6 Portraits per row; 692px per image + buffer
                                                     OnPortraitGUI(definitions[ii], 3.76f * ((ummWidth - 100) / (6 * 780)), true, (int)(692 * (ummWidth - 100) / (6 * 780)));
                                                 }
@@ -291,11 +648,254 @@ namespace ToyBox {
                         if (DisableVO) Settings.namesToDisableVoiceOver.Add(cName);
                         else Settings.namesToDisableVoiceOver.Remove(cName);
                     }
+                    using (HorizontalScope()) {
+                        if (!Main.Settings.perSave.doOverrideEnableAiForCompanions.TryGetValue(ch.HashKey(), out var valuePair)) {
+                            valuePair = new(false, false);
+                        }
+                        var temp = valuePair.Item1;
+                        if (Toggle("Override AI Control Behaviour".localize(), ref temp)) {
+                            if (temp) {
+                                Main.Settings.perSave.doOverrideEnableAiForCompanions[ch.HashKey()] = new(temp, valuePair.Item2);
+                                Settings.SavePerSaveSettings();
+                            } else {
+                                Main.Settings.perSave.doOverrideEnableAiForCompanions.Remove(ch.HashKey());
+                                Settings.SavePerSaveSettings();
+                            }
+                        }
+                        if (temp) {
+                            Space(50);
+                            var temp2 = valuePair.Item2;
+                            if (Toggle("Make Character AI Controlled".localize(), ref temp2)) {
+                                Main.Settings.perSave.doOverrideEnableAiForCompanions[ch.HashKey()] = new(temp, temp2);
+                                Settings.SavePerSaveSettings();
+                            }
+                        }
+                    }
                 }
+            }
+            Div(100, 20, 755);
+            using (HorizontalScope()) {
+                Space(100);
+
+                using (VerticalScope()) {
+
+                    DisclosureToggle("Body parts offsets and position".localize(), ref listSkeletonOffsets);
+                    if (listSkeletonOffsets) {
+                        Space(6);
+                        if (skeletonReplacers.ContainsKey(ch.HashKey())) {
+
+                            foreach (string key in skeletonReplacers[ch.HashKey()].bodyParts.Keys) {
+
+                                var min = key == "OF_position" ? -10f : -1.0f;
+                                var max = key == "OF_position" ? 10f : 1f;
+
+                                if (skeletonReplacers[ch.HashKey()].groupOF.ContainsKey(key)) {
+
+                                    using (HorizontalScope()) {
+
+                                        using (VerticalScope(Width(325))) {
+
+                                            Label(key.localize().Color(RGBA.none), Width(325));
+                                            Space(-6.point());
+                                        }
+
+                                        if (Slider(ref skeletonReplacers[ch.HashKey()].bodyParts[key].parameter, min, max, 0, 2, "", AutoWidth())) {
+
+                                            skeletonReplacers[ch.HashKey()].ApplyBonesModification(ch, false);
+                                            Settings.SavePerSaveSettings();
+                                        }
+                                    }
+                                }
+                            }
+                            Space(10);
+
+                        } else {
+
+                            skeletonReplacers[ch.HashKey()] = new CharacterSkeletonReplacer(ch);
+                        }
+                    }
+                    DisclosureToggle("Body parts global scales".localize(), ref listSkeletonScales);
+                    if (listSkeletonScales) {
+                        Space(6);
+                        if (skeletonReplacers.ContainsKey(ch.HashKey())) {
+
+                            foreach (string key in skeletonReplacers[ch.HashKey()].bodyParts.Keys) {
+
+                                var min = key == "SC_stomach" ? 0.2f : 0.5f;
+                                var max = key == "SC_stomach" ? 5f : 2f;
+
+                                if (skeletonReplacers[ch.HashKey()].groupSC.ContainsKey(key)) {
+
+                                    using (HorizontalScope()) {
+
+                                        if (LogSliderCustomLabelWidth(key.localize().Color(RGBA.none), ref skeletonReplacers[ch.HashKey()].bodyParts[key].parameter, min, max, 1, 2, "", 300, AutoWidth())) {
+
+                                            skeletonReplacers[ch.HashKey()].ApplyBonesModification(ch, false);
+                                            Settings.SavePerSaveSettings();
+                                        }
+                                    }
+                                }
+                            }
+                            Space(10);
+
+                        } else {
+
+                            skeletonReplacers[ch.HashKey()] = new CharacterSkeletonReplacer(ch);
+                        }
+                    }
+                    DisclosureToggle("Body parts local sizes".localize(), ref listSkeletonSizes);
+                    if (listSkeletonSizes) {
+                        Space(6);
+                        if (skeletonReplacers.ContainsKey(ch.HashKey())) {
+
+                            foreach (string key in skeletonReplacers[ch.HashKey()].bodyParts.Keys) {
+
+                                var min = key == "SZ_stomach" ? 0.2f : 0.5f;
+                                var max = key == "SZ_stomach" ? 5f : 2f;
+
+                                if (skeletonReplacers[ch.HashKey()].groupSZ.ContainsKey(key)) {
+
+                                    using (HorizontalScope()) {
+
+                                        if (LogSliderCustomLabelWidth(key.localize().Color(RGBA.none), ref skeletonReplacers[ch.HashKey()].bodyParts[key].parameter, min, max, 1, 2, "", 300, AutoWidth())) {
+
+                                            skeletonReplacers[ch.HashKey()].ApplyBonesModification(ch, false);
+                                            Settings.SavePerSaveSettings();
+                                        }
+                                    }
+                                }
+                            }
+                            Space(10);
+
+                        } else {
+
+                            skeletonReplacers[ch.HashKey()] = new CharacterSkeletonReplacer(ch);
+                        }
+                    }
+                    DisclosureToggle("Equipment elements sizes".localize(), ref listSkeletonItems);
+                    if (listSkeletonItems) {
+                        Space(6);
+                        if (skeletonReplacers.ContainsKey(ch.HashKey())) {
+
+                            foreach (string key in skeletonReplacers[ch.HashKey()].bodyParts.Keys) {
+
+                                var min = 0.5f;
+                                var max = 2f;
+
+                                if (skeletonReplacers[ch.HashKey()].groupIT.ContainsKey(key)) {
+
+                                    using (HorizontalScope()) {
+
+                                        if (LogSliderCustomLabelWidth(key.localize().Color(RGBA.none), ref skeletonReplacers[ch.HashKey()].bodyParts[key].parameter, min, max, 1, 2, "", 300, AutoWidth())) {
+
+                                            skeletonReplacers[ch.HashKey()].ApplyBonesModification(ch, false);
+                                            Settings.SavePerSaveSettings();
+                                        }
+                                    }
+                                }
+                            }
+                            Space(10);
+
+                        } else {
+
+                            skeletonReplacers[ch.HashKey()] = new CharacterSkeletonReplacer(ch);
+                        }
+                    }
+                }
+            }
+            Div(100, 20, 755);
+            if (ch != null && ch.HashKey() != null) {
+                using (HorizontalScope()) {
+                    Space(100);
+                    using (VerticalScope()) {
+                        using (HorizontalScope()) {
+                            Label("Size".localize(), Width(325));
+                            var size = ch.Descriptor().State.Size;
+                            Label(RichText.Bold(RichText.Orange($"{size}")), Width(175));
+                        }
+                        Label("Pick size modifier to overwrite default.".localize());
+                        Label("Pick none to stop overwriting.".localize());
+                        using (HorizontalScope()) {
+                            Space(328);
+                            int tmp = 0;
+                            if (Main.Settings.perSave.characterSizeModifier.TryGetValue(ch.HashKey(), out var tmpSize)) {
+                                tmp = ((int)tmpSize) + 1;
+                                // Applying again in case the game decided to change the modifier. Since this is an OnGUI it'll still only happen if the GUI is open though.
+                                ch.Descriptor().State.Size = tmpSize;
+                            }
+                            var names = Enum.GetNames(typeof(Size)).Prepend("None").Select(name => name.localize()).ToArray();
+                            ActionSelectionGrid(
+                                ref tmp,
+                                names,
+                                3,
+                               (s) => {
+                                   // if == 0 then "None" is selected
+                                   if (tmp > 0) {
+                                       var newSize = (Size)(tmp - 1);
+                                       ch.Descriptor().State.Size = newSize;
+                                       Main.Settings.perSave.characterSizeModifier[ch.HashKey()] = newSize;
+                                       Settings.SavePerSaveSettings();
+                                   } else {
+                                       Main.Settings.perSave.characterSizeModifier.Remove(ch.HashKey());
+                                       Settings.SavePerSaveSettings();
+                                       ch.Descriptor().State.Size = ch.Descriptor().OriginalSize;
+                                   }
+                               },
+                                Width(420));
+                        }
+                    }
+                }
+                Space(20);
+                using (HorizontalScope()) {
+                    Space(100);
+                    if (ch.View?.gameObject?.transform?.localScale is Vector3 scaleMultiplier) {
+                        var lastScale = lastScaleSize.GetValueOrDefault(ch.HashKey(), new Vector3(1, 1, 1));
+                        if (lastScale.x != scaleMultiplier.x || lastScale.y != scaleMultiplier.y || lastScale.z != scaleMultiplier.z) {
+                            ch.View.gameObject.transform.localScale = lastScale;
+                        }
+                        if (LogSliderCustomLabelWidth("Visual character size multiplier X".localize().Color(RGBA.none), ref lastScale.x, 0.01f, 10f, 1, 2, "", 300, AutoWidth())) {
+                            Main.Settings.perSave.characterModelSizeMultiplier[ch.HashKey()] = new(lastScale.x, lastScale.y, lastScale.z);
+                            ch.View.gameObject.transform.localScale = lastScale;
+                            lastScaleSize[ch.HashKey()] = lastScale;
+                            Settings.SavePerSaveSettings();
+                        }
+                    }
+                }
+                using (HorizontalScope()) {
+                    Space(100);
+                    if (ch.View?.gameObject?.transform?.localScale is Vector3 scaleMultiplier) {
+                        var lastScale = lastScaleSize.GetValueOrDefault(ch.HashKey(), new Vector3(1, 1, 1));
+                        if (lastScale.x != scaleMultiplier.x || lastScale.y != scaleMultiplier.y || lastScale.z != scaleMultiplier.z) {
+                            ch.View.gameObject.transform.localScale = lastScale;
+                        }
+                        if (LogSliderCustomLabelWidth("Visual character size multiplier Y".localize().Color(RGBA.none), ref lastScale.y, 0.01f, 10f, 1, 2, "", 300, AutoWidth())) {
+                            Main.Settings.perSave.characterModelSizeMultiplier[ch.HashKey()] = new(lastScale.x, lastScale.y, lastScale.z);
+                            ch.View.gameObject.transform.localScale = lastScale;
+                            lastScaleSize[ch.HashKey()] = lastScale;
+                            Settings.SavePerSaveSettings();
+                        }
+                    }
+                }
+                using (HorizontalScope()) {
+                    Space(100);
+                    if (ch.View?.gameObject?.transform?.localScale is Vector3 scaleMultiplier) {
+                        var lastScale = lastScaleSize.GetValueOrDefault(ch.HashKey(), new Vector3(1, 1, 1));
+                        if (lastScale.x != scaleMultiplier.x || lastScale.y != scaleMultiplier.y || lastScale.z != scaleMultiplier.z) {
+                            ch.View.gameObject.transform.localScale = lastScale;
+                        }
+                        if (LogSliderCustomLabelWidth("Visual character size multiplier Z".localize().Color(RGBA.none), ref lastScale.z, 0.01f, 10f, 1, 2, "", 300, AutoWidth())) {
+                            Main.Settings.perSave.characterModelSizeMultiplier[ch.HashKey()] = new(lastScale.x, lastScale.y, lastScale.z);
+                            ch.View.gameObject.transform.localScale = lastScale;
+                            lastScaleSize[ch.HashKey()] = lastScale;
+                            Settings.SavePerSaveSettings();
+                        }
+                    }
+                }
+                Space(10);
+                Div(100, 20, 755);
             }
             // TODO: Actually implement this for companions.
             if (ch.IsMainCharacter) {
-                Div(100, 20, 755);
                 var soulMarks = ch.GetSoulMarks();
                 using (HorizontalScope()) {
                     100.space();
@@ -342,105 +942,6 @@ namespace ToyBox {
                     }
                 }
             }
-            Div(100, 20, 755);
-            if (ch != null && ch.HashKey() != null) {
-                using (HorizontalScope()) {
-                    Space(100);
-                    using (VerticalScope()) {
-                        using (HorizontalScope()) {
-                            Label("Size".localize(), Width(425));
-                            var size = ch.Descriptor().State.Size;
-                            Label(RichText.Bold(RichText.Orange($"{size}")), Width(175));
-                        }
-                        Label("Pick size modifier to overwrite default.".localize());
-                        Label("Pick none to stop overwriting.".localize());
-                        using (HorizontalScope()) {
-                            Space(428);
-                            int tmp = 0;
-                            if (Main.Settings.perSave.characterSizeModifier.TryGetValue(ch.HashKey(), out var tmpSize)) {
-                                tmp = ((int)tmpSize) + 1;
-                                // Applying again in case the game decided to change the modifier. Since this is an OnGUI it'll still only happen if the GUI is open though.
-                                ch.Descriptor().State.Size = tmpSize;
-                            }
-                            var names = Enum.GetNames(typeof(Size)).Prepend("None").Select(name => name.localize()).ToArray();
-                            ActionSelectionGrid(
-                                ref tmp,
-                                names,
-                                3,
-                               (s) => {
-                                   // if == 0 then "None" is selected
-                                   if (tmp > 0) {
-                                       var newSize = (Size)(tmp - 1);
-                                       ch.Descriptor().State.Size = newSize;
-                                       Main.Settings.perSave.characterSizeModifier[ch.HashKey()] = newSize;
-                                       Settings.SavePerSaveSettings();
-                                   } else {
-                                       Main.Settings.perSave.characterSizeModifier.Remove(ch.HashKey());
-                                       Settings.SavePerSaveSettings();
-                                       ch.Descriptor().State.Size = ch.Descriptor().OriginalSize;
-                                   }
-                               },
-                                Width(600));
-                        }
-                    }
-                }
-                using (HorizontalScope()) {
-                    Space(100);
-                    if (ch.View?.gameObject?.transform?.localScale[0] is float scaleMultiplier) {
-                        var lastScale = lastScaleSize.GetValueOrDefault(ch.HashKey(), 1);
-                        if (lastScale != scaleMultiplier) {
-                            ch.View.gameObject.transform.localScale = new Vector3(lastScale, lastScale, lastScale);
-                        }
-                        if (LogSliderCustomLabelWidth("Visual Character Size Multiplier".localize().Color(RGBA.none), ref lastScale, 0.01f, 40f, 1, 2, "", 400, AutoWidth())) {
-                            Main.Settings.perSave.characterModelSizeMultiplier[ch.HashKey()] = lastScale;
-                            ch.View.gameObject.transform.localScale = new Vector3(lastScale, lastScale, lastScale);
-                            lastScaleSize[ch.HashKey()] = lastScale;
-                            Settings.SavePerSaveSettings();
-                        }
-                    }
-                }
-                using (HorizontalScope()) {
-                    Space(100);
-                    if (!Main.Settings.perSave.doOverrideEnableAiForCompanions.TryGetValue(ch.HashKey(), out var valuePair)) {
-                        valuePair = new(false, false);
-                    }
-                    var temp = valuePair.Item1;
-                    if (Toggle("Override AI Control Behaviour".localize(), ref temp)) {
-                        if (temp) {
-                            Main.Settings.perSave.doOverrideEnableAiForCompanions[ch.HashKey()] = new(temp, valuePair.Item2);
-                            Settings.SavePerSaveSettings();
-                        } else {
-                            Main.Settings.perSave.doOverrideEnableAiForCompanions.Remove(ch.HashKey());
-                            Settings.SavePerSaveSettings();
-                        }
-                    }
-                    if (temp) {
-                        Space(50);
-                        var temp2 = valuePair.Item2;
-                        if (Toggle("Make Character AI Controlled".localize(), ref temp2)) {
-                            Main.Settings.perSave.doOverrideEnableAiForCompanions[ch.HashKey()] = new(temp, temp2);
-                            Settings.SavePerSaveSettings();
-                        }
-                    }
-                }
-            }
-            using (HorizontalScope()) {
-                Space(100);
-                Label("Gender".localize(), Width(400));
-                Space(25);
-                var gender = ch.Descriptor().GetCustomGender() ?? ch.Descriptor().Gender;
-                var isFemale = gender == Gender.Female;
-                using (HorizontalScope(Width(200))) {
-                    if (Toggle(isFemale ? "Female".localize() : "Male".localize(), ref isFemale,
-                        RichText.Bold("♀".Color(RGBA.magenta)),
-                        RichText.Bold("♂".Color(RGBA.aqua)),
-                        0, largeStyle, GUI.skin.box, Width(300), Height(20))) {
-                        ch.Descriptor().SetCustomGender(isFemale ? Gender.Female : Gender.Male);
-                    }
-                }
-                Label(RichText.Green("Changing your gender may cause visual glitches".localize()));
-            }
-            Space(10);
             Div(100, 20, 755);
             foreach (var obj in HumanFriendlyStats.StatTypes) {
                 try {

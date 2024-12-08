@@ -281,16 +281,16 @@ namespace ToyBox.BagOfPatches {
         [HarmonyPatch(typeof(Polymorph), nameof(Polymorph.TryReplaceView))]
         private static class Polymorph_TryReplaceView_Patch {
             private static void Postfix(Polymorph __instance) {
-                float scale = PartyEditor.lastScaleSize.GetValueOrDefault(__instance.Owner.HashKey(), 1);
-                __instance.Owner.View.transform.localScale = new Vector3(scale, scale, scale);
+                Vector3 scale = PartyEditor.lastScaleSize.GetValueOrDefault(__instance.Owner.HashKey(), new Vector3(1, 1, 1));
+                __instance.Owner.View.transform.localScale = scale;
             }
         }
 
         [HarmonyPatch(typeof(Polymorph), nameof(Polymorph.RestoreView))]
         private static class Polymorph_RestoreView_Patch {
             private static void Postfix(Polymorph __instance) {
-                float scale = PartyEditor.lastScaleSize.GetValueOrDefault(__instance.Owner.HashKey(), 1);
-                __instance.Owner.View.transform.localScale = new Vector3(scale, scale, scale);
+                Vector3 scale = PartyEditor.lastScaleSize.GetValueOrDefault(__instance.Owner.HashKey(), new Vector3(1, 1, 1));
+                __instance.Owner.View.transform.localScale = scale;
             }
         }
 
@@ -301,14 +301,29 @@ namespace ToyBox.BagOfPatches {
                 Settings.ClearCachedPerSave();
                 // if (Settings.experimentalLoadRecruitedCharactersFix) Game.Instance.Player.FixPartyAfterChange();
                 PartyEditor.lastScaleSize = new();
-                PartyEditor.statEditorStorage.Clear();
+				PartyEditor.statEditorStorage.Clear();
+                PartyEditor.skeletonReplacers.Clear();
+
                 foreach (var ID in Main.Settings.perSave.characterModelSizeMultiplier.Keys) {
+
                     foreach (BaseUnitEntity cha in Game.Instance.State.AllUnits.Where((u) => u.HashKey().Equals(ID))) {
-                        float scale = Main.Settings.perSave.characterModelSizeMultiplier.GetValueOrDefault(ID, 1);
-                        cha.View.gameObject.transform.localScale = new Vector3(scale, scale, scale);
-                        PartyEditor.lastScaleSize[cha.HashKey()] = scale;
+
+                        var scale = Main.Settings.perSave.characterModelSizeMultiplier.GetValueOrDefault(ID, new(1, 1, 1));
+
+                        cha.View.gameObject.transform.localScale = new Vector3(scale.Item1, scale.Item2, scale.Item3);
+                        PartyEditor.lastScaleSize[cha.HashKey()] = new Vector3(scale.Item1, scale.Item2, scale.Item3);
                     }
                 }
+
+                foreach (var ID in Main.Settings.perSave.characterSkeletonReplacers.Keys) {
+
+                    foreach (BaseUnitEntity cha in Game.Instance.State.AllUnits.Where((u) => u.HashKey().Equals(ID))) {
+
+                        PartyEditor.skeletonReplacers[cha.HashKey()] = new PartyEditor.CharacterSkeletonReplacer(cha);
+                        PartyEditor.skeletonReplacers[cha.HashKey()].ApplyBonesModification(cha, true);
+                    }
+                }
+
                 foreach (var ID in Main.Settings.perSave.characterSizeModifier.Keys) {
                     foreach (BaseUnitEntity cha in Game.Instance.State.AllUnits.Where((u) => u.HashKey().Equals(ID))) {
                         Kingmaker.Enums.Size size;
