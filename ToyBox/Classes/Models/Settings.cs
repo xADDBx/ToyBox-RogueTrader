@@ -24,9 +24,12 @@ namespace ToyBox {
         //      Dictionary<CharacterName, 
         //          Dictionary<ClassID, HashSet<ArchetypeIDs>
 
+        // Dictionary<Character Hashcode, Dictionary<Dictionary<bodyPartName, universalParameter>, Dictionary<bodyPartName, sizeMultiplier>>
+        [JsonProperty]
+        public Dictionary<string, Dictionary<string, float>> characterSkeletonReplacers = new();
         // This is the scaling modifier which is applied to the visual model of each character
         [JsonProperty]
-        public Dictionary<string, float> characterModelSizeMultiplier = new();
+        public Dictionary<string, Tuple<float, float, float>> characterModelSizeMultiplier = new();
         // Dictionary<Character Hashcode,
         //              { doOverride, OverrideValue }
         [JsonProperty]
