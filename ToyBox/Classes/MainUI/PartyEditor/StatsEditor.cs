@@ -899,7 +899,7 @@ namespace ToyBox {
                 var soulMarks = ch.GetSoulMarks();
                 using (HorizontalScope()) {
                     100.space();
-                    Label("Soul Marks".localize(), Width(200));
+                    Label("Soul Marks".localize(), Width(300));
                     using (VerticalScope()) {
                         foreach (SoulMarkDirection dir in Enum.GetValues(typeof(SoulMarkDirection))) {
                             if (dir == SoulMarkDirection.None || dir == SoulMarkDirection.Reason) continue;
@@ -917,7 +917,7 @@ namespace ToyBox {
                                 continue;
                             }
                             using (HorizontalScope()) {
-                                Label(RichText.Orange(dir.ToString().localize()), 200.width());
+                                Label(RichText.Bold(RichText.Orange(dir.ToString().localize())), 95.width());
                                 ActionButton(" < ",
                                              () => modifySoulmark(dir, soulMark, ch, soulMark.Rank - 1, soulMark.Rank - 2),
                                              GUI.skin.box,
@@ -960,7 +960,7 @@ namespace ToyBox {
                     }
                     using (HorizontalScope()) {
                         Space(100);
-                        Label(statName.localize(), Width(400f));
+                        Label(statName.localize(), Width(374f));
                         Space(25);
                         ActionButton(" < ",
                                      () => {
