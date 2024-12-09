@@ -8,6 +8,7 @@ using Kingmaker.Enums;
 using Kingmaker.PubSubSystem;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Alignments;
+using Kingmaker.Visual.CharacterSystem;
 using Kingmaker.Visual.Sound;
 using ModKit;
 using ModKit.Utility;
@@ -18,15 +19,20 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using ToyBox.classes.Infrastructure;
+using Unity.Collections;
 using UnityEngine;
 
 namespace ToyBox {
+
     public partial class PartyEditor {
+
         public class ToyBoxAlignmentProvider : IAlignmentShiftProvider {
             AlignmentShift IAlignmentShiftProvider.AlignmentShift => new() { Description = "ToyBox Party Editor".LocalizedStringInGame() };
         }
+
         public static IAlignmentShiftProvider ToyboxAlignmentProvider => new ToyBoxAlignmentProvider();
 
+        public static Dictionary<string, SkeletonReplacer> skeletonReplacers = new();
         public static Dictionary<string, float> lastScaleSize = new();
         private static readonly Dictionary<string, PortraitData> _portraitsByID = new();
         private static bool _portraitsLoaded = false;
@@ -36,6 +42,10 @@ namespace ToyBox {
         private static bool listCustomPortraits = false;
         private static bool listCustomVoices = false;
         private static bool listBlueprintPortraits = false;
+        private static bool listSkeletonOffsets = false;
+        private static bool listSkeletonScales = false;
+        private static bool listSkeletonSizes = false;
+        private static bool listSkeletonItems = false;
         private static IEnumerable<BlueprintPortrait> blueprintPortraitBps = null;
         private static IEnumerable<BlueprintUnitAsksList> blueprintVoiceBps = null;
         private static string newPortraitName = "";
@@ -146,6 +156,21 @@ namespace ToyBox {
                     } else {
                         Label("Current Blueprint Portrait".localize());
                         OnPortraitGUI(ch.UISettings.PortraitBlueprint, 0.25f, false, (int)(0.25f * 692));
+                    }
+                    using (HorizontalScope()) {
+                        Label("Gender".localize(), Width(180));
+                        Space(25);
+                        var gender = ch.Descriptor().GetCustomGender() ?? ch.Descriptor().Gender;
+                        var isFemale = gender == Gender.Female;
+                        using (HorizontalScope(Width(100))) {
+                            if (Toggle(isFemale ? "Female".localize() : "Male".localize(), ref isFemale,
+                                RichText.Bold("♀".Color(RGBA.magenta)),
+                                RichText.Bold("♂".Color(RGBA.aqua)),
+                                0, largeStyle, GUI.skin.box, Width(200), Height(20))) {
+                                ch.Descriptor().SetCustomGender(isFemale ? Gender.Female : Gender.Male);
+                            }
+                        }
+                        Label(RichText.Green("Changing your gender may cause visual glitches".localize()));
                     }
                     Div(0, 20, 755);
                     DisclosureToggle("Show Custom Portrait Picker".localize(), ref listCustomPortraits);
@@ -259,12 +284,12 @@ namespace ToyBox {
                                 (definition, _currentDict) => {
                                     bool isCurrentVoice = definition == ch.Asks.List;
                                     if (isCurrentVoice) {
-                                        Label(RichText.Green(BlueprintExtensions.GetTitle(definition)), 500.width());
+                                        Label(RichText.Green(BlueprintExtensions.GetTitle(definition)), 300.width());
                                         ActionButton("Play Example".localize(), () => {
                                             new BarkWrapper(definition.GetComponent<UnitAsksComponent>().PartyMemberUnconscious, ch.View.Asks).Schedule();
                                         }, 150.width());
                                     } else {
-                                        Label(BlueprintExtensions.GetTitle(definition), 500.width());
+                                        Label(BlueprintExtensions.GetTitle(definition), 300.width());
                                         Space(150);
                                     }
                                     Space(200);
@@ -291,15 +316,228 @@ namespace ToyBox {
                         if (DisableVO) Settings.namesToDisableVoiceOver.Add(cName);
                         else Settings.namesToDisableVoiceOver.Remove(cName);
                     }
+                    using (HorizontalScope()) {
+                        if (!Main.Settings.perSave.doOverrideEnableAiForCompanions.TryGetValue(ch.HashKey(), out var valuePair)) {
+                            valuePair = new(false, false);
+                        }
+                        var temp = valuePair.Item1;
+                        if (Toggle("Override AI Control Behaviour".localize(), ref temp)) {
+                            if (temp) {
+                                Main.Settings.perSave.doOverrideEnableAiForCompanions[ch.HashKey()] = new(temp, valuePair.Item2);
+                                Settings.SavePerSaveSettings();
+                            } else {
+                                Main.Settings.perSave.doOverrideEnableAiForCompanions.Remove(ch.HashKey());
+                                Settings.SavePerSaveSettings();
+                            }
+                        }
+                        if (temp) {
+                            Space(50);
+                            var temp2 = valuePair.Item2;
+                            if (Toggle("Make Character AI Controlled".localize(), ref temp2)) {
+                                Main.Settings.perSave.doOverrideEnableAiForCompanions[ch.HashKey()] = new(temp, temp2);
+                                Settings.SavePerSaveSettings();
+                            }
+                        }
+                    }
                 }
+            }
+            Div(100, 20, 755);
+            using (HorizontalScope()) {
+                Space(100);
+
+                using (VerticalScope()) {
+
+                    DisclosureToggle("Body parts offsets and position".localize(), ref listSkeletonOffsets);
+                    if (listSkeletonOffsets) {
+                        Space(6);
+                        if (skeletonReplacers.ContainsKey(ch.HashKey())) {
+
+                            foreach (string key in skeletonReplacers[ch.HashKey()].bodyParts.Keys) {
+
+                                var min = key == "OF_position" ? -10f : -2.0f;
+                                var max = key == "OF_position" ? 10f : 2f;
+
+                                if (skeletonReplacers[ch.HashKey()].groupOF.ContainsKey(key)) {
+
+                                    using (HorizontalScope()) {
+
+                                        using (VerticalScope(Width(325))) {
+
+                                            Label(key.localize().Color(RGBA.none), Width(325));
+                                            Space(-6.point());
+                                        }
+
+                                        if (Slider(ref skeletonReplacers[ch.HashKey()].bodyParts[key].parameter, min, max, 0, 2, "", AutoWidth())) {
+
+                                            skeletonReplacers[ch.HashKey()].ApplyBonesModification(ch, false);
+                                            Settings.SavePerSaveSettings();
+                                        }
+                                    }
+                                }
+                            }
+                            Space(10);
+
+                        } else {
+
+                            skeletonReplacers[ch.HashKey()] = new SkeletonReplacer(ch);
+                        }
+                    }
+                    DisclosureToggle("Body parts global scales".localize(), ref listSkeletonScales);
+                    if (listSkeletonScales) {
+                        Space(6);
+                        if (skeletonReplacers.ContainsKey(ch.HashKey())) {
+
+                            foreach (string key in skeletonReplacers[ch.HashKey()].bodyParts.Keys) {
+
+                                var min = key == "SC_stomach" ? 0.2f : 0.5f;
+                                var max = key == "SC_stomach" ? 5f : 2f;
+
+                                if (skeletonReplacers[ch.HashKey()].groupSC.ContainsKey(key)) {
+
+                                    using (HorizontalScope()) {
+
+                                        if (LogSliderCustomLabelWidth(key.localize().Color(RGBA.none), ref skeletonReplacers[ch.HashKey()].bodyParts[key].parameter, min, max, 1, 2, "", 300, AutoWidth())) {
+
+                                            skeletonReplacers[ch.HashKey()].ApplyBonesModification(ch, false);
+                                            Settings.SavePerSaveSettings();
+                                        }
+                                    }
+                                }
+                            }
+                            Space(10);
+
+                        } else {
+
+                            skeletonReplacers[ch.HashKey()] = new SkeletonReplacer(ch);
+                        }
+                    }
+                    DisclosureToggle("Body parts local sizes".localize(), ref listSkeletonSizes);
+                    if (listSkeletonSizes) {
+                        Space(6);
+                        if (skeletonReplacers.ContainsKey(ch.HashKey())) {
+
+                            foreach (string key in skeletonReplacers[ch.HashKey()].bodyParts.Keys) {
+
+                                var min = key == "SZ_stomach" ? 0.2f : 0.5f;
+                                var max = key == "SZ_stomach" ? 5f : 2f;
+
+                                if (skeletonReplacers[ch.HashKey()].groupSZ.ContainsKey(key)) {
+
+                                    using (HorizontalScope()) {
+
+                                        if (LogSliderCustomLabelWidth(key.localize().Color(RGBA.none), ref skeletonReplacers[ch.HashKey()].bodyParts[key].parameter, min, max, 1, 2, "", 300, AutoWidth())) {
+
+                                            skeletonReplacers[ch.HashKey()].ApplyBonesModification(ch, false);
+                                            Settings.SavePerSaveSettings();
+                                        }
+                                    }
+                                }
+                            }
+                            Space(10);
+
+                        } else {
+
+                            skeletonReplacers[ch.HashKey()] = new SkeletonReplacer(ch);
+                        }
+                    }
+                    DisclosureToggle("Equipment elements sizes".localize(), ref listSkeletonItems);
+                    if (listSkeletonItems) {
+                        Space(6);
+                        if (skeletonReplacers.ContainsKey(ch.HashKey())) {
+
+                            foreach (string key in skeletonReplacers[ch.HashKey()].bodyParts.Keys) {
+
+                                var min = 0.5f;
+                                var max = 2f;
+
+                                if (skeletonReplacers[ch.HashKey()].groupIT.ContainsKey(key)) {
+
+                                    using (HorizontalScope()) {
+
+                                        if (LogSliderCustomLabelWidth(key.localize().Color(RGBA.none), ref skeletonReplacers[ch.HashKey()].bodyParts[key].parameter, min, max, 1, 2, "", 300, AutoWidth())) {
+
+                                            skeletonReplacers[ch.HashKey()].ApplyBonesModification(ch, false);
+                                            Settings.SavePerSaveSettings();
+                                        }
+                                    }
+                                }
+                            }
+                            Space(10);
+
+                        } else {
+
+                            skeletonReplacers[ch.HashKey()] = new SkeletonReplacer(ch);
+                        }
+                    }
+                }
+            }
+            Div(100, 20, 755);
+            if (ch != null && ch.HashKey() != null) {
+                using (HorizontalScope()) {
+                    Space(100);
+                    using (VerticalScope()) {
+                        using (HorizontalScope()) {
+                            Label("Size".localize(), Width(325));
+                            var size = ch.Descriptor().State.Size;
+                            Label(RichText.Bold(RichText.Orange($"{size}")), Width(175));
+                        }
+                        Label("Pick size modifier to overwrite default.".localize());
+                        Label("Pick none to stop overwriting.".localize());
+                        using (HorizontalScope()) {
+                            Space(328);
+                            int tmp = 0;
+                            if (Main.Settings.perSave.characterSizeModifier.TryGetValue(ch.HashKey(), out var tmpSize)) {
+                                tmp = ((int)tmpSize) + 1;
+                                // Applying again in case the game decided to change the modifier. Since this is an OnGUI it'll still only happen if the GUI is open though.
+                                ch.Descriptor().State.Size = tmpSize;
+                            }
+                            var names = Enum.GetNames(typeof(Size)).Prepend("None").Select(name => name.localize()).ToArray();
+                            ActionSelectionGrid(
+                                ref tmp,
+                                names,
+                                3,
+                               (s) => {
+                                   // if == 0 then "None" is selected
+                                   if (tmp > 0) {
+                                       var newSize = (Size)(tmp - 1);
+                                       ch.Descriptor().State.Size = newSize;
+                                       Main.Settings.perSave.characterSizeModifier[ch.HashKey()] = newSize;
+                                       Settings.SavePerSaveSettings();
+                                   } else {
+                                       Main.Settings.perSave.characterSizeModifier.Remove(ch.HashKey());
+                                       Settings.SavePerSaveSettings();
+                                       ch.Descriptor().State.Size = ch.Descriptor().OriginalSize;
+                                   }
+                               },
+                                Width(420));
+                        }
+                    }
+                }
+                Space(20);
+                using (HorizontalScope()) {
+                    Space(100);
+                    if (ch.View?.gameObject?.transform?.localScale[0] is float scaleMultiplier) {
+                        var lastScale = lastScaleSize.GetValueOrDefault(ch.HashKey(), 1);
+                        if (lastScale != scaleMultiplier) {
+                            ch.View.gameObject.transform.localScale = new Vector3(lastScale, lastScale, lastScale);
+                        }
+                        if (LogSliderCustomLabelWidth("Visual Character Size Multiplier".localize().Color(RGBA.none), ref lastScale, 0.01f, 40f, 1, 2, "", 300, AutoWidth())) {
+                            Main.Settings.perSave.characterModelSizeMultiplier[ch.HashKey()] = lastScale;
+                            ch.View.gameObject.transform.localScale = new Vector3(lastScale, lastScale, lastScale);
+                            lastScaleSize[ch.HashKey()] = lastScale;
+                            Settings.SavePerSaveSettings();
+                        }
+                    }
+                }
+                Space(10);
+                Div(100, 20, 755);
             }
             // TODO: Actually implement this for companions.
             if (ch.IsMainCharacter) {
-                Div(100, 20, 755);
                 var soulMarks = ch.GetSoulMarks();
                 using (HorizontalScope()) {
                     100.space();
-                    Label("Soul Marks".localize(), Width(200));
+                    Label("Soul Marks".localize(), Width(300));
                     using (VerticalScope()) {
                         foreach (SoulMarkDirection dir in Enum.GetValues(typeof(SoulMarkDirection))) {
                             if (dir == SoulMarkDirection.None || dir == SoulMarkDirection.Reason) continue;
@@ -317,7 +555,7 @@ namespace ToyBox {
                                 continue;
                             }
                             using (HorizontalScope()) {
-                                Label(RichText.Orange(dir.ToString().localize()), 200.width());
+                                Label(RichText.Bold(RichText.Orange(dir.ToString().localize())), 95.width());
                                 ActionButton(" < ",
                                              () => modifySoulmark(dir, soulMark, ch, soulMark.Rank - 1, soulMark.Rank - 2),
                                              GUI.skin.box,
@@ -343,105 +581,6 @@ namespace ToyBox {
                 }
             }
             Div(100, 20, 755);
-            if (ch != null && ch.HashKey() != null) {
-                using (HorizontalScope()) {
-                    Space(100);
-                    using (VerticalScope()) {
-                        using (HorizontalScope()) {
-                            Label("Size".localize(), Width(425));
-                            var size = ch.Descriptor().State.Size;
-                            Label(RichText.Bold(RichText.Orange($"{size}")), Width(175));
-                        }
-                        Label("Pick size modifier to overwrite default.".localize());
-                        Label("Pick none to stop overwriting.".localize());
-                        using (HorizontalScope()) {
-                            Space(428);
-                            int tmp = 0;
-                            if (Main.Settings.perSave.characterSizeModifier.TryGetValue(ch.HashKey(), out var tmpSize)) {
-                                tmp = ((int)tmpSize) + 1;
-                                // Applying again in case the game decided to change the modifier. Since this is an OnGUI it'll still only happen if the GUI is open though.
-                                ch.Descriptor().State.Size = tmpSize;
-                            }
-                            var names = Enum.GetNames(typeof(Size)).Prepend("None").Select(name => name.localize()).ToArray();
-                            ActionSelectionGrid(
-                                ref tmp,
-                                names,
-                                3,
-                               (s) => {
-                                   // if == 0 then "None" is selected
-                                   if (tmp > 0) {
-                                       var newSize = (Size)(tmp - 1);
-                                       ch.Descriptor().State.Size = newSize;
-                                       Main.Settings.perSave.characterSizeModifier[ch.HashKey()] = newSize;
-                                       Settings.SavePerSaveSettings();
-                                   } else {
-                                       Main.Settings.perSave.characterSizeModifier.Remove(ch.HashKey());
-                                       Settings.SavePerSaveSettings();
-                                       ch.Descriptor().State.Size = ch.Descriptor().OriginalSize;
-                                   }
-                               },
-                                Width(600));
-                        }
-                    }
-                }
-                using (HorizontalScope()) {
-                    Space(100);
-                    if (ch.View?.gameObject?.transform?.localScale[0] is float scaleMultiplier) {
-                        var lastScale = lastScaleSize.GetValueOrDefault(ch.HashKey(), 1);
-                        if (lastScale != scaleMultiplier) {
-                            ch.View.gameObject.transform.localScale = new Vector3(lastScale, lastScale, lastScale);
-                        }
-                        if (LogSliderCustomLabelWidth("Visual Character Size Multiplier".localize().Color(RGBA.none), ref lastScale, 0.01f, 40f, 1, 2, "", 400, AutoWidth())) {
-                            Main.Settings.perSave.characterModelSizeMultiplier[ch.HashKey()] = lastScale;
-                            ch.View.gameObject.transform.localScale = new Vector3(lastScale, lastScale, lastScale);
-                            lastScaleSize[ch.HashKey()] = lastScale;
-                            Settings.SavePerSaveSettings();
-                        }
-                    }
-                }
-                using (HorizontalScope()) {
-                    Space(100);
-                    if (!Main.Settings.perSave.doOverrideEnableAiForCompanions.TryGetValue(ch.HashKey(), out var valuePair)) {
-                        valuePair = new(false, false);
-                    }
-                    var temp = valuePair.Item1;
-                    if (Toggle("Override AI Control Behaviour".localize(), ref temp)) {
-                        if (temp) {
-                            Main.Settings.perSave.doOverrideEnableAiForCompanions[ch.HashKey()] = new(temp, valuePair.Item2);
-                            Settings.SavePerSaveSettings();
-                        } else {
-                            Main.Settings.perSave.doOverrideEnableAiForCompanions.Remove(ch.HashKey());
-                            Settings.SavePerSaveSettings();
-                        }
-                    }
-                    if (temp) {
-                        Space(50);
-                        var temp2 = valuePair.Item2;
-                        if (Toggle("Make Character AI Controlled".localize(), ref temp2)) {
-                            Main.Settings.perSave.doOverrideEnableAiForCompanions[ch.HashKey()] = new(temp, temp2);
-                            Settings.SavePerSaveSettings();
-                        }
-                    }
-                }
-            }
-            using (HorizontalScope()) {
-                Space(100);
-                Label("Gender".localize(), Width(400));
-                Space(25);
-                var gender = ch.Descriptor().GetCustomGender() ?? ch.Descriptor().Gender;
-                var isFemale = gender == Gender.Female;
-                using (HorizontalScope(Width(200))) {
-                    if (Toggle(isFemale ? "Female".localize() : "Male".localize(), ref isFemale,
-                        RichText.Bold("♀".Color(RGBA.magenta)),
-                        RichText.Bold("♂".Color(RGBA.aqua)),
-                        0, largeStyle, GUI.skin.box, Width(300), Height(20))) {
-                        ch.Descriptor().SetCustomGender(isFemale ? Gender.Female : Gender.Male);
-                    }
-                }
-                Label(RichText.Green("Changing your gender may cause visual glitches".localize()));
-            }
-            Space(10);
-            Div(100, 20, 755);
             foreach (var obj in HumanFriendlyStats.StatTypes) {
                 try {
                     var statType = (StatType)obj;
@@ -459,7 +598,7 @@ namespace ToyBox {
                     }
                     using (HorizontalScope()) {
                         Space(100);
-                        Label(statName.localize(), Width(400f));
+                        Label(statName.localize(), Width(374f));
                         Space(25);
                         ActionButton(" < ",
                                      () => {
