@@ -114,7 +114,8 @@ namespace ToyBox {
             // Abilities
             BlueprintAction.Register<BlueprintAbility>("Add".localize(),
                                                        (bp, ch, n, index) => {
-                                                           ch.Abilities.Add(bp);
+                                                           var fact = ch.Abilities.Add(bp);
+                                                           fact.AddSource(new EntityFactSource(ch));
                                                            OwlLogging.Log($"Add Ability {bp} to {ch}");
                                                        },
                                                        (bp, ch, index) => !ch.Abilities.Contains(bp));
