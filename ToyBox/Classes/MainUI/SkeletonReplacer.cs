@@ -37,93 +37,93 @@ namespace ToyBox {
 
                 var partsTable = new Dictionary<string, List<string>> {
 
-                        { "OF_position",
-                            new List<string> { "Position" }},
-                        { "OF_backpack_and_cloakX",
-                            new List<string> { "C_back_w_____slot_08", "C_back_w_____slot_11" }},
-                        { "OF_backpack_and_cloakZ",
-                            new List<string> { "C_back_w_____slot_08", "C_back_w_____slot_11" }},
-                        { "OF_shouldersX",
-                            new List<string> { "R_Clavicle", "L_Clavicle" }},
-                        { "OF_shouldersZ",
-                            new List<string> { "R_Clavicle", "L_Clavicle" }},
-                        { "OF_upper_arms",
-                            new List<string> { "R_Up_arm", "L_Up_arm" }},
-                        { "OF_upper_legs",
-                            new List<string> { "R_Pre_Up_Leg", "L_Pre_Up_Leg" }},
-                        { "SC_pelvisX",
-                            new List<string> { "Pelvis" }},
-                        { "SC_pelvisY",
-                            new List<string> { "Pelvis" }},
-                        { "SC_pelvisZ",
-                            new List<string> { "Pelvis" }},
-                        { "SC_neck",
-                            new List<string> { "Neck" }},
-                        { "SC_shoulders",
-                            new List<string> { "R_Clavicle", "L_Clavicle" }},
-                        { "SC_upper_arms",
-                            new List<string> { "R_Up_arm", "L_Up_arm" }},
-                        { "SC_fore_arms",
-                            new List<string> { "R_ForeArm", "L_ForeArm" }},
-                        { "SC_upper_torso",
-                            new List<string> { "Spine_3" }},
-                        { "SC_middle_torso",
-                            new List<string> { "Spine_2" }},
-                        { "SC_lower_torso",
-                            new List<string> { "Spine_1" }},
-                        { "SC_stomach",
-                            new List<string> { "Stomach" }},
-                        { "SC_upper_legs",
-                            new List<string> { "R_Pre_Up_Leg", "L_Pre_Up_Leg" }},
-                        { "SC_lower_legs",
-                            new List<string> { "R_Up_leg", "L_Up_leg" }},
-                        { "SC_foots",
-                            new List<string> { "R_foot", "L_foot" }},
-                        { "SC_toes",
-                            new List<string> { "R_toe", "L_toe" }},
-                        { "SZ_head",
-                            new List<string> { "Head" }},
-                        { "SZ_neck",
-                            new List<string> { "Neck_ADJ" }},
-                        { "SZ_shoulders",
-                            new List<string> { "R_Clavicle_ADJ", "L_Clavicle_ADJ" }},
-                        { "SZ_upper_arms",
-                            new List<string> { "R_Up_arm_ADJ", "L_Up_arm_ADJ" }},
-                        { "SZ_fore_arms",
-                            new List<string> { "R_ForeArm_ADJ", "R_ForeArm_Twist_ADJ", "L_ForeArm_ADJ", "L_ForeArm_Twist_ADJ" }},
-                        { "SZ_hands",
-                            new List<string> { "R_Hand", "L_Hand" }},
-                        { "SZ_upper_torso",
-                            new List<string> { "Spine_3_ADJ" }},
-                        { "SZ_middle_torso",
-                            new List<string> { "Spine_2_ADJ" }},
-                        { "SZ_lower_torso",
-                            new List<string> { "Spine_1_ADJ" }},
-                        { "SZ_stomach",
-                            new List<string> { "Stomach_ADJ" }},
-                        { "SZ_pelvis",
-                            new List<string> { "Pelvis_ADJ" }},
-                        { "SZ_upper_legs",
-                            new List<string> { "R_Up_leg_ADJ", "L_Up_leg_ADJ" }},
-                        { "SZ_middle_legs",
-                            new List<string> { "R_leg_ADJ", "L_leg_ADJ" }},
-                        { "SZ_lower_legs",
-                            new List<string> { "R_Ankle_ADJ", "L_Ankle_ADJ" }},
-                        { "SZ_foots",
-                            new List<string> { "R_foot_ADJ", "L_foot_ADJ" }},
-                        { "SZ_toes",
-                            new List<string> { "R_toe_ADJ", "L_toe_ADJ" }},
-                        { "IT_backpack_and_cloak",
-                            new List<string> { "C_back_weapon_slot_08", "C_back_weapon_slot_11" }},
-                        { "IT_weapon_in_hand",
-                            new List<string> { "R_WeaponBone", "L_WeaponBone" }},
-                        { "IT_weapon_in_holsters",
-                            new List<string> { "R_front_weapon_slot_01", "R_front_weapon_slot_02", "C_front_weapon_slot_03", "L_front_weapon_slot_04", "L_front_weapon_slot_05" }},
-                        { "IT_back_weapon_right",
-                            new List<string> { "R_back_weapon_slot_06", "R_back_weapon_slot_09" }},
-                        { "IT_back_weapon_left",
-                            new List<string> { "L_back_weapon_slot_07", "L_back_weapon_slot_10" }}
-                    };
+                    { "OF_position",
+                        new List<string> { "Position" }},
+                    { "OF_backpack_and_cloakX",
+                        new List<string> { "C_back_w_____slot_08", "C_back_w_____slot_11" }},
+                    { "OF_backpack_and_cloakZ",
+                        new List<string> { "C_back_w_____slot_08", "C_back_w_____slot_11" }},
+                    { "OF_shouldersX",
+                        new List<string> { "R_Clavicle", "L_Clavicle" }},
+                    { "OF_shouldersZ",
+                        new List<string> { "R_Clavicle", "L_Clavicle" }},
+                    { "OF_upper_arms",
+                        new List<string> { "R_Up_arm", "L_Up_arm" }},
+                    { "OF_upper_legs",
+                        new List<string> { "R_Pre_Up_Leg", "L_Pre_Up_Leg" }},
+                    { "SC_pelvisX",
+                        new List<string> { "Pelvis" }},
+                    { "SC_pelvisY",
+                        new List<string> { "Pelvis" }},
+                    { "SC_pelvisZ",
+                        new List<string> { "Pelvis" }},
+                    { "SC_neck",
+                        new List<string> { "Neck" }},
+                    { "SC_shoulders",
+                        new List<string> { "R_Clavicle", "L_Clavicle" }},
+                    { "SC_upper_arms",
+                        new List<string> { "R_Up_arm", "L_Up_arm" }},
+                    { "SC_fore_arms",
+                        new List<string> { "R_ForeArm", "L_ForeArm" }},
+                    { "SC_upper_torso",
+                        new List<string> { "Spine_3" }},
+                    { "SC_middle_torso",
+                        new List<string> { "Spine_2" }},
+                    { "SC_lower_torso",
+                        new List<string> { "Spine_1" }},
+                    { "SC_stomach",
+                        new List<string> { "Stomach" }},
+                    { "SC_upper_legs",
+                        new List<string> { "R_Pre_Up_Leg", "L_Pre_Up_Leg" }},
+                    { "SC_lower_legs",
+                        new List<string> { "R_Up_leg", "L_Up_leg" }},
+                    { "SC_foots",
+                        new List<string> { "R_foot", "L_foot" }},
+                    { "SC_toes",
+                        new List<string> { "R_toe", "L_toe" }},
+                    { "SZ_head",
+                        new List<string> { "Head" }},
+                    { "SZ_neck",
+                        new List<string> { "Neck_ADJ" }},
+                    { "SZ_shoulders",
+                        new List<string> { "R_Clavicle_ADJ", "L_Clavicle_ADJ" }},
+                    { "SZ_upper_arms",
+                        new List<string> { "R_Up_arm_ADJ", "L_Up_arm_ADJ" }},
+                    { "SZ_fore_arms",
+                        new List<string> { "R_ForeArm_ADJ", "R_ForeArm_Twist_ADJ", "L_ForeArm_ADJ", "L_ForeArm_Twist_ADJ" }},
+                    { "SZ_hands",
+                        new List<string> { "R_Hand", "L_Hand" }},
+                    { "SZ_upper_torso",
+                        new List<string> { "Spine_3_ADJ" }},
+                    { "SZ_middle_torso",
+                        new List<string> { "Spine_2_ADJ" }},
+                    { "SZ_lower_torso",
+                        new List<string> { "Spine_1_ADJ" }},
+                    { "SZ_stomach",
+                        new List<string> { "Stomach_ADJ" }},
+                    { "SZ_pelvis",
+                        new List<string> { "Pelvis_ADJ" }},
+                    { "SZ_upper_legs",
+                        new List<string> { "R_Up_leg_ADJ", "L_Up_leg_ADJ" }},
+                    { "SZ_middle_legs",
+                        new List<string> { "R_leg_ADJ", "L_leg_ADJ" }},
+                    { "SZ_lower_legs",
+                        new List<string> { "R_Ankle_ADJ", "L_Ankle_ADJ" }},
+                    { "SZ_foots",
+                        new List<string> { "R_foot_ADJ", "L_foot_ADJ" }},
+                    { "SZ_toes",
+                        new List<string> { "R_toe_ADJ", "L_toe_ADJ" }},
+                    { "IT_backpack_and_cloak",
+                        new List<string> { "C_back_weapon_slot_08", "C_back_weapon_slot_11" }},
+                    { "IT_weapon_in_hand",
+                        new List<string> { "R_WeaponBone", "L_WeaponBone" }},
+                    { "IT_weapon_in_holsters",
+                        new List<string> { "R_front_weapon_slot_01", "R_front_weapon_slot_02", "C_front_weapon_slot_03", "L_front_weapon_slot_04", "L_front_weapon_slot_05" }},
+                    { "IT_back_weapon_right",
+                        new List<string> { "R_back_weapon_slot_06", "R_back_weapon_slot_09" }},
+                    { "IT_back_weapon_left",
+                        new List<string> { "L_back_weapon_slot_07", "L_back_weapon_slot_10" }}
+                };
 
                 CreateBodyParts(partsTable, bodyParts);
             }
@@ -224,25 +224,29 @@ namespace ToyBox {
 
             foreach (string key in bodyParts.Keys) {
 
+                float parameter;
+
+                if (loadPerSaveData && loadedPartsData.ContainsKey(key)) {
+
+                    parameter = loadedPartsData[key];
+                    bodyParts[key].parameter = parameter;
+
+                } else {
+
+                    parameter = bodyParts[key].parameter;
+                    loadedPartsData[key] = parameter;
+                }
+
+                if (groupOF.ContainsKey(key) || groupIT.ContainsKey(key) || key.StartsWith("SC_pelvis")) {
+
+                    specificBodyParts[key] = bodyParts[key];
+                }
+
                 foreach (BoneDataStruct bone in bodyParts[key].bonesData) {
 
                     var tarrgetBone = newSkeleton.m_BoneDataForJob[bone.boneIndex];
-                    var parameter = bodyParts[key].parameter;
 
-                    if (loadPerSaveData && loadedPartsData.ContainsKey(key)) {
-
-                        bodyParts[key].parameter = loadedPartsData[key];
-
-                    } else {
-
-                        loadedPartsData[key] = parameter;
-                    }
-
-                    if (groupOF.ContainsKey(key) || groupIT.ContainsKey(key) || key.StartsWith("SC_pelvis")) {
-
-                        specificBodyParts[key] = bodyParts[key];
-
-                    } else {
+                    if (!specificBodyParts.ContainsKey(key)) {
 
                         tarrgetBone.Scale = bone.originalValue * parameter;
                     }
@@ -275,46 +279,72 @@ namespace ToyBox {
                     switch (key) {
 
                         case "OF_position":
+
                             tarrgetBone.Offset.x = bone.originalValue.x + parameter * -0.1f;
-                            break;
+                        break;
+
                         case "OF_backpack_and_cloakX":
+
                             tarrgetBone.Offset.y = bone.originalValue.y + parameter * -0.1f;
-                            break;
+                        break;
+
                         case "OF_backpack_and_cloakZ":
+
                             tarrgetBone.Offset.x = bone.originalValue.x + parameter * -0.1f;
-                            break;
+                        break;
+
                         case var s when s.Contains("shouldersX"):
+
                             tarrgetBone.Offset.z = bone.originalValue.z + (isRight ? parameter * 0.1f : parameter * -0.1f);
-                            break;
+                        break;
+
                         case var s when s.Contains("shouldersZ"):
+
                             tarrgetBone.Offset.x = bone.originalValue.x + (isRight ? parameter * -0.1f : parameter * -0.1f);
-                            break;
+                        break;
+
                         case var s when s.Contains("upper_arms"):
+
                             tarrgetBone.Offset.x = bone.originalValue.x + (isRight ? parameter * -0.1f : parameter * 0.1f);
-                            break;
+                        break;
+
                         case var s when s.Contains("upper_legs"):
+
                             tarrgetBone.Offset.x = bone.originalValue.x + (isRight ? parameter * 0.1f : parameter * -0.1f);
-                            break;
+                        break;
+
                         case "SC_pelvisX":
+
                             tarrgetBone.Scale.x = bone.originalValue.x * parameter;
-                            break;
+                        break;
+
                         case "SC_pelvisY":
+
                             tarrgetBone.Scale.y = bone.originalValue.y * parameter;
-                            break;
+                        break;
+
                         case "SC_pelvisZ":
+
                             tarrgetBone.Scale.z = bone.originalValue.z * parameter;
-                            break;
+                        break;
+
                         case "IT_weapon_in_holsters":
+
                             tarrgetBone.Scale = bone.originalValue * parameter;
-                            break;
+                        break;
+
                         case "IT_weapon_in_hand":
+
                             tarrgetBone.Scale = (bone.originalValue * parameter) / nM;
-                            break;
+                        break;
+
                         case var s when s == "IT_backpack_and_cloak" || s == "IT_back_weapon_right" || s == "IT_back_weapon_left":
+
                             tarrgetBone.Scale = (bone.originalValue * parameter) / bM;
-                            break;
+                        break;
+
                         default:
-                            break;
+                        break;
                     }
 
                     newSkeleton.m_BoneDataForJob[bone.boneIndex] = tarrgetBone;
