@@ -29,7 +29,7 @@ namespace ToyBox {
         public Dictionary<string, Dictionary<string, float>> characterSkeletonReplacers = new();
         // This is the scaling modifier which is applied to the visual model of each character
         [JsonProperty]
-        public Dictionary<string, Tuple<float, float, float>> characterModelSizeMultiplier = new();
+        public Dictionary<string, float> characterModelSizeMultiplier = new();
         // Dictionary<Character Hashcode,
         //              { doOverride, OverrideValue }
         [JsonProperty]
