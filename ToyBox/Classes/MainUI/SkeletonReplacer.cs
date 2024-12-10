@@ -37,20 +37,32 @@ namespace ToyBox {
 
                 var partsTable = new Dictionary<string, List<string>> {
 
-                    { "OF_position",
+                    { "OF_positionZ",
                         new List<string> { "Position" }},
-                    { "OF_backpack_and_cloakX",
-                        new List<string> { "C_back_w_____slot_08", "C_back_w_____slot_11" }},
-                    { "OF_backpack_and_cloakZ",
-                        new List<string> { "C_back_w_____slot_08", "C_back_w_____slot_11" }},
                     { "OF_shouldersX",
                         new List<string> { "R_Clavicle", "L_Clavicle" }},
                     { "OF_shouldersZ",
                         new List<string> { "R_Clavicle", "L_Clavicle" }},
-                    { "OF_upper_arms",
+                    { "OF_upper_armsX",
                         new List<string> { "R_Up_arm", "L_Up_arm" }},
-                    { "OF_upper_legs",
+                    { "OF_upper_legsX",
                         new List<string> { "R_Pre_Up_Leg", "L_Pre_Up_Leg" }},
+                    { "OF_backpack_and_cloakY",
+                        new List<string> { "C_back_weapon_slot_08_ADJ", "C_back_weapon_slot_11_ADJ" }},
+                    { "OF_backpack_and_cloakZ",
+                        new List<string> { "C_back_weapon_slot_08_ADJ", "C_back_weapon_slot_11_ADJ" }},
+                    { "OF_weapon_in_holstersRX",
+                        new List<string> { "R_front_weapon_slot_01_ADJ", "R_front_weapon_slot_02_ADJ" }},
+                    { "OF_weapon_in_holstersRY",
+                        new List<string> { "R_front_weapon_slot_01_ADJ", "R_front_weapon_slot_02_ADJ" }},
+                    { "OF_weapon_in_holstersRZ",
+                        new List<string> { "R_front_weapon_slot_01_ADJ", "R_front_weapon_slot_02_ADJ" }},
+                    { "OF_weapon_in_holstersLX",
+                        new List<string> { "L_front_weapon_slot_04_ADJ", "L_front_weapon_slot_05_ADJ" }},
+                    { "OF_weapon_in_holstersLY",
+                        new List<string> { "L_front_weapon_slot_04_ADJ", "L_front_weapon_slot_05_ADJ" }},
+                    { "OF_weapon_in_holstersLZ",
+                        new List<string> { "L_front_weapon_slot_04_ADJ", "L_front_weapon_slot_05_ADJ" }},
                     { "SC_pelvisX",
                         new List<string> { "Pelvis" }},
                     { "SC_pelvisY",
@@ -205,7 +217,7 @@ namespace ToyBox {
 
         public void ApplyBonesModification(BaseUnitEntity character, bool loadPerSaveData) {
 
-            if (character?.HashKey() == owner && character?.View?.CharacterAvatar?.Skeleton is Skeleton skeleton) {
+            if (character?.HashKey() == owner && character?.View?.CharacterAvatar?.Skeleton is Skeleton) {
 
                 character.View.CharacterAvatar.Skeleton = newSkeleton;
 
@@ -278,39 +290,69 @@ namespace ToyBox {
 
                     switch (key) {
 
-                        case "OF_position":
+                        case "OF_positionZ":
 
                             tarrgetBone.Offset.x = bone.originalValue.x + parameter * -0.1f;
                         break;
 
-                        case "OF_backpack_and_cloakX":
+                        case "OF_shouldersX":
+
+                            tarrgetBone.Offset.z = bone.originalValue.z + (isRight ? parameter * 0.1f : parameter * -0.1f);
+                        break;
+
+                        case "OF_shouldersZ":
+
+                            tarrgetBone.Offset.x = bone.originalValue.x + (isRight ? parameter * -0.1f : parameter * -0.1f);
+                        break;
+
+                        case "OF_upper_armsX":
+
+                            tarrgetBone.Offset.x = bone.originalValue.x + (isRight ? parameter * -0.1f : parameter * 0.1f);
+                        break;
+
+                        case "OF_upper_legsX":
+
+                            tarrgetBone.Offset.x = bone.originalValue.x + (isRight ? parameter * 0.1f : parameter * -0.1f);
+                        break;
+
+                        case "OF_backpack_and_cloakY":
 
                             tarrgetBone.Offset.y = bone.originalValue.y + parameter * -0.1f;
                         break;
 
                         case "OF_backpack_and_cloakZ":
 
+                            tarrgetBone.Offset.z = bone.originalValue.z + parameter * -0.1f;
+                        break;
+
+                        case "OF_weapon_in_holstersRX":
+
+                            tarrgetBone.Offset.y = bone.originalValue.y + parameter * -0.1f;
+                        break;
+
+                        case "OF_weapon_in_holstersRY":
+
+                            tarrgetBone.Offset.x = bone.originalValue.x + parameter * 0.1f;
+                        break;
+
+                        case "OF_weapon_in_holstersRZ":
+
+                            tarrgetBone.Offset.z = bone.originalValue.z + parameter * -0.1f;
+                        break;
+
+                        case "OF_weapon_in_holstersLX":
+
+                            tarrgetBone.Offset.y = bone.originalValue.y + parameter * -0.1f;
+                        break;
+
+                        case "OF_weapon_in_holstersLY":
+
                             tarrgetBone.Offset.x = bone.originalValue.x + parameter * -0.1f;
                         break;
 
-                        case var s when s.Contains("shouldersX"):
+                        case "OF_weapon_in_holstersLZ":
 
-                            tarrgetBone.Offset.z = bone.originalValue.z + (isRight ? parameter * 0.1f : parameter * -0.1f);
-                        break;
-
-                        case var s when s.Contains("shouldersZ"):
-
-                            tarrgetBone.Offset.x = bone.originalValue.x + (isRight ? parameter * -0.1f : parameter * -0.1f);
-                        break;
-
-                        case var s when s.Contains("upper_arms"):
-
-                            tarrgetBone.Offset.x = bone.originalValue.x + (isRight ? parameter * -0.1f : parameter * 0.1f);
-                        break;
-
-                        case var s when s.Contains("upper_legs"):
-
-                            tarrgetBone.Offset.x = bone.originalValue.x + (isRight ? parameter * 0.1f : parameter * -0.1f);
+                            tarrgetBone.Offset.z = bone.originalValue.z + parameter * -0.1f;
                         break;
 
                         case "SC_pelvisX":
@@ -338,7 +380,7 @@ namespace ToyBox {
                             tarrgetBone.Scale = (bone.originalValue * parameter) / nM;
                         break;
 
-                        case var s when s == "IT_backpack_and_cloak" || s == "IT_back_weapon_right" || s == "IT_back_weapon_left":
+                        case var s when s.Contains("IT_back"):
 
                             tarrgetBone.Scale = (bone.originalValue * parameter) / bM;
                         break;

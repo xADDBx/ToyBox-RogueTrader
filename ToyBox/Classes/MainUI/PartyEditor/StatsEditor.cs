@@ -21,6 +21,7 @@ using System.Linq;
 using ToyBox.classes.Infrastructure;
 using Unity.Collections;
 using UnityEngine;
+using static Kingmaker.Items.WeaponStatsHelper;
 
 namespace ToyBox {
 
