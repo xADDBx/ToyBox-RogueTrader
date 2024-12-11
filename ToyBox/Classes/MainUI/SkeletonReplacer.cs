@@ -7,7 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Unity.Collections;
 using UnityEngine;
-using static Kingmaker.Items.WeaponStatsHelper;
 
 namespace ToyBox {
 
