@@ -320,7 +320,7 @@ namespace ToyBox.BagOfPatches {
                     foreach (BaseUnitEntity cha in Game.Instance.State.AllUnits.Where((u) => u.HashKey().Equals(ID))) {
 
                         PartyEditor.skeletonReplacers[cha.HashKey()] = new SkeletonReplacer(cha);
-                        PartyEditor.skeletonReplacers[cha.HashKey()].ApplyBonesModification(cha, true);
+                        PartyEditor.skeletonReplacers[cha.HashKey()].ApplyBonesModification(cha);
                     }
                 }
 

@@ -353,26 +353,24 @@ namespace ToyBox {
                         Space(6);
                         if (skeletonReplacers.ContainsKey(ch.HashKey())) {
 
-                            foreach (string key in skeletonReplacers[ch.HashKey()].bodyParts.Keys) {
+                            foreach (string key in skeletonReplacers[ch.HashKey()].groupOF.Keys) {
 
-                                var min = key == "OF_position" ? -10f : -2.0f;
-                                var max = key == "OF_position" ? 10f : 2f;
+                                using (HorizontalScope()) {
 
-                                if (skeletonReplacers[ch.HashKey()].groupOF.ContainsKey(key)) {
+                                    using (VerticalScope(Width(325))) {
 
-                                    using (HorizontalScope()) {
+                                        Label(key.localize().Color(RGBA.none), Width(325));
+                                        Space(-6.point());
+                                    }
 
-                                        using (VerticalScope(Width(325))) {
+                                    var bodyPart = skeletonReplacers[ch.HashKey()].groupOF[key];
+                                    var min = bodyPart.min;
+                                    var max = bodyPart.max;
 
-                                            Label(key.localize().Color(RGBA.none), Width(325));
-                                            Space(-6.point());
-                                        }
+                                    if (Slider(ref bodyPart.parameter, min, max, 0, 2, "", AutoWidth())) {
 
-                                        if (Slider(ref skeletonReplacers[ch.HashKey()].bodyParts[key].parameter, min, max, 0, 2, "", AutoWidth())) {
-
-                                            skeletonReplacers[ch.HashKey()].ApplyBonesModification(ch, false);
-                                            Settings.SavePerSaveSettings();
-                                        }
+                                        skeletonReplacers[ch.HashKey()].ApplyBonesModification(ch, false, key);
+                                        Settings.SavePerSaveSettings();
                                     }
                                 }
                             }
@@ -383,25 +381,24 @@ namespace ToyBox {
                             skeletonReplacers[ch.HashKey()] = new SkeletonReplacer(ch);
                         }
                     }
+
                     DisclosureToggle("Body parts global scales".localize(), ref listSkeletonScales);
                     if (listSkeletonScales) {
                         Space(6);
                         if (skeletonReplacers.ContainsKey(ch.HashKey())) {
 
-                            foreach (string key in skeletonReplacers[ch.HashKey()].bodyParts.Keys) {
+                            foreach (string key in skeletonReplacers[ch.HashKey()].groupSC.Keys) {
 
-                                var min = key == "SC_stomach" ? 0.2f : 0.5f;
-                                var max = key == "SC_stomach" ? 5f : 2f;
+                                using (HorizontalScope()) {
 
-                                if (skeletonReplacers[ch.HashKey()].groupSC.ContainsKey(key)) {
+                                    var bodyPart = skeletonReplacers[ch.HashKey()].groupSC[key];
+                                    var min = bodyPart.min;
+                                    var max = bodyPart.max;
 
-                                    using (HorizontalScope()) {
+                                    if (LogSliderCustomLabelWidth(key.localize().Color(RGBA.none), ref bodyPart.parameter, min, max, 1, 2, "", 300, AutoWidth())) {
 
-                                        if (LogSliderCustomLabelWidth(key.localize().Color(RGBA.none), ref skeletonReplacers[ch.HashKey()].bodyParts[key].parameter, min, max, 1, 2, "", 300, AutoWidth())) {
-
-                                            skeletonReplacers[ch.HashKey()].ApplyBonesModification(ch, false);
-                                            Settings.SavePerSaveSettings();
-                                        }
+                                        skeletonReplacers[ch.HashKey()].ApplyBonesModification(ch, false, key);
+                                        Settings.SavePerSaveSettings();
                                     }
                                 }
                             }
@@ -412,25 +409,24 @@ namespace ToyBox {
                             skeletonReplacers[ch.HashKey()] = new SkeletonReplacer(ch);
                         }
                     }
+
                     DisclosureToggle("Body parts local sizes".localize(), ref listSkeletonSizes);
                     if (listSkeletonSizes) {
                         Space(6);
                         if (skeletonReplacers.ContainsKey(ch.HashKey())) {
 
-                            foreach (string key in skeletonReplacers[ch.HashKey()].bodyParts.Keys) {
+                            foreach (string key in skeletonReplacers[ch.HashKey()].groupSZ.Keys) {
 
-                                var min = key == "SZ_stomach" ? 0.2f : 0.5f;
-                                var max = key == "SZ_stomach" ? 5f : 2f;
+                                using (HorizontalScope()) {
 
-                                if (skeletonReplacers[ch.HashKey()].groupSZ.ContainsKey(key)) {
+                                    var bodyPart = skeletonReplacers[ch.HashKey()].groupSZ[key];
+                                    var min = bodyPart.min;
+                                    var max = bodyPart.max;
 
-                                    using (HorizontalScope()) {
+                                    if (LogSliderCustomLabelWidth(key.localize().Color(RGBA.none), ref bodyPart.parameter, min, max, 1, 2, "", 300, AutoWidth())) {
 
-                                        if (LogSliderCustomLabelWidth(key.localize().Color(RGBA.none), ref skeletonReplacers[ch.HashKey()].bodyParts[key].parameter, min, max, 1, 2, "", 300, AutoWidth())) {
-
-                                            skeletonReplacers[ch.HashKey()].ApplyBonesModification(ch, false);
-                                            Settings.SavePerSaveSettings();
-                                        }
+                                        skeletonReplacers[ch.HashKey()].ApplyBonesModification(ch, false, key);
+                                        Settings.SavePerSaveSettings();
                                     }
                                 }
                             }
@@ -441,25 +437,24 @@ namespace ToyBox {
                             skeletonReplacers[ch.HashKey()] = new SkeletonReplacer(ch);
                         }
                     }
+
                     DisclosureToggle("Equipment elements sizes".localize(), ref listSkeletonItems);
                     if (listSkeletonItems) {
                         Space(6);
                         if (skeletonReplacers.ContainsKey(ch.HashKey())) {
 
-                            foreach (string key in skeletonReplacers[ch.HashKey()].bodyParts.Keys) {
+                            foreach (string key in skeletonReplacers[ch.HashKey()].groupIT.Keys) {
 
-                                var min = 0.5f;
-                                var max = 2f;
+                                using (HorizontalScope()) {
 
-                                if (skeletonReplacers[ch.HashKey()].groupIT.ContainsKey(key)) {
+                                    var bodyPart = skeletonReplacers[ch.HashKey()].groupIT[key];
+                                    var min = bodyPart.min;
+                                    var max = bodyPart.max;
 
-                                    using (HorizontalScope()) {
+                                    if (LogSliderCustomLabelWidth(key.localize().Color(RGBA.none), ref bodyPart.parameter, min, max, 1, 2, "", 300, AutoWidth())) {
 
-                                        if (LogSliderCustomLabelWidth(key.localize().Color(RGBA.none), ref skeletonReplacers[ch.HashKey()].bodyParts[key].parameter, min, max, 1, 2, "", 300, AutoWidth())) {
-
-                                            skeletonReplacers[ch.HashKey()].ApplyBonesModification(ch, false);
-                                            Settings.SavePerSaveSettings();
-                                        }
+                                        skeletonReplacers[ch.HashKey()].ApplyBonesModification(ch, false, key);
+                                        Settings.SavePerSaveSettings();
                                     }
                                 }
                             }

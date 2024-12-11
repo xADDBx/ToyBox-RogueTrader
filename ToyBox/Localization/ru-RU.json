@@ -676,7 +676,7 @@
         "IT_backpack_and_cloak": "Размер рюкзака и плаща",
         "IT_weapon_in_hand": "Размер оружия в руках",
         "IT_weapon_in_holsters": "Размер оружия в кобурах",
-        "IT_back_weapon_right": "Размер оружия за спиной справа",
-        "IT_back_weapon_left": "Размер оружия за спиной слева"
+        "IT_back_weapon_R": "Размер оружия за спиной справа",
+        "IT_back_weapon_L": "Размер оружия за спиной слева"
     }
 }
