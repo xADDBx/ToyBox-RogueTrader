@@ -42,10 +42,11 @@ namespace ToyBox {
         private static bool listCustomPortraits = false;
         private static bool listCustomVoices = false;
         private static bool listBlueprintPortraits = false;
-        private static bool listSkeletonOffsets = false;
-        private static bool listSkeletonScales = false;
-        private static bool listSkeletonSizes = false;
-        private static bool listSkeletonItems = false;
+        private static bool listSkeletonPartsOffsets = false;
+        private static bool listSkeletonPartsScales = false;
+        private static bool listSkeletonPartsSizes = false;
+        private static bool listSkeletonItemsOffsets = false;
+        private static bool listSkeletonItemsSizes = false;
         private static IEnumerable<BlueprintPortrait> blueprintPortraitBps = null;
         private static IEnumerable<BlueprintUnitAsksList> blueprintVoiceBps = null;
         private static string newPortraitName = "";
@@ -347,8 +348,8 @@ namespace ToyBox {
 
                 using (VerticalScope()) {
 
-                    DisclosureToggle("Body parts offsets and position".localize(), ref listSkeletonOffsets);
-                    if (listSkeletonOffsets) {
+                    DisclosureToggle("Body parts global offsets".localize(), ref listSkeletonPartsOffsets);
+                    if (listSkeletonPartsOffsets) {
                         Space(6);
                         if (skeletonReplacers.ContainsKey(ch.HashKey())) {
 
@@ -381,8 +382,8 @@ namespace ToyBox {
                         }
                     }
 
-                    DisclosureToggle("Body parts global scales".localize(), ref listSkeletonScales);
-                    if (listSkeletonScales) {
+                    DisclosureToggle("Body parts global scales".localize(), ref listSkeletonPartsScales);
+                    if (listSkeletonPartsScales) {
                         Space(6);
                         if (skeletonReplacers.ContainsKey(ch.HashKey())) {
 
@@ -409,8 +410,8 @@ namespace ToyBox {
                         }
                     }
 
-                    DisclosureToggle("Body parts local sizes".localize(), ref listSkeletonSizes);
-                    if (listSkeletonSizes) {
+                    DisclosureToggle("Body parts local sizes".localize(), ref listSkeletonPartsSizes);
+                    if (listSkeletonPartsSizes) {
                         Space(6);
                         if (skeletonReplacers.ContainsKey(ch.HashKey())) {
 
@@ -437,16 +438,50 @@ namespace ToyBox {
                         }
                     }
 
-                    DisclosureToggle("Equipment elements sizes".localize(), ref listSkeletonItems);
-                    if (listSkeletonItems) {
+                    DisclosureToggle("Equipment elements offsets".localize(), ref listSkeletonItemsOffsets);
+                    if (listSkeletonItemsOffsets) {
                         Space(6);
                         if (skeletonReplacers.ContainsKey(ch.HashKey())) {
 
-                            foreach (string key in skeletonReplacers[ch.HashKey()].groupIT.Keys) {
+                            foreach (string key in skeletonReplacers[ch.HashKey()].groupIO.Keys) {
 
                                 using (HorizontalScope()) {
 
-                                    var bodyPart = skeletonReplacers[ch.HashKey()].groupIT[key];
+                                    using (VerticalScope(Width(325))) {
+
+                                        Label(key.localize().Color(RGBA.none), Width(325));
+                                        Space(-6.point());
+                                    }
+
+                                    var bodyPart = skeletonReplacers[ch.HashKey()].groupIO[key];
+                                    var min = bodyPart.min;
+                                    var max = bodyPart.max;
+
+                                    if (Slider(ref bodyPart.parameter, min, max, 0, 2, "", AutoWidth())) {
+
+                                        skeletonReplacers[ch.HashKey()].ApplyBonesModification(ch, false, key);
+                                        Settings.SavePerSaveSettings();
+                                    }
+                                }
+                            }
+                            Space(10);
+
+                        } else {
+
+                            skeletonReplacers[ch.HashKey()] = new SkeletonReplacer(ch);
+                        }
+                    }
+
+                    DisclosureToggle("Equipment elements sizes".localize(), ref listSkeletonItemsSizes);
+                    if (listSkeletonItemsSizes) {
+                        Space(6);
+                        if (skeletonReplacers.ContainsKey(ch.HashKey())) {
+
+                            foreach (string key in skeletonReplacers[ch.HashKey()].groupIS.Keys) {
+
+                                using (HorizontalScope()) {
+
+                                    var bodyPart = skeletonReplacers[ch.HashKey()].groupIS[key];
                                     var min = bodyPart.min;
                                     var max = bodyPart.max;
 

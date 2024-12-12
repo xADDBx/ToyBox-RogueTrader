@@ -20,7 +20,8 @@ namespace ToyBox {
         public Dictionary<string, BodyPart> groupOF;
         public Dictionary<string, BodyPart> groupSC;
         public Dictionary<string, BodyPart> groupSZ;
-        public Dictionary<string, BodyPart> groupIT;
+        public Dictionary<string, BodyPart> groupIO;
+        public Dictionary<string, BodyPart> groupIS;
 
         private Dictionary<string, Func<Skeleton.BoneData, BoneDataStruct, float, Skeleton.BoneData>> boneActions;
 
@@ -36,7 +37,8 @@ namespace ToyBox {
                 groupOF = new Dictionary<string, BodyPart>();
                 groupSC = new Dictionary<string, BodyPart>();
                 groupSZ = new Dictionary<string, BodyPart>();
-                groupIT = new Dictionary<string, BodyPart>();
+                groupIO = new Dictionary<string, BodyPart>();
+                groupIS = new Dictionary<string, BodyPart>();
 
                 var partsTable = new Dictionary<string, PartDataStruct> {
 
@@ -54,30 +56,6 @@ namespace ToyBox {
 
                     { "OF_upper_legsX",
                         new PartDataStruct{ value = 0, min = -2, max = 2, bones = new List<string>{"R_Pre_Up_Leg", "L_Pre_Up_Leg"}}},
-
-                    { "OF_backpack_and_cloakY",
-                        new PartDataStruct{ value = 0, min = -2, max = 2, bones = new List<string>{"C_back_weapon_slot_08_ADJ", "C_back_weapon_slot_11_ADJ"}}},
-
-                    { "OF_backpack_and_cloakZ",
-                        new PartDataStruct{ value = 0, min = -2, max = 2, bones = new List<string>{"C_back_weapon_slot_08_ADJ", "C_back_weapon_slot_11_ADJ"}}},
-
-                    { "OF_weapon_in_holstersRX",
-                        new PartDataStruct{ value = 0, min = -2, max = 2, bones = new List<string>{"R_front_weapon_slot_01_ADJ", "R_front_weapon_slot_02_ADJ"}}},
-
-                    { "OF_weapon_in_holstersRY",
-                        new PartDataStruct{ value = 0, min = -2, max = 2, bones = new List<string>{"R_front_weapon_slot_01_ADJ", "R_front_weapon_slot_02_ADJ"}}},
-
-                    { "OF_weapon_in_holstersRZ",
-                        new PartDataStruct{ value = 0, min = -2, max = 2, bones = new List<string>{"R_front_weapon_slot_01_ADJ", "R_front_weapon_slot_02_ADJ"}}},
-
-                    { "OF_weapon_in_holstersLX",
-                        new PartDataStruct{ value = 0, min = -2, max = 2, bones = new List<string>{"L_front_weapon_slot_04_ADJ", "L_front_weapon_slot_05_ADJ"}}},
-
-                    { "OF_weapon_in_holstersLY",
-                        new PartDataStruct{ value = 0, min = -2, max = 2, bones = new List<string>{"L_front_weapon_slot_04_ADJ", "L_front_weapon_slot_05_ADJ"}}},
-
-                    { "OF_weapon_in_holstersLZ",
-                        new PartDataStruct{ value = 0, min = -2, max = 2, bones = new List<string>{"L_front_weapon_slot_04_ADJ", "L_front_weapon_slot_05_ADJ"}}},
 
                     { "SC_pelvisX",
                         new PartDataStruct{ value = 1, min = 0.5f, max = 2, bones = new List<string>{"Pelvis"}}},
@@ -172,19 +150,58 @@ namespace ToyBox {
                     { "SZ_toes",
                         new PartDataStruct{ value = 1, min = 0.5f, max = 2, bones = new List<string>{"R_toe_ADJ", "L_toe_ADJ"}}},
 
-                    { "IT_backpack_and_cloak",
-                        new PartDataStruct{ value = 1, min = 0.5f, max = 2, bones = new List<string>{"C_back_weapon_slot_08", "C_back_weapon_slot_11"}}},
+                    { "IO_cloakX",
+                        new PartDataStruct{ value = 0, min = -2, max = 2, bones = new List<string>{"C_back_weapon_slot_08_ADJ"}}},
 
-                    { "IT_weapon_in_hand",
+                    { "IO_cloakY",
+                        new PartDataStruct{ value = 0, min = -2, max = 2, bones = new List<string>{"C_back_weapon_slot_08_ADJ"}}},
+
+                    { "IO_cloakZ",
+                        new PartDataStruct{ value = 0, min = -2, max = 2, bones = new List<string>{"C_back_weapon_slot_08_ADJ"}}},
+
+                    { "IO_backpackX",
+                        new PartDataStruct{ value = 0, min = -2, max = 2, bones = new List<string>{"C_back_w_____slot_08"}}},
+
+                    { "IO_backpackY",
+                        new PartDataStruct{ value = 0, min = -2, max = 2, bones = new List<string>{"C_back_w_____slot_08"}}},
+
+                    { "IO_backpackZ",
+                        new PartDataStruct{ value = 0, min = -2, max = 2, bones = new List<string>{"C_back_w_____slot_08"}}},
+
+                    { "IO_weapon_in_holstersRX",
+                        new PartDataStruct{ value = 0, min = -2, max = 2, bones = new List<string>{"R_front_weapon_slot_01_ADJ", "R_front_weapon_slot_02_ADJ"}}},
+
+                    { "IO_weapon_in_holstersRY",
+                        new PartDataStruct{ value = 0, min = -2, max = 2, bones = new List<string>{"R_front_weapon_slot_01_ADJ", "R_front_weapon_slot_02_ADJ"}}},
+
+                    { "IO_weapon_in_holstersRZ",
+                        new PartDataStruct{ value = 0, min = -2, max = 2, bones = new List<string>{"R_front_weapon_slot_01_ADJ", "R_front_weapon_slot_02_ADJ"}}},
+
+                    { "IO_weapon_in_holstersLX",
+                        new PartDataStruct{ value = 0, min = -2, max = 2, bones = new List<string>{"L_front_weapon_slot_04_ADJ", "L_front_weapon_slot_05_ADJ"}}},
+
+                    { "IO_weapon_in_holstersLY",
+                        new PartDataStruct{ value = 0, min = -2, max = 2, bones = new List<string>{"L_front_weapon_slot_04_ADJ", "L_front_weapon_slot_05_ADJ"}}},
+
+                    { "IO_weapon_in_holstersLZ",
+                        new PartDataStruct{ value = 0, min = -2, max = 2, bones = new List<string>{"L_front_weapon_slot_04_ADJ", "L_front_weapon_slot_05_ADJ"}}},
+
+                    { "IS_cloak",
+                        new PartDataStruct{ value = 1, min = 0.5f, max = 2, bones = new List<string>{"C_back_weapon_slot_08_ADJ"}}},
+
+                    { "IS_backpack",
+                        new PartDataStruct{ value = 1, min = 0.5f, max = 2, bones = new List<string>{"C_back_w_____slot_08"}}},
+
+                    { "IS_weapon_in_hand",
                         new PartDataStruct{ value = 1, min = 0.5f, max = 2, bones = new List<string>{"R_WeaponBone", "L_WeaponBone"}}},
 
-                    { "IT_weapon_in_holsters",
+                    { "IS_weapon_in_holsters",
                         new PartDataStruct{ value = 1, min = 0.5f, max = 2, bones = new List<string>{"R_front_weapon_slot_01", "R_front_weapon_slot_02", "C_front_weapon_slot_03", "L_front_weapon_slot_04", "L_front_weapon_slot_05"}}},
 
-                    { "IT_back_weapon_R",
+                    { "IS_back_weapon_R",
                         new PartDataStruct{ value = 1, min = 0.5f, max = 2, bones = new List<string>{"R_back_weapon_slot_06", "R_back_weapon_slot_09"}}},
 
-                    { "IT_back_weapon_L",
+                    { "IS_back_weapon_L",
                         new PartDataStruct{ value = 1, min = 0.5f, max = 2, bones = new List<string>{"L_back_weapon_slot_07", "L_back_weapon_slot_10"}}},
                 };
 
@@ -205,30 +222,6 @@ namespace ToyBox {
                     { "OF_upper_legsX",
                         (bone, data, param) => { bone.Offset.x = data.originalValue.x + (data.boneName.StartsWith("R_") ? param * 0.1f : param * -0.1f); return bone; }},
 
-                    { "OF_backpack_and_cloakY",
-                        (bone, data, param) => { bone.Offset.y = data.originalValue.y + param * -0.1f; return bone; }},
-
-                    { "OF_backpack_and_cloakZ",
-                        (bone, data, param) => { bone.Offset.z = data.originalValue.z + param * -0.1f; return bone; }},
-
-                    { "OF_weapon_in_holstersRX",
-                        (bone, data, param) => { bone.Offset.y = data.originalValue.y + param * -0.1f; return bone; }},
-
-                    { "OF_weapon_in_holstersRY",
-                        (bone, data, param) => { bone.Offset.x = data.originalValue.x + param * 0.1f; return bone; }},
-
-                    { "OF_weapon_in_holstersRZ",
-                        (bone, data, param) => { bone.Offset.z = data.originalValue.z + param * -0.1f; return bone; }},
-
-                    { "OF_weapon_in_holstersLX",
-                        (bone, data, param) => { bone.Offset.y = data.originalValue.y + param * -0.1f; return bone; }},
-
-                    { "OF_weapon_in_holstersLY",
-                        (bone, data, param) => { bone.Offset.x = data.originalValue.x + param * -0.1f; return bone; }},
-
-                    { "OF_weapon_in_holstersLZ",
-                        (bone, data, param) => { bone.Offset.z = data.originalValue.z + param * -0.1f; return bone; }},
-
                     { "SC_pelvisX",
                         (bone, data, param) => { bone.Scale.x = data.originalValue.x * param; return bone; }},
 
@@ -237,6 +230,42 @@ namespace ToyBox {
 
                     { "SC_pelvisZ",
                         (bone, data, param) => { bone.Scale.z = data.originalValue.z * param; return bone; }},
+
+                    { "IO_cloakX",
+                        (bone, data, param) => { bone.Offset.x = data.originalValue.x + param * -0.1f; return bone; }},
+
+                    { "IO_cloakY",
+                        (bone, data, param) => { bone.Offset.y = data.originalValue.y + param * -0.1f; return bone; }},
+
+                    { "IO_cloakZ",
+                        (bone, data, param) => { bone.Offset.z = data.originalValue.z + param * -0.1f; return bone; }},
+
+                    { "IO_backpackX",
+                        (bone, data, param) => { bone.Offset.z = data.originalValue.z + param * -0.1f; return bone; }},
+
+                    { "IO_backpackY",
+                        (bone, data, param) => { bone.Offset.y = data.originalValue.y + param * -0.1f; return bone; }},
+
+                    { "IO_backpackZ",
+                        (bone, data, param) => { bone.Offset.x = data.originalValue.x + param * -0.1f; return bone; }},
+
+                    { "IO_weapon_in_holstersRX",
+                        (bone, data, param) => { bone.Offset.y = data.originalValue.y + param * -0.1f; return bone; }},
+
+                    { "IO_weapon_in_holstersRY",
+                        (bone, data, param) => { bone.Offset.x = data.originalValue.x + param * 0.1f; return bone; }},
+
+                    { "IO_weapon_in_holstersRZ",
+                        (bone, data, param) => { bone.Offset.z = data.originalValue.z + param * -0.1f; return bone; }},
+
+                    { "IO_weapon_in_holstersLX",
+                        (bone, data, param) => { bone.Offset.y = data.originalValue.y + param * -0.1f; return bone; }},
+
+                    { "IO_weapon_in_holstersLY",
+                        (bone, data, param) => { bone.Offset.x = data.originalValue.x + param * -0.1f; return bone; }},
+
+                    { "IO_weapon_in_holstersLZ",
+                        (bone, data, param) => { bone.Offset.z = data.originalValue.z + param * -0.1f; return bone; }},
 
                     { "default",
                         (bone, data, param) => { bone.Scale = data.originalValue * param; return bone; }},
@@ -270,10 +299,16 @@ namespace ToyBox {
                         bodyParts[key] = groupSZ[key];
                         break;
 
-                    case string s when s.StartsWith("IT_"):
+                    case string s when s.StartsWith("IO_"):
 
-                        groupIT[key] = new BodyPart(bodyPartsTable[key].value, bodyPartsTable[key].min, bodyPartsTable[key].max);
-                        bodyParts[key] = groupIT[key];
+                        groupIO[key] = new BodyPart(bodyPartsTable[key].value, bodyPartsTable[key].min, bodyPartsTable[key].max);
+                        bodyParts[key] = groupIO[key];
+                        break;
+
+                    case string s when s.StartsWith("IS_"):
+
+                        groupIS[key] = new BodyPart(bodyPartsTable[key].value, bodyPartsTable[key].min, bodyPartsTable[key].max);
+                        bodyParts[key] = groupIS[key];
                         break;
 
                     default:
@@ -282,7 +317,7 @@ namespace ToyBox {
                         break;
                 }
 
-                var isOffsetPart = groupOF.ContainsKey(key);
+                var isOffsetPart = groupOF.ContainsKey(key) || groupIO.ContainsKey(key);
 
                 foreach (string value in bodyPartsTable[key].bones) {
 
@@ -339,9 +374,9 @@ namespace ToyBox {
             var M1 = m1 * m2 * m3;
             var M2 = M1 * m4 * m5 * m6 * m7;
 
-            UpdateWeapon("IT_weapon_in_hand", M2);
-            UpdateWeapon("IT_back_weapon_R", M1);
-            UpdateWeapon("IT_back_weapon_L", M1);
+            UpdateWeapon("IS_weapon_in_hand", M2);
+            UpdateWeapon("IS_back_weapon_R", M1);
+            UpdateWeapon("IS_back_weapon_L", M1);
         }
 
         private void UpdateWeapon(string part, float multiplier) {
@@ -398,28 +433,51 @@ namespace ToyBox {
                 if (skeleton != newSkeleton) {
 
                     character.View.CharacterAvatar.Skeleton = newSkeleton;
+
+                    foreach (EquipmentEntity item in character.View.CharacterAvatar.EquipmentEntities) {
+
+                        foreach (EquipmentEntity.OutfitPart part in item.OutfitParts) {
+
+                            if (part.Special == EquipmentEntity.OutfitPartSpecialType.Backpack) {
+
+                                part.m_BoneName = "C_back_weapon_slot_08";
+                                character.View.CharacterAvatar.RebuildOutfit();
+                            }
+                        }
+                    }
                 }
 
-                if (!Main.Settings.perSave.characterSkeletonReplacers.ContainsKey(character.HashKey())) {
+                var loadedPartsData = Main.Settings.perSave.characterSkeletonReplacers;
 
-                    Main.Settings.perSave.characterSkeletonReplacers[character.HashKey()] = new Dictionary<string, float>();
+                if (!loadedPartsData.ContainsKey(character.HashKey())) {
+
+                    loadedPartsData[character.HashKey()] = new Dictionary<string, float>();
                 }
-
-                var loadedPartsData = Main.Settings.perSave.characterSkeletonReplacers[character.HashKey()];
 
                 if (bodyParts.ContainsKey(whichPart)) {
 
-                    BonesModification(loadedPartsData, loadPerSaveData, whichPart);
+                    BonesModification(loadedPartsData[character.HashKey()], loadPerSaveData, whichPart);
 
                 } else {
 
                     foreach (string key in bodyParts.Keys) {
 
-                        BonesModification(loadedPartsData, loadPerSaveData, key);
+                        BonesModification(loadedPartsData[character.HashKey()], loadPerSaveData, key);
                     }
                 }
 
                 UpdateWeaponSizes();
+
+                if (loadPerSaveData) {
+
+                    foreach (string key in loadedPartsData[character.HashKey()].Keys) {
+
+                        if (!bodyParts.ContainsKey(key)) {
+
+                            loadedPartsData[character.HashKey()].Remove(key);
+                        }
+                    }
+                }
             }
         }
 
