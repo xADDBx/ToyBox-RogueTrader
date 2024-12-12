@@ -360,7 +360,7 @@ namespace ToyBox {
                                     using (VerticalScope(Width(325))) {
 
                                         Label(key.localize().Color(RGBA.none), Width(325));
-                                        Space(-6.point());
+                                        Space(-3.point());
                                     }
 
                                     var bodyPart = skeletonReplacers[ch.HashKey()].groupOF[key];
@@ -450,7 +450,7 @@ namespace ToyBox {
                                     using (VerticalScope(Width(325))) {
 
                                         Label(key.localize().Color(RGBA.none), Width(325));
-                                        Space(-6.point());
+                                        Space(-3.point());
                                     }
 
                                     var bodyPart = skeletonReplacers[ch.HashKey()].groupIO[key];
