@@ -167,6 +167,7 @@ namespace ToyBox {
 
         public static void GoToTradeWindow() {
 
+            //Trade window should not be available in the Dark City and in Chapter 5. The game already disables it in the prologue.
             string[] blockedEtudes = ["725db1ff1322445c8185506f4f6d242e", "6571856eb6c0459cba30e13adc5c6314"];
             var etudes = EtudesTreeModel.Instance.loadedEtudes;
 
@@ -178,20 +179,18 @@ namespace ToyBox {
                 }
             }
 
-            var currentArea = Game.Instance.LoadedAreaState.Blueprint;
+            var area = Game.Instance.State.LoadedAreaState;
+            var currentArea = area.Blueprint;
             var bridgeArea = ResourcesLibrary.TryGetBlueprint<BlueprintArea>("255859109cec4a042ade1613d80b25a4");
-            
-            if (currentArea == bridgeArea) {
-                var bpa = ResourcesLibrary.TryGetBlueprint<BlueprintAnswer>("d9307ba41f354ad2be00085eca5d0264");
-                (bpa.OnSelect.Actions[0] as Conditional).IfTrue.Actions[0].Run();
+            var factotum = ResourcesLibrary.TryGetBlueprint<BlueprintAnswer>("d9307ba41f354ad2be00085eca5d0264");
 
+            if (currentArea == bridgeArea) {
+                (factotum.OnSelect.Actions[0] as Conditional).IfTrue.Actions[0].Run();
             } else {
                 List<Entity> entities = new();
                 List<UnitSpawnerBase.MyData> spawners = new();
                 List<AbstractUnitEntity> units = new();
-                var area = Game.Instance.State.LoadedAreaState;
-                var dialog = ResourcesLibrary.TryGetBlueprint<BlueprintAnswer>("d9307ba41f354ad2be00085eca5d0264");
-                var action = dialog.ElementsArray.OfType<OpenVendorSelectingWindow>().FirstOrDefault();
+                var action = factotum.ElementsArray.OfType<OpenVendorSelectingWindow>().FirstOrDefault();
 
                 try {
                     var areaState = ResourcesLibrary.TryGetBlueprint<BlueprintArea>("255859109cec4a042ade1613d80b25a4");
