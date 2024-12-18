@@ -1,20 +1,29 @@
 ﻿// Copyright < 2021 > Narria (github user Cabarius) - License: MIT
 using Kingmaker;
+using Kingmaker.AI.BehaviourTrees;
 using Kingmaker.AreaLogic.Etudes;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
 using Kingmaker.Cheats;
+using Kingmaker.Code.UI.MVVM.VM.Vendor;
 using Kingmaker.Controllers.Rest;
 using Kingmaker.Designers;
+using Kingmaker.Designers.EventConditionActionSystem.Actions;
+using Kingmaker.DialogSystem.Blueprints;
+using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem;
 using Kingmaker.EntitySystem.Entities;
+using Kingmaker.EntitySystem.Persistence;
 using Kingmaker.GameModes;
 using Kingmaker.Globalmap.View;
+using Kingmaker.Items;
+using Kingmaker.Mechanics.Entities;
 using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UI;
 using Kingmaker.UI.Common;
+using Kingmaker.UI.Models.UnitSettings;
 using Kingmaker.UI.Selection;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
@@ -23,14 +32,22 @@ using Kingmaker.UnitLogic.Parts;
 using Kingmaker.Utility;
 using Kingmaker.View;
 using Kingmaker.View.MapObjects;
+using Kingmaker.View.Spawners;
 using ModKit;
+using ModKit.Utility;
+using Newtonsoft.Json;
+using Owlcat.Runtime.Core.Physics.PositionBasedDynamics.Forces;
 using Owlcat.Runtime.Core.Utility;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using ToyBox.BagOfPatches;
 using UnityEngine;
 using UnityModManagerNet;
+using UnityUIControls;
+using static Kingmaker.Designers.EventConditionActionSystem.Actions.OpenVendorSelectingWindow;
+using static UnityModManagerNet.UnityModManager;
 namespace ToyBox {
     public static partial class Actions {
         public static Settings settings => Main.Settings;
@@ -146,6 +163,89 @@ namespace ToyBox {
                     }
                 }
             }
+        }
+
+        public static void GoToTradeWindow() {
+
+            //Trade window should not be available in the Dark City and in Chapter 5. The game already disables it in the prologue.
+            string[] blockedEtudes = ["725db1ff1322445c8185506f4f6d242e", "6571856eb6c0459cba30e13adc5c6314"];
+            var etudes = EtudesTreeModel.Instance.loadedEtudes;
+
+            foreach (var etude in Game.Instance.Player.EtudesSystem.Etudes.RawFacts) {
+                if (blockedEtudes.Contains(etude.Blueprint.AssetGuid)) {
+                    if (etude.IsPlaying) {
+                        return;
+                    }
+                }
+            }
+
+            var area = Game.Instance.State.LoadedAreaState;
+            var currentArea = area.Blueprint;
+            var bridgeArea = ResourcesLibrary.TryGetBlueprint<BlueprintArea>("255859109cec4a042ade1613d80b25a4");
+            var factotum = ResourcesLibrary.TryGetBlueprint<BlueprintAnswer>("d9307ba41f354ad2be00085eca5d0264");
+
+            if (currentArea == bridgeArea) {
+                (factotum.OnSelect.Actions[0] as Conditional).IfTrue.Actions[0].Run();
+            } else {
+                List<Entity> entities = new();
+                List<UnitSpawnerBase.MyData> spawners = new();
+                List<AbstractUnitEntity> units = new();
+                var action = factotum.ElementsArray.OfType<OpenVendorSelectingWindow>().FirstOrDefault();
+
+                try {
+                    var areaState = ResourcesLibrary.TryGetBlueprint<BlueprintArea>("255859109cec4a042ade1613d80b25a4");
+                    AreaPersistentState state = Game.Instance.State.GetStateForArea(areaState);
+                    AreaPersistentState areaPersistentState;
+                    using (var jsonStreamForArea = AreaDataStash.GetJsonStreamForArea(state, state.MainState)) {
+                        areaPersistentState = AreaDataStash.Serializer.Deserialize<AreaPersistentState>(jsonStreamForArea);
+                    }
+
+                    var vendorScene = state.GetStateForScene("VoidshipBridge_Vendors_Mechanics");
+                    {
+                        using (JsonTextReader jsonStreamForArea2 = AreaDataStash.GetJsonStreamForArea(state, vendorScene)) {
+                            if (jsonStreamForArea2 != null) {
+                                try {
+                                    SceneEntitiesState deserializedSceneState = AreaDataStash.Serializer.Deserialize<SceneEntitiesState>(jsonStreamForArea2);
+                                    areaPersistentState.SetDeserializedSceneState(deserializedSceneState);
+                                    spawners.AddRange(deserializedSceneState.AllEntityData.OfType<UnitSpawnerBase.MyData>());
+                                    units.AddRange(deserializedSceneState.AllEntityData.OfType<AbstractUnitEntity>());
+                                } catch (IOException ex) {
+                                    Mod.Log($"Exception occured while loading area state: {area.Blueprint.AssetGuidThreadSafe} {vendorScene.SceneName} " + ex);
+                                }
+                            }
+                        }
+                    }
+
+                    foreach (var data in spawners) {
+                        var reference = data.SpawnedUnit;
+                        var Id = reference.GetId();
+                        var unit = units.FirstOrDefault(u => u.UniqueId == Id);
+                        reference.m_Proxy.Entity = unit;
+                        if (unit != null) {
+                            var parts = unit.Parts;
+                            if (parts != null && parts.Owner == null) {
+                                parts.Owner = unit;
+                            }
+                            var vendor = unit.Parts.GetOptional<PartVendor>();
+                            vendor.SetSharedInventory(vendor.m_SharedInventory);
+
+                            var uiSettings = unit.Parts.GetOptional<PartUnitUISettings>();
+                            (uiSettings as EntityPart).Owner = unit;
+                        }
+                        area.MainState.AllEntityData.Add(data);
+                        entities.Add(data);
+                    }
+                    action.Run();
+
+                } catch (Exception ex) {
+                    Mod.Log(ex.ToString());
+                }
+                finally {
+                    foreach (var data in spawners.NotNull())
+                        area.MainState.m_EntityData.Remove(data);
+                }
+            }
+            UnityModManager.UI.Instance.ToggleWindow(false);
         }
 
 #if false
