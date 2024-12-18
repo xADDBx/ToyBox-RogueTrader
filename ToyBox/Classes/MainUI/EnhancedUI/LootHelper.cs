@@ -23,6 +23,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
+using UnityModManagerNet;
 
 namespace ToyBox {
     public static class LootHelper {
@@ -80,8 +81,8 @@ namespace ToyBox {
                                            .Concat(Game.Instance.State.AllUnits.Select(i => i.GetOptional<InteractionLootPart>())).NotNull();
             var source = TempList.Get<InteractionLootPart>();
             foreach (var interactionLootPart in interactionLootParts)
-                if (interactionLootPart.Owner.IsRevealed && interactionLootPart.Loot.HasLoot &&
-                    (interactionLootPart.LootViewed ||
+                if ((interactionLootPart.Owner.IsRevealed || Main.Settings.toggleShowHiddenLoot) && interactionLootPart.Loot.HasLoot &&
+                    (interactionLootPart.LootViewed || Main.Settings.toggleShowHiddenLoot ||
                      (interactionLootPart.View is DroppedLoot && !(bool)(EntityPart)interactionLootPart.Owner
                                                                                                        .GetOptional<DroppedLoot.EntityPartBreathOfMoney>()) ||
                      (bool)(UnityEngine.Object)interactionLootPart.View.GetComponent<SkinnedMeshRenderer>()))
@@ -112,6 +113,7 @@ namespace ToyBox {
             contextVM.LootVM.Value = lootVM;
 
             //EventBus.RaiseEvent((Action<ILootInterractionHandler>)(e => e.HandleZoneLootInterraction(null)));
+            UnityModManager.UI.Instance.ToggleWindow(false);
         }
         public static void OpenPlayerChest() {
             // Access to LootContextVM

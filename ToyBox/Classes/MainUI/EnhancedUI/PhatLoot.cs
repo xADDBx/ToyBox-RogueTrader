@@ -112,6 +112,11 @@ namespace ToyBox {
             var isEmpty = true;
             HStack("Loot Checklist".localize(), 1,
                 () => {
+                    Toggle("Show hidden loot in Checklist".localize(), ref Settings.toggleShowHiddenLoot, 400.width());
+                    150.space();
+                    Label(RichText.Green("Also lists containers that are still hidden.".localize()));
+                },
+                () => {
                     var areaName = "";
                     if (Main.IsInGame) {
                         try {

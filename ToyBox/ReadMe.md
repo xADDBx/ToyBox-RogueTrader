@@ -45,10 +45,11 @@ Here is a summarized list of features. This list only includes a part of the fea
   
   
 ### ToyBox Rogue - Ver 1.7.7 built for Rogue Trader 1.3.0.57
+* (***jonHinkerton***) Add Button (allows binding to hotkey) to open faction trade vendor window from anywhere.
+* (***ADDB***) Add "Show hidden loot in Checklist" to the Loot Tab. The checklist doesn't show loot which wasn't seen yet.
 * (***ADDB***) Patch Tool fixes:
   * Fix Patch Tool for types implementing IList<T>
   * Fix Patch Tool possible stack overflow in DeepCopy
-* (***jonHinkerton***) Add Button (allows binding to hotkey) to open faction trade vendor window from anywhere.
 
 ### ToyBox Rogue - Ver 1.7.6 built for Rogue Trader 1.2.1.26
 * (***ADDB***) Fix Patch Tool not being able to modify top level primitives.

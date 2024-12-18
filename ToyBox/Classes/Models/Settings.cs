@@ -165,6 +165,7 @@ namespace ToyBox {
         public RarityType minRarityToColor = 0;
         public bool toggleMassLootEverything = false;
         public bool toggleLootAliveUnits = false;
+        public bool toggleShowHiddenLoot = false;
         public bool toggleLootChecklistFilterBlueprint = false;
         public bool toggleLootChecklistFilterDescription = false;
         public RarityType lootChecklistFilterRarity = RarityType.None;
