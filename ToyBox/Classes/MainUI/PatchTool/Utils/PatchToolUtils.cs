@@ -14,6 +14,13 @@ using System.Threading.Tasks;
 
 namespace ToyBox.PatchTool; 
 public static class PatchToolUtils {
+    public static MethodInfo? GetInterfaceMethodImplementation(this Type declaringType, MethodInfo interfaceMethod) {
+        var map = declaringType.GetInterfaceMap(interfaceMethod.DeclaringType);
+        return map.InterfaceMethods
+            ?.Zip(map.TargetMethods, (i, t) => (i, t))
+            .FirstOrDefault(pair => pair.i == interfaceMethod)
+            .t;
+    }
     public static bool IsListOrArray(Type t) {
         return t.IsArray || typeof(IList<>).IsAssignableFrom(t) || t.GetInterfaces().Any(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IList<>));
     }

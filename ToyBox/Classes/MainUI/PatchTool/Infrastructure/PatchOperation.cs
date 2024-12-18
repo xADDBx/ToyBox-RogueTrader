@@ -89,6 +89,20 @@ public class PatchOperation {
                                     if (CollectionIndex == -1) CollectionIndex = list.Count;
                                     list.Insert(CollectionIndex, newInst);
                                     collection = list;
+                                } else if (PatchToolUtils.IsListOrArray(collection.GetType())) {
+                                    var interfaceType = collection.GetType().GetInterfaces().Where(i => i.IsGenericType).FirstOrDefault(i => i.GetGenericTypeDefinition() == typeof(IList<>));
+                                    if (interfaceType != null) {
+                                        var m = collection.GetType().GetInterfaceMethodImplementation(interfaceType.GetMethod("Insert"));
+                                        if (m != null) {
+                                            m.Invoke(collection, [CollectionIndex, newInst]);
+                                        } else {
+                                            throw new ArgumentException($"Error while trying to use ArrayPatchOperation. Weird error. {field?.Name ?? "Null Field"}, {collection.GetType()}, {PatchedObjectType}");
+                                        }
+                                    } else {
+                                        throw new ArgumentException($"Error while trying to use ArrayPatchOperation. Weird error2. {field?.Name ?? "Null Field"}, {collection.GetType()}, {PatchedObjectType}");
+                                    }
+                                } else {
+                                    throw new ArgumentException($"Error while trying to use patch \"AddAtIndex\". Collection is not Array, IList or ListOrArray. {field?.Name ?? "Null Field"}, {collection.GetType()}, {PatchedObjectType}");
                                 }
                                 if (newInst is Element e && FieldName != nameof(SimpleBlueprint.m_AllElements)) {
                                     Patcher.CurrentlyPatching.AddToElementsList(e);
@@ -96,34 +110,81 @@ public class PatchOperation {
                             } 
                             break;
                         case CollectionPatchOperationType.RemoveAtIndex: {
+                                object oldInst = null;
                                 if (collection.GetType() is Type type && type.IsArray) {
                                     Array array = collection as Array;
                                     var elementType = type.GetElementType();
                                     var tmpList = Activator.CreateInstance(typeof(List<>).MakeGenericType(elementType)) as IList;
                                     foreach (var item in array)
                                         tmpList.Add(item);
+                                    oldInst = tmpList[CollectionIndex];
                                     tmpList.RemoveAt(CollectionIndex);
                                     Array resizedArray = Array.CreateInstance(elementType, tmpList.Count);
                                     tmpList.CopyTo(resizedArray, 0);
                                     collection = resizedArray;
                                 } else if (collection is IList list) {
+                                    oldInst = list[CollectionIndex];
                                     list.RemoveAt(CollectionIndex);
                                     collection = list;
+                                } else if (PatchToolUtils.IsListOrArray(collection.GetType())) {
+                                    var interfaceType = collection.GetType().GetInterfaces().Where(i => i.IsGenericType).FirstOrDefault(i => i.GetGenericTypeDefinition() == typeof(IList<>));
+                                    if (interfaceType != null) {
+                                        var index_getter = collection.GetType().GetInterfaceMethodImplementation(interfaceType.GetProperties().First().GetGetMethod());
+                                        var m = collection.GetType().GetInterfaceMethodImplementation(interfaceType.GetMethod("RemoveAt"));
+                                        if (m != null && index_getter != null) {
+                                            oldInst = index_getter.Invoke(collection, [CollectionIndex]);
+                                            m.Invoke(collection, [CollectionIndex]);
+                                        } else {
+                                            throw new ArgumentException($"Error while trying to use ArrayPatchOperation. Weird error. {field?.Name ?? "Null Field"}, {collection.GetType()}, {PatchedObjectType}");
+                                        }
+                                    } else {
+                                        throw new ArgumentException($"Error while trying to use ArrayPatchOperation. Weird error2. {field?.Name ?? "Null Field"}, {collection.GetType()}, {PatchedObjectType}");
+                                    }
+                                } else {
+                                    throw new ArgumentException($"Error while trying to use patch \"ModifyAtIndex\". Collection is not Array, IList or ListOrArray. {field?.Name ?? "Null Field"}, {collection.GetType()}, {PatchedObjectType}");
+                                }
+                                if (oldInst is Element e && FieldName != nameof(SimpleBlueprint.m_AllElements)) {
+                                    Patcher.CurrentlyPatching.RemoveFromElementsList(e);
                                 }
                             } 
                             break;
                         case CollectionPatchOperationType.ModifyAtIndex: {
+                                object orig = null;
+                                object modified = null;
                                 if (collection.GetType() is Type type && type.IsArray) {
-                                    Array array = collection as Array;
-                                    var orig = array.GetValue(CollectionIndex);
-                                    var modified = NestedOperation.Apply(orig);
+                                    Array array = collection as Array; 
+                                    orig = array.GetValue(CollectionIndex);
+                                    modified = NestedOperation.Apply(orig);
                                     array.SetValue(modified, CollectionIndex);
                                     collection = array;
                                 } else if (collection is IList list) {
-                                    var orig = list[CollectionIndex];
-                                    var modified = NestedOperation.Apply(orig);
+                                    orig = list[CollectionIndex];
+                                    modified = NestedOperation.Apply(orig);
                                     list[CollectionIndex] = modified;
                                     collection = list;
+                                } else if (PatchToolUtils.IsListOrArray(collection.GetType())) {
+                                    var interfaceType = collection.GetType().GetInterfaces().Where(i => i.IsGenericType).FirstOrDefault(i => i.GetGenericTypeDefinition() == typeof(IList<>));
+                                    if (interfaceType != null) {
+                                        var index_getter = collection.GetType().GetInterfaceMethodImplementation(interfaceType.GetProperties().First().GetGetMethod());
+                                        var index_setter = collection.GetType().GetInterfaceMethodImplementation(interfaceType.GetProperties().First().GetSetMethod());
+                                        if (index_getter != null && index_setter != null) {
+                                            orig = index_getter.Invoke(collection, [CollectionIndex]);
+                                            modified = NestedOperation.Apply(orig);
+                                            index_setter.Invoke(collection, [CollectionIndex, modified]);
+                                        } else {
+                                            throw new ArgumentException($"Error while trying to use ArrayPatchOperation. Weird error. {field?.Name ?? "Null Field"}, {collection.GetType()}, {PatchedObjectType}");
+                                        }
+                                    } else {
+                                        throw new ArgumentException($"Error while trying to use ArrayPatchOperation. Weird error2. {field?.Name ?? "Null Field"}, {collection.GetType()}, {PatchedObjectType}");
+                                    }
+                                } else {
+                                    throw new ArgumentException($"Error while trying to use patch \"ModifyAtIndex\". Collection is not Array, IList or ListOrArray. {field?.Name ?? "Null Field"}, {collection.GetType()}, {PatchedObjectType}");
+                                }
+                                if (orig is Element e && FieldName != nameof(SimpleBlueprint.m_AllElements)) {
+                                    Patcher.CurrentlyPatching.RemoveFromElementsList(e);
+                                }
+                                if (modified is Element e2 && FieldName != nameof(SimpleBlueprint.m_AllElements)) {
+                                    Patcher.CurrentlyPatching.AddToElementsList(e2);
                                 }
                             }
                             break;
@@ -168,7 +229,7 @@ public class PatchOperation {
                 } break;
             case PatchOperationType.ModifyBlueprintReference: {
                     var bpRef = Activator.CreateInstance(NewValueType) as BlueprintReferenceBase;
-                    bpRef.guid = NewValue as string;
+                    bpRef.ReadGuidFromJson(NewValue as string);
                     var patched = Convert.ChangeType(bpRef, NewValueType);
                     if (field != null) {
                         field.SetValue(instance, patched);

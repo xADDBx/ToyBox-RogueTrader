@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.UnitLogic;
+using Kingmaker.Utility;
 using ModKit;
 using ModKit.DataViewer;
 using ModKit.Utility.Extensions;
@@ -350,12 +351,13 @@ public class PatchToolTabUI {
             if (!toggleStates.TryGetValue((parent, info, index), out var state)) {
                 state = false;
             }
-            var guid = (@object as BlueprintReferenceBase)?.Guid;
-            if (guid.IsNullOrEmpty()) guid = "Null or Empty Reference";
+            var label = (@object as BlueprintReferenceBase)?.Guid.ToString();
+            if (label.IsNullOrEmpty()) label = "Null or Empty Reference";
+            else label = BlueprintExtensions.GetTitle((@object as BlueprintReferenceBase)?.GetBlueprint()) + $"({label})";
             if (state) {
-                Label(guid.Cyan(), Width(500));
+                Label(label.Cyan(), Width(500));
             } else {
-                Label(guid, Width(500));
+                Label(label, Width(500));
             }
             DisclosureToggle("Edit Reference".localize(), ref state, 200);
             toggleStates[(parent, info, index)] = state;
@@ -423,6 +425,7 @@ public class PatchToolTabUI {
                 Label("Null", Width(500));
                 return;
             }
+            Type defaultType = null;
             if (!toggleStates.TryGetValue((parent, info, index), out var state)) {
                 state = false;
             }
@@ -432,7 +435,17 @@ public class PatchToolTabUI {
                 elementCount = array.Length;
             } else {
                 IList list = @object as IList;
-                elementCount = list.Count;
+                if (list != null) {
+                    elementCount = list.Count;
+                } else {
+                    var list2 = @object as IEnumerable<object>;
+                    elementCount = list2.Count();
+                }
+            }
+            try {
+                defaultType = (@object as IEnumerable<object>).NotNull()?.FirstOrDefault()?.GetType();
+            } catch (Exception ex) {
+                Mod.Log(ex.ToString());
             }
             if (state) {
                 Label(($"{elementCount} " + "Entries".localize()).Cyan(), Width(500));
@@ -447,7 +460,7 @@ public class PatchToolTabUI {
                 using (VerticalScope()) {
                     Label("");
                     foreach (var elem in @object as IEnumerable) {
-                        ListItemGUI(wouldBePatch, parent, info, elem, localIndex, @object);
+                        ListItemGUI(wouldBePatch, parent, info, elem, localIndex, @object, defaultType);
                         localIndex += 1;
                     }
                     using (HorizontalScope()) {
@@ -488,7 +501,7 @@ public class PatchToolTabUI {
             }
         }
     }
-    private void ListItemGUI(PatchOperation wouldBePatch, object parent, FieldInfo info, object elem, int index, object collection) {
+    private void ListItemGUI(PatchOperation wouldBePatch, object parent, FieldInfo info, object elem, int index, object collection, Type defaultType = null) {
         PatchOperation tmpOp = new(PatchOperation.PatchOperationType.ModifyCollection, info.Name, null, null, parent.GetType(), PatchOperation.CollectionPatchOperationType.ModifyAtIndex, index);
         PatchOperation op = wouldBePatch.AddOperation(tmpOp);
         using (HorizontalScope()) {
@@ -498,7 +511,7 @@ public class PatchToolTabUI {
             } else {
                 Label($"[{index}] ({elem?.GetType().Name ?? "Null"})", Width(500));
             }
-            FieldGUI(parent, op, elem.GetType(), elem, info, index);
+            FieldGUI(parent, op, elem?.GetType() ?? defaultType, elem, info, index);
 
             Space(20);
             ActionButton("Add Before".localize(), () => {
