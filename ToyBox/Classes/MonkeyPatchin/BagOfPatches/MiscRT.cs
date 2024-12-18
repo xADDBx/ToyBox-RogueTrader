@@ -302,17 +302,36 @@ namespace ToyBox.BagOfPatches {
                 // if (Settings.experimentalLoadRecruitedCharactersFix) Game.Instance.Player.FixPartyAfterChange();
                 PartyEditor.lastScaleSize = new();
                 PartyEditor.statEditorStorage.Clear();
+                PartyEditor.skeletonReplacers.Clear();
+
                 foreach (var ID in Main.Settings.perSave.characterModelSizeMultiplier.Keys) {
+
                     foreach (BaseUnitEntity cha in Game.Instance.State.AllUnits.Where((u) => u.HashKey().Equals(ID))) {
+
                         float scale = Main.Settings.perSave.characterModelSizeMultiplier.GetValueOrDefault(ID, 1);
+
                         cha.View.gameObject.transform.localScale = new Vector3(scale, scale, scale);
                         PartyEditor.lastScaleSize[cha.HashKey()] = scale;
                     }
                 }
-                foreach (var ID in Main.Settings.perSave.characterSizeModifier.Keys) {
+
+                foreach (var ID in Main.Settings.perSave.characterSkeletonReplacers.Keys) {
+
                     foreach (BaseUnitEntity cha in Game.Instance.State.AllUnits.Where((u) => u.HashKey().Equals(ID))) {
+
+                        PartyEditor.skeletonReplacers[cha.HashKey()] = new SkeletonReplacer(cha);
+                        PartyEditor.skeletonReplacers[cha.HashKey()].ApplyBonesModification(cha);
+                    }
+                }
+
+                foreach (var ID in Main.Settings.perSave.characterSizeModifier.Keys) {
+
+                    foreach (BaseUnitEntity cha in Game.Instance.State.AllUnits.Where((u) => u.HashKey().Equals(ID))) {
+
                         Kingmaker.Enums.Size size;
+
                         if (Main.Settings.perSave.characterSizeModifier.TryGetValue(ID, out size)) {
+
                             cha.Descriptor().State.Size = size;
                         }
                     }
