@@ -48,6 +48,7 @@ Here is a summarized list of features. This list only includes a part of the fea
 * (***ADDB***) Patch Tool fixes:
   * Fix Patch Tool for types implementing IList<T>
   * Fix Patch Tool possible stack overflow in DeepCopy
+* (***jonHinkerton***) Add Button (allows binding to hotkey) to open faction trade vendor window from anywhere.
 
 ### ToyBox Rogue - Ver 1.7.6 built for Rogue Trader 1.2.1.26
 * (***ADDB***) Fix Patch Tool not being able to modify top level primitives.
