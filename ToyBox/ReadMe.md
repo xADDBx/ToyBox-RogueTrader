@@ -45,8 +45,13 @@ Here is a summarized list of features. This list only includes a part of the fea
   
   
 ### ToyBox Rogue - Ver 1.7.7 built for Rogue Trader 1.3.0.57
+* (***Di-Crash***) Add "Skeleton replacer" to Party => Stats
+  * This feature allows tweaking the characters experience in a way.
+  * Using different sliders, you can e.g. modify your characters height and/or proportions, offsets etc.
+  * It's a little more involved, but offers quite a bit of freedom.
 * (***jonHinkerton***) Add Button (allows binding to hotkey) to open faction trade vendor window from anywhere.
 * (***ADDB***) Add "Show hidden loot in Checklist" to the Loot Tab. The checklist doesn't show loot which wasn't seen yet.
+* (***Di-Crash***) Minor UI adjustments in Party => Stats.
 * (***ADDB***) Patch Tool fixes:
   * Fix Patch Tool for types implementing IList<T>
   * Fix Patch Tool possible stack overflow in DeepCopy
