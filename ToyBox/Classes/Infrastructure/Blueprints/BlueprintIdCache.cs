@@ -20,6 +20,9 @@ using Kingmaker.Globalmap.Blueprints.SystemMap;
 using Kingmaker.Globalmap.Blueprints.Colonization;
 using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Visual.Sound;
+using Kingmaker.Blueprints.Items;
+using Kingmaker.Blueprints.Items.Weapons;
+using Kingmaker.Blueprints.Items.Armors;
 
 namespace ToyBox.classes.Infrastructure.Blueprints {
     public class BlueprintIdCache {
@@ -29,6 +32,7 @@ namespace ToyBox.classes.Infrastructure.Blueprints {
         public Dictionary<Type, HashSet<string>> IdsByType = new();
 
         public static HashSet<Type> CachedIdTypes = new() {
+                typeof(BlueprintItem), typeof(BlueprintItemWeapon), typeof(BlueprintItemArmor),
                 typeof(BlueprintEtude), typeof(BlueprintArea), typeof(BlueprintItemEnchantment),
                 typeof(BlueprintBuff), typeof(BlueprintPortrait), typeof(BlueprintSpellbook), 
                 typeof(BlueprintAbility), typeof(BlueprintAreaEnterPoint), typeof(BlueprintUnit),

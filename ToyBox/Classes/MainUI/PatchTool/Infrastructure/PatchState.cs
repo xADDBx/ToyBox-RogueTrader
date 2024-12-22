@@ -34,7 +34,13 @@ public class PatchState {
         }
     }
     public void CreateAndRegisterPatch() {
-        if ((Operations?.Count ?? 0) == 0) return;
+        if ((Operations?.Count ?? 0) == 0) {
+            if (Patcher.AppliedPatches.TryGetValue(Blueprint.AssetGuid, out var patch)) {
+                PatchListUI.DeletePatch(patch);
+                IsDirty = true;
+            }
+            return;
+        }
         CreatePatch().RegisterPatch();
         IsDirty = true;
     }

@@ -2,6 +2,7 @@
 using System.Reflection;
 using System.ArrayExtensions;
 using System.Runtime.CompilerServices;
+using Kingmaker.Blueprints;
 
 namespace System {
     public static class ObjectExtensions {
@@ -12,15 +13,20 @@ namespace System {
             return (type.IsValueType & type.IsPrimitive);
         }
 
-        public static Object DeepCopy(Object originalObject, Object targetObject = null) {
-            return InternalCopy(originalObject, new Dictionary<Object, Object>(new ReferenceEqualityComparer()), targetObject);
+        public static Object DeepCopy(Object originalObject, Object targetObject = null, bool cloneTopBlueprint = false) {
+            return InternalCopy(originalObject, new Dictionary<Object, Object>(new ReferenceEqualityComparer()), targetObject, cloneTopBlueprint);
         }
-        private static Object InternalCopy(Object originalObject, IDictionary<Object, Object> visited, Object targetObject = null) {
+        private static Object InternalCopy(Object originalObject, IDictionary<Object, Object> visited, Object targetObject = null, bool cloneTopBlueprint = false) {
             if (originalObject == null) return null;
             var typeToReflect = originalObject.GetType();
             if (IsPrimitive(typeToReflect)) return originalObject;
             if (visited.ContainsKey(originalObject)) return visited[originalObject];
-            if (typeof(Delegate).IsAssignableFrom(typeToReflect)) return null;
+
+            // Not copying this would result in weird side effects, like the m_Factory of a StaticCache being lost.
+            // if (typeof(Delegate).IsAssignableFrom(typeToReflect)) return null;
+            if (typeof(Delegate).IsAssignableFrom(typeToReflect)) return originalObject;
+            if (!cloneTopBlueprint && typeof(BlueprintScriptableObject).IsAssignableFrom(typeToReflect)) return originalObject;
+
             var cloneObject = targetObject ?? CloneMethod.Invoke(originalObject, null);
             visited.Add(originalObject, cloneObject);
             if (typeToReflect.IsArray) {
@@ -54,8 +60,8 @@ namespace System {
                 fieldInfo.SetValue(cloneObject, clonedFieldValue);
             }
         }
-        public static T Copy<T>(this T original, T target = null) where T : class {
-            return (T)DeepCopy(original, target);
+        public static T Copy<T>(this T original, T target = null, bool cloneTopBlueprint = false) where T : class {
+            return (T)DeepCopy(original, target, cloneTopBlueprint);
         }
         public static T Copy<T>(this T original) {
             return (T)DeepCopy(original);
