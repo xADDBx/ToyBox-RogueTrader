@@ -25,6 +25,8 @@ namespace System {
             // Not copying this would result in weird side effects, like the m_Factory of a StaticCache being lost.
             // if (typeof(Delegate).IsAssignableFrom(typeToReflect)) return null;
             if (typeof(Delegate).IsAssignableFrom(typeToReflect)) return originalObject;
+
+            // Prevent messing up references by copying the cached instance of the blueprints.
             if (!cloneTopBlueprint && typeof(BlueprintScriptableObject).IsAssignableFrom(typeToReflect)) return originalObject;
 
             var cloneObject = targetObject ?? CloneMethod.Invoke(originalObject, null);
