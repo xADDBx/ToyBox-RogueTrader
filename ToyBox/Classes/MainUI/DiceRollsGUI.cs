@@ -11,7 +11,7 @@ namespace ToyBox {
                 () => EnumGrid("All Attacks Hit".localize(), ref Settings.allAttacksHit, AutoWidth()),
                 () => EnumGrid("All Hits Critical".localize(), ref Settings.allHitsCritical, AutoWidth()),
                 () => EnumGrid("Roll With Advantage (take lower roll)".localize(), ref Settings.rollWithAdvantage, AutoWidth()),
-                () => EnumGrid("Roll With Disavantage (take higher roll)".localize(), ref Settings.rollWithDisadvantage, AutoWidth()),
+                () => EnumGrid("Roll With Disadvantage (take higher roll)".localize(), ref Settings.rollWithDisadvantage, AutoWidth()),
                 () => EnumGrid("Always Roll 100".localize(), ref Settings.alwaysRoll100, AutoWidth()),
                 () => EnumGrid("Always Roll 50".localize(), ref Settings.alwaysRoll50, AutoWidth()),
                 () => EnumGrid("Always Roll 1".localize(), ref Settings.alwaysRoll1, AutoWidth()),

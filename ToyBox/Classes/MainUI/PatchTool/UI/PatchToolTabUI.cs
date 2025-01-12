@@ -351,7 +351,7 @@ public class PatchToolTabUI {
             if (!toggleStates.TryGetValue((parent, info, index), out var state)) {
                 state = false;
             }
-            var label = (@object as BlueprintReferenceBase)?.Guid.ToString();
+            var label = (@object as BlueprintReferenceBase)?.Guid?.ToString();
             if (label.IsNullOrEmpty()) label = "Null or Empty Reference";
             else label = BlueprintExtensions.GetTitle((@object as BlueprintReferenceBase)?.GetBlueprint()) + $"({label})";
             if (state) {

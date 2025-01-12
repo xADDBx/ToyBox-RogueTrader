@@ -43,6 +43,10 @@ Here is a summarized list of features. This list only includes a part of the fea
 - **Quest Resolution**: this allows you to view your active quests and advance them as needed to work around bugs or
   skip quests you don't want to do. Be warned this may break your game progression if used carelessly.
   
+### ToyBox Rogue - Ver 1.7.9 built for Rogue Trader 1.3.1.6
+* (***ADDB***) Patch Tool: Fix patching some Blueprints causing CTDs.
+* (***ADDB***) Patch Tool: Fix adding new elements to Collections of references breaking things
+
 ### ToyBox Rogue - Ver 1.7.8 built for Rogue Trader 1.3.0.57
 * (***ADDB***) Fix somewhat critical error in PatchTool which would DeepCopy Blueprints, messing up cached references (noticeable e.g. when Proficiency Requirements aren't satisfied after patching something until the game is restarted once).
 * (***ADDB***) No longer ignore delegates when Deep Copying => Fix e.g. Abilities disappearing from Weapons after patching them until restarting the game.
