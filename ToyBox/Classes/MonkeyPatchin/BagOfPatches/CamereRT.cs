@@ -223,6 +223,12 @@ namespace ToyBox.BagOfPatches {
                 if (!Settings.toggleCameraElevation && !Settings.toggleFreeCamera) return;
                 __result.y = CameraElevation;
             }
+            [HarmonyPatch(nameof(CameraRig.PlaceOnGround2)), HarmonyPriority(Priority.HigherThanNormal)]
+            [HarmonyPostfix]
+            private static void PlaceOnGround2(ref Vector3 __result) {
+                if (!Settings.toggleOffsetCameraHeight) return;
+                __result.y += Settings.CameraElevationOffset;
+            }
         }
     }
 }
