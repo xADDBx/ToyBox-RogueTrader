@@ -9,11 +9,12 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ToyBox.PatchTool; 
-public static class PatchToolUtils {
+public static partial class PatchToolUtils {
     public static MethodInfo? GetInterfaceMethodImplementation(this Type declaringType, MethodInfo interfaceMethod) {
         var map = declaringType.GetInterfaceMap(interfaceMethod.DeclaringType);
         return map.InterfaceMethods
@@ -47,6 +48,17 @@ public static class PatchToolUtils {
         }
         return fields;
     }
+    public static bool IsNullableStruct(Type type) => Nullable.GetUnderlyingType(type) != null;
+    public static object CreateObjectOfType(Type type) {
+        object result;
+        try {
+            result = Activator.CreateInstance(type);
+        } catch (Exception ex) {
+            result = FormatterServices.GetUninitializedObject(type);
+            Mod.Debug($"Exception while trying to Activator.CreateInstance {type.FullName}, falling back to FormatterServices.GetUninitializedObject. Exception:\n{ex}");
+        }
+        return result;
+    }
     public static PatchOperation AddOperation(this PatchOperation head, PatchOperation leaf) {
         if (head == null) {
             return leaf;
@@ -59,39 +71,6 @@ public static class PatchToolUtils {
             cur.NestedOperation = leaf;
             return copy;
         }
-    }
-    public static (HashSet<Type>, HashSet<Type>) GetInstantiableTypes(Type elementType, object maybeParent) {
-        HashSet<Type> allowedinstantiableTypes = typeof(BlueprintComponent).IsAssignableFrom(elementType) ? new() : null;
-        HashSet<Type> allinstantiableTypes = new();
-        Type parentType = maybeParent?.GetType();
-        foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies()) {
-            Type[] types;
-            try {
-                types = assembly.GetTypes();
-            } catch (ReflectionTypeLoadException ex) {
-                types = ex.Types.Where(t => t != null).ToArray();
-            }
-
-            foreach (var type in types) {
-                if (type == null) continue;
-
-                if (elementType.IsAssignableFrom(type) && !type.IsAbstract && !type.IsInterface) {
-                    if (parentType != null && allowedinstantiableTypes != null) {
-                        var attributes = type.GetCustomAttributes(typeof(AllowedOnAttribute), inherit: false);
-                        if (attributes.Length > 0) {
-                            foreach (AllowedOnAttribute attr in attributes) {
-                                if (attr.Type.IsAssignableFrom(parentType)) {
-                                    allowedinstantiableTypes.Add(type);
-                                }
-                            }
-                        }
-                    }
-                    allinstantiableTypes.Add(type);
-                }
-            }
-        }
-
-        return (allinstantiableTypes, allowedinstantiableTypes);
     }
     public static Type GetBlueprintReferenceKind(Type type) {
         Type currentType = type;

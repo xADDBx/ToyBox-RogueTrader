@@ -44,6 +44,11 @@ Here is a summarized list of features. This list only includes a part of the fea
   skip quests you don't want to do. Be warned this may break your game progression if used carelessly.
   
 ### ToyBox Rogue - Ver 1.7.9 built for Rogue Trader 1.3.1.6
+* (***ADDB***) Patch Tool: Remove NameSpace from generic types, making list types a lot more readable
+* (***ADDB***) Patch Tool: Implement being able to null/delete field values (hidden by default)
+* (***ADDB***) Patch Tool: Implement being able to create field values (hidden by default)
+* (***ADDB***) Patch Tool: Add toggle to keep fields open after changing a value
+* (***ADDB***) Patch Tool: Rewrite UI to be path based --> Allow patching struct types
 * (***ADDB***) Patch Tool: Fix patching some Blueprints causing CTDs
 * (***ADDB***) Patch Tool: Fix adding new elements to Collections of references breaking things
 * (***ADDB***) Add Slider to Enhanced Camera to (persistently) offset the Camera Elevation by a specified value

@@ -312,6 +312,9 @@ namespace ToyBox {
         public bool showPatchToolCollections = true;
         public bool showPatchToolPrimitiveTypes = true;
         public bool showPatchToolUnityObjects = false;
+        public bool showPatchToolDeleteButtons = false;
+        public bool showPatchToolCreateButtons = false;
+        public bool togglePatchToolCollapseAllPathsOnPatch = false;
 
 
         // Save
