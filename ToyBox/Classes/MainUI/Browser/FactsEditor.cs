@@ -65,13 +65,13 @@ namespace ToyBox {
             var mutatorLookup = BlueprintAction.ActionsForType(blueprint.GetType())
                 .GroupBy(a => a.name).Select(g => g.FirstOrDefault())
                 .ToDictionary(a => a.name, a => a);
-            var add = mutatorLookup.GetValueOrDefault("Add", null);
-            var remove = mutatorLookup.GetValueOrDefault("Remove", null);
+            var add = mutatorLookup.GetValueOrDefault("Add".localize(), null);
+            var remove = mutatorLookup.GetValueOrDefault("Remove".localize(), null);
             var decrease = mutatorLookup.GetValueOrDefault("<", null);
             var increase = mutatorLookup.GetValueOrDefault(">", null);
 
-            mutatorLookup.Remove("Add");
-            mutatorLookup.Remove("Remove");
+            mutatorLookup.Remove("Add".localize());
+            mutatorLookup.Remove("Remove".localize());
             mutatorLookup.Remove("<");
             mutatorLookup.Remove(">");
             if (feature != null) {

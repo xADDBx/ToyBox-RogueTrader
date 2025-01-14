@@ -44,6 +44,7 @@ Here is a summarized list of features. This list only includes a part of the fea
   skip quests you don't want to do. Be warned this may break your game progression if used carelessly.
   
 ### ToyBox Rogue - Ver 1.7.9 built for Rogue Trader 1.3.1.6
+* (***ADDB***) Fix localization removing Add/Remove buttons from Party Editor Browsers.
 * (***ADDB***) Patch Tool: Remove NameSpace from generic types, making list types a lot more readable
 * (***ADDB***) Patch Tool: Implement being able to null/delete field values (hidden by default)
 * (***ADDB***) Patch Tool: Implement being able to create field values (hidden by default)
