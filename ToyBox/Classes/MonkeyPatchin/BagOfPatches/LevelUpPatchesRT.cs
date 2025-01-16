@@ -89,7 +89,7 @@ namespace ToyBox.BagOfPatches {
                 if (!unit.IsPartyOrPetInterface()) return; // don't give extra feats to NPCs
                 if (!__result && Settings.toggleIgnorePrerequisiteClassLevel) {
                     OwlLogging.Log($"PrerequisiteLevel.MeetsInternal - {unit.CharacterName} - {__instance.GetCaptionInternal()} -{__result} -> {true} ");
-                    __result = true;
+                    __result = !__instance.Not;
                 }
             }
         }
@@ -101,7 +101,7 @@ namespace ToyBox.BagOfPatches {
                 if (!__result && Settings.toggleFeaturesIgnorePrerequisites) {
                     if (!new StackTrace().ToString().Contains("Kingmaker.UI.MVVM.VM.CharGen")) {
                         OwlLogging.Log($"PrerequisiteFact.MeetsInternal - {unit.CharacterName} - {__instance.GetCaptionInternal()} - {__result} -> {true} (Not: {__instance.Not}");
-                        __result = true;
+                        __result = !__instance.Not;
                     }
                 }
             }
@@ -113,7 +113,7 @@ namespace ToyBox.BagOfPatches {
                 if (!unit.IsPartyOrPetInterface()) return; // don't give extra feats to NPCs
                 if (!__result && Settings.toggleIgnorePrerequisiteStatValue) {
                     OwlLogging.Log($"PrerequisiteStat.MeetsInternal - {unit.CharacterName} - {__instance.GetCaptionInternal()} -{__result} -> {true} ");
-                    __result = true;
+                    __result = !__instance.Not;
                 }
             }
         }

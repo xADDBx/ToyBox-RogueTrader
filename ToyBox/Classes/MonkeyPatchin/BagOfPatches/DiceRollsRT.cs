@@ -5,8 +5,10 @@ using Kingmaker;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
+using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UI.Models.Log.Events;
 using Kingmaker.Utility.Random;
+using ModKit;
 using ModKit.Utility;
 using System;
 using System.Collections.Generic;
@@ -72,14 +74,31 @@ namespace ToyBox.BagOfPatches {
                 }
             }
         }
+        [HarmonyPatch(typeof(RuleRollDamage), nameof(RuleRollDamage.TryNullifyDamage))]
+        internal static class RuleRollDamagePatch {
+            [HarmonyPrefix]
+            private static void Pre(RuleRollDamage __instance) {
+                RuleRoleDicePatch.invertInitiator = true;
+                RuleRoleDicePatch.alternateUnit = __instance.TargetUnit;
+            }
+            [HarmonyPostfix]
+            private static void Post() {
+                RuleRoleDicePatch.invertInitiator = false;
+                RuleRoleDicePatch.alternateUnit = null;
+            }
+
+        }
         [HarmonyPatch(typeof(RuleRollDice))]
-        private static class RuleRoleDicePatch {
+        internal static class RuleRoleDicePatch {
+            // Nullify damage rolls are done with the attacker as the initiator; meaning Roll 1 for Party would make enemies invincible
+            internal static bool invertInitiator = false;
+            internal static BaseUnitEntity alternateUnit = null;
             [HarmonyPatch(nameof(RuleRollDice.Roll))]
             [HarmonyPostfix]
             private static void Roll(RuleRollDice __instance) {
                 if (__instance.DiceFormula.Dice != DiceType.D100) return;
                 if (__instance.DiceFormula.Rolls > 1) return;
-                var initiator = __instance.InitiatorUnit;
+                BaseUnitEntity initiator = invertInitiator ? alternateUnit : __instance.InitiatorUnit;
                 var result = __instance.m_Result;
                 if (initiator == null) return;
                 if (BaseUnitDataUtils.CheckUnitEntityData(initiator, settings.alwaysRoll1)
