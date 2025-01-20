@@ -3,6 +3,7 @@ using System.Reflection;
 using System.ArrayExtensions;
 using System.Runtime.CompilerServices;
 using Kingmaker.Blueprints;
+using ToyBox.PatchTool;
 
 namespace System {
     public static class ObjectExtensions {
@@ -27,8 +28,8 @@ namespace System {
             if (typeof(Delegate).IsAssignableFrom(typeToReflect)) return originalObject;
 
             // Prevent messing up references by copying the cached instance of the blueprints.
-            if (!cloneTopBlueprint && typeof(SimpleBlueprint).IsAssignableFrom(typeToReflect)) return originalObject;
-            if (typeof(UnityEngine.Object).IsAssignableFrom(typeToReflect)) return originalObject;
+            if (!cloneTopBlueprint && typeof(SimpleBlueprint).IsAssignableFrom(typeToReflect)) return originalObject; 
+            if (PatchToolUtils.TypeIsInUnityDLL(typeToReflect)) return originalObject;
 
             var cloneObject = targetObject ?? CloneMethod.Invoke(originalObject, null);
             visited.Add(originalObject, cloneObject);

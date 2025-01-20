@@ -86,4 +86,20 @@ public static partial class PatchToolUtils {
         }
         return null;
     }
+    private static Dictionary<Type, bool> m_TypeIsInUnityDLL = new();
+    public static bool TypeIsInUnityDLL(Type type) {
+        if (m_TypeIsInUnityDLL.TryGetValue(type, out var val)) {
+            return val;
+        }
+        if (type.Assembly.FullName.StartsWith("Unity")) {
+            return m_TypeIsInUnityDLL[type] = true;
+        }
+        if (type.IsGenericType) {
+            return m_TypeIsInUnityDLL[type] = type.GenericTypeArguments.Any(TypeIsInUnityDLL);
+        }
+        if (type.IsArray) {
+            return m_TypeIsInUnityDLL[type] = TypeIsInUnityDLL(type.GetElementType());
+        }
+        return m_TypeIsInUnityDLL[type] = false;
+    }
 }

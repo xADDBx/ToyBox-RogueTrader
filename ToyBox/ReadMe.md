@@ -53,6 +53,7 @@ Here is a summarized list of features. This list only includes a part of the fea
 * (***ADDB***) Patch Tool: Add toggle to keep fields open after changing a value
 * (***ADDB***) Patch Tool: Rewrite UI to be path based --> Allow patching struct types
 * (***ADDB***) Patch Tool: Fix patching some Blueprints causing CTDs
+* (***ADDB***) Patch Tool: Fix patching some other Blueprints causing CTDs
 * (***ADDB***) Patch Tool: Fix adding new elements to Collections of references breaking things
 * (***ADDB***) Add Slider to Enhanced Camera to (persistently) offset the Camera Elevation by a specified value
 
