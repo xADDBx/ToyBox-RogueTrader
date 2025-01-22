@@ -87,7 +87,7 @@ namespace ToyBox.BagOfPatches {
             [HarmonyPostfix]
             public static void MeetsInternal(PrerequisiteLevel __instance, IBaseUnitEntity unit, ref bool __result) {
                 if (!unit.IsPartyOrPetInterface()) return; // don't give extra feats to NPCs
-                if (!__result && Settings.toggleIgnorePrerequisiteClassLevel) {
+                if (!(__result ^ __instance.Not) && Settings.toggleIgnorePrerequisiteClassLevel) {
                     OwlLogging.Log($"PrerequisiteLevel.MeetsInternal - {unit.CharacterName} - {__instance.GetCaptionInternal()} -{__result} -> {true} ");
                     __result = !__instance.Not;
                 }
@@ -98,7 +98,7 @@ namespace ToyBox.BagOfPatches {
             [HarmonyPostfix]
             public static void MeetsInternal(PrerequisiteFact __instance, IBaseUnitEntity unit, ref bool __result) {
                 if (!unit.IsPartyOrPetInterface()) return; // don't give extra feats to NPCs
-                if (!__result && Settings.toggleFeaturesIgnorePrerequisites) {
+                if (!(__result ^ __instance.Not) && Settings.toggleFeaturesIgnorePrerequisites) {
                     if (!new StackTrace().ToString().Contains("Kingmaker.UI.MVVM.VM.CharGen")) {
                         OwlLogging.Log($"PrerequisiteFact.MeetsInternal - {unit.CharacterName} - {__instance.GetCaptionInternal()} - {__result} -> {true} (Not: {__instance.Not}");
                         __result = !__instance.Not;
@@ -111,7 +111,7 @@ namespace ToyBox.BagOfPatches {
             [HarmonyPostfix]
             public static void MeetsInternal(PrerequisiteStat __instance, IBaseUnitEntity unit, ref bool __result) {
                 if (!unit.IsPartyOrPetInterface()) return; // don't give extra feats to NPCs
-                if (!__result && Settings.toggleIgnorePrerequisiteStatValue) {
+                if (!(__result ^ __instance.Not) && Settings.toggleIgnorePrerequisiteStatValue) {
                     OwlLogging.Log($"PrerequisiteStat.MeetsInternal - {unit.CharacterName} - {__instance.GetCaptionInternal()} -{__result} -> {true} ");
                     __result = !__instance.Not;
                 }

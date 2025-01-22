@@ -45,7 +45,7 @@ Here is a summarized list of features. This list only includes a part of the fea
   
 ### ToyBox Rogue - Ver 1.7.9 built for Rogue Trader 1.3.1.6
 * (***ADDB***) Fix Dice Rolls Cheats (e.g. "Always Roll 1") using the wrong unit as initiator for the damage negation roll from the "The Emperor Protects" feature. E.g. this could result in enemies being invincible if "Always Roll 1" is activated for the Party.
-* (***ADDB***) Fix "Ignore Talent Prerequisites", "Ignore Required Stat Values" and "Ignore Required Class Levels" not working for inverted checks.
+* (***ADDB***) Fix "Ignore Talent Prerequisites", "Ignore Required Stat Values" and "Ignore Required Class Levels" not working for inverted checks. *Note: Unconfirmed since nobody was available for testing*
 * (***ADDB***) Fix localization removing Add/Remove buttons from Party Editor Browsers.
 * (***ADDB***) Patch Tool: Remove NameSpace from generic types, making list types a lot more readable
 * (***ADDB***) Patch Tool: Implement being able to null/delete field values (hidden by default)
