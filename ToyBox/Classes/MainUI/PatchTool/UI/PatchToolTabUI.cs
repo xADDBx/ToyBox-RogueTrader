@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
+using Kingmaker.Localization;
 using Kingmaker.UnitLogic;
 using Kingmaker.Utility;
 using ModKit;
@@ -314,7 +315,7 @@ public class PatchToolTabUI {
                     }
                 }
             }
-        } else if (typeof(UnityEngine.Object).IsAssignableFrom(type)) {
+        } else if (typeof(UnityEngine.Object).IsAssignableFrom(type) && type != typeof(SharedStringAsset)) {
             if (@object == null) {
                 Label("Null", Width(500));
                 return;
@@ -524,6 +525,12 @@ public class PatchToolTabUI {
         } else {
             foreach (var field in PatchToolUtils.GetFields(type)) {
                 result[field] = field.GetValue(o);
+            }
+        }
+        if (type == typeof(SharedStringAsset)) {
+            var toRemove = result.Where(f => f.Key.Name == "m_CachedPtr").FirstOrDefault().Key;
+            if (toRemove != null) {
+                result.Remove(toRemove);
             }
         }
         fieldsByObject[path] = result;

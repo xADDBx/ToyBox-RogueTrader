@@ -43,6 +43,9 @@ Here is a summarized list of features. This list only includes a part of the fea
 - **Quest Resolution**: this allows you to view your active quests and advance them as needed to work around bugs or
   skip quests you don't want to do. Be warned this may break your game progression if used carelessly.
   
+### ToyBox Rogue - Ver 1.7.10 built for Rogue Trader 1.3.1.6
+* (***ADDB***) Make it possible to indirectly modify localization of things via PatchTool by allowing changing of keys under LocalizedString => Shared => LocalizedString
+
 ### ToyBox Rogue - Ver 1.7.9 built for Rogue Trader 1.3.1.6
 * (***ADDB***) Fix Dice Rolls Cheats (e.g. "Always Roll 1") using the wrong unit as initiator for the damage negation roll from the "The Emperor Protects" feature. E.g. this could result in enemies being invincible if "Always Roll 1" is activated for the Party.
 * (***ADDB***) Fix "Ignore Talent Prerequisites", "Ignore Required Stat Values" and "Ignore Required Class Levels" not working for inverted checks. *Note: Unconfirmed since nobody was available for testing*

@@ -12,6 +12,7 @@ using System.Reflection;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace ToyBox.PatchTool; 
 public static partial class PatchToolUtils {
@@ -52,7 +53,16 @@ public static partial class PatchToolUtils {
     public static object CreateObjectOfType(Type type) {
         object result;
         try {
-            result = Activator.CreateInstance(type);
+            if (typeof(UnityEngine.Object).IsAssignableFrom(type)) {
+                if (typeof(ScriptableObject).IsAssignableFrom(type)) {
+                    result = ScriptableObject.CreateInstance(type);
+                } else {
+                    Mod.Error("Trying to instantiate a non-scriptable object Unity Object. In general this means someone messed up somewhere. Make sure you really know what you're doing!");
+                    result = Activator.CreateInstance(type);
+                }
+            } else {
+                result = Activator.CreateInstance(type);
+            }
         } catch (Exception ex) {
             result = FormatterServices.GetUninitializedObject(type);
             Mod.Debug($"Exception while trying to Activator.CreateInstance {type.FullName}, falling back to FormatterServices.GetUninitializedObject. Exception:\n{ex}");
