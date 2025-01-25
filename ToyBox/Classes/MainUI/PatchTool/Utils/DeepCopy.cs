@@ -8,6 +8,7 @@ using ToyBox.PatchTool;
 namespace System {
     public static class ObjectExtensions {
         private static readonly MethodInfo CloneMethod = typeof(Object).GetMethod("MemberwiseClone", BindingFlags.NonPublic | BindingFlags.Instance);
+        private static readonly Dictionary<(Type, BindingFlags), FieldInfo[]> FieldsByTypeCache = new();
 
         public static bool IsPrimitive(this Type type) {
             if (type == typeof(String)) return true;
@@ -53,7 +54,10 @@ namespace System {
         }
 
         private static void CopyFields(object originalObject, IDictionary<object, object> visited, object cloneObject, Type typeToReflect, BindingFlags bindingFlags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.FlattenHierarchy, Func<FieldInfo, bool> filter = null) {
-            foreach (FieldInfo fieldInfo in typeToReflect.GetFields(bindingFlags)) {
+            if (!FieldsByTypeCache.TryGetValue((typeToReflect, bindingFlags), out var fields)) {
+                fields = FieldsByTypeCache[(typeToReflect, bindingFlags)] = typeToReflect.GetFields(bindingFlags);
+            }
+            foreach (FieldInfo fieldInfo in fields) {
                 if (filter != null && filter(fieldInfo) == false) continue;
                 if (IsPrimitive(fieldInfo.FieldType)) {
                     fieldInfo.SetValue(cloneObject, fieldInfo.GetValue(originalObject));

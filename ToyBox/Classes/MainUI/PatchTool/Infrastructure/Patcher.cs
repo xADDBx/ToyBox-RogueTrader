@@ -37,6 +37,7 @@ public static class Patcher {
         foreach (var patch in KnownPatches.Values) {
             try {
                 if (!Main.Settings.disabledPatches.Contains(patch.PatchId)) {
+                    Mod.Log($"Patching Blueprint {patch.BlueprintGuid} with Patch {patch.PatchId}.");
                     patch.ApplyPatch();
                     applied++;
                 }
@@ -47,26 +48,29 @@ public static class Patcher {
         watch.Stop();
         Mod.Log($"Successfully applied {applied} of {KnownPatches.Values.Count} patches in {watch.ElapsedMilliseconds}ms");
     }
-    private static SimpleBlueprint ApplyPatch(this SimpleBlueprint blueprint, Patch patch, SimpleBlueprint current) {
+    private static SimpleBlueprint ApplyPatch(this SimpleBlueprint blueprint, Patch patch) {
         AppliedPatches[blueprint.AssetGuid] = patch;
         CurrentlyPatching = blueprint;
         foreach (var operation in patch.Operations) {
             operation.Apply(blueprint);
-            current = DeepBlueprintCopy(blueprint, current);
-            current.OnEnable();
+            blueprint.OnEnable();
         }
         CurrentlyPatching = null;
-        return current;
+        return blueprint;
     }
     public static SimpleBlueprint ApplyPatch(this Patch patch) {
         if (patch == null) return null;
         var current = ResourcesLibrary.TryGetBlueprint(patch.BlueprintGuid);
 
+        // Consideration: DeepCopies are only necessary to allow reverting actions; meaning they are only needed if users plan to change patches in the current session
+        // By adding a "Dev Mode" setting, it would be possible to completely drop DeepCopies, making this pretty performant.
+
         if (!OriginalBps.ContainsKey(current.AssetGuid)) {
             OriginalBps[current.AssetGuid] = DeepBlueprintCopy(current);
+        } else {
+            current = DeepBlueprintCopy(OriginalBps[current.AssetGuid], current);
         }
-        var copy = DeepBlueprintCopy(OriginalBps[current.AssetGuid]);
-        return copy.ApplyPatch(patch, current);
+        return current.ApplyPatch(patch);
     }
     public static void RestoreOriginal(string blueprintGuid) {
         if (OriginalBps.TryGetValue(blueprintGuid, out var copy)) {
