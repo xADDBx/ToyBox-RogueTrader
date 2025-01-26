@@ -30,6 +30,8 @@ public static class PatchListUI {
                     Space(50);
                     if (Patcher.AppliedPatches.TryGetValue(patch.BlueprintGuid, out var patch2) && patch2.PatchId == patch.PatchId) {
                         Label("Yes".localize(), Width(50));
+                    } else if (Patcher.FailedPatches.Contains(patch)) {
+                        Label("Failed!".localize().Red(), Width(50));
                     } else {
                         Label("No".localize(), Width(50));
                     }
@@ -42,7 +44,9 @@ public static class PatchListUI {
                     } else {
                         ActionButton("Disable".localize(), () => {
                             Main.Settings.disabledPatches.Add(patch.PatchId);
-                            Patcher.RestoreOriginal(patch.BlueprintGuid);
+                            if (Patcher.AppliedPatches.Values.Contains(patch)) {
+                                Patcher.RestoreOriginal(patch.BlueprintGuid);
+                            }
                         }, Width(100));
                     }
                     Space(50);

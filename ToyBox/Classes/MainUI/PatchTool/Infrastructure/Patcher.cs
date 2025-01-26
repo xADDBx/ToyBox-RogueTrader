@@ -9,9 +9,11 @@ using System.IO;
 
 namespace ToyBox.PatchTool;
 public static class Patcher {
+    public static readonly Version CurrentPatchVersion = new(1, 1, 0, 0);
     public static Dictionary<string, SimpleBlueprint> OriginalBps = new();
     public static Dictionary<string, Patch> AppliedPatches = new();
     public static Dictionary<string, Patch> KnownPatches = new();
+    public static HashSet<Patch> FailedPatches = new();
     public static SimpleBlueprint CurrentlyPatching = null;
     public static bool IsInitialized = false;
     public static string PatchDirectoryPath => Path.Combine(Main.ModEntry.Path, "Patches");
@@ -24,6 +26,12 @@ public static class Patcher {
             foreach (var file in Directory.GetFiles(PatchDirectoryPath)) {
                 try {
                     var patch = JsonConvert.DeserializeObject<Patch>(File.ReadAllText(file), settings);
+
+                    // Update old patches; 1.0 => 1.1: Serialize enums as strings
+                    if ((patch.PatchVersion ?? new(1, 0)) < new Version(1, 1)) {
+                        patch.RegisterPatch(false);
+                    }
+
                     KnownPatches[patch.BlueprintGuid] = patch;
                 } catch (Exception ex) {
                     Mod.Log($"Error trying to load patch file {file}:\n{ex.ToString()}");
@@ -35,31 +43,29 @@ public static class Patcher {
         watch.Start();
         int applied = 0;
         foreach (var patch in KnownPatches.Values) {
-            try {
-                if (!Main.Settings.disabledPatches.Contains(patch.PatchId)) {
-                    Mod.Log($"Patching Blueprint {patch.BlueprintGuid} with Patch {patch.PatchId}.");
-                    patch.ApplyPatch();
+            if (!Main.Settings.disabledPatches.Contains(patch.PatchId)) {
+                if (patch.ApplyPatch()) {
                     applied++;
                 }
-            } catch (Exception ex) {
-                Mod.Log($"Error trying to patch blueprint {patch.BlueprintGuid} with patch {patch.PatchId}:\n{ex.ToString()}");
             }
         }
         watch.Stop();
         Mod.Log($"Successfully applied {applied} of {KnownPatches.Values.Count} patches in {watch.ElapsedMilliseconds}ms");
     }
     private static SimpleBlueprint ApplyPatch(this SimpleBlueprint blueprint, Patch patch) {
-        AppliedPatches[blueprint.AssetGuid] = patch;
         CurrentlyPatching = blueprint;
         foreach (var operation in patch.Operations) {
             operation.Apply(blueprint);
             blueprint.OnEnable();
         }
         CurrentlyPatching = null;
+        AppliedPatches[blueprint.AssetGuid.ToString()] = patch;
         return blueprint;
     }
-    public static SimpleBlueprint ApplyPatch(this Patch patch) {
-        if (patch == null) return null;
+    public static bool ApplyPatch(this Patch patch) {
+        if (patch == null) return false;
+        Mod.Log($"Patching Blueprint {patch.BlueprintGuid} with Patch {patch.PatchId}.");
+        FailedPatches.Remove(patch);
         var current = ResourcesLibrary.TryGetBlueprint(patch.BlueprintGuid);
 
         // Consideration: DeepCopies are only necessary to allow reverting actions; meaning they are only needed if users plan to change patches in the current session
@@ -70,23 +76,37 @@ public static class Patcher {
         } else {
             current = DeepBlueprintCopy(OriginalBps[current.AssetGuid], current);
         }
-        return current.ApplyPatch(patch);
+        try {
+            current.ApplyPatch(patch);
+        } catch (Exception ex) {
+            RestoreOriginal(patch.BlueprintGuid);
+            FailedPatches.Add(patch);
+            Mod.Log($"Error trying to patch blueprint {patch.BlueprintGuid} with patch {patch.PatchId}:\n{ex.ToString()}");
+            return false;
+        }
+        return true;
     }
     public static void RestoreOriginal(string blueprintGuid) {
+        Mod.Log($"Trying to restore original Blueprint {blueprintGuid}");
         if (OriginalBps.TryGetValue(blueprintGuid, out var copy)) {
+            Mod.Log($"Found original blueprint; reverting.");
             var bp = ResourcesLibrary.TryGetBlueprint(blueprintGuid);
             DeepBlueprintCopy(copy, bp);
             AppliedPatches.Remove(blueprintGuid);
+        } else {
+            Mod.Error("No original blueprint found! Was it never patched?");
         }
     }
-    public static void RegisterPatch(this Patch patch) {
+    public static void RegisterPatch(this Patch patch, bool apply = true) {
         if (patch == null) return;
         try {
             var userPatchesFolder = 
             Directory.CreateDirectory(PatchDirectoryPath);
             File.WriteAllText(PatchFilePath(patch), JsonConvert.SerializeObject(patch, Formatting.Indented));
             KnownPatches[patch.BlueprintGuid] = patch;
-            patch.ApplyPatch();
+            if (apply) {
+                patch.ApplyPatch();
+            }
         } catch (Exception ex) {
             Mod.Log($"Error registering patch for blueprint {patch.BlueprintGuid} with patch {patch.PatchId}:\n{ex.ToString()}");
         }
