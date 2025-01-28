@@ -71,6 +71,7 @@ namespace ToyBox.BagOfPatches {
         [HarmonyPatch(typeof(CompanionInParty), nameof(CompanionInParty.CheckCondition))]
         public static class CompanionInParty_CheckCondition_Patch {
             public static void Postfix(CompanionInParty __instance, ref bool __result) {
+                if (!settings.toggleRemoteCompanionDialog) return;
                 if (__instance.Not) return; // We only want this patch to run for conditions requiring the character to be in the party so if it is for the inverse we bail.  Example of this comes up with Lann and Wenduag in the final scene of the Prologue Labyrinth
                 // We don't want to match when the game only checks for Ex companions since this is basically a check for companions which left the party then
                 // Example is 6aeb6812dcc1464a9b087786556c9b18 which checks whether Pascal left as a companion. Really weird design from Owlcat right there.
@@ -79,12 +80,12 @@ namespace ToyBox.BagOfPatches {
                 if (ProblemCues.Contains(__instance.Owner.AssetGuid.ToString())) return;
                 UnitPartCompanion unitPartCompanion = null;
                 try {
-                    unitPartCompanion = Game.Instance.Player.AllCharacters.FirstOrDefault(unit => unit.Blueprint == __instance.companion).GetCompanionOptional();
+                    unitPartCompanion = Game.Instance.Player.AllCharacters.FirstOrDefault(unit => unit.Blueprint == __instance.companion && !unit.IsDisposed)?.GetCompanionOptional();
                 } catch (NullReferenceException ex) {
                     Mod.Trace(ex.ToString());
                 }
                 if (unitPartCompanion != null) {
-                    if (settings.toggleRemoteCompanionDialog && unitPartCompanion.State != CompanionState.None) {
+                    if (unitPartCompanion.State != CompanionState.None) {
                         if ((settings.toggleExCompanionDialog && unitPartCompanion.State == CompanionState.ExCompanion) || unitPartCompanion.State != CompanionState.ExCompanion) {
                             if (__instance.Owner is BlueprintCue cueBP) {
                                 OwlLogging.Log($"overiding {cueBP.name} Companion {__instance.companion.name} In Party to true");
