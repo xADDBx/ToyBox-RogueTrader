@@ -320,7 +320,14 @@ public class PatchToolTabUI {
                 Label("Null", Width(500));
                 return;
             }
-            Label(@object.ToString(), Width(500));
+            string label;
+            try {
+                label = @object.ToString();
+            } catch (Exception ex) {
+                Mod.Trace($"Error in FieldGUI ToString for field {info.Name}:\n{ex.ToString()}");
+                label = "Exception in ToString".Orange();
+            }
+            Label(label, Width(500));
             Label("Unity Object".localize());
         } else if (typeof(BlueprintReferenceBase).IsAssignableFrom(type)) {
             if (!toggleStates.TryGetValue(path, out var state)) {
@@ -328,7 +335,14 @@ public class PatchToolTabUI {
             }
             var label = (@object as BlueprintReferenceBase)?.Guid?.ToString();
             if (label.IsNullOrEmpty()) label = "Null or Empty Reference";
-            else label = BlueprintExtensions.GetTitle((@object as BlueprintReferenceBase)?.GetBlueprint()) + $"({label})";
+            else {
+                var bp = (@object as BlueprintReferenceBase)?.GetBlueprint();
+                if (bp != null) {
+                    label = BlueprintExtensions.GetTitle(bp) + $" ({label})";
+                } else {
+                    label = "Invalid Reference".Orange() + $" ({label})";
+                }
+            }
             if (state) {
                 Label(label.Cyan(), Width(500));
             } else {
@@ -462,10 +476,18 @@ public class PatchToolTabUI {
             if (!toggleStates.TryGetValue(path, out var state)) {
                 state = false;
             }
+            string label;
+            try {
+                label = @object?.ToString() ?? "Null (value)";
+            } catch (Exception ex) {
+                Mod.Trace($"Error in FieldGUI ToString for field {info.Name}:\n{ex.ToString()}");
+                label = "Exception in ToString".Orange();
+            }
+            Label(label, Width(500));
             if (state) {
-                Label(@object?.ToString() ?? "Null (value)".Cyan(), Width(500));
+                Label(label.Cyan(), Width(500));
             } else {
-                Label(@object?.ToString() ?? "Null (value)", Width(500));
+                Label(label, Width(500));
             }
             DisclosureToggle("Show fields".localize(), ref state, 200);
             toggleStates[path] = state;
