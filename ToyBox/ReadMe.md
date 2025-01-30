@@ -50,6 +50,7 @@ Here is a summarized list of features. This list only includes a part of the fea
 * (***ADDB***) PatchTool: Make it possible to indirectly modify localization of things by allowing changing of keys under LocalizedString => Shared => LocalizedString
 * (***ADDB***) PatchTool: Prevent broken Blueprint references from crashing the UI.
 * (***ADDB***) PatchTool: Prevent internal ToString exception from crashing the UI.
+* (***ADDB***) Prevent CompanionInParty.CheckCondition patch from causing exceptions on game load by no longer getting companion state of disposed units
 
 ### ToyBox Rogue - Ver 1.7.9 built for Rogue Trader 1.3.1.6
 * (***ADDB***) Fix Dice Rolls Cheats (e.g. "Always Roll 1") using the wrong unit as initiator for the damage negation roll from the "The Emperor Protects" feature. E.g. this could result in enemies being invincible if "Always Roll 1" is activated for the Party.
