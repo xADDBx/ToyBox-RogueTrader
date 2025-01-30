@@ -9,7 +9,7 @@ using System.IO;
 
 namespace ToyBox.PatchTool;
 public static class Patcher {
-    public static readonly Version CurrentPatchVersion = new(1, 1, 0, 0);
+    public static readonly Version CurrentPatchVersion = new(1, 1, 1, 0);
     public static Dictionary<string, SimpleBlueprint> OriginalBps = new();
     public static Dictionary<string, Patch> AppliedPatches = new();
     public static Dictionary<string, Patch> KnownPatches = new();
@@ -28,8 +28,8 @@ public static class Patcher {
                     var patch = JsonConvert.DeserializeObject<Patch>(File.ReadAllText(file), settings);
 
                     // Update old patches; 1.0 => 1.1: Serialize enums as strings
-                    if ((patch.PatchVersion ?? new(1, 0)) < new Version(1, 1)) {
-                        patch.RegisterPatch(false);
+                    if ((patch.PatchVersion ?? new(1, 0)) < CurrentPatchVersion) {
+                        patch.RegisterPatch(true);
                     }
 
                     KnownPatches[patch.BlueprintGuid] = patch;
@@ -97,18 +97,28 @@ public static class Patcher {
             Mod.Error("No original blueprint found! Was it never patched?");
         }
     }
-    public static void RegisterPatch(this Patch patch, bool apply = true) {
+    public static void RegisterPatch(this Patch patch, bool isPatchUpdate = false) {
         if (patch == null) return;
         try {
+            if (isPatchUpdate) {
+                Mod.Log($"Updating patch {patch.PatchId} for blueprint {patch.BlueprintGuid}\nVersion {patch.PatchVersion} to {CurrentPatchVersion}");
+            }
             var userPatchesFolder = 
             Directory.CreateDirectory(PatchDirectoryPath);
-            File.WriteAllText(PatchFilePath(patch), JsonConvert.SerializeObject(patch, Formatting.Indented));
+            var settings = new JsonSerializerSettings() { Formatting = Formatting.Indented };
+            settings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
+            patch.PatchVersion = CurrentPatchVersion;
+            File.WriteAllText(PatchFilePath(patch), JsonConvert.SerializeObject(patch, settings));
             KnownPatches[patch.BlueprintGuid] = patch;
-            if (apply) {
+            if (!isPatchUpdate) {
                 patch.ApplyPatch();
             }
         } catch (Exception ex) {
-            Mod.Log($"Error registering patch for blueprint {patch.BlueprintGuid} with patch {patch.PatchId}:\n{ex.ToString()}");
+            if (isPatchUpdate) {
+                Mod.Log($"Error updating patch {patch.PatchId}:\n{ex.ToString()}");
+            } else {
+                Mod.Log($"Error registering patch for blueprint {patch.BlueprintGuid} with patch {patch.PatchId}:\n{ex.ToString()}");
+            }
         }
     }
     public static SimpleBlueprint DeepBlueprintCopy(SimpleBlueprint blueprint, SimpleBlueprint target = null) {
