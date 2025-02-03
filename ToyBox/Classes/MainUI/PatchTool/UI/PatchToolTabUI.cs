@@ -422,6 +422,7 @@ public class PatchToolTabUI {
             if (type.IsArray) {
                 Array array = @object as Array;
                 elementCount = array.Length;
+                defaultType = type.GetElementType();
             } else {
                 IList list = @object as IList;
                 if (list != null) {
@@ -429,12 +430,9 @@ public class PatchToolTabUI {
                 } else {
                     var list2 = @object as IEnumerable<object>;
                     elementCount = list2.Count();
+                    defaultType = type.GetInterfaces().FirstOrDefault(t => t.IsGenericType && t.GetGenericTypeDefinition() == typeof(IEnumerable<>))?.GetGenericArguments()[0]
+                                    ?? list2?.NotNull()?.FirstOrDefault()?.GetType();
                 }
-            }
-            try {
-                defaultType = (@object as IEnumerable<object>)?.NotNull()?.FirstOrDefault()?.GetType();
-            } catch (Exception ex) {
-                Mod.Log(ex.ToString());
             }
             if (state) {
                 Label(($"{elementCount} " + "Entries".localize()).Cyan(), Width(500));
