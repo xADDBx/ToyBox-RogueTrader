@@ -46,6 +46,8 @@ Here is a summarized list of features. This list only includes a part of the fea
 ### ToyBox Rogue - Ver 1.7.13 built for Rogue Trader 1.3.1.11
 * (***ADDB***) PatchTool: Fix collections filled with null elements breaking ui
 * (***ADDB***) PatchTool: Catch error when target blueprint is missing (e.g. due to mod changes)
+* (***ADDB***) PatchTool: Support sbyte
+* (***ADDB***) Apply performance Transpilers only once. Whoopsie.
 
 ### ToyBox Rogue - Ver 1.7.12 built for Rogue Trader 1.3.1.11
 * (***ADDB***) PatchTool: Fix regression which broke enum patches

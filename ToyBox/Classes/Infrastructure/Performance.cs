@@ -39,26 +39,26 @@ namespace ToyBox {
                         foreach (var instruction in PatchProcessor.GetCurrentInstructions(method) ?? new()) {
                             if (instruction.Calls(Activator_CreateInstance)) {
                                 ret.Add(method);
-                                continue;
+                                break;
                             } else if (instruction.Calls(Array_CreateInstance)) {
                                 ret.Add(method);
-                                continue;
+                                break;
                             } else if (instruction.Calls(ReflectionBasedSerializer_CreateObject)) {
                                 ret.Add(method);
-                                continue;
+                                break;
                             } else if (instruction.opcode == OpCodes.Call && instruction.operand is MethodInfo methodInfo) {
                                 if (methodInfo.Name == "HasAttribute" && methodInfo.IsGenericMethod) {
                                     ret.Add(method);
-                                    continue;
+                                    break;
                                 } else if (methodInfo.Name == "IsListOf" && methodInfo.IsGenericMethod) {
                                     ret.Add(method);
-                                    continue;
+                                    break;
                                 } else if (methodInfo.Name == "IsList" && methodInfo.IsGenericMethod) {
                                     ret.Add(method);
-                                    continue;
+                                    break;
                                 } else if (methodInfo.Name == "IsOrSubclassOf" && methodInfo.IsGenericMethod) {
                                     ret.Add(method);
-                                    continue;
+                                    break;
                                 }
                             }
                         }

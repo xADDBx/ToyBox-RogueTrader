@@ -33,7 +33,7 @@ public class PatchToolTabUI {
     private bool showFieldsEditor = false;
     internal string Target = "";
     public int IndentPerLevel = 25;
-    internal static readonly HashSet<Type> primitiveTypes = new() { typeof(string), typeof(bool), typeof(int), typeof(uint), typeof(long), typeof(ulong), typeof(float), typeof(double), typeof(byte), typeof(short), typeof(ushort) };
+    internal static readonly HashSet<Type> primitiveTypes = new() { typeof(string), typeof(bool), typeof(int), typeof(uint), typeof(long), typeof(ulong), typeof(float), typeof(double), typeof(sbyte), typeof(byte), typeof(short), typeof(ushort) };
     public PatchToolTabUI() {
         pickerGUIs[""] = new();
     }
