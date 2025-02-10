@@ -169,7 +169,11 @@ public class PatchToolTabUI {
             visited.Add(o);
         }
         Dictionary<FieldInfo, object> fbo;
-        var type = overridenType ?? o?.GetType();
+        var oType = o?.GetType();
+        Type type = overridenType ?? oType;
+        if (oType != null && overridenType != null && overridenType.IsAssignableFrom(oType)) {
+            type = oType;
+        }
         if (!fieldsByObject.ContainsKey(path)) {
             PopulateFieldsAndObjects(o, path, type);
         }

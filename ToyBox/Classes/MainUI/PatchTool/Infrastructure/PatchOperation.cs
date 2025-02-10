@@ -263,6 +263,9 @@ public class PatchOperation {
                     } else {
                         patched = PatchToolUtils.CreateObjectOfType(NewValueType);
                     }
+                    if (patched is Element e) {
+                        Patcher.CurrentlyPatching.AddToElementsList(e);
+                    }
                     if (field != null) {
                         field.SetValue(instance, patched);
                     } else {

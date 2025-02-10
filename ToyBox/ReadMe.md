@@ -44,6 +44,8 @@ Here is a summarized list of features. This list only includes a part of the fea
   skip quests you don't want to do. Be warned this may break your game progression if used carelessly.
   
 ### ToyBox Rogue - Ver 1.7.13 built for Rogue Trader 1.3.1.11
+* (***ADDB***) PatchTool: List elements now properly show all their fields instead of only the fields of the list type
+* (***ADDB***) PatchTool: Properly track Element-types created via field Instantiation
 * (***ADDB***) PatchTool: Fix collections filled with null elements breaking ui
 * (***ADDB***) PatchTool: Catch error when target blueprint is missing (e.g. due to mod changes)
 * (***ADDB***) PatchTool: Support sbyte
