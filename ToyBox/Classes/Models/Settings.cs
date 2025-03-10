@@ -289,6 +289,7 @@ namespace ToyBox {
         public bool toggleDevopmentMode = false;
         public bool toggleAlwaysUpdate = false;
         public bool toggleGuidsClipboard = false;
+        public bool toggleEnableDangerousPatchToolPatches = false;
         public bool toggleRiskyToggles = false;
         public bool onlyShowLanguagesWithFiles = true;
         public int BlueprintsLoaderNumThreads = 3;

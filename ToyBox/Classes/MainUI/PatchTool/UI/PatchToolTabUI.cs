@@ -130,6 +130,12 @@ public class PatchToolTabUI {
                 Toggle("Show Create Button".localize(), ref Main.Settings.showPatchToolCreateButtons);
                 Space(10);
                 Toggle("Close all opened fields on patch".localize(), ref Main.Settings.togglePatchToolCollapseAllPathsOnPatch);
+                Space(10);
+                if (!CurrentState.DangerousOperationsEnabled && Main.Settings.toggleEnableDangerousPatchToolPatches) {
+                    ActionButton("Enable Dangerous Patches for this Patch".localize(), () => {
+                        CurrentState.DangerousOperationsEnabled = true;
+                    });
+                }
             }
             Space(15);
             #endregion
@@ -199,7 +205,7 @@ public class PatchToolTabUI {
                                     CurrentState.CreateAndRegisterPatch();
                                 }, AutoWidth());
                             }
-                        } else if (Main.Settings.showPatchToolCreateButtons && field.Value == null) {
+                        } else if (Main.Settings.showPatchToolCreateButtons && field.Value == null && !PatchToolUtils.TypeOrBaseIsDirectlyInUnityDLL(field.Key.FieldType)) {
                             using (HorizontalScope(Width(100))) {
                                 ActionButton("Create".localize().Green().Bold(), () => {
                                     AddItemState.CreateComplexOrList(o, field.Key, wouldBePatch, this, path2 + "2");
@@ -319,7 +325,7 @@ public class PatchToolTabUI {
                     }
                 }
             }
-        } else if (typeof(UnityEngine.Object).IsAssignableFrom(type) && type != typeof(SharedStringAsset)) {
+        } else if (PatchToolUtils.TypeOrBaseIsDirectlyInUnityDLL(type) && type != typeof(SharedStringAsset) && !CurrentState.DangerousOperationsEnabled) {
             if (@object == null) {
                 Label("Null", Width(500));
                 return;

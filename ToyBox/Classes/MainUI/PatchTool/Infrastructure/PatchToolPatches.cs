@@ -12,7 +12,7 @@ namespace ToyBox.PatchTool;
 public static class PatchToolPatches {
     private static bool Initialized = false;
     [HarmonyPriority(Priority.LowerThanNormal)]
-    [HarmonyPatch(typeof(BlueprintsCache), nameof(BlueprintsCache.Init)), HarmonyPostfix]
+    [HarmonyPatch(typeof(StartGameLoader), nameof(StartGameLoader.LoadPackTOC)), HarmonyPostfix]
     public static void Init_Postfix() {
         try {
             if (Initialized) {

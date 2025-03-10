@@ -46,7 +46,7 @@ public class AddItemState {
     }
     public static AddItemState CreateArrayElement(object parent, FieldInfo info, object @object, int index, PatchOperation wouldBePatch, PatchToolTabUI ui, string path) {
         Type elementType = null;
-        Type type = info.FieldType;
+        Type type = @object.GetType() ?? info.FieldType;
         if (type.IsArray) {
             elementType = type.GetElementType();
         } else {

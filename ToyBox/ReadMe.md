@@ -43,6 +43,14 @@ Here is a summarized list of features. This list only includes a part of the fea
 - **Quest Resolution**: this allows you to view your active quests and advance them as needed to work around bugs or
   skip quests you don't want to do. Be warned this may break your game progression if used carelessly.
   
+### Toybox Wrath - Ver 1.7.14 (built for 1.3.?.?)
+* (***ADDB***) PatchTool: Auto-Generate Components and Elements. ***Those need (unique) names or it could cause problems*** (e.g. in rare cases it can prevent saving). I still suggest creating your own name! This is merely a fix to stop some accidental issues
+* (***ADDB***) PatchTool: Now ignore whether the element type of an array or generic constraint is abstract or an interface; e.g. properly allowing instantiation of Condition[].
+* (***ADDB***) PatchTool: Now restrict new list elements to the type of the actual list object, not the field type. This could previously cause issues where the patch failed.
+* (***ADDB***) PatchTool: Introduced Dangerous Patches
+* (***ADDB***) PatchTool: Fixed some bugs related to Unity Objects
+* (***ADDB***) PatchTool: Apply Patches later so that it runs after most content mods.
+
 ### ToyBox Rogue - Ver 1.7.13 built for Rogue Trader 1.3.1.11
 * (***ADDB***) PatchTool: List elements now properly show all their fields instead of only the fields of the list type
 * (***ADDB***) PatchTool: Properly track Element-types created via field Instantiation

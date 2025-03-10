@@ -7,7 +7,7 @@ using System.Reflection;
 
 namespace ToyBox.PatchTool;
 public static partial class PatchToolUtils {
-    public static (HashSet<Type>, HashSet<Type>) GetInstantiableTypes(Type elementType, object maybeParent, bool skipRecursion = false) {
+    public static (HashSet<Type>, HashSet<Type>) GetInstantiableTypes(Type elementType, object maybeParent, bool skipRecursion = false, bool canBeNonInstantiable = false) {
         if (!skipRecursion) {
             if (elementType.IsArray) {
                 return (GetInstantiableArrayTypes(elementType), null);
@@ -30,7 +30,7 @@ public static partial class PatchToolUtils {
             foreach (var type in types) {
                 if (type == null) continue;
 
-                if (elementType.IsAssignableFrom(type) && !type.IsAbstract && !type.IsInterface) {
+                if (elementType.IsAssignableFrom(type) && ((!type.IsAbstract && !type.IsInterface && !TypeOrBaseIsDirectlyInUnityDLL(type)) || canBeNonInstantiable)) {
                     if (parentType != null && allowedinstantiableTypes != null) {
                         var attributes = type.GetCustomAttributes(typeof(AllowedOnAttribute), inherit: false);
                         if (attributes.Length > 0) {
@@ -53,7 +53,7 @@ public static partial class PatchToolUtils {
         Type arrayElementType = elementType.GetElementType();
         if (arrayElementType == null) return new HashSet<Type>();
 
-        HashSet<Type> elementInstantiableTypes = GetInstantiableTypes(arrayElementType, null).Item1;
+        HashSet<Type> elementInstantiableTypes = GetInstantiableTypes(arrayElementType, null, false, true).Item1;
         HashSet<Type> arrayTypes = new();
         foreach (var type in elementInstantiableTypes) {
             arrayTypes.Add(type.MakeArrayType());
@@ -92,7 +92,7 @@ public static partial class PatchToolUtils {
         if (genericParameter.IsGenericParameter) {
             var constraints = genericParameter.GetGenericParameterConstraints();
 
-            foreach (var type in GetInstantiableTypes(typeof(object), null, true).Item1) {
+            foreach (var type in GetInstantiableTypes(typeof(object), null, true, true).Item1) {
 
                 bool satisfiesConstraints = true;
                 foreach (var constraint in constraints) {
@@ -107,7 +107,7 @@ public static partial class PatchToolUtils {
 
             return validTypes;
         } else {
-            return GetInstantiableTypes(genericParameter, null).Item1;
+            return GetInstantiableTypes(genericParameter, null, false, true).Item1;
         }
     }
     private static IEnumerable<List<Type>> GenerateCombinations(List<HashSet<Type>> lists) {

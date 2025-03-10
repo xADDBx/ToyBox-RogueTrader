@@ -2,6 +2,7 @@
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Attributes;
 using Kingmaker.Blueprints.JsonSystem;
+using Kingmaker.ElementsSystem;
 using ModKit;
 using ModKit.Utility.Extensions;
 using System;
@@ -14,7 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace ToyBox.PatchTool; 
+namespace ToyBox.PatchTool;
 public static partial class PatchToolUtils {
     public static MethodInfo? GetInterfaceMethodImplementation(this Type declaringType, MethodInfo interfaceMethod) {
         var map = declaringType.GetInterfaceMap(interfaceMethod.DeclaringType);
@@ -42,7 +43,7 @@ public static partial class PatchToolUtils {
                 }
                 t2 = t2.BaseType;
             } while (t2 != null);
-            fields.Sort((a, b) => { 
+            fields.Sort((a, b) => {
                 return a.Name.CompareTo(b.Name);
             });
             _fieldsCache[t] = fields;
@@ -50,15 +51,17 @@ public static partial class PatchToolUtils {
         return fields;
     }
     public static bool IsNullableStruct(Type type) => Nullable.GetUnderlyingType(type) != null;
-    public static object CreateObjectOfType(Type type) {
+    private static Dictionary<SimpleBlueprint, Dictionary<Type, int>> m_ComponentNameCounter = new();
+    public static object CreateObjectOfType(Type type, bool isForBlueprintPatch = true) {
         object result;
         try {
-            if (typeof(UnityEngine.Object).IsAssignableFrom(type)) {
+            if (TypeOrBaseIsDirectlyInUnityDLL(type)) {
                 if (typeof(ScriptableObject).IsAssignableFrom(type)) {
                     result = ScriptableObject.CreateInstance(type);
                 } else {
-                    Mod.Error("Trying to instantiate a non-scriptable object Unity Object. In general this means someone messed up somewhere. Make sure you really know what you're doing!");
-                    result = Activator.CreateInstance(type);
+                    // Mod.Error("Trying to instantiate a non-scriptable object Unity Object. In general this means someone messed up somewhere. Make sure you really know what you're doing!");
+                    // result = Activator.CreateInstance(type);
+                    throw new Exception("Trying to instantiate a non-scriptable object Unity Object. In general this means someone messed up somewhere.");
                 }
             } else {
                 result = Activator.CreateInstance(type);
@@ -66,6 +69,24 @@ public static partial class PatchToolUtils {
         } catch (Exception ex) {
             result = FormatterServices.GetUninitializedObject(type);
             Mod.Debug($"Exception while trying to Activator.CreateInstance {type.FullName}, falling back to FormatterServices.GetUninitializedObject. Exception:\n{ex}");
+        }
+        if (isForBlueprintPatch) {
+            if (result is BlueprintComponent || result is Element) {
+                if (!m_ComponentNameCounter.TryGetValue(Patcher.CurrentlyPatching, out var dict)) {
+                    dict = new();
+                }
+                if (!dict.TryGetValue(type, out var occurences)) {
+                    occurences = 0;
+                }
+                occurences += 1;
+                dict[type] = occurences;
+                m_ComponentNameCounter[Patcher.CurrentlyPatching] = dict;
+                if (result is BlueprintComponent comp) {
+                    comp.name = $"{Patcher.CurrentlyPatching.AssetGuid}#{type.FullName}#{occurences}";
+                } else if (result is Element elem) {
+                    elem.name = $"{Patcher.CurrentlyPatching.AssetGuid}#{type.FullName}#{occurences}";
+                }
+            }
         }
         return result;
     }
@@ -96,19 +117,39 @@ public static partial class PatchToolUtils {
         }
         return null;
     }
+    private static Dictionary<Type, bool> m_TypeIsDirectlyInUnityDLL = new();
     private static Dictionary<Type, bool> m_TypeIsInUnityDLL = new();
-    public static bool TypeIsInUnityDLL(Type type) {
+    public static bool TypeOrBaseIsDirectlyInUnityDLL(Type type) {
+        if (m_TypeIsDirectlyInUnityDLL.TryGetValue(type, out var val)) {
+            return val;
+        }
+        if (type.BaseType != null) {
+            if (TypeOrBaseIsDirectlyInUnityDLL(type.BaseType)) {
+                return m_TypeIsDirectlyInUnityDLL[type] = true;
+            }
+        }
+        if (type.Assembly.FullName.StartsWith("Unity")) {
+            return m_TypeIsDirectlyInUnityDLL[type] = true;
+        }
+        return m_TypeIsDirectlyInUnityDLL[type] = false;
+    }
+    public static bool TypeOrBaseIsInUnityDLL(Type type) {
         if (m_TypeIsInUnityDLL.TryGetValue(type, out var val)) {
             return val;
         }
-        if (type.Assembly.FullName.StartsWith("Unity")) {
+        if (type.BaseType != null) {
+            if (TypeOrBaseIsInUnityDLL(type.BaseType)) {
+                return m_TypeIsInUnityDLL[type] = true;
+            }
+        }
+        if (TypeOrBaseIsDirectlyInUnityDLL(type)) {
             return m_TypeIsInUnityDLL[type] = true;
         }
         if (type.IsGenericType) {
-            return m_TypeIsInUnityDLL[type] = type.GenericTypeArguments.Any(TypeIsInUnityDLL);
+            return m_TypeIsInUnityDLL[type] = type.GenericTypeArguments.Any(TypeOrBaseIsInUnityDLL);
         }
         if (type.IsArray) {
-            return m_TypeIsInUnityDLL[type] = TypeIsInUnityDLL(type.GetElementType());
+            return m_TypeIsInUnityDLL[type] = TypeOrBaseIsInUnityDLL(type.GetElementType());
         }
         return m_TypeIsInUnityDLL[type] = false;
     }

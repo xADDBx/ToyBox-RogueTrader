@@ -13,6 +13,7 @@ namespace ToyBox.PatchTool;
 public class PatchState {
     public SimpleBlueprint Blueprint;
     public List<PatchOperation> Operations = new();
+    public bool DangerousOperationsEnabled = false;
     private Patch UnderlyingPatch;
     public bool IsDirty = false;
     public PatchState(SimpleBlueprint blueprint) {
@@ -49,9 +50,10 @@ public class PatchState {
             IsDirty = true;
             if (UnderlyingPatch != null) {
                 UnderlyingPatch.Operations = Operations;
+                UnderlyingPatch.DangerousOperationsEnabled |= DangerousOperationsEnabled;
                 return UnderlyingPatch;
             } else {
-                return new(Blueprint.AssetGuid, Operations);
+                return new(Blueprint.AssetGuid.ToString(), Operations, DangerousOperationsEnabled);
             }
         } catch (Exception ex) {
             Mod.Log($"Error trying to create patch for blueprint {Blueprint.AssetGuid}:\n{ex.ToString()}");
