@@ -456,7 +456,7 @@ public class PatchToolTabUI {
                 Space(-1200);
                 using (VerticalScope()) {
                     Label("");
-                    foreach (var elem in @object as IEnumerable) {
+                    foreach (var elem in (@object as IEnumerable).Cast<object>().ToList()) {
                         ListItemGUI(wouldBePatch, parent, info, elem, localIndex, @object, path, defaultType);
                         localIndex += 1;
                     }
