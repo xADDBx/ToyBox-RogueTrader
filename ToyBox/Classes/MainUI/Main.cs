@@ -30,6 +30,7 @@ using UnityEngine;
 using UnityModManagerNet;
 using ToyBox.PatchTool;
 using LocalizationManager = ModKit.LocalizationManager;
+using Kingmaker.UI.Models.Log.GameLogCntxt;
 
 namespace ToyBox {
 #if DEBUG
@@ -157,7 +158,9 @@ namespace ToyBox {
                     var messageText = "ToyBox".Blue() + " - " + text;
                     var message = new CombatLogMessage(messageText, Color.black, PrefixIcon.RightArrow);
                     var messageLog = LogThreadService.Instance.m_Logs[LogChannelType.Dialog].FirstOrDefault(x => x is DialogLogThread);
-                    messageLog?.AddMessage(message);
+                    using (GameLogContext.Scope) {
+                        messageLog?.AddMessage(message);
+                    }
                 };
                 RogueCheats.PatchPsychicTranspiler(!Settings.customizePsychicPhenomena);
             } catch (Exception e) {

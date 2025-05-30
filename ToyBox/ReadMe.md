@@ -44,6 +44,7 @@ Here is a summarized list of features. This list only includes a part of the fea
   skip quests you don't want to do. Be warned this may break your game progression if used carelessly.
   
 ### Toybox Wrath - Ver 1.7.14 (built for 1.3.?.?)
+* (***ADDB***) Prevent log spam
 * (***ADDB***) PatchTool: Fix rare UI crash
 * (***ADDB***) PatchTool: Auto-Generate Components and Elements. ***Those need (unique) names or it could cause problems*** (e.g. in rare cases it can prevent saving). I still suggest creating your own name! This is merely a fix to stop some accidental issues
 * (***ADDB***) PatchTool: Now ignore whether the element type of an array or generic constraint is abstract or an interface; e.g. properly allowing instantiation of Condition[].

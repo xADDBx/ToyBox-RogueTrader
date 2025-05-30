@@ -17,7 +17,7 @@ namespace ToyBox {
 
         //
         private const string MassLootBox = "Open Mass Loot Window";
-        private const string OpenPlayerChest = "Open Player Chest";
+        private const string OpenPlayerChest = "Open Cargo";
         private const string RevealGroundLoot = "Reveal Ground Loot";
         private const string RevealHiddenGroundLoot = "Reveal Hidden Ground Loot";
         private const string RevealInevitableLoot = "Reveal Inevitable Loot";
