@@ -319,7 +319,7 @@ namespace ToyBox.BagOfPatches {
             [HarmonyTranspiler]
             public static IEnumerable<CodeInstruction> Start(IEnumerable<CodeInstruction> instructions) {
                 foreach (var inst in instructions) {
-                    if (inst.Calls(AccessTools.Method(typeof(GameStarter), nameof(GameStarter.IsArbiterMode)))) {
+                    if (inst.Calls(AccessTools.Method(typeof(GameStarter), nameof(GameStarter.IsArbiterMode))) || inst.Calls(AccessTools.Method(typeof(GameStarter), nameof(GameStarter.IsSkippingMainMenu)))) {
                         yield return new CodeInstruction(OpCodes.Ldc_I4_1).WithLabels(inst.labels);
                     } else {
                         yield return inst;

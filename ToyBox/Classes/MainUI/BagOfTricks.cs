@@ -296,11 +296,11 @@ namespace ToyBox {
                    1,
                    () => {
                        Toggle("Allow Achievements While Using Mods".localize(), ref Settings.toggleAllowAchievementsDuringModdedGame, 500.width());
-                       Label("This is intended for you to be able to enjoy the game while using mods that enhance your quality of life.  Please be mindful of the player community and avoid using this mod to trivialize earning prestige achievements like Sadistic Gamer. The author is in discussion with Owlcat about reducing the scope of achievement blocking to just these. Let's show them that we as players can mod and cheat responsibly.".localize().Orange());
+                       Label("This is intended for you to be able to enjoy the game while using mods that enhance your quality of life.  Please be mindful of the player community and avoid using this mod to trivialize earning prestige achievements like Sadistic Gamer.".localize().Orange());
                    },
                    () => {
                        Toggle("Skip Splash Screen".localize(), ref Settings.toggleSkipSplashScreen, 500.width());
-                       Label("This skips the splash screen that appears when the game starts. Helpful if you need to frequently restart the game".localize());
+                       Label("This skips the splash screen that appears when the game starts. Helpful if you need to frequently restart the game".localize().Green());
                    },
                    () => Toggle("Object Highlight Toggle Mode (Out of Combat!)".localize(), ref Settings.highlightObjectsToggle),
                    () => {
