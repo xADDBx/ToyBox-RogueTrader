@@ -208,7 +208,7 @@ namespace ToyBox.classes.MainUI {
                                 using (VerticalScope()) {
                                     using (HorizontalScope()) {
                                         Label(RichText.Orange("Shield"), Width(100));
-                                        TargetItemGUI(shield.ArmorComponent);
+                                        TargetItemGUI(shield);
                                     }
                                     Div();
                                     if (shield.WeaponComponent != null) {
@@ -327,7 +327,7 @@ namespace ToyBox.classes.MainUI {
                                     using (VerticalScope(Width(260))) {
                                         using (HorizontalScope()) {
                                             ActionButton("+ " + RichText.Orange("Armor".localize()), () => AddClicked(enchant), Width(130));
-                                            if (shield.ArmorComponent.Enchantments.Any(e => e.Blueprint == enchant))
+                                            if (shield.Enchantments.Any(e => e.Blueprint == enchant))
                                                 ActionButton("- " + RichText.Orange("Armor".localize()), () => RemoveClicked(enchant), Width(130));
                                             else
                                                 Space(130);
@@ -417,7 +417,7 @@ namespace ToyBox.classes.MainUI {
             var selected = inventory.ElementAt(selectedItemIndex);
             if (selected is ItemEntityShield shield) {
                 if (!second)
-                    AddEnchantment(shield.ArmorComponent, ench);
+                    AddEnchantment(shield, ench);
                 else
                     AddEnchantment(shield.WeaponComponent, ench);
                 editedItem = shield;
@@ -435,7 +435,7 @@ namespace ToyBox.classes.MainUI {
             var selected = inventory.ElementAt(selectedItemIndex);
             if (selected is ItemEntityShield shield) {
                 if (!second)
-                    RemoveEnchantment(shield.ArmorComponent, ench);
+                    RemoveEnchantment(shield, ench);
                 else
                     RemoveEnchantment(shield.WeaponComponent, ench);
                 editedItem = shield;
