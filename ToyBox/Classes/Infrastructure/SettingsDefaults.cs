@@ -1,9 +1,17 @@
 ﻿using Kingmaker.Enums.Damage;
+using ModKit.Utility;
 using System;
 using System.Collections.Generic;
 
 namespace ToyBox {
     internal static class SettingsDefaults {
+        public static SerializableDictionary<StatType, float> DefaultEnemyStatMods(float defaultVal) {
+            var ret = new SerializableDictionary<StatType, float>();
+            foreach (StatType stat in Enum.GetValues(typeof(StatType))) {
+                ret[stat] = defaultVal;
+            }
+            return ret;
+        }
         public static readonly HashSet<string> DefaultBuffsToIgnoreForDurationMultiplier = new() {
             "24cf3deb078d3df4d92ba24b176bda97", //Prone
             "e6f2fc5d73d88064583cb828801212f4", //Fatigued

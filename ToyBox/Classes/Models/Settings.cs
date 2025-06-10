@@ -281,6 +281,10 @@ namespace ToyBox {
         public bool toggleIgnoreAbilityTargetTooClose = false;
 
         public HashSet<string> buffsToIgnoreForDurationMultiplier = new(SettingsDefaults.DefaultBuffsToIgnoreForDurationMultiplier);
+        public bool toggleAddFlatEnemyMods = false;
+        public bool toggleAddMultiplierEnemyMods = false;
+        public SerializableDictionary<StatType, float> flatEnemyMods = SettingsDefaults.DefaultEnemyStatMods(0);
+        public SerializableDictionary<StatType, float> multiplierEnemyMods = SettingsDefaults.DefaultEnemyStatMods(1);
 
         // Development
         public LogLevel loggingLevel = LogLevel.Info;

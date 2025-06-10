@@ -534,6 +534,31 @@ namespace ToyBox {
             Div(0, 25);
             DiceRollsGUI.OnGUI();
             Div(0, 25);
+            HStack("Enemy Stat Multipliers".localize(), 1,
+                () => Toggle("Enable Multipliers (e.g. Enemy Health x2)".localize(), ref Main.Settings.toggleAddMultiplierEnemyMods),
+                () => {
+                    if (Main.Settings.toggleAddMultiplierEnemyMods) {
+                        using (VerticalScope()) {
+                            foreach (StatType stat in Enum.GetValues(typeof(StatType))) {
+                                Slider(Enum.GetName(typeof(StatType), stat), () => Settings.multiplierEnemyMods[stat], newStat => Settings.multiplierEnemyMods[stat] = newStat, -100, 100, 1, 0);
+                            }
+                        }
+                    }
+                }
+                );
+            Div(0, 25);
+            HStack("Flat Enemy Stat Boosts".localize(), 1,
+                () => Toggle("Enable Flat Boosts (e.g. Enemy Health +20)".localize(), ref Main.Settings.toggleAddFlatEnemyMods),
+                () => {
+                    if (Main.Settings.toggleAddFlatEnemyMods) {
+                        using (VerticalScope()) {
+                            foreach (StatType stat in Enum.GetValues(typeof(StatType))) {
+                                Slider(Enum.GetName(typeof(StatType), stat), () => Settings.flatEnemyMods[stat], newStat => Settings.flatEnemyMods[stat] = newStat, -100, 100, 0, 0);
+                            }
+                        }
+                    }
+                }
+                );
         }
     }
 }
