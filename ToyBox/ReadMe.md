@@ -46,6 +46,7 @@ Here is a summarized list of features. This list only includes a part of the fea
 ### Toybox Wrath - Ver 1.7.14 (built for 1.4.0.96)
 * (***ADDB***) DLC2 Fixes: Stuff related to the following things changed: some dialog features; stuff related to shields; Party Editor for pets
 * (***ADDB***) Allow adding flat and percent boosts to enemy stats (at the bottom of Bag of Tricks); e.g. Enemy Health Multiplier
+* (***ADDB***) Reset level now works in Party Tab
 * (***ADDB***) Prevent log spam
 * (***ADDB***) PatchTool: Fix rare UI crash
 * (***ADDB***) PatchTool: Auto-Generate Components and Elements. ***Those need (unique) names or it could cause problems*** (e.g. in rare cases it can prevent saving). I still suggest creating your own name! This is merely a fix to stop some accidental issues

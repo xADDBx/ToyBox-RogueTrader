@@ -24,7 +24,7 @@ namespace ToyBox {
             var unitEntityData = Game.Instance.Player.AllCharacters;
             List<BaseUnitEntity> unitEntityDataNew = new();
             foreach (var unit in unitEntityData) {
-                if (unit.IsPet) {
+                if (unit.Master != null && (unit.Master.IsInPlayerParty || unit.Master.IsPlayerFaction())) {
                     unitEntityDataNew.Add(unit);
                 }
             }

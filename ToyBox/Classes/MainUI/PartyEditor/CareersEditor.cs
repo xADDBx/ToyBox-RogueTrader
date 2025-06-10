@@ -33,17 +33,21 @@ namespace ToyBox {
                 using (HorizontalScope()) {
                     using (HorizontalScope(Width(600))) {
                         Space(100);
+                        if (prog.Owner.Master != null) {
+                            Label(RichText.Orange("Can't modify classes of units with a master!".localize().Bold()));
+                            return;
+                        }
                         Label(RichText.Cyan("Character Level".localize()), Width(250));
-                        if (prog.Owner.Master == null && prog.CharacterLevel > 1) {
+                        if ( prog.CharacterLevel > 1) {
                             ActionButton("<", () => prog.m_CharacterLevel = Math.Max(0, prog.CharacterLevel - 1), AutoWidth());
                         }
                         Space(25);
                         Label(RichText.Green("level".localize()) + $": {prog.CharacterLevel}", Width(100f));
-                        if (prog.Owner.Master == null && prog.CharacterLevel < 55) {
+                        if ( prog.CharacterLevel < 55) {
                             ActionButton(">", () => prog.m_CharacterLevel = Math.Min(55, prog.CharacterLevel + 1), AutoWidth());
                         }
                     }
-                    ActionButton("Reset".localize(), () => ch.resetClassLevel(), Width(150));
+                        ActionButton("Reset".localize(), ch.resetClassLevel, Width(150));
                     Space(23);
                     using (VerticalScope()) {
                         Label(RichText.Green("This directly changes your character level but will not change exp or adjust any features associated with your character. To do a normal level up use +1 Lvl above.  This gets recalculated when you reload the game.  ".localize()));

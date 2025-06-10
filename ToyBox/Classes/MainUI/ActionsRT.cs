@@ -126,13 +126,11 @@ namespace ToyBox {
             }
         }
         public static void resetClassLevel(this BaseUnitEntity ch) {
-            // TODO: make this work...
-#if false
-            var level = ch.Descriptor().Progression.MaxCharacterLevel;
+            var level = 55;
             var xp = ch.Descriptor().Progression.Experience;
             var xpTable = ch.Descriptor().Progression.ExperienceTable;
 
-            for (var i = ch.Descriptor().Progression.MaxCharacterLevel; i >= 1; i--) {
+            for (var i = 55; i >= 1; i--) {
                 var xpBonus = xpTable.GetBonus(i);
 
                 Mod.Trace(i + ": " + xpBonus + " | " + xp);
@@ -143,8 +141,7 @@ namespace ToyBox {
                     break;
                 }
             }
-            ch.Descriptor().Progression.CharacterLevel = level;
-#endif
+            ch.Descriptor().Progression.m_CharacterLevel = level;
         }
         public static void RunPerceptionTriggers() {
             // On the local map

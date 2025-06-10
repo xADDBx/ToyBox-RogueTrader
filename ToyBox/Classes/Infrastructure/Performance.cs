@@ -8,6 +8,7 @@ using Kingmaker.EntitySystem.Stats;
 using Kingmaker.UnitLogic;
 using System;
 using System.Collections;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -22,12 +23,12 @@ namespace ToyBox {
     public static class Performance {
         [HarmonyPatch]
         internal static class ReflectionBasedSerializer_PerformancePatches {
-            private static Dictionary<(Type, Type), bool> HasAttributeCache = new();
-            private static Dictionary<(Type, Type), bool> IsListOfCache = new();
-            private static Dictionary<(Type, Type), bool> IsListCache = new();
-            private static Dictionary<(Type, Type), bool> IsOrSubclassOfCache = new();
-            private static Dictionary<Type, Func<object>> TypeConstructorCache = new();
-            private static Dictionary<Type, Func<int, Array>> ArrayTypeConstructorCache = new();
+            private static ConcurrentDictionary<(Type, Type), bool> HasAttributeCache = new();
+            private static ConcurrentDictionary<(Type, Type), bool> IsListOfCache = new();
+            private static ConcurrentDictionary<(Type, Type), bool> IsListCache = new();
+            private static ConcurrentDictionary<(Type, Type), bool> IsOrSubclassOfCache = new();
+            private static ConcurrentDictionary<Type, Func<object>> TypeConstructorCache = new();
+            private static ConcurrentDictionary<Type, Func<int, Array>> ArrayTypeConstructorCache = new();
             private static MethodInfo Activator_CreateInstance = AccessTools.Method(typeof(Activator), nameof(Activator.CreateInstance), [typeof(Type)]);
             private static MethodInfo Array_CreateInstance = AccessTools.Method(typeof(Array), nameof(Array.CreateInstance), [typeof(Type), typeof(int)]);
             private static MethodInfo ReflectionBasedSerializer_CreateObject = AccessTools.Method(typeof(ReflectionBasedSerializer), nameof(ReflectionBasedSerializer.CreateObject));
