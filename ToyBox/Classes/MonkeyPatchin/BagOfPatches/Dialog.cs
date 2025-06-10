@@ -333,7 +333,7 @@ namespace ToyBox.BagOfPatches {
                                             var dialogController = Game.Instance.DialogController;
                                             if (dialogController.LocalSelectedAnswers.Where(a => a.AssetGuid == answer.AssetGuid).Any())
                                                 continue;
-                                            if (dialog.SelectedAnswers.Where(a => a.AssetGuid == answer.AssetGuid).Any())
+                                            if (dialog.SelectedAnswers.Contains(answer.AssetGuid))
                                                 continue;
                                         }
                                     }
@@ -355,7 +355,7 @@ namespace ToyBox.BagOfPatches {
             public static bool Prefix(AnswerSelected __instance, ref bool __result) {
                 if (!settings.toggleShowAnswersForEachConditionalResponse) return true;
                 if (!__instance.CurrentDialog) {
-                    __result = Game.Instance.Player.Dialog.SelectedAnswers.Where(a => a.AssetGuid == __instance.Answer.AssetGuid).Any();
+                    __result = Game.Instance.Player.Dialog.SelectedAnswers.Contains(__instance.Answer.AssetGuid);
                 } else {
                     __result = Game.Instance.DialogController.LocalSelectedAnswers.Where(a => a.AssetGuid == __instance.Answer.AssetGuid).Any();
 
@@ -369,7 +369,7 @@ namespace ToyBox.BagOfPatches {
             [HarmonyPrefix]
             public static bool IsAlreadySelected(AnswerVM __instance, ref bool __result) {
                 if (!settings.toggleShowAnswersForEachConditionalResponse) return true;
-                __result = Game.Instance.Player.Dialog.SelectedAnswers.Any(a => a.AssetGuid == __instance.Answer.Value.AssetGuid);
+                __result = Game.Instance.Player.Dialog.SelectedAnswers.Contains(__instance.Answer.Value.AssetGuid);
                 return false;
             }
         }
