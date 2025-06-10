@@ -34,13 +34,14 @@ namespace ToyBox {
                     using (HorizontalScope(Width(600))) {
                         Space(100);
                         Label(RichText.Cyan("Character Level".localize()), Width(250));
-                        ActionButton("<", () => prog.CharacterLevel = Math.Max(0, prog.CharacterLevel - 1), AutoWidth());
+                        if (prog.Owner.Master == null && prog.CharacterLevel > 1) {
+                            ActionButton("<", () => prog.m_CharacterLevel = Math.Max(0, prog.CharacterLevel - 1), AutoWidth());
+                        }
                         Space(25);
                         Label(RichText.Green("level".localize()) + $": {prog.CharacterLevel}", Width(100f));
-                        ActionButton(">", () => prog.CharacterLevel = Math.Min(
-                                                    int.MaxValue, // TODO: is this right?
-                                                    prog.CharacterLevel + 1),
-                                     AutoWidth());
+                        if (prog.Owner.Master == null && prog.CharacterLevel < 55) {
+                            ActionButton(">", () => prog.m_CharacterLevel = Math.Min(55, prog.CharacterLevel + 1), AutoWidth());
+                        }
                     }
                     ActionButton("Reset".localize(), () => ch.resetClassLevel(), Width(150));
                     Space(23);

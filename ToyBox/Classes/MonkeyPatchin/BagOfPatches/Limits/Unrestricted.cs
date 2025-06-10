@@ -47,6 +47,7 @@ namespace ToyBox.BagOfPatches {
                 }
             }
         }
+        /* DLC 2 Update removed a lot of stuff from ItemEntityShield (e.g. ArmourComponent) including this method
         [HarmonyPatch(typeof(ItemEntityShield), nameof(ItemEntityShield.CanBeEquippedInternal))]
         public static class ItemEntityShield_CanBeEquippedInternal_Patch {
             public static void Postfix(ItemEntityShield __instance, MechanicEntity owner, ref bool __result) {
@@ -57,6 +58,7 @@ namespace ToyBox.BagOfPatches {
                 }
             }
         }
+        */
 #if true
         [HarmonyPatch(typeof(ItemEntity), nameof(ItemEntity.CanBeEquippedInternal))]
         public static class ItemEntity_CanBeEquippedInternal_Patch {
