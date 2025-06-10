@@ -131,10 +131,11 @@ namespace ToyBox.BagOfPatches {
         [HarmonyPatch(typeof(CareerPathsListVM), nameof(CareerPathsListVM.GetPrerequisitesCareers))]
         public static class CareerPathsListVM_GetPrerequisitesCareers_Patch {
             [HarmonyPrefix]
-            public static void GetPrerequisitesCareers(CareerPathsListVM __instance, ref List<BlueprintCareerPath> result) {
+            public static void GetPrerequisitesCareers(CareerPathsListVM __instance, ref List<BlueprintCareerPath> careerPaths, ref List<BlueprintFeature> features) {
                 if (Settings.toggleIgnoreCareerPrerequisites) {
                     OwlLogging.Log($"CareerPathsListVM_GetPrerequisitesCareers - {__instance} -> remove all prerequisites");
-                    result = [];
+                    careerPaths = [];
+                    features = [];
                 }
 
             }
