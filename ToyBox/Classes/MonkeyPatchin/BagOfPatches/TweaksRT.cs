@@ -17,6 +17,7 @@ using Kingmaker.Controllers.Combat;
 using Kingmaker.Controllers.MapObjects;
 using Kingmaker.Controllers.TurnBased;
 using Kingmaker.Designers;
+using Kingmaker.DLC;
 using Kingmaker.ElementsSystem.ContextData;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.GameCommands;
@@ -32,6 +33,7 @@ using Kingmaker.UI.Sound;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.Utility;
 using Kingmaker.View.Covers;
+using Kingmaker.Visual.Sound;
 using ModKit;
 using Owlcat.Runtime.Core.Utility;
 using System;
@@ -306,6 +308,26 @@ namespace ToyBox.BagOfPatches {
             [HarmonyPatch(nameof(PartyAwarenessController.Tick))]
             [HarmonyPostfix]
             private static void Tick() => UnitEntityDataCanRollPerceptionExtension.TriggerReroll = false;
+        }
+        [HarmonyPatch]
+        public static class MusicStateHandler_Patch {
+            [HarmonyPatch(typeof(MusicStateHandler), nameof(MusicStateHandler.SetMusicState)), HarmonyTranspiler]
+            public static IEnumerable<CodeInstruction> SetMusicState(IEnumerable<CodeInstruction> instructions) {
+                foreach (var inst in instructions) {
+                    if (inst.operand is MethodInfo mi && mi.Name.Contains("Reverse")) {
+                        yield return CodeInstruction.Call((IEnumerable<BlueprintDlc> source) => MaybeReverse(source)).WithLabels(inst.ExtractLabels());
+                    } else {
+                        yield return inst;
+                    }
+                }
+            }
+            public static IEnumerable<BlueprintDlc> MaybeReverse(IEnumerable<BlueprintDlc> source) {
+                if (Settings.toggleDLC1Theme) {
+                    return source;
+                } else {
+                    return source.Reverse();
+                }
+            }
         }
         [HarmonyPatch]
         public static class SkipSplashScreen_Patch {

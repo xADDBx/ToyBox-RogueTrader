@@ -147,6 +147,7 @@ namespace ToyBox {
         public bool toggleAutomaticallyLoadLastSave = false;
         public bool toggleAllowAchievementsDuringModdedGame = true;
         public bool toggleSkipSplashScreen = false;
+        public bool toggleDLC1Theme = false;
         public bool togglAutoEquipConsumables = false;
         public bool toggleEquipItemsDuringCombat = false;
         public bool toggleUseItemsDuringCombat = false;
