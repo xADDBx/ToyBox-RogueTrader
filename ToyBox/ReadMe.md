@@ -43,6 +43,9 @@ Here is a summarized list of features. This list only includes a part of the fea
 - **Quest Resolution**: this allows you to view your active quests and advance them as needed to work around bugs or
   skip quests you don't want to do. Be warned this may break your game progression if used carelessly.
   
+### Toybox Rogue - Ver 1.7.16 (built for 1.4.0.185)
+* (***ADDB***) Probably fixed issue where ToyBox could cause a "Unable to change equipment in combat" warning.
+
 ### Toybox Rogue - Ver 1.7.15 (built for 1.4.0.184)
 * (***ADDB***) Added Bag of Tricks => Quality of Life feature to play DLC1 main menu theme again.
 * (***ADDB***) DLC2 Fixes: Stuff related to the following things changed: some dialog features; stuff related to shields; Party Editor for pets

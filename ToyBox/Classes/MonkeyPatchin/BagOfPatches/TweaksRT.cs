@@ -249,7 +249,7 @@ namespace ToyBox.BagOfPatches {
                     }
                     if (inst.Calls(AccessTools.Method(typeof(Game), "get_Player"))) {
                         skipNext = true;
-                        yield return CodeInstruction.Call((Player player) => ShouldPreventInsertion(player));
+                        yield return CodeInstruction.Call((Game game) => ShouldPreventInsertion(game));
                         continue;
                     }
                     if (inst.Calls(AccessTools.Method(typeof(TurnController), "get_TurnBasedModeActive"))) {
@@ -271,9 +271,9 @@ namespace ToyBox.BagOfPatches {
                 if (Settings.toggleEquipItemsDuringCombat) return false;
                 else return controller.TurnBasedModeActive;
             }
-            public static bool ShouldPreventInsertion(Player player) {
+            public static bool ShouldPreventInsertion(Game game) {
                 if (Settings.toggleEquipItemsDuringCombat) return false;
-                else return player.IsInCombat;
+                else return game.Player.IsInCombat;
             }
         }
         [HarmonyPatch(typeof(ItemEntity), nameof(ItemEntity.IsUsableFromInventory), MethodType.Getter)]
