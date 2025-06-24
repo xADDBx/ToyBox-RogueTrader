@@ -121,7 +121,6 @@ namespace ToyBox {
         }
 
         public static void InitializeActions() {
-            var flags = Game.Instance.Player.UnlockableFlags; 
             BlueprintAction.Register<BlueprintAreaPreset>("Load Preset".localize(), (bp, ch, n, l) => {
                 CheatsTransfer.StartNewGame(bp);
             }, null, false, true);
@@ -234,31 +233,31 @@ namespace ToyBox {
             // Flags
             BlueprintAction.Register<BlueprintUnlockableFlag>("Unlock".localize(),
                 (bp, ch, n, index) => {
-                    flags.Unlock(bp);
+                    bp.Unlock();
                     OwlLogging.Log($"Unlock UnlockableFlag {bp}");
                 },
-                (bp, ch, index) => !flags.IsUnlocked(bp));
+                (bp, ch, index) => !bp.IsUnlocked);
 
             BlueprintAction.Register<BlueprintUnlockableFlag>("Lock".localize(),
-                (bp, ch, n, index) => { 
-                    flags.Lock(bp);
+                (bp, ch, n, index) => {
+                    bp.Lock();
                     OwlLogging.Log($"Lock UnlockableFlag {bp}"); 
                 },
-                (bp, ch, index) => flags.IsUnlocked(bp));
+                (bp, ch, index) => bp.IsUnlocked);
 
             BlueprintAction.Register<BlueprintUnlockableFlag>(">".localize(),
                 (bp, ch, n, index) => {
-                    flags.SetFlagValue(bp, flags.GetFlagValue(bp) + n);
+                    bp.Value = bp.Value + n;
                     OwlLogging.Log($"Increase UnlockableFlag {bp} by {n}");
                 },
-                (bp, ch, index) => flags.IsUnlocked(bp));
+                (bp, ch, index) => bp.IsUnlocked);
 
             BlueprintAction.Register<BlueprintUnlockableFlag>("<".localize(),
                 (bp, ch, n, index) => {
-                    flags.SetFlagValue(bp, flags.GetFlagValue(bp) - n);
+                    bp.Value = bp.Value - n;
                     OwlLogging.Log($"Decrease UnlockableFlag {bp} by {n}");
                 },
-                (bp, ch, index) => flags.IsUnlocked(bp));
+                (bp, ch, index) => bp.IsUnlocked);
             // Cutscenes
             BlueprintAction.Register<Cutscene>("Play".localize(), (bp, ch, n, index) => {
                 OwlLogging.Log($"Play cutscene {bp}");

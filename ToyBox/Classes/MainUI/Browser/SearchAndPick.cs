@@ -355,12 +355,11 @@ namespace ToyBox {
                                 if (bp is BlueprintUnlockableFlag flagBP) {
                                     // special case this for now
                                     if (lockIndex >= 0) {
-                                        var flags = Game.Instance.Player.UnlockableFlags;
                                         var lockAction = actions.ElementAt(lockIndex);
-                                        ActionButton("<", () => { flags.SetFlagValue(flagBP, flags.GetFlagValue(flagBP) - 1); }, Width(50));
+                                        ActionButton("<", () => { flagBP.Value = flagBP.Value - 1; }, Width(50));
                                         Space(25);
-                                        Label(RichText.Bold(RichText.Orange($"{flags.GetFlagValue(flagBP)}")), MinWidth(50));
-                                        ActionButton(">", () => { flags.SetFlagValue(flagBP, flags.GetFlagValue(flagBP) + 1); }, Width(50));
+                                        Label(RichText.Bold(RichText.Orange($"{flagBP.Value}")), MinWidth(50));
+                                        ActionButton(">", () => { flagBP.Value = flagBP.Value + 1; }, Width(50));
                                         Space(50);
                                         ActionButton(lockAction.name, () => { lockAction.action(bp, selectedUnit, repeatCount); }, Width(120));
                                         Space(100);
