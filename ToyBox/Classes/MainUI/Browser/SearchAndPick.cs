@@ -441,7 +441,15 @@ namespace ToyBox {
                                         else description = description + "\n" + componentStr;
                                     }
                                     if (Settings.showElements && bpso.ElementsArray?.Count > 0) {
-                                        var elementsStr = RichText.Yellow(string.Join<object>("\n", bpso.ElementsArray.Select(e => $"{e.GetType().Name.Cyan()} {e.GetCaption()}")));
+                                        string GetCaptionSafe(Element e) {
+                                            try {
+                                                return e.GetCaption();
+                                            } catch {
+                                                Mod.Warn($"Element.GetCaption throws: {e.name}, owner: {e.Owner.name}, id {e.Owner.AssetGuid}");
+                                                return "<exception>".Red();
+                                            }
+                                        }
+                                        var elementsStr = RichText.Yellow(string.Join<object>("\n", bpso.ElementsArray.Select(e => $"{e.GetType().Name.Cyan()} {GetCaptionSafe(e)}")));
                                         if (description.Length == 0) description = elementsStr;
                                         else description = description + "\n" + elementsStr;
                                     }

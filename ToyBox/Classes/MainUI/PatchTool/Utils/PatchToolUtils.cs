@@ -119,9 +119,13 @@ public static partial class PatchToolUtils {
     }
     private static Dictionary<Type, bool> m_TypeIsDirectlyInUnityDLL = new();
     private static Dictionary<Type, bool> m_TypeIsInUnityDLL = new();
+    private static HashSet<Type> m_SafeExceptions = [typeof(Vector2), typeof(Vector2Int), typeof(Vector3), typeof(Vector3Int), typeof(Vector4), typeof(Color), typeof(Color32), typeof(Rect), typeof(RectInt)];
     public static bool TypeOrBaseIsDirectlyInUnityDLL(Type type) {
         if (m_TypeIsDirectlyInUnityDLL.TryGetValue(type, out var val)) {
             return val;
+        }
+        if (m_SafeExceptions.Contains(type)) {
+            return m_TypeIsDirectlyInUnityDLL[type] = false;
         }
         if (type.BaseType != null) {
             if (TypeOrBaseIsDirectlyInUnityDLL(type.BaseType)) {
