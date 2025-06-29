@@ -7,6 +7,7 @@ using Kingmaker.Blueprints.Facts;
 using Kingmaker.Cheats;
 using Kingmaker.Controllers;
 using Kingmaker.Controllers.Dialog;
+using Kingmaker.DLC;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.GameModes;
@@ -259,7 +260,7 @@ namespace ToyBox {
                    () => {
                        if (Settings.toggleOverrideOccupation) {
                            if ((Occupations?.Count() ?? 0) == 0) {
-                               Occupations = BlueprintLoader.Shared.GetBlueprintsByGuids<BlueprintUnitFact>(OccupationIds);
+                               Occupations = BlueprintLoader.Shared.GetBlueprintsByGuids<BlueprintUnitFact>(OccupationIds).Where(bp => !bp.IsDlcRestricted());
                            }
                            if (Occupations?.Count() > 0) {
                                using (VerticalScope()) {
