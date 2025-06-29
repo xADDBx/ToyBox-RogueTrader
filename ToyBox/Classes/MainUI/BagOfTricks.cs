@@ -30,7 +30,9 @@ namespace ToyBox {
                                                          // AstraMilitarum                   ,  Commissar                        ,  Criminal
         private static readonly string[] OccupationIds = [ "4b908491051a4f36b9703b95e048a5a3", "00b183680643424abe015263aac81c5b", "8fab55c9130a4ae0a745f4fa1674c5df",
                                   // MinistorumCrusader               ,  NavyOfficer                      ,  Nobility                         ,  SanctionedPsyker
-                                    "d840a5dc947546e0b4ac939287191fd8", "962c310fd1664ae996c759e4d11a2d88", "06180233245249eea90d222bb1c13f00", "1518d1434ed646039215da3fdda6b096" ];
+                                    "d840a5dc947546e0b4ac939287191fd8", "962c310fd1664ae996c759e4d11a2d88", "06180233245249eea90d222bb1c13f00", "1518d1434ed646039215da3fdda6b096",
+                                  // Arbitrator                       
+                                    "cd1baf99dad544168bbf4962b3389d94"];
         private static IEnumerable<BlueprintUnitFact> Occupations;
         private static Browser<BlueprintUnitFact, BlueprintUnitFact> OccupationBrowser = new(true, true, false, false) { DisplayShowAllGUI = false };
         // cheats combat
