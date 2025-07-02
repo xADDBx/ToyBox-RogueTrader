@@ -43,6 +43,11 @@ Here is a summarized list of features. This list only includes a part of the fea
 - **Quest Resolution**: this allows you to view your active quests and advance them as needed to work around bugs or
   skip quests you don't want to do. Be warned this may break your game progression if used carelessly.
   
+### Toybox Rogue - Ver 1.7.18 (built for 1.4.0.185)
+* (***ADDB***) Fix Version Checker
+* (***ADDB***) Fail more gracefully
+
+
 ### Toybox Rogue - Ver 1.7.17 (built for 1.4.0.185)
 * (***Deltharis***) Add new Arbitrator archetype to Bag of Tricks => Override Story Occupation
 * (***ADDB***) Fix Search 'n Pick issue where certain modded blueprints would have Element.GetCaption throw an uncaught exception.

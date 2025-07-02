@@ -165,6 +165,7 @@ namespace ToyBox {
                 RogueCheats.PatchPsychicTranspiler(!Settings.customizePsychicPhenomena);
             } catch (Exception e) {
                 Mod.Error(e.ToString());
+                HarmonyInstance?.UnpatchAll(modEntry.Info.Id);
                 throw;
             }
             return true;
