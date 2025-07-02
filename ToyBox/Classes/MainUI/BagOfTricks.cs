@@ -551,7 +551,7 @@ namespace ToyBox {
                     if (Main.Settings.toggleAddMultiplierEnemyMods) {
                         using (VerticalScope()) {
                             foreach (StatType stat in Enum.GetValues(typeof(StatType))) {
-                                Slider(Enum.GetName(typeof(StatType), stat), () => Settings.multiplierEnemyMods[stat], newStat => Settings.multiplierEnemyMods[stat] = newStat, -100, 100, 1, 0);
+                                Slider(Enum.GetName(typeof(StatType), stat), () => Settings.multiplierEnemyMods[stat], newStat => Settings.multiplierEnemyMods[stat] = newStat, -100, 100, 1, 2);
                             }
                         }
                     }

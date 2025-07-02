@@ -20,7 +20,7 @@ namespace ToyBox.BagOfPatches {
                     foreach (StatType stat in Enum.GetValues(typeof(StatType))) {
                         var mult = Main.Settings.multiplierEnemyMods[stat];
                         if (mult != 1) {
-                            __instance.AddPercentModifier(stat, ((int)mult - 1) * 100);
+                            __instance.AddPercentModifier(stat, (int)(mult*100) - 1);
                         }
                     }
                 }
