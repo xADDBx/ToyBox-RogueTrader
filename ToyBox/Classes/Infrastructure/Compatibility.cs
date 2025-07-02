@@ -106,6 +106,9 @@ namespace ToyBox {
         }
         public static void DoRespec(this BaseUnitEntity ch) {
             ch.Progression.Respec();
+            EventBus.RaiseEvent<IRespecHandler>(ch, delegate (IRespecHandler h) {
+                h.HandleRespecFinished();
+            }, true);
             EventBus.RaiseEvent<INewServiceWindowUIHandler>(delegate (INewServiceWindowUIHandler h) {
                 h.HandleOpenCharacterInfoPage(CharInfoPageType.LevelProgression, ch);
             }, true);
