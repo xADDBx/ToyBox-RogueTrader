@@ -23,15 +23,29 @@ namespace ToyBox {
                 var versions = JsonConvert.DeserializeAnonymousType(raw, definition);
                 var currentOrNewer = versions.FirstOrDefault(v => new Version(v[0]) >= modVersion);
                 if (currentOrNewer == null) return true;
-                return new Version(GetNumifiedVersion(logger, currentOrNewer[1])) > new Version(GetNumifiedVersion(logger, gameVersion));
+                return IsVersionGreaterThan(GetNumifiedVersion(logger, currentOrNewer[1]), GetNumifiedVersion(logger, gameVersion));
             } catch (Exception ex) {
                 logger.Log(ex.ToString());
             }
             return true;
         }
-        public static string GetNumifiedVersion(UnityModManager.ModEntry.ModLogger logger, string version) {
+        public static bool IsVersionGreaterThan(List<uint> a, List<uint> b) {
+            int maxLen = Math.Max(a.Count, b.Count);
+            for (int i = 0; i < maxLen; i++) {
+                uint t = (i < a.Count) ? a[i] : 0;
+                uint g = (i < b.Count) ? b[i] : 0;
+                if (t > g) {
+                    return true;
+                }
+                if (t < g) {
+                    return false;
+                }
+            }
+            return false;
+        }
+        public static List<uint> GetNumifiedVersion(UnityModManager.ModEntry.ModLogger logger, string version) {
             var comps = version.Split('.');
-            var newComps = new List<string>();
+            var newComps = new List<uint>();
             foreach (var comp in comps) {
                 uint num = 0;
                 foreach (var c in comp) {
@@ -52,9 +66,9 @@ namespace ToyBox {
                         break;
                     }
                 }
-                newComps.Add(num.ToString());
+                newComps.Add(num);
             }
-            return string.Join(".", newComps);
+            return newComps;
         }
     }
 }

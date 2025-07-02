@@ -42,7 +42,7 @@ namespace ToyBox {
                 var raw = web.DownloadString(modEntry.Info.Repository);
                 var result = JsonConvert.DeserializeAnonymousType(raw, definition);
                 string remoteVersion = result.Releases[0].Version;
-                bool repoHasNewVersion = new Version(VersionChecker.GetNumifiedVersion(logger, remoteVersion)) > new Version(VersionChecker.GetNumifiedVersion(logger, curVersion));
+                bool repoHasNewVersion = VersionChecker.IsVersionGreaterThan(VersionChecker.GetNumifiedVersion(logger, remoteVersion), VersionChecker.GetNumifiedVersion(logger, curVersion));
 
                 if (force || repoHasNewVersion) {
                     var version = reinstallCurrentVersion ? modEntry.Info.Version : remoteVersion;
