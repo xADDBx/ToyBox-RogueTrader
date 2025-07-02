@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using UnityModManagerNet;
@@ -29,11 +30,11 @@ namespace ToyBox {
             }
             return true;
         }
-        public static bool IsVersionGreaterThan(List<uint> a, List<uint> b) {
+        public static bool IsVersionGreaterThan(List<BigInteger> a, List<BigInteger> b) {
             int maxLen = Math.Max(a.Count, b.Count);
             for (int i = 0; i < maxLen; i++) {
-                uint t = (i < a.Count) ? a[i] : 0;
-                uint g = (i < b.Count) ? b[i] : 0;
+                BigInteger t = (i < a.Count) ? a[i] : 0;
+                BigInteger g = (i < b.Count) ? b[i] : 0;
                 if (t > g) {
                     return true;
                 }
@@ -43,26 +44,22 @@ namespace ToyBox {
             }
             return false;
         }
-        public static List<uint> GetNumifiedVersion(UnityModManager.ModEntry.ModLogger logger, string version) {
+        public static List<BigInteger> GetNumifiedVersion(UnityModManager.ModEntry.ModLogger logger, string version) {
             var comps = version.Split('.');
-            var newComps = new List<uint>();
+            var newComps = new List<BigInteger>();
             foreach (var comp in comps) {
-                uint num = 0;
+                BigInteger num = 0;
                 foreach (var c in comp) {
-                    uint newNum = num;
                     try {
-                        checked {
-                            if (uint.TryParse(c.ToString(), out var n)) {
-                                newNum = newNum * 10u + n;
-                            } else {
-                                int signedCharNumber = char.ToUpper(c) - ' ';
-                                uint unsignedCharNumber = (uint)Math.Max(0, Math.Min(signedCharNumber, 99));
-                                newNum = newNum * 100u + unsignedCharNumber;
-                            }
-                            num = newNum;
+                        if (uint.TryParse(c.ToString(), out var n)) {
+                            num = num * 10u + n;
+                        } else {
+                            int signedCharNumber = char.ToUpper(c) - ' ';
+                            uint unsignedCharNumber = (uint)Math.Max(0, Math.Min(signedCharNumber, 99));
+                            num = num * 100u + unsignedCharNumber;
                         }
-                    } catch (OverflowException) {
-                        logger.Log($"Encountered uint overflow while parsing version component {comp}, continuing with {num}");
+                    } catch (Exception ex) {
+                        logger.Log($"Error while trying to numify version component {comp}, continuing with {num}.\n{ex}");
                         break;
                     }
                 }

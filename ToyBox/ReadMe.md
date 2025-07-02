@@ -49,7 +49,6 @@ Here is a summarized list of features. This list only includes a part of the fea
 * (***ADDB***) Enemy stat adjustments now allow fractional multipliers
 * (***ADDB***) Fail more gracefully
 
-
 ### Toybox Rogue - Ver 1.7.17 (built for 1.4.0.185)
 * (***Deltharis***) Add new Arbitrator archetype to Bag of Tricks => Override Story Occupation
 * (***ADDB***) Fix Search 'n Pick issue where certain modded blueprints would have Element.GetCaption throw an uncaught exception.
