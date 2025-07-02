@@ -177,7 +177,7 @@ namespace ToyBox.BagOfPatches {
             private static void Prefix(Kingmaker.Items.Slots.ItemSlot __instance, ref ItemEntity __state) {
                 if (Game.Instance.CurrentMode == GameModeType.Default && Settings.togglAutoEquipConsumables) {
                     __state = null;
-                    if (__instance.Owner is BaseUnitEntity unit) {
+                    if (__instance.Owner is BaseUnitEntity unit && unit.IsPartyOrPet()) {
                         var slot = unit.Body.QuickSlots.FindOrDefault(s => s.HasItem && s.Item == __instance.m_ItemRef);
                         if (slot != null) {
                             __state = __instance.m_ItemRef;
