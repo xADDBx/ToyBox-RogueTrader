@@ -1,14 +1,7 @@
-#ToyBox - Turkish Translation 
-#Launch the game, open the ToyBox mod menu (Ctrl+F10), go to the "Settings" tab, and select "tr" from the language dropdown menu.
-#All credit for the excellent ToyBox mod goes to the original creators, the ToyBox Team. You can find them on GitHub.
-#If you find any typos, translation errors, or untranslated text, please leave a comment below.
-#Enjoy!
-#thanks cankutahya.com.tr
-#########################################################
 {
   "LanguageCode": "tr",
   "Version": "1.5.13",
-  "Contributors": "The ToyBox Team",
+  "Contributors": "cankutahya.com.tr?",
   "HomePage": "https://github.com/cabarius/ToyBox/",
   "Strings": {
     " (This setting is per-save)": " (Bu ayar her kayıt dosyası için ayrıdır)",
