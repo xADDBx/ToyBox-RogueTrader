@@ -49,6 +49,7 @@ Here is a summarized list of features. This list only includes a part of the fea
 * (***ADDB***) Refill Belt Consumables no longer works for enemies (???)
 * (***ADDB***) Enemy stat adjustments now allow fractional multipliers
 * (***ADDB***) Fail more gracefully
+* (***bymck***) Partial Turkish Localization?
 
 ### Toybox Rogue - Ver 1.7.17 (built for 1.4.0.185)
 * (***Deltharis***) Add new Arbitrator archetype to Bag of Tricks => Override Story Occupation
