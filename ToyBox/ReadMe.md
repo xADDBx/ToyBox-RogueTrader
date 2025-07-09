@@ -44,6 +44,7 @@ Here is a summarized list of features. This list only includes a part of the fea
   skip quests you don't want to do. Be warned this may break your game progression if used carelessly.
   
 ### Toybox Rogue - Ver 1.7.18 (built for 1.4.0.185)
+* (***ADDB / Microsoftenator***) Party => Mechadendrites Editor that allows adding/removing Mechadendrites?
 * (***ADDB***) Fix Version Checker
 * (***ADDB***) Refill Belt Consumables no longer works for enemies (???)
 * (***ADDB***) Enemy stat adjustments now allow fractional multipliers

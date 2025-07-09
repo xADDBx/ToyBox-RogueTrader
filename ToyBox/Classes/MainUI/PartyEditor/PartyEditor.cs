@@ -1,9 +1,11 @@
 ﻿// Copyright < 2021 > Narria (github user Cabarius) - License: MIT
 using Kingmaker;
+using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.Cheats;
 using Kingmaker.Code.UnitLogic;
 using Kingmaker.Designers;
 using Kingmaker.EntitySystem.Entities;
+using Kingmaker.Items;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Parts;
 using ModKit;
@@ -25,7 +27,7 @@ namespace ToyBox {
             Buffs,
             Abilities,
             Spells,
-            AI,
+            Mechadendrites,
             None,
         };
         private const int NarrowIndent = 413;
@@ -33,6 +35,7 @@ namespace ToyBox {
         private static ToggleChoice selectedToggle = ToggleChoice.None;
         private static BaseUnitEntity charToAdd = null;
         private static BaseUnitEntity charToRecruit = null;
+        private static Browser<BlueprintItemMechadendrite, ItemEntity> m_MechadendriteBrowser = new(true, true);
         private static BaseUnitEntity charToRemove = null;
         private static BaseUnitEntity charToUnrecruit = null;
         private static BaseUnitEntity selectedCharacter = null;
@@ -220,10 +223,13 @@ namespace ToyBox {
                         if (showBuffs) { selectedCharacter = ch; selectedToggle = ToggleChoice.Buffs; } else { selectedToggle = ToggleChoice.None; }
                     }
                     var showAbilities = ch == selectedCharacter && selectedToggle == ToggleChoice.Abilities;
-                    if (DisclosureToggle("Abilities".localize(), ref showAbilities, 125)) {
+                    if (DisclosureToggle("Abilities".localize(), ref showAbilities, 90)) {
                         if (showAbilities) { selectedCharacter = ch; selectedToggle = ToggleChoice.Abilities; } else { selectedToggle = ToggleChoice.None; }
                     }
-                    var showAI = ch == selectedCharacter && selectedToggle == ToggleChoice.AI;
+                    var showDendrites = ch == selectedCharacter && selectedToggle == ToggleChoice.Mechadendrites;
+                    if (DisclosureToggle("Mechadendrites".localize(), ref showDendrites, 125)) {
+                        if (showDendrites) { selectedCharacter = ch; selectedToggle = ToggleChoice.Mechadendrites; m_MechadendriteBrowser = new(true, true); } else { selectedToggle = ToggleChoice.None; }
+                    }
                     ReflectionTreeView.DetailToggle("Inspect".localize(), ch, ch, 75);
                     Wrap(!isWide, NarrowIndent - 20);
                     ActionsGUI(ch);
@@ -246,6 +252,35 @@ namespace ToyBox {
                         todo = FactsEditor.OnGUI(ch, ch.Descriptor().Buffs.Enumerable.ToList());
                     } else if (selectedToggle == ToggleChoice.Abilities) {
                         todo = FactsEditor.OnGUI(ch, ch.Descriptor().Abilities.Enumerable, ch.Descriptor().ActivatableAbilities.Enumerable);
+                    } else if (selectedToggle == ToggleChoice.Mechadendrites) {
+                        Label("Warning: This feature is still not very-well tested so it is suggested to save before using it!".Orange().Bold());
+                        m_MechadendriteBrowser.OnGUI(ch.Body.Mechadendrites.Select(m => m.Item), () => BlueprintLoader.Shared.GetBlueprintsOfType<BlueprintItemMechadendrite>(), i => i.Blueprint as BlueprintItemMechadendrite, s => BlueprintExtensions.GetSearchKey(s), s => [BlueprintExtensions.GetSortKey(s)], null,
+                            (bp, maybeItem) => {
+                                Label(BlueprintExtensions.GetTitle(bp));
+                                Space(15);
+                                if (maybeItem != null) {
+                                    ActionButton("Remove".localize(), () => {
+                                        var slot = ch.Body.Mechadendrites.First(slot => slot.Item == maybeItem);
+                                        slot.RemoveItem(true, true);
+                                        ch.Body.Mechadendrites.Remove(slot);
+                                        ch.View.Mechadendrites.Remove(maybeItem);
+                                        try {
+                                            Game.Instance.Player.Inventory.Remove(maybeItem);
+                                        } catch (Exception ex) {
+                                            Mod.Trace($"Exception while removing Mechadendrite Entity from inventory:\n{ex}");
+                                        }
+                                        m_MechadendriteBrowser.ReloadData();
+                                    });
+                                } else {
+                                    ActionButton("Add".localize(), () => {
+                                        var slot = new Kingmaker.Items.Slots.EquipmentSlot<BlueprintItemMechadendrite>(ch);
+                                        ch.Body.Mechadendrites.Add(slot);
+                                        ch.Body.TryInsertItem(bp, slot);
+                                        ch.View.Mechadendrites.Add(slot.Item);
+                                        m_MechadendriteBrowser.ReloadData();
+                                    });
+                                }
+                            });
                     }
                 }
                 chIndex += 1;

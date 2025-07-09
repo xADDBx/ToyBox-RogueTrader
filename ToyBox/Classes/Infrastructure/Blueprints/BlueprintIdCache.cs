@@ -23,6 +23,7 @@ using Kingmaker.Visual.Sound;
 using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Blueprints.Items.Armors;
+using Kingmaker.Blueprints.Items.Equipment;
 
 namespace ToyBox.classes.Infrastructure.Blueprints {
     public class BlueprintIdCache {
@@ -39,7 +40,8 @@ namespace ToyBox.classes.Infrastructure.Blueprints {
                 typeof(BlueprintBrain), typeof(BlueprintFeature), typeof(BlueprintUnitFact),
                 typeof(BlueprintPlanet), typeof(BlueprintColony), typeof(BlueprintStarSystemMap),
                 typeof(BlueprintColonyTrait), typeof(BlueprintResource), typeof(BlueprintColonyEventResult),
-                typeof(BlueprintUnitAsksList), typeof(BlueprintAbilityFXSettings), typeof(BlueprintAreaPreset)
+                typeof(BlueprintUnitAsksList), typeof(BlueprintAbilityFXSettings), typeof(BlueprintAreaPreset),
+                typeof(BlueprintItemMechadendrite)
         };
 
         private static BlueprintIdCache _instance;
