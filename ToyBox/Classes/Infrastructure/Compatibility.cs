@@ -105,6 +105,7 @@ namespace ToyBox {
             return ret;
         }
         public static void DoRespec(this BaseUnitEntity ch) {
+            var pet = ch.Pet;
             ch.Progression.Respec();
             EventBus.RaiseEvent<IRespecHandler>(ch, delegate (IRespecHandler h) {
                 h.HandleRespecFinished();
@@ -112,6 +113,12 @@ namespace ToyBox {
             EventBus.RaiseEvent<INewServiceWindowUIHandler>(delegate (INewServiceWindowUIHandler h) {
                 h.HandleOpenCharacterInfoPage(CharInfoPageType.LevelProgression, ch);
             }, true);
+            if (pet != null && ch.Pet == null) {
+                // Not doing the following lines will cause saving coroutine to fail after respeccing a unit with a pet, kicking the user back to main menu.
+                Game.Instance.Player.CrossSceneState.RemoveEntityData(pet);
+                Game.Instance.Player.InvalidateCharacterLists();
+                Game.Instance.SelectionCharacter.UpdateSelectedUnits();
+            }
         }
     }
 }

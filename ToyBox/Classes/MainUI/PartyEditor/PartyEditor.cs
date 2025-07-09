@@ -65,7 +65,7 @@ namespace ToyBox {
         // This bit of kludge is added in order to tell whether our generic actions are being accessed from this screen or the Search n' Pick
         public static bool IsOnPartyEditor() => Main.Settings.selectedTab == 3;
 
-        public static void ActionsGUI(BaseUnitEntity ch) {
+        public static void ActionsGUI(BaseUnitEntity ch, List<Action> todo) {
             var player = Game.Instance.Player;
             Space(25);
             var buttonCount = 0;
@@ -95,7 +95,7 @@ namespace ToyBox {
             }
             if (ch.CanRespec()) {
                 respecableCount++;
-                ActionButton("Respec".localize().Cyan(), () => { Actions.ToggleModWindow(); ch.DoRespec(); }, Width(150));
+                ActionButton("Respec".localize().Cyan(), () => todo.Add(() => { Actions.ToggleModWindow(); ch.DoRespec(); }), Width(150));
             } else {
                 Space(153);
             }
@@ -232,7 +232,7 @@ namespace ToyBox {
                     }
                     ReflectionTreeView.DetailToggle("Inspect".localize(), ch, ch, 75);
                     Wrap(!isWide, NarrowIndent - 20);
-                    ActionsGUI(ch);
+                    ActionsGUI(ch, todo);
                 }
                 if (!isWide) Div(00, 10);
                 5.space();
