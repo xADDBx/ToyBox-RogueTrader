@@ -37,7 +37,7 @@ namespace ToyBox.BagOfPatches {
             [HarmonyPatch(nameof(PartUnitCombatState.SpendActionPointsAll))]
             [HarmonyPrefix]
             public static bool SpendActionPointsAll(PartUnitCombatState __instance) {
-                if (!Settings.toggleReallyUnlimitedActionsPerTurn) return true;
+                if (!(Settings.toggleUnlimitedActionsPerTurn && Settings.toggleReallyUnlimitedActionsPerTurn)) return true;
                 if (__instance.Owner.IsPartyOrPet()) {
                     return false;
                 } else {

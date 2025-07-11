@@ -43,13 +43,14 @@ Here is a summarized list of features. This list only includes a part of the fea
 - **Quest Resolution**: this allows you to view your active quests and advance them as needed to work around bugs or
   skip quests you don't want to do. Be warned this may break your game progression if used carelessly.
   
-### Toybox Rogue - Ver 1.7.18 (built for 1.4.0.185)
+### Toybox Rogue - Ver 1.7.18 (built for 1.4.1.206)
 * (***ADDB / Microsoftenator***) Party => Mechadendrites Editor that allows adding/removing Mechadendrites?
 * (***ADDB***) Fix respec for units with pets
 * (***ADDB***) Refill Belt Consumables no longer works for enemies (???)
 * (***ADDB***) Enemy stat adjustments now allow fractional multipliers
 * (***ADDB***) Fix Version Checker
 * (***ADDB***) Fail more gracefully
+* (***ADDB***) "Don't use any AP during your turn" child feature is now automatically disabled when its parent is disabled.
 * (***bymck***) Partial Turkish Localization?
 
 ### Toybox Rogue - Ver 1.7.17 (built for 1.4.0.185)
