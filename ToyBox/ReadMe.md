@@ -43,6 +43,11 @@ Here is a summarized list of features. This list only includes a part of the fea
 - **Quest Resolution**: this allows you to view your active quests and advance them as needed to work around bugs or
   skip quests you don't want to do. Be warned this may break your game progression if used carelessly.
   
+### Toybox Rogue - Ver 1.7.19 (built for 1.4.1.208)
+* (***ADDB***) Fix issue with threaded loader
+* (***ADDB***) PatchTool: Allow dumping sprites
+* (***ADDB***) Catch more exceptions for BP GetTitle
+
 ### Toybox Rogue - Ver 1.7.18 (built for 1.4.1.206)
 * (***ADDB / Microsoftenator***) Party => Mechadendrites Editor that allows adding/removing Mechadendrites?
 * (***ADDB***) Fix respec for units with pets

@@ -165,7 +165,7 @@ namespace ToyBox {
             }
             _blueprints.RemoveAll(b => b is null);
             watch.Stop();
-            Mod.Log($"Threaded loaded {_blueprints.Count + bpsToAdd.Count + BlueprintLoaderPatches.BlueprintsCache_Patches.IsLoading.Count} blueprints in {watch.ElapsedMilliseconds} milliseconds");
+            Mod.Log($"Threaded loaded roughly {_blueprints.Count + bpsToAdd.Count + BlueprintLoaderPatches.BlueprintsCache_Patches.IsLoading.Value.Count} blueprints in {watch.ElapsedMilliseconds} milliseconds");
             toLoad = null;
             lock (loader) {
                 _callback(_blueprints);
@@ -271,14 +271,14 @@ namespace ToyBox {
                         Shared.bpsToAdd.RemoveWhere(bp => bp.AssetGuid == guid);
                     }
                 }
-                internal static HashSet<string> IsLoading = new();
+                internal static ThreadLocal<HashSet<string>> IsLoading = new(() => []);
                 [HarmonyPatch(nameof(BlueprintsCache.Load)), HarmonyPrefix]
                 public static bool Pre_Load(string guid, ref SimpleBlueprint __result) {
                     if (!Shared.IsRunning) return true;
                     int shardIndex = Math.Abs(guid.GetHashCode()) % Main.Settings.BlueprintsLoaderNumShards;
                     var startedLoading = Shared._startedLoadingShards[shardIndex];
                     if (startedLoading.TryAdd(guid, Shared)) {
-                        IsLoading.Add(guid);
+                        IsLoading.Value.Add(guid);
                         return true;
                     }
                     lock (startedLoading[guid]) {
@@ -292,8 +292,7 @@ namespace ToyBox {
                 }
                 [HarmonyPatch(nameof(BlueprintsCache.Load)), HarmonyPostfix]
                 public static void Post_Load(string guid, ref SimpleBlueprint __result) {
-                    if (IsLoading.Contains(guid)) {
-                        IsLoading.Remove(guid);
+                    if (IsLoading.Value.Remove(guid)) {
                         lock (Shared.bpsToAdd) {
                             if (__result != null) Shared.bpsToAdd.Add(__result);
                         }

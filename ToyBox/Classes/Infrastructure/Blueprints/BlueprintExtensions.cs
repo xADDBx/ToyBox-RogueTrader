@@ -71,8 +71,8 @@ namespace ToyBox {
                 bool isEmpty = true;
                 try {
                     isEmpty = string.IsNullOrEmpty(uiDataProvider.Name);
-                } catch (NullReferenceException) {
-                    Mod.Debug($"Error while getting name for {uiDataProvider}");
+                } catch (Exception ex) {
+                    Mod.Debug($"Error while getting name for {uiDataProvider}: {ex}");
                 }
                 if (isEmpty) {
                     name = blueprint.name;
@@ -121,8 +121,8 @@ namespace ToyBox {
                     bool isEmpty = true;
                     try {
                         isEmpty = string.IsNullOrEmpty(uiDataProvider.Name);
-                    } catch (NullReferenceException) {
-                        Mod.Debug($"Error while getting name for {uiDataProvider}");
+                    } catch (Exception ex) {
+                        Mod.Debug($"Error while getting name for {uiDataProvider}:\n{ex}");
                     }
                     if (isEmpty) {
                         name = blueprint.name;
@@ -176,8 +176,8 @@ namespace ToyBox {
                     bool isEmpty = true;
                     try {
                         isEmpty = string.IsNullOrEmpty(uiDataProvider.Name);
-                    } catch (NullReferenceException) {
-                        Mod.Debug($"Error while getting name for {uiDataProvider}");
+                    } catch (Exception ex) {
+                        Mod.Debug($"Error while getting name for {uiDataProvider}:\n{ex}");
                     }
                     if (isEmpty) {
                         name = blueprint.name;

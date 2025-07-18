@@ -74,6 +74,33 @@ namespace ToyBox.BagOfPatches {
                 }
             }
         }
+        /*
+        [HarmonyPatch(typeof(HandSlot))]
+        public static class A {
+            [HarmonyPatch(nameof(HandSlot.IsItemSupported)), HarmonyFinalizer]
+            private static Exception Wow(ref bool __result, Exception __exception) {
+                if (__exception != null) __result = false;
+                return null;
+            }
+        }
+        [HarmonyPatch(typeof(PartUnitBody))]
+        private static class B {
+            [HarmonyPatch(nameof(PartUnitBody.GetHandsEquipmentSet)), HarmonyPostfix]
+            private static void Wow(HandsEquipmentSet __result, PartUnitBody __instance, HandSlot slot) {
+                if (__result == null) {
+                    for (int i = 0; i < __instance.m_HandsEquipmentSets.Length; i++) {
+                        HandsEquipmentSet handsEquipmentSet = __instance.m_HandsEquipmentSets[i];
+                        if (handsEquipmentSet.PrimaryHand == slot) {
+                            Mod.Log($"Primary == Slot but: {handsEquipmentSet.IsOverridePrimaryHand}");
+                        }
+                        if (handsEquipmentSet.SecondaryHand == slot) {
+                            Mod.Log($"Primary == Slot but: {handsEquipmentSet.IsOverrideSecondaryHand}");
+                        }
+                    }
+                }
+            }
+        }
+        */
         [HarmonyPatch(typeof(PartUnitCombatState))]
         private static class PartUnitCombatStatePatch {
             public static void MaybeKill(PartUnitCombatState unitCombatState) {

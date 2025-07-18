@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -17,6 +18,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UniRx;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace ToyBox.PatchTool;
 public class PatchToolTabUI {
@@ -338,7 +340,17 @@ public class PatchToolTabUI {
                 label = "Exception in ToString".Orange();
             }
             Label(label, Width(500));
-            Label("Unity Object".localize());
+            Label("Unity Object".localize(), Width(300));
+            Space(20);
+            if (@object is Sprite sprite) {
+                ActionButton("Dump to ToyBox folder", () => {
+                    var dumpDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+                    sprite.texture.SaveTextureToFile(Path.Combine(dumpDir, sprite.name + ".png"), -1, -1, MiscExtensions.SaveTextureFileFormat.PNG, 100, false);
+                    try {
+                        Application.OpenURL($"file://{dumpDir}");
+                    } catch { }
+                });
+            }
         } else if (typeof(BlueprintReferenceBase).IsAssignableFrom(type)) {
             if (!toggleStates.TryGetValue(path, out var state)) {
                 state = false;
