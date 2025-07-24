@@ -42,8 +42,10 @@ Here is a summarized list of features. This list only includes a part of the fea
   your save before using. Remember that "with great power comes great responsibility"
 - **Quest Resolution**: this allows you to view your active quests and advance them as needed to work around bugs or
   skip quests you don't want to do. Be warned this may break your game progression if used carelessly.
-  
-### Toybox Rogue - Ver 1.7.19 (built for 1.4.1.208)
+
+
+### Toybox Rogue - Ver 1.7.20 (built for 1.4.1.217)
+* (***ADDB***) Fix ToyBox breaking Owlmods in weird/random ways when it loads blueprints. (This is considered a major issue so previous versions will be marked as incompatible)
 * (***ADDB***) Fix issue with threaded loader
 * (***ADDB***) PatchTool: Allow dumping sprites
 * (***ADDB***) Catch more exceptions for BP GetTitle

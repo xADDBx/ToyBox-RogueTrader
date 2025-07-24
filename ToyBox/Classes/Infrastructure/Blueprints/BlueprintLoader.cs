@@ -7,18 +7,15 @@ using Kingmaker.Blueprints.JsonSystem.BinaryFormat;
 using Kingmaker.Blueprints.JsonSystem.Converters;
 using Kingmaker.Modding;
 using ModKit;
+using Newtonsoft.Json.Linq;
 using System;
-using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Reflection;
-using System.Reflection.Emit;
 using System.Runtime.CompilerServices;
-using System.Runtime.Serialization;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using ToyBox.classes.Infrastructure.Blueprints;
@@ -303,6 +300,36 @@ namespace ToyBox {
             internal static void BlueprintsCache_Init_Patch() {
                 Shared.CanStart = true;
                 if (Main.Settings.togglePreloadBlueprints || (Main.Settings.toggleUseBPIdCache && Main.Settings.toggleAutomaticallyBuildBPIdCache && BlueprintIdCache.NeedsCacheRebuilt)) Shared.GetBlueprints();
+            }
+            [HarmonyPatch(typeof(OwlcatModificationBlueprintPatcher), nameof(OwlcatModificationBlueprintPatcher.ApplyPatchEntry)), HarmonyPrefix]
+            private static bool OwlcatModificationBlueprintPatcher_ApplyPatchEntry(JObject jsonBlueprint, JObject patchEntry) {
+                JsonMergeSettings settings = new() {
+                    MergeArrayHandling = OwlcatModificationBlueprintPatcher.ExtractMergeArraySettings(patchEntry),
+                    MergeNullValueHandling = OwlcatModificationBlueprintPatcher.ExtractNullArraySettings(patchEntry)
+                };
+                jsonBlueprint.Merge(patchEntry, settings);
+                return false;
+            }
+            private static readonly ConcurrentDictionary<SimpleBlueprint, JObject> m_JsonBlueprintsCache = [];
+            [ThreadStatic]
+            private static StringBuilder? m_Builder;
+            [HarmonyPatch(typeof(OwlcatModificationBlueprintPatcher), nameof(OwlcatModificationBlueprintPatcher.GetJObject)), HarmonyPrefix]
+            private static bool OwlcatModificationBlueprintPatcher_GetJObject(SimpleBlueprint blueprint, ref JObject __result) {
+                if (m_JsonBlueprintsCache.TryGetValue(blueprint, out JObject jsonBlueprint)) {
+                    __result = jsonBlueprint;
+                    return false;
+                }
+                var blueprintJsonWrapper = new BlueprintJsonWrapper(blueprint) {
+                    AssetId = blueprint.AssetGuid.ToString()
+                };
+                m_Builder ??= new(64);
+                using var stringWriter = new StringWriter(m_Builder);
+                Json.Serializer.Serialize(stringWriter, blueprintJsonWrapper);
+                var jobject = JObject.Parse(m_Builder.ToString());
+                m_JsonBlueprintsCache[blueprint] = jobject;
+                __result = jobject;
+                m_Builder.Clear();
+                return false;
             }
         }
     }
