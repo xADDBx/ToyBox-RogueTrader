@@ -46,6 +46,8 @@ Here is a summarized list of features. This list only includes a part of the fea
 
 ### Toybox Rogue - Ver 1.7.20 (built for 1.4.1.217)
 * (***ADDB***) Fix ToyBox breaking Owlmods in weird/random ways when it loads blueprints. (This is considered a major issue so previous versions will be marked as incompatible)
+
+### Toybox Rogue - Ver 1.7.19 (built for 1.4.1.208)
 * (***ADDB***) Fix issue with threaded loader
 * (***ADDB***) PatchTool: Allow dumping sprites
 * (***ADDB***) Catch more exceptions for BP GetTitle
