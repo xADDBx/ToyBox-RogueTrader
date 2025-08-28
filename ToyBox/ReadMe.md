@@ -44,6 +44,9 @@ Here is a summarized list of features. This list only includes a part of the fea
   skip quests you don't want to do. Be warned this may break your game progression if used carelessly.
 
 
+### Toybox Rogue - Ver 1.7.21 (built for 1.4.1.217)
+* (***ADDB***) Fix Experience multiplier for some mobs and skill checks.
+
 ### Toybox Rogue - Ver 1.7.20 (built for 1.4.1.217)
 * (***ADDB***) Fix ToyBox breaking Owlmods in weird/random ways when it loads blueprints. (This is considered a major issue so previous versions will be marked as incompatible)
 

@@ -36,6 +36,28 @@ namespace ToyBox.BagOfPatches {
         }
         [HarmonyPatch(typeof(ExperienceHelper))]
         public static class ExperienceHelper_Patch {
+            [HarmonyPatch(nameof(ExperienceHelper.GetCheckExp))]
+            [HarmonyPostfix]
+            public static void GetCheckExp(ref int __result) {
+                float mult = settings.experienceMultiplier;
+                if (settings.useSkillChecksExpSlider) {
+                    mult = settings.experienceMultiplierSkillChecks;
+                }
+                if (mult != 1) {
+                    __result = Mathf.RoundToInt(__result * mult);
+                }
+            }
+            [HarmonyPatch(nameof(ExperienceHelper.GetMobExp))]
+            [HarmonyPostfix]
+            public static void GetMobExp(ref int __result) {
+                float mult = settings.experienceMultiplier;
+                if (settings.useCombatExpSlider) {
+                    mult = settings.experienceMultiplierCombat;
+                }
+                if (mult != 1) {
+                    __result = Mathf.RoundToInt(__result * mult);
+                }
+            }
             [HarmonyPatch(nameof(ExperienceHelper.GetXp))]
             [HarmonyPostfix]
             public static void GetXp(ref int __result, EncounterType type) {
