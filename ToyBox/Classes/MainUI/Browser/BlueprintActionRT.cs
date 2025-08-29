@@ -108,7 +108,7 @@ namespace ToyBox {
                                                     },
                                                     (bp, ch, index) => {
                                                         var buff = ch.Descriptor().Buffs.Get(bp);
-                                                        return buff != null && buff?.GetRank() < buff.Blueprint.Ranks - 1;
+                                                        return buff != null && buff?.GetRank() < buff.Blueprint.MaxRank;
                                                     });
             // Kingdom Bufs
             // Abilities
