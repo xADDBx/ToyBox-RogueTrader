@@ -47,6 +47,7 @@ Here is a summarized list of features. This list only includes a part of the fea
 ### Toybox Rogue - Ver 1.7.21 (built for 1.4.1.217)
 * (***ADDB***) Fix Experience multiplier for some mobs and skill checks.
 * (***ADDB***) Proper Buff Rank handling
+* (***ADDB***) Remove "Refill consumables in belt slots if in inventory" as it is buggy. If anyone is actually using this reach out and we'll attempt to fix it.
 
 ### Toybox Rogue - Ver 1.7.20 (built for 1.4.1.217)
 * (***ADDB***) Fix ToyBox breaking Owlmods in weird/random ways when it loads blueprints. (This is considered a major issue so previous versions will be marked as incompatible)

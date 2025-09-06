@@ -171,8 +171,8 @@ namespace ToyBox.BagOfPatches {
             [HarmonyPrefix]
             public static bool EndTurnBind() => !Settings.disableEndTurnHotkey;
         }
-
-        [HarmonyPatch(typeof(Kingmaker.Items.Slots.ItemSlot), nameof(Kingmaker.Items.Slots.ItemSlot.RemoveItem), new Type[] { typeof(bool), typeof(bool) })]
+        /*
+        [HarmonyPatch(typeof(Kingmaker.Items.Slots.ItemSlot), nameof(Kingmaker.Items.Slots.ItemSlot.RemoveItem), new Type[] { typeof(bool), typeof(bool), typeof(bool) })]
         private static class ItemSlot_RemoveItem_Patch {
             private static void Prefix(Kingmaker.Items.Slots.ItemSlot __instance, ref ItemEntity __state) {
                 if (Game.Instance.CurrentMode == GameModeType.Default && Settings.togglAutoEquipConsumables) {
@@ -198,7 +198,7 @@ namespace ToyBox.BagOfPatches {
 
             private static void Postfix(Kingmaker.Items.Slots.ItemSlot __instance, ref ItemEntity __state) {
                 if (Game.Instance.CurrentMode == GameModeType.Default && Settings.togglAutoEquipConsumables) {
-                    if (__state != null) {
+                    if (__state != null && !(__state.Collection != null && __state.Collection != __instance.MaybeOwnerInventory?.Collection)) {
                         var blueprint = __state.Blueprint;
                         var item = Game.Instance.Player.Inventory.Items.FirstOrDefault(i => i.Blueprint.ItemType == ItemsItemType.Usable && i.Blueprint == blueprint);
                         if (item != null) {
@@ -210,6 +210,7 @@ namespace ToyBox.BagOfPatches {
                 }
             }
         }
+        */
 
         [HarmonyPatch(typeof(InventorySlotView), nameof(InventorySlotPCView.OnClick))]
         public static class InventorySlotView_OnClick_Patch {
