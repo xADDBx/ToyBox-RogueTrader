@@ -42,7 +42,7 @@ using UnityEngine.UI;
 namespace ToyBox {
     public static class PreviewManager {
         public static Settings Settings = Main.Settings;
-        public static Player player = Game.Instance.Player;
+        public static Player player => Game.Instance.Player;
         private static GameDialogsSettings DialogSettings => SettingsRoot.Game.Dialogs;
 
         private static List<Tuple<BlueprintCueBase, int, GameAction[], SoulMarkShift, SoulMarkShift>> CollateAnswerData(BlueprintAnswer answer, out bool isRecursive) {

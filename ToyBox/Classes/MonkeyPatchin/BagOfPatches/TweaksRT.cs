@@ -49,7 +49,7 @@ using static Kingmaker.UnitLogic.Abilities.AbilityData;
 namespace ToyBox.BagOfPatches {
     internal static partial class Tweaks {
         public static Settings Settings = Main.Settings;
-        public static Player player = Game.Instance.Player;
+        public static Player player => Game.Instance.Player;
 
         [HarmonyPatch(typeof(TurnController))]
         private static class TurnController_Patch {

@@ -19,7 +19,7 @@ namespace ToyBox.BagOfPatches {
     public static class DiceRollsRT {
         private static bool changePolicy = true;
         public static Settings settings = Main.Settings;
-        public static Player player = Game.Instance.Player;
+        public static Player player => Game.Instance.Player;
         [HarmonyPatch(typeof(RulePerformAttackRoll))]
         private static class RulePerformAttackRollPatch {
             private static bool forceHit;

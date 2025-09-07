@@ -32,7 +32,7 @@ using Random = System.Random;
 namespace ToyBox.BagOfPatches {
     internal static class Dialog {
         public static Settings settings = Main.Settings;
-        public static Player player = Game.Instance.Player;
+        public static Player player => Game.Instance.Player;
 
         // These exclude certain secret companions
         internal static readonly HashSet<string> SecretCompanions = new() {

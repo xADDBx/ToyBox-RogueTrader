@@ -23,7 +23,7 @@ using UnityEngine.UI;
 namespace ToyBox.BagOfPatches {
     internal static class LocalMapPatches {
         public static Settings Settings = Main.Settings;
-        public static Player player = Game.Instance.Player;
+        public static Player player => Game.Instance.Player;
 
         public static float Zoom = 1.0f;
         public static float Width = 0.0f;

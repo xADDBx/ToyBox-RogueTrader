@@ -32,7 +32,7 @@ using Kingmaker.PubSubSystem.Core.Interfaces;
 namespace ToyBox.BagOfPatches {
     internal static class CameraPatches {
         public static Settings Settings = Main.Settings;
-        public static Player player = Game.Instance.Player;
+        public static Player player => Game.Instance.Player;
         private static float CameraElevation = 0f;
 
         [HarmonyPatch(typeof(CameraController))]

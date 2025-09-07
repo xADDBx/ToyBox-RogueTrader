@@ -19,7 +19,7 @@ using System.Linq;
 namespace ToyBox.BagOfPatches {
     internal static class Actions {
         public static Settings Settings = Main.Settings;
-        public static Player player = Game.Instance.Player;
+        public static Player player => Game.Instance.Player;
 
 
         [HarmonyPatch(typeof(PartUnitCombatState))]

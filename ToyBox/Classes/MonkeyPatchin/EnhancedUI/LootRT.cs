@@ -42,7 +42,7 @@ using ItemSlot = Kingmaker.Items.Slots.ItemSlot;
 namespace ToyBox.Inventory {
     internal static class Loot {
         public static Settings Settings = Main.Settings;
-        public static Player player = Game.Instance.Player;
+        public static Player player => Game.Instance.Player;
 #if false
         public static HashSet<EquipSlotType> SelectedLootSlotFilters = new();
         public static InventoryEquipSlotPCView selectedSlot = null;

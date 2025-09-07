@@ -32,7 +32,7 @@ using UnityEngine;
 namespace ToyBox.BagOfPatches {
     internal static class LevelUp {
         public static Settings Settings = Main.Settings;
-        public static Player player = Game.Instance.Player;
+        public static Player player => Game.Instance.Player;
 
         [HarmonyPatch(typeof(PartUnitProgression))]
         public static class UnitProgressionData_Patch {

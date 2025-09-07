@@ -58,7 +58,7 @@ using UnityEngine;
 namespace ToyBox.BagOfPatches {
     internal static partial class Misc {
         public static Settings Settings = Main.Settings;
-        public static Player player = Game.Instance.Player;
+        public static Player player => Game.Instance.Player;
         private static BlueprintPsychicPhenomenaRoot.PsychicPhenomenaData[] _psychicPhenomenasFiltered = null;
         private static BlueprintAbilityReference[] _minorPerilsFiltered = null;
         private static BlueprintAbilityReference[] _majorPerilsFiltered = null;

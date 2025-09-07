@@ -19,7 +19,7 @@ using Kingmaker.EntitySystem.Entities;
 namespace ToyBox.BagOfPatches {
     internal static class Unrestricted {
         public static Settings settings = Main.Settings;
-        public static Player player = Game.Instance.Player;
+        public static Player player => Game.Instance.Player;
         [HarmonyPatch(typeof(EquipmentRestrictionClass), nameof(EquipmentRestrictionClass.CanBeEquippedBy))]
         public static class EquipmentRestrictionClassNew_CanBeEquippedBy_Patch {
             public static void Postfix(ref bool __result) {

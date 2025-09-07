@@ -43,6 +43,9 @@ Here is a summarized list of features. This list only includes a part of the fea
 - **Quest Resolution**: this allows you to view your active quests and advance them as needed to work around bugs or
   skip quests you don't want to do. Be warned this may break your game progression if used carelessly.
 
+  
+### Toybox Rogue - Ver 1.7.22 (built for 1.4.1.231)
+* (***ADDB***) Prevent early cctor calls because of static Player fields by turning those into property getters
 
 ### Toybox Rogue - Ver 1.7.21 (built for 1.4.1.231)
 * (***ADDB***) Change how Enemy Sliders were implemented: They should now take affect *after* existing modifiers are applied, meaning a x2 for hp should double hp. Thanks @Meagermantis1 for helping with testing.

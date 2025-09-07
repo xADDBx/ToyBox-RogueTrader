@@ -24,7 +24,7 @@ using Kingmaker.Mechanics.Entities;
 namespace ToyBox.BagOfPatches {
     internal static class Movement {
         public static Settings Settings = Main.Settings;
-        public static Player Player = Game.Instance.Player;
+        public static Player Player => Game.Instance.Player;
 
 
         [HarmonyPatch(typeof(PartMovable))]
