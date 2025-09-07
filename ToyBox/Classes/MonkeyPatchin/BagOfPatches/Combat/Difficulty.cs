@@ -1,27 +1,36 @@
 ﻿using HarmonyLib;
-using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.EntitySystem.Entities;
+using Kingmaker.EntitySystem.Stats;
 using System;
+using System.Collections.Generic;
 
 namespace ToyBox.BagOfPatches {
     [HarmonyPatch]
     internal static class Difficulty {
-        [HarmonyPatch(typeof(NPCDifficultyModifiersManager), nameof(NPCDifficultyModifiersManager.UpdateModifiers)), HarmonyPostfix]
-        public static void DifficultyPresetsController_SetValues(NPCDifficultyModifiersManager __instance) {
-            if (__instance.Owner.IsPlayerEnemy) {
+        internal static readonly HashSet<StatType> BadStats = [StatType.TemporaryHitPoints, StatType.Unknown, StatType.AttackOfOpportunityCount,
+                                                                StatType.Crew, StatType.TurretRadius, StatType.TurretRating, StatType.MilitaryRating,
+                                                                StatType.PsyRating, StatType.Evasion, StatType.MachineTrait, StatType.ArmourFore,
+                                                                StatType.ArmourPort, StatType.ArmourStarboard, StatType.ArmourAft, StatType.Inertia,
+                                                                StatType.Power, StatType.Aiming, StatType.RevealRadius, StatType.DetectionRadius,
+                                                                StatType.ShieldsAmount, StatType.ShieldsRegeneration, StatType.Morale, StatType.Discipline, 
+                                                                StatType.DamageNonLethal];
+        [HarmonyPatch(typeof(ModifiableValue), nameof(ModifiableValue.ModifiedValue), MethodType.Getter), HarmonyPostfix]
+        public static void get_ModifiableValue_ModifiedValue(ModifiableValue __instance, ref int __result) {
+            if (BadStats.Contains(__instance.OriginalType)) {
+                return;
+            }
+            if (__instance.Owner is BaseUnitEntity entity && entity is not StarshipEntity && entity.IsPlayerEnemy) {
+                var stat = __instance.OriginalType;
                 if (Main.Settings.toggleAddFlatEnemyMods) {
-                    foreach (StatType stat in Enum.GetValues(typeof(StatType))) {
-                        var flat = Main.Settings.flatEnemyMods[stat];
-                        if (flat != 0) {
-                            __instance.AddModifier(stat, (int)flat);
-                        }
+                    var flat = Main.Settings.flatEnemyMods[stat];
+                    if (flat != 0) {
+                        __result += (int)flat;
                     }
                 }
                 if (Main.Settings.toggleAddMultiplierEnemyMods) {
-                    foreach (StatType stat in Enum.GetValues(typeof(StatType))) {
-                        var mult = Main.Settings.multiplierEnemyMods[stat];
-                        if (mult != 1) {
-                            __instance.AddPercentModifier(stat, (int)(mult*100) - 1);
-                        }
+                    var mult = Main.Settings.multiplierEnemyMods[stat];
+                    if (mult != 1) {
+                        __result = (int)(mult * __result);
                     }
                 }
             }

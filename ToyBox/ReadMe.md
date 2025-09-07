@@ -45,6 +45,8 @@ Here is a summarized list of features. This list only includes a part of the fea
 
 
 ### Toybox Rogue - Ver 1.7.21 (built for 1.4.1.217)
+* (***ADDB***) Change how Enemy Sliders were implemented: They should now take affect *after* existing modifiers are applied, meaning a x2 for hp should double hp. Thanks @Meagermantis1 for helping with testing.
+* (***ADDB***) Remove some unnecessary stats from enemy difficulty sliders
 * (***ADDB***) Fix Experience multiplier for some mobs and skill checks.
 * (***ADDB***) Proper Buff Rank handling
 * (***ADDB***) Remove "Refill consumables in belt slots if in inventory" as it is buggy. If anyone is actually using this reach out and we'll attempt to fix it.

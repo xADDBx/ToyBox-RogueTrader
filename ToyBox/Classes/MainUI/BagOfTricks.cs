@@ -326,7 +326,9 @@ namespace ToyBox {
                        Toggle("Don't wait for keypress when loading saves".localize(), ref Settings.toggleSkipAnyKeyToContinueWhenLoadingSaves, 500.width());
                        HelpLabel("When loading a game this will go right into the game without having to 'Press any key to continue'".localize());
                    },
+                   /*
                    () => Toggle("Refill consumables in belt slots if in inventory".localize(), ref Settings.togglAutoEquipConsumables),
+                   */
                    () => {
                        var modifier = KeyBindings.GetBinding("InventoryUseModifier");
                        var modifierText = modifier.Key == KeyCode.None ? "Modifer" : modifier.ToString();
@@ -551,6 +553,9 @@ namespace ToyBox {
                     if (Main.Settings.toggleAddMultiplierEnemyMods) {
                         using (VerticalScope()) {
                             foreach (StatType stat in Enum.GetValues(typeof(StatType))) {
+                                if (Difficulty.BadStats.Contains(stat)) {
+                                    continue;
+                                }
                                 Slider(Enum.GetName(typeof(StatType), stat), () => Settings.multiplierEnemyMods[stat], newStat => Settings.multiplierEnemyMods[stat] = newStat, -100, 100, 1, 2);
                             }
                         }
@@ -564,6 +569,9 @@ namespace ToyBox {
                     if (Main.Settings.toggleAddFlatEnemyMods) {
                         using (VerticalScope()) {
                             foreach (StatType stat in Enum.GetValues(typeof(StatType))) {
+                                if (Difficulty.BadStats.Contains(stat)) {
+                                    continue;
+                                }
                                 Slider(Enum.GetName(typeof(StatType), stat), () => Settings.flatEnemyMods[stat], newStat => Settings.flatEnemyMods[stat] = newStat, -100, 100, 0, 0);
                             }
                         }
