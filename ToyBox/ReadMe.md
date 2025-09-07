@@ -44,7 +44,7 @@ Here is a summarized list of features. This list only includes a part of the fea
   skip quests you don't want to do. Be warned this may break your game progression if used carelessly.
 
 
-### Toybox Rogue - Ver 1.7.21 (built for 1.4.1.217)
+### Toybox Rogue - Ver 1.7.21 (built for 1.4.1.231)
 * (***ADDB***) Change how Enemy Sliders were implemented: They should now take affect *after* existing modifiers are applied, meaning a x2 for hp should double hp. Thanks @Meagermantis1 for helping with testing.
 * (***ADDB***) Remove some unnecessary stats from enemy difficulty sliders
 * (***ADDB***) Fix Experience multiplier for some mobs and skill checks.
