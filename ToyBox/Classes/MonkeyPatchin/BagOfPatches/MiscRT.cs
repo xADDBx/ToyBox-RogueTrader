@@ -171,7 +171,39 @@ namespace ToyBox.BagOfPatches {
             [HarmonyPrefix]
             public static bool EndTurnBind() => !Settings.disableEndTurnHotkey;
         }
-        /*
+        /* The following is a new implementation of AutoEquipConsumables which didn't really work out 
+         * (according to someone who later disappeared so I can't verify) so the old implementation stay even if it has issues
+        [HarmonyPatch(typeof(ItemSlot), nameof(ItemSlot.RemoveItem), [typeof(bool), typeof(bool), typeof(bool)])]
+        private static class ItemSlot_RemoveItem_Patch {
+            [HarmonyPrefix]
+            private static void Prefix(ItemSlot __instance, out object __state) {
+                if (Settings.togglAutoEquipConsumables && Game.Instance.CurrentMode == GameModeType.Default) {
+                    if (__instance.Item?.Collection == null && __instance.Item.IsSpendCharges && __instance.Item.Charges < 1 && __instance.Item.RemoveFromSlotWhenNoCharges) {
+                        if (__instance.Owner.IsPartyOrPet() && __instance is UsableSlot) {
+                            __state = __instance.MaybeItem?.Blueprint;
+                            return;
+                        }
+                    }
+                }
+                __state = null;
+            }
+
+            private static void Postfix(ItemSlot __instance, object __state) {
+                if (__state != null) {
+                    var replacement = Game.Instance.Player.Inventory.Items.FirstOrDefault(i => i.Blueprint == (__state as BlueprintItem) && i.HoldingSlot is not UsableSlot);
+                    if (replacement != null) {
+                        replacement = Game.Instance.Player.Inventory.Remove(replacement, 1);
+                        __instance.MaybeOwnerInventory.Collection.Insert(replacement);
+                        if (replacement.HoldingSlot != null) {
+                            __instance.SwitchSlots(replacement.HoldingSlot);
+                        } else {
+                            __instance.InsertItem(replacement);
+                        }
+                    }
+                }
+            }
+        }
+        */
         [HarmonyPatch(typeof(Kingmaker.Items.Slots.ItemSlot), nameof(Kingmaker.Items.Slots.ItemSlot.RemoveItem), new Type[] { typeof(bool), typeof(bool), typeof(bool) })]
         private static class ItemSlot_RemoveItem_Patch {
             private static void Prefix(Kingmaker.Items.Slots.ItemSlot __instance, ref ItemEntity __state) {
@@ -210,7 +242,7 @@ namespace ToyBox.BagOfPatches {
                 }
             }
         }
-        */
+
 
         [HarmonyPatch(typeof(InventorySlotView), nameof(InventorySlotPCView.OnClick))]
         public static class InventorySlotView_OnClick_Patch {

@@ -44,6 +44,9 @@ Here is a summarized list of features. This list only includes a part of the fea
   skip quests you don't want to do. Be warned this may break your game progression if used carelessly.
 
   
+### Toybox Rogue - Ver 1.7.23 (built for 1.4.1.231)
+* (***ADDB***) Readd old Refill consumable feature since people complained about it being removed. I had new implementation; but the person who helped test it said there's an issue with it and then disappeared.
+
 ### Toybox Rogue - Ver 1.7.22 (built for 1.4.1.231)
 * (***ADDB***) Prevent early cctor calls because of static Player fields by turning those into property getters
 
