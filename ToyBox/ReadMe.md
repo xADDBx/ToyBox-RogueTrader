@@ -43,6 +43,9 @@ Here is a summarized list of features. This list only includes a part of the fea
 - **Quest Resolution**: this allows you to view your active quests and advance them as needed to work around bugs or
   skip quests you don't want to do. Be warned this may break your game progression if used carelessly.
 
+### Toybox Rogue - Ver 1.7.24 (built for 1.5.0.261)
+* (***Ethyleye***) Updated Chinese localization
+* (***ADDB***) Fix oversized guid tooltip on items
   
 ### Toybox Rogue - Ver 1.7.23 (built for 1.5.0.261)
 * (***ADDB***) 1.5 Compat:
@@ -52,7 +55,6 @@ Here is a summarized list of features. This list only includes a part of the fea
   * Fix sudden line wrapping issues caused by engine update
   * Kinda fix color issues caused by engine update
 * (***ADDB***) Readd old Refill consumable feature since people complained about it being removed. I had new implementation; but the person who helped test it said there's an issue with it and then disappeared.
-* (***Ethyleye***) Updated Chinese localization
 
 ### Toybox Rogue - Ver 1.7.22 (built for 1.4.1.231)
 * (***ADDB***) Prevent early cctor calls because of static Player fields by turning those into property getters

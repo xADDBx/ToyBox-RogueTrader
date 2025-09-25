@@ -17,7 +17,7 @@ using Kingmaker.Code.UI.MVVM.VM.ActionBar;
 
 namespace ToyBox.classes.MonkeyPatchin.BagOfPatches {
     public static class GUIDTooltipStyes {
-        public static string GUIDTooltipStyle(this string guid) => RichText.SizePercent($"<color=grey>guid: {guid}</color>", 85);
+        public static string GUIDTooltipStyle(this string guid) => RichText.SizePercent($"<color=grey>guid: {guid}</color>", 5);
     }
 
     [HarmonyPatch]
