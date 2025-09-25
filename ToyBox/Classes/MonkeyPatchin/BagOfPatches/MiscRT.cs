@@ -54,6 +54,7 @@ using UniRx;
 //using ToyBox.Multiclass;
 //using Kingmaker.UI._ConsoleUI.GroupChanger;
 using UnityEngine;
+using UnityModManagerNet;
 
 namespace ToyBox.BagOfPatches {
     internal static partial class Misc {
@@ -67,6 +68,47 @@ namespace ToyBox.BagOfPatches {
             _minorPerilsFiltered = null;
             _majorPerilsFiltered = null;
 
+        }
+        [HarmonyPatch(typeof(UnityModManager.UI), nameof(UnityModManager.UI.DrawTab))]
+        private static class IMGUIColorFix {
+            private static Color cache;
+            private static Color cache2;
+            private static Color cache3;
+            private static Color cache4;
+            private static Color cache5;
+            private static Color cache6;
+            private static Color cache7;
+            [HarmonyPrefix]
+            private static void OnGUIPre() {
+                cache = GUI.skin.label.normal.textColor;
+                cache2 = GUI.skin.toggle.normal.textColor;
+                cache3 = GUI.skin.box.normal.textColor;
+                cache4 = GUI.skin.button.normal.textColor;
+                cache5 = GUI.skin.verticalSlider.normal.textColor;
+                cache6 = GUI.skin.textArea.normal.textColor;
+                cache7 = GUI.skin.textField.normal.textColor;
+                if (QualitySettings.activeColorSpace == ColorSpace.Linear) {
+                    GUI.skin.label.normal.textColor = cache.gamma;
+                    GUI.skin.toggle.normal.textColor = cache2.gamma;
+                    GUI.skin.box.normal.textColor = cache3.gamma;
+                    GUI.skin.button.normal.textColor = cache4.gamma;
+                    GUI.skin.verticalSlider.normal.textColor = cache5.gamma;
+                    GUI.skin.textArea.normal.textColor = cache6.gamma;
+                    GUI.skin.textField.normal.textColor = cache7.gamma;
+                }
+            }
+            [HarmonyPostfix]
+            private static void OnGUIPost() {
+                if (QualitySettings.activeColorSpace == ColorSpace.Linear) {
+                    GUI.skin.label.normal.textColor = cache;
+                    GUI.skin.toggle.normal.textColor = cache2;
+                    GUI.skin.box.normal.textColor = cache3;
+                    GUI.skin.button.normal.textColor = cache4;
+                    GUI.skin.verticalSlider.normal.textColor = cache5;
+                    GUI.skin.textArea.normal.textColor = cache6;
+                    GUI.skin.textField.normal.textColor = cache7;
+                }
+            }
         }
         [HarmonyPatch(typeof(RuleCalculatePsychicPhenomenaEffect))]
         public static class RuleCalculatePsychicPhenomenaEffect_Patch {

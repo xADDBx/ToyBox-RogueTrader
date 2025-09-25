@@ -44,7 +44,13 @@ Here is a summarized list of features. This list only includes a part of the fea
   skip quests you don't want to do. Be warned this may break your game progression if used carelessly.
 
   
-### Toybox Rogue - Ver 1.7.23 (built for 1.4.1.231)
+### Toybox Rogue - Ver 1.7.23 (built for 1.5.0.261)
+* (***ADDB***) 1.5 Compat:
+  * A new way to calculate Skillcheck Experience was added; that's now covered under the existing multipliers again
+  * Remove "Make DLC1 theme play again in main menu" as there is a base game setting by now
+  * Fix TB AssetLoader (UnityEngine.ImageConversionModule targetting netstandard2.1 and using System.ReadOnlySpan`1 thereby causing a compile error)
+  * Fix sudden line wrapping issues caused by engine update
+  * Kinda fix color issues caused by engine update
 * (***ADDB***) Readd old Refill consumable feature since people complained about it being removed. I had new implementation; but the person who helped test it said there's an issue with it and then disappeared.
 
 ### Toybox Rogue - Ver 1.7.22 (built for 1.4.1.231)

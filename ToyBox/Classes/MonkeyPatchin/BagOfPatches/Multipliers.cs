@@ -47,6 +47,17 @@ namespace ToyBox.BagOfPatches {
                     __result = Mathf.RoundToInt(__result * mult);
                 }
             }
+            [HarmonyPatch(nameof(ExperienceHelper.GetCheckExpByDifficulty))]
+            [HarmonyPostfix]
+            public static void GetCheckExpByDifficulty(ref int __result) {
+                float mult = settings.experienceMultiplier;
+                if (settings.useSkillChecksExpSlider) {
+                    mult = settings.experienceMultiplierSkillChecks;
+                }
+                if (mult != 1) {
+                    __result = Mathf.RoundToInt(__result * mult);
+                }
+            }
             [HarmonyPatch(nameof(ExperienceHelper.GetMobExp))]
             [HarmonyPostfix]
             public static void GetMobExp(ref int __result) {

@@ -337,26 +337,6 @@ namespace ToyBox.BagOfPatches {
             private static void Tick() => UnitEntityDataCanRollPerceptionExtension.TriggerReroll = false;
         }
         [HarmonyPatch]
-        public static class MusicStateHandler_Patch {
-            [HarmonyPatch(typeof(MusicStateHandler), nameof(MusicStateHandler.SetMusicState)), HarmonyTranspiler]
-            public static IEnumerable<CodeInstruction> SetMusicState(IEnumerable<CodeInstruction> instructions) {
-                foreach (var inst in instructions) {
-                    if (inst.operand is MethodInfo mi && mi.Name.Contains("Reverse")) {
-                        yield return CodeInstruction.Call((IEnumerable<BlueprintDlc> source) => MaybeReverse(source)).WithLabels(inst.ExtractLabels());
-                    } else {
-                        yield return inst;
-                    }
-                }
-            }
-            public static IEnumerable<BlueprintDlc> MaybeReverse(IEnumerable<BlueprintDlc> source) {
-                if (Settings.toggleDLC1Theme) {
-                    return source;
-                } else {
-                    return source.Reverse();
-                }
-            }
-        }
-        [HarmonyPatch]
         public static class SkipSplashScreen_Patch {
             [HarmonyPrepare]
             public static bool Prepare() => Settings.toggleSkipSplashScreen;
@@ -368,12 +348,21 @@ namespace ToyBox.BagOfPatches {
             [HarmonyTranspiler]
             public static IEnumerable<CodeInstruction> Start(IEnumerable<CodeInstruction> instructions) {
                 foreach (var inst in instructions) {
-                    if (inst.Calls(AccessTools.Method(typeof(GameStarter), nameof(GameStarter.IsArbiterMode))) || inst.Calls(AccessTools.Method(typeof(GameStarter), nameof(GameStarter.IsSkippingMainMenu)))) {
+                    if (inst.Calls(AccessTools.Method(typeof(GameStarter), nameof(GameStarter.IsSkippingMainMenu)))) {
                         yield return new CodeInstruction(OpCodes.Ldc_I4_1).WithLabels(inst.labels);
+                    } else if (inst.LoadsConstant("Logo Show Requested")) {
+                        yield return new(OpCodes.Ldarg_0);
+                        yield return CodeInstruction.Call((string _, MainMenuLoadingScreen screen) => Helper(_, screen));
+                        yield return new(OpCodes.Ret);
+                        break;
                     } else {
                         yield return inst;
                     }
                 }
+            }
+            private static void Helper(string _, MainMenuLoadingScreen screen) {
+                screen.gameObject.SetActive(false);
+                GameStarter.Instance.StartGame();
             }
         }
     }

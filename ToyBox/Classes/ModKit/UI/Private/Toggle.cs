@@ -94,7 +94,7 @@ namespace ModKit.Private {
             var padding = new RectOffset(0, (int)stateSize.x + 5, 0, 0);
             lStyle.padding = padding;
             var rect = GUILayoutUtility.GetRect(label, lStyle, options);
-            return Toggle(rect, label, value, isEmpty, on, off, stateStyle, labelStyle);
+            return Toggle(rect, label, value, isEmpty, on, off, stateStyle, lStyle);
         }
         public static bool Toggle(string? label, bool value, string? on, string? off, GUIStyle stateStyle, GUIStyle labelStyle, params GUILayoutOption[] options) => Toggle(LabelContent(label), value, new GUIContent(on), new GUIContent(off), stateStyle, labelStyle, false, options);
         // Disclosure Toggles

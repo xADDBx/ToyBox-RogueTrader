@@ -306,13 +306,6 @@ namespace ToyBox {
                        Toggle("Skip Splash Screen".localize(), ref Settings.toggleSkipSplashScreen, 500.width());
                        Label("This skips the splash screen that appears when the game starts. Helpful if you need to frequently restart the game".localize().Green());
                    },
-                   () => {
-                       if (Toggle("Make DLC1 theme play again in main menu".localize(), ref Settings.toggleDLC1Theme, 500.width())) {
-                           if (SoundState.Instance.State == SoundStateType.MainMenu) {
-                               SoundState.Instance.MusicStateHandler.SetMusicState(MusicStateHandler.MusicState.MainMenu);
-                           }
-                       }
-                   },
                    () => Toggle("Object Highlight Toggle Mode (Out of Combat!)".localize(), ref Settings.highlightObjectsToggle),
                    () => {
                        Toggle("Mark Interesting NPCs".localize(), ref Settings.toggleShowInterestingNPCsOnLocalMap, 500.width());
