@@ -52,6 +52,7 @@ Here is a summarized list of features. This list only includes a part of the fea
   * Fix sudden line wrapping issues caused by engine update
   * Kinda fix color issues caused by engine update
 * (***ADDB***) Readd old Refill consumable feature since people complained about it being removed. I had new implementation; but the person who helped test it said there's an issue with it and then disappeared.
+* (***Ethyleye***) Updated Chinese localization
 
 ### Toybox Rogue - Ver 1.7.22 (built for 1.4.1.231)
 * (***ADDB***) Prevent early cctor calls because of static Player fields by turning those into property getters
