@@ -43,6 +43,12 @@ Here is a summarized list of features. This list only includes a part of the fea
 - **Quest Resolution**: this allows you to view your active quests and advance them as needed to work around bugs or
   skip quests you don't want to do. Be warned this may break your game progression if used carelessly.
 
+  
+### Toybox Rogue - Ver 1.7.25 (built for 1.5.0.261)
+* (***ADDB***) Re-implement size change features under Party => Stats:
+  * View multiplier and size override can now both be applied at the same time (previously any size override would render view multiplier useless).
+  * Polymorphs (pretty much exclusively tied to cutscenes in this game) should no longer break/reset the size.
+
 ### Toybox Rogue - Ver 1.7.24 (built for 1.5.0.261)
 * (***Ethyleye***) Updated Chinese localization
 * (***ADDB***) Fix oversized guid tooltip on items

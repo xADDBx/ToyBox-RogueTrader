@@ -26,6 +26,7 @@ using Kingmaker.Enums.Damage;
 using Kingmaker.GameCommands;
 using Kingmaker.GameModes;
 using Kingmaker.Items;
+using Kingmaker.Mechanics.Entities;
 using Kingmaker.Modding;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
@@ -353,19 +354,27 @@ namespace ToyBox.BagOfPatches {
             }
         }
 #endif
-        [HarmonyPatch(typeof(Polymorph), nameof(Polymorph.TryReplaceView))]
-        private static class Polymorph_TryReplaceView_Patch {
-            private static void Postfix(Polymorph __instance) {
-                float scale = PartyEditor.lastScaleSize.GetValueOrDefault(__instance.Owner.HashKey(), 1);
-                __instance.Owner.View.transform.localScale = new Vector3(scale, scale, scale);
-            }
-        }
 
-        [HarmonyPatch(typeof(Polymorph), nameof(Polymorph.RestoreView))]
-        private static class Polymorph_RestoreView_Patch {
-            private static void Postfix(Polymorph __instance) {
-                float scale = PartyEditor.lastScaleSize.GetValueOrDefault(__instance.Owner.HashKey(), 1);
-                __instance.Owner.View.transform.localScale = new Vector3(scale, scale, scale);
+        [HarmonyPatch(typeof(UnitEntityView), nameof(UnitEntityView.GetSizeScale))]
+        private static class UnitViewSizeMultiplaier_Patch {
+            [HarmonyPrefix]
+            private static void Calc(UnitEntityView __instance) {
+                if (__instance.EntityData == null) {
+                    return;
+                }
+                if (Main.Settings.perSave.characterSizeModifier.TryGetValue(__instance.EntityData.HashKey(), out var size)) {
+                    __instance.EntityData.Descriptor().State.m_Size = size;
+                }
+            }
+            [HarmonyPostfix]
+            private static void Calc(ref float __result, UnitEntityView __instance) {
+                if (__instance.EntityData == null) {
+                    return;
+                }
+                if (Main.Settings.perSave.characterModelSizeMultiplier.TryGetValue(__instance.EntityData.HashKey(), out var scale)) {
+                    // __instance.gameObject.transform.localScale = new Vector3(scale, scale, scale);
+                    __result *= scale;
+                }
             }
         }
 
@@ -375,20 +384,8 @@ namespace ToyBox.BagOfPatches {
                 Mod.Debug("Player_OnAreaLoaded_Patch");
                 Settings.ClearCachedPerSave();
                 // if (Settings.experimentalLoadRecruitedCharactersFix) Game.Instance.Player.FixPartyAfterChange();
-                PartyEditor.lastScaleSize = new();
                 PartyEditor.statEditorStorage.Clear();
                 PartyEditor.skeletonReplacers.Clear();
-
-                foreach (var ID in Main.Settings.perSave.characterModelSizeMultiplier.Keys) {
-
-                    foreach (BaseUnitEntity cha in Game.Instance.State.AllUnits.Where((u) => u.HashKey().Equals(ID))) {
-
-                        float scale = Main.Settings.perSave.characterModelSizeMultiplier.GetValueOrDefault(ID, 1);
-
-                        cha.View.gameObject.transform.localScale = new Vector3(scale, scale, scale);
-                        PartyEditor.lastScaleSize[cha.HashKey()] = scale;
-                    }
-                }
 
                 foreach (var ID in Main.Settings.perSave.characterSkeletonReplacers.Keys) {
 
@@ -396,19 +393,6 @@ namespace ToyBox.BagOfPatches {
 
                         PartyEditor.skeletonReplacers[cha.HashKey()] = new SkeletonReplacer(cha);
                         PartyEditor.skeletonReplacers[cha.HashKey()].ApplyBonesModification(cha);
-                    }
-                }
-
-                foreach (var ID in Main.Settings.perSave.characterSizeModifier.Keys) {
-
-                    foreach (BaseUnitEntity cha in Game.Instance.State.AllUnits.Where((u) => u.HashKey().Equals(ID))) {
-
-                        Kingmaker.Enums.Size size;
-
-                        if (Main.Settings.perSave.characterSizeModifier.TryGetValue(ID, out size)) {
-
-                            cha.Descriptor().State.Size = size;
-                        }
                     }
                 }
                 //MultipleClasses.SyncAllGestaltState();
