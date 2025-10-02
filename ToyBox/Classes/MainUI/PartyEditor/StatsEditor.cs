@@ -8,6 +8,7 @@ using Kingmaker.Enums;
 using Kingmaker.PubSubSystem;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Alignments;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.Visual.CharacterSystem;
 using Kingmaker.Visual.Sound;
 using ModKit;
@@ -33,7 +34,6 @@ namespace ToyBox {
         public static IAlignmentShiftProvider ToyboxAlignmentProvider => new ToyBoxAlignmentProvider();
 
         public static Dictionary<string, SkeletonReplacer> skeletonReplacers = new();
-        public static Dictionary<string, float> lastScaleSize = new();
         private static readonly Dictionary<string, PortraitData> _portraitsByID = new();
         private static bool _portraitsLoaded = false;
         private static Browser<string, string> portraitBrowser;
@@ -530,14 +530,15 @@ namespace ToyBox {
                                    // if == 0 then "None" is selected
                                    if (tmp > 0) {
                                        var newSize = (Size)(tmp - 1);
-                                       ch.Descriptor().State.Size = newSize;
                                        Main.Settings.perSave.characterSizeModifier[ch.HashKey()] = newSize;
                                        Settings.SavePerSaveSettings();
+                                       ch.Descriptor().State.Size = newSize;
                                    } else {
                                        Main.Settings.perSave.characterSizeModifier.Remove(ch.HashKey());
                                        Settings.SavePerSaveSettings();
                                        ch.Descriptor().State.Size = ch.Descriptor().OriginalSize;
                                    }
+                                   ch.ViewTransform.localScale = ch.View.m_OriginalScale * (ch.View.m_Scale = ch.View.GetSizeScale());
                                },
                                 Width(420));
                         }
@@ -547,15 +548,13 @@ namespace ToyBox {
                 using (HorizontalScope()) {
                     Space(100);
                     if (ch.View?.gameObject?.transform?.localScale[0] is float scaleMultiplier) {
-                        var lastScale = lastScaleSize.GetValueOrDefault(ch.HashKey(), 1);
-                        if (lastScale != scaleMultiplier) {
-                            ch.View.gameObject.transform.localScale = new Vector3(lastScale, lastScale, lastScale);
-                        }
+                        var lastScale = Main.Settings.perSave.characterModelSizeMultiplier.GetValueOrDefault(ch.HashKey(), 1);
                         if (LogSliderCustomLabelWidth("Visual Character Size Multiplier".localize().Color(RGBA.none), ref lastScale, 0.01f, 40f, 1, 2, "", 300, AutoWidth())) {
                             Main.Settings.perSave.characterModelSizeMultiplier[ch.HashKey()] = lastScale;
-                            ch.View.gameObject.transform.localScale = new Vector3(lastScale, lastScale, lastScale);
-                            lastScaleSize[ch.HashKey()] = lastScale;
                             Settings.SavePerSaveSettings();
+
+                            ch.Descriptor().State.Size = ch.Descriptor().Size;
+                            ch.ViewTransform.localScale = ch.View.m_OriginalScale * (ch.View.m_Scale = ch.View.GetSizeScale());
                         }
                     }
                 }
