@@ -6,7 +6,7 @@
 		<Description>ToyBox</Description>
 		<AppDesignerFolder>Properties</AppDesignerFolder>
 		<OutputType>Library</OutputType>
-		<Version>1.7.25</Version>
+		<Version>1.7.26</Version>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<LangVersion>latest</LangVersion>
         <Nullable>annotations</Nullable>
@@ -19,6 +19,7 @@
     <ItemGroup>
         <Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\netstandard*.dll" Private="false" />
         <Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\Unity*.dll" Private="false" />
+        <Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\UnityEngine.IMGUIModule.dll*" Publicize="true" Private="false" />
         <Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\Kingmaker*.dll" Private="false" />
         <Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\Utility*.dll" Private="false" />
         <Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\Core*.dll" Private="false" />

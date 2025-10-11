@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityModManagerNet;
 
 namespace ModKit.Private {
     public static partial class UI {
@@ -91,8 +92,10 @@ namespace ModKit.Private {
             };
             var stateSize = sStyle.CalcSize(state);
             lStyle.fixedHeight = stateSize.y - 2;
-            var padding = new RectOffset(0, (int)stateSize.x + 5, 0, 0);
+            // The top padding is totally not a hack that looks good enough on most ui scales.
+            var padding = new RectOffset(0, (int)stateSize.x + 5, stateStyle.padding.top + Mathf.RoundToInt(2 * UnityModManager.UI.Instance.mUIScale), 0);
             lStyle.padding = padding;
+            lStyle.alignment = TextAnchor.MiddleCenter;
             var rect = GUILayoutUtility.GetRect(label, lStyle, options);
             return Toggle(rect, label, value, isEmpty, on, off, stateStyle, lStyle);
         }

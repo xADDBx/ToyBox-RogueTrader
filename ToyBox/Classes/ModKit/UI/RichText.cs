@@ -1,6 +1,8 @@
 ﻿using System.Text;
 using System;
 using UnityEngine;
+using System.Threading;
+using ToyBox;
 
 namespace ModKit {
     // https://docs.unity3d.com/Manual/StyledText.html
@@ -72,19 +74,22 @@ namespace ModKit {
         }
         public static string Size(this string s, int size) => $"<size={size}>{s}</size>";
         public static string Bold(this string s) => $"<b>{s}</b>";
-        public static string CorrectColorHex(string hex) {
-            if (!ColorUtility.TryParseHtmlString(hex, out var color)) {
-                return hex;
-            }
-            if (QualitySettings.activeColorSpace == ColorSpace.Linear) {
+        public static string CorrectColorHex(Color color) {
+            if (Event.current != null && Main.IsOnUnityThread && QualitySettings.activeColorSpace == ColorSpace.Linear) {
                 color = color.gamma;
             }
             return "#" + ColorUtility.ToHtmlStringRGBA(color);
         }
+        public static string CorrectColorHex(string hex) {
+            if (Event.current == null || !Main.IsOnUnityThread || !ColorUtility.TryParseHtmlString(hex, out var color)) {
+                return hex;
+            }
+            return CorrectColorHex(color);
+        }
         public static string Color(this string s, string color) => $"<color={CorrectColorHex(color)}>{s}</color>";
         //public static string Color(this string str, RGBA color) => $"<color=#{color:X}>{str}</color>";
         public static string Color(this string str, RGBA color) => str.Color(color.Color());
-        public static string Color(this string str, Color color) => $"<color=#{CorrectColorHex(ColorUtility.ToHtmlStringRGBA(color))}>{str}</color>";
+        public static string Color(this string str, Color color) => $"<color=#{CorrectColorHex(color)}>{str}</color>";
         public static string White(this string s) => s.Color("#ededed");
         public static string Grey(this string s) => s.Color("#A0A0A0FF");
         public static string DarkGrey(this string s) => s.Color("#505050FF");

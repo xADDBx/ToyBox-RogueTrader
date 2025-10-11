@@ -31,12 +31,15 @@ using UnityModManagerNet;
 using ToyBox.PatchTool;
 using LocalizationManager = ModKit.LocalizationManager;
 using Kingmaker.UI.Models.Log.GameLogCntxt;
+using System.Threading;
 
 namespace ToyBox {
 #if DEBUG
     [EnableReloading]
 #endif
     internal static class Main {
+        private static Thread UnityThread;
+        public static bool IsOnUnityThread => Thread.CurrentThread == UnityThread;
         internal const string LinkToIncompatibilitiesFile = "https://raw.githubusercontent.com/xADDBx/ToyBox-RogueTrader/main/ToyBox/ModDetails/Incompatibilities.json";
         internal static Harmony HarmonyInstance;
         internal static UnityModManager.ModEntry ModEntry;
@@ -207,6 +210,7 @@ namespace ToyBox {
         private static bool IsFirstOnGUI = true;
         private static void OnGUI(UnityModManager.ModEntry modEntry) {
             if (IsFirstOnGUI) {
+                UnityThread = Thread.CurrentThread;
                 IsFirstOnGUI = false;
                 Glyphs.CheckGlyphSupport();
             }

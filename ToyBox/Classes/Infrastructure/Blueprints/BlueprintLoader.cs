@@ -43,7 +43,7 @@ namespace ToyBox {
             "b60252a8ae028ba498340199f48ead67", "fb379e61500421143b52c739823b4082", "5d2b9742ce82457a9ae7209dce770071" };
         private void Load(LoadBlueprintsCallback callback, ISet<string> toLoad = null) {
             lock (loader) {
-                if (IsLoading || (!CanStart && Game.Instance.Player == null) || blueprints != null) return;
+                if (IsLoading || (!CanStart && ResourcesLibrary.BlueprintsCache.m_PackFile == null) || blueprints != null) return;
                 loader.Init(callback, toLoad);
             }
         }
