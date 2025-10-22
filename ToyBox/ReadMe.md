@@ -43,10 +43,11 @@ Here is a summarized list of features. This list only includes a part of the fea
 - **Quest Resolution**: this allows you to view your active quests and advance them as needed to work around bugs or
   skip quests you don't want to do. Be warned this may break your game progression if used carelessly.
   
-### Toybox Rogue - Ver 1.7.26 (built for 1.5.0.261)
+### Toybox Rogue - Ver 1.7.27 (built for 1.5.0.293)
 * (***ADDB***) 1.5 Compat:
   * The color fixup in 1.7.23 caused various issues in threads; those should be fixed (notably by Search 'n Pick working again)
   * Fixed DisclosureToggle vertical text offset
+  * Fixed Party UI spacing issue on different ui scale
 * (***ADDB***) Prevent BPLoader from running too early if GUI is opened directly
 
 ### Toybox Rogue - Ver 1.7.25 (built for 1.5.0.261)

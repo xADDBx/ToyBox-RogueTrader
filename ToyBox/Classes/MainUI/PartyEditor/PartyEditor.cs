@@ -223,11 +223,11 @@ namespace ToyBox {
                         if (showBuffs) { selectedCharacter = ch; selectedToggle = ToggleChoice.Buffs; } else { selectedToggle = ToggleChoice.None; }
                     }
                     var showAbilities = ch == selectedCharacter && selectedToggle == ToggleChoice.Abilities;
-                    if (DisclosureToggle("Abilities".localize(), ref showAbilities, 90)) {
+                    if (DisclosureToggle("Abilities".localize(), ref showAbilities, 80 * UnityModManagerNet.UnityModManager.UI.Instance.mUIScale)) {
                         if (showAbilities) { selectedCharacter = ch; selectedToggle = ToggleChoice.Abilities; } else { selectedToggle = ToggleChoice.None; }
                     }
                     var showDendrites = ch == selectedCharacter && selectedToggle == ToggleChoice.Mechadendrites;
-                    if (DisclosureToggle("Mechadendrites".localize(), ref showDendrites, 125)) {
+                    if (DisclosureToggle("Mechadendrites".localize(), ref showDendrites, 125 * UnityModManagerNet.UnityModManager.UI.Instance.mUIScale)) {
                         if (showDendrites) { selectedCharacter = ch; selectedToggle = ToggleChoice.Mechadendrites; m_MechadendriteBrowser = new(true, true); } else { selectedToggle = ToggleChoice.None; }
                     }
                     ReflectionTreeView.DetailToggle("Inspect".localize(), ch, ch, 75);
