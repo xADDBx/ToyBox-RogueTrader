@@ -131,42 +131,47 @@ namespace ToyBox {
             Task.Run(Run);
         }
         public void Run() {
-            var watch = Stopwatch.StartNew();
-            var bpCache = ResourcesLibrary.BlueprintsCache;
-            IEnumerable<string> allEntries;
-            var toc = bpCache.m_LoadedBlueprints;
-            if (toLoad == null) {
-                allEntries = toc.OrderBy(e => e.Value.Offset).Select(e => e.Key);
-            } else {
-                allEntries = toc.Where(item => toLoad.Contains(item.Key)).OrderBy(e => e.Value.Offset).Select(e => e.Key);
-            }
-            total = allEntries.Count();
-            Mod.Log($"Loading {total} Blueprints");
-            _blueprints = new(total);
-            _blueprints.AddRange(Enumerable.Repeat<SimpleBlueprint>(null, total));
-            var memStream = new MemoryStream();
-            lock (bpCache.m_Lock) {
-                bpCache.m_PackFile.Position = 0;
-                bpCache.m_PackFile.CopyTo(memStream);
-            }
-            var chunks = allEntries.Select((entry, index) => (entry, index)).Chunk(Main.Settings.BlueprintsLoaderChunkSize);
-            _chunkQueue = new(chunks);
-            var bytes = memStream.GetBuffer();
-            for (int i = 0; i < Main.Settings.BlueprintsLoaderNumThreads; i++) {
-                var t = Task.Run(() => HandleChunks(bytes));
-                _workerTasks.Add(t);
-            }
-            Task.Run(Progressor);
-            foreach (var task in _workerTasks) {
-                task.Wait();
-            }
-            _blueprints.RemoveAll(b => b is null);
-            watch.Stop();
-            Mod.Log($"Threaded loaded roughly {_blueprints.Count + bpsToAdd.Count + BlueprintLoaderPatches.BlueprintsCache_Patches.IsLoading.Value.Count} blueprints in {watch.ElapsedMilliseconds} milliseconds");
-            toLoad = null;
-            lock (loader) {
-                _callback(_blueprints);
-                IsRunning = false;
+            try {
+                var watch = Stopwatch.StartNew();
+                var bpCache = ResourcesLibrary.BlueprintsCache;
+                IEnumerable<string> allEntries;
+                var toc = bpCache.m_LoadedBlueprints;
+                if (toLoad == null) {
+                    allEntries = toc.OrderBy(e => e.Value.Offset).Select(e => e.Key);
+                } else {
+                    allEntries = toc.Where(item => toLoad.Contains(item.Key)).OrderBy(e => e.Value.Offset).Select(e => e.Key);
+                }
+                total = allEntries.Count();
+                Mod.Log($"Loading {total} Blueprints");
+                _blueprints = new(total);
+                _blueprints.AddRange(Enumerable.Repeat<SimpleBlueprint>(null, total));
+                var memStream = new MemoryStream();
+                lock (bpCache.m_Lock) {
+                    bpCache.m_PackFile.Position = 0;
+                    bpCache.m_PackFile.CopyTo(memStream);
+                }
+                var chunks = allEntries.Select((entry, index) => (entry, index)).Chunk(Main.Settings.BlueprintsLoaderChunkSize);
+                _chunkQueue = new(chunks);
+                var bytes = memStream.GetBuffer();
+                for (int i = 0; i < Main.Settings.BlueprintsLoaderNumThreads; i++) {
+                    var t = Task.Run(() => HandleChunks(bytes));
+                    _workerTasks.Add(t);
+                }
+                Task.Run(Progressor);
+                foreach (var task in _workerTasks) {
+                    task.Wait();
+                }
+                _blueprints.RemoveAll(b => b is null);
+                watch.Stop();
+                Mod.Log($"Threaded loaded roughly {_blueprints.Count + bpsToAdd.Count + BlueprintLoaderPatches.BlueprintsCache_Patches.IsLoading.Value.Count} blueprints in {watch.ElapsedMilliseconds} milliseconds");
+                toLoad = null;
+                lock (loader) {
+                    _callback(_blueprints);
+                    IsRunning = false;
+                }
+            } catch (Exception ex) {
+                Mod.Log($"$[Critical] BP Loader method threw! {ex}");
+                throw;
             }
         }
         public void HandleChunks(byte[] bytes) {
