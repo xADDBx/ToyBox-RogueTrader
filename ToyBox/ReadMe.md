@@ -44,7 +44,7 @@ Here is a summarized list of features. This list only includes a part of the fea
   skip quests you don't want to do. Be warned this may break your game progression if used carelessly.
   
 ### Toybox Rogue - Ver 1.7.28 (built for 1.5.0.293)
-* (***ADDB***) Fix somewhat serious conflict when MicroPatches, ToyBox and other Owlmods that had BlueprintPatches where instaleld. Details:
+* (***ADDB***) Fix somewhat serious conflict when MicroPatches, ToyBox and other Owlmods that had BlueprintPatches were installed. Details:
   * When all three mentioned components where installed, ToyBox threaded Blueprint Loading would have errors; causing significant issues down the line
   * When BPIdCache is enabled; the first start after an update will always do a threaded blueprint load, causing ***people to be stuck at 42% or so in game startup*** for that first start (subsequent starts previously worked normally as long as nothing that loaded blueprints was used in ToyBox).
 
