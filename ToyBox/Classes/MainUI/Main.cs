@@ -5,11 +5,13 @@ using Kingmaker;
 using Kingmaker.AI.BehaviourTrees.Nodes;
 using Kingmaker.GameInfo;
 using Kingmaker.GameModes;
+using Kingmaker.Localization;
 using Kingmaker.UI.Common;
 using Kingmaker.UI.Models.Log.CombatLog_ThreadSystem;
 using Kingmaker.UI.Models.Log.CombatLog_ThreadSystem.LogThreads.Common;
 using Kingmaker.UI.Models.Log.CombatLog_ThreadSystem.LogThreads.LifeEvents;
 using Kingmaker.UI.Models.Log.Enums;
+using Kingmaker.UI.Models.Log.GameLogCntxt;
 using ModKit;
 using ModKit.DataViewer;
 using Newtonsoft.Json;
@@ -22,16 +24,15 @@ using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Security.Policy;
+using System.Threading;
 using ToyBox.classes.Infrastructure;
 using ToyBox.classes.MainUI;
 using ToyBox.classes.MonkeyPatchin;
+using ToyBox.PatchTool;
 using UniRx;
 using UnityEngine;
 using UnityModManagerNet;
-using ToyBox.PatchTool;
 using LocalizationManager = ModKit.LocalizationManager;
-using Kingmaker.UI.Models.Log.GameLogCntxt;
-using System.Threading;
 
 namespace ToyBox {
 #if DEBUG
@@ -140,6 +141,7 @@ namespace ToyBox {
                 path = modEntry.Path;
                 SettingsDefaults.InitializeDefaultDamageTypes();
                 EventBus.Subscribe(new HighlightObjectToggle());
+                _ = SharedStringAssetPool.Instance;
 
                 HarmonyInstance = new Harmony(modEntry.Info.Id);
                 HarmonyInstance.PatchAll(Assembly.GetExecutingAssembly());

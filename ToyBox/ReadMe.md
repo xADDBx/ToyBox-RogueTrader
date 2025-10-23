@@ -43,6 +43,11 @@ Here is a summarized list of features. This list only includes a part of the fea
 - **Quest Resolution**: this allows you to view your active quests and advance them as needed to work around bugs or
   skip quests you don't want to do. Be warned this may break your game progression if used carelessly.
   
+### Toybox Rogue - Ver 1.7.28 (built for 1.5.0.293)
+* (***ADDB***) Fix somewhat serious conflict when MicroPatches, ToyBox and other Owlmods that had BlueprintPatches where instaleld. Details:
+  * When all three mentioned components where installed, ToyBox threaded Blueprint Loading would have errors; causing significant issues down the line
+  * When BPIdCache is enabled; the first start after an update will always do a threaded blueprint load, causing ***people to be stuck at 42% or so in game startup*** for that first start (subsequent starts previously worked normally as long as nothing that loaded blueprints was used in ToyBox).
+
 ### Toybox Rogue - Ver 1.7.27 (built for 1.5.0.293)
 * (***ADDB***) 1.5 Compat:
   * The color fixup in 1.7.23 caused various issues in threads; those should be fixed (notably by Search 'n Pick working again)

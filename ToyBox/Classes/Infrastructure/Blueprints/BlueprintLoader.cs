@@ -5,9 +5,12 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Blueprints.JsonSystem.BinaryFormat;
 using Kingmaker.Blueprints.JsonSystem.Converters;
+using Kingmaker.Localization;
 using Kingmaker.Modding;
 using ModKit;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Owlcat.Runtime.Core.Utility;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -21,6 +24,46 @@ using System.Threading.Tasks;
 using ToyBox.classes.Infrastructure.Blueprints;
 
 namespace ToyBox {
+    public class SharedStringAssetPool : MonoSingleton<SharedStringAssetPool> {
+        public const int Size = 100;
+        private readonly ConcurrentQueue<SharedStringAsset> m_Pool = new();
+        private SemaphoreSlim m_Available;
+        private void Awake() {
+            m_Available = new SemaphoreSlim(0, int.MaxValue);
+            for (var i = 0; i < Size; i++) {
+                var inst = UnityEngine.ScriptableObject.CreateInstance<SharedStringAsset>();
+                m_Pool.Enqueue(inst);
+                m_Available.Release();
+            }
+        }
+        private void OnDestroy() {
+            while (m_Pool.TryDequeue(out var result)) {
+                Destroy(result);
+            }
+            m_Available.Dispose();
+        }
+        private void Update() {
+            var toAdd = Size - m_Pool.Count;
+            for (var i = 0; i < toAdd; i++) {
+                var inst = UnityEngine.ScriptableObject.CreateInstance<SharedStringAsset>();
+                m_Pool.Enqueue(inst);
+                m_Available.Release();
+            }
+        }
+        public SharedStringAsset Request() {
+            if (UnityEngine.Object.CurrentThreadIsMainThread()) {
+                return UnityEngine.ScriptableObject.CreateInstance<SharedStringAsset>();
+            } else {
+                m_Available.Wait();
+                if (m_Pool.TryDequeue(out var requested)) {
+                    return requested;
+                } else {
+                    Mod.Log($"[Critical] SharedStringAssetPool had no instance in pool despite signalling availability! {new StackTrace()}");
+                    throw new InvalidOperationException($"SharedStringAssetPool had no instance in pool");
+                }
+            }
+        }
+    }
     public class BlueprintLoader {
         public static string GameVersion;
         public delegate void LoadBlueprintsCallback(List<SimpleBlueprint> blueprints);
@@ -253,6 +296,20 @@ namespace ToyBox {
         }
         [HarmonyPatch]
         internal static class BlueprintLoaderPatches {
+            [HarmonyPatch(typeof(SharedStringConverter), nameof(SharedStringConverter.ReadJson)), HarmonyPrefix]
+            internal static bool SharedStringConverter_ReadJson_Patch(ref object __result, Newtonsoft.Json.JsonReader reader) {
+                if (reader.TokenType == JsonToken.Null) {
+                    __result = null;
+                    return false;
+                }
+                string text = (string)JObject.Load(reader)["stringkey"];
+                SharedStringAsset sharedStringAsset = SharedStringAssetPool.Instance.Request();
+                sharedStringAsset.String = new LocalizedString {
+                    Key = text
+                };
+                __result = sharedStringAsset;
+                return false;
+            }
             [HarmonyPatch(typeof(BlueprintsCache))]
             internal static class BlueprintsCache_Patches {
                 [HarmonyPatch(nameof(BlueprintsCache.AddCachedBlueprint)), HarmonyPostfix]
