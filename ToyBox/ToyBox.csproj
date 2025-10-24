@@ -17,17 +17,36 @@
         <RestoreAdditionalProjectSources>https://api.nuget.org/v3/index.json</RestoreAdditionalProjectSources>
     </PropertyGroup>
     <ItemGroup>
-        <Reference Include="$(WrathInstallDir)\Wrath_Data\Managed\Unity*.dll" Private="false" />
-        <Reference Include="$(WrathInstallDir)\Wrath_Data\Managed\Core*.dll" Private="false" />
-        <Reference Include="$(WrathInstallDir)\Wrath_Data\Managed\Owlcat*.dll" Publicize="true" Private="false" />
-        <Reference Include="$(WrathInstallDir)\Wrath_Data\Managed\Assembly-CSharp-firstpass.dll*" Publicize="true" Private="false" />
-        <Reference Include="$(WrathInstallDir)\Wrath_Data\Managed\Assembly-CSharp.dll*" Publicize="true" Private="false" />
-        <Reference Include="$(WrathInstallDir)\Wrath_Data\Managed\DOTween*" Private="false" />
-        <Reference Include="$(WrathInstallDir)\Wrath_Data\Managed\UniRx.dll*" Private="false" />
-        <Reference Include="$(WrathInstallDir)\Wrath_Data\Managed\Newtonsoft.Json.dll*" Private="false" />
-        <Reference Include="$(WrathInstallDir)\Wrath_Data\Managed\UnityModManager\UnityModManager.dll*" Publicize="true" Private="false" />
-        <Reference Include="$(WrathInstallDir)\Wrath_Data\Managed\0Harmony.dll*" Private="false" />
-        <Reference Include="System.IO.Compression" Private="false" />
+		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\netstandard*.dll" Private="false" />
+		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\Unity*.dll" Private="false" />
+		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\UnityEngine.IMGUIModule.dll*" Publicize="true" Private="false" />
+		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\Kingmaker*.dll" Private="false" />
+		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\Utility*.dll" Private="false" />
+		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\Core*.dll" Private="false" />
+		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\Owlcat*.dll" Publicize="true" Private="false" />
+		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\RogueTrader*.dll" Publicize="true" Private="false" />
+		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\Code*.dll" Publicize="true" Private="false" />
+		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\LocalizationShared.dll*" Publicize="true" Private="false" />
+		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\UnityEngine.CoreModule.dll*" Publicize="true" Private="false" />
+		<Reference Include="$(RogueTraderData)\UnityModManager\UnityModManager.dll*" Publicize="true" Private="false" />
+		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\0Harmony.dll*" Private="false" />
+		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\Newtonsoft.Json.dll*" Private="false" />
+		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\AK.Wwise.Unity.*" Private="false" />
+		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\AstarPathfindingProject.dll*" Private="false" />
+		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\BuildMode.dll*" Private="false" />
+		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\BundlesBaseTypes.dll*" Private="false" />
+		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\Cinemachine.dll*" Private="false" />
+		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\Assembly-CSharp-firstpass.dll*" Private="false" />
+		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\ContextData.dll*" Private="false" />
+		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\CountingGuard.dll*" Private="false" />
+		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\DOTween*" Private="false" />
+		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\StateHasher.dll*" Private="false" />
+		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\MemoryPack.dll*" Private="false" />
+		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\PFlog.dll*" Private="false" />
+		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\StatefulRandom.dll*" Private="false" />
+		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\UberLogger.dll*" Private="false" />
+		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\UniRx.dll*" Private="false" />
+		<Reference Include="System.IO.Compression" Private="false" />
     </ItemGroup>
     <ItemGroup>
         <None Include="Info.json" CopyToOutputDirectory="PreserveNewest" />
@@ -47,9 +66,9 @@
         <ItemGroup>
             <Files Include="$(TargetDir)\**\*.*" />
         </ItemGroup>
-
-        <Copy SourceFiles="@(Files)" DestinationFiles="@(Files->'$(WrathInstallDir)\Mods\$(AssemblyName)\%(RecursiveDir)%(Filename)%(Extension)')" />
-        <ZipDirectory SourceDirectory="$(MSBuildProjectDirectory)\$(OutputPath)" DestinationFile="$(MSBuildProjectDirectory)\$(OutputPath)\..\$(AssemblyName)-$(Version).zip" Overwrite="true" />
+		
+		<Copy SourceFiles="@(Files)" DestinationFiles="@(Files->'$(RogueTraderData)\UnityModManager\0$(AssemblyName)0\%(RecursiveDir)%(Filename)%(Extension)')" />
+		<ZipDirectory SourceDirectory="$(MSBuildProjectDirectory)\$(OutputPath)" DestinationFile="$(MSBuildProjectDirectory)\$(OutputPath)\..\$(AssemblyName)-$(Version).zip" Overwrite="true" />
     </Target>
     <ItemGroup>
         <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />

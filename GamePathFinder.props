@@ -1,23 +1,23 @@
 <Project xmlns='http://schemas.microsoft.com/developer/msbuild/2003' InitialTargets="GenerateCustomPropsFile">
     <Import Project="$(SolutionDir)GamePath.props" Condition="Exists('$(SolutionDir)GamePath.props')" />
     <PropertyGroup>
-        <WrathData>$(LocalAppData)Low\Owlcat Games\Pathfinder Wrath Of The Righteous</WrathData>
+        <RogueTraderData>$(LocalAppData)Low\Owlcat Games\Warhammer 40000 Rogue Trader</RogueTraderData>
     </PropertyGroup>
-    <Target Name="GenerateCustomPropsFile" BeforeTargets="BeforeBuild" Condition="$(WrathInstallDir) == ''">
-        <Exec Command="findstr /C:&quot;Mono path[0]&quot; &quot;$(WrathData)\Player.log&quot;" IgnoreExitCode="true" ConsoleToMSBuild="true">
+    <Target Name="GenerateCustomPropsFile" BeforeTargets="BeforeBuild" Condition="$(RogueTraderInstallDir) == ''">
+        <Exec Command="findstr /C:&quot;Mono path[0]&quot; &quot;$(RogueTraderData)\Player.log&quot;" IgnoreExitCode="true" ConsoleToMSBuild="true">
             <Output TaskParameter="ExitCode" PropertyName="ExitCode" />
             <Output TaskParameter="ConsoleOutput" PropertyName="MonoPathLine" />
         </Exec>
 
         <PropertyGroup>
-            <MonoPathRegex>^Mono path\[0\] = '(.*?)/Wrath_Data/Managed'$</MonoPathRegex>
+            <MonoPathRegex>^Mono path\[0\] = '(.*?)/WH40KRT_Data/Managed'$</MonoPathRegex>
         </PropertyGroup>
 
         <PropertyGroup>
-            <WrathInstallDir>$([System.Text.RegularExpressions.Regex]::Match($(MonoPathLine), $(MonoPathRegex)).Groups[1].Value)</WrathInstallDir>
+            <RogueTraderInstallDir>$([System.Text.RegularExpressions.Regex]::Match($(MonoPathLine), $(MonoPathRegex)).Groups[1].Value)</RogueTraderInstallDir>
         </PropertyGroup>
 
-        <WriteLinesToFile File="$(SolutionDir)GamePath.props" Lines="&lt;Project xmlns='http://schemas.microsoft.com/developer/msbuild/2003'&gt;&#xD;&#xA;	&lt;PropertyGroup&gt;&#xD;&#xA;		&lt;WrathInstallDir&gt;$(WrathInstallDir)&lt;/WrathInstallDir&gt;&#xD;&#xA;	&lt;/PropertyGroup&gt;&#xD;&#xA;&lt;/Project&gt;" Overwrite="true" Encoding="utf-8" />
+        <WriteLinesToFile File="$(SolutionDir)GamePath.props" Lines="&lt;Project xmlns='http://schemas.microsoft.com/developer/msbuild/2003'&gt;&#xD;&#xA;	&lt;PropertyGroup&gt;&#xD;&#xA;		&lt;RogueTraderInstallDir&gt;$(RogueTraderInstallDir)&lt;/RogueTraderInstallDir&gt;&#xD;&#xA;	&lt;/PropertyGroup&gt;&#xD;&#xA;&lt;/Project&gt;" Overwrite="true" Encoding="utf-8" />
     </Target>
     <Target Name="DeleteCustomPropsFile" BeforeTargets="Clean">
         <Delete Files="GamePath.props" />
