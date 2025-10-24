@@ -15,7 +15,7 @@ jobs:
       id: build-action
       uses: xADDBx/BuildOwlcatMod@v2
       with:
-        GAME_NAME: Wrath
+        GAME_NAME: RogueTrader
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GITHUB_NAME: ${{ github.repository_owner }}
         PACKAGE_OWNER: xADDBx
@@ -26,7 +26,7 @@ jobs:
       with:
         name: ${{ env.zipFile }}
         path: ${{ env.outDir }}
-
+    
     - name: Remove Test Label
       if: always()
       shell: bash

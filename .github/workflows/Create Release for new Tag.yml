@@ -18,7 +18,7 @@ jobs:
       id: build-action
       uses: xADDBx/BuildOwlcatMod@v2
       with:
-        GAME_NAME: Wrath
+        GAME_NAME: RogueTrader
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GITHUB_NAME: ${{ github.repository_owner }}
         PACKAGE_OWNER: xADDBx
@@ -33,4 +33,4 @@ jobs:
       uses: ncipollo/release-action@v1
       with:
         artifacts: ${{ env.zipFilePath }}\*.zip
-        name: ${{ env.ZipFile }} built for Wrath ${{ env.gameVersionNum }}${{ env.gameVersionSuffix }}
+        name: ${{ env.ZipFile }} built for Rogue Trader ${{ env.gameVersionNum }}${{ env.gameVersionSuffix }}
