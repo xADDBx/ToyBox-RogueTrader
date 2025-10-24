@@ -2,8 +2,10 @@
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Blueprints.JsonSystem.BinaryFormat;
 using Kingmaker.Blueprints.JsonSystem.Converters;
+using Kingmaker.Localization;
 using Kingmaker.Modding;
-using Kingmaker.Utility;
+using Kingmaker.Utility.DotNetExtensions;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Collections.Concurrent;
 using System.Diagnostics;
@@ -17,11 +19,13 @@ public class BlueprintLoader {
     private List<SimpleBlueprint>? m_Blueprints;
     private readonly Dictionary<Type, List<SimpleBlueprint>> m_BlueprintsByType = [];
     private readonly HashSet<SimpleBlueprint> m_BlueprintsToAdd = [];
-    private readonly HashSet<BlueprintGuid> m_BlueprintsToRemove = [];
+    private readonly HashSet<string> m_BlueprintsToRemove = [];
     public bool CanStart = false;
     public static BlueprintLoader BPLoader { get; } = new();
     // public readonly HashSet<string> BadBlueprints = ["ce0842546b73aa34b8fcf40a970ede68", "2e3280bf21ec832418f51bee5136ec7a", "b60252a8ae028ba498340199f48ead67", "fb379e61500421143b52c739823b4082", "5d2b9742ce82457a9ae7209dce770071"];
     public BlueprintLoader() {
+        _ = SharedStringAssetPool.Instance;
+
         var toPatch = AccessTools.Method(typeof(StartGameLoader), nameof(StartGameLoader.LoadPackTOC));
         var patch = AccessTools.Method(typeof(BlueprintLoader), nameof(InitPatch));
         _ = Main.HarmonyInstance.Patch(toPatch, finalizer: new(patch));
@@ -45,6 +49,10 @@ public class BlueprintLoader {
 
         toPatch = AccessTools.Method(typeof(OwlcatModificationBlueprintPatcher), nameof(OwlcatModificationBlueprintPatcher.GetJObject));
         patch = AccessTools.Method(typeof(BlueprintLoader), nameof(OwlcatModificationBlueprintPatcher_GetJObject));
+        _ = Main.HarmonyInstance.Patch(toPatch, prefix: new(patch));
+
+        toPatch = AccessTools.Method(typeof(SharedStringConverter), nameof(SharedStringConverter.ReadJson));
+        patch = AccessTools.Method(typeof(BlueprintLoader), nameof(SharedStringConverter_ReadJson_Patch));
         _ = Main.HarmonyInstance.Patch(toPatch, prefix: new(patch));
     }
     public List<SimpleBlueprint>? GetBlueprints(Action<IEnumerable<SimpleBlueprint>>? blueprintsAreLoadedCallback = null) {
@@ -92,7 +100,10 @@ public class BlueprintLoader {
             return m_Blueprints;
         }
     }
-    public static IEnumerable<SimpleBlueprint>? BlueprintsOfType(Type type, Action<IEnumerable<SimpleBlueprint>>? onFinishLoadingCallback = null) => (IEnumerable<SimpleBlueprint>)AccessTools.Method(typeof(BlueprintLoader), nameof(GetBlueprintsOfType)).MakeGenericMethod(type).Invoke(BPLoader, [onFinishLoadingCallback]);
+    public static IEnumerable<SimpleBlueprint>? BlueprintsOfType(Type type, Action<IEnumerable<SimpleBlueprint>>? onFinishLoadingCallback = null) {
+        return (IEnumerable<SimpleBlueprint>)AccessTools.Method(typeof(BlueprintLoader), nameof(GetBlueprintsOfType)).MakeGenericMethod(type).Invoke(BPLoader, [onFinishLoadingCallback]);
+    }
+
     public IEnumerable<BPType>? GetBlueprintsOfType<BPType>(Action<IEnumerable<BPType>>? onFinishLoadingCallback = null) where BPType : SimpleBlueprint {
         if (m_Blueprints == null) {
             if (Settings.UseBPIdCache && !BlueprintIdCache.NeedsCacheRebuilt) {
@@ -143,7 +154,7 @@ public class BlueprintLoader {
     }
     public IEnumerable<BPType> GetBlueprintsByGuids<BPType>(IEnumerable<string> guids) where BPType : SimpleBlueprint {
         foreach (var guid in guids) {
-            if (ResourcesLibrary.TryGetBlueprint(BlueprintGuid.Parse(guid)) is BPType bp) {
+            if (ResourcesLibrary.TryGetBlueprint(guid) is BPType bp) {
                 yield return bp;
             }
         }
@@ -152,10 +163,10 @@ public class BlueprintLoader {
     private int m_EstimateLoaded;
     private readonly HashSet<Action<IEnumerable<SimpleBlueprint>>> m_OnFinishLoadingCallback = [];
     private Action<List<SimpleBlueprint>> m_OnFinishLoading = null!;
-    private readonly List<ConcurrentDictionary<BlueprintGuid, object>> m_StartedLoadingShards = [];
+    private readonly List<ConcurrentDictionary<string, object>> m_StartedLoadingShards = [];
     private readonly List<Task> m_WorkerTasks = [];
-    private ConcurrentQueue<IEnumerable<(BlueprintGuid bpToLoad, int index)>> m_ChunkQueue = null!;
-    private void Load(Action<List<SimpleBlueprint>> callback, ISet<BlueprintGuid>? toLoad = null) {
+    private ConcurrentQueue<IEnumerable<(string bpToLoad, int index)>> m_ChunkQueue = null!;
+    private void Load(Action<List<SimpleBlueprint>> callback, ISet<string>? toLoad = null) {
         // If:
         // 1. Is Loading
         // 2. Or: Is not set as startable and has null m_PackFile (if Hotreloading is used, CanStart is false even though it should be possible to load
@@ -187,12 +198,17 @@ public class BlueprintLoader {
         }
     }
     public bool IsLoading = false;
-    public bool HasLoaded => m_Blueprints != null;
-    public void Run(ISet<BlueprintGuid>? toLoad) {
+    public bool HasLoaded {
+        get {
+            return m_Blueprints != null;
+        }
+    }
+
+    public void Run(ISet<string>? toLoad) {
         try {
             var watch = Stopwatch.StartNew();
             var bpCache = ResourcesLibrary.BlueprintsCache;
-            IEnumerable<BlueprintGuid> allEntries;
+            IEnumerable<string> allEntries;
             var toc = bpCache.m_LoadedBlueprints;
             if (toLoad == null) {
                 allEntries = toc.OrderBy(e => e.Value.Offset).Select(e => e.Key);
@@ -239,7 +255,7 @@ public class BlueprintLoader {
     }
     // External mods could register their own actions here
     public Action<SimpleBlueprint>? OnAfterBPLoad = null;
-    public Action<BlueprintGuid>? OnBeforeBPLoad = null;
+    public Action<string>? OnBeforeBPLoad = null;
     public void HandleChunks(byte[] bytes) {
         try {
             Stream stream = new MemoryStream(bytes) {
@@ -273,7 +289,7 @@ public class BlueprintLoader {
                             } else {
                                 continue;
                             }
-                            if (/* BadBlueprints.Contains(guid.ToString()) || */entry.Offset == 0U) {
+                            if (/* BadBlueprints.Contains(guid) || */entry.Offset == 0U) {
                                 continue;
                             }
                             OnBeforeBPLoad?.Invoke(guid);
@@ -284,7 +300,7 @@ public class BlueprintLoader {
                                 closeCountLocal++;
                                 continue;
                             }
-                            OwlcatModificationsManager.Instance.OnResourceLoaded(simpleBlueprint, guid.ToString(), out var obj);
+                            var obj = ResourcesLibrary.BlueprintsCache.m_resourceReplacementProvider?.OnResourceLoaded(simpleBlueprint, guid);
                             simpleBlueprint = (obj as SimpleBlueprint) ?? simpleBlueprint;
                             entry.Blueprint = simpleBlueprint;
                             simpleBlueprint.OnEnable();
@@ -303,7 +319,7 @@ public class BlueprintLoader {
             Error($"Exception loading blueprints:\n{ex}");
         }
     }
-    private static void AddCachedBlueprintPatch(BlueprintGuid guid, SimpleBlueprint bp) {
+    private static void AddCachedBlueprintPatch(string guid, SimpleBlueprint bp) {
         if (BPLoader.IsLoading || BPLoader.m_Blueprints != null) {
             if (BPLoader.IsLoading) {
                 var shardIndex = Math.Abs(guid.GetHashCode()) % Settings.BlueprintsLoaderNumShards;
@@ -314,13 +330,13 @@ public class BlueprintLoader {
             }
         }
     }
-    private static void RemoveCachedBlueprintPatch(BlueprintGuid guid) {
+    private static void RemoveCachedBlueprintPatch(string guid) {
         lock (BPLoader.m_BlueprintsToRemove) {
             _ = BPLoader.m_BlueprintsToRemove.Add(guid);
         }
     }
-    private static readonly ThreadLocal<HashSet<BlueprintGuid>> m_LoadingSequentially = new(() => []);
-    public static bool BlueprintsCache_LoadPrefix(BlueprintGuid guid, ref SimpleBlueprint __result) {
+    private static readonly ThreadLocal<HashSet<string>> m_LoadingSequentially = new(() => []);
+    private static bool BlueprintsCache_LoadPrefix(string guid, ref SimpleBlueprint __result) {
         // If threaded loader is not activated just load normally
         if (!BPLoader.IsLoading) {
             return true;
@@ -342,7 +358,7 @@ public class BlueprintLoader {
         }
         return false;
     }
-    public static void BlueprintsCache_LoadPostfix(BlueprintGuid guid, ref SimpleBlueprint __result) {
+    private static void BlueprintsCache_LoadPostfix(string guid, ref SimpleBlueprint __result) {
         if (m_LoadingSequentially.Value.Remove(guid)) {
             lock (BPLoader.m_BlueprintsToAdd) {
                 if (__result != null) {
@@ -375,7 +391,7 @@ public class BlueprintLoader {
             return false;
         }
         var blueprintJsonWrapper = new BlueprintJsonWrapper(blueprint) {
-            AssetId = blueprint.AssetGuid.ToString()
+            AssetId = blueprint.AssetGuid
         };
         m_Builder ??= new(64);
         using var stringWriter = new StringWriter(m_Builder);
@@ -384,6 +400,19 @@ public class BlueprintLoader {
         m_JsonBlueprintsCache[blueprint] = jobject;
         __result = jobject;
         _ = m_Builder.Clear();
+        return false;
+    }
+    private static bool SharedStringConverter_ReadJson_Patch(ref object? __result, JsonReader reader) {
+        if (reader.TokenType == JsonToken.Null) {
+            __result = null;
+            return false;
+        }
+        var text = (string)JObject.Load(reader)["stringkey"]!;
+        var sharedStringAsset = SharedStringAssetPool.Instance.Request();
+        sharedStringAsset.String = new LocalizedString {
+            Key = text
+        };
+        __result = sharedStringAsset;
         return false;
     }
 }

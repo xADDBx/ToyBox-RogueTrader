@@ -1,4 +1,4 @@
-﻿using Kingmaker.Utility;
+﻿using Kingmaker.Utility.UnityExtensions;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
@@ -85,7 +85,10 @@ public partial class Browser<T> : VerticalList<T> where T : notnull {
             RedoSearch();
         }
     }
-    public void RedoSearch() => StartNewSearch(CurrentSearchString, true);
+    public void RedoSearch() {
+        StartNewSearch(CurrentSearchString, true);
+    }
+
     /// <summary>
     /// Provides the full "Show All" item set to the browser and immediately restarts the search.
     /// </summary>
@@ -108,7 +111,7 @@ public partial class Browser<T> : VerticalList<T> where T : notnull {
         if (!force && LastSearchedFor == query) {
             return;
         }
-        bool canOptimizeSearch = !query.IsNullOrEmpty() && query.StartsWith(LastSearchedFor) && !force;
+        var canOptimizeSearch = !query.IsNullOrEmpty() && query.StartsWith(LastSearchedFor) && !force;
         LastSearchedFor = query;
         LastSearchedAt = Time.time;
         m_DebounceTask = null;
@@ -120,7 +123,10 @@ public partial class Browser<T> : VerticalList<T> where T : notnull {
         }
     }
     protected void SearchBarGUI() {
-        if (!ShowSearchBar) return;
+        if (!ShowSearchBar) {
+            return;
+        }
+
         void DebouncedSearch() {
             Thread.Sleep((int)(Settings.SearchDelay * 1000));
             if (!CurrentSearchString.Equals(LastSearchedFor)) {
@@ -136,11 +142,11 @@ public partial class Browser<T> : VerticalList<T> where T : notnull {
             }
         }) : null;
         using (HorizontalScope()) {
-            UI.ActionTextField(ref CurrentSearchString, m_SearchBarControlName, contentChangedAction, (string query) => {
+            _ = UI.ActionTextField(ref CurrentSearchString, m_SearchBarControlName, contentChangedAction, (string query) => {
                 StartNewSearch(query);
             });
             Space(5);
-            UI.Button(SharedStrings.SearchText, () => StartNewSearch(CurrentSearchString));
+            _ = UI.Button(SharedStrings.SearchText, () => StartNewSearch(CurrentSearchString));
         }
     }
     protected override void HeaderGUI() {

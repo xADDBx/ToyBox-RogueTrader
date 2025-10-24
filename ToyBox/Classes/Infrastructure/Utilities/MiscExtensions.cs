@@ -51,7 +51,7 @@ public static class MiscExtensions {
             return $"\"{str}\"";
         }
 
-        if (obj is IEnumerable enumerable && !(obj is IDictionary)) {
+        if (obj is IEnumerable enumerable and not IDictionary) {
             var elements = new List<string>();
 
             foreach (var item in enumerable) {
@@ -81,7 +81,7 @@ public static class MiscExtensions {
     }
     public static void SaveTextureToFile(this Texture source, string filePath, int width, int height, SaveTextureFileFormat fileFormat = SaveTextureFileFormat.PNG, int jpgQuality = 95, bool asynchronous = true, Action<bool>? done = null) {
         // check that the input we're getting is something we can handle:
-        if (!(source is Texture2D || source is RenderTexture)) {
+        if (source is not (Texture2D or RenderTexture)) {
             done?.Invoke(false);
             return;
         }
@@ -115,12 +115,15 @@ public static class MiscExtensions {
                     case SaveTextureFileFormat.TGA:
                         encoded = ImageConversion.EncodeNativeArrayToTGA(narray, resizeRT.graphicsFormat, (uint)width, (uint)height);
                         break;
+                    case SaveTextureFileFormat.PNG:
+                        encoded = ImageConversion.EncodeNativeArrayToPNG(narray, resizeRT.graphicsFormat, (uint)width, (uint)height);
+                        break;
                     default:
                         encoded = ImageConversion.EncodeNativeArrayToPNG(narray, resizeRT.graphicsFormat, (uint)width, (uint)height);
                         break;
                 }
 
-                System.IO.File.WriteAllBytes(filePath, encoded.ToArray());
+                File.WriteAllBytes(filePath, [.. encoded]);
                 encoded.Dispose();
             }
 
@@ -130,7 +133,8 @@ public static class MiscExtensions {
             done?.Invoke(!request.hasError);
         });
 
-        if (!asynchronous)
+        if (!asynchronous) {
             request.WaitForCompletion();
+        }
     }
 }

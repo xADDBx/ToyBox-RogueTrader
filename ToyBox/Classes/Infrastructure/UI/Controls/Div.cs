@@ -18,10 +18,12 @@ public static class Div {
         } else {
             m_DivStyle.margin.left = (int)indent + 3;
         }
-        if (width > 0)
+        if (width > 0) {
             m_DivStyle.fixedWidth = width;
-        else
+        } else {
             m_DivStyle.fixedWidth = 0;
+        }
+
         Space(height / 2f);
         GUILayout.Box(GUIContent.none, m_DivStyle);
         Space(height / 2f);

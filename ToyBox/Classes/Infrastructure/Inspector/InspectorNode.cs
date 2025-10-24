@@ -11,8 +11,6 @@ public class InspectorNode : IComparable {
     public const string EnumerableItemPrefix = "i";
     public const string FieldPrefix = "f";
     public const string PropertyPrefix = "p";
-
-    private readonly string m_Name;
     private readonly Type m_FieldType;
     private readonly string m_ContainerPrefix;
     internal object? Value;
@@ -78,7 +76,7 @@ public class InspectorNode : IComparable {
     public string ValueText {
         get {
             if (field == null) {
-                var valueText = "";
+                string? valueText;
                 if (Exception != null) {
                     valueText = "<exception>";
                     ColorOverride = Color.red;
@@ -114,15 +112,11 @@ public class InspectorNode : IComparable {
             return field;
         }
     }
-    public string NameText {
-        get {
-            return m_Name;
-        }
-    }
+    public string NameText { get; }
     public string LabelText {
         get {
             if (field == null) {
-                string nameText = $"[{m_ContainerPrefix}] ".Grey();
+                var nameText = $"[{m_ContainerPrefix}] ".Grey();
                 if (IsStatic) {
                     nameText += "[s] ".Magenta();
                 }
@@ -160,11 +154,11 @@ public class InspectorNode : IComparable {
         }
     }
     public InspectorNode(string name, string path, Type type, object? value, InspectorNode? parent, string containerPrefix, bool isStatic = false, bool isPublic = true, bool isPrivate = false, bool isCompilerGenerated = false) {
-        m_Name = name;
+        NameText = name;
         Value = value;
         Path = path + name + "/";
         if (Value is BlueprintReferenceBase bpRef) {
-            bpRef.GetBlueprint();
+            _ = bpRef.GetBlueprint();
         }
         m_FieldType = type;
         if (Value != null) {
@@ -189,7 +183,7 @@ public class InspectorNode : IComparable {
     }
 
     internal InspectorNode(InspectorNode node) {
-        m_Name = node.m_Name;
+        NameText = node.NameText;
         Value = node.Value;
         Path = node.Path;
         m_FieldType = node.m_FieldType;
@@ -207,10 +201,9 @@ public class InspectorNode : IComparable {
     }
 
     public int CompareTo(object obj) {
-        var other = obj as InspectorNode;
-        if (other == null) {
+        if (obj is not InspectorNode other) {
             return 1;
         }
-        return (m_ContainerPrefix + m_Name).CompareTo(other.m_ContainerPrefix + other.m_Name);
+        return (m_ContainerPrefix + NameText).CompareTo(other.m_ContainerPrefix + other.NameText);
     }
 }

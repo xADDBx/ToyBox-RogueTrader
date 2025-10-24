@@ -5,7 +5,10 @@ using ToyBox.Infrastructure.Utilities;
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
 [NeedsTesting]
 public partial class RemoveItemBA : BlueprintActionFeature, IBlueprintAction<BlueprintItem> {
-    public bool CanExecute(BlueprintItem blueprint, params object[] parameter) => IsInGame();
+    public bool CanExecute(BlueprintItem blueprint, params object[] parameter) {
+        return IsInGame();
+    }
+
     private bool Execute(BlueprintItem blueprint, int count) {
         LogExecution(blueprint, count);
         Game.Instance.Player.Inventory.Remove(blueprint, count);
@@ -18,7 +21,7 @@ public partial class RemoveItemBA : BlueprintActionFeature, IBlueprintAction<Blu
             if (parameter.Length > 0 && parameter[0] is int tmpCount) {
                 count = tmpCount;
             }
-            UI.Button(StyleActionString(RemoveText + $" {count}", isFeatureSearch), () => {
+            _ = UI.Button(StyleActionString(m_RemoveText + $" {count}", isFeatureSearch), () => {
                 result = Execute(blueprint, count);
             });
         } else if (isFeatureSearch) {
@@ -26,15 +29,18 @@ public partial class RemoveItemBA : BlueprintActionFeature, IBlueprintAction<Blu
         }
         return result;
     }
-    public bool GetContext(out BlueprintItem? context) => ContextProvider.Blueprint(out context);
+    public bool GetContext(out BlueprintItem? context) {
+        return ContextProvider.Blueprint(out context);
+    }
+
     public override void OnGui() {
         if (GetContext(out var bp)) {
-            OnGui(bp!, true);
+            _ = OnGui(bp!, true);
         }
     }
 
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveItemBA_Remove_x", "Remove")]
-    private static partial string RemoveText { get; }
+    private static partial string m_RemoveText { get; }
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveItemBA_Name", "Remove Item")]
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveItemBA_Description", "Removes the specified BlueprintItem from your inventory.")]

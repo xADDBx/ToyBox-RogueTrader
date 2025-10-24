@@ -1,20 +1,14 @@
-﻿using Kingmaker;
-using Kingmaker.AI.Blueprints;
-using Kingmaker.AI.Blueprints.Considerations;
+﻿using Kingmaker.AI.Blueprints;
 using Kingmaker.AreaLogic.Cutscenes;
 using Kingmaker.AreaLogic.Etudes;
-using Kingmaker.Armies.Blueprints;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
-using Kingmaker.Blueprints.Classes;
-using Kingmaker.Blueprints.Classes.Selection;
-using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Facts;
 using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.Items.Weapons;
-using Kingmaker.Crusade.GlobalMagic;
+using Kingmaker.GameInfo;
 using Kingmaker.Modding;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
@@ -31,21 +25,23 @@ public class BlueprintIdCache {
         }
         return cache;
     });
-    public static BlueprintIdCache Instance => _instance.Value;
+    public static BlueprintIdCache Instance {
+        get {
+            return _instance.Value;
+        }
+    }
+
     public string CachedGameVersion = "";
-    public HashSet<(string, string)> UmmList = new();
-    public HashSet<(string, string)> OmmList = new();
-    public Dictionary<Type, HashSet<BlueprintGuid>> IdsByType = new();
-    public static HashSet<Type> CachedIdTypes = new() {
+    public HashSet<(string, string)> UmmList = [];
+    public HashSet<(string, string)> OmmList = [];
+    public Dictionary<Type, HashSet<string>> IdsByType = [];
+    public static HashSet<Type> CachedIdTypes = [
                 typeof(BlueprintItem), typeof(BlueprintItemWeapon), typeof(BlueprintItemArmor),
                 typeof(BlueprintEtude), typeof(BlueprintArea), typeof(BlueprintItemEnchantment),
-                typeof(BlueprintBuff), typeof(BlueprintLeaderSkill), typeof(BlueprintPortrait),
-                typeof(BlueprintSpellbook), typeof(BlueprintAbility), typeof(BlueprintAreaEnterPoint),
-                typeof(BlueprintUnit), typeof(BlueprintAiAction), typeof(Consideration),
-                typeof(BlueprintBrain), typeof(BlueprintFeature), typeof(BlueprintUnitFact),
-                typeof(BlueprintAreaPreset), typeof(Cutscene), typeof(BlueprintParametrizedFeature),
-                typeof(BlueprintGlobalMagicSpell), typeof(BlueprintFeatureSelection)
-        };
+                typeof(BlueprintBuff), typeof(BlueprintPortrait), typeof(BlueprintAbility), typeof(BlueprintAreaEnterPoint),
+                typeof(BlueprintUnit), typeof(BlueprintBrain), typeof(BlueprintUnitFact),
+                typeof(BlueprintAreaPreset), typeof(Cutscene)
+        ];
 
     private static bool? m_NeedsCacheRebuilt = null;
     public static bool NeedsCacheRebuilt {
@@ -68,9 +64,9 @@ public class BlueprintIdCache {
             bool gameVersionChanged = GameVersion.GetVersion() != Instance.CachedGameVersion;
 
             var ummSet = Instance.UmmList.ToHashSet();
-            bool ummModsChanged = !(ummSet.Count == UnityModManagerNet.UnityModManager.modEntries.Count);
+            bool ummModsChanged = !(ummSet.Count == UnityModManagerNet.UnityModManager.ModEntries.Count);
             if (!ummModsChanged) {
-                foreach (var modEntry in UnityModManagerNet.UnityModManager.modEntries) {
+                foreach (var modEntry in UnityModManagerNet.UnityModManager.ModEntries) {
                     if (!ummSet.Contains(new(modEntry.Info.Id, modEntry.Info.Version))) {
                         ummModsChanged = true;
                         break;
@@ -104,22 +100,22 @@ public class BlueprintIdCache {
             Instance.CachedGameVersion = GameVersion.GetVersion();
 
             Instance.UmmList.Clear();
-            foreach (var modEntry in UnityModManagerNet.UnityModManager.modEntries) {
-                Instance.UmmList.Add(new(modEntry.Info.Id, modEntry.Info.Version));
+            foreach (var modEntry in UnityModManagerNet.UnityModManager.ModEntries) {
+                _ = Instance.UmmList.Add(new(modEntry.Info.Id, modEntry.Info.Version));
             }
 
             Instance.OmmList.Clear();
             foreach (var modEntry in OwlcatModificationsManager.s_Instance.AppliedModifications) {
-                Instance.OmmList.Add(new(modEntry.Manifest.UniqueName, modEntry.Manifest.Version));
+                _ = Instance.OmmList.Add(new(modEntry.Manifest.UniqueName, modEntry.Manifest.Version));
             }
 
             //Ids
             Instance.IdsByType.Clear();
             foreach (var type in CachedIdTypes) {
-                HashSet<BlueprintGuid> idsForType = new();
+                HashSet<string> idsForType = [];
                 foreach (var bp in blueprints) {
                     if (type.IsInstanceOfType(bp)) {
-                        idsForType.Add(bp.AssetGuid);
+                        _ = idsForType.Add(bp.AssetGuid);
                     }
                 }
                 if (idsForType.Count > 0) {
@@ -160,7 +156,7 @@ public class BlueprintIdCache {
             writer.Write(kvp.Key.AssemblyQualifiedName);
             writer.Write(kvp.Value.Count);
             foreach (var guid in kvp.Value) {
-                writer.Write(guid.ToString());
+                writer.Write(guid);
             }
         }
     }
@@ -173,29 +169,29 @@ public class BlueprintIdCache {
             BlueprintIdCache result = new();
             result.CachedGameVersion = reader.ReadString();
 
-            int ummCount = reader.ReadInt32();
-            for (int i = 0; i < ummCount; i++) {
-                result.UmmList.Add((reader.ReadString(), reader.ReadString()));
+            var ummCount = reader.ReadInt32();
+            for (var i = 0; i < ummCount; i++) {
+                _ = result.UmmList.Add((reader.ReadString(), reader.ReadString()));
             }
 
-            int ommCount = reader.ReadInt32();
-            for (int i = 0; i < ommCount; i++) {
-                result.OmmList.Add((reader.ReadString(), reader.ReadString()));
+            var ommCount = reader.ReadInt32();
+            for (var i = 0; i < ommCount; i++) {
+                _ = result.OmmList.Add((reader.ReadString(), reader.ReadString()));
             }
 
-            int dictCount = reader.ReadInt32();
-            for (int i = 0; i < dictCount; i++) {
+            var dictCount = reader.ReadInt32();
+            for (var i = 0; i < dictCount; i++) {
 
-                string typeName = reader.ReadString();
+                var typeName = reader.ReadString();
                 Type type = Type.GetType(typeName);
                 if (type == null) {
                     throw new SerializationException($"BPId Cache references {typeName}, but the type couldn't be found not found.");
                 }
 
-                int listCount = reader.ReadInt32();
-                var guidList = new HashSet<BlueprintGuid>();
-                for (int j = 0; j < listCount; j++) {
-                    guidList.Add(BlueprintGuid.Parse(reader.ReadString()));
+                var listCount = reader.ReadInt32();
+                var guidList = new HashSet<string>();
+                for (var j = 0; j < listCount; j++) {
+                    _ = guidList.Add(reader.ReadString());
                 }
                 if (guidList.Count > 0) {
                     result.IdsByType[type] = guidList;
@@ -216,7 +212,7 @@ public class BlueprintIdCache {
 
     private static string EnsureFilePath() {
         var userConfigFolder = Path.Combine(Main.ModEntry.Path, "Settings");
-        Directory.CreateDirectory(userConfigFolder);
+        _ = Directory.CreateDirectory(userConfigFolder);
         return Path.Combine(userConfigFolder, "BlueprintIdCache.bin");
     }
 }

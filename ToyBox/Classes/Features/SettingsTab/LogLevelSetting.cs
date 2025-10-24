@@ -16,7 +16,7 @@ public partial class LogLevelSetting : Feature {
             }
             using (HorizontalScope()) {
                 Space(150);
-                UI.SelectionGrid(ref Settings.LogLevel, 6, (type) => type.GetLocalized(), AutoWidth());
+                _ = UI.SelectionGrid(ref Settings.LogLevel, 6, (type) => type.GetLocalized(), AutoWidth());
             }
         }
     }

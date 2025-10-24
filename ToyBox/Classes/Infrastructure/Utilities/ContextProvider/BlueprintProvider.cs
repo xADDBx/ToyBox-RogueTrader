@@ -12,7 +12,7 @@ public static partial class ContextProvider {
             } else {
                 str = ": " + SharedStrings.NoneText.Red();
             }
-            UI.DisclosureToggle(ref m_BlueprintProviderShown, SharedStrings.CurrentlySelectedBlueprintText + str);
+            _ = UI.DisclosureToggle(ref m_BlueprintProviderShown, SharedStrings.CurrentlySelectedBlueprintText + str);
             if (m_BlueprintProviderShown) {
                 m_BlueprintProviderShown = !BlueprintPicker<T>.OnPickerGUI();
             }

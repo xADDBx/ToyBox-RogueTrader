@@ -1,23 +1,23 @@
 ﻿using Kingmaker;
-using Kingmaker.Blueprints.Root;
 using Kingmaker.EntitySystem.Entities;
-using Kingmaker.UnitLogic;
+using Kingmaker.Mechanics.Entities;
+using Kingmaker.UnitLogic.Parts;
 
 namespace ToyBox.Infrastructure;
 public static class ToyBoxUnitHelper {
-    private static readonly Dictionary<UnitEntityData, bool> m_PartyOrPetCache = new();
+    private static readonly Dictionary<AbstractUnitEntity, bool> m_PartyOrPetCache = new();
     private static bool m_IsInitialized = false;
     internal static void Initialize() {
         if (m_IsInitialized) {
             return;
         }
-        Main.HarmonyInstance.Patch(AccessTools.Method(typeof(Player), nameof(Player.InvalidateCharacterLists)), new(AccessTools.Method(typeof(ToyBoxUnitHelper), nameof(ToyBoxUnitHelper.ClearCache))));
+        _ = Main.HarmonyInstance.Patch(AccessTools.Method(typeof(Player), nameof(Player.InvalidateCharacterLists)), new(AccessTools.Method(typeof(ToyBoxUnitHelper), nameof(ToyBoxUnitHelper.ClearCache))));
         m_IsInitialized = true;
     }
     private static void ClearCache() {
         m_PartyOrPetCache.Clear();
     }
-    public static bool IsPartyOrPet(UnitEntityData? unit) {
+    public static bool IsPartyOrPet(AbstractUnitEntity? unit) {
         if (unit == null) {
             return false;
         }
@@ -33,11 +33,14 @@ public static class ToyBoxUnitHelper {
         m_PartyOrPetCache[unit] = isPartyOrPet;
         return isPartyOrPet;
     }
-    private static bool IsEnemy(UnitEntityData unit) {
-        UnitAttackFactions uaf = unit.Descriptor.AttackFactions;
-        return uaf.m_Owner.Faction.EnemyForEveryone || uaf.m_Factions.Contains(BlueprintRoot.Instance.PlayerFaction);
+    private static bool IsEnemy(BaseUnitEntity unit) {
+        var maybeFaction = unit.GetFactionOptional();
+        if (maybeFaction != null) {
+            return maybeFaction.AlwaysEnemy || maybeFaction.IsPlayerEnemy;
+        }
+        return false;
     }
-    public static bool IsOfSelectedType(UnitEntityData? unit, UnitSelectType type) {
+    public static bool IsOfSelectedType(BaseUnitEntity? unit, UnitSelectType type) {
         if (unit == null) {
             return false;
         }
@@ -47,15 +50,16 @@ public static class ToyBoxUnitHelper {
             UnitSelectType.You => unit.IsMainCharacter,
             UnitSelectType.Friendly => !IsEnemy(unit),
             UnitSelectType.Enemies => IsEnemy(unit),
+            UnitSelectType.Off => false,
             _ => false,
         };
     }
-    public static string GetUnitName(UnitEntityData? unit, bool includeId = false) {
+    public static string GetUnitName(AbstractUnitEntity? unit, bool includeId = false) {
         if (unit == null) {
             return "!!Null Unit!!";
         }
         try {
-            string name = unit.CharacterName;
+            var name = unit.CharacterName;
             if (string.IsNullOrWhiteSpace(name)) {
                 name = unit.Blueprint.name;
             }
@@ -64,7 +68,7 @@ public static class ToyBoxUnitHelper {
             }
             return name;
         } catch (Exception ex) {
-            var id = (unit.Blueprint?.AssetGuid.ToString() ?? "??NULL??");
+            var id = unit.Blueprint?.AssetGuid.ToString() ?? "??NULL??";
             Warn($"Encountered exception while getting name for unit with bp {id}: \n{ex}");
             return $"AssetId: {id}";
         }

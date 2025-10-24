@@ -8,13 +8,13 @@ public partial class LanguagePickerFeature : Feature {
     [LocalizedString("ToyBox_Features_SettingsFeatures_LanguagePickerFeature_PickYourCurrentUiLocaleText", "Pick your current ui locale")]
     public override partial string Description { get; }
     private static CultureInfo? m_UICulture;
-    private static Browser<CultureInfo> m_Browser = new((CultureInfo ci) => $"{ci.Name} {ci.NativeName} {ci.DisplayName} {ci.EnglishName}", (CultureInfo ci) => $"{ci.Name} {ci.NativeName} {ci.DisplayName} {ci.EnglishName}", [.. LocalizationManager.DiscoverLocalizations().Select(name => CultureInfo.GetCultureInfo(name))]);
+    private readonly static Browser<CultureInfo> m_Browser = new((CultureInfo ci) => $"{ci.Name} {ci.NativeName} {ci.DisplayName} {ci.EnglishName}", (CultureInfo ci) => $"{ci.Name} {ci.NativeName} {ci.DisplayName} {ci.EnglishName}", [.. LocalizationManager.DiscoverLocalizations().Select(name => CultureInfo.GetCultureInfo(name))]);
     [LocalizedString("ToyBox_Features_SettingsFeatures_LanguagePickerFeature_CurrentCultureText", "Current Language")]
-    private static partial string CurrentText { get; }
+    private static partial string m_CurrentText { get; }
     public override void OnGui() {
         using (VerticalScope()) {
             using (HorizontalScope()) {
-                UI.Label((CurrentText.Cyan() + ":").Bold());
+                UI.Label((m_CurrentText.Cyan() + ":").Bold());
                 Space(25);
                 m_UICulture ??= CultureInfo.GetCultureInfo(Settings.UILanguage);
                 UI.Label($"{m_UICulture.NativeName} ({m_UICulture.Name})".Orange());

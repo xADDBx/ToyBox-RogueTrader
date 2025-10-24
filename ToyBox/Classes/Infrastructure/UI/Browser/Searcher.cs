@@ -22,7 +22,7 @@ public class ThreadedListSearcher<T> where T : notnull {
             }
         }
         m_SearchCts = new();
-        Task.Run(() => DoSearch(items, query, getSearchKey, getSortKey, m_SearchCts.Token, m_SearchCts));
+        _ = Task.Run(() => DoSearch(items, query, getSearchKey, getSortKey, m_SearchCts.Token, m_SearchCts));
     }
     private void DoSearch(IEnumerable<T> items, string query, Func<T, string> getSearchKey, Func<T, string> getSortKey, CancellationToken ct, CancellationTokenSource cts) {
         lock (this) {

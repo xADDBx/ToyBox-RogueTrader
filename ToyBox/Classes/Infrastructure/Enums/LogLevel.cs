@@ -9,23 +9,23 @@ public enum LogLevel {
 public static partial class LogLevel_Localizer {
     public static string GetLocalized(this LogLevel type) {
         return type switch {
-            LogLevel.Error => ErrorText,
-            LogLevel.Warning => WarningText,
-            LogLevel.Info => InfoText,
-            LogLevel.Debug => DebugText,
-            LogLevel.Trace => TraceText,
+            LogLevel.Error => m_ErrorText,
+            LogLevel.Warning => m_WarningText,
+            LogLevel.Info => m_InfoText,
+            LogLevel.Debug => m_DebugText,
+            LogLevel.Trace => m_TraceText,
             _ => "!!Error Unknown LogLevel!!",
         };
     }
 
     [LocalizedString("ToyBox_Infrastructure_Enums_LogLevel_Localizer_ErrorText", "Error")]
-    private static partial string ErrorText { get; }
+    private static partial string m_ErrorText { get; }
     [LocalizedString("ToyBox_Infrastructure_Enums_LogLevel_Localizer_WarningText", "Warning")]
-    private static partial string WarningText { get; }
+    private static partial string m_WarningText { get; }
     [LocalizedString("ToyBox_Infrastructure_Enums_LogLevel_Localizer_InfoText", "Info")]
-    private static partial string InfoText { get; }
+    private static partial string m_InfoText { get; }
     [LocalizedString("ToyBox_Infrastructure_Enums_LogLevel_Localizer_DebugText", "Debug")]
-    private static partial string DebugText { get; }
+    private static partial string m_DebugText { get; }
     [LocalizedString("ToyBox_Infrastructure_Enums_LogLevel_Localizer_TraceText", "Trace")]
-    private static partial string TraceText { get; }
+    private static partial string m_TraceText { get; }
 }

@@ -1,13 +1,22 @@
 ﻿namespace ToyBox.Infrastructure;
 
 internal class GeneralSettings : AbstractSettings {
-    private static readonly Lazy<GeneralSettings> _instance = new Lazy<GeneralSettings>(() => {
+    private static readonly Lazy<GeneralSettings> m_Instance = new(() => {
         var instance = new GeneralSettings();
         instance.Load();
         return instance;
     });
-    public static GeneralSettings Settings => _instance.Value;
-    protected override string Name => "Settings.json";
+    public static GeneralSettings Settings {
+        get {
+            return m_Instance.Value;
+        }
+    }
+
+    protected override string Name {
+        get {
+            return "Settings.json";
+        }
+    }
 
     public int SelectedTab = 0;
 
@@ -17,7 +26,7 @@ internal class GeneralSettings : AbstractSettings {
     // - Stuff
     public LogLevel LogLevel = LogLevel.Info;
     public string UILanguage = "en";
-    public float NearbyRange = 25f;
+    public int NearbyRange = 25;
 
     // - Browser
     public int PageLimit = 25;

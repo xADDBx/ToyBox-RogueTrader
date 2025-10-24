@@ -29,7 +29,7 @@ public abstract class FeatureWithLogIntSlider : Feature {
     }
     public override void OnGui() {
         using (HorizontalScope()) {
-            UI.LogSlider(ref Value, Min, Max, Default, OnValueChanged, AutoWidth(), GUILayout.MinWidth(50), GUILayout.MaxWidth(150));
+            _ = UI.LogSlider(ref Value, Min, Max, Default, OnValueChanged, AutoWidth(), GUILayout.MinWidth(50), GUILayout.MaxWidth(150));
             Space(10);
             UI.Label(Name.Cyan());
             Space(10);

@@ -30,7 +30,7 @@ public abstract class FeatureWithFloatSlider : Feature {
     }
     public override void OnGui() {
         using (HorizontalScope()) {
-            UI.Slider(ref Value, Min, Max, Default, Digits, OnValueChanged, AutoWidth(), GUILayout.MinWidth(50), GUILayout.MaxWidth(150));
+            _ = UI.Slider(ref Value, Min, Max, Default, Digits, OnValueChanged, AutoWidth(), GUILayout.MinWidth(50), GUILayout.MaxWidth(150));
             Space(10);
             UI.Label(Name.Cyan());
             Space(10);

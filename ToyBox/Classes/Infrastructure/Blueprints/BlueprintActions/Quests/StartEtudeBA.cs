@@ -17,7 +17,7 @@ public partial class StartEtudeBA : BlueprintActionFeature, IBlueprintAction<Blu
     public bool? OnGui(BlueprintEtude blueprint, bool isFeatureSearch, params object[] parameter) {
         bool? result = null;
         if (CanExecute(blueprint)) {
-            UI.Button(StyleActionString(StartText, isFeatureSearch), () => {
+            _ = UI.Button(StyleActionString(m_StartText, isFeatureSearch), () => {
                 result = Execute(blueprint);
             });
         } else if (isFeatureSearch) {
@@ -30,10 +30,13 @@ public partial class StartEtudeBA : BlueprintActionFeature, IBlueprintAction<Blu
         return result;
     }
 
-    public bool GetContext(out BlueprintEtude? context) => ContextProvider.Blueprint(out context);
+    public bool GetContext(out BlueprintEtude? context) {
+        return ContextProvider.Blueprint(out context);
+    }
+
     public override void OnGui() {
         if (GetContext(out var bp)) {
-            OnGui(bp!, true);
+            _ = OnGui(bp!, true);
         }
     }
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_StartEtudeBA_Name", "Start Etude")]
@@ -41,7 +44,7 @@ public partial class StartEtudeBA : BlueprintActionFeature, IBlueprintAction<Blu
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_StartEtudeBA_Description", "Starts the specified BlueprintEtude.")]
     public override partial string Description { get; }
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_StartEtudeBA_StartText", "Start")]
-    private static partial string StartText { get; }
+    private static partial string m_StartText { get; }
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_StartEtudeBA_EtudeIsAlreadyStartedOrCompleted", "Etude is already started or completed")]
     private static partial string EtudeIsAlreadyStartedOrCompleted { get; }
 }

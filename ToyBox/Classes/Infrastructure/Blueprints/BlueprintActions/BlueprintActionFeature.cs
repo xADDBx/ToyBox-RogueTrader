@@ -31,7 +31,7 @@ public abstract class BlueprintActionFeature : FeatureWithAction {
             return newActions;
         }
     }
-    protected string StyleActionString(string text, bool isFeatureSearch) {
+    protected static string StyleActionString(string text, bool isFeatureSearch) {
         if (isFeatureSearch) {
             return text.Cyan().Bold().SizePercent(15);
         } else {
@@ -40,22 +40,21 @@ public abstract class BlueprintActionFeature : FeatureWithAction {
     }
 }
 public class BlueprintActions : FeatureTab {
-    public override string Name => "Blueprint Actions (you should not be seeing this!)";
-    public override bool IsHiddenFromUI => true;
-    public BlueprintActions() {
-        AddFeature(new LoadAreaPresetBA());
-        AddFeature(new TeleportAreaBA());
-        AddFeature(new TeleportAreaEnterPointBA());
+    public override string Name {
+        get {
+            return "Blueprint Actions (you should not be seeing this!)";
+        }
+    }
 
-        AddFeature(new AddGlobalMagicSpellBA());
-        AddFeature(new AddKingdomBuffBA());
-        AddFeature(new AddLeaderSkillBA());
-        AddFeature(new RemoveGlobalMagicSpellBA());
-        AddFeature(new RemoveKingdomBuffBA());
-        AddFeature(new RemoveLeaderSkillBA());
-        AddFeature(new SpawnArmyPresetBA());
-        AddFeature(new TeleportGlobalMapBA());
-        AddFeature(new TeleportGlobalMapPointBA());
+    public override bool IsHiddenFromUI {
+        get {
+            return true;
+        }
+    }
+
+    public BlueprintActions() {
+#warning TODO: Teleport Actions; BlueprintSelection; BlueprintSelectionFeature
+        AddFeature(new LoadAreaPresetBA());
 
         AddFeature(new AddItemBA());
         AddFeature(new RemoveItemBA());
@@ -73,15 +72,10 @@ public class BlueprintActions : FeatureTab {
         AddFeature(new UnstartEtudeBA());
 
         AddFeature(new AddAbilityResourceBA());
-        AddFeature(new AddFeatureSelectionBA());
-        AddFeature(new AddParametrizedFeatureBA());
-        AddFeature(new AddSpellbookBA());
         AddFeature(new AddUnitFactBA());
         AddFeature(new ChangeBuffRankBA());
         AddFeature(new ChangeFeatureRankBA());
-        AddFeature(new ChangeSpellbookLevelBA());
         AddFeature(new RemoveAbilityResourceBA());
-        AddFeature(new RemoveSpellbookBA());
         AddFeature(new RemoveUnitFactBA());
         AddFeature(new SpawnUnitBA());
     }

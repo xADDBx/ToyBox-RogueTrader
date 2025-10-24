@@ -22,13 +22,24 @@ public abstract class Feature {
     public abstract void OnGui();
     public virtual void Initialize() { }
     public virtual void Destroy() { }
-    public virtual bool ShouldHide => false;
+    public virtual bool ShouldHide {
+        get {
+            return false;
+        }
+    }
+
     public virtual string SortKey {
-        get => Name;
+        get {
+            return Name;
+        }
+
         set { }
     }
     public virtual string SearchKey {
-        get => $"{Name} {Description}";
+        get {
+            return $"{Name} {Description}";
+        }
+
         set { }
     }
 }

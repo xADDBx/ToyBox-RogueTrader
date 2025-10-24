@@ -27,16 +27,16 @@ public partial class ChangeFlagValueBA : BlueprintActionFeature, IBlueprintActio
             if (parameter.Length > 0 && parameter[0] is int tmpCount) {
                 count = tmpCount;
             }
-            UI.Button(StyleActionString("<", isFeatureSearch), () => {
+            _ = UI.Button(StyleActionString("<", isFeatureSearch), () => {
                 result = ExecuteDecrease(blueprint, count);
             });
             UI.Label(StyleActionString($" {Game.Instance.Player.UnlockableFlags.GetFlagValue(blueprint)} ".Bold().Orange(), isFeatureSearch));
-            UI.Button(StyleActionString(">", isFeatureSearch), () => {
+            _ = UI.Button(StyleActionString(">", isFeatureSearch), () => {
                 result = ExecuteIncrease(blueprint, count);
             });
         } else if (isFeatureSearch) {
             if (IsInGame()) {
-                UI.Label(FlagIsNotUnlockedText.Red().Bold());
+                UI.Label(m_FlagIsNotUnlockedText.Red().Bold());
             } else {
                 UI.Label(SharedStrings.ThisCannotBeUsedFromTheMainMenu.Red().Bold());
             }
@@ -44,10 +44,13 @@ public partial class ChangeFlagValueBA : BlueprintActionFeature, IBlueprintActio
         return result;
     }
 
-    public bool GetContext(out BlueprintUnlockableFlag? context) => ContextProvider.Blueprint(out context);
+    public bool GetContext(out BlueprintUnlockableFlag? context) {
+        return ContextProvider.Blueprint(out context);
+    }
+
     public override void OnGui() {
         if (GetContext(out var bp)) {
-            OnGui(bp!, true);
+            _ = OnGui(bp!, true);
         }
     }
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeFlagValueBA_Name", "Modify Flag Value")]
@@ -55,5 +58,5 @@ public partial class ChangeFlagValueBA : BlueprintActionFeature, IBlueprintActio
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeFlagValueBA_Description", "Increases or decreases the value of the specified BlueprintUnlockableFlag.")]
     public override partial string Description { get; }
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeFlagValueBA_FlagIsNotUnlockedText", "Flag is not unlocked")]
-    private static partial string FlagIsNotUnlockedText { get; }
+    private static partial string m_FlagIsNotUnlockedText { get; }
 }

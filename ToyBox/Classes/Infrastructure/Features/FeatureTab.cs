@@ -5,7 +5,12 @@ public abstract class FeatureTab {
     public List<Feature> FailedFeatures = [];
     private Dictionary<string, List<Feature>> m_FeatureGroups { get; set; } = [];
     public abstract string Name { get; }
-    public virtual bool IsHiddenFromUI => false;
+    public virtual bool IsHiddenFromUI {
+        get {
+            return false;
+        }
+    }
+
     public virtual void AddFeature(Feature feature, string groupName = "") {
         if (feature is INeedEarlyInitFeature) {
             try {

@@ -5,7 +5,7 @@ internal abstract class AbstractSettings {
     protected abstract string Name { get; }
     private string GetFilePath() {
         var userConfigFolder = Path.Combine(Main.ModEntry.Path, "Settings");
-        Directory.CreateDirectory(userConfigFolder);
+        _ = Directory.CreateDirectory(userConfigFolder);
         return Path.Combine(userConfigFolder, Name);
     }
     internal void Save() {
@@ -14,7 +14,7 @@ internal abstract class AbstractSettings {
     internal void Load() {
         var userPath = GetFilePath();
         if (File.Exists(userPath)) {
-            string content = File.ReadAllText(userPath);
+            var content = File.ReadAllText(userPath);
             try {
                 JsonConvert.PopulateObject(content, this);
             } catch {

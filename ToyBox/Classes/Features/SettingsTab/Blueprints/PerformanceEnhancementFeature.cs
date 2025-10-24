@@ -1,10 +1,11 @@
 ﻿using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Blueprints.JsonSystem.BinaryFormat;
-using System.Linq.Expressions;
-using System.Reflection.Emit;
-using System.Reflection;
-using System.Runtime.Serialization;
+using Kingmaker.Blueprints.JsonSystem.Helpers;
 using System.Collections.Concurrent;
+using System.Linq.Expressions;
+using System.Reflection;
+using System.Reflection.Emit;
+using System.Runtime.Serialization;
 
 namespace ToyBox.Features.SettingsFeatures.Blueprints;
 
@@ -14,8 +15,17 @@ public partial class PerformanceEnhancementFeatures : FeatureWithPatch {
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_SettingsFeatures_BlueprintLoaderSettings_PerformanceEnhancementFeatures_EnhancesBlueprintLoadingPerforma", "Enhances Blueprint loading performance")]
     public override partial string Description { get; }
-    protected override string HarmonyName => "ToyBox.Features.SettingsFeatures.Blueprints.PerformanceEnhancementFeatures";
-    public override ref bool IsEnabled => ref Settings.EnableBlueprintPerformancePatches;
+    protected override string HarmonyName {
+        get {
+            return "ToyBox.Features.SettingsFeatures.Blueprints.PerformanceEnhancementFeatures";
+        }
+    }
+
+    public override ref bool IsEnabled {
+        get {
+            return ref Settings.EnableBlueprintPerformancePatches;
+        }
+    }
 
     private static readonly ConcurrentDictionary<(Type, Type), bool> m_HasAttributeCache = new();
     private static readonly ConcurrentDictionary<(Type, Type), bool> m_IsListOfCache = new();
@@ -59,7 +69,6 @@ public partial class PerformanceEnhancementFeatures : FeatureWithPatch {
                 }
             } catch { }
         }
-        ret.Add(AccessTools.Method(typeof(GuidClassBinder), nameof(GuidClassBinder.IsIdentifiedType)));
         return ret;
     }
     [HarmonyTranspiler]

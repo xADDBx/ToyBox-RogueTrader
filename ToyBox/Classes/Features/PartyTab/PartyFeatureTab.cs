@@ -2,34 +2,37 @@ using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Designers;
+using Kingmaker.EntitySystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.PubSubSystem;
+using Kingmaker.PubSubSystem.Core;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.Progression.Features;
 using ToyBox.Infrastructure.Inspector;
 using ToyBox.Infrastructure.Utilities;
 using UnityEngine;
 
 namespace ToyBox.Features.PartyTab;
 public partial class PartyFeatureTab : FeatureTab {
-    private TimedCache<Dictionary<UnitEntityData, float>> m_DistanceToCache = new(() => []);
+    private readonly TimedCache<Dictionary<BaseUnitEntity, float>> m_DistanceToCache = new(() => []);
     [LocalizedString("ToyBox_Features_PartyTab_PartyFeatureTab_PartyLevelText", "Party Level")]
-    private static partial string PartyLevelText { get; }
+    private static partial string m_PartyLevelText { get; }
     [LocalizedString("ToyBox_Features_PartyTab_PartyFeatureTab_InspectParty_forDebugging__Text", "Inspect Party (for debugging)")]
-    private static partial string InspectPartyText { get; }
+    private static partial string m_InspectPartyText { get; }
     [LocalizedString("ToyBox_Features_PartyTab_PartyFeatureTab_Name", "Party")]
     public override partial string Name { get; }
     private static PartyTabSectionType m_UncollapsedSection = PartyTabSectionType.None;
-    private static UnitEntityData? m_UncollapsedUnit = null;
+    private static BaseUnitEntity? m_UncollapsedUnit = null;
     private static readonly PartyTabSectionType[] m_Sections = [PartyTabSectionType.Classes, PartyTabSectionType.Stats, PartyTabSectionType.Features,
-        PartyTabSectionType.Buffs, PartyTabSectionType.Abilities, PartyTabSectionType.Spells, PartyTabSectionType.Inspect];
-    private static Lazy<float> m_InspectLabelWidth = new(() => CalculateLargestLabelSize([InspectPartyText]));
+        PartyTabSectionType.Buffs, PartyTabSectionType.Abilities, PartyTabSectionType.Inspect];
+    private static readonly Lazy<float> m_InspectLabelWidth = new(() => CalculateLargestLabelSize([m_InspectPartyText]));
     private static bool m_FeatureNeedsUpdate = true;
     private static bool m_BuffNeedsUpdate = true;
     private static bool m_AbilityNeedsUpdate = true;
-    private static Browser<BlueprintFeature> m_FeatureBrowser = new(BPHelper.GetSortKey, BPHelper.GetSearchKey, null, func => BPLoader.GetBlueprintsOfType(func), overridePageWidth: (int)EffectiveWindowWidth() - 40);
-    private static Browser<BlueprintBuff> m_BuffBrowser = new(BPHelper.GetSortKey, BPHelper.GetSearchKey, null, func => BPLoader.GetBlueprintsOfType(func), overridePageWidth: (int)EffectiveWindowWidth() - 40);
-    private static Browser<BlueprintAbility> m_AbilityBrowser = new(BPHelper.GetSortKey, BPHelper.GetSearchKey, null, func => BPLoader.GetBlueprintsOfType(func), overridePageWidth: (int)EffectiveWindowWidth() - 40);
+    private static readonly Browser<BlueprintFeature> m_FeatureBrowser = new(BPHelper.GetSortKey, BPHelper.GetSearchKey, null, func => BPLoader.GetBlueprintsOfType(func), overridePageWidth: (int)EffectiveWindowWidth() - 40);
+    private static readonly Browser<BlueprintBuff> m_BuffBrowser = new(BPHelper.GetSortKey, BPHelper.GetSearchKey, null, func => BPLoader.GetBlueprintsOfType(func), overridePageWidth: (int)EffectiveWindowWidth() - 40);
+    private static readonly Browser<BlueprintAbility> m_AbilityBrowser = new(BPHelper.GetSortKey, BPHelper.GetSearchKey, null, func => BPLoader.GetBlueprintsOfType(func), overridePageWidth: (int)EffectiveWindowWidth() - 40);
     public PartyFeatureTab() {
         AddFeature(new FeatureBrowserUnitFeature());
     }
@@ -61,8 +64,8 @@ public partial class PartyFeatureTab : FeatureTab {
         var units = CharacterPicker.CurrentUnits;
         using (VerticalScope()) {
             using (HorizontalScope()) {
-                UI.Label((PartyLevelText + ": ").Cyan() + Game.Instance.Player.PartyLevel.ToString().Orange().Bold(), Width(150));
-                InspectorUI.InspectToggle("Party", InspectPartyText, units, -150, true, Width(m_InspectLabelWidth.Value + UI.DisclosureGlyphWidth.Value));
+                UI.Label((m_PartyLevelText + ": ").Cyan() + Game.Instance.Player.PartyLevel.ToString().Orange().Bold(), Width(150));
+                InspectorUI.InspectToggle("Party", m_InspectPartyText, units, -150, true, Width(m_InspectLabelWidth.Value + UI.DisclosureGlyphWidth.Value));
             }
             var mainChar = GameHelper.GetPlayerCharacter();
             foreach (var unit in units) {
@@ -72,13 +75,13 @@ public partial class PartyFeatureTab : FeatureTab {
                         Space(2);
 
                         UI.EditableLabel(unit.CharacterName, unit.UniqueId, newName => {
-                            unit.Descriptor.CustomName = newName;
-                            EventBus.RaiseEvent<IUnitNameHandler>(handler => handler.OnUnitNameChanged(unit));
+                            unit.Description.CustomName = newName;
+                            EventBus.RaiseEvent<IUnitNameHandler>(handler => handler.OnUnitNameChanged());
                             Main.ScheduleForMainThread(m_NameSectionWidth.ForceRefresh);
                         });
 
-                        Dictionary<UnitEntityData, float> distanceCache = m_DistanceToCache;
-                        if (!distanceCache.TryGetValue(unit, out float dist)) {
+                        Dictionary<BaseUnitEntity, float> distanceCache = m_DistanceToCache;
+                        if (!distanceCache.TryGetValue(unit, out var dist)) {
                             dist = mainChar.DistanceTo(unit);
                             distanceCache[unit] = dist;
                         }
@@ -87,7 +90,7 @@ public partial class PartyFeatureTab : FeatureTab {
                         GUILayout.FlexibleSpace();
                     }
                     foreach (var sec in m_Sections) {
-                        bool isUncollapsed = sec == m_UncollapsedSection && unit == m_UncollapsedUnit;
+                        var isUncollapsed = sec == m_UncollapsedSection && unit == m_UncollapsedUnit;
                         if (UI.DisclosureToggle(ref isUncollapsed, " " + sec.GetLocalized())) {
                             FeatureRefresh();
                             if (isUncollapsed) {
@@ -109,28 +112,29 @@ public partial class PartyFeatureTab : FeatureTab {
                             case PartyTabSectionType.Features: OnFeaturesGui(unit); break;
                             case PartyTabSectionType.Buffs: OnBuffsGui(unit); break;
                             case PartyTabSectionType.Abilities: OnAbilitiesGui(unit); break;
-                            case PartyTabSectionType.Spells: OnSpellsGui(unit); break;
                             case PartyTabSectionType.Stats: OnStatsGui(unit); break;
+                            case PartyTabSectionType.None:
+                                break;
                         }
                     }
                 }
             }
         }
     }
-    private static void OnStatsGui(UnitEntityData unit) {
+    private static void OnStatsGui(BaseUnitEntity unit) {
         Space(10);
 #warning TODO
         UI.Label("Uncollapsed Stats");
     }
-    private static void OnInspectGui(UnitEntityData unit) {
+    private static void OnInspectGui(BaseUnitEntity unit) {
         InspectorUI.Inspect(unit);
     }
-    private static void OnClassesGui(UnitEntityData unit) {
+    private static void OnClassesGui(BaseUnitEntity unit) {
         Space(10);
 #warning TODO
         UI.Label("Uncollapsed Classes");
     }
-    private static void OnFeaturesGui(UnitEntityData unit) {
+    private static void OnFeaturesGui(BaseUnitEntity unit) {
         if (m_FeatureNeedsUpdate) {
             m_FeatureNeedsUpdate = false;
             m_FeatureBrowser.UpdateItems(unit.Progression.Features.Enumerable.Select(f => f.Blueprint));
@@ -139,27 +143,22 @@ public partial class PartyFeatureTab : FeatureTab {
             BlueprintUI.BlueprintRowGUI(feature, unit);
         });
     }
-    private static void OnAbilitiesGui(UnitEntityData unit) {
+    private static void OnAbilitiesGui(BaseUnitEntity unit) {
         if (m_AbilityNeedsUpdate) {
             m_AbilityNeedsUpdate = false;
-            m_AbilityBrowser.UpdateItems(unit.Descriptor.Abilities.Enumerable.Select(f => f.Blueprint));
+            m_AbilityBrowser.UpdateItems(unit.Abilities.Enumerable.Select(f => f.Blueprint));
         }
         m_AbilityBrowser.OnGUI(ability => {
             BlueprintUI.BlueprintRowGUI(ability, unit);
         });
     }
-    private static void OnBuffsGui(UnitEntityData unit) {
+    private static void OnBuffsGui(BaseUnitEntity unit) {
         if (m_BuffNeedsUpdate) {
             m_BuffNeedsUpdate = false;
-            m_BuffBrowser.UpdateItems(unit.Descriptor.Buffs.Enumerable.Select(f => f.Blueprint));
+            m_BuffBrowser.UpdateItems(unit.Buffs.Enumerable.Select(f => f.Blueprint));
         }
         m_BuffBrowser.OnGUI(buff => {
             BlueprintUI.BlueprintRowGUI(buff, unit);
         });
-    }
-    private static void OnSpellsGui(UnitEntityData unit) {
-        Space(10);
-#warning TODO
-        UI.Label("Uncollapsed Spells");
     }
 }

@@ -20,7 +20,7 @@ public static class ToyBoxReflectionHelper {
         underlying = maybeUnderlying;
         return underlying != null;
     }
-    private static Dictionary<Type, string> m_ResolvedNamesCache = [];
+    private static readonly Dictionary<Type, string> m_ResolvedNamesCache = [];
     public static string GetNameWithGenericsResolved(Type type) {
         if (!m_ResolvedNamesCache.TryGetValue(type, out var name)) {
             if (type.IsGenericType) {

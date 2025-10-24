@@ -4,8 +4,12 @@ using System.Security.Cryptography;
 
 namespace ToyBox.Features.SettingsFeatures.UpdateAndIntegrity;
 public partial class IntegrityCheckerFeature : ToggledFeature {
-    private const string ChecksumFileName = "checksum";
-    public override ref bool IsEnabled => ref Settings.EnableFileIntegrityCheck;
+    private const string m_ChecksumFileName = "checksum";
+    public override ref bool IsEnabled {
+        get {
+            return ref Settings.EnableFileIntegrityCheck;
+        }
+    }
 
     [LocalizedString("ToyBox_Features_UpdateAndIntegrity_UpdateCompatabilityFeature_EnableIntegrityCheckText", "Enable Integrity Check")]
     public override partial string Name { get; }
@@ -25,7 +29,7 @@ public partial class IntegrityCheckerFeature : ToggledFeature {
             }
             Log($"Checkung checksum of {curFile}");
             var curDir = Path.GetDirectoryName(curFile);
-            var file = Path.Combine(curDir, ChecksumFileName);
+            var file = Path.Combine(curDir, m_ChecksumFileName);
             var providedChecksum = File.ReadAllLines(file)[0];
             using var sha256 = SHA256.Create();
             var calculatedChecksum = BitConverter.ToString(sha256.ComputeHash(File.ReadAllBytes(curFile))).Replace("-", "");

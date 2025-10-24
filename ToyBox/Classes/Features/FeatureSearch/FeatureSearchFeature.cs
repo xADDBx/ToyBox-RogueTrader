@@ -1,14 +1,12 @@
-﻿using Kingmaker.EntitySystem.Entities;
-using ToyBox.Infrastructure;
-using ToyBox.Infrastructure.Localization;
+﻿using ToyBox.Infrastructure.Localization;
 
 namespace ToyBox.Features.FeatureSearch;
 
 public partial class FeatureSearchFeature : Feature {
     [LocalizedString("ToyBox_Features_FeatureSearch_FeatureSearchFeature_FeatureSearchNotImplementedForTh", "Feature search not implemented for this feature!")]
-    private static partial string FeatureSearchNotImplementedForTh { get; }
+    private static partial string m_FeatureSearchNotImplementedForTh { get; }
     [LocalizedString("ToyBox_Features_FeatureSearch_FeatureSearchFeature_ShowGUIText", "Show GUI")]
-    private static partial string ShowGUIText { get; }
+    private static partial string m_ShowGUIText { get; }
     [LocalizedString("ToyBox_Features_FeatureSearch_FeatureSearchFeature_Name", "Default Name")]
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_FeatureSearch_FeatureSearchFeature_Description", "Default Description")]
@@ -34,7 +32,7 @@ public partial class FeatureSearchFeature : Feature {
                     m_DisclosureStates[feature] = showNested;
                 }
                 using (HorizontalScope()) {
-                    if (UI.DisclosureToggle(ref showNested, ShowGUIText)) {
+                    if (UI.DisclosureToggle(ref showNested, m_ShowGUIText)) {
                         m_DisclosureStates[feature] = showNested;
                     }
                     Space(15);

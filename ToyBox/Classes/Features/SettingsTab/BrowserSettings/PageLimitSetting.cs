@@ -1,11 +1,36 @@
 ﻿namespace ToyBox.Features.SettingsFeatures.BrowserSettings;
 
 public partial class PageLimitSetting : FeatureWithIntSlider {
-    public override bool IsEnabled => true;
-    public override ref int Value => ref Settings.PageLimit;
-    public override int Min => 1;
-    public override int Max => 400;
-    public override int? Default => 25;
+    public override bool IsEnabled {
+        get {
+            return true;
+        }
+    }
+
+    public override ref int Value {
+        get {
+            return ref Settings.PageLimit;
+        }
+    }
+
+    public override int Min {
+        get {
+            return 1;
+        }
+    }
+
+    public override int Max {
+        get {
+            return 400;
+        }
+    }
+
+    public override int? Default {
+        get {
+            return 25;
+        }
+    }
+
     protected override void OnValueChanged((int oldValue, int newValue) vals) {
         base.OnValueChanged(vals);
         List<WeakReference<IPagedList>> newList = [];

@@ -15,7 +15,7 @@ public class ToyBoxPatchCategoryAttribute : Attribute {
         if (m_HarmonyCategoryCache!.TryGetValue(categoryName, out var toPatch)) {
             try {
                 toPatch.Do(type => {
-                    harmony.CreateClassProcessor(type).Patch();
+                    _ = harmony.CreateClassProcessor(type).Patch();
                 });
             } catch {
                 harmony.UnpatchAll(harmony.Id);
@@ -26,8 +26,8 @@ public class ToyBoxPatchCategoryAttribute : Attribute {
     public static void CreateHarmonyCategoryCache() {
         m_HarmonyCategoryCache = [];
         foreach (var type in AccessTools.GetTypesFromAssembly(typeof(FeatureWithPatch).Assembly)) {
-            List<HarmonyMethod> fromType = HarmonyMethodExtensions.GetFromType(type);
-            HarmonyMethod harmonyMethod = HarmonyMethod.Merge(fromType);
+            var fromType = HarmonyMethodExtensions.GetFromType(type);
+            _ = HarmonyMethod.Merge(fromType);
             var attr = type.GetCustomAttribute<ToyBoxPatchCategoryAttribute>();
             if (!string.IsNullOrEmpty(attr?.Category)) {
                 if (!m_HarmonyCategoryCache.TryGetValue(attr!.Category, out var typeList)) {

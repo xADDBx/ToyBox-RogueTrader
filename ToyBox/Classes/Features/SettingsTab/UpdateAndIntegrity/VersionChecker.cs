@@ -1,8 +1,7 @@
-﻿using Kingmaker;
+﻿using Kingmaker.GameInfo;
 using Newtonsoft.Json;
 using System.Net;
 using System.Numerics;
-using ToyBox.Infrastructure;
 
 namespace ToyBox.Features.SettingsFeatures.UpdateAndIntegrity;
 public static class VersionChecker {
@@ -28,9 +27,9 @@ public static class VersionChecker {
     }
     internal static bool IsVersionGreaterThan(List<BigInteger> a, List<BigInteger> b) {
         int maxLen = Math.Max(a.Count, b.Count);
-        for (int i = 0; i < maxLen; i++) {
-            BigInteger t = (i < a.Count) ? a[i] : 0;
-            BigInteger g = (i < b.Count) ? b[i] : 0;
+        for (var i = 0; i < maxLen; i++) {
+            var t = (i < a.Count) ? a[i] : 0;
+            var g = (i < b.Count) ? b[i] : 0;
             if (t > g) {
                 return true;
             }
@@ -48,11 +47,11 @@ public static class VersionChecker {
             foreach (var c in comp) {
                 try {
                     if (uint.TryParse(c.ToString(), out var n)) {
-                        num = num * 10u + n;
+                        num = (num * 10u) + n;
                     } else {
-                        int signedCharNumber = char.ToUpper(c) - ' ';
-                        uint unsignedCharNumber = (uint)Math.Max(0, Math.Min(signedCharNumber, 99));
-                        num = num * 100u + unsignedCharNumber;
+                        var signedCharNumber = char.ToUpper(c) - ' ';
+                        var unsignedCharNumber = (uint)Math.Max(0, Math.Min(signedCharNumber, 99));
+                        num = (num * 100u) + unsignedCharNumber;
                     }
                 } catch (Exception ex) {
                     Warn($"Error while trying to numify version component {comp}, continuing with {num}.\n{ex}");

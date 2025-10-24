@@ -1,12 +1,12 @@
 {
   "Id": "0ToyBox0",
   "DisplayName": "ToyBox",
-  "Author": "Narria",
+  "Author": "Narria, ADDB",
   "Version": "1.8.0",
-  "ManagerVersion": "0.27.11",
+  "ManagerVersion": "0.25.0",
   "Requirements": [],
   "AssemblyName": "ToyBox.dll",
   "EntryMethod": "ToyBox.Main.Load",
-  "HomePage": "https://github.com/xADDBx/ToyBox-Wrath",
-  "Repository": "https://raw.githubusercontent.com/xADDBx/ToyBox-Wrath/main/ToyBox/Repository.json"
+  "HomePage": "https://github.com/xADDBx/ToyBox-RogueTrader",
+  "Repository": "https://raw.githubusercontent.com/xADDBx/ToyBox-RogueTrader/main/ToyBox/Repository.json"
 }

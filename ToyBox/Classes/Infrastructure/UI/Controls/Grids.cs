@@ -2,18 +2,18 @@
 
 namespace ToyBox.Infrastructure;
 public static partial class UI {
-    private static Dictionary<Type, Array> m_EnumCache = new();
-    private static Dictionary<Type, Dictionary<object, int>> m_IndexToEnumCache = new();
-    private static Dictionary<Type, string[]> m_EnumNameCache = new();
+    private static Dictionary<Type, Array> m_EnumCache = [];
+    private static Dictionary<Type, Dictionary<object, int>> m_IndexToEnumCache = [];
+    private static Dictionary<Type, string[]> m_EnumNameCache = [];
     public static bool SelectionGrid<TEnum>(ref TEnum selected, int xCols, Func<TEnum, string>? titler, params GUILayoutOption[] options) where TEnum : Enum {
         if (!m_EnumCache.TryGetValue(typeof(TEnum), out var vals)) {
             vals = Enum.GetValues(typeof(TEnum));
             m_EnumCache[typeof(TEnum)] = vals;
         }
         if (!m_EnumNameCache.TryGetValue(typeof(TEnum), out var names)) {
-            Dictionary<object, int> indexToEnum = new();
-            List<string> tmpNames = new();
-            for (int i = 0; i < vals.Length; i++) {
+            Dictionary<object, int> indexToEnum = [];
+            List<string> tmpNames = [];
+            for (var i = 0; i < vals.Length; i++) {
                 string name;
                 var val = vals.GetValue(i);
                 indexToEnum[val] = i;
@@ -39,7 +39,7 @@ public static partial class UI {
         names[selectedInt] = uncolored.Orange();
         var newSel = GUILayout.SelectionGrid(selectedInt, names, xCols, options);
         names[selectedInt] = uncolored;
-        bool changed = selectedInt != newSel;
+        var changed = selectedInt != newSel;
         if (changed) {
             selected = (TEnum)vals.GetValue(newSel);
         }
@@ -59,7 +59,7 @@ public static partial class UI {
         })];
         names[selectedInt] = names[selectedInt].Orange();
         var newSel = GUILayout.SelectionGrid(selectedInt, names, xCols, options);
-        bool changed = selectedInt != newSel;
+        var changed = selectedInt != newSel;
         if (changed) {
             if (newSel == 0) {
                 selected = default;

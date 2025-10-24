@@ -11,110 +11,6 @@
     "Original": "Cheats",
     "Translated": null
   },
-  "ToyBox_Features_BagOfTricks_Cheats_AllowAnyUnitAsYourMountFeature_Name": {
-    "Original": "Ride Any Unit As Your Mount",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_AllowAnyUnitAsYourMountFeature_Description": {
-    "Original": "Allows you to mount any unit, even if they are not a pet (this will likely look weird)",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_AllowItemUseFromInventoryDuringCombatFeature_Name": {
-    "Original": "Allow inventory items in combat",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_AllowItemUseFromInventoryDuringCombatFeature_Description": {
-    "Original": "Makes it possible to use items in the inventory even in a fight",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_AllowMovingThroughUnitsFeature_Name": {
-    "Original": "Can Move Through",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_AllowMovingThroughUnitsFeature_Description": {
-    "Original": "This allows characters you control to move through the selected category of units during combat",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_DisableArcaneSpellFailureFeature_Name": {
-    "Original": "Disable Arcane Spell Failure",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_DisableArcaneSpellFailureFeature_Description": {
-    "Original": "Sets the spell failure chance on spells to 0",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_DisableArmourMaxDexterityFeature_Name": {
-    "Original": "Disable Armor Max Dexterity",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_DisableArmourMaxDexterityFeature_Description": {
-    "Original": "Some armours have a limit to their dexterity bonus. This feature disables said limit for every armour.",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_DisableArmourSpeedReductionFeature_Name": {
-    "Original": "Disable Armor Speed Reduction",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_DisableArmourSpeedReductionFeature_Description": {
-    "Original": "Some armours and shields apply a modifier to speed. This feature removes said modifiers.",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_DisableAttackOfOpportunityFeature_Name": {
-    "Original": "Disable Attacks Of Opportunity",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_DisableAttackOfOpportunityFeature_Description": {
-    "Original": "Prevents the selected units from being attacked with an Attack of Opportunity",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_DisableFogOfWarFeature_DisableFogOfWarText": {
-    "Original": "Disable Fog of War",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_DisableFogOfWarFeature_DisableTheFogOfWarOnTheMapText": {
-    "Original": "Disable the fog of war on the map",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_DisableNegativePartyLevels_DisablePartyNegativeLevelsText": {
-    "Original": "Stop party levels from being reduced",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_DisableNegativePartyLevels_PreventPartyMembersFromBeingAffe": {
-    "Original": "Prevent Party members from losing levels due to energy drain",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_DisablePartyAbilityDamage_DisablePartyAbilityDamageText": {
-    "Original": "Prevent Party abilities from being reduced",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_DisablePartyAbilityDamage_PreventPartyMembersFromBeingAffe": {
-    "Original": "Prevents Party members from being affected by stat reducing attacks",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_DisableRequireMaterialComponent_NoMaterialComponentsText": {
-    "Original": "No Material Components",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_DisableRequireMaterialComponent_AbilitiesNoLongerNeedAnyMaterial": {
-    "Original": "Abilities no longer need any material components which they would otherwise consume",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_EquipmentNoWeightFeature_Name": {
-    "Original": "Equipment no weight",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_EquipmentNoWeightFeature_Description": {
-    "Original": "Makes things have no weight in both the collective and the individual inventories",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_FreeMetaMagicFeature_Name": {
-    "Original": "Free Meta-Magic",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_FreeMetaMagicFeature_Description": {
-    "Original": "Metamagic no longer increases the effective spell level or, in case of spontaneous casters, casting time.",
-    "Translated": null
-  },
   "ToyBox_Features_BagOfTricks_Cheats_HighlightHiddenObjectsFeature_Name": {
     "Original": "Highlight Hidden Objects",
     "Translated": null
@@ -131,179 +27,11 @@
     "Original": "Also Highlight in Fog of War",
     "Translated": null
   },
-  "ToyBox_Features_BagOfTricks_Cheats_IgnoreAlignmentRequirementsForAbilitiesFeature_Name": {
-    "Original": "Ignore Alignment Requirements for Abilities",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_IgnoreAlignmentRequirementsForAbilitiesFeature_Description": {
-    "Original": "Disables ability/spellbook checks regarding alignment for both initiator and target",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_IgnoreAllRequirementsForAbilitiesFeature_Name": {
-    "Original": "Ignore all Requirements for Abilities",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_IgnoreAllRequirementsForAbilitiesFeature_Description": {
-    "Original": "Allows casting any abilities regardless of requirements",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_IgnoreArmourChecksPenaltyFeature_Name": {
-    "Original": "Disable Armor Checks Penalty",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_IgnoreArmourChecksPenaltyFeature_Description": {
-    "Original": "Some armour has a penalty for Mobility, Athletics, Stealth and Thievery skill checks. This feature sets to penalty to 0.",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_IgnoreEquipmentRestrictionsFeature_Name": {
-    "Original": "Ignore Equipment Restrictions",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_IgnoreEquipmentRestrictionsFeature_Description": {
-    "Original": "Ignores restrictions when equipping weapons, shields, armour and other items",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_IgnorePetSizesForMountingFeature_Name": {
-    "Original": "Ignore pet sizes for mounting",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_IgnorePetSizesForMountingFeature_Description": {
-    "Original": "Allows mounting pets of any size",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_InfiniteAbilitiesFeature_Name": {
-    "Original": "Infinite Abilities",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_InfiniteAbilitiesFeature_Description": {
-    "Original": "Prevents ability resources/usages from being spent",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_InfiniteActionsFeature_Name": {
-    "Original": "Unlimited Actions During Turn",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_InfiniteActionsFeature_Description": {
-    "Original": "Allows you to do any kind of action infinitely during Turn Based combat",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_InfiniteItemChargesFeature_Name": {
-    "Original": "Infinite Charges On Items",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_InfiniteItemChargesFeature_Description": {
-    "Original": "Using an item no longer spends any charge",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_InfiniteSpellCastsFeature_Name": {
-    "Original": "Infinite Spell Casts",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_InfiniteSpellCastsFeature_Description": {
-    "Original": "Turns spell slot cost of spells to 0",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_InstantChangePartyMembersFeature_Name": {
-    "Original": "Instant change party members",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_InstantChangePartyMembersFeature_Description": {
-    "Original": "Spend no time when switching out party members regardless of your location",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_InstantGlobalCrusadeSpellsFeature_Name": {
-    "Original": "Instant Global Crusade Spells Cooldown",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_InstantGlobalCrusadeSpellsFeature_Description": {
-    "Original": "Restores crusade spells immediately after using them",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_NoFriendlyFireAoEFeature_Name": {
-    "Original": "No Friendly Fire On AoEs",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_NoFriendlyFireAoEFeature_Description": {
-    "Original": "Tries to remove teammates as targets in harmful AoEs. Also sets damage to zero and lets Statchecks, Skillchecks and Saving throws succeeds if both attacker and attackee are friendly.",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_PreventTrapsFromTriggeringFeature_Name": {
-    "Original": "Prevent Traps from triggering",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_PreventTrapsFromTriggeringFeature_Description": {
-    "Original": "Entering a Trap Zone while having Traps disabled will prevent that Trap from triggering even if you deactivate this option in the future",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_RestAfterCombatFeature_RestPartyInstantlyAfterCombatTex": {
-    "Original": "Rest Party Instantly After Combat",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_RestAfterCombatFeature_RestAllPartyMembersInstantlyAfte": {
-    "Original": "Rest all party members instantly after combat",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_RestoreAbilitiesAfterCombatFeature_RestoreAbilitiesAfterCombatText": {
-    "Original": "Restore Abilities After Combat",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_RestoreAbilitiesAfterCombatFeature_RestoresAllChargesOnAbilitiesAft": {
-    "Original": "Restores all charges on abilities after combat",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_RestoreItemsAfterCombatFeature_RestoreItemsAfterCombatText": {
-    "Original": "Restore Items After Combat",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_RestoreItemsAfterCombatFeature_RestoreItemChargesAfterCombatTex": {
-    "Original": "Restore item charges after combat",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_RestoreSpellsAfterCombatFeature_RestoreSpellsAfterCombatText": {
-    "Original": "Restore Spells After Combat",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_RestoreSpellsAfterCombatFeature_RestoreSpellChargesAfterCombatTe": {
-    "Original": "Restore spell charges after combat",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_SpontaneousCasterCopyScrollFeature_CanCopyScrollsText": {
-    "Original": "Spontaneous Caster Scroll Copy",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_SpontaneousCasterCopyScrollFeature_AllowSpontaneousCastersToCopyScr": {
-    "Original": "Allow spontaneous casters to copy scrolls into their spell books",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_ToggleLockJamFeature_ToggleLockJamText": {
-    "Original": "Toggle Lock Jam",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_ToggleLockJamFeature_PreventsLocksFromJammingText": {
-    "Original": "Prevents Locks from jamming",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_UnlimitedModifierStackingFeature_Name": {
-    "Original": "Unlimited Stacking of Modifiers",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_UnlimitedModifierStackingFeature_Description": {
-    "Original": "Forces any kind of (Stat/AC/Hit/Etc) bonus to stack, even if they would normally override each other",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_QualityOfLife_DisableTricksterMythicMusicFeature_Name": {
-    "Original": "Disable Trickster Mythic Music in Drezen",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_QualityOfLife_DisableTricksterMythicMusicFeature_Description": {
-    "Original": "Prevents the Trickster Theme from running in Drezen",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_QoL_EnableAchievementsFeature_AllowAchievementsWhileUsingModsT": {
+  "ToyBox_Features_BagOfTricks_QualityOfLife_EnableAchievementsFeature_AllowAchievementsWhileUsingModsT": {
     "Original": "Allow Achievements While Using Mods",
     "Translated": null
   },
-  "ToyBox_Features_BagOfTricks_QoL_EnableAchievementsFeature_ThisIsIntendedForYouToBeAbleToEn": {
+  "ToyBox_Features_BagOfTricks_QualityOfLife_EnableAchievementsFeature_ThisIsIntendedForYouToBeAbleToEn": {
     "Original": "This is intended for you to be able to enjoy the game while using mods that enhance your quality of life.",
     "Translated": null
   },
@@ -615,186 +343,6 @@
     "Original": "Loads a specified BlueprintAreaPreset.",
     "Translated": null
   },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportAreaBA_TeleportText": {
-    "Original": "Teleport",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportAreaBA_Name": {
-    "Original": "Teleport to Area",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportAreaBA_Description": {
-    "Original": "Teleports you to a random enter point of the specified BlueprintArea.",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportAreaEnterPointBA_TeleportText": {
-    "Original": "Teleport",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportAreaEnterPointBA_Name": {
-    "Original": "Teleport to AreaEnterPoint",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportAreaEnterPointBA_Description": {
-    "Original": "Teleports you to a specified BlueprintAreaEnterPoint.",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddGlobalMagicSpellBA_AddText": {
-    "Original": "Add",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddGlobalMagicSpellBA_Name": {
-    "Original": "Add Global Spell",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddGlobalMagicSpellBA_Description": {
-    "Original": "Adds the specified BlueprintGlobalMagicSpell.",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddGlobalMagicSpellBA_GlobalSpellIsAlreadyKnownText": {
-    "Original": "Global Spell is already known",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddKingdomBuffBA_AddText": {
-    "Original": "Add",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddKingdomBuffBA_Name": {
-    "Original": "Add Kingdom Buff",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddKingdomBuffBA_Description": {
-    "Original": "Adds the specified BlueprintKingdomBuff to the chosen kingdom.",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddKingdomBuffBA_KingdomAlreadyHasThisBuffText": {
-    "Original": "Kingdom already has this Buff",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddKingdomBuffBA_ThereCurrentlyExistsNoKingdomTex": {
-    "Original": "There currently exists no kingdom",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddLeaderSkillBA_AddText": {
-    "Original": "Add",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddLeaderSkillBA_Name": {
-    "Original": "Add Leader Skill",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddLeaderSkillBA_Description": {
-    "Original": "Adds the specified BlueprintLeaderSkill.",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddLeaderSkillBA_LeaderAlreadyHasTheSpecifiedSkil": {
-    "Original": "Leader already has the specified skill",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddLeaderSkillBA_SelectAnArmyWithAValidLeaderFirs": {
-    "Original": "Select an army with a valid Leader first",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveGlobalMagicSpellBA_RemoveText": {
-    "Original": "Remove",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveGlobalMagicSpellBA_Name": {
-    "Original": "Remove Global Spell",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveGlobalMagicSpellBA_Description": {
-    "Original": "Removes the specified BlueprintGlobalMagicSpell.",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveGlobalMagicSpellBA_GlobalSpellIsNotKnownText": {
-    "Original": "Global Spell is not known",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveKingdomBuffBA_RemoveText": {
-    "Original": "Remove",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveKingdomBuffBA_Name": {
-    "Original": "Remove Kingdom Buff",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveKingdomBuffBA_Description": {
-    "Original": "Removes the specified BlueprintKingdomBuff from the chosen kingdom.",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveKingdomBuffBA_KingdomDoesNotHaveThisBuffText": {
-    "Original": "Kingdom does not have this buff",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveKingdomBuffBA_ThereCurrentlyExistsNoKingdomTex": {
-    "Original": "There currently exists no kingdom",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveLeaderSkillBA_RemoveText": {
-    "Original": "Remove",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveLeaderSkillBA_Name": {
-    "Original": "Remove Leader Skill",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveLeaderSkillBA_Description": {
-    "Original": "Removes the specified BlueprintLeaderSkill.",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveLeaderSkillBA_LeaderAlreadyHasTheSpecifiedSkil": {
-    "Original": "Leader does not have the specified skill",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveLeaderSkillBA_SelectAnArmyWithAValudLeaderFirs": {
-    "Original": "Select an army with a valud Leader first",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_SpawnArmyPresetBA_TeleportText": {
-    "Original": "Spawn",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_SpawnArmyPresetBA_Name": {
-    "Original": "Spawn an army",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_SpawnArmyPresetBA_Description": {
-    "Original": "Spawns the specified BlueprintArmyPreset as friend or foe.",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_SpawnArmyPresetBA_SpawnFriendlyText": {
-    "Original": "Spawn Friendly",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_SpawnArmyPresetBA_SpawnHostileText": {
-    "Original": "Spawn Hostile",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportGlobalMapBA_TeleportText": {
-    "Original": "Teleport",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportGlobalMapBA_Name": {
-    "Original": "Teleport to GlobalMap",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportGlobalMapBA_Description": {
-    "Original": "Teleports you to the specified BlueprintGlobalMap.",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportGlobalMapPointBA_TeleportText": {
-    "Original": "Teleport",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportGlobalMapPointBA_Name": {
-    "Original": "Teleport to GlobalMapPoint",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportGlobalMapPointBA_Description": {
-    "Original": "Teleports you to the specified BlueprintGlobalMapPoint.",
-    "Translated": null
-  },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddItemBA_Add_x": {
     "Original": "Add",
     "Translated": null
@@ -1003,58 +551,6 @@
     "Original": "Unit already has this ability resource",
     "Translated": null
   },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddFeatureSelectionBA_AddText": {
-    "Original": "Add",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddFeatureSelectionBA_Name": {
-    "Original": "Add Feature Selection",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddFeatureSelectionBA_Description": {
-    "Original": "Adds the specified feature under the BlueprintFeatureSelection to the chosen unit.",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddFeatureSelectionBA_UnitAlreadyHasThisFactText": {
-    "Original": "Unit already has the feature",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddFeatureSelectionBA_YouNeedToPickAParameterForTheFea": {
-    "Original": "You need to pick a parameter for the feature list item!",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddParametrizedFeatureBA_AddText": {
-    "Original": "Add",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddParametrizedFeatureBA_Name": {
-    "Original": "Add Parametrized Feature",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddParametrizedFeatureBA_Description": {
-    "Original": "Adds the BlueprintParametrizedFeature with the specified parameter to the chosen unit.",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddParametrizedFeatureBA_UnitAlreadyHasThisFactText": {
-    "Original": "Unit already has the feature with this parameter",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddSpellbookBA_AddText": {
-    "Original": "Add",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddSpellbookBA_Name": {
-    "Original": "Add Spellbook",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddSpellbookBA_Description": {
-    "Original": "Adds the specified BlueprintSpellbook to the chosen unit.",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddSpellbookBA_UnitAlreadyHasThisSpellbookText": {
-    "Original": "Unit already has this Spellbook",
-    "Translated": null
-  },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddUnitFactBA_AddText": {
     "Original": "Add",
     "Translated": null
@@ -1069,18 +565,6 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddUnitFactBA_UnitAlreadyHasThisFactText": {
     "Original": "Unit already has this Fact",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddUnitFactBA_SpellAlreadyIsKnownInFirstSpellb": {
-    "Original": "Spell already is known in first Spellbook",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddUnitFactBA_AtWillText": {
-    "Original": "At Will",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddUnitFactBA_Can_tAddFeatureSelectionsViaTheA": {
-    "Original": "Can't add Feature Selections via the Add Unit Fact action. Use the Parametrized or Feature Selection variants instead!",
     "Translated": null
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeBuffRankBA_Name": {
@@ -1107,22 +591,6 @@
     "Original": "This feature has no ranks",
     "Translated": null
   },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeSpellbookLevelBA__Plus1CasterLevelText": {
-    "Original": "+1 CL",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeSpellbookLevelBA_Name": {
-    "Original": "Increase spellbook level",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeSpellbookLevelBA_Description": {
-    "Original": "Increases the level of the specified BlueprintSpellbook on the chosen unit.",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeSpellbookLevelBA_UnitDoesNotHaveThisSpellbookText": {
-    "Original": "Unit does not have this Spellbook",
-    "Translated": null
-  },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveAbilityResourceBA_Name": {
     "Original": "Remove Ability Resource",
     "Translated": null
@@ -1139,22 +607,6 @@
     "Original": "Unit does not have this ability resource",
     "Translated": null
   },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveSpellbookBA_RemoveText": {
-    "Original": "Remove",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveSpellbookBA_Name": {
-    "Original": "Remove Spellbook",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveSpellbookBA_Description": {
-    "Original": "Remove the specified BlueprintSpellbook from the chosen unit.",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveSpellbookBA_UnitDoesNotHaveThisSpellbookText": {
-    "Original": "Unit does not have this Spellbook",
-    "Translated": null
-  },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveUnitFactBA_RemoveText": {
     "Original": "Remove",
     "Translated": null
@@ -1169,10 +621,6 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveUnitFactBA_UnitDoesNotHaveThisFactText": {
     "Original": "Unit does not have this Fact",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveUnitFactBA_RemoveSpellText": {
-    "Original": "Remove Spell",
     "Translated": null
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_SpawnUnitBA_Spawn_x": {
@@ -1275,10 +723,6 @@
     "Original": "Abilities",
     "Translated": null
   },
-  "ToyBox_Infrastructure_Enums_PartyTabSectionType_Localizer_SpellsText": {
-    "Original": "Spells",
-    "Translated": null
-  },
   "ToyBox_Infrastructure_Enums_PartyTabSectionType_Localizer_InspectText": {
     "Original": "Inspect",
     "Translated": null
@@ -1333,18 +777,6 @@
   },
   "ToyBox_Infrastructure_Inspector_InspectorUI_StoppedDrawingEntriesToPreventUI": {
     "Original": "Stopped drawing entries to prevent UI crash",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Utilities_FeatureSelectionItemProvider_PickItemText": {
-    "Original": "Pick Item",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Utilities_ContextProvider_PleaseSelectAFeatureSelectionFir": {
-    "Original": "Please select a Feature Selection first!",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Utilities_ContextProvider_PickSelectionItemText": {
-    "Original": "Pick Selection Item",
     "Translated": null
   },
   "ToyBox_Infrastructure_Utilities_Strings_SharedStrings_ThisCannotBeUsedFromTheMainMenu": {

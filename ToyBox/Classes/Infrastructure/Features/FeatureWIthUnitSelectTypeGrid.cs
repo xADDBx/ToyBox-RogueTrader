@@ -1,7 +1,12 @@
 ﻿namespace ToyBox;
 public abstract class FeatureWIthUnitSelectTypeGrid : FeatureWithPatch {
     private bool m_IsEnabled;
-    public override ref bool IsEnabled => ref m_IsEnabled;
+    public override ref bool IsEnabled {
+        get {
+            return ref m_IsEnabled;
+        }
+    }
+
     public abstract ref UnitSelectType SelectSetting { get; }
     public override void Initialize() {
         UpdateEnabled();

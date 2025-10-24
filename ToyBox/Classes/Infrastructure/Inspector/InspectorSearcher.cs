@@ -4,7 +4,7 @@ using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Infrastructure.Inspector;
 public static class InspectorSearcher {
-    private static object m_SyncRoot = new();
+    private static readonly object m_SyncRoot = new();
     internal static bool IsRunning {
         get;
         private set;
@@ -30,7 +30,7 @@ public static class InspectorSearcher {
                 ShouldCancel = false;
                 LastPrompt = upperQuery;
                 m_Stopwatch = Stopwatch.StartNew();
-                ToyBoxBehaviour.Instance.StartCoroutine(SearchCoroutine(mode, root, depthToSearch, query));
+                _ = ToyBoxBehaviour.Instance.StartCoroutine(SearchCoroutine(mode, root, depthToSearch, query));
             }
         }
     }

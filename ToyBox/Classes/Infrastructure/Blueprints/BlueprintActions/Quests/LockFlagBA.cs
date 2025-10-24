@@ -7,8 +7,7 @@ namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
 public partial class LockFlagBA : BlueprintActionFeature, IBlueprintAction<BlueprintUnlockableFlag> {
 
     public bool CanExecute(BlueprintUnlockableFlag blueprint, params object[] parameter) {
-        return IsInGame()
-            && Game.Instance.Player.UnlockableFlags.IsUnlocked(blueprint);
+        return IsInGame() && Game.Instance.Player.UnlockableFlags.IsUnlocked(blueprint);
     }
     private bool Execute(BlueprintUnlockableFlag blueprint) {
         LogExecution(blueprint);
@@ -18,12 +17,12 @@ public partial class LockFlagBA : BlueprintActionFeature, IBlueprintAction<Bluep
     public bool? OnGui(BlueprintUnlockableFlag blueprint, bool isFeatureSearch, params object[] parameter) {
         bool? result = null;
         if (CanExecute(blueprint)) {
-            UI.Button(StyleActionString(LockText, isFeatureSearch), () => {
+            _ = UI.Button(StyleActionString(m_LockText, isFeatureSearch), () => {
                 result = Execute(blueprint);
             });
         } else if (isFeatureSearch) {
             if (IsInGame()) {
-                UI.Label(FlagIsNotUnlockedText.Red().Bold());
+                UI.Label(m_FlagIsNotUnlockedText.Red().Bold());
             } else {
                 UI.Label(SharedStrings.ThisCannotBeUsedFromTheMainMenu.Red().Bold());
             }
@@ -31,10 +30,13 @@ public partial class LockFlagBA : BlueprintActionFeature, IBlueprintAction<Bluep
         return result;
     }
 
-    public bool GetContext(out BlueprintUnlockableFlag? context) => ContextProvider.Blueprint(out context);
+    public bool GetContext(out BlueprintUnlockableFlag? context) {
+        return ContextProvider.Blueprint(out context);
+    }
+
     public override void OnGui() {
         if (GetContext(out var bp)) {
-            OnGui(bp!, true);
+            _ = OnGui(bp!, true);
         }
     }
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_LockFlagBA_Name", "Lock Flag")]
@@ -42,7 +44,7 @@ public partial class LockFlagBA : BlueprintActionFeature, IBlueprintAction<Bluep
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_LockFlagBA_Description", "Locks the specified BlueprintUnlockableFlag.")]
     public override partial string Description { get; }
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_LockFlagBA_LockText", "Lock")]
-    private static partial string LockText { get; }
+    private static partial string m_LockText { get; }
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_LockFlagBA_FlagIsNotUnlockedText", "Flag is not unlocked")]
-    private static partial string FlagIsNotUnlockedText { get; }
+    private static partial string m_FlagIsNotUnlockedText { get; }
 }

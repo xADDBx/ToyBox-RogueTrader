@@ -7,8 +7,7 @@ namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
 public partial class StartQuestBA : BlueprintActionFeature, IBlueprintAction<BlueprintQuest> {
 
     public bool CanExecute(BlueprintQuest blueprint, params object[] parameter) {
-        return IsInGame()
-            && Game.Instance.Player.QuestBook.GetQuest(blueprint) == null;
+        return IsInGame() && Game.Instance.Player.QuestBook.GetQuest(blueprint) == null;
     }
     private bool Execute(BlueprintQuest blueprint) {
         LogExecution(blueprint);
@@ -18,12 +17,12 @@ public partial class StartQuestBA : BlueprintActionFeature, IBlueprintAction<Blu
     public bool? OnGui(BlueprintQuest blueprint, bool isFeatureSearch, params object[] parameter) {
         bool? result = null;
         if (CanExecute(blueprint)) {
-            UI.Button(StyleActionString(StartText, isFeatureSearch), () => {
+            _ = UI.Button(StyleActionString(m_StartText, isFeatureSearch), () => {
                 result = Execute(blueprint);
             });
         } else if (isFeatureSearch) {
             if (IsInGame()) {
-                UI.Label(QuestAlreadyStartedText.Red().Bold());
+                UI.Label(m_QuestAlreadyStartedText.Red().Bold());
             } else {
                 UI.Label(SharedStrings.ThisCannotBeUsedFromTheMainMenu.Red().Bold());
             }
@@ -31,10 +30,13 @@ public partial class StartQuestBA : BlueprintActionFeature, IBlueprintAction<Blu
         return result;
     }
 
-    public bool GetContext(out BlueprintQuest? context) => ContextProvider.Blueprint(out context);
+    public bool GetContext(out BlueprintQuest? context) {
+        return ContextProvider.Blueprint(out context);
+    }
+
     public override void OnGui() {
         if (GetContext(out var bp)) {
-            OnGui(bp!, true);
+            _ = OnGui(bp!, true);
         }
     }
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_StartQuestBA_Name", "Start Quest")]
@@ -42,7 +44,7 @@ public partial class StartQuestBA : BlueprintActionFeature, IBlueprintAction<Blu
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_StartQuestBA_Description", "Starts the specified BlueprintQuest by starting its first objective.")]
     public override partial string Description { get; }
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_StartQuestBA_StartText", "Start")]
-    private static partial string StartText { get; }
+    private static partial string m_StartText { get; }
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_StartQuestBA_QuestAlreadyStartedText", "Quest already started")]
-    private static partial string QuestAlreadyStartedText { get; }
+    private static partial string m_QuestAlreadyStartedText { get; }
 }

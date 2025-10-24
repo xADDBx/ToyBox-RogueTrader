@@ -1,7 +1,12 @@
 ﻿namespace ToyBox;
 public abstract class FeatureWithPatch : ToggledFeature {
     protected Harmony HarmonyInstance = null!;
-    protected virtual string HarmonyName => $"ToyBox.Feature.{Name}";
+    protected virtual string HarmonyName {
+        get {
+            return $"ToyBox.Feature.{Name}";
+        }
+    }
+
     public FeatureWithPatch() {
         HarmonyInstance = new(HarmonyName);
     }

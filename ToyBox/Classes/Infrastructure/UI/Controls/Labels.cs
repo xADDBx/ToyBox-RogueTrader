@@ -9,21 +9,21 @@ public static partial class UI {
     private static readonly Dictionary<string, string> m_EditStateCaches = [];
     public static void EditableLabel(string curVal, string name, Action<string> onConfirm, params GUILayoutOption[] options) {
         if (m_EditStateCaches.TryGetValue(name, out var newVal)) {
-            ActionTextField(ref newVal, name, null, e => {
+            _ = ActionTextField(ref newVal, name, null, e => {
                 if (curVal != e) {
                     onConfirm(e);
                 }
-                m_EditStateCaches.Remove(name);
+                _ = m_EditStateCaches.Remove(name);
             }, options);
             if (m_EditStateCaches.ContainsKey(name)) {
                 m_EditStateCaches[name] = newVal;
             }
             Space(15);
             if (Button(Glyphs.CheckOff.Red(), null, GUI.skin.box)) {
-                m_EditStateCaches.Remove(name);
+                _ = m_EditStateCaches.Remove(name);
             }
             if (Button(Glyphs.CheckOn.Green(), null, GUI.skin.box)) {
-                m_EditStateCaches.Remove(name);
+                _ = m_EditStateCaches.Remove(name);
                 if (curVal != newVal) {
                     onConfirm(newVal);
                 }

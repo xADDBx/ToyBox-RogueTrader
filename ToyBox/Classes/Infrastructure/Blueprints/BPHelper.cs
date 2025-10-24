@@ -1,9 +1,8 @@
 ﻿using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints;
-using Kingmaker.UI;
 using System.Collections.Concurrent;
 using Kingmaker.Blueprints.Items;
-using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.UI.Models.Tooltip.Base;
 
 namespace ToyBox.Infrastructure.Blueprints;
 public static class BPHelper {
@@ -11,38 +10,14 @@ public static class BPHelper {
     private static readonly ConcurrentDictionary<SimpleBlueprint, string> m_SortKeyCache = new();
     private static readonly ConcurrentDictionary<SimpleBlueprint, string> m_SearchKeyCache = new();
     private static readonly ConcurrentDictionary<SimpleBlueprint, string?> m_DescriptionCache = new();
-    private static readonly ConcurrentDictionary<FeatureParam, string> m_FeatureSelectionParamStringCache = new();
     public static void ClearNameCaches() {
         m_TitleCache.Clear();
         m_SortKeyCache.Clear();
         m_DescriptionCache.Clear();
         m_SearchKeyCache.Clear();
-        m_FeatureSelectionParamStringCache.Clear();
-    }
-    public static string GetFeatureSelectionParamDescription(FeatureParam param) {
-        if (param == null) {
-            return "";
-        }
-        if (!m_FeatureSelectionParamStringCache.TryGetValue(param, out var desc)) {
-            if (param.Blueprint != null) {
-                desc = GetTitle(param.Blueprint);
-            } else if (param.WeaponCategory.HasValue) {
-                desc = param.WeaponCategory.Value.ToString();
-            } else if (param.StatType.HasValue) {
-                desc = param.StatType.Value.ToString();
-            } else if (param.SpellSchool.HasValue) {
-                desc = param.SpellSchool.Value.ToString();
-            } else {
-                desc = "<None>";
-            }
-            m_FeatureSelectionParamStringCache[param] = desc;
-        }
-        return desc;
     }
     public static string GetTitle(SimpleBlueprint blueprint, Func<string, string>? formatter = null) {
-        if (formatter == null) {
-            formatter = s => s;
-        }
+        formatter ??= s => s;
         if (!m_TitleCache.TryGetValue((blueprint, formatter), out var title)) {
             title = CreateGetTitle(blueprint, formatter);
             m_TitleCache[(blueprint, formatter)] = title;
@@ -74,7 +49,7 @@ public static class BPHelper {
         string? ret = null;
         try {
             if (blueprint is IUIDataProvider uiDataProvider) {
-                string Name = "";
+                var Name = "";
                 try {
                     Name = uiDataProvider.Name;
                 } catch (Exception ex) {
@@ -95,7 +70,7 @@ public static class BPHelper {
         string? ret = null;
         try {
             if (blueprint is IUIDataProvider uiDataProvider) {
-                string Name = "";
+                var Name = "";
                 try {
                     Name = uiDataProvider.Name;
                 } catch (Exception ex) {
@@ -116,7 +91,7 @@ public static class BPHelper {
         string? ret = null;
         try {
             if (blueprint is IUIDataProvider uiDataProvider) {
-                string Name = "";
+                var Name = "";
                 try {
                     Name = uiDataProvider.Name;
                 } catch (Exception ex) {

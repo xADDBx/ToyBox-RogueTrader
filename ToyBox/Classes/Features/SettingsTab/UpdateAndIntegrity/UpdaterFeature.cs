@@ -11,34 +11,40 @@ public partial class UpdaterFeature : Feature {
     public static void UpdaterGUI() {
         using (VerticalScope()) {
             if (IsDoingUpdate) {
-                UI.ProgressBar(m_DownloadProgress, DownloadProgress_Text);
+                UI.ProgressBar(m_DownloadProgress, m_DownloadProgress_Text);
             }
             using (HorizontalScope()) {
-                if (UI.Button(TryUpdatingToNewestVersionText.Cyan())) {
+                if (UI.Button(m_TryUpdatingToNewestVersionText.Cyan())) {
                     if (!IsDoingUpdate && !m_EnqueuedStart) {
                         m_EnqueuedStart = true;
                         new Action(() => {
                             IsDoingUpdate = true;
-                            Task.Run(() => Update(false, false));
+                            _ = Task.Run(() => Update(false, false));
                         }).ScheduleForMainThread();
                     }
                 }
             }
             using (HorizontalScope()) {
-                if (UI.Button(TryReinstallCurrentVersionText.Cyan())) {
+                if (UI.Button(m_TryReinstallCurrentVersionText.Cyan())) {
                     if (!IsDoingUpdate && !m_EnqueuedStart) {
                         m_EnqueuedStart = true;
                         new Action(() => {
                             IsDoingUpdate = true;
-                            Task.Run(() => Update(true, false));
+                            _ = Task.Run(() => Update(true, false));
                         }).ScheduleForMainThread();
                     }
                 }
             }
         }
     }
-    private static string GetReleaseName(string version) => $"ToyBox-{version}.zip";
-    private static string GetDownloadLink(string repoLink, string version) => $"{repoLink}/releases/download/v{version}/{GetReleaseName(version)}";
+    private static string GetReleaseName(string version) {
+        return $"ToyBox-{version}.zip";
+    }
+
+    private static string GetDownloadLink(string repoLink, string version) {
+        return $"{repoLink}/releases/download/v{version}/{GetReleaseName(version)}";
+    }
+
     public static string GetLatestVersion() {
         using var web = new WebClient();
         var definition = new {
@@ -52,13 +58,13 @@ public partial class UpdaterFeature : Feature {
 
         var raw = web.DownloadString(Main.ModEntry.Info.Repository);
         var result = JsonConvert.DeserializeAnonymousType(raw, definition);
-        return result.Releases[0].Version;
+        return result!.Releases[0].Version;
     }
     public static bool Update(bool reinstallCurrentVersion = false, bool onlyUpdateIfRemoteIsNewer = true) {
         m_DownloadProgress = 0;
         FileInfo? file = null;
         DirectoryInfo? tmpDir = null;
-        bool updated = false;
+        var updated = false;
         try {
             var curDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             file = new FileInfo(Path.Combine(curDir, "TmpUpdate.zip"));
@@ -69,7 +75,7 @@ public partial class UpdaterFeature : Feature {
             if (tmpDir.Exists) {
                 tmpDir.Delete(true);
             }
-            bool repoHasNewVersion = false;
+            var repoHasNewVersion = false;
             string? remoteVersion = null;
             if (!reinstallCurrentVersion) {
                 remoteVersion = GetLatestVersion();
@@ -88,8 +94,8 @@ public partial class UpdaterFeature : Feature {
                 using var zipFile = ZipFile.OpenRead(file.FullName);
 
                 // Dry run
-                foreach (ZipArchiveEntry entry in zipFile.Entries) {
-                    string fullPath = Path.GetFullPath(Path.Combine(tmpDir.FullName, entry.FullName));
+                foreach (var entry in zipFile.Entries) {
+                    var fullPath = Path.GetFullPath(Path.Combine(tmpDir.FullName, entry.FullName));
 
                     if (Path.GetFileName(fullPath).Length == 0) {
                         _ = Directory.CreateDirectory(fullPath);
@@ -104,13 +110,13 @@ public partial class UpdaterFeature : Feature {
                     // Extract successfully? => Then do it again for real
                     // Note: At this point in time I only remember that I added the dry run to counter Exceptions while unpacking. I don't know why I didn't just copy the files from the dry run if it was successful.
                     // Note2: Probably because I didn't want to write a Directory Copy Helper method?
-                    foreach (ZipArchiveEntry entry in zipFile.Entries) {
-                        string fullPath = Path.GetFullPath(Path.Combine(curDir, entry.FullName));
+                    foreach (var entry in zipFile.Entries) {
+                        var fullPath = Path.GetFullPath(Path.Combine(curDir, entry.FullName));
 
                         if (Path.GetFileName(fullPath).Length == 0) {
-                            Directory.CreateDirectory(fullPath);
+                            _ = Directory.CreateDirectory(fullPath);
                         } else {
-                            Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
+                            _ = Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
                             entry.ExtractToFile(fullPath, overwrite: true);
                         }
                     }
@@ -135,7 +141,7 @@ public partial class UpdaterFeature : Feature {
             }
         }
         if (updated) {
-            Main.ModEntry.Info.DisplayName = "ToyBox ".Yellow().SizePercent(20) + RestartToFinishUpdateText.Green().Bold().SizePercent(40);
+            Main.ModEntry.Info.DisplayName = "ToyBox ".Yellow().SizePercent(20) + m_RestartToFinishUpdateText.Green().Bold().SizePercent(40);
         }
         new Action(() => {
             IsDoingUpdate = false;
@@ -144,16 +150,18 @@ public partial class UpdaterFeature : Feature {
         return updated;
     }
 
-    public override void OnGui() => UpdaterGUI();
+    public override void OnGui() {
+        UpdaterGUI();
+    }
 
     [LocalizedString("ToyBox_Features_UpdateAndIntegrity_UpdaterFeature_RestartToFinishUpdateText", "Restart to finish update")]
-    private static partial string RestartToFinishUpdateText { get; }
+    private static partial string m_RestartToFinishUpdateText { get; }
     [LocalizedString("ToyBox_Features_UpdateAndIntegrity_UpdaterFeature_TryReinstallCurrentVersionText", "Try reinstall current version")]
-    private static partial string TryReinstallCurrentVersionText { get; }
+    private static partial string m_TryReinstallCurrentVersionText { get; }
     [LocalizedString("ToyBox_Features_UpdateAndIntegrity_UpdaterFeature_TryUpdatingToNewestVersionText", "Try updating to newest version")]
-    private static partial string TryUpdatingToNewestVersionText { get; }
+    private static partial string m_TryUpdatingToNewestVersionText { get; }
     [LocalizedString("ToyBox_Features_UpdateAndIntegrity_UpdaterFeature_DownloadProgress_Text", "Download Progress:")]
-    private static partial string DownloadProgress_Text { get; }
+    private static partial string m_DownloadProgress_Text { get; }
     [LocalizedString("ToyBox_Features_SettingsFeatures_UpdateAndIntegrity_UpdaterFeature_UpdateModText", "Update Mod")]
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_SettingsFeatures_UpdateAndIntegrity_UpdaterFeature_ReinstallTheCurrentModVersionOrU", "Reinstall the current mod version or update to the latest available version")]

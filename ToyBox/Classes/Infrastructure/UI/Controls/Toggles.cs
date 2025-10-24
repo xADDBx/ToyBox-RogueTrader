@@ -8,9 +8,14 @@ public static partial class UI {
             return field;
         }
     }
-    public static Lazy<float> DisclosureGlyphWidth => new(() => {
-        return CalculateLargestLabelSize([Glyphs.DisclosureOn, Glyphs.DisclosureOff], m_DisclosureToggleStyle);
-    });
+    public static Lazy<float> DisclosureGlyphWidth {
+        get {
+            return new(() => {
+                return CalculateLargestLabelSize([Glyphs.DisclosureOn, Glyphs.DisclosureOff], m_DisclosureToggleStyle);
+            });
+        }
+    }
+
     public static bool Toggle(string name, string description, ref bool setting, Action onEnable, Action onDisable, params GUILayoutOption[] options) {
         options = options.Length == 0 ? [AutoWidth()] : options;
         var changed = false;

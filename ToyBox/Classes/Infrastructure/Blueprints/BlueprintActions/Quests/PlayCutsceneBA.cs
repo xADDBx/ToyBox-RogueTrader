@@ -1,13 +1,16 @@
 ﻿using Kingmaker.AreaLogic.Cutscenes;
 using Kingmaker.Designers.EventConditionActionSystem.ContextData;
-using Kingmaker.ElementsSystem;
+using Kingmaker.ElementsSystem.ContextData;
 using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
 [NeedsTesting]
 public partial class PlayCutsceneBA : BlueprintActionFeature, IBlueprintAction<Cutscene> {
 
-    public bool CanExecute(Cutscene blueprint, params object[] parameter) => IsInGame();
+    public bool CanExecute(Cutscene blueprint, params object[] parameter) {
+        return IsInGame();
+    }
+
     private bool Execute(Cutscene blueprint) {
         LogExecution(blueprint);
         ToggleModWindow();
@@ -26,7 +29,7 @@ public partial class PlayCutsceneBA : BlueprintActionFeature, IBlueprintAction<C
     public bool? OnGui(Cutscene blueprint, bool isFeatureSearch, params object[] parameter) {
         bool? result = null;
         if (CanExecute(blueprint)) {
-            UI.Button(StyleActionString(PlayText, isFeatureSearch), () => {
+            _ = UI.Button(StyleActionString(m_PlayText, isFeatureSearch), () => {
                 result = Execute(blueprint);
             });
         } else if (isFeatureSearch) {
@@ -35,10 +38,13 @@ public partial class PlayCutsceneBA : BlueprintActionFeature, IBlueprintAction<C
         return result;
     }
 
-    public bool GetContext(out Cutscene? context) => ContextProvider.Blueprint(out context);
+    public bool GetContext(out Cutscene? context) {
+        return ContextProvider.Blueprint(out context);
+    }
+
     public override void OnGui() {
         if (GetContext(out var bp)) {
-            OnGui(bp!, true);
+            _ = OnGui(bp!, true);
         }
     }
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_PlayCutsceneBA_Name", "Play Cutscene")]
@@ -46,5 +52,5 @@ public partial class PlayCutsceneBA : BlueprintActionFeature, IBlueprintAction<C
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_PlayCutsceneBA_Description", "Plays the specified Cutscene.")]
     public override partial string Description { get; }
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_PlayCutsceneBA_PlayText", "Play")]
-    private static partial string PlayText { get; }
+    private static partial string m_PlayText { get; }
 }

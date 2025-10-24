@@ -8,7 +8,7 @@ using ToyBox.Infrastructure.Utilities;
 namespace ToyBox.Infrastructure;
 public static partial class CharacterPicker {
     private static readonly int m_CacheDuration = 1;
-    private static Dictionary<CharacterListType, TimedCache<List<UnitEntityData>>> m_Lists = new() {
+    private static readonly Dictionary<CharacterListType, TimedCache<List<BaseUnitEntity>>> m_Lists = new() {
         [CharacterListType.Party] = new(() => Game.Instance.Player.Party ?? [], m_CacheDuration),
         [CharacterListType.PartyAndPets] = new(() => Game.Instance.Player.PartyAndPets ?? [], m_CacheDuration),
         [CharacterListType.AllCharacters] = new(() => Game.Instance.Player.AllCharacters ?? [], m_CacheDuration),
@@ -22,17 +22,17 @@ public static partial class CharacterPicker {
         }, m_CacheDuration),
         [CharacterListType.Friendly] = new(() => {
             var player = GameHelper.GetPlayerCharacter();
-            return Game.Instance.State.Units.Where(u => u != null && !u.IsEnemy(player))?.ToList() ?? [];
+            return Game.Instance.State.AllBaseUnits.Where(u => u != null && !u.IsEnemy(player))?.ToList() ?? [];
         }, m_CacheDuration),
         [CharacterListType.Enemies] = new(() => {
             var player = GameHelper.GetPlayerCharacter();
-            return Game.Instance.State.Units.Where(u => u != null && u.IsEnemy(player))?.ToList() ?? [];
+            return Game.Instance.State.AllBaseUnits.Where(u => u != null && u.IsEnemy(player))?.ToList() ?? [];
         }, m_CacheDuration),
-        [CharacterListType.AllUnits] = new(() => Game.Instance.State.Units?.ToList() ?? [], m_CacheDuration)
+        [CharacterListType.AllUnits] = new(() => Game.Instance.State.AllBaseUnits?.ToList() ?? [], m_CacheDuration)
     };
     private static CharacterListType m_CurrentList;
-    private static WeakReference<UnitEntityData>? m_CurrentUnit;
-    public static UnitEntityData? CurrentUnit {
+    private static WeakReference<BaseUnitEntity>? m_CurrentUnit;
+    public static BaseUnitEntity? CurrentUnit {
         get {
             if (m_CurrentUnit is not null && m_CurrentUnit.TryGetTarget(out var unit) && !unit.IsDisposed && !unit.IsDisposingNow) {
                 return unit;
@@ -41,7 +41,7 @@ public static partial class CharacterPicker {
             }
         }
     }
-    public static List<UnitEntityData> CurrentUnits {
+    public static List<BaseUnitEntity> CurrentUnits {
         get {
             return m_Lists[m_CurrentList];
         }
@@ -64,7 +64,7 @@ public static partial class CharacterPicker {
         }
         var charactersList = CurrentUnits;
         if (charactersList.Count == 0) {
-            UI.Label(ThereAreNoCharactersInThisList.Orange(), options);
+            UI.Label(m_ThereAreNoCharactersInThisList.Orange(), options);
         } else {
             var tmp = CurrentUnit;
             if (UI.SelectionGrid(ref tmp, charactersList, xcols ?? Math.Min(8, (charactersList.Count + 1)), unit => ToyBoxUnitHelper.GetUnitName(unit), options)) {
@@ -80,5 +80,5 @@ public static partial class CharacterPicker {
     }
 
     [LocalizedString("ToyBox_Infrastructure_CharacterPicker_ThereAreNoCharactersInThisList", "There are no characters in this list!")]
-    private static partial string ThereAreNoCharactersInThisList { get; }
+    private static partial string m_ThereAreNoCharactersInThisList { get; }
 }

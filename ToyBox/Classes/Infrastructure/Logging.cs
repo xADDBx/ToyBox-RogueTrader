@@ -5,12 +5,14 @@ public static class Logging {
         Main.ModEntry.Logger.Log(str);
     }
     public static void Trace(string str) {
-        if (Settings.LogLevel >= LogLevel.Trace)
+        if (Settings.LogLevel >= LogLevel.Trace) {
             Main.ModEntry.Logger.Log($"[Trace] {str}");
+        }
     }
     public static void Debug(string str) {
-        if (Settings.LogLevel >= LogLevel.Debug)
+        if (Settings.LogLevel >= LogLevel.Debug) {
             Main.ModEntry.Logger.Log($"[Debug] {str}");
+        }
     }
     public static void Log(string str) {
         if (Settings.LogLevel >= LogLevel.Info) {

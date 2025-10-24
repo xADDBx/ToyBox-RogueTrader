@@ -11,13 +11,13 @@ public static class LazyInit {
             Debug($"Lazy Init finished after {Stopwatch.ElapsedMilliseconds}ms");
         });
 #endif
-        var original = AccessTools.Method(typeof(MainMenu), nameof(MainMenu.Awake));
-        var patch = AccessTools.Method(typeof(LazyInit), nameof(LazyInit.MainMenu_Awake_Postfix));
+        var original = AccessTools.Method(typeof(GameMainMenu), nameof(GameMainMenu.Awake));
+        var patch = AccessTools.Method(typeof(LazyInit), nameof(LazyInit.GameMainMenu_Awake_Postfix));
         Main.HarmonyInstance.Patch(original, postfix: new(patch));
     }
-    public static void MainMenu_Awake_Postfix() {
+    public static void GameMainMenu_Awake_Postfix() {
         Debug($"Lazy init had {Stopwatch.ElapsedMilliseconds}ms before waiting");
-        Stopwatch sw = Stopwatch.StartNew();
+        var sw = Stopwatch.StartNew();
         Task.WaitAll([.. Main.LateInitTasks]);
         Debug($"Waited {sw.ElapsedMilliseconds}ms for lazy init finish");
     }

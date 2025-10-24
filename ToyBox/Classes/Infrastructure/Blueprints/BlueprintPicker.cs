@@ -25,11 +25,11 @@ public static class BlueprintPicker<T> where T : SimpleBlueprint {
         }
     }
     public static bool OnPickerGUI() {
-        bool didChange = false;
+        var didChange = false;
         using (HorizontalScope()) {
             Space(20);
             using (VerticalScope()) {
-                UI.DisclosureToggle(ref m_ShowBrowser, SharedStrings.ShowListOfBlueprintsText);
+                _ = UI.DisclosureToggle(ref m_ShowBrowser, SharedStrings.ShowListOfBlueprintsText);
                 if (m_ShowBrowser) {
                     if (m_Browser == null) {
                         var bps = BPLoader.GetBlueprintsOfType<T>();
@@ -51,7 +51,7 @@ public static class BlueprintPicker<T> where T : SimpleBlueprint {
                                 using (HorizontalScope(EffectiveWindowWidth() * 0.9f)) {
                                     string title;
                                     if (bp != CurrentBlueprint) {
-                                        UI.Button(SharedStrings.PickBlueprintText, () => {
+                                        _ = UI.Button(SharedStrings.PickBlueprintText, () => {
                                             m_CurrentBlueprint = new(bp);
                                             didChange = true;
                                         }, null, Width(m_ButtonWidth));
@@ -65,7 +65,7 @@ public static class BlueprintPicker<T> where T : SimpleBlueprint {
                                     UI.Label(bp.GetType().Name.Grey(), Width(m_CachedTypeWidth));
                                     Space(5);
                                     var tmp = bp.AssetGuid.ToString();
-                                    UI.TextField(ref tmp, null, Width(m_CachedAssetIdWidth));
+                                    _ = UI.TextField(ref tmp, null, Width(m_CachedAssetIdWidth));
                                     Space(5);
                                     var desc = BPHelper.GetDescription(bp);
                                     if (!string.IsNullOrWhiteSpace(desc)) {
@@ -80,13 +80,12 @@ public static class BlueprintPicker<T> where T : SimpleBlueprint {
                     using (HorizontalScope()) {
                         UI.Label(SharedStrings.EnterTargetBlueprintIdText, Width(200));
                         var before = m_CurrentlyTyped;
-                        UI.TextField(ref m_CurrentlyTyped, null, Width(350));
+                        _ = UI.TextField(ref m_CurrentlyTyped, null, Width(350));
                         if (before != m_CurrentlyTyped) {
                             m_EnteredInvalidGuid = false;
                         }
-                        UI.Button(SharedStrings.PickBlueprintText, () => {
-                            var maybeBP = ResourcesLibrary.TryGetBlueprint(BlueprintGuid.Parse(m_CurrentlyTyped)) as T;
-                            if (maybeBP != null) {
+                        _ = UI.Button(SharedStrings.PickBlueprintText, () => {
+                            if (ResourcesLibrary.TryGetBlueprint(m_CurrentlyTyped) is T maybeBP) {
                                 m_CurrentBlueprint = new(maybeBP);
                                 didChange = true;
                             } else {
