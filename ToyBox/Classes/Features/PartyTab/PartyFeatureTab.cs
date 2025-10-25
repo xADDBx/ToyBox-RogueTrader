@@ -32,7 +32,8 @@ public partial class PartyFeatureTab : FeatureTab {
     private static readonly Browser<BlueprintBuff> m_BuffBrowser = new(BPHelper.GetSortKey, BPHelper.GetSearchKey, null, func => BPLoader.GetBlueprintsOfType(func), overridePageWidth: (int)EffectiveWindowWidth() - 40);
     private static readonly Browser<BlueprintAbility> m_AbilityBrowser = new(BPHelper.GetSortKey, BPHelper.GetSearchKey, null, func => BPLoader.GetBlueprintsOfType(func), overridePageWidth: (int)EffectiveWindowWidth() - 40);
     public PartyFeatureTab() {
-        AddFeature(new FeatureBrowserUnitFeature());
+#warning well
+        //AddFeature(new FeatureBrowserUnitFeature());
     }
     static PartyFeatureTab() {
         Main.OnHideGUIAction += Refresh;

@@ -2,7 +2,7 @@
 using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Features.PartyTab;
-
+/*
 public partial class FeatureBrowserUnitFeature : Feature, INeedContextFeature<BaseUnitEntity> {
     [LocalizedString("ToyBox_Features_PartyTab_FeatureBrowserUnitFeature_Name", "Unit Feature Browser")]
     public override partial string Name { get; }
@@ -22,3 +22,4 @@ public partial class FeatureBrowserUnitFeature : Feature, INeedContextFeature<Ba
         throw new NotImplementedException();
     }
 }
+*/

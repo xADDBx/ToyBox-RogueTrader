@@ -55,14 +55,6 @@
     "Original": "Feature Search",
     "Translated": null
   },
-  "ToyBox_Features_PartyTab_FeatureBrowserUnitFeature_Name": {
-    "Original": "Unit Feature Browser",
-    "Translated": null
-  },
-  "ToyBox_Features_PartyTab_FeatureBrowserUnitFeature_Description": {
-    "Original": "Views a Browser containing all the features of the unit in question and adding/removing them",
-    "Translated": null
-  },
   "ToyBox_Features_PartyTab_PartyFeatureTab_PartyLevelText": {
     "Original": "Party Level",
     "Translated": null

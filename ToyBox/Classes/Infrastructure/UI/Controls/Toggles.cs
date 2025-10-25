@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Kingmaker.Utility.UnityExtensions;
+using UnityEngine;
 
 namespace ToyBox.Infrastructure;
 public static partial class UI {
@@ -16,7 +17,7 @@ public static partial class UI {
         }
     }
 
-    public static bool Toggle(string name, string description, ref bool setting, Action onEnable, Action onDisable, params GUILayoutOption[] options) {
+    public static bool Toggle(string name, string? description, ref bool setting, Action? onEnable = null, Action? onDisable = null, params GUILayoutOption[] options) {
         options = options.Length == 0 ? [AutoWidth()] : options;
         var changed = false;
         using (HorizontalScope()) {
@@ -25,13 +26,15 @@ public static partial class UI {
                 changed = true;
                 setting = newValue;
                 if (newValue) {
-                    onEnable();
+                    onEnable?.Invoke();
                 } else {
-                    onDisable();
+                    onDisable?.Invoke();
                 }
             }
-            Space(10);
-            Label(description.Green());
+            if (!description.IsNullOrEmpty()) {
+                Space(10);
+                Label(description!.Green());
+            }
         }
         return changed;
     }
