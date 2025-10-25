@@ -162,14 +162,18 @@ public partial class HighlightHiddenObjectsFeature : FeatureWithPatch {
         }
     }
     private static void HighlightCreate(MapObjectView view) {
-        if (view.transform.Find(m_ObjName)) return;
+        if (view.transform.Find(m_ObjName)) {
+            return;
+        }
         var obj = new GameObject(m_ObjName);
         obj.transform.parent = view.transform;
         var highlighter = obj.AddComponent<Highlighter>();
 
         foreach (var polygon in view.transform.GetComponentsInChildren<ScriptZonePolygon>()) {
             var renderer = polygon.DecalMeshObject?.GetComponent<MeshRenderer>();
-            if (renderer == null) continue;
+            if (renderer == null) {
+                continue;
+            }
 
             var decal = UnityEngine.Object.Instantiate(renderer.gameObject, renderer.transform.parent);
             decal.name = m_DecalName;
@@ -196,14 +200,19 @@ public partial class HighlightHiddenObjectsFeature : FeatureWithPatch {
             highlighter.FlashingOn(m_HighlightColor0, m_HighlightColor1, 1.0f);
 
             var renderer = view.transform.Find(m_DecalName)?.gameObject?.GetComponent<MeshRenderer>();
-            if (renderer == null) return;
+            if (renderer == null) {
+                return;
+            }
+
             renderer.enabled = true;
             renderer.forceRenderingOff = true;
         }
     }
     private static void HighlightOff(MapObjectView view) {
         var obj = view.transform.Find(m_ObjName)?.gameObject;
-        if (obj == null) return;
+        if (obj == null) {
+            return;
+        }
 
         var highlighter = obj.GetComponent<Highlighter>();
         if (highlighter != null) {
@@ -211,7 +220,10 @@ public partial class HighlightHiddenObjectsFeature : FeatureWithPatch {
             highlighter.FlashingOff();
 
             var renderer = view.transform.Find(m_DecalName)?.gameObject?.GetComponent<MeshRenderer>();
-            if (renderer == null) return;
+            if (renderer == null) {
+                return;
+            }
+
             renderer.enabled = false;
             renderer.forceRenderingOff = true;
         }

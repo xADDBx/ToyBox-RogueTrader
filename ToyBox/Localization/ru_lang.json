@@ -99,6 +99,18 @@
     "Original": "This affects the amount of threads that will be used to simultaneously load blueprints. Larger is not necessarily better.",
     "Translated": null
   },
+  "ToyBox_Features_SettingsFeatures_Blueprints_BPIdCacheFeature_Name": {
+    "Original": "Enable BlueprintId Cache",
+    "Translated": null
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_BPIdCacheFeature_Description": {
+    "Original": "When enabled, ToyBox will create a cache for ids of different blueprint types. Certain menus like Search 'n Pick will then try to load only blueprints of the specified type (e.g. BlueprintFeature), thereby speeding up load times.",
+    "Translated": null
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_BPIdCacheFeature_ResetCache_inCaseOfIssues_Text": {
+    "Original": "Reset BlueprintId Cache (in case of issues)",
+    "Translated": null
+  },
   "ToyBox_Features_SettingsFeatures_BlueprintLoaderSettings_PerformanceEnhancementFeatures_PerformanceEnhancementText": {
     "Original": "Performance Enhancement",
     "Translated": "Оптимизация производительности"
@@ -121,6 +133,14 @@
   },
   "ToyBox_Features_SettingsFeatures_Blueprints_ShowDisplayAndInternalNamesSetting_Description": {
     "Original": "Blueprints have both internal names and display names. By default, ToyBox will try to show the Display name and fall back to the Internal one in case of issues. This feature will display both at the same time.",
+    "Translated": null
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_ThreadedBlueprintsLoaderSetting_Name": {
+    "Original": "Enable threaded Blueprint Loader (Needs Restart!)",
+    "Translated": null
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_ThreadedBlueprintsLoaderSetting_Description": {
+    "Original": "Massively speeds up blueprint loading; but can have very rare bugs (especially after updates).",
     "Translated": null
   },
   "ToyBox_Features_SettingsFeatures_BrowserSettings_PageLimitSetting_Name": {

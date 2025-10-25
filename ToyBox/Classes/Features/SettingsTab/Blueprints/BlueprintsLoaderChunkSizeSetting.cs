@@ -34,4 +34,9 @@ public partial class BlueprintsLoaderChunkSizeSetting : FeatureWithLogIntSlider 
             return 200;
         }
     }
+    public override bool ShouldHide {
+        get {
+            return !GetInstance<ThreadedBlueprintsLoaderSetting>().IsEnabled;
+        }
+    }
 }

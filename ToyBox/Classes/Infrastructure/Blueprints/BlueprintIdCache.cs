@@ -17,18 +17,18 @@ using System.Text;
 
 namespace ToyBox.Infrastructure.Blueprints;
 public class BlueprintIdCache {
-    private static readonly Lazy<BlueprintIdCache> _instance = new Lazy<BlueprintIdCache>(() => {
-        var cache = Load();
-        if (cache == null) {
-            cache = new();
-            cache.Save();
-        }
-        return cache;
-    });
     public static BlueprintIdCache Instance {
         get {
-            return _instance.Value;
+            if (field == null) {
+                field = Load();
+                if (field == null) {
+                    field = new();
+                    field.Save();
+                }
+            }
+            return field;
         }
+        private set;
     }
 
     public string CachedGameVersion = "";
@@ -61,10 +61,10 @@ public class BlueprintIdCache {
                 }
             }
 
-            bool gameVersionChanged = GameVersion.GetVersion() != Instance.CachedGameVersion;
+            var gameVersionChanged = GameVersion.GetVersion() != Instance.CachedGameVersion;
 
             var ummSet = Instance.UmmList.ToHashSet();
-            bool ummModsChanged = !(ummSet.Count == UnityModManagerNet.UnityModManager.ModEntries.Count);
+            var ummModsChanged = !(ummSet.Count == UnityModManagerNet.UnityModManager.ModEntries.Count);
             if (!ummModsChanged) {
                 foreach (var modEntry in UnityModManagerNet.UnityModManager.ModEntries) {
                     if (!ummSet.Contains(new(modEntry.Info.Id, modEntry.Info.Version))) {
@@ -75,7 +75,7 @@ public class BlueprintIdCache {
             }
 
             var ommSet = Instance.OmmList.ToHashSet();
-            bool ommModsChanged = !(ommSet.Count == OwlcatModificationsManager.s_Instance.AppliedModifications.Count());
+            var ommModsChanged = !(ommSet.Count == OwlcatModificationsManager.s_Instance.AppliedModifications.Count());
             if (!ommModsChanged) {
                 foreach (var modEntry in OwlcatModificationsManager.s_Instance.AppliedModifications) {
                     if (!ommSet.Contains(new(modEntry.Manifest.UniqueName, modEntry.Manifest.Version))) {
@@ -92,7 +92,9 @@ public class BlueprintIdCache {
 
     public static bool IsRebuilding = false;
     internal static void RebuildCache(List<SimpleBlueprint> blueprints) {
-        if (!Settings.UseBPIdCache) return;
+        if (!Settings.UseBPIdCache) {
+            return;
+        }
         Log("Starting to build BPId Cache");
         IsRebuilding = true;
         try {
@@ -160,6 +162,14 @@ public class BlueprintIdCache {
             }
         }
     }
+    internal static void Delete() {
+        var path = EnsureFilePath();
+        if (File.Exists(path)) {
+            File.Delete(path);
+            Debug($"Manually deleted BPId Cache at: {path}");
+        }
+        Instance = null!;
+    }
     private static BlueprintIdCache? Load() {
         try {
             Trace("Started loading BPId Cache");
@@ -183,11 +193,7 @@ public class BlueprintIdCache {
             for (var i = 0; i < dictCount; i++) {
 
                 var typeName = reader.ReadString();
-                Type type = Type.GetType(typeName);
-                if (type == null) {
-                    throw new SerializationException($"BPId Cache references {typeName}, but the type couldn't be found not found.");
-                }
-
+                var type = Type.GetType(typeName) ?? throw new SerializationException($"BPId Cache references {typeName}, but the type couldn't be found not found.");
                 var listCount = reader.ReadInt32();
                 var guidList = new HashSet<string>();
                 for (var j = 0; j < listCount; j++) {

@@ -13,7 +13,6 @@ using System.Text;
 using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Infrastructure.Blueprints;
-#warning Add Sequential Mode
 public class BlueprintLoader {
     private List<SimpleBlueprint?> m_BlueprintBeingLoaded = null!;
     private List<SimpleBlueprint>? m_Blueprints;
@@ -21,39 +20,43 @@ public class BlueprintLoader {
     private readonly HashSet<SimpleBlueprint> m_BlueprintsToAdd = [];
     private readonly HashSet<string> m_BlueprintsToRemove = [];
     public bool CanStart = false;
+    public readonly bool IsThreaded = false;
     public static BlueprintLoader BPLoader { get; } = new();
     // public readonly HashSet<string> BadBlueprints = ["ce0842546b73aa34b8fcf40a970ede68", "2e3280bf21ec832418f51bee5136ec7a", "b60252a8ae028ba498340199f48ead67", "fb379e61500421143b52c739823b4082", "5d2b9742ce82457a9ae7209dce770071"];
     public BlueprintLoader() {
-        _ = SharedStringAssetPool.Instance;
+        if (Settings.EnableThreadedBlueprintLoader) {
+            IsThreaded = true;
+            _ = SharedStringAssetPool.Instance;
 
-        var toPatch = AccessTools.Method(typeof(StartGameLoader), nameof(StartGameLoader.LoadPackTOC));
-        var patch = AccessTools.Method(typeof(BlueprintLoader), nameof(InitPatch));
-        _ = Main.HarmonyInstance.Patch(toPatch, finalizer: new(patch));
+            var toPatch = AccessTools.Method(typeof(StartGameLoader), nameof(StartGameLoader.LoadPackTOC));
+            var patch = AccessTools.Method(typeof(BlueprintLoader), nameof(InitPatch));
+            _ = Main.HarmonyInstance.Patch(toPatch, finalizer: new(patch));
 
-        toPatch = AccessTools.Method(typeof(BlueprintsCache), nameof(BlueprintsCache.AddCachedBlueprint));
-        patch = AccessTools.Method(typeof(BlueprintLoader), nameof(AddCachedBlueprintPatch));
-        _ = Main.HarmonyInstance.Patch(toPatch, postfix: new(patch));
+            toPatch = AccessTools.Method(typeof(BlueprintsCache), nameof(BlueprintsCache.AddCachedBlueprint));
+            patch = AccessTools.Method(typeof(BlueprintLoader), nameof(AddCachedBlueprintPatch));
+            _ = Main.HarmonyInstance.Patch(toPatch, postfix: new(patch));
 
-        toPatch = AccessTools.Method(typeof(BlueprintsCache), nameof(BlueprintsCache.RemoveCachedBlueprint));
-        patch = AccessTools.Method(typeof(BlueprintLoader), nameof(RemoveCachedBlueprintPatch));
-        _ = Main.HarmonyInstance.Patch(toPatch, prefix: new(patch));
+            toPatch = AccessTools.Method(typeof(BlueprintsCache), nameof(BlueprintsCache.RemoveCachedBlueprint));
+            patch = AccessTools.Method(typeof(BlueprintLoader), nameof(RemoveCachedBlueprintPatch));
+            _ = Main.HarmonyInstance.Patch(toPatch, prefix: new(patch));
 
-        toPatch = AccessTools.Method(typeof(BlueprintsCache), nameof(BlueprintsCache.Load));
-        patch = AccessTools.Method(typeof(BlueprintLoader), nameof(BlueprintsCache_LoadPrefix));
-        var patch2 = AccessTools.Method(typeof(BlueprintLoader), nameof(BlueprintsCache_LoadPostfix));
-        _ = Main.HarmonyInstance.Patch(toPatch, prefix: new(patch), postfix: new(patch2));
+            toPatch = AccessTools.Method(typeof(BlueprintsCache), nameof(BlueprintsCache.Load));
+            patch = AccessTools.Method(typeof(BlueprintLoader), nameof(BlueprintsCache_LoadPrefix));
+            var patch2 = AccessTools.Method(typeof(BlueprintLoader), nameof(BlueprintsCache_LoadPostfix));
+            _ = Main.HarmonyInstance.Patch(toPatch, prefix: new(patch), postfix: new(patch2));
 
-        toPatch = AccessTools.Method(typeof(OwlcatModificationBlueprintPatcher), nameof(OwlcatModificationBlueprintPatcher.ApplyPatchEntry));
-        patch = AccessTools.Method(typeof(BlueprintLoader), nameof(OwlcatModificationBlueprintPatcher_ApplyPatchEntry));
-        _ = Main.HarmonyInstance.Patch(toPatch, prefix: new(patch));
+            toPatch = AccessTools.Method(typeof(OwlcatModificationBlueprintPatcher), nameof(OwlcatModificationBlueprintPatcher.ApplyPatchEntry));
+            patch = AccessTools.Method(typeof(BlueprintLoader), nameof(OwlcatModificationBlueprintPatcher_ApplyPatchEntry));
+            _ = Main.HarmonyInstance.Patch(toPatch, prefix: new(patch));
 
-        toPatch = AccessTools.Method(typeof(OwlcatModificationBlueprintPatcher), nameof(OwlcatModificationBlueprintPatcher.GetJObject));
-        patch = AccessTools.Method(typeof(BlueprintLoader), nameof(OwlcatModificationBlueprintPatcher_GetJObject));
-        _ = Main.HarmonyInstance.Patch(toPatch, prefix: new(patch));
+            toPatch = AccessTools.Method(typeof(OwlcatModificationBlueprintPatcher), nameof(OwlcatModificationBlueprintPatcher.GetJObject));
+            patch = AccessTools.Method(typeof(BlueprintLoader), nameof(OwlcatModificationBlueprintPatcher_GetJObject));
+            _ = Main.HarmonyInstance.Patch(toPatch, prefix: new(patch));
 
-        toPatch = AccessTools.Method(typeof(SharedStringConverter), nameof(SharedStringConverter.ReadJson));
-        patch = AccessTools.Method(typeof(BlueprintLoader), nameof(SharedStringConverter_ReadJson_Patch));
-        _ = Main.HarmonyInstance.Patch(toPatch, prefix: new(patch));
+            toPatch = AccessTools.Method(typeof(SharedStringConverter), nameof(SharedStringConverter.ReadJson));
+            patch = AccessTools.Method(typeof(BlueprintLoader), nameof(SharedStringConverter_ReadJson_Patch));
+            _ = Main.HarmonyInstance.Patch(toPatch, prefix: new(patch));
+        }
     }
     public List<SimpleBlueprint>? GetBlueprints(Action<IEnumerable<SimpleBlueprint>>? blueprintsAreLoadedCallback = null) {
         if (m_Blueprints == null) {
@@ -111,7 +114,7 @@ public class BlueprintLoader {
                     var bps2 = bps.Cast<BPType>();
                     onFinishLoadingCallback?.Invoke(bps2);
                     return bps2;
-                } else if (BlueprintIdCache.Instance.IdsByType.TryGetValue(typeof(BPType), out var ids)) {
+                } else if (BlueprintIdCache.Instance.IdsByType.TryGetValue(typeof(BPType), out var ids) && ids?.Count > 0) {
                     Load(bps => {
                         lock (m_BlueprintsToAdd) {
                             // OfType is lazy; fully evaluate the collection to prevent InvalidOperationException
@@ -183,7 +186,11 @@ public class BlueprintLoader {
         m_OnFinishLoading = callback;
         m_WorkerTasks.Clear();
         IsLoading = true;
-        _ = Task.Run(() => Run(toLoad));
+        if (IsThreaded) {
+            _ = Task.Run(() => Run(toLoad));
+        } else {
+            Run(toLoad);
+        }
     }
     public float Progress {
         get {
@@ -227,12 +234,16 @@ public class BlueprintLoader {
             var chunks = allEntries.Select((entry, index) => (entry, index)).Chunk(Settings.BlueprintsLoaderChunkSize);
             m_ChunkQueue = new(chunks);
             var bytes = memStream.GetBuffer();
-            for (var i = 0; i < Settings.BlueprintsLoaderNumThreads; i++) {
-                var t = Task.Run(() => HandleChunks(bytes));
-                m_WorkerTasks.Add(t);
-            }
-            foreach (var task in m_WorkerTasks) {
-                task.Wait();
+            if (IsThreaded) {
+                for (var i = 0; i < Settings.BlueprintsLoaderNumThreads; i++) {
+                    var t = Task.Run(() => HandleChunks(bytes));
+                    m_WorkerTasks.Add(t);
+                }
+                foreach (var task in m_WorkerTasks) {
+                    task.Wait();
+                }
+            } else {
+                HandleChunks(bytes);
             }
             _ = m_BlueprintBeingLoaded.RemoveAll(b => b is null);
             watch.Stop();

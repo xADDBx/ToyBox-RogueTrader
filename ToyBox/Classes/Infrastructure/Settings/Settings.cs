@@ -35,6 +35,7 @@ internal class GeneralSettings : AbstractSettings {
     public bool SearchDescriptions = true;
 
     // - Blueprints Settings
+    public bool EnableThreadedBlueprintLoader = true;
     public int BlueprintsLoaderNumShards = 32;
     public int BlueprintsLoaderChunkSize = 200;
     public int BlueprintsLoaderNumThreads = 4;

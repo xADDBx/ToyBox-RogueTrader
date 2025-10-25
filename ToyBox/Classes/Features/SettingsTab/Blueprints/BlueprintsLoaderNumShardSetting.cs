@@ -34,4 +34,9 @@ public partial class BlueprintsLoaderNumShardSetting : FeatureWithIntSlider {
             return 32;
         }
     }
+    public override bool ShouldHide {
+        get {
+            return !GetInstance<ThreadedBlueprintsLoaderSetting>().IsEnabled;
+        }
+    }
 }

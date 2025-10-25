@@ -2,7 +2,7 @@
 
 namespace ToyBox;
 public abstract class FeatureTab {
-    public List<Feature> FailedFeatures = [];
+    public HashSet<Feature> FailedFeatures = [];
     private Dictionary<string, List<Feature>> m_FeatureGroups { get; set; } = [];
     public abstract string Name { get; }
     public virtual bool IsHiddenFromUI {
@@ -16,8 +16,8 @@ public abstract class FeatureTab {
             try {
                 feature.Initialize();
             } catch (Exception ex) {
-                Error($"Failed to early initialize feature {feature.Name}\n{ex}", 1, false);
-                FailedFeatures.Add(feature);
+                Error($"Failed to early initialize feature {feature.Name}\n{ex}", false);
+                _ = FailedFeatures.Add(feature);
             }
         }
         if (!m_FeatureGroups.TryGetValue(groupName, out var group)) {
@@ -45,9 +45,9 @@ public abstract class FeatureTab {
                 try {
                     feature.Initialize();
                 } catch (Exception ex) {
-                    Error($"Failed to initialize feature {feature.Name}\n{ex}", 1, false);
+                    Error($"Failed to initialize feature {feature.Name}\n{ex}", false);
                     feature.Destroy();
-                    FailedFeatures.Add(feature);
+                    _ = FailedFeatures.Add(feature);
                 }
             }
         }

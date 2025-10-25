@@ -34,9 +34,11 @@ public partial class SettingsFeaturesTab : FeatureTab {
         AddFeature(new PerformanceEnhancementFeatures(), m_BlueprintsText);
         AddFeature(new PreloadBlueprintsFeature(), m_BlueprintsText);
         AddFeature(new ShowDisplayAndInternalNamesSetting(), m_BlueprintsText);
+        AddFeature(new ThreadedBlueprintsLoaderSetting(), m_BlueprintsText);
         AddFeature(new BlueprintsLoaderNumThreadSetting(), m_BlueprintsText);
         AddFeature(new BlueprintsLoaderNumShardSetting(), m_BlueprintsText);
         AddFeature(new BlueprintsLoaderChunkSizeSetting(), m_BlueprintsText);
+        AddFeature(new BPIdCacheFeature(), m_BlueprintsText);
 
         AddFeature(new InspectorShowNullAndEmptyMembersSetting(), m_InspectorText);
         AddFeature(new InspectorShowEnumerableFieldsSetting(), m_InspectorText);

@@ -15,7 +15,15 @@ public abstract class FeatureWithPatch : ToggledFeature {
             ToyBoxPatchCategoryAttribute.PatchCategory(HarmonyName, HarmonyInstance);
         }
     }
-    public void Unpatch() => HarmonyInstance.UnpatchAll(HarmonyName);
-    public override void Initialize() => Patch();
-    public override void Destroy() => Unpatch();
+    public void Unpatch() {
+        HarmonyInstance.UnpatchAll(HarmonyName);
+    }
+
+    public override void Initialize() {
+        Patch();
+    }
+
+    public override void Destroy() {
+        Unpatch();
+    }
 }

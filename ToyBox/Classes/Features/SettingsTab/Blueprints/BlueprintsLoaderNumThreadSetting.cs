@@ -33,4 +33,9 @@ public partial class BlueprintsLoaderNumThreadSetting : FeatureWithIntSlider {
             return 4;
         }
     }
+    public override bool ShouldHide {
+        get {
+            return !GetInstance<ThreadedBlueprintsLoaderSetting>().IsEnabled;
+        }
+    }
 }
