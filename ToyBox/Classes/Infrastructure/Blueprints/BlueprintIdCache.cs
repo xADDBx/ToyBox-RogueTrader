@@ -176,8 +176,9 @@ public class BlueprintIdCache {
             using var stream = new FileStream(EnsureFilePath(), FileMode.Open, FileAccess.Read);
             using var reader = new BinaryReader(stream, Encoding.UTF8);
 
-            BlueprintIdCache result = new();
-            result.CachedGameVersion = reader.ReadString();
+            BlueprintIdCache result = new() {
+                CachedGameVersion = reader.ReadString()
+            };
 
             var ummCount = reader.ReadInt32();
             for (var i = 0; i < ummCount; i++) {

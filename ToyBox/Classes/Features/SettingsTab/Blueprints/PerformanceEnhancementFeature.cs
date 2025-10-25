@@ -1,5 +1,4 @@
-﻿using Kingmaker.Blueprints.JsonSystem;
-using Kingmaker.Blueprints.JsonSystem.BinaryFormat;
+﻿using Kingmaker.Blueprints.JsonSystem.BinaryFormat;
 using Kingmaker.Blueprints.JsonSystem.Helpers;
 using System.Collections.Concurrent;
 using System.Linq.Expressions;

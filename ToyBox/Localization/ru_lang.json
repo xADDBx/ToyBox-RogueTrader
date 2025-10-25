@@ -351,6 +351,30 @@
     "Original": "Mod Version is not compatible with this game version!",
     "Translated": "Версия мода не совместима с этой версией игры!"
   },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ColonizeColonyBA_ColonizeText": {
+    "Original": "Colonize",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ColonizeColonyBA_Name": {
+    "Original": "Colonize BlueprintColony",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ColonizeColonyBA_Description": {
+    "Original": "Tries to colonize the specified BlueprintColony in the current Star System.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ColonizePlanetBA_ColonizeText": {
+    "Original": "Colonize",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ColonizePlanetBA_Name": {
+    "Original": "Colonize BlueprintPlanet",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ColonizePlanetBA_Description": {
+    "Original": "Tries to colonize the specified BlueprintPlanet in the current Star System.",
+    "Translated": null
+  },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_LoadAreaPresetBA_LoadPresetText": {
     "Original": "Load Preset",
     "Translated": null
@@ -361,6 +385,54 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_LoadAreaPresetBA_Description": {
     "Original": "Loads a specified BlueprintAreaPreset.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintAreaBA_TeleportText": {
+    "Original": "Teleport",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintAreaBA_Name": {
+    "Original": "Teleport to BlueprintArea",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintAreaBA_Description": {
+    "Original": "Gets the first AreaEnterPoint corresponding to the specified BlueprintArea and loads it.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintAreaEnterPointBA_TeleportText": {
+    "Original": "Teleport",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintAreaEnterPointBA_Name": {
+    "Original": "Teleport to BlueprintAreaEnterPoint",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintAreaEnterPointBA_Description": {
+    "Original": "Loads the area of the specified BlueprintAreaEnterPoint.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintSectorMapPointStarSystemBA_TeleportText": {
+    "Original": "Teleport",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintSectorMapPointStarSystemBA_Name": {
+    "Original": "Teleport to BlueprintSectorMapPointStarSystem",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintSectorMapPointStarSystemBA_Description": {
+    "Original": "Gets the first AreaEnterPoint corresponding to the specified BlueprintSectorMapPointStarSystem and loads it.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintStarSystemMapBA_TeleportText": {
+    "Original": "Teleport",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintStarSystemMapBA_Name": {
+    "Original": "Teleport to BlueprintStarSystemMap",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintStarSystemMapBA_Description": {
+    "Original": "Gets the first AreaEnterPoint corresponding to the specified BlueprintStarSystemMap and loads it.",
     "Translated": null
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddItemBA_Add_x": {
@@ -571,19 +643,19 @@
     "Original": "Unit already has this ability resource",
     "Translated": null
   },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddUnitFactBA_AddText": {
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechanicEntityFactBA_AddText": {
     "Original": "Add",
     "Translated": null
   },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddUnitFactBA_Name": {
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechanicEntityFactBA_Name": {
     "Original": "Add Fact",
     "Translated": null
   },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddUnitFactBA_Description": {
-    "Original": "Adds the specified BlueprintUnitFact to the chosen unit.",
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechanicEntityFactBA_Description": {
+    "Original": "Adds the specified BlueprintMechanicEntityFact to the chosen unit.",
     "Translated": null
   },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddUnitFactBA_UnitAlreadyHasThisFactText": {
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechanicEntityFactBA_UnitAlreadyHasThisFactText": {
     "Original": "Unit already has this Fact",
     "Translated": null
   },
@@ -627,19 +699,19 @@
     "Original": "Unit does not have this ability resource",
     "Translated": null
   },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveUnitFactBA_RemoveText": {
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechanicEntityFactBA_RemoveText": {
     "Original": "Remove",
     "Translated": null
   },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveUnitFactBA_Name": {
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechanicEntityFactBA_Name": {
     "Original": "Remove Fact",
     "Translated": null
   },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveUnitFactBA_Description": {
-    "Original": "Removes the specified BlueprintUnitFact from the chosen unit.",
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechanicEntityFactBA_Description": {
+    "Original": "Removes the specified BlueprintMechanicEntityFact from the chosen unit.",
     "Translated": null
   },
-  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveUnitFactBA_UnitDoesNotHaveThisFactText": {
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechanicEntityFactBA_UnitDoesNotHaveThisFactText": {
     "Original": "Unit does not have this Fact",
     "Translated": null
   },

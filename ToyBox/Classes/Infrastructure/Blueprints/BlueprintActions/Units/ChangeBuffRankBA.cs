@@ -15,10 +15,10 @@ public partial class ChangeBuffRankBA : BlueprintActionFeature, IBlueprintAction
         canIncrease = false;
         rank = 0;
         if (parameter.Length > 0 && parameter[0] is BaseUnitEntity unit) {
-            if (unit.Facts.Get(blueprint) is { } fact && blueprint.Ranks > 1) {
+            if (unit.Facts.Get(blueprint) is { } fact && blueprint.MaxRank > 1) {
                 rank = fact.GetRank();
                 canDecrease = rank > 1;
-                canIncrease = rank < blueprint.Ranks;
+                canIncrease = rank < blueprint.MaxRank;
                 return true;
             }
         }

@@ -6,8 +6,7 @@ namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
 [NeedsTesting]
 public partial class StartEtudeBA : BlueprintActionFeature, IBlueprintAction<BlueprintEtude> {
     public bool CanExecute(BlueprintEtude blueprint, params object[] parameter) {
-        return IsInGame()
-            && Game.Instance.Player.EtudesSystem.EtudeIsNotStarted(blueprint);
+        return IsInGame() && Game.Instance.Player.EtudesSystem.EtudeIsNotStarted(blueprint);
     }
     private bool Execute(BlueprintEtude blueprint) {
         LogExecution(blueprint);
@@ -22,7 +21,7 @@ public partial class StartEtudeBA : BlueprintActionFeature, IBlueprintAction<Blu
             });
         } else if (isFeatureSearch) {
             if (IsInGame()) {
-                UI.Label(EtudeIsAlreadyStartedOrCompleted.Red().Bold());
+                UI.Label(m_EtudeIsAlreadyStartedOrCompleted.Red().Bold());
             } else {
                 UI.Label(SharedStrings.ThisCannotBeUsedFromTheMainMenu.Red().Bold());
             }
@@ -46,5 +45,5 @@ public partial class StartEtudeBA : BlueprintActionFeature, IBlueprintAction<Blu
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_StartEtudeBA_StartText", "Start")]
     private static partial string m_StartText { get; }
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_StartEtudeBA_EtudeIsAlreadyStartedOrCompleted", "Etude is already started or completed")]
-    private static partial string EtudeIsAlreadyStartedOrCompleted { get; }
+    private static partial string m_EtudeIsAlreadyStartedOrCompleted { get; }
 }

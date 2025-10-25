@@ -1,5 +1,4 @@
-﻿using Kingmaker;
-using Kingmaker.Blueprints;
+﻿using Kingmaker.Blueprints;
 using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
@@ -7,11 +6,11 @@ namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
 public partial class LockFlagBA : BlueprintActionFeature, IBlueprintAction<BlueprintUnlockableFlag> {
 
     public bool CanExecute(BlueprintUnlockableFlag blueprint, params object[] parameter) {
-        return IsInGame() && Game.Instance.Player.UnlockableFlags.IsUnlocked(blueprint);
+        return IsInGame() && blueprint.IsUnlocked;
     }
     private bool Execute(BlueprintUnlockableFlag blueprint) {
         LogExecution(blueprint);
-        Game.Instance.Player.UnlockableFlags.Lock(blueprint);
+        blueprint.Lock();
         return true;
     }
     public bool? OnGui(BlueprintUnlockableFlag blueprint, bool isFeatureSearch, params object[] parameter) {

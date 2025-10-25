@@ -1,6 +1,5 @@
 ﻿using Kingmaker.Blueprints.Area;
 using Kingmaker.Cheats;
-using Kingmaker.EntitySystem.Persistence;
 using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
@@ -12,7 +11,7 @@ public partial class LoadAreaPresetBA : BlueprintActionFeature, IBlueprintAction
 
     private bool Execute(BlueprintAreaPreset blueprint, params object[] parameter) {
         LogExecution(blueprint, parameter);
-        _ = LoadingProcess.Instance.StartCoroutine(CheatsTransfer.NewGameCoroutine(blueprint));
+        CheatsTransfer.StartNewGame(blueprint);
         return true;
     }
     public bool? OnGui(BlueprintAreaPreset blueprint, bool isFeatureSearch, params object[] parameter) {

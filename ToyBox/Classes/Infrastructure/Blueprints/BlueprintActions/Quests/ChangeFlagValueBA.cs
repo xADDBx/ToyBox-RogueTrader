@@ -7,17 +7,16 @@ namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
 public partial class ChangeFlagValueBA : BlueprintActionFeature, IBlueprintAction<BlueprintUnlockableFlag> {
 
     public bool CanExecute(BlueprintUnlockableFlag blueprint, params object[] parameter) {
-        return IsInGame()
-            && Game.Instance.Player.UnlockableFlags.IsUnlocked(blueprint);
+        return IsInGame() && blueprint.IsUnlocked;
     }
     private bool ExecuteIncrease(BlueprintUnlockableFlag blueprint, int count) {
         LogExecution(blueprint, count);
-        Game.Instance.Player.UnlockableFlags.SetFlagValue(blueprint, Game.Instance.Player.UnlockableFlags.GetFlagValue(blueprint) + count);
+        blueprint.Value += count;
         return true;
     }
     private bool ExecuteDecrease(BlueprintUnlockableFlag blueprint, int count) {
         LogExecution(blueprint, -count);
-        Game.Instance.Player.UnlockableFlags.SetFlagValue(blueprint, Game.Instance.Player.UnlockableFlags.GetFlagValue(blueprint) - count);
+        blueprint.Value -= count;
         return true;
     }
     public bool? OnGui(BlueprintUnlockableFlag blueprint, bool isFeatureSearch, params object[] parameter) {

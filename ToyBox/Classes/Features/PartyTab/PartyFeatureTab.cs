@@ -1,6 +1,4 @@
 using Kingmaker;
-using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Classes;
 using Kingmaker.Designers;
 using Kingmaker.EntitySystem;
 using Kingmaker.EntitySystem.Entities;
@@ -114,6 +112,8 @@ public partial class PartyFeatureTab : FeatureTab {
                             case PartyTabSectionType.Abilities: OnAbilitiesGui(unit); break;
                             case PartyTabSectionType.Stats: OnStatsGui(unit); break;
                             case PartyTabSectionType.None:
+                                break;
+                            default:
                                 break;
                         }
                     }

@@ -53,8 +53,14 @@ public class BlueprintActions : FeatureTab {
     }
 
     public BlueprintActions() {
-#warning TODO: Teleport Actions; BlueprintSelection; BlueprintSelectionFeature
+#warning TODO: BlueprintSelection; BlueprintSelectionFeature
+        AddFeature(new ColonizeColonyBA());
+        AddFeature(new ColonizePlanetBA());
         AddFeature(new LoadAreaPresetBA());
+        AddFeature(new TeleportBlueprintAreaBA());
+        AddFeature(new TeleportBlueprintAreaEnterPointBA());
+        AddFeature(new TeleportBlueprintSectorMapPointStarSystemBA());
+        AddFeature(new TeleportBlueprintStarSystemMapBA());
 
         AddFeature(new AddItemBA());
         AddFeature(new RemoveItemBA());
@@ -72,11 +78,11 @@ public class BlueprintActions : FeatureTab {
         AddFeature(new UnstartEtudeBA());
 
         AddFeature(new AddAbilityResourceBA());
-        AddFeature(new AddUnitFactBA());
+        AddFeature(new AddMechanicEntityFactBA());
         AddFeature(new ChangeBuffRankBA());
         AddFeature(new ChangeFeatureRankBA());
         AddFeature(new RemoveAbilityResourceBA());
-        AddFeature(new RemoveUnitFactBA());
+        AddFeature(new RemoveMechanicEntityFactBA());
         AddFeature(new SpawnUnitBA());
     }
 }
