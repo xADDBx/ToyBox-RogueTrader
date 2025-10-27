@@ -20,7 +20,7 @@ public partial class PartyFeatureTab : FeatureTab {
     private BaseUnitEntity? m_UncollapsedUnit = null;
     private static readonly PartyTabSectionType[] m_Sections = [PartyTabSectionType.Classes, PartyTabSectionType.Stats, PartyTabSectionType.Features,
         PartyTabSectionType.Buffs, PartyTabSectionType.Abilities, PartyTabSectionType.Inspect];
-    private static readonly Lazy<float> m_InspectLabelWidth = new(() => CalculateLargestLabelSize([m_InspectPartyText]));
+    private static readonly Lazy<float> m_InspectLabelWidth = new(() => UI.WidthInDisclosureStyle(m_InspectPartyText));
     public override void InitializeAll() {
         Main.OnHideGUIAction += Refresh;
         base.InitializeAll();
@@ -39,16 +39,24 @@ public partial class PartyFeatureTab : FeatureTab {
         m_UncollapsedSection = PartyTabSectionType.None;
         m_UncollapsedUnit = null;
         NameSectionWidth.ForceRefresh();
-        FeatureRefresh();
+        ClearCache();
     }
-    public static void FeatureRefresh() {
+    public static void ClearCache() {
         Feature.GetInstance<PartyBrowseFeatsFeature>().ClearFeatureCache();
         Feature.GetInstance<PartyBrowseAbilitiesFeature>().ClearFeatureCache();
         Feature.GetInstance<PartyBrowseBuffsFeature>().ClearFeatureCache();
     }
+    public static void FeatureRefresh() {
+        Feature.GetInstance<PartyBrowseFeatsFeature>().MarkInvalid();
+        Feature.GetInstance<PartyBrowseAbilitiesFeature>().MarkInvalid();
+        Feature.GetInstance<PartyBrowseBuffsFeature>().MarkInvalid();
+    }
     public readonly TimedCache<float> NameSectionWidth = new(() => {
-        return CalculateLargestLabelSize(CharacterPicker.CurrentUnits.Select(u => u.CharacterName.Bold()));
+        return CalculateLargestLabelSize(CharacterPicker.CurrentUnits.Select(u => GetUnitName(u) + " "));
     }, 60 * 60 * 24);
+    private static string GetUnitName(BaseUnitEntity? unit) {
+        return ToyBoxUnitHelper.GetUnitName(unit).Orange().Bold();
+    }
     public override void OnGui() {
         if (!IsInGame()) {
             UI.Label(SharedStrings.ThisCannotBeUsedFromTheMainMenu.Red());
@@ -67,7 +75,7 @@ public partial class PartyFeatureTab : FeatureTab {
             foreach (var unit in units) {
                 using (HorizontalScope()) {
                     using (HorizontalScope(Width(Math.Min(EffectiveWindowWidth() * 0.2f, NameSectionWidth + 110)))) {
-                        UI.Label(ToyBoxUnitHelper.GetUnitName(unit).Orange().Bold(), Width(NameSectionWidth));
+                        UI.Label(GetUnitName(unit), Width(NameSectionWidth));
                         Space(2);
 
                         Feature.GetInstance<RenameUnitFeature>().OnGui(unit);

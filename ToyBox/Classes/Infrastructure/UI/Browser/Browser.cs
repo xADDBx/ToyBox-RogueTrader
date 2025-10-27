@@ -137,8 +137,8 @@ public partial class Browser<T> : VerticalList<T> where T : notnull {
         Action<(string oldContent, string newContent)>? contentChangedAction = Settings.ToggleSearchAsYouType ? (((string oldContent, string newContent) pair) => {
             if ((Time.time - LastSearchedAt) > Settings.SearchDelay) {
                 StartNewSearch(pair.newContent);
-            } else if (m_DebounceTask == null) {
-                m_DebounceTask = Task.Run(DebouncedSearch);
+            } else {
+                m_DebounceTask ??= Task.Run(DebouncedSearch);
             }
         }) : null;
         using (HorizontalScope()) {

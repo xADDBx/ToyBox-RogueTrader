@@ -9,6 +9,9 @@ public static partial class UI {
             return field;
         }
     }
+    public static float WidthInDisclosureStyle(string label) {
+        return CalculateLargestLabelSize([Glyphs.DisclosureOn + label, Glyphs.DisclosureOff + label], m_DisclosureToggleStyle);
+    }
     public static Lazy<float> DisclosureGlyphWidth {
         get {
             return new(() => {

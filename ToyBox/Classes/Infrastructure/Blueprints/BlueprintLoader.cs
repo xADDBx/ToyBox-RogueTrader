@@ -151,7 +151,7 @@ public class BlueprintLoader {
                 }
             }
             bps ??= m_Blueprints.OfType<BPType>();
-
+            onFinishLoadingCallback?.Invoke(bps);
             return bps;
         }
     }

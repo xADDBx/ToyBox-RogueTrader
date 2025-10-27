@@ -16,6 +16,7 @@ public class ThreadedListSearcher<T> where T : notnull {
         m_Parent = parent;
     }
     public void StartSearch(IEnumerable<T> items, string query, Func<T, string> getSearchKey, Func<T, string> getSortKey) {
+        Trace($"Start Search:\n{new StackTrace()}");
         lock (this) {
             if (IsRunning) {
                 StopSearch();
@@ -31,7 +32,7 @@ public class ThreadedListSearcher<T> where T : notnull {
         try {
             var watch = Stopwatch.StartNew();
             m_LastSharedResults = Time.time;
-            Debug("Start Search");
+            Debug("Start DoSearch");
             var allResults = new List<T>();
             m_InProgress = new();
             CurrentlyFound = 0;
@@ -61,10 +62,11 @@ public class ThreadedListSearcher<T> where T : notnull {
                     }
                 }
                 m_Parent.QueueUpdateItems(allResults.AsParallel().WithDegreeOfParallelism(Environment.ProcessorCount).OrderBy(getSortKey).ToArray(), 1, true);
+                Debug($"Searched {items.Count()} items in {watch.ElapsedMilliseconds}ms; found {allResults.Count} results");
             } else {
                 m_Parent.QueueUpdateItems(items.AsParallel().WithDegreeOfParallelism(Environment.ProcessorCount).OrderBy(getSortKey).ToArray(), 1, true);
+                Debug($"Searched {items.Count()} items in {watch.ElapsedMilliseconds}ms; query is empty so used all items as result");
             }
-            Debug($"Searched {items.Count()} items in {watch.ElapsedMilliseconds}ms; found {allResults.Count} results");
         } catch (Exception e) {
             Error($"Encountered exception while trying to search!\n{e}");
         }

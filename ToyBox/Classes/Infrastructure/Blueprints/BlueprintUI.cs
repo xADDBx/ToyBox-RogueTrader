@@ -19,13 +19,14 @@ public static class BlueprintUI {
         using (VerticalScope()) {
             using (HorizontalScope()) {
                 UI.Label(name, Width(CalculateTitleWidth()));
-
+#warning Proper Width?
+#warning AssetGuid
                 foreach (var action in BlueprintActionFeature.GetActionsForBlueprintType<Blueprint>()) {
                     _ = action.OnGui(blueprint, false, ch);
                 }
 
                 Space(10);
-
+#warning Type?
                 var desc = BPHelper.GetDescription(blueprint);
                 if (!desc.IsNullOrEmpty()) {
                     UI.Label(desc!.Green());
