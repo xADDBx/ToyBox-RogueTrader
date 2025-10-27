@@ -55,6 +55,30 @@
     "Original": "Feature Search",
     "Translated": null
   },
+  "ToyBox_Features_PartyTab_PartyBrowseAbilitiesFeature_Name": {
+    "Original": "Browse Unit Abilities",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_PartyBrowseAbilitiesFeature_Description": {
+    "Original": "Displays a Browser containing all the abilities of the unit in question and optionally allows removing them or adding new ones.",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_PartyBrowseBuffsFeature_Name": {
+    "Original": "Browse Unit Buffs",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_PartyBrowseBuffsFeature_Description": {
+    "Original": "Displays a Browser containing all the buffs of the unit in question and optionally allows removing them or adding new ones.",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_PartyBrowseFeatsFeature_Name": {
+    "Original": "Browse Unit Features",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_PartyBrowseFeatsFeature_Description": {
+    "Original": "Displays a Browser containing all the features of the unit in question and optionally allows removing them or adding new ones.",
+    "Translated": null
+  },
   "ToyBox_Features_PartyTab_PartyFeatureTab_PartyLevelText": {
     "Original": "Party Level",
     "Translated": null
@@ -65,6 +89,14 @@
   },
   "ToyBox_Features_PartyTab_PartyFeatureTab_Name": {
     "Original": "Party",
+    "Translated": null
+  },
+  "ToyBox_Classes_Features_PartyTab_RenameUnitFeature_Name": {
+    "Original": "Rename unit",
+    "Translated": null
+  },
+  "ToyBox_Classes_Features_PartyTab_RenameUnitFeature_Description": {
+    "Original": "Allows renaming the specified BaseUnitEntity",
     "Translated": null
   },
   "ToyBox_Features_SettingsFeatures_Blueprints_BlueprintsLoaderChunkSizeSetting_Name": {
@@ -949,6 +981,10 @@
   },
   "ToyBox_Infrastructure_Utilities_ContextProvider_NoneText": {
     "Original": "None",
+    "Translated": null
+  },
+  "ToyBox_Main_SomethingWentHorriblyWrongAndYou": {
+    "Original": "Something went horribly wrong and you've somehow opened the UI before ToyBox finished initialization. Please report this to the mod author!",
     "Translated": null
   }
 }

@@ -22,6 +22,13 @@ public static partial class Main {
     internal static List<FeatureTab> m_FeatureTabs = [];
     internal static List<WeakReference<IPagedList>> m_VerticalLists = [];
     private static readonly ConcurrentQueue<Action> m_MainThreadTaskQueue = [];
+    private static readonly Lazy<bool> m_SuccessfullyInitialized = new(() => LateInitTasks.Count > 0 && LateInitTasks.All(t => t.IsCompleted));
+    public static bool SuccessfullyInitialized {
+        get {
+            return field || m_SuccessfullyInitialized.Value;
+        }
+        internal set;
+    } = false;
     private static bool Load(UnityModManager.ModEntry modEntry) {
         var sw = Stopwatch.StartNew();
         try {
@@ -42,7 +49,7 @@ public static partial class Main {
             }
 
             if (Settings.EnableVersionCompatibilityCheck) {
-                Task.Run(() => {
+                _ = Task.Run(() => {
                     var versionTimer = Stopwatch.StartNew();
                     VersionChecker.IsGameVersionSupported();
                     Debug($"Finished Version Compatibility Check in: {versionTimer.ElapsedMilliseconds}ms (Threaded)");
@@ -72,7 +79,7 @@ public static partial class Main {
 
         } catch (Exception ex) {
             Error(ex);
-            OnUnload(modEntry);
+            _ = OnUnload(modEntry);
             return false;
         }
         Debug($"Complete init took {sw.ElapsedMilliseconds}ms");
@@ -94,9 +101,15 @@ public static partial class Main {
         OnUnloadAction?.Invoke();
         return true;
     }
-    private static bool OnToggle(UnityModManager.ModEntry modEntry, bool value) => true;
+    private static bool OnToggle(UnityModManager.ModEntry modEntry, bool value) {
+        return true;
+    }
+
     private static int m_LoadedBps = 0;
     private static void OnGUI(UnityModManager.ModEntry modEntry) {
+        if (!SuccessfullyInitialized) {
+            UI.Label(m_SomethingWentHorriblyWrongAndYou.Red().Bold());
+        }
         if (m_CaughtException == null) {
             try {
                 if (BPLoader.IsLoading) {
@@ -125,8 +138,14 @@ public static partial class Main {
             }
         }
     }
-    private static void OnSaveGUI(UnityModManager.ModEntry modEntry) => Settings.Save();
-    private static void OnShowGUI(UnityModManager.ModEntry modEntry) => OnShowGUIAction?.Invoke();
+    private static void OnSaveGUI(UnityModManager.ModEntry modEntry) {
+        Settings.Save();
+    }
+
+    private static void OnShowGUI(UnityModManager.ModEntry modEntry) {
+        OnShowGUIAction?.Invoke();
+    }
+
     private static void OnHideGUI(UnityModManager.ModEntry modEntry) {
         Settings.Save();
         OnHideGUIAction?.Invoke();
@@ -140,5 +159,10 @@ public static partial class Main {
             Error(ex);
         }
     }
-    public static void ScheduleForMainThread(this Action action) => m_MainThreadTaskQueue.Enqueue(action);
+    public static void ScheduleForMainThread(this Action action) {
+        m_MainThreadTaskQueue.Enqueue(action);
+    }
+
+    [LocalizedString("ToyBox_Main_SomethingWentHorriblyWrongAndYou", "Something went horribly wrong and you've somehow opened the UI before ToyBox finished initialization. Please report this to the mod author!")]
+    private static partial string m_SomethingWentHorriblyWrongAndYou { get; }
 }

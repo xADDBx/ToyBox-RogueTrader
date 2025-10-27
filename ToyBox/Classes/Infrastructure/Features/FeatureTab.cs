@@ -1,7 +1,9 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.Concurrent;
+using System.Diagnostics;
 
 namespace ToyBox;
 public abstract class FeatureTab {
+    private static readonly ConcurrentDictionary<Type, FeatureTab> m_Instances = [];
     public HashSet<Feature> FailedFeatures = [];
     private Dictionary<string, List<Feature>> m_FeatureGroups { get; set; } = [];
     public abstract string Name { get; }
@@ -10,7 +12,18 @@ public abstract class FeatureTab {
             return false;
         }
     }
-
+    protected FeatureTab() {
+        var t = GetType();
+        if (!m_Instances.TryAdd(t, this)) {
+            throw new InvalidOperationException($"FeatureTab of type {t.Name} was already constructed.");
+        }
+    }
+    public static T GetInstance<T>() where T : FeatureTab {
+        if (!m_Instances.TryGetValue(typeof(T), out var inst)) {
+            throw new InvalidOperationException($"No constructed instance of type {typeof(T)} found!");
+        }
+        return (T)inst;
+    }
     public virtual void AddFeature(Feature feature, string groupName = "") {
         if (feature is INeedEarlyInitFeature) {
             try {

@@ -1,4 +1,5 @@
 ﻿using Kingmaker;
+using Kingmaker.Utility.DotNetExtensions;
 using System.Diagnostics;
 
 namespace ToyBox.Infrastructure;
@@ -19,6 +20,10 @@ public static class LazyInit {
         Debug($"Lazy init had {Stopwatch.ElapsedMilliseconds}ms before waiting");
         var sw = Stopwatch.StartNew();
         Task.WaitAll([.. Main.LateInitTasks]);
+        Main.LateInitTasks.Where(t => t.IsFaulted).ForEach(t => {
+            Critical($"Late init task IsFaulted: {t}\n{t.Exception?.ToString() ?? "Null Exception?"}");
+        });
+        Main.SuccessfullyInitialized = true;
         Debug($"Waited {sw.ElapsedMilliseconds}ms for lazy init finish");
     }
 }

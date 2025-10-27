@@ -7,8 +7,7 @@ using ToyBox.Infrastructure.Blueprints.BlueprintActions;
 
 namespace ToyBox.Infrastructure.Blueprints;
 public static class BlueprintUI {
-    public static void BlueprintRowGUI<Blueprint>(Blueprint blueprint, BaseUnitEntity ch, object? parent = null) where Blueprint : BlueprintScriptableObject, IUIDataProvider {
-        parent ??= ch;
+    public static void BlueprintRowGUI<Blueprint>(Blueprint blueprint, BaseUnitEntity ch) where Blueprint : BlueprintScriptableObject, IUIDataProvider {
         object? maybeItem = null;
         if (blueprint is BlueprintUnitFact fact) {
             maybeItem = ch.Facts.Get(fact);
