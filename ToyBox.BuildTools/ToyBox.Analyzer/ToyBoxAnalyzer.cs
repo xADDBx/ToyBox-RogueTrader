@@ -106,11 +106,12 @@ namespace ToyBox.Analyzer {
                         literal.Token.ValueText == fullName) {
                         correctReturn = true;
                     }
-                } else if (propDecl.AccessorList != null) {
+                }
+                if (!correctReturn && propDecl.AccessorList != null) {
                     var getter = propDecl.AccessorList.Accessors.FirstOrDefault(a => a.Kind() == SyntaxKind.GetAccessorDeclaration);
                     if (getter != null) {
                         // Try to find a return statement.
-                        var returnStmt = getter.Body?.Statements.OfType<ReturnStatementSyntax>().FirstOrDefault();
+                        var returnStmt = getter.Body?.Statements.OfType<ReturnStatementSyntax>()?.FirstOrDefault();
                         if (returnStmt != null &&
                             returnStmt.Expression is LiteralExpressionSyntax literal &&
                             literal.Token.ValueText == fullName) {

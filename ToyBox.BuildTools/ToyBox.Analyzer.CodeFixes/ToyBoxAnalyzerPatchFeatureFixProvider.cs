@@ -91,7 +91,7 @@ namespace ToyBox.Analyzer {
                     }
                 }
 
-                // Add our new attribute list.
+                // Add new attribute list.
                 newAttrLists = newAttrLists.Add(newAttrList);
 
                 // Replace the class declaration with the new attribute lists.
@@ -116,46 +116,17 @@ namespace ToyBox.Analyzer {
 
                 if (existingProp != null) {
                     // Replace the getter with one that returns the correct literal.
-                    var newLiteral = SyntaxFactory.LiteralExpression(
-                        SyntaxKind.StringLiteralExpression, SyntaxFactory.Literal(fullName));
 
-                    // If the property uses an expression body.
-                    if (existingProp.ExpressionBody != null) {
-                        var newProp = existingProp.WithExpressionBody(
-                            SyntaxFactory.ArrowExpressionClause(newLiteral));
-                        var newRoot = root.ReplaceNode(existingProp, newProp);
-                        return document.WithSyntaxRoot(newRoot);
-                    } else if (existingProp.AccessorList != null) {
-                        // Find the getter.
-                        var getter = existingProp.AccessorList.Accessors
-                            .FirstOrDefault(a => a.Kind() == SyntaxKind.GetAccessorDeclaration);
-                        if (getter != null) {
-                            // Create a new getter body that returns the correct literal.
-                            var returnStmt = SyntaxFactory.ReturnStatement(newLiteral);
-                            var newGetter = getter.WithBody(SyntaxFactory.Block(returnStmt))
-                                                  .WithExpressionBody(null)
-                                                  .WithSemicolonToken(default);
-                            var newAccessorList = existingProp.AccessorList.ReplaceNode(getter, newGetter);
-                            var newProp = existingProp.WithAccessorList(newAccessorList);
-                            var newRoot = root.ReplaceNode(existingProp, newProp);
-                            return document.WithSyntaxRoot(newRoot);
-                        }
-                    }
+                    var newRoot = root.ReplaceNode(existingProp, CreateProperty(fullName));
+                    return document.WithSyntaxRoot(newRoot);
                 } else {
                     // No HarmonyName property exists, so add one.
-                    // Create: protected override string HarmonyName => "FullName";
-                    var propDeclaration = SyntaxFactory.PropertyDeclaration(
-                        SyntaxFactory.PredefinedType(SyntaxFactory.Token(SyntaxKind.StringKeyword)),
-                        "HarmonyName")
-                        .AddModifiers(
-                            SyntaxFactory.Token(SyntaxKind.ProtectedKeyword),
-                            SyntaxFactory.Token(SyntaxKind.OverrideKeyword))
-                        .WithExpressionBody(
-                            SyntaxFactory.ArrowExpressionClause(
-                                SyntaxFactory.LiteralExpression(
-                                    SyntaxKind.StringLiteralExpression,
-                                    SyntaxFactory.Literal(fullName))))
-                        .WithSemicolonToken(SyntaxFactory.Token(SyntaxKind.SemicolonToken));
+                    // Create: protected override string HarmonyName {
+                    //             get {
+                    //                 return "FullName";
+                    //             }
+                    //         }
+                    var propDeclaration = CreateProperty(fullName);
 
                     // Add the new property to the end of the class.
                     var newClassDecl = classDecl.AddMembers(propDeclaration);
@@ -165,6 +136,30 @@ namespace ToyBox.Analyzer {
             }
 
             return document;
+        }
+        private static PropertyDeclarationSyntax CreateProperty(string literal) {
+            return PropertyDeclaration(
+                PredefinedType(
+                    Token(SyntaxKind.StringKeyword)),
+                Identifier("HarmonyName"))
+            .WithModifiers(
+                TokenList(
+                    new[]{
+                        Token(SyntaxKind.ProtectedKeyword),
+                        Token(SyntaxKind.OverrideKeyword)}))
+            .WithAccessorList(
+                AccessorList(
+                    SingletonList<AccessorDeclarationSyntax>(
+                        AccessorDeclaration(
+                            SyntaxKind.GetAccessorDeclaration)
+                        .WithBody(
+                            Block(
+                                SingletonList<StatementSyntax>(
+                                    ReturnStatement(
+                                        LiteralExpression(
+                                            SyntaxKind.StringLiteralExpression,
+                                            Literal(literal)))))))));
+            //.NormalizeWhitespace();
         }
     }
 }

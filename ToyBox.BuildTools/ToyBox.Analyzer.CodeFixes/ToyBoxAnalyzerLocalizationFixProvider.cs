@@ -7,6 +7,7 @@ using System;
 using System.Collections.Immutable;
 using System.Composition;
 using System.Linq;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using static Microsoft.CodeAnalysis.CSharp.SyntaxFactory;
@@ -42,10 +43,20 @@ namespace ToyBox.Analyzer {
         }
 
         private string ReplaceBadChar(string s) {
-            return s.Replace('.', '_').Replace(':', '_').Replace('?', '_').Replace(';', '_').Replace('!', '_').Replace('"', '_').Replace('\'', '_')
-                    .Replace('-', '_').Replace(',', '_').Replace('§', '_').Replace('%', '_').Replace('&', '_').Replace('/', '_').Replace('(', '_')
-                    .Replace(')', '_').Replace('=', '_').Replace('{', '_').Replace('[', '_').Replace(']', '_').Replace('}', '_').Replace('#', '_')
-                    .Replace('+', '_').Replace('*', '_').Replace('<', '_').Replace('>', '_').Replace('|', '_').Replace('~', '_');
+            StringBuilder sb = new();
+            bool first = true;
+            foreach (var c in s) {
+                if (first && !SyntaxFacts.IsIdentifierStartCharacter(c)) {
+                    sb.Append('_');
+                }
+                first = false;
+                if (SyntaxFacts.IsIdentifierPartCharacter(c)) {
+                    sb.Append(c);
+                } else {
+                    sb.Append('_');
+                }
+            }
+            return sb.ToString();
         }
         private async Task<Document> MoveToLocalizedStringAsync(Document document, SyntaxNode node, CancellationToken cancellationToken) {
             try {
@@ -68,12 +79,17 @@ namespace ToyBox.Analyzer {
                     val = (argument.Expression as LiteralExpressionSyntax).Token.ValueText;
                 }
                 // Generate a unique field name.
-                var val2 = string.Join("",
-                    ((val ?? "") + " Text").Split(' ')
-                    .Select(s => s?.Trim())
-                    .Where(s => s != null && s != "")
-                    .Select(s => string.Concat(s[0].ToString().ToUpper(), new(s.Skip(1).ToArray())))) ?? $"Generated{Guid.NewGuid():N}";
-                string identifier = val2.Substring(0, Math.Min(val2?.Length ?? 32, 32));
+                string pascalCased;
+                if (!string.IsNullOrEmpty(val)) {
+                    var capitalizedArray = val.Split(' ').Select(s => s.Trim())
+                        .Where(s => !string.IsNullOrWhiteSpace(s))
+                        .Select(s => string.Concat(s[0].ToString().ToUpperInvariant(), new(s.Skip(1).ToArray())));
+                    pascalCased = string.Join("", capitalizedArray);
+                } else {
+                    pascalCased = "";
+                }
+                string identifier = ReplaceBadChar(pascalCased.Substring(0, Math.Min(pascalCased.Length, 32)));
+                identifier = $"m_{identifier}LocalizedText";
                 var attribute = AttributeList(
                                             SingletonSeparatedList<AttributeSyntax>(
                                                 Attribute(
