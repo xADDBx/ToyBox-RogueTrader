@@ -148,17 +148,17 @@ namespace ToyBox.BagOfPatches {
             [HarmonyPatch(nameof(UnitHelper.CreatePreview))]
             [HarmonyPostfix]
             public static void UnitHelper_CreatePreview(BaseUnitEntity _this, bool createView, ref BaseUnitEntity __result) {
-                if (new StackTrace().ToString().Contains($"{typeof(LevelUpManager).FullName}.{nameof(LevelUpManager.CreatePreviewUnit)}")) {
-                    foreach (var obj in HumanFriendlyStats.StatTypes) {
-                        try {
-                            var modifiableValue = _this.Stats.GetStatOptional(obj);
-                            var modifiableValue2 = __result.Stats.GetStatOptional(obj);
+                foreach (var obj in HumanFriendlyStats.StatTypes) {
+                    try {
+                        var modifiableValue = _this.Stats.GetStatOptional(obj);
+                        if (modifiableValue != null) {
+                            var modifiableValue2 = __result.Stats.GetStatOptional(obj) ?? __result.Stats.Container.Register(obj);
                             if (modifiableValue.BaseValue != modifiableValue2.BaseValue) {
                                 modifiableValue2.BaseValue = modifiableValue.BaseValue;
                             }
-                        } catch (NullReferenceException) {
-
                         }
+                    } catch (NullReferenceException ex) {
+                        Mod.Log($"ToyBox error while trying to copy base stats to preview unit:\nS{ex}");
                     }
                 }
             }
