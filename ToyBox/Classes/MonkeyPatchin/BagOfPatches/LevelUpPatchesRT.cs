@@ -152,7 +152,16 @@ namespace ToyBox.BagOfPatches {
                     try {
                         var modifiableValue = _this.Stats.GetStatOptional(obj);
                         if (modifiableValue != null) {
-                            var modifiableValue2 = __result.Stats.GetStatOptional(obj) ?? __result.Stats.Container.Register(obj);
+                            var modifiableValue2 = __result.Stats.GetStatOptional(obj);
+                            if (modifiableValue2 == null) {
+                                if (StatTypeHelper.IsSkill(obj)) {
+                                    modifiableValue2 = __result.Stats.Container.RegisterSkill(obj);
+                                } else if (StatTypeHelper.IsAttribute(obj)) {
+                                    modifiableValue2 = __result.Stats.Container.RegisterAttribute(obj);
+                                } else {
+                                    modifiableValue2 = __result.Stats.Container.Register(obj);
+                                }
+                            }
                             if (modifiableValue.BaseValue != modifiableValue2.BaseValue) {
                                 modifiableValue2.BaseValue = modifiableValue.BaseValue;
                             }
