@@ -17,6 +17,12 @@ public abstract class Feature {
         }
         return (T)inst;
     }
+    public static T GetInstance<T>(Type t) where T : Feature{
+        if (!m_Instances.TryGetValue(t, out var inst)) {
+            throw new InvalidOperationException($"No constructed instance of type {typeof(T)} found!");
+        }
+        return (T)inst;
+    }
     public abstract string Name { get; }
     public abstract string Description { get; }
     public abstract void OnGui();

@@ -11,6 +11,10 @@
     "Original": "Cheats",
     "Translated": "Читы"
   },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_CombatLocalizedText": {
+    "Original": "Combat",
+    "Translated": null
+  },
   "ToyBox_Features_BagOfTricks_Cheats_HighlightHiddenObjectsFeature_Name": {
     "Original": "Highlight Hidden Objects",
     "Translated": "Выделить скрытые объекты"
@@ -26,6 +30,14 @@
   "ToyBox_Features_BagOfTricks_Cheats_HighlightHiddenObjectsFeature_AlsoHighlightInFogOfWarText": {
     "Original": "Also Highlight in Fog of War",
     "Translated": "Также выделять в тумане войны"
+  },
+  "ToyBox_Features_BagOfTricks_Combat_RestAllFeature_Name": {
+    "Original": "Rest All",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Combat_RestAllFeature_Description": {
+    "Original": "Revives and heals all characters; restores action points; restores Ability Cooldowns and restores item charges.",
+    "Translated": null
   },
   "ToyBox_Features_BagOfTricks_QualityOfLife_EnableAchievementsFeature_AllowAchievementsWhileUsingModsT": {
     "Original": "Allow Achievements While Using Mods",
@@ -865,6 +877,34 @@
   },
   "ToyBox_Infrastructure_Enums_UnitSelectType_Localizer_OffText": {
     "Original": "Off",
+    "Translated": null
+  },
+  "ToyBox_FeatureWithBindableAction_m_DeleteLocalizedText": {
+    "Original": "Delete",
+    "Translated": null
+  },
+  "ToyBox_FeatureWithBindableAction_m_RebindLocalizedText": {
+    "Original": "Rebind",
+    "Translated": null
+  },
+  "ToyBox_FeatureWithBindableAction_m_BindLocalizedText": {
+    "Original": "Bind",
+    "Translated": null
+  },
+  "ToyBox_FeatureWithBindableAction_m_CancelLocalizedText": {
+    "Original": "Cancel",
+    "Translated": null
+  },
+  "ToyBox_FeatureWithBindableAction_m_ApplyLocalizedText": {
+    "Original": "Apply",
+    "Translated": null
+  },
+  "ToyBox_FeatureWithBindableAction_In_Progress_Keybind": {
+    "Original": "Currently",
+    "Translated": null
+  },
+  "ToyBox_FeatureWithBindableAction_m_CurrentKeybindConflictsWithExistLocalizedText": {
+    "Original": "Current keybind conflicts with existing binding!",
     "Translated": null
   },
   "ToyBox_Infrastructure_Inspector_InspectorUI_ShowSearchText": {

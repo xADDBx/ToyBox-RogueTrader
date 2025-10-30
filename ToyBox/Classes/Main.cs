@@ -140,6 +140,7 @@ public static partial class Main {
     }
     private static void OnSaveGUI(UnityModManager.ModEntry modEntry) {
         Settings.Save();
+        Hotkeys.Save();
     }
 
     private static void OnShowGUI(UnityModManager.ModEntry modEntry) {
@@ -148,6 +149,7 @@ public static partial class Main {
 
     private static void OnHideGUI(UnityModManager.ModEntry modEntry) {
         Settings.Save();
+        Hotkeys.Save();
         OnHideGUIAction?.Invoke();
     }
     private static void OnUpdate(UnityModManager.ModEntry modEntry, float z) {

@@ -17,8 +17,8 @@ internal abstract class AbstractSettings {
             var content = File.ReadAllText(userPath);
             try {
                 JsonConvert.PopulateObject(content, this);
-            } catch {
-                LogEarly($"[Error] Failed to load user settings at {userPath}. Settings will be rebuilt.");
+            } catch (Exception ex) {
+                LogEarly($"[Error] Failed to load user settings at {userPath}. Settings will be rebuilt.:\n{ex}");
                 File.WriteAllText(userPath, JsonConvert.SerializeObject(this, Formatting.Indented));
             }
         } else {

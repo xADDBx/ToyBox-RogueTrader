@@ -34,7 +34,7 @@ public static partial class CharacterPicker {
     private static WeakReference<BaseUnitEntity>? m_CurrentUnit;
     public static BaseUnitEntity? CurrentUnit {
         get {
-            if (m_CurrentUnit is not null && m_CurrentUnit.TryGetTarget(out var unit) && !unit.IsDisposed && !unit.IsDisposingNow) {
+            if (m_CurrentUnit is not null && m_CurrentUnit.TryGetTarget(out var unit) && !unit.IsDisposed && !unit.IsDisposingNow && unit.IsInGame) {
                 return unit;
             } else {
                 return null;
@@ -67,7 +67,7 @@ public static partial class CharacterPicker {
             UI.Label(m_ThereAreNoCharactersInThisList.Orange(), options);
         } else {
             var tmp = CurrentUnit;
-            if (UI.SelectionGrid(ref tmp, charactersList, xcols ?? Math.Min(8, (charactersList.Count + 1)), unit => ToyBoxUnitHelper.GetUnitName(unit), options)) {
+            if (UI.SelectionGrid(ref tmp, charactersList, xcols ?? Math.Min(8, charactersList.Count + 1), unit => ToyBoxUnitHelper.GetUnitName(unit), options)) {
                 if (tmp != null) {
                     m_CurrentUnit = new(tmp);
                 } else {
