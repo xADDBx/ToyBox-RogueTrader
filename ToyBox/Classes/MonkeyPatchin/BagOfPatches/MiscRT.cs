@@ -398,12 +398,22 @@ namespace ToyBox.BagOfPatches {
                 //MultipleClasses.SyncAllGestaltState();
             }
         }
-
-        [HarmonyPatch(typeof(SaveManager), nameof(SaveManager.SaveRoutine))]
+        [HarmonyPatch]
         internal static class SaveManager_SaveRoutine_Patch {
-            private static void Postfix() {
-                Mod.Log("SaveManager_SaveRoutine_Patch");
+            [HarmonyPatch(typeof(SaveManager), nameof(SaveManager.SaveRoutine)), HarmonyPrefix]
+            private static void SaveRoutine() {
                 Settings.SavePerSaveSettings();
+            }
+            [HarmonyPatch(typeof(SaveManager), nameof(SaveManager.LoadRoutine)), HarmonyPrefix]
+            private static void LoadRoutine() {
+                Settings.ClearCachedPerSave();
+            }
+            [HarmonyPatch(typeof(ThreadedGameLoader), nameof(ThreadedGameLoader.DeserializeInGameSettings)), HarmonyPostfix]
+            private static void InGameSettings(ref System.Threading.Tasks.Task<InGameSettings> __result) {
+                __result = __result.ContinueWith(t => {
+                    Settings.SetPerSaveSettings(t.Result);
+                    return t.Result;
+                });
             }
         }
 

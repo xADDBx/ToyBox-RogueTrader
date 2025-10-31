@@ -44,11 +44,14 @@ namespace ToyBox {
         private static PerSaveSettings cachedPerSave = null;
         internal const string PerSaveKey = "ToyBox";
         public static void ClearCachedPerSave() => cachedPerSave = null;
-        public static void ReloadPerSaveSettings() {
-            var player = Game.Instance?.Player;
-            if (player == null || Game.Instance.SaveManager.CurrentState == SaveManager.State.Loading) return;
+        public static void SetPerSaveSettings(InGameSettings settings) => ReloadPerSaveSettings(settings);
+        public static void ReloadPerSaveSettings(InGameSettings? maybeSettings = null) {
+            var settingsList = maybeSettings?.List ?? Game.Instance?.State?.InGameSettings?.List;
+            if (settingsList == null) {
+                return;
+            }
             Mod.Debug($"reloading per save settings from Player.SettingsList[{PerSaveKey}]");
-            if (Shodan.GetInGameSettingsList().TryGetValue(PerSaveKey, out var obj) && obj is string json) {
+            if (settingsList.TryGetValue(PerSaveKey, out var obj) && obj is string json) {
                 try {
                     cachedPerSave = JsonConvert.DeserializeObject<PerSaveSettings>(json);
                     Mod.Debug($"read successfully from Player.SettingsList[{PerSaveKey}]");
@@ -59,8 +62,7 @@ namespace ToyBox {
             }
             if (cachedPerSave == null) {
                 Mod.Warn("per save settings not found, creating new...");
-                cachedPerSave = new PerSaveSettings {
-                };
+                cachedPerSave = new PerSaveSettings();
                 SavePerSaveSettings();
             }
         }
@@ -68,7 +70,7 @@ namespace ToyBox {
             var player = Game.Instance?.Player;
             if (player == null) return;
             if (cachedPerSave == null)
-                ReloadPerSaveSettings();
+                return;
             var json = JsonConvert.SerializeObject(cachedPerSave);
             Shodan.GetInGameSettingsList()[PerSaveKey] = json;
             try {
