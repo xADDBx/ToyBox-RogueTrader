@@ -14,7 +14,7 @@ public abstract partial class FeatureWithBindableAction : FeatureWithAction, IBi
     }
     public override void OnGui() {
         using (HorizontalScope()) {
-            if (UI.Button(Name.Cyan())) {
+            if (UI.Button(Name)) {
                 ExecuteAction();
             }
             Space(10);

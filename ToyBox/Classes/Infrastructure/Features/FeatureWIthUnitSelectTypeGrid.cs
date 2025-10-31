@@ -23,7 +23,7 @@ public abstract class FeatureWIthUnitSelectTypeGrid : FeatureWithPatch {
         using (VerticalScope()) {
             using (HorizontalScope()) {
                 Space(27);
-                UI.Label(Name.Cyan());
+                UI.Label(Name);
                 Space(10);
                 UI.Label(Description.Green());
             }

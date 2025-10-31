@@ -28,7 +28,7 @@ public static partial class UI {
             descWidth = GUI.skin.toggle.CalcSize(new(description)).x;
         }
         using (HorizontalScope(Width(nameWidth + descWidth))) {
-            var newValue = GUILayout.Toggle(setting, name.Cyan(), Width(nameWidth));
+            var newValue = GUILayout.Toggle(setting, name, Width(nameWidth));
             if (newValue != setting) {
                 changed = true;
                 setting = newValue;

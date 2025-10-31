@@ -10,12 +10,10 @@ public partial class LogLevelSetting : Feature {
         using (VerticalScope()) {
             using (HorizontalScope()) {
                 Space(27);
-                UI.Label(Name.Cyan());
+                UI.Label(Name);
                 Space(10);
                 UI.Label(Description.Green());
-            }
-            using (HorizontalScope()) {
-                Space(150);
+                Space(10);
                 _ = UI.SelectionGrid(ref Settings.LogLevel, 6, (type) => type.GetLocalized(), AutoWidth());
             }
         }

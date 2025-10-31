@@ -14,7 +14,7 @@ public partial class UpdaterFeature : Feature {
                 UI.ProgressBar(m_DownloadProgress, m_DownloadProgress_Text);
             }
             using (HorizontalScope()) {
-                if (UI.Button(m_TryUpdatingToNewestVersionText.Cyan())) {
+                if (UI.Button(m_TryUpdatingToNewestVersionText)) {
                     if (!IsDoingUpdate && !m_EnqueuedStart) {
                         m_EnqueuedStart = true;
                         new Action(() => {
@@ -25,7 +25,7 @@ public partial class UpdaterFeature : Feature {
                 }
             }
             using (HorizontalScope()) {
-                if (UI.Button(m_TryReinstallCurrentVersionText.Cyan())) {
+                if (UI.Button(m_TryReinstallCurrentVersionText)) {
                     if (!IsDoingUpdate && !m_EnqueuedStart) {
                         m_EnqueuedStart = true;
                         new Action(() => {
