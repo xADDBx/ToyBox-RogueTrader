@@ -6,7 +6,7 @@ global using ToyBox.Infrastructure.Enums;
 global using ToyBox.Infrastructure.Utilities.Strings;
 global using static ToyBox.Infrastructure.Logging;
 global using static ToyBox.Infrastructure.GeneralSettings;
-global using static ToyBox.Infrastructure.Hotkeys.HotkeySettings;
+global using static ToyBox.Infrastructure.Keybinds.HotkeySettings;
 global using static ToyBox.Infrastructure.Utilities.Helpers;
 global using static ToyBox.Infrastructure.LayoutHelper;
 global using static ToyBox.Infrastructure.StringExtensions;

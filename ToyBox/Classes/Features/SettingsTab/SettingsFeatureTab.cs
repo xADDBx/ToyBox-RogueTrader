@@ -51,6 +51,8 @@ public partial class SettingsFeaturesTab : FeatureTab {
         AddFeature(new InspectorNameFractionOfWidthSetting(), m_InspectorText);
 
         AddFeature(new LogLevelSetting(), m_OtherText);
+        AddFeature(new CharacterPickerNearbyRangeSetting(), m_OtherText);
+        AddFeature(new LogHotkeysToCombatLog(), m_OtherText);
 
         AddFeature(new LanguagePickerFeature(), m_LanguageText);
     }

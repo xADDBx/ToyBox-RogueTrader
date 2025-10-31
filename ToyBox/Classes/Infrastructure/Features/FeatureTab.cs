@@ -51,6 +51,11 @@ public abstract class FeatureTab {
             yield return (group.Key, group.Value);
         }
     }
+    public int GroupCount {
+        get {
+            return m_FeatureGroups.Count;
+        }
+    }
     public virtual void InitializeAll() {
         var a = Stopwatch.StartNew();
         foreach (var feature in GetFeatures()) {
@@ -72,7 +77,9 @@ public abstract class FeatureTab {
         }
     }
     public virtual void OnGui() {
+        var i = 0;
         foreach (var (groupName, features) in GetGroups()) {
+            i++;
             using (VerticalScope()) {
                 UI.Label(groupName);
                 using (HorizontalScope()) {
@@ -86,7 +93,9 @@ public abstract class FeatureTab {
                     }
                 }
             }
-            Div.DrawDiv();
+            if (i < GroupCount) {
+                Div.DrawDiv();
+            }
         }
     }
 }

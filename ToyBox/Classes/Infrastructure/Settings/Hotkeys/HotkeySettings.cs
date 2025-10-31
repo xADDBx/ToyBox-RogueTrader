@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using UnityEngine;
 
-namespace ToyBox.Infrastructure.Hotkeys;
+namespace ToyBox.Infrastructure.Keybinds;
 
 internal class HotkeySettings : AbstractSettings {
     protected override string Name {
@@ -43,12 +43,17 @@ internal class HotkeySettings : AbstractSettings {
         foreach (var mask in m_ConflictingMasks[currentMask]) {
             foreach (var hotkey in m_HotkeysByMask[mask]) {
                 if (hotkey.Key == KeyCode.None || Input.GetKeyDown(hotkey.Key)) {
-                    Feature.GetInstance<FeatureWithBindableAction>(m_BoundKeys[hotkey]).ExecuteAction();
+                    var feature = Feature.GetInstance<Feature>(m_BoundKeys[hotkey]);
+                    if (feature is IBindableFeature action) {
+                        action.ExecuteAction();
+                    } else {
+                        throw new NotSupportedException($"Trying to execute feature via hotkey; but feature does not implement Execute: {feature.Name} (type: {feature.GetType()}");
+                    }
                 }
             }
         }
     }
-    public bool AddHotkey(Hotkey hotkey, FeatureWithBindableAction feature, bool skipConflictCheck = false) {
+    public bool AddHotkey(Hotkey hotkey, IBindableFeature feature, bool skipConflictCheck = false) {
         if (skipConflictCheck || !HasConflict(hotkey)) {
             var type = feature.GetType();
             m_BoundKeys.Add(hotkey, type);

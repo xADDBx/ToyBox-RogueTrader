@@ -1,3 +1,4 @@
+using Kingmaker.Pathfinding;
 using System.Collections.Concurrent;
 using System.Diagnostics;
 using ToyBox.Features.SettingsFeatures.UpdateAndIntegrity;
@@ -157,6 +158,7 @@ public static partial class Main {
             if (m_MainThreadTaskQueue.TryDequeue(out var task)) {
                 task();
             }
+            Hotkeys.UpdateLoop();
         } catch (Exception ex) {
             Error(ex);
         }

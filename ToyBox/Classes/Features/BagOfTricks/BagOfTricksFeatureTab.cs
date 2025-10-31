@@ -15,6 +15,12 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
     private static partial string m_CombatLocalizedText { get; }
     public BagOfTricksFeatureTab() {
         AddFeature(new RestAllFeature(), m_CombatLocalizedText);
+        AddFeature(new RestSelectedFeature(), m_CombatLocalizedText);
+        AddFeature(new ImmortalityBuffFeature(), m_CombatLocalizedText);
+        AddFeature(new RemoveBuffsFeature(), m_CombatLocalizedText);
+        AddFeature(new KillAllEnemiesFeature(), m_CombatLocalizedText);
+        AddFeature(new LobotomizeEnemiesFeature(), m_CombatLocalizedText);
+        AddFeature(new MurderHoboFeature(), m_CombatLocalizedText);
 
         AddFeature(new EnableAchievementsFeature(), m_QualityOfLifeText);
 

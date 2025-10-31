@@ -31,12 +31,60 @@
     "Original": "Also Highlight in Fog of War",
     "Translated": "Также выделять в тумане войны"
   },
+  "ToyBox_Features_BagOfTricks_Combat_ImmortalityBuffFeature_Name": {
+    "Original": "Make Immortal",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Combat_ImmortalityBuffFeature_Description": {
+    "Original": "Applies a buff to the selected units which makes them immortal.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Combat_KillAllEnemiesFeature_Name": {
+    "Original": "Kill All Enemies",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Combat_KillAllEnemiesFeature_Description": {
+    "Original": "Kills all enemies that are currently in combat with you.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Combat_LobotomizeEnemiesFeature_Name": {
+    "Original": "Lobotomize Enemies",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Combat_LobotomizeEnemiesFeature_Description": {
+    "Original": "Makes enemies unable to act, move and perform attack of opportunities.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Combat_MurderHoboFeature_Name": {
+    "Original": "Murer Hobo",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Combat_MurderHoboFeature_Description": {
+    "Original": "When enabled, enemies will be killed when they join combat.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Combat_RemoveBuffsFeature_Name": {
+    "Original": "Remove Buffs",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Combat_RemoveBuffsFeature_Description": {
+    "Original": "Removes all non-hidden and non-persistent buffs from all party members and pets.",
+    "Translated": null
+  },
   "ToyBox_Features_BagOfTricks_Combat_RestAllFeature_Name": {
     "Original": "Rest All",
     "Translated": null
   },
   "ToyBox_Features_BagOfTricks_Combat_RestAllFeature_Description": {
-    "Original": "Revives and heals all characters; restores action points; restores Ability Cooldowns and restores item charges.",
+    "Original": "Revives and heals all characters + restores action points, ability cooldowns and item charges.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Combat_RestSelectedFeature_Name": {
+    "Original": "Rest Selected",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Combat_RestSelectedFeature_Description": {
+    "Original": "Revives and heals the selected characters + restores action points and ability cooldowns.",
     "Translated": null
   },
   "ToyBox_Features_BagOfTricks_QualityOfLife_EnableAchievementsFeature_AllowAchievementsWhileUsingModsT": {
@@ -211,14 +259,6 @@
     "Original": "Also search through the descriptions of blueprints",
     "Translated": null
   },
-  "ToyBox_Features_SettingsFeatures_CharacterPickerNearbyRangeSetting_Name": {
-    "Original": "Nearby Range",
-    "Translated": null
-  },
-  "ToyBox_Features_SettingsFeatures_CharacterPickerNearbyRangeSetting_Description": {
-    "Original": "Modifies the range for the Nearby Character Picker category",
-    "Translated": null
-  },
   "ToyBox_Features_SettingsTab_Inspector_InspectorDrawLimitSetting_Name": {
     "Original": "Inspector Draw Limit",
     "Translated": null
@@ -302,6 +342,22 @@
   "ToyBox_Features_SettingsFeatures_LanguagePickerFeature_CurrentCultureText": {
     "Original": "Current Language",
     "Translated": "Язык интерфейса"
+  },
+  "ToyBox_Features_SettingsFeatures_CharacterPickerNearbyRangeSetting_Name": {
+    "Original": "Nearby Range",
+    "Translated": null
+  },
+  "ToyBox_Features_SettingsFeatures_CharacterPickerNearbyRangeSetting_Description": {
+    "Original": "Modifies the range for the Nearby Character Picker category",
+    "Translated": null
+  },
+  "ToyBox_Features_SettingsFeatures_LogHotkeysToCombatLog_Name": {
+    "Original": "Log Hotkey Execution",
+    "Translated": null
+  },
+  "ToyBox_Features_SettingsFeatures_LogHotkeysToCombatLog_Description": {
+    "Original": "When ticked this shows ToyBox commands in the combat log which is helpful for you to know when you used the shortcut.",
+    "Translated": null
   },
   "ToyBox_Features_SettingsFeatures_LogLevelSetting_Name": {
     "Original": "Log Level",
@@ -879,34 +935,6 @@
     "Original": "Off",
     "Translated": null
   },
-  "ToyBox_FeatureWithBindableAction_m_DeleteLocalizedText": {
-    "Original": "Delete",
-    "Translated": null
-  },
-  "ToyBox_FeatureWithBindableAction_m_RebindLocalizedText": {
-    "Original": "Rebind",
-    "Translated": null
-  },
-  "ToyBox_FeatureWithBindableAction_m_BindLocalizedText": {
-    "Original": "Bind",
-    "Translated": null
-  },
-  "ToyBox_FeatureWithBindableAction_m_CancelLocalizedText": {
-    "Original": "Cancel",
-    "Translated": null
-  },
-  "ToyBox_FeatureWithBindableAction_m_ApplyLocalizedText": {
-    "Original": "Apply",
-    "Translated": null
-  },
-  "ToyBox_FeatureWithBindableAction_In_Progress_Keybind": {
-    "Original": "Currently",
-    "Translated": null
-  },
-  "ToyBox_FeatureWithBindableAction_m_CurrentKeybindConflictsWithExistLocalizedText": {
-    "Original": "Current keybind conflicts with existing binding!",
-    "Translated": null
-  },
   "ToyBox_Infrastructure_Inspector_InspectorUI_ShowSearchText": {
     "Original": "Show Search",
     "Translated": null
@@ -1021,6 +1049,34 @@
   },
   "ToyBox_Infrastructure_Utilities_ContextProvider_NoneText": {
     "Original": "None",
+    "Translated": null
+  },
+  "ToyBox_FeatureWithBindableAction_m_DeleteLocalizedText": {
+    "Original": "Delete",
+    "Translated": null
+  },
+  "ToyBox_FeatureWithBindableAction_m_RebindLocalizedText": {
+    "Original": "Rebind",
+    "Translated": null
+  },
+  "ToyBox_FeatureWithBindableAction_m_BindLocalizedText": {
+    "Original": "Bind",
+    "Translated": null
+  },
+  "ToyBox_FeatureWithBindableAction_m_CancelLocalizedText": {
+    "Original": "Cancel",
+    "Translated": null
+  },
+  "ToyBox_FeatureWithBindableAction_m_ApplyLocalizedText": {
+    "Original": "Apply",
+    "Translated": null
+  },
+  "ToyBox_FeatureWithBindableAction_In_Progress_Keybind": {
+    "Original": "Currently",
+    "Translated": null
+  },
+  "ToyBox_FeatureWithBindableAction_m_CurrentKeybindConflictsWithExistLocalizedText": {
+    "Original": "Current keybind conflicts with existing binding!",
     "Translated": null
   },
   "ToyBox_Main_SomethingWentHorriblyWrongAndYou": {

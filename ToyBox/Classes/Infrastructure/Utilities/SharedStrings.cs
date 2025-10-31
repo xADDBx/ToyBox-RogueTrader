@@ -44,4 +44,18 @@ public partial class SharedStrings {
     public static partial string CurrentlySelectedUnitText { get; }
     [LocalizedString("ToyBox_Infrastructure_Utilities_ContextProvider_NoneText", "None")]
     public static partial string NoneText { get; }
+    [LocalizedString("ToyBox_FeatureWithBindableAction_m_DeleteLocalizedText", "Delete")]
+    public static partial string DeleteLocalizedText { get; }
+    [LocalizedString("ToyBox_FeatureWithBindableAction_m_RebindLocalizedText", "Rebind")]
+    public static partial string RebindLocalizedText { get; }
+    [LocalizedString("ToyBox_FeatureWithBindableAction_m_BindLocalizedText", "Bind")]
+    public static partial string BindLocalizedText { get; }
+    [LocalizedString("ToyBox_FeatureWithBindableAction_m_CancelLocalizedText", "Cancel")]
+    public static partial string CancelLocalizedText { get; }
+    [LocalizedString("ToyBox_FeatureWithBindableAction_m_ApplyLocalizedText", "Apply")]
+    public static partial string ApplyLocalizedText { get; }
+    [LocalizedString("ToyBox_FeatureWithBindableAction_In_Progress_Keybind", "Currently")]
+    public static partial string CurrentlyLocalizedText { get; }
+    [LocalizedString("ToyBox_FeatureWithBindableAction_m_CurrentKeybindConflictsWithExistLocalizedText", "Current keybind conflicts with existing binding!")]
+    public static partial string CurrentKeybindConflictsWithExistLocalizedText { get; }
 }

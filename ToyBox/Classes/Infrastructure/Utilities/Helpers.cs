@@ -1,4 +1,9 @@
 ﻿using Kingmaker;
+using Kingmaker.UI.Models.Log.CombatLog_ThreadSystem;
+using Kingmaker.UI.Models.Log.CombatLog_ThreadSystem.LogThreads.LifeEvents;
+using Kingmaker.UI.Models.Log.GameLogCntxt;
+using ToyBox.Features.PartyTab;
+using ToyBox.Features.SettingsFeatures;
 using UnityEngine;
 using UnityModManagerNet;
 
@@ -13,5 +18,23 @@ public static class Helpers {
     }
     public static void ToggleModWindow() {
         UnityModManager.UI.Instance.ToggleWindow();
+    }
+    public static void LogExecution(Feature feature, params object?[] parameter) {
+        var toLog = "Executed action " + feature.GetType().Name;
+        if (parameter?.Length > 0) {
+            toLog += " with parameters " + parameter.ToContentString();
+        }
+        Trace(toLog);
+
+        if (Feature.GetInstance<LogHotkeysToCombatLog>().IsEnabled) {
+            var messageText = "ToyBox".Blue() + " - " + toLog;
+            var message = new CombatLogMessage(messageText, Color.black, Kingmaker.UI.Models.Log.Enums.PrefixIcon.RightArrow);
+            var messageLog = LogThreadService.Instance.m_Logs[LogChannelType.Dialog].FirstOrDefault(x => x is DialogLogThread);
+            using (GameLogContext.Scope) {
+                messageLog?.AddMessage(message);
+            }
+        }
+
+        PartyFeatureTab.FeatureRefresh();
     }
 }

@@ -27,6 +27,7 @@ internal class GeneralSettings : AbstractSettings {
     public LogLevel LogLevel = LogLevel.Info;
     public string UILanguage = "en";
     public int NearbyRange = 25;
+    public bool EnableLogHotkeysToCombatLog = false;
 
     // - Browser
     public int PageLimit = 25;
@@ -66,44 +67,10 @@ internal class GeneralSettings : AbstractSettings {
 
     // - QoL
     public bool EnableModdedAchievements = true;
-    public bool ToggleDisableTricksterMythicMusic = false;
 
     // - Cheats
-    public bool DisableTraps = false;
-    public bool ToggleLockJam = false;
-    public bool ToggleUnlimitedModifierStacking = false;
+    public bool EnableMurderHobo = false;
     public bool HighlightHiddenObjects = false;
     public bool HighlightInFogOfWar = false;
     public bool HighlightHiddenTraps = false;
-    public bool ToggleInfiniteAbilities = false;
-    public bool ToggleInfiniteSpellCasts = false;
-    public bool DisableRequireMaterialComponent = false;
-    public bool DisableNegativePartyLevels = false;
-    public bool DisablePartyAbilityDamage = false;
-    public bool ToggleInfiniteActionsPerTurn = false;
-    public bool ToggleInfiniteItemCharges = false;
-    public bool ToggleInstantGlobalCrusadeSpells = false;
-    public bool SpontaneousCasterCanCopyScrolls = false;
-    public bool ToggleIgnoreEquipmentRestrictions = false;
-    public bool ToggleDisableArmourMaxDexterity = false;
-    public bool ToggleDisableArmourSpeedReduction = false;
-    public bool ToggleDisableArcaneSpellFailure = false;
-    public bool ToggleDisableSpellFailure = false;
-    public bool ToggleIgnoreArmourChecksPenalty = false;
-    public bool ToggleNoFriendlyFireAoEFeature = false;
-    public bool ToggleFreeMetaMagic = false;
-    public bool DisableFoW = false;
-    public bool RestoreAbilitiesAfterCombat = false;
-    public bool RestoreSpellsAfterCombat = false;
-    public bool RestoreItemsAfterCombat = false;
-    public bool RestAfterCombat = false;
-    public bool ToggleInstantChangePartyMembers = false;
-    public bool ToggleEquipmentNoWeight = false;
-    public bool ToggleAllowItemUseFromInventoryDuringCombat = false;
-    public bool ToggleIgnoreAlignmentRequirementsForAbilities = false;
-    public bool ToggleIgnoreAllRequirementsForAbilities = false;
-    public bool ToggleIgnorePetSizesForMounting = false;
-    public bool ToggleAllowAnyUnitAsYourMount = false;
-    public UnitSelectType SelectionDisableAttackOfOpportunity = UnitSelectType.Off;
-    public UnitSelectType SelectionAllowMovingThroughUnits = UnitSelectType.Off;
 }

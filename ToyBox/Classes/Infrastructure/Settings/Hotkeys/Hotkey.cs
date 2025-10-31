@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using UnityEngine;
 
-namespace ToyBox.Infrastructure.Hotkeys;
+namespace ToyBox.Infrastructure.Keybinds;
 [TypeConverter(typeof(HotkeyTypeConverter))]
 public class Hotkey(KeyCode key, bool ctrl = false, bool shift = false, bool alt = false) {
     [JsonProperty]

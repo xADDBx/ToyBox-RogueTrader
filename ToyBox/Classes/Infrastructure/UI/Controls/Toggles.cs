@@ -20,11 +20,15 @@ public static partial class UI {
         }
     }
 
-    public static bool Toggle(string name, string? description, ref bool setting, Action? onEnable = null, Action? onDisable = null, params GUILayoutOption[] options) {
-        options = options.Length == 0 ? [AutoWidth()] : options;
+    public static bool Toggle(string name, string? description, ref bool setting, Action? onEnable = null, Action? onDisable = null) {
         var changed = false;
-        using (HorizontalScope()) {
-            var newValue = GUILayout.Toggle(setting, name.Cyan(), options);
+        var nameWidth = GUI.skin.toggle.CalcSize(new(name)).x;
+        var descWidth = 0f;
+        if (description != null) {
+            descWidth = GUI.skin.toggle.CalcSize(new(description)).x;
+        }
+        using (HorizontalScope(Width(nameWidth + descWidth))) {
+            var newValue = GUILayout.Toggle(setting, name.Cyan(), Width(nameWidth));
             if (newValue != setting) {
                 changed = true;
                 setting = newValue;
@@ -36,7 +40,7 @@ public static partial class UI {
             }
             if (!description.IsNullOrEmpty()) {
                 Space(10);
-                Label(description!.Green());
+                Label(description!.Green(), Width(descWidth));
             }
         }
         return changed;
