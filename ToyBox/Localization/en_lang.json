@@ -19,6 +19,10 @@
     "Original": "Teleport",
     "Translated": null
   },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_CommonLocalizedText": {
+    "Original": "Common",
+    "Translated": null
+  },
   "ToyBox_Features_BagOfTricks_Cheats_HighlightHiddenObjectsFeature_Name": {
     "Original": "Highlight Hidden Objects",
     "Translated": null
@@ -89,6 +93,62 @@
   },
   "ToyBox_Features_BagOfTricks_Combat_RestSelectedFeature_Description": {
     "Original": "Revives and heals the selected characters + restores action points and ability cooldowns.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Common_ChangePartyFeature_Name": {
+    "Original": "Change Party",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Common_ChangePartyFeature_Description": {
+    "Original": "Opens the party member selection screen.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Common_ChangeWeatherFeature_Name": {
+    "Original": "Change Weather",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Common_ChangeWeatherFeature_Description": {
+    "Original": "Sets the time until next weather change to 0.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Common_GiveAllItemsFeature_Name": {
+    "Original": "Give All Items",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Common_GiveAllItemsFeature_Description": {
+    "Original": "Adds 1 of each BlueprintItem to the player inventory.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Common_GoToGlobalMapFeature_Name": {
+    "Original": "Go To Global Map",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Common_GoToGlobalMapFeature_Description": {
+    "Original": "Tries to load the sector map area.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Common_OpenReputationTradeWindowFeature_Name": {
+    "Original": "Open Trade Window",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Common_OpenReputationTradeWindowFeature_Description": {
+    "Original": "Opens the faction reputation trade window (when available).",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Common_RerollPerceptionFeature_Name": {
+    "Original": "Reroll Perception",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Common_RerollPerceptionFeature_Description": {
+    "Original": "Resets the saved results of awareness rolls on map objects.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Common_ResetInteractablesFeature_Name": {
+    "Original": "Reset Interactables",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Common_ResetInteractablesFeature_Description": {
+    "Original": "Re-enables skill checks on interactable objects in the area.",
     "Translated": null
   },
   "ToyBox_Features_BagOfTricks_QualityOfLife_EnableAchievementsFeature_AllowAchievementsWhileUsingModsT": {

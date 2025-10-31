@@ -1,5 +1,6 @@
 ﻿using ToyBox.Features.BagOfTricks.Cheats;
 using ToyBox.Features.BagOfTricks.Combat;
+using ToyBox.Features.BagOfTricks.Common;
 using ToyBox.Features.BagOfTricks.QualityOfLife;
 using ToyBox.Features.BagOfTricks.Teleport;
 
@@ -15,6 +16,8 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
     private static partial string m_CombatLocalizedText { get; }
     [LocalizedString("ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_TeleportLocalizedText", "Teleport")]
     private static partial string m_TeleportLocalizedText { get; }
+    [LocalizedString("ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_CommonLocalizedText", "Common")]
+    private static partial string m_CommonLocalizedText { get; }
     public BagOfTricksFeatureTab() {
         AddFeature(new RestAllFeature(), m_CombatLocalizedText);
         AddFeature(new RestSelectedFeature(), m_CombatLocalizedText);
@@ -28,6 +31,14 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
         AddFeature(new TeleportMainToCursorFeature(), m_TeleportLocalizedText);
         AddFeature(new TeleportSelectedToCursorFeature(), m_TeleportLocalizedText);
         AddFeature(new TeleportPartyToCursorFeature(), m_TeleportLocalizedText);
+
+        AddFeature(new GoToGlobalMapFeature(), m_CommonLocalizedText);
+        AddFeature(new ChangePartyFeature(), m_CommonLocalizedText);
+        AddFeature(new RerollPerceptionFeature(), m_CommonLocalizedText);
+        AddFeature(new ResetInteractablesFeature(), m_CommonLocalizedText);
+        AddFeature(new ChangeWeatherFeature(), m_CommonLocalizedText);
+        AddFeature(new GiveAllItemsFeature(), m_CommonLocalizedText);
+        AddFeature(new OpenReputationTradeWindowFeature(), m_CommonLocalizedText);
 
         AddFeature(new EnableAchievementsFeature(), m_QualityOfLifeText);
 
