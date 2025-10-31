@@ -11,8 +11,8 @@ public partial class RestSelectedFeature : FeatureWithBindableAction {
 
     public override void ExecuteAction(params object[] parameter) {
         if (IsInGame()) {
-            LogExecution(parameter);
             var units = Game.Instance.SelectionCharacter?.SelectedUnits ?? [];
+            LogExecution(units);
             foreach (var unit in units) {
                 PartHealth.RestUnit(unit);
             }

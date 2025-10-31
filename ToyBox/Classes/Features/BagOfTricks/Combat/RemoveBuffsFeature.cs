@@ -10,8 +10,8 @@ public partial class RemoveBuffsFeature : FeatureWithBindableAction {
 
     public override void ExecuteAction(params object[] parameter) {
         if (IsInGame()) {
-            LogExecution(parameter);
             var units = Game.Instance.Player?.PartyAndPets ?? [];
+            LogExecution(units);
             foreach (var unit in units) {
                 foreach (var buff in unit.Buffs.Enumerable) {
                     if (buff.Blueprint.IsHiddenInUI) {

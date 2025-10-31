@@ -37,4 +37,11 @@ public static class Helpers {
 
         PartyFeatureTab.FeatureRefresh();
     }
+    public static Vector3 GetCursorPositionInWorld() {
+        var camera = Game.GetCamera();
+        if (Physics.Raycast(camera.ScreenPointToRay(Input.mousePosition), out var raycastHit, camera.farClipPlane, 21761)) {
+            return raycastHit.point;
+        }
+        return default;
+    }
 }

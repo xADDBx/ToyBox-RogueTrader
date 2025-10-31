@@ -11,8 +11,8 @@ public partial class LobotomizeEnemiesFeature : FeatureWithBindableAction {
 
     public override void ExecuteAction(params object[] parameter) {
         if (IsInGame() && Game.Instance.Player.IsInCombat) {
-            LogExecution(parameter);
             var units = Game.Instance.State?.AllBaseUnits ?? [];
+            LogExecution(units);
             foreach (var unit in units) {
                 if (unit.IsInCombat && unit.IsPlayerEnemy) {
                     var source = new EntityFact();

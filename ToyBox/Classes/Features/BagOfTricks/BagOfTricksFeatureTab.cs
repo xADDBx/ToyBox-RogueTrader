@@ -1,6 +1,7 @@
 ﻿using ToyBox.Features.BagOfTricks.Cheats;
 using ToyBox.Features.BagOfTricks.Combat;
 using ToyBox.Features.BagOfTricks.QualityOfLife;
+using ToyBox.Features.BagOfTricks.Teleport;
 
 namespace ToyBox.Features.BagOfTricks;
 public partial class BagOfTricksFeatureTab : FeatureTab {
@@ -10,9 +11,10 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
     private static partial string m_QualityOfLifeText { get; }
     [LocalizedString("ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_CheatsText", "Cheats")]
     private static partial string m_CheatsText { get; }
-
     [LocalizedString("ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_CombatLocalizedText", "Combat")]
     private static partial string m_CombatLocalizedText { get; }
+    [LocalizedString("ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_TeleportLocalizedText", "Teleport")]
+    private static partial string m_TeleportLocalizedText { get; }
     public BagOfTricksFeatureTab() {
         AddFeature(new RestAllFeature(), m_CombatLocalizedText);
         AddFeature(new RestSelectedFeature(), m_CombatLocalizedText);
@@ -22,8 +24,14 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
         AddFeature(new LobotomizeEnemiesFeature(), m_CombatLocalizedText);
         AddFeature(new MurderHoboFeature(), m_CombatLocalizedText);
 
+        AddFeature(new TeleportPartyToYouFeature(), m_TeleportLocalizedText);
+        AddFeature(new TeleportMainToCursorFeature(), m_TeleportLocalizedText);
+        AddFeature(new TeleportSelectedToCursorFeature(), m_TeleportLocalizedText);
+        AddFeature(new TeleportPartyToCursorFeature(), m_TeleportLocalizedText);
+
         AddFeature(new EnableAchievementsFeature(), m_QualityOfLifeText);
 
         AddFeature(new HighlightHiddenObjectsFeature(), m_CheatsText);
     }
+
 }
