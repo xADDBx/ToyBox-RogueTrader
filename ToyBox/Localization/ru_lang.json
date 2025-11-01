@@ -23,6 +23,10 @@
     "Original": "Common",
     "Translated": null
   },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_PreviewLocalizedText": {
+    "Original": "Preview",
+    "Translated": null
+  },
   "ToyBox_Features_BagOfTricks_Cheats_HighlightHiddenObjectsFeature_Name": {
     "Original": "Highlight Hidden Objects",
     "Translated": "Выделить скрытые объекты"
@@ -149,6 +153,62 @@
   },
   "ToyBox_Features_BagOfTricks_Common_ResetInteractablesFeature_Description": {
     "Original": "Re-enables skill checks on interactable objects in the area.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_RunActionHolderLocalizedText": {
+    "Original": "RunActionHolder",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_ConditionsHolderLocalizedText": {
+    "Original": "Conditions Holder",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_ShowCheck__0_DC__1__LocalizedText": {
+    "Original": "Show Check ({0} DC: {1})",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_ShowConditionsLocalizedText": {
+    "Original": "Show Conditions",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_SelectConditionsLocalizedText": {
+    "Original": "Select Conditions",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_EmptyActionLocalizedText": {
+    "Original": "Empty Action",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_SoulMarkShift_0_By_1__DescriptioLocalizedText": {
+    "Original": "SoulMarkShift {0} by {1} - Description: {2}",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_SoulMarkRequiredLocalizedText": {
+    "Original": "SoulMarkRequired",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_SoulMarkShiftLocalizedText": {
+    "Original": "SoulMarkShift",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_Check__1__DC_2__Hidden_3__LocalizedText": {
+    "Original": "Check({1}, DC {2}, hidden {3})",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Preview_PreviewDialogConditionsFeature_Name": {
+    "Original": "Dialog Results",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Preview_PreviewDialogConditionsFeature_Description": {
+    "Original": "Shows conditions of answers in dialog.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Preview_PreviewDialogResultsFeature_Name": {
+    "Original": "Dialog Results",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Preview_PreviewDialogResultsFeature_Description": {
+    "Original": "Shows results of cues and answers in dialog.",
     "Translated": null
   },
   "ToyBox_Features_BagOfTricks_QualityOfLife_EnableAchievementsFeature_AllowAchievementsWhileUsingModsT": {

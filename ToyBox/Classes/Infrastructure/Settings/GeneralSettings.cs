@@ -64,6 +64,9 @@ internal class GeneralSettings : AbstractSettings {
 
     // Bag of Tricks
 
+    // - Preview
+    public bool EnablePreviewDialogResults = false;
+    public bool EnablePreviewDialogConditions = false;
 
     // - QoL
     public bool EnableModdedAchievements = true;

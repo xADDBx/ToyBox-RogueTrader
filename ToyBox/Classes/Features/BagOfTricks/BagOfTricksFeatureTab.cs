@@ -1,6 +1,7 @@
 ﻿using ToyBox.Features.BagOfTricks.Cheats;
 using ToyBox.Features.BagOfTricks.Combat;
 using ToyBox.Features.BagOfTricks.Common;
+using ToyBox.Features.BagOfTricks.Preview;
 using ToyBox.Features.BagOfTricks.QualityOfLife;
 using ToyBox.Features.BagOfTricks.Teleport;
 
@@ -18,6 +19,8 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
     private static partial string m_TeleportLocalizedText { get; }
     [LocalizedString("ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_CommonLocalizedText", "Common")]
     private static partial string m_CommonLocalizedText { get; }
+    [LocalizedString("ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_PreviewLocalizedText", "Preview")]
+    private static partial string m_PreviewLocalizedText { get; }
     public BagOfTricksFeatureTab() {
         AddFeature(new RestAllFeature(), m_CombatLocalizedText);
         AddFeature(new RestSelectedFeature(), m_CombatLocalizedText);
@@ -40,9 +43,11 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
         AddFeature(new GiveAllItemsFeature(), m_CommonLocalizedText);
         AddFeature(new OpenReputationTradeWindowFeature(), m_CommonLocalizedText);
 
+        AddFeature(new PreviewDialogResultsFeature(), m_PreviewLocalizedText);
+        AddFeature(new PreviewDialogConditionsFeature(), m_PreviewLocalizedText);
+
         AddFeature(new EnableAchievementsFeature(), m_QualityOfLifeText);
 
         AddFeature(new HighlightHiddenObjectsFeature(), m_CheatsText);
     }
-
 }
