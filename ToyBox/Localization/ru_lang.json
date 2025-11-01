@@ -308,7 +308,7 @@
     "Translated": "Всегда загружать все Блюпринты при запуске игры. Это увеличивает время первоначальной загрузки игры и использование оперативной памяти, но может уменьшить длительность загрузочных экранов во время игры."
   },
   "ToyBox_Features_SettingsFeatures_Blueprints_ShowDisplayAndInternalNamesSetting_Name": {
-    "Original": "Show Display and Internal names",
+    "Original": "Show Display And Internal Names",
     "Translated": null
   },
   "ToyBox_Features_SettingsFeatures_Blueprints_ShowDisplayAndInternalNamesSetting_Description": {
@@ -1031,6 +1031,10 @@
     "Original": "Off",
     "Translated": null
   },
+  "ToyBox_FeatureTab_m_FeatureFailedInitializationLocalizedText": {
+    "Original": "Feature failed initialization",
+    "Translated": null
+  },
   "ToyBox_Infrastructure_Inspector_InspectorUI_ShowSearchText": {
     "Original": "Show Search",
     "Translated": null
@@ -1057,6 +1061,10 @@
   },
   "ToyBox_Infrastructure_Inspector_InspectorUI_StoppedDrawingEntriesToPreventUI": {
     "Original": "Stopped drawing entries to prevent UI crash",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_LazyInit_X_Amount_Of_FeaturesFailedInitialization_LocalizedText": {
+    "Original": "features failed initialization!",
     "Translated": null
   },
   "ToyBox_Infrastructure_Utilities_Strings_SharedStrings_ThisCannotBeUsedFromTheMainMenu": {

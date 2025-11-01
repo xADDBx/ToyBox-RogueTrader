@@ -7,7 +7,7 @@ public partial class ShowDisplayAndInternalNamesSetting : ToggledFeature {
         }
     }
 
-    [LocalizedString("ToyBox_Features_SettingsFeatures_Blueprints_ShowDisplayAndInternalNamesSetting_Name", "Show Display and Internal names")]
+    [LocalizedString("ToyBox_Features_SettingsFeatures_Blueprints_ShowDisplayAndInternalNamesSetting_Name", "Show Display And Internal Names")]
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_SettingsFeatures_Blueprints_ShowDisplayAndInternalNamesSetting_Description", "Blueprints have both internal names and display names. By default, ToyBox will try to show the Display name and fall back to the Internal one in case of issues. This feature will display both at the same time.")]
     public override partial string Description { get; }

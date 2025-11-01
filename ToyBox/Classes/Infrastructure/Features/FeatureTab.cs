@@ -2,9 +2,9 @@
 using System.Diagnostics;
 
 namespace ToyBox;
-public abstract class FeatureTab {
+public abstract partial class FeatureTab {
     private static readonly ConcurrentDictionary<Type, FeatureTab> m_Instances = [];
-    public HashSet<Feature> FailedFeatures = [];
+    public static readonly HashSet<Feature> FailedFeatures = [];
     private Dictionary<string, List<Feature>> m_FeatureGroups { get; set; } = [];
     public abstract string Name { get; }
     public virtual bool IsHiddenFromUI {
@@ -87,7 +87,11 @@ public abstract class FeatureTab {
                     using (VerticalScope()) {
                         foreach (var feature in features) {
                             if (!feature.ShouldHide) {
-                                feature.OnGui();
+                                if (FailedFeatures.Contains(feature)) {
+                                    UI.Label((m_FeatureFailedInitializationLocalizedText + ": ").Orange().Bold() + feature.Name.Cyan());
+                                } else {
+                                    feature.OnGui();
+                                }
                             }
                         }
                     }
@@ -98,4 +102,6 @@ public abstract class FeatureTab {
             }
         }
     }
+    [LocalizedString("ToyBox_FeatureTab_m_FeatureFailedInitializationLocalizedText", "Feature failed initialization")]
+    private static partial string m_FeatureFailedInitializationLocalizedText { get; }
 }
