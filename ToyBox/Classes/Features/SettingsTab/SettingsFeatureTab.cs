@@ -2,6 +2,7 @@
 using ToyBox.Features.SettingsFeatures.BrowserSettings;
 using ToyBox.Features.SettingsFeatures.UpdateAndIntegrity;
 using ToyBox.Features.SettingsTab.Inspector;
+using ToyBox.Features.SettingsTab.Other;
 
 namespace ToyBox.Features.SettingsFeatures;
 public partial class SettingsFeaturesTab : FeatureTab {
@@ -50,6 +51,7 @@ public partial class SettingsFeaturesTab : FeatureTab {
         AddFeature(new InspectorIndentWidthSetting(), m_InspectorText);
         AddFeature(new InspectorNameFractionOfWidthSetting(), m_InspectorText);
 
+        AddFeature(new LazyInitFeature(), m_OtherText);
         AddFeature(new LogLevelSetting(), m_OtherText);
         AddFeature(new CharacterPickerNearbyRangeSetting(), m_OtherText);
         AddFeature(new LogHotkeysToCombatLogSetting(), m_OtherText);

@@ -543,6 +543,18 @@
     "Original": "Modifies the range for the Nearby Character Picker category",
     "Translated": null
   },
+  "ToyBox_Features_SettingsTab_Other_LazyInitFeature_Name": {
+    "Original": "Lazy Init",
+    "Translated": null
+  },
+  "ToyBox_Features_SettingsTab_Other_LazyInitFeature_Description": {
+    "Original": "The mod tries to speed up initial game load time by only doing important initialization on the main thread and doing the rest on a separate thread.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_LazyInit_X_Amount_Of_FeaturesFailedInitialization_LocalizedText": {
+    "Original": "features failed initialization!",
+    "Translated": null
+  },
   "ToyBox_Features_SettingsFeatures_LogHotkeysToCombatLogSetting_Name": {
     "Original": "Log Hotkey Execution",
     "Translated": null
@@ -1157,10 +1169,6 @@
   },
   "ToyBox_Infrastructure_Inspector_InspectorUI_StoppedDrawingEntriesToPreventUI": {
     "Original": "Stopped drawing entries to prevent UI crash",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_LazyInit_X_Amount_Of_FeaturesFailedInitialization_LocalizedText": {
-    "Original": "features failed initialization!",
     "Translated": null
   },
   "ToyBox_Infrastructure_Utilities_Strings_SharedStrings_ThisCannotBeUsedFromTheMainMenu": {

@@ -20,13 +20,14 @@ internal class GeneralSettings : AbstractSettings {
 
     public int SelectedTab = 0;
 
+
     // Settings Tab
 
-
-    // - Stuff
+    // - Other
     public LogLevel LogLevel = LogLevel.Info;
     public string UILanguage = "en";
     public int NearbyRange = 25;
+    public bool EnableLazyInit = true;
     public bool EnableLogHotkeysToCombatLog = false;
 
     // - Browser

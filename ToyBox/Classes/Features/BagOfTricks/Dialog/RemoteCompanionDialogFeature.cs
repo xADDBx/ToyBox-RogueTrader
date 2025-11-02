@@ -1,15 +1,12 @@
 ﻿using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Controllers;
-using Kingmaker.Controllers.Dialog;
 using Kingmaker.Designers.EventConditionActionSystem.Conditions;
 using Kingmaker.DialogSystem;
 using Kingmaker.DialogSystem.Blueprints;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.UnitLogic.Parts;
 using Kingmaker.Utility.DotNetExtensions;
-using System.Linq;
-using static UnityModManagerNet.UnityModManager.Param;
 
 namespace ToyBox.Features.BagOfTricks.Dialog;
 

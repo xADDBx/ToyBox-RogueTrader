@@ -2,6 +2,7 @@ using Kingmaker.Pathfinding;
 using System.Collections.Concurrent;
 using System.Diagnostics;
 using ToyBox.Features.SettingsFeatures.UpdateAndIntegrity;
+using ToyBox.Features.SettingsTab.Other;
 using ToyBox.Infrastructure.Utilities;
 using UnityEngine;
 using UnityModManagerNet;
@@ -71,13 +72,19 @@ public static partial class Main {
             RegisterFeatureTabs();
             Debug($"Early init took {sw2.ElapsedMilliseconds}ms");
 
-            foreach (var tab in m_FeatureTabs) {
-                LateInitTasks.Add(Task.Run(tab.InitializeAll));
+            if (Feature.GetInstance<LazyInitFeature>().IsEnabled) {
+                Log("Lazy Init enabled, starting init threads.");
+                foreach (var tab in m_FeatureTabs) {
+                    LateInitTasks.Add(Task.Run(tab.InitializeAll));
+                }
+                LazyInitFeature.Stopwatch.Start();
+            } else {
+                Log("Lazy Init disabled, performing sequential init.");
+                foreach (var tab in m_FeatureTabs) {
+                    tab.InitializeAll();
+                }
+                LazyInitFeature.EnsureFinished();
             }
-            LazyInit.Stopwatch.Start();
-
-            LazyInit.EnsureFinish();
-
         } catch (Exception ex) {
             Error(ex);
             _ = OnUnload(modEntry);
