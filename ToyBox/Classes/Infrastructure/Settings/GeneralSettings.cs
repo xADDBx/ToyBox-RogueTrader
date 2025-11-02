@@ -64,15 +64,21 @@ internal class GeneralSettings : AbstractSettings {
 
     // Bag of Tricks
 
+    // - Combat
+    public bool EnableMurderHobo = false;
+
     // - Preview
     public bool EnablePreviewDialogResults = false;
     public bool EnablePreviewDialogConditions = false;
+
+    // - Dialog
+    public bool EnableLoveIsFree = false;
+    public bool EnableJealousyBegone = false;
 
     // - QoL
     public bool EnableModdedAchievements = true;
 
     // - Cheats
-    public bool EnableMurderHobo = false;
     public bool HighlightHiddenObjects = false;
     public bool HighlightInFogOfWar = false;
     public bool HighlightHiddenTraps = false;
