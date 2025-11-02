@@ -87,6 +87,7 @@ namespace ToyBox {
 
         public static List<GameObject> Objects;
         private static void FindPatchesWithoutGuardClause() {
+            return;
             foreach (var type in typeof(Main).Assembly.GetTypes()) {
                 if (type.GetCustomAttributes<HarmonyPatch>().FirstOrDefault() != null) {
                     foreach (var method in type.GetMethods()) {
