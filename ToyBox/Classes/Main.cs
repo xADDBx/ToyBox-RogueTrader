@@ -13,6 +13,7 @@ namespace ToyBox;
 #endif
 public static partial class Main {
     private const string m_HarmonyId = "ToyBox";
+    private static float m_LastScale = 1f;
     internal static Harmony HarmonyInstance = new(m_HarmonyId);
     internal static UnityModManager.ModEntry ModEntry = null!;
     internal static List<Task> LateInitTasks = [];
@@ -20,6 +21,7 @@ public static partial class Main {
     public static Action? OnHideGUIAction;
     public static Action? OnShowGUIAction;
     public static Action? OnUnloadAction;
+    public static Action? OnUIScaleChanged;
     private static Exception? m_CaughtException = null;
     internal static List<FeatureTab> m_FeatureTabs = [];
     internal static List<WeakReference<IPagedList>> m_VerticalLists = [];
@@ -115,11 +117,16 @@ public static partial class Main {
 
     private static int m_LoadedBps = 0;
     private static void OnGUI(UnityModManager.ModEntry modEntry) {
-        if (!SuccessfullyInitialized) {
-            UI.Label(m_SomethingWentHorriblyWrongAndYou.Red().Bold());
-        }
         if (m_CaughtException == null) {
             try {
+                if (!SuccessfullyInitialized) {
+                    UI.Label(m_SomethingWentHorriblyWrongAndYou.Red().Bold());
+                    return;
+                }
+                if (UnityModManager.UI.Instance.mUIScale != m_LastScale) {
+                    OnUIScaleChanged?.Invoke();
+                    m_LastScale = UnityModManager.UI.Instance.mUIScale;
+                }
                 if (BPLoader.IsLoading) {
                     UI.ProgressBar(BPLoader.Progress, "");
                 }

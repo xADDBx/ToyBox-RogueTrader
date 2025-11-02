@@ -5,9 +5,20 @@ namespace ToyBox.Infrastructure;
 public static partial class UI {
     private static GUIStyle m_DisclosureToggleStyle {
         get {
-            field ??= new GUIStyle(GUI.skin.label) { imagePosition = ImagePosition.ImageLeft, alignment = TextAnchor.MiddleLeft };
+            if (field == null) {
+                field = new GUIStyle(GUI.skin.toggle);
+                field.normal.background = GUI.skin.label.normal.background;
+                field.onNormal.background = GUI.skin.label.onNormal.background;
+                field.hover.background = GUI.skin.label.hover.background;
+                field.onHover.background = GUI.skin.label.onHover.background;
+                field.active.background = GUI.skin.label.active.background;
+                field.onActive.background = GUI.skin.label.onActive.background;
+                field.fixedHeight = Math.Max(GUI.skin.toggle.CalcHeight(new(Glyphs.DisclosureOn), 10), GUI.skin.toggle.CalcHeight(new(Glyphs.DisclosureOff), 10));
+                field.padding = new(0, 0, 0, 0);
+            }
             return field;
         }
+        set;
     }
     public static float WidthInDisclosureStyle(string label) {
         return CalculateLargestLabelSize([Glyphs.DisclosureOn + label, Glyphs.DisclosureOff + label], m_DisclosureToggleStyle);

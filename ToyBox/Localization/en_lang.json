@@ -183,6 +183,22 @@
     "Original": "Allow any gender for any Romance.",
     "Translated": null
   },
+  "ToyBox_Features_BagOfTricks_Dialog_OverrideStoryOccupationFeature_Name": {
+    "Original": "Override Story Occupation",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_OverrideStoryOccupationFeature_Description": {
+    "Original": "Make the game recognize you as e.g. having the Sanctioned Psyker instead of whatever you actually picked.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_OverrideStoryOccupationFeature_m_RemoveLocalizedText": {
+    "Original": "Remove",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_OverrideStoryOccupationFeature_m_AddLocalizedText": {
+    "Original": "Add",
+    "Translated": null
+  },
   "ToyBox_Features_BagOfTricks_Dialog_RemoteCompanionDialogFeature_Name": {
     "Original": "Expand Dialog To Include Remote Companions",
     "Translated": null

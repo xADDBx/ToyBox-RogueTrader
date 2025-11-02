@@ -113,6 +113,7 @@ public partial class VerticalList<T> : IPagedList where T : notnull {
     protected void PageGUI() {
         UI.Label($"{SharedStrings.ShowingText.Orange()} {PagedItemsCount.ToString().Cyan()} / {ItemCount.ToString().Cyan()} {SharedStrings.ResultsText.Orange()},   " +
             $"{SharedStrings.PageText.Orange()}: {CurrentPage.ToString().Cyan()} / {Math.Max(1, TotalPages).ToString().Cyan()}");
+        var prev = GUI.enabled;
         GUI.enabled = TotalPages > 1;
         Space(25);
         if (UI.Button("-")) {
@@ -131,7 +132,7 @@ public partial class VerticalList<T> : IPagedList where T : notnull {
             }
             UpdatePagedItems();
         }
-        GUI.enabled = true;
+        GUI.enabled = prev;
     }
     protected virtual void HeaderGUI() {
         using (HorizontalScope()) {

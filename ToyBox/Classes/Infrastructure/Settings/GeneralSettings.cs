@@ -77,6 +77,8 @@ internal class GeneralSettings : AbstractSettings {
     public bool EnableJealousyBegone = false;
     public bool EnableRemoteCompanionDialog = false;
     public bool EnableExCompanionDialog = false;
+    public bool EnableOverrideStoryOccupation = false;
+    public HashSet<string> OverridenOccupations = [];
 
     // - QoL
     public bool EnableModdedAchievements = true;
