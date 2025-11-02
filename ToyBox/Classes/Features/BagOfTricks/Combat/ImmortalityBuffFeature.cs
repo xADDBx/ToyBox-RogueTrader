@@ -1,7 +1,6 @@
 ﻿using Kingmaker.Cheats;
 
 namespace ToyBox.Features.BagOfTricks.Combat;
-[NeedsTesting]
 public partial class ImmortalityBuffFeature : FeatureWithBindableAction {
     [LocalizedString("ToyBox_Features_BagOfTricks_Combat_ImmortalityBuffFeature_Name", "Make Immortal")]
     public override partial string Name { get; }

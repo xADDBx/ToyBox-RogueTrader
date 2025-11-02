@@ -4,7 +4,6 @@ using ToyBox.Infrastructure.Keybinds;
 using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Features.BagOfTricks.Combat;
-[NeedsTesting]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.Combat.MurderHoboFeature")]
 public partial class MurderHoboFeature : FeatureWithPatch, IBindableFeature {
     [LocalizedString("ToyBox_Features_BagOfTricks_Combat_MurderHoboFeature_Name", "Murer Hobo")]

@@ -1,5 +1,6 @@
 ﻿namespace ToyBox.Features.SettingsFeatures.BrowserSettings;
 
+[IsTested]
 public partial class SearchDelaySetting : FeatureWithFloatSlider {
     public override bool IsEnabled {
         get {

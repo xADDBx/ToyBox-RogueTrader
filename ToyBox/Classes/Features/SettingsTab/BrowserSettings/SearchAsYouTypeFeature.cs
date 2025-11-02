@@ -1,5 +1,6 @@
 ﻿namespace ToyBox.Features.SettingsFeatures.BrowserSettings;
 
+[IsTested]
 public partial class SearchAsYouTypeFeature : ToggledFeature {
     public override ref bool IsEnabled {
         get {

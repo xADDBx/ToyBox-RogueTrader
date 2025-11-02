@@ -12,7 +12,6 @@ using UnityEngine;
 
 namespace ToyBox.Features.BagOfTricks.Cheats;
 
-[NeedsTesting]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.Cheats.HighlightHiddenObjectsFeature")]
 public partial class HighlightHiddenObjectsFeature : FeatureWithPatch {
     protected override string HarmonyName {

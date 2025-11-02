@@ -4,7 +4,6 @@ using System.Reflection.Emit;
 
 namespace ToyBox.Features.BagOfTricks.QualityOfLife;
 
-[NeedsTesting]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.QualityOfLife.EnableAchievementsFeature")]
 public partial class EnableAchievementsFeature : FeatureWithPatch {
     protected override string HarmonyName {

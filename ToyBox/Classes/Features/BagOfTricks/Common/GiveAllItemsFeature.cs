@@ -2,7 +2,6 @@
 using Kingmaker.Blueprints.Items;
 
 namespace ToyBox.Features.BagOfTricks.Common;
-[NeedsTesting]
 public partial class GiveAllItemsFeature : FeatureWithBindableAction {
     [LocalizedString("ToyBox_Features_BagOfTricks_Common_GiveAllItemsFeature_Name", "Give All Items")]
     public override partial string Name { get; }

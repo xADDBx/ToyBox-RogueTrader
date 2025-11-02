@@ -27,6 +27,10 @@
     "Original": "Preview",
     "Translated": null
   },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_DialogLocalizedText": {
+    "Original": "Dialog",
+    "Translated": null
+  },
   "ToyBox_Features_BagOfTricks_Cheats_HighlightHiddenObjectsFeature_Name": {
     "Original": "Highlight Hidden Objects",
     "Translated": null
@@ -153,6 +157,22 @@
   },
   "ToyBox_Features_BagOfTricks_Common_ResetInteractablesFeature_Description": {
     "Original": "Re-enables skill checks on interactable objects in the area.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_JealousyBegoneFeature_Name": {
+    "Original": "Jealousy Begone!",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_JealousyBegoneFeature_Description": {
+    "Original": "Allow multiple romances at the same time",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_LoveIsFreeFeature_Name": {
+    "Original": "Love Is Free",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_LoveIsFreeFeature_Description": {
+    "Original": "Allow any gender for any Romance.",
     "Translated": null
   },
   "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_RunActionHolderLocalizedText": {
@@ -507,11 +527,11 @@
     "Original": "Modifies the range for the Nearby Character Picker category",
     "Translated": null
   },
-  "ToyBox_Features_SettingsFeatures_LogHotkeysToCombatLog_Name": {
+  "ToyBox_Features_SettingsFeatures_LogHotkeysToCombatLogSetting_Name": {
     "Original": "Log Hotkey Execution",
     "Translated": null
   },
-  "ToyBox_Features_SettingsFeatures_LogHotkeysToCombatLog_Description": {
+  "ToyBox_Features_SettingsFeatures_LogHotkeysToCombatLogSetting_Description": {
     "Original": "When ticked this shows ToyBox commands in the combat log which is helpful for you to know when you used the shortcut.",
     "Translated": null
   },

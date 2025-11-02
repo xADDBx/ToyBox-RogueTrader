@@ -3,7 +3,6 @@ using Kingmaker.Cheats;
 using Kingmaker.GameModes;
 
 namespace ToyBox.Features.BagOfTricks.Teleport;
-[NeedsTesting]
 public partial class TeleportPartyToYouFeature : FeatureWithBindableAction {
     [LocalizedString("ToyBox_Features_BagOfTricks_Teleport_TeleportPartyToYouFeature_Name", "Teleport Party To You")]
     public override partial string Name { get; }

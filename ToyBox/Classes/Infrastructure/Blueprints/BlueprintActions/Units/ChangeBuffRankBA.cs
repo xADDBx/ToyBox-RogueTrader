@@ -4,7 +4,6 @@ using Kingmaker.UnitLogic.Buffs.Blueprints;
 using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
-[NeedsTesting]
 public partial class ChangeBuffRankBA : BlueprintActionFeature, IBlueprintAction<BlueprintBuff>, INeedContextFeature<BaseUnitEntity> {
     public bool CanExecute(BlueprintBuff blueprint, params object[] parameter) {
         return CanExecute(blueprint, out _, out _, out _, parameter);

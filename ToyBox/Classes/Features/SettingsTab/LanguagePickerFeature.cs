@@ -2,13 +2,14 @@
 using ToyBox.Infrastructure.Localization;
 
 namespace ToyBox.Features.SettingsFeatures;
+[IsTested]
 public partial class LanguagePickerFeature : Feature {
     [LocalizedString("ToyBox_Features_SettingsFeatures_LanguagePickerFeature_LanguagePickerText", "Language Picker")]
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_SettingsFeatures_LanguagePickerFeature_PickYourCurrentUiLocaleText", "Pick your current ui locale")]
     public override partial string Description { get; }
     private static CultureInfo? m_UICulture;
-    private readonly static Browser<CultureInfo> m_Browser = new((CultureInfo ci) => $"{ci.Name} {ci.NativeName} {ci.DisplayName} {ci.EnglishName}", (CultureInfo ci) => $"{ci.Name} {ci.NativeName} {ci.DisplayName} {ci.EnglishName}", [.. LocalizationManager.DiscoverLocalizations().Select(name => CultureInfo.GetCultureInfo(name))]);
+    private static readonly Browser<CultureInfo> m_Browser = new((CultureInfo ci) => $"{ci.Name} {ci.NativeName} {ci.DisplayName} {ci.EnglishName}", (CultureInfo ci) => $"{ci.Name} {ci.NativeName} {ci.DisplayName} {ci.EnglishName}", [.. LocalizationManager.DiscoverLocalizations().Select(name => CultureInfo.GetCultureInfo(name))]);
     [LocalizedString("ToyBox_Features_SettingsFeatures_LanguagePickerFeature_CurrentCultureText", "Current Language")]
     private static partial string m_CurrentText { get; }
     public override void OnGui() {

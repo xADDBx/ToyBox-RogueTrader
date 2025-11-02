@@ -7,7 +7,6 @@ using Kingmaker.Globalmap.Blueprints.SystemMap;
 using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
-[NeedsTesting]
 public partial class ColonizeColonyBA : BlueprintActionFeature, IBlueprintAction<BlueprintColony> {
     private static Dictionary<BlueprintColony, BlueprintPlanet>? m_ColonyToPlanet = null;
     public bool CanExecute(BlueprintColony blueprint, params object[] parameter) {

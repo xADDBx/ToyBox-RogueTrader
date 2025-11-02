@@ -1,5 +1,6 @@
 ﻿namespace ToyBox.Features.SettingsTab.Inspector;
 
+[IsTested]
 public partial class InspectorSearcherBatchSizeSetting : FeatureWithLogIntSlider {
     public override bool IsEnabled {
         get {

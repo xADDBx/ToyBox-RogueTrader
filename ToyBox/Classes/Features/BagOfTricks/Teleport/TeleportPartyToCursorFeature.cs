@@ -3,7 +3,6 @@ using Kingmaker.Cheats;
 using Kingmaker.GameModes;
 
 namespace ToyBox.Features.BagOfTricks.Teleport;
-[NeedsTesting]
 public partial class TeleportPartyToCursorFeature : FeatureWithBindableAction {
     [LocalizedString("ToyBox_Features_BagOfTricks_Teleport_TeleportPartyToCursorFeature_Name", "Teleport Party Characters To Cursor")]
     public override partial string Name { get; }

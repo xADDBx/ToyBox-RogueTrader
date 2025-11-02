@@ -3,6 +3,7 @@ using UnityModManagerNet;
 
 namespace ToyBox.Features.SettingsFeatures.UpdateAndIntegrity;
 
+[IsTested]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.SettingsFeatures.UpdateAndIntegrity.VersionCompatabilityFeature")]
 public partial class VersionCompatabilityFeature : FeatureWithPatch, INeedEarlyInitFeature {
     [LocalizedString("ToyBox_Features_UpdateAndIntegrity_VersionCompatabilityFeature_Name", "Enable Version Compatibility Check")]

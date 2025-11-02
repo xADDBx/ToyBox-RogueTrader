@@ -3,7 +3,6 @@ using Kingmaker.EntitySystem.Entities;
 using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
-[NeedsTesting]
 public partial class RemoveAbilityResourceBA : BlueprintActionFeature, IBlueprintAction<BlueprintAbilityResource>, INeedContextFeature<BaseUnitEntity> {
     public bool CanExecute(BlueprintAbilityResource blueprint, params object[] parameter) {
         if (parameter.Length > 0 && parameter[0] is BaseUnitEntity unit) {

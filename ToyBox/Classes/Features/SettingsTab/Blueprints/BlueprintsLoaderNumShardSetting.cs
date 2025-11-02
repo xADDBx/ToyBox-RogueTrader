@@ -1,5 +1,5 @@
 ﻿namespace ToyBox.Features.SettingsFeatures.Blueprints;
-
+[IsTested]
 public partial class BlueprintsLoaderNumShardSetting : FeatureWithIntSlider {
     [LocalizedString("ToyBox_Features_SettingsFeatures_Blueprints_BlueprintsLoaderNumShardSetting_Name", "Amount of Shards")]
     public override partial string Name { get; }

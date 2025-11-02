@@ -1,5 +1,5 @@
 ﻿namespace ToyBox.Features.SettingsFeatures.Blueprints;
-[NeedsTesting]
+
 public partial class ThreadedBlueprintsLoaderSetting : ToggledFeature {
     public override ref bool IsEnabled {
         get {

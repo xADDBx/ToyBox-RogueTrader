@@ -35,7 +35,7 @@ public partial class FeatureSearchFeature : Feature {
                 }
             }
             if (m_OnlyFeaturesThatNeedTesting) {
-                features = [.. features.Where(f => f.GetType().GetCustomAttribute<NeedsTestingAttribute>() != null)];
+                features = [.. features.Where(f => f.GetType().GetCustomAttribute<IsTestedAttribute>() == null)];
             }
             m_FeatureBrowser.UpdateItems(features);
         }

@@ -2,7 +2,6 @@
 using Kingmaker.View.MapObjects;
 
 namespace ToyBox.Features.BagOfTricks.Common;
-[NeedsTesting]
 public partial class ResetInteractablesFeature : FeatureWithBindableAction {
     [LocalizedString("ToyBox_Features_BagOfTricks_Common_ResetInteractablesFeature_Name", "Reset Interactables")]
     public override partial string Name { get; }

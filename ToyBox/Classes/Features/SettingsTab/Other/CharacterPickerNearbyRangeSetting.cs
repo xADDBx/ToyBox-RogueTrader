@@ -1,5 +1,5 @@
 ﻿namespace ToyBox.Features.SettingsFeatures;
-[NeedsTesting]
+
 public partial class CharacterPickerNearbyRangeSetting : FeatureWithLogIntSlider {
     [LocalizedString("ToyBox_Features_SettingsFeatures_CharacterPickerNearbyRangeSetting_Name", "Nearby Range")]
     public override partial string Name { get; }

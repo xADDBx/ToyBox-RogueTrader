@@ -1,4 +1,5 @@
 ﻿namespace ToyBox.Features.SettingsTab.Inspector;
+[IsTested]
 public partial class InspectorIndentWidthSetting : FeatureWithFloatSlider {
     public override bool IsEnabled {
         get {

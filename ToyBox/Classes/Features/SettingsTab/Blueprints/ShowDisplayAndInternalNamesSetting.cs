@@ -1,5 +1,6 @@
 ﻿namespace ToyBox.Features.SettingsFeatures.Blueprints;
 
+[IsTested]
 public partial class ShowDisplayAndInternalNamesSetting : ToggledFeature {
     public override ref bool IsEnabled {
         get {

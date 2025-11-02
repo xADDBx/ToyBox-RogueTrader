@@ -2,6 +2,7 @@
 
 namespace ToyBox.Features.SettingsTab.Inspector;
 
+[IsTested]
 public partial class InspectorShowStaticMembersSetting : ToggledFeature {
     public override ref bool IsEnabled {
         get {

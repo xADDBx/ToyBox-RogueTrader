@@ -2,6 +2,7 @@
 
 namespace ToyBox.Features.SettingsTab.Inspector;
 
+[IsTested]
 public partial class InspectorShowEnumerableFieldsSetting : ToggledFeature {
     public override ref bool IsEnabled {
         get {

@@ -3,7 +3,6 @@ using Kingmaker.Blueprints.Items;
 using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
-[NeedsTesting]
 public partial class RemoveItemBA : BlueprintActionFeature, IBlueprintAction<BlueprintItem> {
     public bool CanExecute(BlueprintItem blueprint, params object[] parameter) {
         return IsInGame() && Game.Instance.Player.Inventory.Contains(blueprint);

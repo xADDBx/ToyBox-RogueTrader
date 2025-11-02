@@ -4,7 +4,6 @@ using Kingmaker.Globalmap.Blueprints.SectorMap;
 using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
-[NeedsTesting]
 public partial class TeleportBlueprintSectorMapPointStarSystemBA : BlueprintActionFeature, IBlueprintAction<BlueprintSectorMapPointStarSystem> {
     public bool CanExecute(BlueprintSectorMapPointStarSystem blueprint, params object[] parameter) {
         return IsInGame() && blueprint.StarSystemAreaPoint.GetBlueprint() != null;

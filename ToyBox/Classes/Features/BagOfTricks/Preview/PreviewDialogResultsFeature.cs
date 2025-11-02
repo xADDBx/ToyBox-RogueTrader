@@ -4,7 +4,6 @@ using Kingmaker.Code.Utility;
 using Kingmaker.DialogSystem.Blueprints;
 
 namespace ToyBox.Features.BagOfTricks.Preview;
-[NeedsTesting]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.Preview.PreviewDialogResultsFeature")]
 public partial class PreviewDialogResultsFeature : FeatureWithPatch {
     public override ref bool IsEnabled {

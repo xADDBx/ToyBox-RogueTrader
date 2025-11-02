@@ -7,7 +7,6 @@ using Kingmaker.Globalmap.Blueprints.SystemMap;
 using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
-[NeedsTesting]
 public partial class ColonizePlanetBA : BlueprintActionFeature, IBlueprintAction<BlueprintPlanet> {
     public bool CanExecute(BlueprintPlanet blueprint, params object[] parameter) {
         if (IsInGame()) {

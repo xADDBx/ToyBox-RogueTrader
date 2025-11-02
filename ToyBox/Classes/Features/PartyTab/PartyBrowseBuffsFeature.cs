@@ -1,10 +1,8 @@
 ﻿using Kingmaker.EntitySystem.Entities;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
-using Kingmaker.UnitLogic.Progression.Features;
 using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Features.PartyTab;
-[NeedsTesting]
 public partial class PartyBrowseBuffsFeature : Feature, INeedContextFeature<BaseUnitEntity> {
     [LocalizedString("ToyBox_Features_PartyTab_PartyBrowseBuffsFeature_Name", "Browse Unit Buffs")]
     public override partial string Name { get; }
