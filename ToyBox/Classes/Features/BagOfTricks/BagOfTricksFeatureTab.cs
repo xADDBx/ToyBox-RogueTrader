@@ -57,6 +57,7 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
         AddFeature(new IgnoreDialogRestrictionsSoulMarkFeature(), m_DialogLocalizedText);
 
         AddFeature(new EnableAchievementsFeature(), m_QualityOfLifeText);
+        AddFeature(new SkipSplashScreenFeature(), m_QualityOfLifeText);
 
         AddFeature(new HighlightHiddenObjectsFeature(), m_CheatsText);
     }

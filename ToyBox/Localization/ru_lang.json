@@ -287,6 +287,14 @@
     "Original": "This is intended for you to be able to enjoy the game while using mods that enhance your quality of life.",
     "Translated": null
   },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_SkipSplashScreenFeature_Name": {
+    "Original": "Skip Splash Screen",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_SkipSplashScreenFeature_Description": {
+    "Original": "This skips the splash screen that appears when the game starts. Helpful if you need to frequently restart the game.",
+    "Translated": null
+  },
   "ToyBox_Features_BagOfTricks_Teleport_TeleportMainToCursorFeature_Name": {
     "Original": "Teleport Main Character To Cursor",
     "Translated": null

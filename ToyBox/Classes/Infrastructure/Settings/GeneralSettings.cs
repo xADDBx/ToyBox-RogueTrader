@@ -85,6 +85,7 @@ internal class GeneralSettings : AbstractSettings {
 
     // - QoL
     public bool EnableModdedAchievements = true;
+    public bool EnableSkipSplashScreen = false;
 
     // - Cheats
     public bool HighlightHiddenObjects = false;
