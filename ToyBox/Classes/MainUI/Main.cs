@@ -23,6 +23,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
+using System.Reflection.Emit;
 using System.Security.Policy;
 using System.Threading;
 using ToyBox.classes.Infrastructure;
@@ -85,6 +86,32 @@ namespace ToyBox {
         private static Exception _caughtException = null;
 
         public static List<GameObject> Objects;
+        private static void FindPatchesWithoutGuardClause() {
+            foreach (var type in typeof(Main).Assembly.GetTypes()) {
+                if (type.GetCustomAttributes<HarmonyPatch>().FirstOrDefault() != null) {
+                    foreach (var method in type.GetMethods()) {
+                        System.Attribute CustomAttribute = method.GetCustomAttributes<HarmonyPrefix>().FirstOrDefault();
+                        CustomAttribute ??= method.GetCustomAttributes<HarmonyPostfix>().FirstOrDefault();
+                        CustomAttribute ??= method.GetCustomAttributes<HarmonyFinalizer>().FirstOrDefault();
+                        CustomAttribute ??= method.GetCustomAttributes<HarmonyTranspiler>().FirstOrDefault();
+                        List<string> names = ["Prefix", "Postfix", "Transpiler", "Finalizer"];
+                        if (CustomAttribute != null || names.Contains(method.Name)) {
+                            var foundSettings = false;
+                            foreach (var inst in PatchProcessor.GetCurrentInstructions(method)) {
+                                if (inst.opcode == OpCodes.Ldfld
+                                    && (inst.operand is FieldInfo field && field.DeclaringType == typeof(Settings))) {
+                                    foundSettings = true;
+                                    break;
+                                }
+                            }
+                            if (!foundSettings) {
+                                Mod.Log($"Found unconditional patch method: {type.Name}.{method.Name}");
+                            }
+                        }
+                    }
+                }
+            }
+        }
         private static bool Load(UnityModManager.ModEntry modEntry) {
             try {
                 Settings = UnityModManager.ModSettings.Load<Settings>(modEntry);
@@ -168,6 +195,7 @@ namespace ToyBox {
                     }
                 };
                 RogueCheats.PatchPsychicTranspiler(!Settings.customizePsychicPhenomena);
+                FindPatchesWithoutGuardClause();
             } catch (Exception e) {
                 Mod.Error(e.ToString());
                 HarmonyInstance?.UnpatchAll(modEntry.Info.Id);

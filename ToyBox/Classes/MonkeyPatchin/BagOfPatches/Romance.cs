@@ -19,7 +19,7 @@ namespace ToyBox.BagOfPatches {
 
         // Any Gender Any Romance Overrides
         // These modify the PcFemale/PcMale conditions for specific Owner blueprints 
-        internal static readonly Dictionary<string, bool> m_PcFemaleOverrides = new() {
+        internal static readonly Dictionary<string, bool> PcFemaleOverrides = new() {
             // World\Dialogs\Companions\Romances\Heinrix\StartingEvent\Answer_0004
             { "5457755c30ac417d9279fd740b90f549", true },
             // World\Dialogs\Companions\Romances\Heinrix\StartingEvent\Answer_0023
@@ -43,7 +43,7 @@ namespace ToyBox.BagOfPatches {
             // World\Dialogs\Companions\CompanionDialogues\Ulfar\Cue_89; Override is not necessary as Cue is unreferenced and empty
             // { "c5efaa0ace544ca7a81d439e7cfc6ae5", true }
     };
-        internal static readonly Dictionary<string, bool> m_PcMaleOverrides = new() {
+        internal static readonly Dictionary<string, bool> PcMaleOverrides = new() {
             // World\Dialogs\Companions\Romances\Cassia\StartingEvent\Answer_0017
             { "85b651edb4f74381bbe762999273c6ec", true },
             // World\Dialogs\Companions\Romances\Cassia\StartingEvent\Answer_10
