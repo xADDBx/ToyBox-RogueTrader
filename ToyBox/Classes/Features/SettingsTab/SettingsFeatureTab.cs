@@ -52,6 +52,7 @@ public partial class SettingsFeaturesTab : FeatureTab {
         AddFeature(new InspectorNameFractionOfWidthSetting(), m_InspectorText);
 
         AddFeature(new LazyInitFeature(), m_OtherText);
+        AddFeature(new ShowRiskyTogglesFeature(), m_OtherText);
         AddFeature(new LogLevelSetting(), m_OtherText);
         AddFeature(new CharacterPickerNearbyRangeSetting(), m_OtherText);
         AddFeature(new LogHotkeysToCombatLogSetting(), m_OtherText);

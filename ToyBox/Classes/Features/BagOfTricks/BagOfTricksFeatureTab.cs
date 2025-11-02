@@ -54,6 +54,7 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
         AddFeature(new RemoteCompanionDialogFeature(), m_DialogLocalizedText);
         AddFeature(new ExCompanionDialogFeature(), m_DialogLocalizedText);
         AddFeature(new OverrideStoryOccupationFeature(), m_DialogLocalizedText);
+        AddFeature(new IgnoreDialogRestrictionsSoulMarkFeature(), m_DialogLocalizedText);
 
         AddFeature(new EnableAchievementsFeature(), m_QualityOfLifeText);
 

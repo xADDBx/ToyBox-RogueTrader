@@ -167,6 +167,22 @@
     "Original": "This makes Remote Companion Dialog also include companions who left the party.",
     "Translated": null
   },
+  "ToyBox_Features_BagOfTricks_Dialog_IgnoreDialogRestrictionsEverythingFeature_Name": {
+    "Original": "Ignore Dialog Restrictions (Everything, Experimental)",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_IgnoreDialogRestrictionsEverythingFeature_Description": {
+    "Original": "Answers that were restricted will be made available.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_IgnoreDialogRestrictionsSoulMarkFeature_Name": {
+    "Original": "Ignore Dialog Restrictions (SoulMark)",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_IgnoreDialogRestrictionsSoulMarkFeature_Description": {
+    "Original": "Answers that were restricted based on your conviction/soul marks will be made available.",
+    "Translated": null
+  },
   "ToyBox_Features_BagOfTricks_Dialog_JealousyBegoneFeature_Name": {
     "Original": "Jealousy Begone!",
     "Translated": null
@@ -585,6 +601,14 @@
   },
   "ToyBox_Features_SettingsFeatures_LogLevelSetting_Description": {
     "Original": "Decides what type of messages get written to the log file.",
+    "Translated": null
+  },
+  "ToyBox_Features_SettingsTab_Other_ShowRiskyTogglesFeature_Name": {
+    "Original": "Display Risky Options",
+    "Translated": null
+  },
+  "ToyBox_Features_SettingsTab_Other_ShowRiskyTogglesFeature_Description": {
+    "Original": "ToyBox hides some options by default. Activating this will unhide those features.",
     "Translated": null
   },
   "ToyBox_Features_SettingsFeatures_SettingsFeaturesTab_UpdateText": {

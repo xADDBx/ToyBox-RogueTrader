@@ -29,6 +29,7 @@ internal class GeneralSettings : AbstractSettings {
     public int NearbyRange = 25;
     public bool EnableLazyInit = true;
     public bool EnableLogHotkeysToCombatLog = false;
+    public bool EnableShowRiskyToggles = false;
 
     // - Browser
     public int PageLimit = 25;
@@ -79,6 +80,8 @@ internal class GeneralSettings : AbstractSettings {
     public bool EnableExCompanionDialog = false;
     public bool EnableOverrideStoryOccupation = false;
     public HashSet<string> OverridenOccupations = [];
+    public bool EnableIgnoreDialogRestrictionsSoulMark = false;
+    public bool EnableIgnoreDialogRestrictionsEverything = false;
 
     // - QoL
     public bool EnableModdedAchievements = true;
