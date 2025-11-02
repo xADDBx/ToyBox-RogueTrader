@@ -43,6 +43,9 @@ Here is a summarized list of features. This list only includes a part of the fea
 - **Quest Resolution**: this allows you to view your active quests and advance them as needed to work around bugs or
   skip quests you don't want to do. Be warned this may break your game progression if used carelessly.
   
+### Toybox Rogue - Ver 1.7.31 (built for 1.5.0.300)
+* (***ADDB***) Minor adjustments to love is free: Improved PcMale and PcFemale overrides; overriding only when necessary to get the romancy response.
+
 ### Toybox Rogue - Ver 1.7.30 (built for 1.5.0.293)
 * (***ADDB***) Fix per-save settings loading too late, thereby breaking some features (e.g. Visual Size Multiplier)
 

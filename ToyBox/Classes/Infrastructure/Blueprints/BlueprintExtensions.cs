@@ -358,14 +358,5 @@ namespace ToyBox {
 #endif
             }
         }
-        [HarmonyPatch(typeof(BlueprintQuestContract))]
-        public static class BlueprintQuestContract_Patch {
-            [HarmonyPatch(nameof(BlueprintQuestContract.Description), MethodType.Getter)]
-            [HarmonyPrefix]
-            public static bool get_Description(BlueprintQuestContract __instance, ref string __result) {
-                __result = __instance.GetDescription();
-                return false;
-            }
-        }
     }
 }
