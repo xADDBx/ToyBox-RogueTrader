@@ -50,14 +50,14 @@ public partial class JealousyBegoneFeature : FeatureWithPatch {
     };
     #endregion
     [HarmonyPatch(typeof(Condition), nameof(Condition.Check), [typeof(ConditionsChecker), typeof(IConditionDebugContext)])]
-    public static class Condition_Check_Patch {
+    private static class Condition_Check_Patch {
         public static void Postfix(Condition __instance, ref bool __result) {
             if (__instance.Owner is not null) {
                 if (m_AllConditionCheckOverrides.TryGetValue(__instance.Owner.AssetGuid, out var value)) {
-                    Debug($"Overiding {__instance.Owner.name} from {__result} to {value}");
+                    OwlLog($"Overiding {__instance.Owner.name} from {__result} to {value}");
                     __result = value;
                 } else if (m_ConditionCheckOverrides.TryGetValue((__instance.Owner.AssetGuid, __instance.AssetGuid), out value)) {
-                    Debug($"Overiding {__instance.Owner.name} from {__result} to {value}");
+                    OwlLog($"Overiding {__instance.Owner.name} from {__result} to {value}");
                     __result = value;
                 }
             }
@@ -65,17 +65,17 @@ public partial class JealousyBegoneFeature : FeatureWithPatch {
     }
 
     [HarmonyPatch(typeof(FlagInRange), nameof(FlagInRange.CheckCondition)), HarmonyPostfix]
-    public static void FlagInRange_CheckCondition_Patch(FlagInRange __instance, ref bool __result) {
+    private static void FlagInRange_CheckCondition_Patch(FlagInRange __instance, ref bool __result) {
         if (__instance.Owner is not null) {
             if (m_FlagInRangeOverrides.TryGetValue(__instance.Owner.AssetGuid, out var value)) {
-                Debug($"Overiding {__instance.Owner.name} from {__result} to {value}");
+                OwlLog($"Overiding {__instance.Owner.name} from {__result} to {value}");
                 __result = value;
             }
         }
     }
     [HarmonyPatch(typeof(RomanceLocked), nameof(RomanceLocked.CheckCondition)), HarmonyPostfix]
-    public static void RomanceLocked_CheckCondition_Patch(ref bool __result) {
-        Debug($"Overiding RomanceLocked Condition from {__result} to false");
+    private static void RomanceLocked_CheckCondition_Patch(ref bool __result) {
+        OwlLog($"Overiding RomanceLocked Condition from {__result} to false");
         __result = false;
     }
 }

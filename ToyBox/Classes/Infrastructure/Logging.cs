@@ -16,6 +16,10 @@ public static class Logging {
             Main.ModEntry.Logger.Log($"[Debug] {str}");
         }
     }
+    // If the idea to have a log keeping track of all ToyBox activity ever gets brought up again we can use this
+    public static void OwlLog(string str) {
+        Debug(str);
+    }
     public static void Log(string str) {
         if (Settings.LogLevel >= LogLevel.Info) {
             Main.ModEntry.Logger.Log(str);

@@ -16,7 +16,7 @@ public partial class SearchDelaySetting : FeatureWithFloatSlider {
 
     public override bool ShouldHide {
         get {
-            return !Settings.ToggleSearchAsYouType;
+            return !GetInstance<SearchAsYouTypeFeature>().IsEnabled;
         }
     }
 

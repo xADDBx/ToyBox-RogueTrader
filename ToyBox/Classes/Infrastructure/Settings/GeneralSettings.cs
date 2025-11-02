@@ -74,6 +74,8 @@ internal class GeneralSettings : AbstractSettings {
     // - Dialog
     public bool EnableLoveIsFree = false;
     public bool EnableJealousyBegone = false;
+    public bool EnableRemoteCompanionDialog = false;
+    public bool EnableExCompanionDialog = false;
 
     // - QoL
     public bool EnableModdedAchievements = true;

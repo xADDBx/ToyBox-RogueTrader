@@ -159,6 +159,14 @@
     "Original": "Re-enables skill checks on interactable objects in the area.",
     "Translated": null
   },
+  "ToyBox_Features_BagOfTricks_Dialog_ExCompanionDialogFeature_Name": {
+    "Original": "Include Ex-Companions In Remote Companion Dialog",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_ExCompanionDialogFeature_Description": {
+    "Original": "This makes Remote Companion Dialog also include companions who left the party.",
+    "Translated": null
+  },
   "ToyBox_Features_BagOfTricks_Dialog_JealousyBegoneFeature_Name": {
     "Original": "Jealousy Begone!",
     "Translated": null
@@ -173,6 +181,14 @@
   },
   "ToyBox_Features_BagOfTricks_Dialog_LoveIsFreeFeature_Description": {
     "Original": "Allow any gender for any Romance.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_RemoteCompanionDialogFeature_Name": {
+    "Original": "Expand Dialog To Include Remote Companions",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_RemoteCompanionDialogFeature_Description": {
+    "Original": "Allow remote companions to make comments on dialog you are having.",
     "Translated": null
   },
   "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_RunActionHolderLocalizedText": {

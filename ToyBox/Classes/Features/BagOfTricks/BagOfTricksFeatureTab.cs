@@ -51,6 +51,8 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
 
         AddFeature(new JealousyBegoneFeature(), m_DialogLocalizedText);
         AddFeature(new LoveIsFreeFeature(), m_DialogLocalizedText);
+        AddFeature(new RemoteCompanionDialogFeature(), m_DialogLocalizedText);
+        AddFeature(new ExCompanionDialogFeature(), m_DialogLocalizedText);
 
         AddFeature(new EnableAchievementsFeature(), m_QualityOfLifeText);
 

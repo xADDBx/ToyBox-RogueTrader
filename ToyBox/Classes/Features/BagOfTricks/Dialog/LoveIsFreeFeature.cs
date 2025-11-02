@@ -82,7 +82,7 @@ public partial class LoveIsFreeFeature : FeatureWithPatch {
     private static void PcFemale_CheckCondition_Patch(PcFemale __instance, ref bool __result) {
         if (__instance.Owner is not null) {
             if (m_PcFemaleOverrides.TryGetValue(__instance.Owner.AssetGuid, out var value)) {
-                Debug($"Overiding {__instance.Owner.name} from {__result} to {value}");
+                OwlLog($"Overiding {__instance.Owner.name} from {__result} to {value}");
                 __result = value;
             }
         }
@@ -91,7 +91,7 @@ public partial class LoveIsFreeFeature : FeatureWithPatch {
     private static void PcMale_CheckCondition_Patch(PcMale __instance, ref bool __result) {
         if (__instance.Owner is not null) {
             if (m_PcMaleOverrides.TryGetValue(__instance.Owner.AssetGuid, out var value)) {
-                Debug($"Overiding {__instance.Owner.name} from {__result} to {value}");
+                OwlLog($"Overiding {__instance.Owner.name} from {__result} to {value}");
                 __result = value;
             }
         }

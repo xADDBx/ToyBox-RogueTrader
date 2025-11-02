@@ -24,7 +24,7 @@ public static class Helpers {
         if (parameter?.Length > 0) {
             toLog += " with parameters " + parameter.ToContentString();
         }
-        Trace(toLog);
+        OwlLog(toLog);
 
         if (Feature.GetInstance<LogHotkeysToCombatLogSetting>().IsEnabled) {
             var messageText = "ToyBox".Blue() + " - " + toLog;
