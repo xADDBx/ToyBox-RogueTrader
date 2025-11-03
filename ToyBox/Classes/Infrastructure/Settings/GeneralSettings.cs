@@ -89,6 +89,7 @@ internal class GeneralSettings : AbstractSettings {
     public bool EnableObjectHighlightToggle = false;
     public bool EnableAutoLoadLastSaveOnLaunch = false;
     public bool EnableRefillBeltConsumables = false;
+    public bool EnableClickToTransferEntireStack = false;
 
     // - Cheats
     public bool HighlightHiddenObjects = false;

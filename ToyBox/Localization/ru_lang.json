@@ -279,12 +279,44 @@
     "Original": "Shows results of cues and answers in dialog.",
     "Translated": null
   },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_AutoLoadLastSaveOnLaunchFeature_Name": {
+    "Original": "Auto load Last Save on launch",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_AutoLoadLastSaveOnLaunchFeature_Description": {
+    "Original": "Hold down shift during launch to bypass.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_ClickToTransferEntireStackFeature_Name": {
+    "Original": "Click to Transfer Entire Stack",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_ClickToTransferEntireStackFeature_Description": {
+    "Original": "Enabling this will let you do KEYBIND + Click an item to shift its entire stack.",
+    "Translated": null
+  },
   "ToyBox_Features_BagOfTricks_QualityOfLife_EnableAchievementsFeature_AllowAchievementsWhileUsingModsT": {
     "Original": "Allow Achievements While Using Mods",
     "Translated": null
   },
   "ToyBox_Features_BagOfTricks_QualityOfLife_EnableAchievementsFeature_ThisIsIntendedForYouToBeAbleToEn": {
     "Original": "This is intended for you to be able to enjoy the game while using mods that enhance your quality of life.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_ObjectHighlightToggleFeature_Name": {
+    "Original": "Object Highlight Toggle Mode",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_ObjectHighlightToggleFeature_Description": {
+    "Original": "Turns the object highlight key into a toggle (press to switch) outside of combat.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_RefillBeltConsumablesFeature_Name": {
+    "Original": "Refill Belt Consumables",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_RefillBeltConsumablesFeature_Description": {
+    "Original": "Automatically refill consumables in belt slots if there are some in your inventory.",
     "Translated": null
   },
   "ToyBox_Features_BagOfTricks_QualityOfLife_SkipSplashScreenFeature_Name": {

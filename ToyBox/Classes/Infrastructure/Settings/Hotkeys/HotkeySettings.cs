@@ -14,7 +14,11 @@ internal class HotkeySettings : AbstractSettings {
         instance.Load();
 
         foreach (var item in instance.m_BoundKeys) {
-            instance.m_HotkeysByMask[item.Key.GetMask()].Add(item.Key);
+            // Pseudo Hotkeys are such that there should be keybinds which can be configured in ui and are saved; but which shouldn't run via update loop.
+            item.Key.Precompute();
+            if (!item.Key.IsPseudo) {
+                instance.m_HotkeysByMask[item.Key.GetMask()].Add(item.Key);
+            }
             instance.m_HotkeyByAction[item.Value] = item.Key;
         }
 
@@ -39,10 +43,10 @@ internal class HotkeySettings : AbstractSettings {
         return hotkey;
     }
     public void UpdateLoop() {
-        var currentMask = (IsControlHeld() ? 4u : 0u) | (IsShiftHeld() ? 2u : 0u) | (IsAltHeld() ? 1u : 0u);
+        var currentMask = GetCurrentMask();
         foreach (var mask in m_ConflictingMasks[currentMask]) {
             foreach (var hotkey in m_HotkeysByMask[mask]) {
-                if (hotkey.Key == KeyCode.None || Input.GetKeyDown(hotkey.Key)) {
+                if (hotkey.IsActive(currentMask)) {
                     var feature = Feature.GetInstance<Feature>(m_BoundKeys[hotkey]);
                     if (feature is IBindableFeature action) {
                         action.ExecuteAction();
@@ -57,11 +61,14 @@ internal class HotkeySettings : AbstractSettings {
         if (skipConflictCheck || !HasConflict(hotkey)) {
             var type = feature.GetType();
             m_BoundKeys.Add(hotkey, type);
-            m_HotkeysByMask[hotkey.GetMask()].Add(hotkey);
+            if (!hotkey.IsPseudo) {
+                m_HotkeysByMask[hotkey.GetMask()].Add(hotkey);
+            }
             if (m_HotkeyByAction.TryGetValue(type, out var maybeOld)) {
                 _ = RemoveHotkey(maybeOld);
             }
             m_HotkeyByAction[type] = hotkey;
+            hotkey.Precompute();
             Hotkeys.Save();
             return true;
         }
@@ -77,6 +84,9 @@ internal class HotkeySettings : AbstractSettings {
         return false;
     }
     public bool HasConflict(Hotkey hotkey) {
+        if (hotkey.IsPseudo) {
+            return false;
+        }
         var mask = hotkey.GetMask();
         foreach (var conflictingMask in m_ConflictingMasks[mask]) {
             foreach (var otherHotkey in m_HotkeysByMask[conflictingMask]) {
@@ -86,6 +96,9 @@ internal class HotkeySettings : AbstractSettings {
             }
         }
         return false;
+    }
+    public static uint GetCurrentMask() {
+        return (IsControlHeld() ? 4u : 0u) | (IsShiftHeld() ? 2u : 0u) | (IsAltHeld() ? 1u : 0u);
     }
     private static bool IsControlHeld() {
         return Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl)

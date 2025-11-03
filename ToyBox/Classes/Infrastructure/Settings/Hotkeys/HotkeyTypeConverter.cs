@@ -18,7 +18,21 @@ public class HotkeyTypeConverter : TypeConverter {
 
     public override object? ConvertTo(ITypeDescriptorContext? context, System.Globalization.CultureInfo? culture, object? value, Type destinationType) {
         if (destinationType == typeof(string) && value is Hotkey h) {
-            return h.ToString();
+            var result = "";
+            if (h.IsAlt) {
+                result += "Alt + ";
+            }
+            if (h.IsCtrl) {
+                result += "Ctrl + ";
+            }
+            if (h.IsShift) {
+                result += "Shift + ";
+            }
+            if (h.IsPseudo) {
+                result += "Pseudo + ";
+            }
+            result += h.Key.ToString();
+            return result;
         }
         return base.ConvertTo(context, culture, value, destinationType);
     }
@@ -31,10 +45,11 @@ public class HotkeyTypeConverter : TypeConverter {
         var ctrl = parts.Any(p => p.Equals("Ctrl", StringComparison.OrdinalIgnoreCase));
         var shift = parts.Any(p => p.Equals("Shift", StringComparison.OrdinalIgnoreCase));
         var alt = parts.Any(p => p.Equals("Alt", StringComparison.OrdinalIgnoreCase));
+        var pseudo = parts.Any(p => p.Equals("Pseudo", StringComparison.OrdinalIgnoreCase));
 
 
         _ = Enum.TryParse<KeyCode>(parts.Last(), true, out var key);
 
-        return new Hotkey(key, ctrl, shift, alt);
+        return new Hotkey(key, ctrl, shift, alt, pseudo);
     }
 }

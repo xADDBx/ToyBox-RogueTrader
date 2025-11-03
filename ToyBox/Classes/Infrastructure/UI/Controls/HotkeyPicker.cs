@@ -6,7 +6,7 @@ public static partial class UI {
     private static Hotkey? m_CurerntlyBindingHotkey;
     private static IBindableFeature? m_BindingForAction;
     private static bool m_LastBindingConflicted = false;
-    public static bool HotkeyPicker(ref Hotkey? current, IBindableFeature feature) {
+    public static bool HotkeyPicker(ref Hotkey? current, IBindableFeature feature, bool isPseudo = false) {
         var changed = false;
         using (HorizontalScope(AutoWidth())) {
             if (current != null) {
@@ -40,6 +40,7 @@ public static partial class UI {
                 }
                 Space(5);
                 if (Button(SharedStrings.ApplyLocalizedText.Green()) && m_CurerntlyBindingHotkey != null) {
+                    m_CurerntlyBindingHotkey.IsPseudo = isPseudo;
                     if (Hotkeys.AddHotkey(m_CurerntlyBindingHotkey, feature)) {
                         current = m_CurerntlyBindingHotkey;
                         changed = true;
