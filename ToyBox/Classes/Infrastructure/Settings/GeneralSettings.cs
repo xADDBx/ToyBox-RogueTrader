@@ -87,6 +87,7 @@ internal class GeneralSettings : AbstractSettings {
     public bool EnableModdedAchievements = true;
     public bool EnableSkipSplashScreen = false;
     public bool EnableObjectHighlightToggle = false;
+    public bool EnableAutoLoadLastSaveOnLaunch = false;
 
     // - Cheats
     public bool HighlightHiddenObjects = false;
