@@ -2,7 +2,6 @@
 using ToyBox.Infrastructure.Keybinds;
 using ToyBox.Infrastructure.Utilities;
 using UnityEngine;
-using static AddRandomToUV1;
 
 namespace ToyBox.Features.BagOfTricks.QualityOfLife;
 public partial class GameAlternateTimeScaleFeature : ToggledFeature, IBindableFeature {
@@ -36,16 +35,22 @@ public partial class GameAlternateTimeScaleFeature : ToggledFeature, IBindableFe
             if (UI.HotkeyPicker(ref current, this, true)) {
                 Keybind = current;
             }
-        }
-        if (UI.Slider(ref Settings.GameAlternateTimeScaleMultiplier, 0.00001f, 20f, 1f, 3, null, AutoWidth(), GUILayout.MinWidth(50), GUILayout.MaxWidth(150))) {
-            if (IsEnabled) {
-                Game.Instance.TimeController.DebugTimeScale = Settings.GameAlternateTimeScaleMultiplier;
+            Space(10);
+            if (UI.Slider(ref Settings.GameAlternateTimeScaleMultiplier, 0.00001f, 20f, 1f, 3, null, AutoWidth(), GUILayout.MinWidth(50), GUILayout.MaxWidth(150))) {
+                if (IsEnabled) {
+                    Game.Instance.TimeController.DebugTimeScale = Settings.GameAlternateTimeScaleMultiplier;
+                }
             }
         }
     }
     public void ExecuteAction(params object[] parameter) {
         LogExecution();
         IsEnabled = !IsEnabled;
+        if (IsEnabled) {
+            Initialize();
+        } else {
+            Destroy();
+        }
     }
 
     public void LogExecution(params object[] parameter) {

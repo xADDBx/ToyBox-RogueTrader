@@ -295,6 +295,14 @@
     "Original": "Enabling this will let you do KEYBIND + Click an item to shift its entire stack.",
     "Translated": null
   },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_DisableEndTurnKeybindFeature_Name": {
+    "Original": "Disable End Turn Hotkey",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_DisableEndTurnKeybindFeature_Description": {
+    "Original": "Disables the base game end turn hotkey.",
+    "Translated": null
+  },
   "ToyBox_Features_BagOfTricks_QualityOfLife_EnableAchievementsFeature_AllowAchievementsWhileUsingModsT": {
     "Original": "Allow Achievements While Using Mods",
     "Translated": null

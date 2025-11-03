@@ -31,6 +31,11 @@ public partial class MurderHoboFeature : FeatureWithPatch, IBindableFeature {
     public void ExecuteAction(params object[] parameter) {
         LogExecution();
         IsEnabled = !IsEnabled;
+        if (IsEnabled) {
+            Initialize();
+        } else {
+            Destroy();
+        }
     }
     public void LogExecution(params object?[] parameter) {
         Helpers.LogExecution(this, parameter);
