@@ -94,6 +94,7 @@ internal class GeneralSettings : AbstractSettings {
     public bool EnableGameAlternateTimeScale = false;
     public float GameAlternateTimeScaleMultiplier = 3f;
     public bool DisableEndTurnKeybindFeature = false;
+    public bool EnableLoadingWithBlueprintErrors = false;
 
     // - Cheats
     public bool HighlightHiddenObjects = false;

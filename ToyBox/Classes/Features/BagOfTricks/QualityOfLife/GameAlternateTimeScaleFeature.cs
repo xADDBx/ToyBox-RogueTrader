@@ -10,7 +10,7 @@ public partial class GameAlternateTimeScaleFeature : ToggledFeature, IBindableFe
             return ref Settings.EnableGameAlternateTimeScale;
         }
     }
-    [LocalizedString("ToyBox_Features_BagOfTricks_QualityOfLife_GameAlternateTimeScaleFeature_Name", "Game Time Scale")]
+    [LocalizedString("ToyBox_Features_BagOfTricks_QualityOfLife_GameAlternateTimeScaleFeature_Name", "Alternate Game Time Scale")]
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_BagOfTricks_QualityOfLife_GameAlternateTimeScaleFeature_Description", "Optional alternate time scale which can be swapped to via hotkey.")]
     public override partial string Description { get; }
@@ -21,7 +21,9 @@ public partial class GameAlternateTimeScaleFeature : ToggledFeature, IBindableFe
     public override void Initialize() {
         base.Initialize();
         Keybind = Hotkeys.MaybeGetHotkey(GetType());
-        Game.Instance.TimeController.DebugTimeScale = Settings.GameAlternateTimeScaleMultiplier;
+        if (IsEnabled) {
+            Game.Instance.TimeController.DebugTimeScale = Settings.GameAlternateTimeScaleMultiplier;
+        }
     }
     public override void Destroy() {
         base.Destroy();
@@ -29,17 +31,17 @@ public partial class GameAlternateTimeScaleFeature : ToggledFeature, IBindableFe
     }
     public override void OnGui() {
         using (HorizontalScope()) {
-            base.OnGui();
-            Space(10);
-            var current = Keybind;
-            if (UI.HotkeyPicker(ref current, this, true)) {
-                Keybind = current;
-            }
-            Space(10);
             if (UI.Slider(ref Settings.GameAlternateTimeScaleMultiplier, 0.00001f, 20f, 1f, 3, null, AutoWidth(), GUILayout.MinWidth(50), GUILayout.MaxWidth(150))) {
                 if (IsEnabled) {
                     Game.Instance.TimeController.DebugTimeScale = Settings.GameAlternateTimeScaleMultiplier;
                 }
+            }
+            Space(10);
+            base.OnGui();
+            Space(10);
+            var current = Keybind;
+            if (UI.HotkeyPicker(ref current, this)) {
+                Keybind = current;
             }
         }
     }

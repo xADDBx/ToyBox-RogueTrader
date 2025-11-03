@@ -20,7 +20,7 @@ public static class Helpers {
         UnityModManager.UI.Instance.ToggleWindow();
     }
     public static void LogExecution(Feature feature, params object?[] parameter) {
-        var toLog = "Executed action " + feature.GetType().FullName;
+        var toLog = "Executed action " + feature.Name;
         if (parameter?.Length > 0) {
             toLog += " with parameters " + parameter.ToContentString();
         }

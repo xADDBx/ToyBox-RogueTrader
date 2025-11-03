@@ -66,6 +66,7 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
         AddFeature(new GameTimeScaleFeature(), m_QualityOfLifeText);
         AddFeature(new GameAlternateTimeScaleFeature(), m_QualityOfLifeText);
         AddFeature(new DisableEndTurnKeybindFeature(), m_QualityOfLifeText);
+        AddFeature(new LoadingWithBlueprintErrorsFeature(), m_QualityOfLifeText);
 
         AddFeature(new HighlightHiddenObjectsFeature(), m_CheatsText);
     }

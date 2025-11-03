@@ -320,7 +320,7 @@
     "Translated": null
   },
   "ToyBox_Features_BagOfTricks_QualityOfLife_GameAlternateTimeScaleFeature_Name": {
-    "Original": "Game Time Scale",
+    "Original": "Alternate Game Time Scale",
     "Translated": null
   },
   "ToyBox_Features_BagOfTricks_QualityOfLife_GameAlternateTimeScaleFeature_Description": {
@@ -333,6 +333,14 @@
   },
   "ToyBox_Features_BagOfTricks_QualityOfLife_GameTimeScaleFeature_Description": {
     "Original": "Speeds up or slows down the entire game (movement, animation, everything)",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_LoadingWithBlueprintErrorsFeature_Name": {
+    "Original": "Enable Loading with Blueprint Errors",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_LoadingWithBlueprintErrorsFeature_Description": {
+    "Original": "This dangerous allows loading saves even with missing blueprint mods. This can potentially allow you to recover a save, though you'll have to respec at minimum.",
     "Translated": null
   },
   "ToyBox_Features_BagOfTricks_QualityOfLife_ObjectHighlightToggleFeature_Name": {

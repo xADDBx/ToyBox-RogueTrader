@@ -11,7 +11,7 @@ public partial class GameTimeScaleFeature : FeatureWithFloatSlider {
         base.Initialize();
         if (GetInstance<GameAlternateTimeScaleFeature>().IsEnabled) {
             Game.Instance.TimeController.DebugTimeScale = Settings.GameAlternateTimeScaleMultiplier;
-        } else {
+        } else if (IsEnabled) {
             Game.Instance.TimeController.DebugTimeScale = Value;
         }
     }
