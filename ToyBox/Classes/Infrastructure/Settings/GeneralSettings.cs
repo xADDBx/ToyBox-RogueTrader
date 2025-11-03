@@ -88,6 +88,7 @@ internal class GeneralSettings : AbstractSettings {
     public bool EnableSkipSplashScreen = false;
     public bool EnableObjectHighlightToggle = false;
     public bool EnableAutoLoadLastSaveOnLaunch = false;
+    public bool EnableRefillBeltConsumables = false;
 
     // - Cheats
     public bool HighlightHiddenObjects = false;
