@@ -311,6 +311,22 @@
     "Original": "Certain situations might cause the game to incorrectly assume someone else is the main character. This tries to restore the original main character.",
     "Translated": null
   },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_GameAlternateTimeScaleFeature_Name": {
+    "Original": "Game Time Scale",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_GameAlternateTimeScaleFeature_Description": {
+    "Original": "Optional alternate time scale which can be swapped to via hotkey.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_GameTimeScaleFeature_Name": {
+    "Original": "Game Time Scale",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_GameTimeScaleFeature_Description": {
+    "Original": "Speeds up or slows down the entire game (movement, animation, everything)",
+    "Translated": null
+  },
   "ToyBox_Features_BagOfTricks_QualityOfLife_ObjectHighlightToggleFeature_Name": {
     "Original": "Object Highlight Toggle Mode",
     "Translated": null

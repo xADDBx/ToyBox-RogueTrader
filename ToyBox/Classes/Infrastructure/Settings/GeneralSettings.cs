@@ -90,6 +90,9 @@ internal class GeneralSettings : AbstractSettings {
     public bool EnableAutoLoadLastSaveOnLaunch = false;
     public bool EnableRefillBeltConsumables = false;
     public bool EnableClickToTransferEntireStack = false;
+    public float GameTimeScaleMultiplier = 1f;
+    public bool EnableGameAlternateTimeScale = false;
+    public float GameAlternateTimeScaleMultiplier = 3f;
 
     // - Cheats
     public bool HighlightHiddenObjects = false;
