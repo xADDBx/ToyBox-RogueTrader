@@ -93,6 +93,7 @@ internal class GeneralSettings : AbstractSettings {
     public float GameTimeScaleMultiplier = 1f;
     public bool EnableGameAlternateTimeScale = false;
     public float GameAlternateTimeScaleMultiplier = 3f;
+    public bool DisableEndTurnKeybindFeature = false;
 
     // - Cheats
     public bool HighlightHiddenObjects = false;
