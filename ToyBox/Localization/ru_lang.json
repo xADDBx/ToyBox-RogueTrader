@@ -303,6 +303,14 @@
     "Original": "This is intended for you to be able to enjoy the game while using mods that enhance your quality of life.",
     "Translated": null
   },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_FixIncorrectMainCharacterFeature_Name": {
+    "Original": "Fix Incorrect Main Character",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_FixIncorrectMainCharacterFeature_Description": {
+    "Original": "Certain situations might cause the game to incorrectly assume someone else is the main character. This tries to restore the original main character.",
+    "Translated": null
+  },
   "ToyBox_Features_BagOfTricks_QualityOfLife_ObjectHighlightToggleFeature_Name": {
     "Original": "Object Highlight Toggle Mode",
     "Translated": null

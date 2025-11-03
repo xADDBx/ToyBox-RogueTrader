@@ -62,6 +62,7 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
         AddFeature(new AutoLoadLastSaveOnLaunchFeature(), m_QualityOfLifeText);
         AddFeature(new RefillBeltConsumablesFeature(), m_QualityOfLifeText);
         AddFeature(new ClickToTransferEntireStackFeature(), m_QualityOfLifeText);
+        AddFeature(new FixIncorrectMainCharacterFeature(), m_QualityOfLifeText);
 
         AddFeature(new HighlightHiddenObjectsFeature(), m_CheatsText);
     }
