@@ -270,6 +270,9 @@ csharp_style_prefer_unbound_generic_type_in_nameof = true:suggestion
 # CA1062: Validate arguments of public methods
 dotnet_diagnostic.CA1062.severity = none
 
+# CA2225: Operator overloads have named alternates
+dotnet_diagnostic.CA2225.severity = none
+
 [*.{cs,vb}]
 insert_final_newline = true
 dotnet_style_operator_placement_when_wrapping = beginning_of_line
