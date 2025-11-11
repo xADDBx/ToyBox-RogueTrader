@@ -3,6 +3,7 @@ using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.GameModes;
 
 namespace ToyBox.Features.BagOfTricks.Common;
+
 public partial class ChangePartyFeature : FeatureWithBindableAction {
     [LocalizedString("ToyBox_Features_BagOfTricks_Common_ChangePartyFeature_Name", "Change Party")]
     public override partial string Name { get; }

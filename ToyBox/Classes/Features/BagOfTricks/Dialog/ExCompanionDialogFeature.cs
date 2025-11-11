@@ -1,4 +1,5 @@
 ﻿namespace ToyBox.Features.BagOfTricks.Dialog;
+
 public partial class ExCompanionDialogFeature : ToggledFeature {
     public override ref bool IsEnabled {
         get {

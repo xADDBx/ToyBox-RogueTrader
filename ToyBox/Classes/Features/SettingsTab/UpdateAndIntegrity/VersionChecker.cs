@@ -4,6 +4,7 @@ using System.Net;
 using System.Numerics;
 
 namespace ToyBox.Features.SettingsFeatures.UpdateAndIntegrity;
+
 public static class VersionChecker {
     public static bool? ResultOfCheck = null;
     // Find first entry where Mod Version of entry >= current mod version

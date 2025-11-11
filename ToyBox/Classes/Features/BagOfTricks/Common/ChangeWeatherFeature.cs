@@ -1,6 +1,7 @@
 ﻿using Kingmaker.Cheats;
 
 namespace ToyBox.Features.BagOfTricks.Common;
+
 public partial class ChangeWeatherFeature : FeatureWithBindableAction {
     [LocalizedString("ToyBox_Features_BagOfTricks_Common_ChangeWeatherFeature_Name", "Change Weather")]
     public override partial string Name { get; }

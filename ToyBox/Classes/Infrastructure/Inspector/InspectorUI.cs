@@ -2,6 +2,7 @@
 using UnityEngine;
 
 namespace ToyBox.Infrastructure.Inspector;
+
 public static partial class InspectorUI {
     [LocalizedString("ToyBox_Infrastructure_Inspector_InspectorUI_ShowSearchText", "Show Search")]
     private static partial string m_ShowSearchText { get; }
@@ -214,7 +215,7 @@ public static partial class InspectorUI {
             GUI.contentColor = node.ColorOverride ?? currentColor;
             _ = GUILayout.TextArea(node.ValueText);
             GUI.contentColor = currentColor;
-            if (node.AfterText != "") {
+            if (!string.IsNullOrEmpty(node.AfterText)) {
                 GUILayout.Label(node.AfterText, m_ButtonStyle, AutoWidth());
             } else {
                 UI.Label("");

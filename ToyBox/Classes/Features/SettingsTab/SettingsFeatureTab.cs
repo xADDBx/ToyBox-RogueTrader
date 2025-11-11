@@ -5,6 +5,7 @@ using ToyBox.Features.SettingsTab.Inspector;
 using ToyBox.Features.SettingsTab.Other;
 
 namespace ToyBox.Features.SettingsFeatures;
+
 public partial class SettingsFeaturesTab : FeatureTab {
     [LocalizedString("ToyBox_Features_SettingsFeatures_SettingsFeaturesTab_UpdateText", "Update")]
     private static partial string m_UpdateText { get; }

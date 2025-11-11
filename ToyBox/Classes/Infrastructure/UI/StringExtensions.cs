@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 namespace ToyBox.Infrastructure;
+
 public static class StringExtensions {
     public static string Size(this string s, int size) {
         return $"<size={size}>{s}</size>";

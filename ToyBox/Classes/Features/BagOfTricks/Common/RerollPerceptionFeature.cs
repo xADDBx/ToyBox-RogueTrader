@@ -4,6 +4,7 @@ using Kingmaker.GameModes;
 using Kingmaker.Utility.DotNetExtensions;
 
 namespace ToyBox.Features.BagOfTricks.Common;
+
 public partial class RerollPerceptionFeature : FeatureWithBindableAction {
     [LocalizedString("ToyBox_Features_BagOfTricks_Common_RerollPerceptionFeature_Name", "Reroll Perception")]
     public override partial string Name { get; }

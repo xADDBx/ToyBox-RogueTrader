@@ -3,6 +3,7 @@ using Kingmaker.UnitLogic;
 using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Features.BagOfTricks.QualityOfLife;
+
 public partial class FixIncorrectMainCharacterFeature : FeatureWithAction {
     [LocalizedString("ToyBox_Features_BagOfTricks_QualityOfLife_FixIncorrectMainCharacterFeature_Name", "Fix Incorrect Main Character")]
     public override partial string Name { get; }

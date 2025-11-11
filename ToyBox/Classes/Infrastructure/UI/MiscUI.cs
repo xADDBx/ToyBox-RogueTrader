@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 namespace ToyBox.Infrastructure;
+
 public static partial class UI {
     private static GUIStyle m_TextBoxStyle {
         get {

@@ -3,6 +3,7 @@ using Kingmaker.UnitLogic.Abilities.Blueprints;
 using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Features.PartyTab;
+
 public partial class PartyBrowseAbilitiesFeature : Feature, INeedContextFeature<BaseUnitEntity> {
     [LocalizedString("ToyBox_Features_PartyTab_PartyBrowseAbilitiesFeature_Name", "Browse Unit Abilities")]
     public override partial string Name { get; }

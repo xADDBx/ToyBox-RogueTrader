@@ -4,9 +4,10 @@ using ToyBox.Infrastructure.Utilities;
 using UnityEngine;
 
 namespace ToyBox.Infrastructure.Inspector;
+
 public static class InspectorTraverser {
-    private static readonly BindingFlags m_All = BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.GetField | BindingFlags.SetField | BindingFlags.GetProperty | BindingFlags.SetProperty;
-    private static readonly BindingFlags m_AllInstance = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.GetField | BindingFlags.SetField | BindingFlags.GetProperty | BindingFlags.SetProperty;
+    private const BindingFlags m_All = BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.GetField | BindingFlags.SetField | BindingFlags.GetProperty | BindingFlags.SetProperty;
+    private const BindingFlags m_AllInstance = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.GetField | BindingFlags.SetField | BindingFlags.GetProperty | BindingFlags.SetProperty;
     public static InspectorNode BuildRoot(object obj) {
         var type = obj?.GetType() ?? typeof(object);
         return new InspectorNode("root", "", type, obj, null, "");

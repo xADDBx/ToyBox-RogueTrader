@@ -1,8 +1,9 @@
 ﻿using System.Reflection;
 
 namespace ToyBox.Infrastructure.Patching;
+
 [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = true)]
-public class ToyBoxPatchCategoryAttribute : Attribute {
+public sealed class ToyBoxPatchCategoryAttribute : Attribute {
     private static Dictionary<string, List<Type>>? m_HarmonyCategoryCache;
     public string Category;
     public ToyBoxPatchCategoryAttribute(string category) {
@@ -38,4 +39,6 @@ public class ToyBoxPatchCategoryAttribute : Attribute {
             }
         }
     }
+
+    public string Category { get; }
 }

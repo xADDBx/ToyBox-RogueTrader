@@ -16,6 +16,7 @@ using System.Runtime.Serialization;
 using System.Text;
 
 namespace ToyBox.Infrastructure.Blueprints;
+
 public class BlueprintIdCache {
     public static BlueprintIdCache Instance {
         get {

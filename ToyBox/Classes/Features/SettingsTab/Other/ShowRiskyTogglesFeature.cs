@@ -1,4 +1,5 @@
 ﻿namespace ToyBox.Features.SettingsTab.Other;
+
 public partial class ShowRiskyTogglesFeature : ToggledFeature {
     public override ref bool IsEnabled {
         get {

@@ -3,6 +3,7 @@ using Kingmaker.Blueprints.Root;
 using Kingmaker.EntitySystem.Persistence;
 
 namespace ToyBox.Features.BagOfTricks.Common;
+
 public partial class GoToGlobalMapFeature : FeatureWithBindableAction {
     [LocalizedString("ToyBox_Features_BagOfTricks_Common_GoToGlobalMapFeature_Name", "Go To Global Map")]
     public override partial string Name { get; }

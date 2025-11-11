@@ -1,6 +1,7 @@
 ﻿using ToyBox.Infrastructure.Keybinds;
 
 namespace ToyBox;
+
 public interface IBindableFeature {
     abstract Hotkey? Keybind {
         get;

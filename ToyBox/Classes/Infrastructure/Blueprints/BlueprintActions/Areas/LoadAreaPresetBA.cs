@@ -3,6 +3,7 @@ using Kingmaker.Cheats;
 using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
+
 public partial class LoadAreaPresetBA : BlueprintActionFeature, IBlueprintAction<BlueprintAreaPreset> {
     public bool CanExecute(BlueprintAreaPreset blueprint, params object[] parameter) {
         return true;

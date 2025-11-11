@@ -1,6 +1,7 @@
 ﻿using Kingmaker;
 
 namespace ToyBox.Features.BagOfTricks.QualityOfLife;
+
 public partial class GameTimeScaleFeature : FeatureWithFloatSlider {
     public override bool IsEnabled {
         get {

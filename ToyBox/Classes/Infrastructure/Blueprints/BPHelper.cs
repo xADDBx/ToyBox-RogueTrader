@@ -1,10 +1,11 @@
-﻿using Kingmaker.Blueprints.Items.Ecnchantments;
-using Kingmaker.Blueprints;
-using System.Collections.Concurrent;
+﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items;
+using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.UI.Models.Tooltip.Base;
+using System.Collections.Concurrent;
 
 namespace ToyBox.Infrastructure.Blueprints;
+
 public static class BPHelper {
     private static readonly ConcurrentDictionary<(SimpleBlueprint, Func<string, string>), string> m_TitleCache = new();
     private static readonly ConcurrentDictionary<SimpleBlueprint, string> m_SortKeyCache = new();

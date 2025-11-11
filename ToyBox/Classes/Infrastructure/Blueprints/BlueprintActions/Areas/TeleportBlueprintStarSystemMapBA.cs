@@ -5,6 +5,7 @@ using Kingmaker.Globalmap.Blueprints;
 using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
+
 public partial class TeleportBlueprintStarSystemMapBA : BlueprintActionFeature, IBlueprintAction<BlueprintStarSystemMap> {
     private static readonly Dictionary<BlueprintStarSystemMap, BlueprintAreaEnterPoint?> m_MappingCache = [];
     public bool CanExecute(BlueprintStarSystemMap blueprint, params object[] parameter) {

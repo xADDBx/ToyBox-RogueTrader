@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 namespace ToyBox.Infrastructure;
+
 public static partial class UI {
     public static bool Slider(ref int value, float minValue, float maxValue, int? defaultValue = null, Action<(int oldValue, int newValue)>? onValueChanged = null, params GUILayoutOption[] options) {
         options = options.Length == 0 ? [AutoWidth(), Width(600)] : options;

@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 
 namespace ToyBox.Infrastructure;
+
 internal abstract class AbstractSettings {
     protected abstract string Name { get; }
     private string GetFilePath() {

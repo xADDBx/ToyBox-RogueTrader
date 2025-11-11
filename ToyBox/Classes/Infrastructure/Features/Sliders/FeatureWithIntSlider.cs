@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 namespace ToyBox;
+
 public abstract class FeatureWithIntSlider : Feature {
     public override void Initialize() {
         base.Initialize();

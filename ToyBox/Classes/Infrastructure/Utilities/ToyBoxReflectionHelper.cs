@@ -1,4 +1,5 @@
 ﻿namespace ToyBox.Infrastructure.Utilities;
+
 public static class ToyBoxReflectionHelper {
     public static readonly HashSet<Type> PrimitiveTypes = [
         typeof(DBNull), typeof(bool), typeof(char),

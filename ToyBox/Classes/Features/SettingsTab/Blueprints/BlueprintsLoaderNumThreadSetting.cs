@@ -1,4 +1,5 @@
 ﻿namespace ToyBox.Features.SettingsFeatures.Blueprints;
+
 [IsTested]
 public partial class BlueprintsLoaderNumThreadSetting : FeatureWithIntSlider {
     [LocalizedString("ToyBox_Features_SettingsFeatures_Blueprints_BlueprintsLoaderNumThreadSetting_Name", "Amount of Threads")]

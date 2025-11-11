@@ -1,8 +1,9 @@
 ﻿using System.Reflection;
 
 namespace ToyBox;
+
 [AttributeUsage(AttributeTargets.Property)]
-public class LocalizedStringAttribute : Attribute {
+public sealed class LocalizedStringAttribute : Attribute {
     private static IEnumerable<(FieldInfo, LocalizedStringAttribute)>? _fieldsWithAttribute;
     public string Key { get; }
     public string DefaultValue { get; }

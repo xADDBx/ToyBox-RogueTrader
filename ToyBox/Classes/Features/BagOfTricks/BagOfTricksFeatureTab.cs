@@ -7,6 +7,7 @@ using ToyBox.Features.BagOfTricks.QualityOfLife;
 using ToyBox.Features.BagOfTricks.Teleport;
 
 namespace ToyBox.Features.BagOfTricks;
+
 public partial class BagOfTricksFeatureTab : FeatureTab {
     [LocalizedString("ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_BagOfTricksText", "Bag of Tricks")]
     public override partial string Name { get; }

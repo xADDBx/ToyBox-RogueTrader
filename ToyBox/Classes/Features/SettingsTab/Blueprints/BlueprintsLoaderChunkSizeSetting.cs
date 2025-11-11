@@ -1,4 +1,5 @@
 ﻿namespace ToyBox.Features.SettingsFeatures.Blueprints;
+
 [IsTested]
 public partial class BlueprintsLoaderChunkSizeSetting : FeatureWithLogIntSlider {
     [LocalizedString("ToyBox_Features_SettingsFeatures_Blueprints_BlueprintsLoaderChunkSizeSetting_Name", "Chunk Size")]

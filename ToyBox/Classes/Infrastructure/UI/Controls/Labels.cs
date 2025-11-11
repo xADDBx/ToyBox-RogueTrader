@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 namespace ToyBox.Infrastructure;
+
 public static partial class UI {
     public static void Label(string? title = null, params GUILayoutOption[] options) {
         options = options.Length == 0 ? [AutoWidth()] : options;

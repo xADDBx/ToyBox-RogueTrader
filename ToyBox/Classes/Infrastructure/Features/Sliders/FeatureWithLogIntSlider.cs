@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 namespace ToyBox;
+
 public abstract class FeatureWithLogIntSlider : Feature {
     public override void Initialize() {
         base.Initialize();

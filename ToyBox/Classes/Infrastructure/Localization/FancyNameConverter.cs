@@ -25,7 +25,7 @@ public class FancyNameConverter : JsonConverter {
         writer.WritePropertyName("Original");
         writer.WriteValue(value2.Item1);
         writer.WritePropertyName("Translated");
-        var toWrite = (value2.Item1 == value2.Item2 || value2.Item2 == "") ? null! : value2.Item2;
+        var toWrite = (value2.Item1 == value2.Item2 || string.IsNullOrEmpty(value2.Item2)) ? null! : value2.Item2;
         writer.WriteValue(toWrite);
         writer.WriteEndObject();
     }

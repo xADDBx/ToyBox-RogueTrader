@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Reflection;
 
 namespace ToyBox.Infrastructure.Localization;
+
 public static class LocalizationManager {
     public static Language CurrentLocalization = new();
     private static HashSet<string> m_FoundLanguageFiles = new();

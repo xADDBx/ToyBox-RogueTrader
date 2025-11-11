@@ -1,5 +1,5 @@
-﻿using Kingmaker.Achievements;
-using Kingmaker;
+﻿using Kingmaker;
+using Kingmaker.Achievements;
 using System.Reflection.Emit;
 
 namespace ToyBox.Features.BagOfTricks.QualityOfLife;

@@ -6,6 +6,7 @@ using Kingmaker.UI.Common;
 using Kingmaker.UnitLogic.Alignments;
 
 namespace ToyBox.Features.BagOfTricks.Preview;
+
 public static partial class DialogPreviewUtilities {
     internal const string Indent = "        ";
     private const int m_MaxDepth = 20;

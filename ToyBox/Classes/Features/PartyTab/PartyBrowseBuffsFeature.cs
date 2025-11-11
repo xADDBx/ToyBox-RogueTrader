@@ -3,6 +3,7 @@ using Kingmaker.UnitLogic.Buffs.Blueprints;
 using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Features.PartyTab;
+
 public partial class PartyBrowseBuffsFeature : Feature, INeedContextFeature<BaseUnitEntity> {
     [LocalizedString("ToyBox_Features_PartyTab_PartyBrowseBuffsFeature_Name", "Browse Unit Buffs")]
     public override partial string Name { get; }

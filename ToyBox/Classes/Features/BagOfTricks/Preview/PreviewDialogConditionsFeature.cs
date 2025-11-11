@@ -2,6 +2,7 @@
 using Kingmaker.DialogSystem.Blueprints;
 
 namespace ToyBox.Features.BagOfTricks.Preview;
+
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.Preview.PreviewDialogConditionsFeature")]
 public partial class PreviewDialogConditionsFeature : FeatureWithPatch {
     public override ref bool IsEnabled {

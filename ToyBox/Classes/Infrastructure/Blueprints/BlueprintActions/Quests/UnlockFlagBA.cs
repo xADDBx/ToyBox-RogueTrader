@@ -2,6 +2,7 @@
 using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
+
 public partial class UnlockFlagBA : BlueprintActionFeature, IBlueprintAction<BlueprintUnlockableFlag> {
 
     public bool CanExecute(BlueprintUnlockableFlag blueprint, params object[] parameter) {

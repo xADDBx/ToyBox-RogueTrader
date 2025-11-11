@@ -1,6 +1,7 @@
 ﻿using Kingmaker.EntitySystem.Entities;
 
 namespace ToyBox.Infrastructure.Utilities;
+
 public static partial class ContextProvider {
     private static bool m_UnitProviderShown = false;
     public static bool BaseUnitEntity(out BaseUnitEntity? unit) {

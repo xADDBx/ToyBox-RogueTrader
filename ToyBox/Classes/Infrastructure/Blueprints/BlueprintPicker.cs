@@ -4,6 +4,7 @@ using ToyBox.Infrastructure.Utilities;
 using UnityEngine;
 
 namespace ToyBox.Infrastructure;
+
 public static class BlueprintPicker<T> where T : SimpleBlueprint {
     private static string m_CurrentlyTyped = "";
     private static bool m_EnteredInvalidGuid = false;

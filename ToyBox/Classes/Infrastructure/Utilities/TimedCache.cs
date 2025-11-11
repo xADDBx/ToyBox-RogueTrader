@@ -1,4 +1,5 @@
 ﻿namespace ToyBox.Infrastructure.Utilities;
+
 public class TimedCache<T> {
     private readonly Func<T> m_GetValueFunc;
     private readonly TimeSpan m_InvalidateDelay;
@@ -35,5 +36,9 @@ public class TimedCache<T> {
     } = default!;
     public static implicit operator T(TimedCache<T> cache) {
         return cache.Value;
+    }
+
+    public T ToT() {
+        throw new NotImplementedException();
     }
 }

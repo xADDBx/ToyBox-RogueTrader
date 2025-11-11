@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using Unity.Collections;
-using UnityEngine.Rendering;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace ToyBox.Infrastructure.Utilities;
+
 public static class MiscExtensions {
     // Credits to https://github.com/microsoftenator2022
     /// <summary>

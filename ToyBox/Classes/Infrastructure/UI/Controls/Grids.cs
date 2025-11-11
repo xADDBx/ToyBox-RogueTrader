@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 namespace ToyBox.Infrastructure;
+
 public static partial class UI {
     private static Dictionary<Type, Array> m_EnumCache = [];
     private static Dictionary<Type, Dictionary<object, int>> m_IndexToEnumCache = [];

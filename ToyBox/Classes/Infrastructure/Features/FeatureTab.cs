@@ -2,6 +2,7 @@
 using System.Diagnostics;
 
 namespace ToyBox;
+
 public abstract partial class FeatureTab {
     private static readonly ConcurrentDictionary<Type, FeatureTab> m_Instances = [];
     public static readonly HashSet<Feature> FailedFeatures = [];

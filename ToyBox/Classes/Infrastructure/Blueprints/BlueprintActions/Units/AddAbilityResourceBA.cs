@@ -3,6 +3,7 @@ using Kingmaker.EntitySystem.Entities;
 using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
+
 public partial class AddAbilityResourceBA : BlueprintActionFeature, IBlueprintAction<BlueprintAbilityResource>, INeedContextFeature<BaseUnitEntity> {
     public bool CanExecute(BlueprintAbilityResource blueprint, params object[] parameter) {
         if (parameter.Length > 0 && parameter[0] is BaseUnitEntity unit) {

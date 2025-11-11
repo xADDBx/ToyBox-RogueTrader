@@ -1,6 +1,7 @@
 ﻿using Kingmaker.Blueprints;
 
 namespace ToyBox.Infrastructure.Utilities;
+
 public static partial class ContextProvider {
     private static bool m_BlueprintProviderShown = false;
     public static bool Blueprint<T>(out T? bp) where T : SimpleBlueprint {

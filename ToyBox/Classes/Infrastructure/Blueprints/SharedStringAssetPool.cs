@@ -3,6 +3,7 @@ using Owlcat.Runtime.Core.Utility;
 using System.Collections.Concurrent;
 
 namespace ToyBox.Infrastructure.Blueprints;
+
 public class SharedStringAssetPool : MonoSingleton<SharedStringAssetPool> {
     public const int Size = 100;
     private readonly ConcurrentQueue<SharedStringAsset> m_Pool = new();

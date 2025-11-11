@@ -1,6 +1,7 @@
 ﻿using Kingmaker.Blueprints;
 
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
+
 public interface IExecutableAction<in T> where T : SimpleBlueprint {
     // Null - Nothing happened; False - Action execution failed; True - Action execution succeeded
     abstract bool? OnGui(T blueprint, bool isFeatureSearch, params object[] parameter);

@@ -8,6 +8,7 @@ using ToyBox.Infrastructure.Utilities;
 using UnityEngine;
 
 namespace ToyBox.Features.PartyTab;
+
 public partial class PartyFeatureTab : FeatureTab {
     private readonly TimedCache<Dictionary<BaseUnitEntity, float>> m_DistanceToCache = new(() => []);
     [LocalizedString("ToyBox_Features_PartyTab_PartyFeatureTab_PartyLevelText", "Party Level")]

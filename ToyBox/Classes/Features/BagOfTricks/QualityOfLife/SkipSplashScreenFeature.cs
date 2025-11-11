@@ -4,6 +4,7 @@ using System.Reflection;
 using System.Reflection.Emit;
 
 namespace ToyBox.Features.BagOfTricks.QualityOfLife;
+
 [IsTested]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.QualityOfLife.SkipSplashScreenFeature")]
 public partial class SkipSplashScreenFeature : FeatureWithPatch, INeedEarlyInitFeature {

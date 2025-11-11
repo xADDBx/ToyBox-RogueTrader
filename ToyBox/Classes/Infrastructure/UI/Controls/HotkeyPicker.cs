@@ -2,6 +2,7 @@
 using UnityEngine;
 
 namespace ToyBox.Infrastructure;
+
 public static partial class UI {
     private static Hotkey? m_CurerntlyBindingHotkey;
     private static IBindableFeature? m_BindingForAction;

@@ -4,6 +4,7 @@ using System.Net;
 using System.Reflection;
 
 namespace ToyBox.Features.SettingsFeatures.UpdateAndIntegrity;
+
 [IsTested]
 public partial class UpdaterFeature : Feature {
     private static bool m_EnqueuedStart = false;

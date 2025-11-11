@@ -6,6 +6,7 @@ using Kingmaker.Utility.UnityExtensions;
 using ToyBox.Infrastructure.Blueprints.BlueprintActions;
 
 namespace ToyBox.Infrastructure.Blueprints;
+
 public static class BlueprintUI {
     public static void BlueprintRowGUI<Blueprint>(Blueprint blueprint, BaseUnitEntity ch) where Blueprint : BlueprintScriptableObject, IUIDataProvider {
         object? maybeItem = null;

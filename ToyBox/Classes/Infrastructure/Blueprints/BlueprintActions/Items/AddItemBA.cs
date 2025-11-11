@@ -3,6 +3,7 @@ using Kingmaker.Blueprints.Items;
 using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
+
 public partial class AddItemBA : BlueprintActionFeature, IBlueprintAction<BlueprintItem> {
     public bool CanExecute(BlueprintItem blueprint, params object[] parameter) {
         return IsInGame();

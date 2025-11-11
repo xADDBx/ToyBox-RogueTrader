@@ -4,6 +4,7 @@ using ToyBox.Infrastructure.Utilities;
 using UnityEngine;
 
 namespace ToyBox.Infrastructure.Inspector;
+
 public class InspectorNode : IComparable {
     private static readonly HashSet<string> m_ContainerMembers = [GameObjectChildPrefix, GameObjectComponentPrefix, EnumerableItemPrefix];
     public const string GameObjectChildPrefix = "ci";

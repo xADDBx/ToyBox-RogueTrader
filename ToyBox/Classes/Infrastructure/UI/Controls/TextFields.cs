@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 namespace ToyBox.Infrastructure;
+
 public static partial class UI {
     public static bool TextField(ref string content, Action<(string oldContent, string newContent)>? onContentChanged, params GUILayoutOption[] options) {
         options = options.Length == 0 ? [AutoWidth(), Width(600)] : options;

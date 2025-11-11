@@ -4,6 +4,7 @@ using Kingmaker.Mechanics.Entities;
 using Kingmaker.UnitLogic.Parts;
 
 namespace ToyBox.Infrastructure;
+
 public static class ToyBoxUnitHelper {
     private static readonly Dictionary<AbstractUnitEntity, bool> m_PartyOrPetCache = new();
     private static bool m_IsInitialized = false;

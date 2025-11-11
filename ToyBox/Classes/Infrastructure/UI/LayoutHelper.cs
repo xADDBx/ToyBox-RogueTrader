@@ -2,6 +2,7 @@
 using UnityModManagerNet;
 
 namespace ToyBox.Infrastructure;
+
 public static class LayoutHelper {
     public static bool PressedEnterInControl(string controlName) {
         var e = Event.current;

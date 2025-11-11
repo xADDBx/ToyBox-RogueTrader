@@ -1,6 +1,7 @@
 ﻿using System.Collections.Concurrent;
 
 namespace ToyBox;
+
 public abstract class Feature {
     private static readonly ConcurrentDictionary<Type, Feature> m_Instances = [];
     protected Feature() {
@@ -17,7 +18,7 @@ public abstract class Feature {
         }
         return (T)inst;
     }
-    public static T GetInstance<T>(Type t) where T : Feature{
+    public static T GetInstance<T>(Type t) where T : Feature {
         if (!m_Instances.TryGetValue(t, out var inst)) {
             throw new InvalidOperationException($"No constructed instance of type {typeof(T)} found!");
         }

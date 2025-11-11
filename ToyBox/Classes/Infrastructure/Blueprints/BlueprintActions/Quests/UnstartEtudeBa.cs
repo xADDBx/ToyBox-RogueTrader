@@ -3,6 +3,7 @@ using Kingmaker.AreaLogic.Etudes;
 using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
+
 public partial class UnstartEtudeBA : BlueprintActionFeature, IBlueprintAction<BlueprintEtude> {
 
     public bool CanExecute(BlueprintEtude blueprint, params object[] parameter) {

@@ -1,4 +1,5 @@
 ﻿namespace ToyBox.Infrastructure.Enums;
+
 public enum UnitSelectType {
     Off,
     You,

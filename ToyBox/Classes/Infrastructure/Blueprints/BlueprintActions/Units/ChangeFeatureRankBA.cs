@@ -3,6 +3,7 @@ using Kingmaker.UnitLogic.Progression.Features;
 using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
+
 public partial class ChangeFeatureRankBA : BlueprintActionFeature, IBlueprintAction<BlueprintFeature>, INeedContextFeature<BaseUnitEntity> {
     public bool CanExecute(BlueprintFeature blueprint, params object[] parameter) {
         return CanExecute(blueprint, out _, out _, out _, parameter);

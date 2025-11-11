@@ -2,6 +2,7 @@
 using ToyBox.Infrastructure.Localization;
 
 namespace ToyBox.Features.SettingsFeatures;
+
 [IsTested]
 public partial class LanguagePickerFeature : Feature {
     [LocalizedString("ToyBox_Features_SettingsFeatures_LanguagePickerFeature_LanguagePickerText", "Language Picker")]

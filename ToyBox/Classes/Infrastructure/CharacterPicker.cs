@@ -1,13 +1,14 @@
-﻿using Kingmaker.EntitySystem.Entities;
-using Kingmaker;
-using Kingmaker.UnitLogic;
+﻿using Kingmaker;
 using Kingmaker.Designers;
-using UnityEngine;
+using Kingmaker.EntitySystem.Entities;
+using Kingmaker.UnitLogic;
 using ToyBox.Infrastructure.Utilities;
+using UnityEngine;
 
 namespace ToyBox.Infrastructure;
+
 public static partial class CharacterPicker {
-    private static readonly int m_CacheDuration = 1;
+    private const int m_CacheDuration = 1;
     private static readonly Dictionary<CharacterListType, TimedCache<List<BaseUnitEntity>>> m_Lists = new() {
         [CharacterListType.Party] = new(() => Game.Instance.Player.Party ?? [], m_CacheDuration),
         [CharacterListType.PartyAndPets] = new(() => Game.Instance.Player.PartyAndPets ?? [], m_CacheDuration),

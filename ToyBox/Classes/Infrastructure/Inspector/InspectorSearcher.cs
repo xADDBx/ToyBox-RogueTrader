@@ -3,6 +3,7 @@ using System.Diagnostics;
 using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Infrastructure.Inspector;
+
 public static class InspectorSearcher {
     private static readonly object m_SyncRoot = new();
     internal static bool IsRunning {
@@ -14,7 +15,7 @@ public static class InspectorSearcher {
     public static bool ShouldCancel = false;
     public static bool DidSearch {
         get {
-            return LastPrompt != "" && !IsRunning;
+            return !string.IsNullOrEmpty(LastPrompt) && !IsRunning;
         }
     }
     public enum SearchMode {

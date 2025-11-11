@@ -1,4 +1,5 @@
 ﻿namespace ToyBox;
+
 public interface INeedContextFeature { }
 public interface INeedContextFeature<T> : INeedContextFeature {
     bool GetContext(out T? context);

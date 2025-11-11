@@ -4,6 +4,7 @@ using Kingmaker.Blueprints.Quests;
 using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
+
 public partial class StartQuestObjectiveBA : BlueprintActionFeature, IBlueprintAction<BlueprintQuestObjective> {
 
     public bool CanExecute(BlueprintQuestObjective blueprint, params object[] parameter) {
