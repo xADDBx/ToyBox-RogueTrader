@@ -5,7 +5,7 @@ namespace ToyBox.Infrastructure.Patching;
 [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = true)]
 public sealed class ToyBoxPatchCategoryAttribute : Attribute {
     private static Dictionary<string, List<Type>>? m_HarmonyCategoryCache;
-    public string Category;
+    public string Category { get; }
     public ToyBoxPatchCategoryAttribute(string category) {
         Category = category;
     }
@@ -39,6 +39,4 @@ public sealed class ToyBoxPatchCategoryAttribute : Attribute {
             }
         }
     }
-
-    public string Category { get; }
 }

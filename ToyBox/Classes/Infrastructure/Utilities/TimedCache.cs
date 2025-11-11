@@ -37,8 +37,4 @@ public class TimedCache<T> {
     public static implicit operator T(TimedCache<T> cache) {
         return cache.Value;
     }
-
-    public T ToT() {
-        throw new NotImplementedException();
-    }
 }
