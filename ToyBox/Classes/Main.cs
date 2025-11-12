@@ -13,7 +13,7 @@ namespace ToyBox;
 #endif
 public static partial class Main {
     private const string m_HarmonyId = "ToyBox";
-    private static float m_LastScale = 1f;
+    internal static float UIScale = 1f;
     internal static Harmony HarmonyInstance = new(m_HarmonyId);
     internal static UnityModManager.ModEntry ModEntry = null!;
     internal static List<Task> LateInitTasks = [];
@@ -74,7 +74,7 @@ public static partial class Main {
             RegisterFeatureTabs();
             Debug($"Early init took {sw2.ElapsedMilliseconds}ms");
 
-            if (Feature.GetInstance<LazyInitFeature>().IsEnabled) {
+            if (ModFeature.GetInstance<LazyInitFeature>().IsEnabled) {
                 Log("Lazy Init enabled, starting init threads.");
                 foreach (var tab in m_FeatureTabs) {
                     LateInitTasks.Add(Task.Run(tab.InitializeAll));
@@ -123,9 +123,9 @@ public static partial class Main {
                     UI.Label(m_SomethingWentHorriblyWrongAndYou.Red().Bold());
                     return;
                 }
-                if (UnityModManager.UI.Instance.mUIScale != m_LastScale) {
+                if (UnityModManager.UI.Instance.mUIScale != UIScale) {
                     OnUIScaleChanged?.Invoke();
-                    m_LastScale = UnityModManager.UI.Instance.mUIScale;
+                    UIScale = UnityModManager.UI.Instance.mUIScale;
                 }
                 if (BPLoader.IsLoading) {
                     UI.ProgressBar(BPLoader.Progress, "");

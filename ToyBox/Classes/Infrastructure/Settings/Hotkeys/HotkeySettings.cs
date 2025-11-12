@@ -47,7 +47,7 @@ internal class HotkeySettings : AbstractSettings {
         foreach (var mask in m_ConflictingMasks[currentMask]) {
             foreach (var hotkey in m_HotkeysByMask[mask]) {
                 if (hotkey.IsActive(currentMask)) {
-                    var feature = Feature.GetInstance<Feature>(m_BoundKeys[hotkey]);
+                    var feature = ModFeature.GetInstance<ModFeature>(m_BoundKeys[hotkey]);
                     if (feature is IBindableFeature action) {
                         action.ExecuteAction();
                     } else {

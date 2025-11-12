@@ -107,15 +107,15 @@ public static partial class InspectorUI {
                 }
                 if (m_DoShowSettings) {
                     using (VerticalScope()) {
-                        Feature.GetInstance<InspectorShowNullAndEmptyMembersSetting>().OnGui();
-                        Feature.GetInstance<InspectorShowStaticMembersSetting>().OnGui();
-                        Feature.GetInstance<InspectorShowEnumerableFieldsSetting>().OnGui();
-                        Feature.GetInstance<InspectorShowCompilerGeneratedFieldsSetting>().OnGui();
-                        Feature.GetInstance<InspectorSlimModeSetting>().OnGui();
-                        Feature.GetInstance<InspectorDrawLimitSetting>().OnGui();
-                        Feature.GetInstance<InspectorIndentWidthSetting>().OnGui();
-                        Feature.GetInstance<InspectorNameFractionOfWidthSetting>().OnGui();
-                        Feature.GetInstance<InspectorSearcherBatchSizeSetting>().OnGui();
+                        ModFeature.GetInstance<InspectorShowNullAndEmptyMembersSetting>().OnGui();
+                        ModFeature.GetInstance<InspectorShowStaticMembersSetting>().OnGui();
+                        ModFeature.GetInstance<InspectorShowEnumerableFieldsSetting>().OnGui();
+                        ModFeature.GetInstance<InspectorShowCompilerGeneratedFieldsSetting>().OnGui();
+                        ModFeature.GetInstance<InspectorSlimModeSetting>().OnGui();
+                        ModFeature.GetInstance<InspectorDrawLimitSetting>().OnGui();
+                        ModFeature.GetInstance<InspectorIndentWidthSetting>().OnGui();
+                        ModFeature.GetInstance<InspectorNameFractionOfWidthSetting>().OnGui();
+                        ModFeature.GetInstance<InspectorSearcherBatchSizeSetting>().OnGui();
                     }
                 }
                 if (m_DoShowSearch) {

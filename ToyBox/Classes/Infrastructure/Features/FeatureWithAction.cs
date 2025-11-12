@@ -2,7 +2,7 @@
 
 namespace ToyBox;
 
-public abstract class FeatureWithAction : Feature {
+public abstract class FeatureWithAction : ModFeature {
     public virtual void LogExecution(params object?[] parameter) {
         Helpers.LogExecution(this, parameter);
     }

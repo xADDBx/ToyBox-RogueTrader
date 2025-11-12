@@ -38,6 +38,7 @@ public class ThreadedListSearcher<T> where T : notnull {
             m_InProgress = new();
             CurrentlyFound = 0;
             var lastShared = 0;
+            int searched = 0;
             if (!string.IsNullOrEmpty(query)) {
                 var terms = query.Split(' ').Select(s => s.ToUpper());
                 foreach (var item in items) {
@@ -50,6 +51,7 @@ public class ThreadedListSearcher<T> where T : notnull {
                         Debug("Cancelled Search");
                         return;
                     }
+                    searched++;
                     var text = getSearchKey(item).ToUpper();
                     if (terms.All(text.Contains)) {
                         allResults.Add(item);
@@ -63,10 +65,10 @@ public class ThreadedListSearcher<T> where T : notnull {
                     }
                 }
                 m_Parent.QueueUpdateItems(allResults.AsParallel().WithDegreeOfParallelism(Environment.ProcessorCount).OrderBy(getSortKey).ToArray(), 1, true);
-                Debug($"Searched {items.Count()} items in {watch.ElapsedMilliseconds}ms; found {allResults.Count} results");
+                Debug($"Searched {searched} items in {watch.ElapsedMilliseconds}ms; found {allResults.Count} results");
             } else {
                 m_Parent.QueueUpdateItems(items.AsParallel().WithDegreeOfParallelism(Environment.ProcessorCount).OrderBy(getSortKey).ToArray(), 1, true);
-                Debug($"Searched {items.Count()} items in {watch.ElapsedMilliseconds}ms; query is empty so used all items as result");
+                Debug($"Searched {searched} items in {watch.ElapsedMilliseconds}ms; query is empty so used all items as result");
             }
         } catch (Exception e) {
             Error($"Encountered exception while trying to search!\n{e}");

@@ -76,7 +76,7 @@ public class BlueprintIdCache {
             }
 
             var ommSet = Instance.OmmList.ToHashSet();
-            var ommModsChanged = !(ommSet.Count == OwlcatModificationsManager.s_Instance.AppliedModifications.Count());
+            var ommModsChanged = !(ommSet.Count == OwlcatModificationsManager.s_Instance.AppliedModifications.Length);
             if (!ommModsChanged) {
                 foreach (var modEntry in OwlcatModificationsManager.s_Instance.AppliedModifications) {
                     if (!ommSet.Contains(new(modEntry.Manifest.UniqueName, modEntry.Manifest.Version))) {

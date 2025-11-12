@@ -43,14 +43,14 @@ public partial class PartyFeatureTab : FeatureTab {
         ClearCache();
     }
     public static void ClearCache() {
-        Feature.GetInstance<PartyBrowseFeatsFeature>().ClearFeatureCache();
-        Feature.GetInstance<PartyBrowseAbilitiesFeature>().ClearFeatureCache();
-        Feature.GetInstance<PartyBrowseBuffsFeature>().ClearFeatureCache();
+        ModFeature.GetInstance<PartyBrowseFeatsFeature>().ClearFeatureCache();
+        ModFeature.GetInstance<PartyBrowseAbilitiesFeature>().ClearFeatureCache();
+        ModFeature.GetInstance<PartyBrowseBuffsFeature>().ClearFeatureCache();
     }
     public static void FeatureRefresh() {
-        Feature.GetInstance<PartyBrowseFeatsFeature>().MarkInvalid();
-        Feature.GetInstance<PartyBrowseAbilitiesFeature>().MarkInvalid();
-        Feature.GetInstance<PartyBrowseBuffsFeature>().MarkInvalid();
+        ModFeature.GetInstance<PartyBrowseFeatsFeature>().MarkInvalid();
+        ModFeature.GetInstance<PartyBrowseAbilitiesFeature>().MarkInvalid();
+        ModFeature.GetInstance<PartyBrowseBuffsFeature>().MarkInvalid();
     }
     public readonly TimedCache<float> NameSectionWidth = new(() => {
         return CalculateLargestLabelSize(CharacterPicker.CurrentUnits.Select(u => GetUnitName(u) + " "));
@@ -79,7 +79,7 @@ public partial class PartyFeatureTab : FeatureTab {
                         UI.Label(GetUnitName(unit), Width(NameSectionWidth));
                         Space(2);
 
-                        Feature.GetInstance<RenameUnitFeature>().OnGui(unit);
+                        ModFeature.GetInstance<RenameUnitFeature>().OnGui(unit);
 
                         Dictionary<BaseUnitEntity, float> distanceCache = m_DistanceToCache;
                         if (!distanceCache.TryGetValue(unit, out var dist)) {
@@ -108,9 +108,9 @@ public partial class PartyFeatureTab : FeatureTab {
                     using (HorizontalScope()) {
                         switch (m_UncollapsedSection) {
                             case PartyTabSectionType.Inspect: InspectorUI.Inspect(unit); break;
-                            case PartyTabSectionType.Features: Feature.GetInstance<PartyBrowseFeatsFeature>().OnGui(unit); break;
-                            case PartyTabSectionType.Buffs: Feature.GetInstance<PartyBrowseBuffsFeature>().OnGui(unit); break;
-                            case PartyTabSectionType.Abilities: Feature.GetInstance<PartyBrowseAbilitiesFeature>().OnGui(unit); break;
+                            case PartyTabSectionType.Features: ModFeature.GetInstance<PartyBrowseFeatsFeature>().OnGui(unit); break;
+                            case PartyTabSectionType.Buffs: ModFeature.GetInstance<PartyBrowseBuffsFeature>().OnGui(unit); break;
+                            case PartyTabSectionType.Abilities: ModFeature.GetInstance<PartyBrowseAbilitiesFeature>().OnGui(unit); break;
                             case PartyTabSectionType.Classes: OnClassesGui(unit); break;
                             case PartyTabSectionType.Stats: OnStatsGui(unit); break;
                             case PartyTabSectionType.None:

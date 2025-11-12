@@ -3,7 +3,7 @@ using ToyBox.Infrastructure.Localization;
 
 namespace ToyBox.Features.FeatureSearch;
 
-public partial class FeatureSearchFeature : Feature {
+public partial class FeatureSearchFeature : ModFeature {
     [LocalizedString("ToyBox_Features_FeatureSearch_FeatureSearchFeature_FeatureSearchNotImplementedForTh", "Feature search not implemented for this feature!")]
     private static partial string m_FeatureSearchNotImplementedForTh { get; }
     [LocalizedString("ToyBox_Features_FeatureSearch_FeatureSearchFeature_ShowGUIText", "Show GUI")]
@@ -13,25 +13,25 @@ public partial class FeatureSearchFeature : Feature {
     [LocalizedString("ToyBox_Features_FeatureSearch_FeatureSearchFeature_Description", "Default Description")]
     public override partial string Description { get; }
     private bool m_IsInitialized = false;
-    private readonly Browser<Feature> m_FeatureBrowser = new(f => f.SortKey, f => f.SearchKey, null, null, true, (int)(EffectiveWindowWidth() / 1.03f));
-    private readonly Dictionary<Feature, bool> m_DisclosureStates = [];
+    private readonly Browser<ModFeature> m_FeatureBrowser = new(f => f.SortKey, f => f.SearchKey, null, null, true, (int)(EffectiveWindowWidth() / 1.03f));
+    private readonly Dictionary<ModFeature, bool> m_DisclosureStates = [];
     private bool m_OnlyFeaturesThatNeedTesting = false;
     public override void OnGui() {
         if (!m_IsInitialized) {
-            List<Feature> features = [];
+            List<ModFeature> features = [];
             foreach (var tab in Main.m_FeatureTabs) {
                 if (tab.Name != LocalizationManager.CurrentLocalization.ToyBox_Features_FeatureSearch_FeatureSearchTab_Name.Translated) {
-                    features = [.. features, .. tab.GetFeatures()];
+                    features = [.. features, .. tab.Features];
                 }
             }
             m_FeatureBrowser.UpdateItems(features);
             m_IsInitialized = true;
         }
         if (UI.Toggle("Filter for untested features", null, ref m_OnlyFeaturesThatNeedTesting)) {
-            List<Feature> features = [];
+            List<ModFeature> features = [];
             foreach (var tab in Main.m_FeatureTabs) {
                 if (tab.Name != LocalizationManager.CurrentLocalization.ToyBox_Features_FeatureSearch_FeatureSearchTab_Name.Translated) {
-                    features = [.. features, .. tab.GetFeatures()];
+                    features = [.. features, .. tab.Features];
                 }
             }
             if (m_OnlyFeaturesThatNeedTesting) {

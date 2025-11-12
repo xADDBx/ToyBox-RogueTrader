@@ -15,6 +15,6 @@ public static partial class UI {
         m_EditStateCaches.Clear();
     }
     private static void UIScaleChanged() {
-        m_DisclosureToggleStyle = null;
+        m_DisclosureToggleStyle = null!;
     }
 }

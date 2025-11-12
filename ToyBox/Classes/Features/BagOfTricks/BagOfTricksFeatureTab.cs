@@ -4,6 +4,7 @@ using ToyBox.Features.BagOfTricks.Common;
 using ToyBox.Features.BagOfTricks.Dialog;
 using ToyBox.Features.BagOfTricks.Preview;
 using ToyBox.Features.BagOfTricks.QualityOfLife;
+using ToyBox.Features.BagOfTricks.RTSpecific;
 using ToyBox.Features.BagOfTricks.Teleport;
 
 namespace ToyBox.Features.BagOfTricks;
@@ -25,6 +26,8 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
     private static partial string m_PreviewLocalizedText { get; }
     [LocalizedString("ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_DialogLocalizedText", "Dialog")]
     private static partial string m_DialogLocalizedText { get; }
+    [LocalizedString("ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_RTSpecificLocalizedText", "RT Specific")]
+    private static partial string m_RTSpecificLocalizedText { get; }
     public BagOfTricksFeatureTab() {
         AddFeature(new RestAllFeature(), m_CombatLocalizedText);
         AddFeature(new RestSelectedFeature(), m_CombatLocalizedText);
@@ -68,6 +71,8 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
         AddFeature(new GameAlternateTimeScaleFeature(), m_QualityOfLifeText);
         AddFeature(new DisableEndTurnKeybindFeature(), m_QualityOfLifeText);
         AddFeature(new LoadingWithBlueprintErrorsFeature(), m_QualityOfLifeText);
+
+        AddFeature(new ModifyFactionReputationFeature(), m_RTSpecificLocalizedText);
 
         AddFeature(new HighlightHiddenObjectsFeature(), m_CheatsText);
     }

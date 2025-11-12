@@ -2,7 +2,7 @@
 
 namespace ToyBox;
 
-public abstract class FeatureWithFloatSlider : Feature {
+public abstract class FeatureWithFloatSlider : ModFeature {
     public override void Initialize() {
         base.Initialize();
         IsInitialized = true;

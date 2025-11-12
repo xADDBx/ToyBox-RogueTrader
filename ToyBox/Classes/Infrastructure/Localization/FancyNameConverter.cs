@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
+[System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1050:Declare types in namespaces", Justification = "Used in that namespace in BuildTools I think")]
 public class FancyNameConverter : JsonConverter {
     public override bool CanConvert(Type objectType) {
         return objectType == typeof((string, string));

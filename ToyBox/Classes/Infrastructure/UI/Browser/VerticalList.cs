@@ -39,9 +39,12 @@ public partial class VerticalList<T> : IPagedList where T : notnull {
     /// Shows whether previously cached data is still valid
     /// </summary>
     /// <returns>Validity of cached data</returns>
-    public bool GetIsCachedValid() {
-        return m_IsCached;
+    public bool IsCachedValid {
+        get {
+            return m_IsCached;
+        }
     }
+
     /// <summary>
     /// Initializes a new instance of the <see cref="VerticalList{T}"/> class.
     /// </summary>

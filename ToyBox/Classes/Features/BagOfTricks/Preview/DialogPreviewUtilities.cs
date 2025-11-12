@@ -173,7 +173,7 @@ public static partial class DialogPreviewUtilities {
             caption = action?.GetCaption() ?? "";
         }
         if (string.IsNullOrWhiteSpace(caption)) {
-            return [action?.GetType().Name];
+            return [action?.GetType().Name ?? ""];
         } else {
             return [caption];
         }

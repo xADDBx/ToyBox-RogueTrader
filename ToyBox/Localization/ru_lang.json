@@ -31,6 +31,10 @@
     "Original": "Dialog",
     "Translated": null
   },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_RTSpecificLocalizedText": {
+    "Original": "RT Specific",
+    "Translated": null
+  },
   "ToyBox_Features_BagOfTricks_Cheats_HighlightHiddenObjectsFeature_Name": {
     "Original": "Highlight Hidden Objects",
     "Translated": "Выделить скрытые объекты"
@@ -365,6 +369,38 @@
   },
   "ToyBox_Features_BagOfTricks_QualityOfLife_SkipSplashScreenFeature_Description": {
     "Original": "This skips the splash screen that appears when the game starts. Helpful if you need to frequently restart the game.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyFactionReputationFeature_Name": {
+    "Original": "Modify Faction Reputation",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyFactionReputationFeature_Description": {
+    "Original": "Allows you to modify the reputation at the various in-game factions.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyFactionReputationFeature_m_CurrentReputationLocalizedText": {
+    "Original": "Current Reputation",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyFactionReputationFeature_m_LevelLocalizedText": {
+    "Original": "Level",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyFactionReputationFeature_m_ExperienceLocalizedText": {
+    "Original": "Experience",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyFactionReputationFeature_m_AdjustReputationByTheFollowingAmLocalizedText": {
+    "Original": "Adjust Reputation by the following amount",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyFactionReputationFeature_m_AddLocalizedText": {
+    "Original": "Add",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyFactionReputationFeature_m_RemoveLocalizedText": {
+    "Original": "Remove",
     "Translated": null
   },
   "ToyBox_Features_BagOfTricks_Teleport_TeleportMainToCursorFeature_Name": {

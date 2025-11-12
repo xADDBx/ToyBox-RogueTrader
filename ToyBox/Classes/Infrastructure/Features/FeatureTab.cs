@@ -5,8 +5,8 @@ namespace ToyBox;
 
 public abstract partial class FeatureTab {
     private static readonly ConcurrentDictionary<Type, FeatureTab> m_Instances = [];
-    public static readonly HashSet<Feature> FailedFeatures = [];
-    private Dictionary<string, List<Feature>> m_FeatureGroups { get; set; } = [];
+    public static readonly HashSet<ModFeature> FailedFeatures = [];
+    private Dictionary<string, List<ModFeature>> m_FeatureGroups { get; set; } = [];
     public abstract string Name { get; }
     public virtual bool IsHiddenFromUI {
         get {
@@ -25,7 +25,7 @@ public abstract partial class FeatureTab {
         }
         return (T)inst;
     }
-    public virtual void AddFeature(Feature feature, string groupName = "") {
+    public virtual void AddFeature(ModFeature feature, string groupName = "") {
         if (feature is INeedEarlyInitFeature) {
             try {
                 feature.Initialize();
@@ -40,18 +40,24 @@ public abstract partial class FeatureTab {
         }
         group.Add(feature);
     }
-    public IEnumerable<Feature> GetFeatures() {
-        foreach (var group in m_FeatureGroups.Values) {
-            foreach (var feature in group) {
-                yield return feature;
+    public IEnumerable<ModFeature> Features {
+        get {
+            foreach (var group in m_FeatureGroups.Values) {
+                foreach (var feature in group) {
+                    yield return feature;
+                }
             }
         }
     }
-    public IEnumerable<(string groupName, List<Feature> features)> GetGroups() {
-        foreach (var group in m_FeatureGroups) {
-            yield return (group.Key, group.Value);
+
+    public IEnumerable<(string groupName, List<ModFeature> features)> Groups {
+        get {
+            foreach (var group in m_FeatureGroups) {
+                yield return (group.Key, group.Value);
+            }
         }
     }
+
     public int GroupCount {
         get {
             return m_FeatureGroups.Count;
@@ -59,7 +65,7 @@ public abstract partial class FeatureTab {
     }
     public virtual void InitializeAll() {
         var a = Stopwatch.StartNew();
-        foreach (var feature in GetFeatures()) {
+        foreach (var feature in Features) {
             if (feature is not INeedEarlyInitFeature) {
                 try {
                     feature.Initialize();
@@ -73,13 +79,13 @@ public abstract partial class FeatureTab {
         Debug($"!!Threaded!!: {GetType().Name} lazy init took {a.ElapsedMilliseconds}ms");
     }
     public virtual void DestroyAll() {
-        foreach (var feature in GetFeatures()) {
+        foreach (var feature in Features) {
             feature.Destroy();
         }
     }
     public virtual void OnGui() {
         var i = 0;
-        foreach (var (groupName, features) in GetGroups()) {
+        foreach (var (groupName, features) in Groups) {
             i++;
             using (VerticalScope()) {
                 UI.Label(groupName);
