@@ -4,6 +4,7 @@ using Kingmaker.Code.UI.MVVM.VM.NavigatorResource;
 using UnityEngine;
 
 namespace ToyBox.Features.BagOfTricks.RTSpecific;
+[IsTested]
 public partial class ModifyResourcesFeature : Feature {
     [LocalizedString("ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_Name", "Modify RT Resources")]
     public override partial string Name { get; }
