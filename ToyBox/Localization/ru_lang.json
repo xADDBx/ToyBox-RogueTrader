@@ -35,6 +35,10 @@
     "Original": "RT Faction Reputation",
     "Translated": null
   },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_RTResourcesLocalizedText": {
+    "Original": "RT Resources",
+    "Translated": null
+  },
   "ToyBox_Features_BagOfTricks_Cheats_HighlightHiddenObjectsFeature_Name": {
     "Original": "Highlight Hidden Objects",
     "Translated": "Выделить скрытые объекты"
@@ -401,6 +405,58 @@
   },
   "ToyBox_Features_BagOfTricks_RTSpecific_ModifyFactionReputationFeature_m_RemoveLocalizedText": {
     "Original": "Remove",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_Name": {
+    "Original": "Modify RT Resources",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_Description": {
+    "Original": "Allows modifying Scrap, Profit Factor, Navigators Insight and possibly current Veil Thickness.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_CurrentNavigatorInsightLocalizedText": {
+    "Original": "Current Navigator Insight",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_AdjustNavigatorInsightByTheFolloLocalizedText": {
+    "Original": "Adjust Navigator Insight by the following amount",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_AddLocalizedText": {
+    "Original": "Add",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_RemoveLocalizedText": {
+    "Original": "Remove",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_CurrentScrapLocalizedText": {
+    "Original": "Current Scrap",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_AdjustScrapByTheFollowingAmountLocalizedText": {
+    "Original": "Adjust Scrap by the following amount",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_CurrentProfitFactorLocalizedText": {
+    "Original": "Current Profit Factor",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_AdjustProfitFactorByTheFollowingLocalizedText": {
+    "Original": "Adjust Profit Factor by the following amount",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_CurrentVeilThicknessLocalizedText": {
+    "Original": "Current Veil Thickness",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_SetVeilThicknessToTheFollowingAmLocalizedText": {
+    "Original": "Set Veil Thickness to the following amount",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_SetLocalizedText": {
+    "Original": "Set",
     "Translated": null
   },
   "ToyBox_Features_BagOfTricks_Teleport_TeleportMainToCursorFeature_Name": {

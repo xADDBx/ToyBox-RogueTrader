@@ -74,7 +74,7 @@ public static partial class Main {
             RegisterFeatureTabs();
             Debug($"Early init took {sw2.ElapsedMilliseconds}ms");
 
-            if (ModFeature.GetInstance<LazyInitFeature>().IsEnabled) {
+            if (Feature.GetInstance<LazyInitFeature>().IsEnabled) {
                 Log("Lazy Init enabled, starting init threads.");
                 foreach (var tab in m_FeatureTabs) {
                     LateInitTasks.Add(Task.Run(tab.InitializeAll));

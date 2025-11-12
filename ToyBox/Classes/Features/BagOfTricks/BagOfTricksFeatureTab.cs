@@ -71,7 +71,7 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
         AddFeature(new LoadingWithBlueprintErrorsFeature(), m_QualityOfLifeText);
 
         AddFeature(new ModifyFactionReputationFeature(), m_RTFactionReputationLocalizedText);
-        // RT Resources
+        AddFeature(new ModifyResourcesFeature(), m_RTResourcesLocalizedText);
         // RT Tweaks
 
         AddFeature(new HighlightHiddenObjectsFeature(), m_CheatsText);
@@ -79,4 +79,6 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
 
     [LocalizedString("ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_RTFactionReputationLocalizedText", "RT Faction Reputation")]
     private static partial string m_RTFactionReputationLocalizedText { get; }
+    [LocalizedString("ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_RTResourcesLocalizedText", "RT Resources")]
+    private static partial string m_RTResourcesLocalizedText { get; }
 }

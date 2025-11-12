@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ToyBox.Features.BagOfTricks.RTSpecific;
 
-public partial class ModifyFactionReputationFeature : ModFeature {
+public partial class ModifyFactionReputationFeature : Feature {
     [LocalizedString("ToyBox_Features_BagOfTricks_RTSpecific_ModifyFactionReputationFeature_Name", "Modify Faction Reputation")]
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_BagOfTricks_RTSpecific_ModifyFactionReputationFeature_Description", "Allows you to modify the reputation at the various in-game factions.")]
@@ -17,16 +17,14 @@ public partial class ModifyFactionReputationFeature : ModFeature {
             Space(10);
             UI.Label(Description.Green());
         }
-        using (HorizontalScope()) {
-            Space(50 * Main.UIScale);
-            if (!IsInGame()) {
-                UI.Label(SharedStrings.ThisCannotBeUsedFromTheMainMenu.Red().Bold());
-                return;
-            }
+        if (!IsInGame()) {
+            UI.Label(SharedStrings.ThisCannotBeUsedFromTheMainMenu.Red().Bold());
+            return;
+        }
         _ = UI.SelectionGrid(ref m_SelectedFaction, 6, @enum => @enum.ToString());
         if (m_SelectedFaction != FactionType.None) {
             using (HorizontalScope()) {
-                UI.Label(m_CurrentReputationLocalizedText.Bold() + ": ");
+                UI.Label(m_CurrentReputationLocalizedText.Bold() + ": ", Width(250 * Main.UIScale));
                 using (VerticalScope()) {
                     using (HorizontalScope()) {
                         UI.Label(m_LevelLocalizedText + ": ", Width(100 * Main.UIScale));
@@ -47,7 +45,6 @@ public partial class ModifyFactionReputationFeature : ModFeature {
                         _ = UI.Button(m_RemoveLocalizedText, () => ReputationHelper.GainFactionReputation(m_SelectedFaction, -m_Adjustment));
                     }
                 }
-            }
             }
         }
     }

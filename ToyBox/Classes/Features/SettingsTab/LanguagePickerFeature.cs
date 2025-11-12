@@ -4,7 +4,7 @@ using ToyBox.Infrastructure.Localization;
 namespace ToyBox.Features.SettingsFeatures;
 
 [IsTested]
-public partial class LanguagePickerFeature : ModFeature {
+public partial class LanguagePickerFeature : Feature {
     [LocalizedString("ToyBox_Features_SettingsFeatures_LanguagePickerFeature_LanguagePickerText", "Language Picker")]
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_SettingsFeatures_LanguagePickerFeature_PickYourCurrentUiLocaleText", "Pick your current ui locale")]

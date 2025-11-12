@@ -5,8 +5,8 @@ namespace ToyBox;
 
 public abstract partial class FeatureTab {
     private static readonly ConcurrentDictionary<Type, FeatureTab> m_Instances = [];
-    public static readonly HashSet<ModFeature> FailedFeatures = [];
-    private Dictionary<string, List<ModFeature>> m_FeatureGroups { get; set; } = [];
+    public static readonly HashSet<Feature> FailedFeatures = [];
+    private Dictionary<string, List<Feature>> m_FeatureGroups { get; set; } = [];
     public abstract string Name { get; }
     public virtual bool IsHiddenFromUI {
         get {
@@ -25,7 +25,7 @@ public abstract partial class FeatureTab {
         }
         return (T)inst;
     }
-    public virtual void AddFeature(ModFeature feature, string groupName = "") {
+    public virtual void AddFeature(Feature feature, string groupName = "") {
         if (feature is INeedEarlyInitFeature) {
             try {
                 feature.Initialize();
@@ -40,7 +40,7 @@ public abstract partial class FeatureTab {
         }
         group.Add(feature);
     }
-    public IEnumerable<ModFeature> Features {
+    public IEnumerable<Feature> Features {
         get {
             foreach (var group in m_FeatureGroups.Values) {
                 foreach (var feature in group) {
@@ -50,7 +50,7 @@ public abstract partial class FeatureTab {
         }
     }
 
-    public IEnumerable<(string groupName, List<ModFeature> features)> Groups {
+    public IEnumerable<(string groupName, List<Feature> features)> Groups {
         get {
             foreach (var group in m_FeatureGroups) {
                 yield return (group.Key, group.Value);

@@ -20,14 +20,14 @@ public static class Helpers {
     public static void ToggleModWindow() {
         UnityModManager.UI.Instance.ToggleWindow();
     }
-    public static void LogExecution(ModFeature feature, params object?[] parameter) {
+    public static void LogExecution(Feature feature, params object?[] parameter) {
         var toLog = "Executed action " + feature.Name;
         if (parameter?.Length > 0) {
             toLog += " with parameters " + parameter.ToContentString();
         }
         OwlLog(toLog);
 
-        if (ModFeature.GetInstance<LogHotkeysToCombatLogSetting>().IsEnabled) {
+        if (Feature.GetInstance<LogHotkeysToCombatLogSetting>().IsEnabled) {
             var messageText = "ToyBox".Blue() + " - " + toLog;
             var message = new CombatLogMessage(messageText, Color.black, Kingmaker.UI.Models.Log.Enums.PrefixIcon.RightArrow);
             var messageLog = LogThreadService.Instance.m_Logs[LogChannelType.Dialog].FirstOrDefault(x => x is DialogLogThread);

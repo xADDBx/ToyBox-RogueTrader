@@ -4,7 +4,7 @@ using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Features.PartyTab;
 
-public partial class PartyBrowseBuffsFeature : ModFeature, INeedContextFeature<BaseUnitEntity> {
+public partial class PartyBrowseBuffsFeature : Feature, INeedContextFeature<BaseUnitEntity> {
     [LocalizedString("ToyBox_Features_PartyTab_PartyBrowseBuffsFeature_Name", "Browse Unit Buffs")]
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_PartyTab_PartyBrowseBuffsFeature_Description", "Displays a Browser containing all the buffs of the unit in question and optionally allows removing them or adding new ones.")]

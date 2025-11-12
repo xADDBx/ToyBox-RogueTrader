@@ -4,7 +4,7 @@ using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Features.PartyTab;
 
-public partial class PartyBrowseAbilitiesFeature : ModFeature, INeedContextFeature<BaseUnitEntity> {
+public partial class PartyBrowseAbilitiesFeature : Feature, INeedContextFeature<BaseUnitEntity> {
     [LocalizedString("ToyBox_Features_PartyTab_PartyBrowseAbilitiesFeature_Name", "Browse Unit Abilities")]
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_PartyTab_PartyBrowseAbilitiesFeature_Description", "Displays a Browser containing all the abilities of the unit in question and optionally allows removing them or adding new ones.")]

@@ -6,7 +6,7 @@ using System.Reflection;
 namespace ToyBox.Features.SettingsFeatures.UpdateAndIntegrity;
 
 [IsTested]
-public partial class UpdaterFeature : ModFeature {
+public partial class UpdaterFeature : Feature {
     private static bool m_EnqueuedStart = false;
     public static bool IsDoingUpdate = false;
     private static double m_DownloadProgress = 0f;
