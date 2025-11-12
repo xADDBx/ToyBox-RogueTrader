@@ -60,7 +60,7 @@ public partial class PartyFeatureTab : FeatureTab {
     }
     public override void OnGui() {
         if (!IsInGame()) {
-            UI.Label(SharedStrings.ThisCannotBeUsedFromTheMainMenu.Red());
+            UI.Label(SharedStrings.ThisCannotBeUsedFromTheMainMenu.Red().Bold());
             return;
         }
         if (CharacterPicker.OnFilterPickerGUI(6, GUILayout.ExpandWidth(true))) {

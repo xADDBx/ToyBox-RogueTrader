@@ -12,10 +12,17 @@ public partial class ModifyFactionReputationFeature : ModFeature {
     private FactionType m_SelectedFaction = FactionType.None;
     private int m_Adjustment = 100;
     public override void OnGui() {
-        if (!IsInGame()) {
-            UI.Label(SharedStrings.ThisCannotBeUsedFromTheMainMenu);
-            return;
+        using (HorizontalScope()) {
+            UI.Label(Name);
+            Space(10);
+            UI.Label(Description.Green());
         }
+        using (HorizontalScope()) {
+            Space(50 * Main.UIScale);
+            if (!IsInGame()) {
+                UI.Label(SharedStrings.ThisCannotBeUsedFromTheMainMenu.Red().Bold());
+                return;
+            }
         _ = UI.SelectionGrid(ref m_SelectedFaction, 6, @enum => @enum.ToString());
         if (m_SelectedFaction != FactionType.None) {
             using (HorizontalScope()) {
@@ -37,9 +44,10 @@ public partial class ModifyFactionReputationFeature : ModFeature {
                         Space(10);
                         _ = UI.Button(m_AddLocalizedText, () => ReputationHelper.GainFactionReputation(m_SelectedFaction, m_Adjustment));
                         Space(10);
-                        _ = UI.Button(m_RemoveLocalizedText, () => ReputationHelper.GainFactionReputation(m_SelectedFaction, m_Adjustment));
+                        _ = UI.Button(m_RemoveLocalizedText, () => ReputationHelper.GainFactionReputation(m_SelectedFaction, -m_Adjustment));
                     }
                 }
+            }
             }
         }
     }

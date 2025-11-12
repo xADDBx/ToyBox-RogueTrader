@@ -26,8 +26,6 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
     private static partial string m_PreviewLocalizedText { get; }
     [LocalizedString("ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_DialogLocalizedText", "Dialog")]
     private static partial string m_DialogLocalizedText { get; }
-    [LocalizedString("ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_RTSpecificLocalizedText", "RT Specific")]
-    private static partial string m_RTSpecificLocalizedText { get; }
     public BagOfTricksFeatureTab() {
         AddFeature(new RestAllFeature(), m_CombatLocalizedText);
         AddFeature(new RestSelectedFeature(), m_CombatLocalizedText);
@@ -72,8 +70,13 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
         AddFeature(new DisableEndTurnKeybindFeature(), m_QualityOfLifeText);
         AddFeature(new LoadingWithBlueprintErrorsFeature(), m_QualityOfLifeText);
 
-        AddFeature(new ModifyFactionReputationFeature(), m_RTSpecificLocalizedText);
+        AddFeature(new ModifyFactionReputationFeature(), m_RTFactionReputationLocalizedText);
+        // RT Resources
+        // RT Tweaks
 
         AddFeature(new HighlightHiddenObjectsFeature(), m_CheatsText);
     }
+
+    [LocalizedString("ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_RTFactionReputationLocalizedText", "RT Faction Reputation")]
+    private static partial string m_RTFactionReputationLocalizedText { get; }
 }
