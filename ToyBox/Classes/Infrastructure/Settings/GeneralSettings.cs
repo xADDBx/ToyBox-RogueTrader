@@ -96,6 +96,9 @@ internal class GeneralSettings : AbstractSettings {
     public bool DisableEndTurnKeybindFeature = false;
     public bool EnableLoadingWithBlueprintErrors = false;
 
+    // - RT Specific
+    public bool DisableRandomWarpEncounters = false;
+
     // - Cheats
     public bool HighlightHiddenObjects = false;
     public bool HighlightInFogOfWar = false;

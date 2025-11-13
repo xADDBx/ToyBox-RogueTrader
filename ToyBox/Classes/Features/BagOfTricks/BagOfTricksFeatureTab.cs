@@ -26,6 +26,12 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
     private static partial string m_PreviewLocalizedText { get; }
     [LocalizedString("ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_DialogLocalizedText", "Dialog")]
     private static partial string m_DialogLocalizedText { get; }
+    [LocalizedString("ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_RTFactionReputationLocalizedText", "RT Faction Reputation")]
+    private static partial string m_RTFactionReputationLocalizedText { get; }
+    [LocalizedString("ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_RTResourcesLocalizedText", "RT Resources")]
+    private static partial string m_RTResourcesLocalizedText { get; }
+    [LocalizedString("ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_RTTweaksLocalizedText", "RT Tweaks")]
+    private static partial string m_RTTweaksLocalizedText { get; }
     public BagOfTricksFeatureTab() {
         AddFeature(new RestAllFeature(), m_CombatLocalizedText);
         AddFeature(new RestSelectedFeature(), m_CombatLocalizedText);
@@ -72,13 +78,8 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
 
         AddFeature(new ModifyFactionReputationFeature(), m_RTFactionReputationLocalizedText);
         AddFeature(new ModifyResourcesFeature(), m_RTResourcesLocalizedText);
-        // RT Tweaks
+        AddFeature(new DisableRandomWarpEncounterFeature(), m_RTTweaksLocalizedText);
 
         AddFeature(new HighlightHiddenObjectsFeature(), m_CheatsText);
     }
-
-    [LocalizedString("ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_RTFactionReputationLocalizedText", "RT Faction Reputation")]
-    private static partial string m_RTFactionReputationLocalizedText { get; }
-    [LocalizedString("ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_RTResourcesLocalizedText", "RT Resources")]
-    private static partial string m_RTResourcesLocalizedText { get; }
 }

@@ -2,6 +2,7 @@
 
 public abstract class FeatureWithPatch : ToggledFeature {
     protected Harmony HarmonyInstance = null!;
+    protected bool IsPatched = false;
     protected virtual string HarmonyName {
         get {
             return $"ToyBox.Feature.{Name}";
@@ -12,12 +13,16 @@ public abstract class FeatureWithPatch : ToggledFeature {
         HarmonyInstance = new(HarmonyName);
     }
     public void Patch() {
-        if (IsEnabled) {
+        if (IsEnabled && !IsPatched) {
             ToyBoxPatchCategoryAttribute.PatchCategory(HarmonyName, HarmonyInstance);
+            IsPatched = true;
         }
     }
     public void Unpatch() {
-        HarmonyInstance.UnpatchAll(HarmonyName);
+        if (IsPatched) {
+            HarmonyInstance.UnpatchAll(HarmonyName);
+            IsPatched = false;
+        }
     }
 
     public override void Initialize() {

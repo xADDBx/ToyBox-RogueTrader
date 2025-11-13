@@ -16,7 +16,8 @@ Reworked Browsers. Again:
 
 Rewrote some features:
 - They might work better now. Or worse (hopefully not).
-- One feature in TB1 caused a (very minor!) memory leak by default; which would leak maybe around 0.1-1KB (could be less; depends on the amount of hidden objects on the map) each time you left an area; That was fixed.
+- Fixed Preview Dialog Results predicting the wrong dialog paths in rare situations
+- 
 
 Removed useless/unimplemented features:
 - Lots of things were leftover from the initial Wrath => RogueTrader port and/or became useless over time; the toggles/buttons basically did nothing but were still in the UI and sometimes still applied their patches.
