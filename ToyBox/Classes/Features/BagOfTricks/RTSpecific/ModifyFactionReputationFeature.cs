@@ -3,6 +3,7 @@ using Kingmaker.Enums;
 using UnityEngine;
 
 namespace ToyBox.Features.BagOfTricks.RTSpecific;
+
 [IsTested]
 public partial class ModifyFactionReputationFeature : Feature {
     [LocalizedString("ToyBox_Features_BagOfTricks_RTSpecific_ModifyFactionReputationFeature_Name", "Modify Faction Reputation")]

@@ -4,6 +4,7 @@ using Kingmaker.Code.UI.MVVM.VM.NavigatorResource;
 using UnityEngine;
 
 namespace ToyBox.Features.BagOfTricks.RTSpecific;
+
 [IsTested]
 public partial class ModifyResourcesFeature : Feature {
     [LocalizedString("ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_Name", "Modify RT Resources")]
@@ -38,7 +39,7 @@ public partial class ModifyResourcesFeature : Feature {
                         }
                         Space(10);
                         if (UI.Button(m_AddLocalizedText)) {
-                            CheatsGlobalMap.AddNavigatorResource(m_NavigatorAdjustment); 
+                            CheatsGlobalMap.AddNavigatorResource(m_NavigatorAdjustment);
                             SectorMapBottomHudVM.Instance?.SetCurrentValue();
                         }
                         Space(10);

@@ -98,6 +98,8 @@ internal class GeneralSettings : AbstractSettings {
 
     // - RT Specific
     public bool DisableRandomWarpEncounters = false;
+    public bool EnablePreventPsychicPhenomena = false;
+    public bool EnablePreventVeilThicknessFromChanging = false;
 
     // - Cheats
     public bool HighlightHiddenObjects = false;
