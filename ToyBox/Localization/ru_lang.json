@@ -43,6 +43,18 @@
     "Original": "RT Tweaks",
     "Translated": null
   },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_CameraLocalizedText": {
+    "Original": "Camera",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Camera_AllowZoomOnAllMapsAndCutscenes_Name": {
+    "Original": "Enable Zoom on all maps and cutscenes",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Camera_AllowZoomOnAllMapsAndCutscenes_Description": {
+    "Original": "Makes CameraController always allow zoom and ignore ZoomLock",
+    "Translated": null
+  },
   "ToyBox_Features_BagOfTricks_Cheats_HighlightHiddenObjectsFeature_Name": {
     "Original": "Highlight Hidden Objects",
     "Translated": "Выделить скрытые объекты"

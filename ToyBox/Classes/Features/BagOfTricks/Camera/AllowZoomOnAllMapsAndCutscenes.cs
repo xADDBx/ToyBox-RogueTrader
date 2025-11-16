@@ -1,0 +1,51 @@
+﻿using Kingmaker.Controllers.Rest;
+using Kingmaker.View;
+
+namespace ToyBox.Features.BagOfTricks.Camera;
+
+[HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.Camera.AllowZoomOnAllMapsAndCutscenes")]
+public partial class AllowZoomOnAllMapsAndCutscenes : FeatureWithPatch {
+    public override ref bool IsEnabled {
+        get {
+            return ref Settings.EnableAllowZoomOnAllMapsAndCutscenes;
+        }
+    }
+    [LocalizedString("ToyBox_Features_BagOfTricks_Camera_AllowZoomOnAllMapsAndCutscenes_Name", "Enable Zoom on all maps and cutscenes")]
+    public override partial string Name { get; }
+    [LocalizedString("ToyBox_Features_BagOfTricks_Camera_AllowZoomOnAllMapsAndCutscenes_Description", "Makes CameraController always allow zoom and ignore ZoomLock.")]
+    public override partial string Description { get; }
+
+    protected override string HarmonyName {
+        get {
+            return "ToyBox.Features.BagOfTricks.Camera.AllowZoomOnAllMapsAndCutscenes";
+        }
+    }
+    [HarmonyPatch(typeof(CameraController), nameof(CameraController.Tick)), HarmonyTranspiler]
+    private static IEnumerable<CodeInstruction> CameraController_Tick_Patch(IEnumerable<CodeInstruction> instructions) {
+        var field = AccessTools.Field(typeof(CameraController), nameof(CameraController.m_AllowZoom));
+        foreach (var instruction in instructions) {
+            if (instruction.LoadsField(field)) {
+                yield return CodeInstruction.Call((object obj) => ReplacementTrue(obj)).WithLabels(instruction.labels);
+            } else {
+                yield return instruction;
+            }
+        }
+    }
+    [HarmonyPatch(typeof(CameraZoom), nameof(CameraZoom.TickZoom)), HarmonyTranspiler]
+    private static IEnumerable<CodeInstruction> CameraZoom_TickZoom_Patch(IEnumerable<CodeInstruction> instructions) {
+        var field = AccessTools.Field(typeof(CameraZoom), nameof(CameraZoom.ZoomLock));
+        foreach (var instruction in instructions) {
+            if (instruction.LoadsField(field)) {
+                yield return CodeInstruction.Call((object obj) => ReplacementFalse(obj)).WithLabels(instruction.labels);
+            } else {
+                yield return instruction;
+            }
+        }
+    }
+    private static bool ReplacementTrue(object _) {
+        return true;
+    }
+    private static bool ReplacementFalse(object _) {
+        return false;
+    }
+}

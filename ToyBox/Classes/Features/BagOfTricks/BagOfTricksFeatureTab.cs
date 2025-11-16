@@ -1,4 +1,5 @@
-﻿using ToyBox.Features.BagOfTricks.Cheats;
+﻿using ToyBox.Features.BagOfTricks.Camera;
+using ToyBox.Features.BagOfTricks.Cheats;
 using ToyBox.Features.BagOfTricks.Combat;
 using ToyBox.Features.BagOfTricks.Common;
 using ToyBox.Features.BagOfTricks.Dialog;
@@ -32,6 +33,8 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
     private static partial string m_RTResourcesLocalizedText { get; }
     [LocalizedString("ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_RTTweaksLocalizedText", "RT Tweaks")]
     private static partial string m_RTTweaksLocalizedText { get; }
+    [LocalizedString("ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_CameraLocalizedText", "Camera")]
+    private static partial string m_CameraLocalizedText { get; }
     public BagOfTricksFeatureTab() {
         AddFeature(new RestAllFeature(), m_CombatLocalizedText);
         AddFeature(new RestSelectedFeature(), m_CombatLocalizedText);
@@ -84,6 +87,9 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
         AddFeature(new PreventPsychicPhenomena(), m_RTTweaksLocalizedText);
         AddFeature(new PreventVeilThicknessFromChanging(), m_RTTweaksLocalizedText);
         AddFeature(new CustomizePsychicPhenomena(), m_RTTweaksLocalizedText);
+
+        AddFeature(new AllowZoomOnAllMapsAndCutscenes(), m_CameraLocalizedText);
+        AddFeature(new AllowRotateOnAllMapsAndCutscenes(), m_CameraLocalizedText);
 
         AddFeature(new HighlightHiddenObjectsFeature(), m_CheatsText);
     }

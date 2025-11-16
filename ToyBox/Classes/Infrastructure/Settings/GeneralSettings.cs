@@ -105,6 +105,10 @@ internal class GeneralSettings : AbstractSettings {
     public HashSet<string> ExcludedPerilsMinor = [];
     public HashSet<string> ExcludedPerilsMajor = [];
 
+    // - Camera
+    public bool EnableAllowZoomOnAllMapsAndCutscenes = false;
+    public bool EnableAllowRotateOnAllMapsAndCutscenes = false;
+
     // - Cheats
     public bool HighlightHiddenObjects = false;
     public bool HighlightInFogOfWar = false;
