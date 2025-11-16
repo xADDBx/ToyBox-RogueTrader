@@ -47,12 +47,52 @@
     "Original": "Camera",
     "Translated": null
   },
-  "ToyBox_Features_BagOfTricks_Camera_AllowZoomOnAllMapsAndCutscenes_Name": {
+  "ToyBox_Features_BagOfTricks_Camera_AllowRotateOnAllMapsAndCutscenesFeature_Name": {
+    "Original": "Enable Rotate on all maps and cutscenes",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Camera_AllowRotateOnAllMapsAndCutscenesFeature_Description": {
+    "Original": "Note: For cutscenes and some situations the rotation keys are disabled so you have to hold down Mouse3 to drag in order to get rotation",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Camera_AllowZoomOnAllMapsAndCutscenesFeature_Name": {
     "Original": "Enable Zoom on all maps and cutscenes",
     "Translated": null
   },
-  "ToyBox_Features_BagOfTricks_Camera_AllowZoomOnAllMapsAndCutscenes_Description": {
-    "Original": "Makes CameraController always allow zoom and ignore ZoomLock",
+  "ToyBox_Features_BagOfTricks_Camera_AllowZoomOnAllMapsAndCutscenesFeature_Description": {
+    "Original": "Makes CameraController always allow zoom and ignore ZoomLock.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Camera_CameraElevationOffsetFeature_Name": {
+    "Original": "Modify Camera Elevation Offset",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Camera_CameraElevationOffsetFeature_Description": {
+    "Original": "Adds a flat modifier to the height of the camera above the ground.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Camera_DragCameraElevationFeature_Name": {
+    "Original": "Press CTRL while rotating camera to change height",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Camera_DragCameraElevationFeature_Description": {
+    "Original": "CTRL + Mouse3 to adjust camera height",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Camera_FOVMultiplierFeature_Name": {
+    "Original": "Field Of View",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Camera_FOVMultiplierFeature_Description": {
+    "Original": "Multiplies the FOV with the specified value.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Camera_FreeCamFeature_Name": {
+    "Original": "Free Camera",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Camera_FreeCamFeature_Description": {
+    "Original": "Makes the game no longer force the camera to ground.",
     "Translated": null
   },
   "ToyBox_Features_BagOfTricks_Cheats_HighlightHiddenObjectsFeature_Name": {
@@ -391,39 +431,39 @@
     "Original": "This skips the splash screen that appears when the game starts. Helpful if you need to frequently restart the game.",
     "Translated": null
   },
-  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomena_m_CustomizeLocalizedText": {
+  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_m_CustomizeLocalizedText": {
     "Original": "Open Customize UI",
     "Translated": null
   },
-  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomena_m_PsychicPhenomenaLocalizedText": {
+  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_m_PsychicPhenomenaLocalizedText": {
     "Original": "Psychic Phenomena",
     "Translated": null
   },
-  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomena_m_MinorPerilsLocalizedText": {
+  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_m_MinorPerilsLocalizedText": {
     "Original": "Minor Perils",
     "Translated": null
   },
-  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomena_m_MajorPerilsLocalizedText": {
+  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_m_MajorPerilsLocalizedText": {
     "Original": "Major Perils",
     "Translated": null
   },
-  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomena_Name": {
+  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_Name": {
     "Original": "Customize Psychic Phenomena / Perils of the Warp",
     "Translated": null
   },
-  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomena_Description": {
+  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_Description": {
     "Original": "Allows disabling specific psychic phenomenas or perils of the warp.",
     "Translated": null
   },
-  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomena_m_RefreshAvailablePhenomenas_PerilLocalizedText": {
+  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_m_RefreshAvailablePhenomenas_PerilLocalizedText": {
     "Original": "Refresh Available Phenomenas/Perils (for mod compat)",
     "Translated": null
   },
-  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomena_m_StopExcludingLocalizedText": {
+  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_m_StopExcludingLocalizedText": {
     "Original": "Stop Excluding",
     "Translated": null
   },
-  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomena_m_ExcludeLocalizedText": {
+  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_m_ExcludeLocalizedText": {
     "Original": "Exclude",
     "Translated": null
   },
@@ -519,19 +559,19 @@
     "Original": "Set",
     "Translated": null
   },
-  "ToyBox_Features_BagOfTricks_RTSpecific_PreventPsychicPhenomena_Name": {
+  "ToyBox_Features_BagOfTricks_RTSpecific_PreventPsychicPhenomenaFeature_Name": {
     "Original": "Prevent Psychic Phenomena",
     "Translated": null
   },
-  "ToyBox_Features_BagOfTricks_RTSpecific_PreventPsychicPhenomena_Description": {
+  "ToyBox_Features_BagOfTricks_RTSpecific_PreventPsychicPhenomenaFeature_Description": {
     "Original": "Prevents Psyker Abilities from causing any kind of psychic phenomena. This includes e.g. the Dark Prayer ability and Chaos Sword.",
     "Translated": null
   },
-  "ToyBox_Features_BagOfTricks_RTSpecific_PreventVeilThicknessFromChanging_Name": {
+  "ToyBox_Features_BagOfTricks_RTSpecific_PreventVeilThicknessFromChangingFeature_Name": {
     "Original": "Prevent Veil Thickness from Changing",
     "Translated": null
   },
-  "ToyBox_Features_BagOfTricks_RTSpecific_PreventVeilThicknessFromChanging_Description": {
+  "ToyBox_Features_BagOfTricks_RTSpecific_PreventVeilThicknessFromChangingFeature_Description": {
     "Original": "Forces the current veil thickness to 0.",
     "Translated": null
   },

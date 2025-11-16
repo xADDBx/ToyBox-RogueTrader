@@ -3,21 +3,21 @@ using Kingmaker.View;
 
 namespace ToyBox.Features.BagOfTricks.Camera;
 
-[HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.Camera.AllowRotateOnAllMapsAndCutscenes")]
-public partial class AllowRotateOnAllMapsAndCutscenes : FeatureWithPatch {
+[HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.Camera.AllowRotateOnAllMapsAndCutscenesFeature")]
+public partial class AllowRotateOnAllMapsAndCutscenesFeature : FeatureWithPatch {
     public override ref bool IsEnabled {
         get {
             return ref Settings.EnableAllowRotateOnAllMapsAndCutscenes;
         }
     }
-    [LocalizedString("ToyBox_Features_BagOfTricks_Camera_AllowRotateOnAllMapsAndCutscenes_Name", "Enable Rotate on all maps and cutscenes")]
+    [LocalizedString("ToyBox_Features_BagOfTricks_Camera_AllowRotateOnAllMapsAndCutscenesFeature_Name", "Enable Rotate on all maps and cutscenes")]
     public override partial string Name { get; }
-    [LocalizedString("ToyBox_Features_BagOfTricks_Camera_AllowRotateOnAllMapsAndCutscenes_Description", "Makes CameraController always allow rotate and ignore m_HandRotationLock.")]
+    [LocalizedString("ToyBox_Features_BagOfTricks_Camera_AllowRotateOnAllMapsAndCutscenesFeature_Description", "Note: For cutscenes and some situations the rotation keys are disabled so you have to hold down Mouse3 to drag in order to get rotation")]
     public override partial string Description { get; }
 
     protected override string HarmonyName {
         get {
-            return "ToyBox.Features.BagOfTricks.Camera.AllowRotateOnAllMapsAndCutscenes";
+            return "ToyBox.Features.BagOfTricks.Camera.AllowRotateOnAllMapsAndCutscenesFeature";
         }
     }
     [HarmonyPatch(typeof(CameraController), nameof(CameraController.Tick)), HarmonyTranspiler]

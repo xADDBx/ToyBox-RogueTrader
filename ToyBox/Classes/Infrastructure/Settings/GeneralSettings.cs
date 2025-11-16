@@ -108,6 +108,10 @@ internal class GeneralSettings : AbstractSettings {
     // - Camera
     public bool EnableAllowZoomOnAllMapsAndCutscenes = false;
     public bool EnableAllowRotateOnAllMapsAndCutscenes = false;
+    public float FOVMultiplierSetting = 1;
+    public bool EnableFreeCam = false;
+    public float CameraElevationOffset = 0;
+    public bool EnableDragCameraElevation = false;
 
     // - Cheats
     public bool HighlightHiddenObjects = false;

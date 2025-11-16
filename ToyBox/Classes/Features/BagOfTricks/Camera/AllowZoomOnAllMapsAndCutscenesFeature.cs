@@ -3,21 +3,21 @@ using Kingmaker.View;
 
 namespace ToyBox.Features.BagOfTricks.Camera;
 
-[HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.Camera.AllowZoomOnAllMapsAndCutscenes")]
-public partial class AllowZoomOnAllMapsAndCutscenes : FeatureWithPatch {
+[HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.Camera.AllowZoomOnAllMapsAndCutscenesFeature")]
+public partial class AllowZoomOnAllMapsAndCutscenesFeature : FeatureWithPatch {
     public override ref bool IsEnabled {
         get {
             return ref Settings.EnableAllowZoomOnAllMapsAndCutscenes;
         }
     }
-    [LocalizedString("ToyBox_Features_BagOfTricks_Camera_AllowZoomOnAllMapsAndCutscenes_Name", "Enable Zoom on all maps and cutscenes")]
+    [LocalizedString("ToyBox_Features_BagOfTricks_Camera_AllowZoomOnAllMapsAndCutscenesFeature_Name", "Enable Zoom on all maps and cutscenes")]
     public override partial string Name { get; }
-    [LocalizedString("ToyBox_Features_BagOfTricks_Camera_AllowZoomOnAllMapsAndCutscenes_Description", "Makes CameraController always allow zoom and ignore ZoomLock.")]
+    [LocalizedString("ToyBox_Features_BagOfTricks_Camera_AllowZoomOnAllMapsAndCutscenesFeature_Description", "Makes CameraController always allow zoom and ignore ZoomLock.")]
     public override partial string Description { get; }
 
     protected override string HarmonyName {
         get {
-            return "ToyBox.Features.BagOfTricks.Camera.AllowZoomOnAllMapsAndCutscenes";
+            return "ToyBox.Features.BagOfTricks.Camera.AllowZoomOnAllMapsAndCutscenesFeature";
         }
     }
     [HarmonyPatch(typeof(CameraController), nameof(CameraController.Tick)), HarmonyTranspiler]

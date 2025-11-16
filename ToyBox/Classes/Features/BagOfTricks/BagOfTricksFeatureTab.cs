@@ -84,12 +84,16 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
         AddFeature(new ModifyResourcesFeature(), m_RTResourcesLocalizedText);
 
         AddFeature(new DisableRandomWarpEncounterFeature(), m_RTTweaksLocalizedText);
-        AddFeature(new PreventPsychicPhenomena(), m_RTTweaksLocalizedText);
-        AddFeature(new PreventVeilThicknessFromChanging(), m_RTTweaksLocalizedText);
-        AddFeature(new CustomizePsychicPhenomena(), m_RTTweaksLocalizedText);
+        AddFeature(new PreventPsychicPhenomenaFeature(), m_RTTweaksLocalizedText);
+        AddFeature(new PreventVeilThicknessFromChangingFeature(), m_RTTweaksLocalizedText);
+        AddFeature(new CustomizePsychicPhenomenaFeature(), m_RTTweaksLocalizedText);
 
-        AddFeature(new AllowZoomOnAllMapsAndCutscenes(), m_CameraLocalizedText);
-        AddFeature(new AllowRotateOnAllMapsAndCutscenes(), m_CameraLocalizedText);
+        AddFeature(new AllowZoomOnAllMapsAndCutscenesFeature(), m_CameraLocalizedText);
+        AddFeature(new AllowRotateOnAllMapsAndCutscenesFeature(), m_CameraLocalizedText);
+        AddFeature(new FOVMultiplierFeature(), m_CameraLocalizedText);
+        AddFeature(new FreeCamFeature(), m_CameraLocalizedText);
+        AddFeature(new CameraElevationOffsetFeature(), m_CameraLocalizedText);
+        AddFeature(new DragCameraElevationFeature(), m_CameraLocalizedText);
 
         AddFeature(new HighlightHiddenObjectsFeature(), m_CheatsText);
     }

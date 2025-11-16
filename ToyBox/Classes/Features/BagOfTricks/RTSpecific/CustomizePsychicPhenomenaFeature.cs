@@ -8,9 +8,9 @@ using UnityEngine;
 
 namespace ToyBox.Features.BagOfTricks.RTSpecific;
 
-[HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.RTSpecific.CustomizePsychicPhenomena")]
+[HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.RTSpecific.CustomizePsychicPhenomenaFeature")]
 // Early Init to prevent threading from causing issues with mods adding new phenomenas
-public partial class CustomizePsychicPhenomena : FeatureWithPatch, INeedEarlyInitFeature {
+public partial class CustomizePsychicPhenomenaFeature : FeatureWithPatch, INeedEarlyInitFeature {
     private IEnumerable<BlueprintPsychicPhenomenaRoot.PsychicPhenomenaData>? m_BackupPsychicPhenomena;
     private IEnumerable<BlueprintAbilityReference>? m_BackupPerilsOfTheWarpMinor;
     private IEnumerable<BlueprintAbilityReference>? m_BackupPerilsOfTheWarpMajor;
@@ -147,27 +147,27 @@ public partial class CustomizePsychicPhenomena : FeatureWithPatch, INeedEarlyIni
         }
     }
 
-    [LocalizedString("ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomena_m_CustomizeLocalizedText", "Open Customize UI")]
+    [LocalizedString("ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_m_CustomizeLocalizedText", "Open Customize UI")]
     private static partial string m_CustomizeLocalizedText { get; }
-    [LocalizedString("ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomena_m_PsychicPhenomenaLocalizedText", "Psychic Phenomena")]
+    [LocalizedString("ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_m_PsychicPhenomenaLocalizedText", "Psychic Phenomena")]
     private static partial string m_PsychicPhenomenaLocalizedText { get; }
-    [LocalizedString("ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomena_m_MinorPerilsLocalizedText", "Minor Perils")]
+    [LocalizedString("ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_m_MinorPerilsLocalizedText", "Minor Perils")]
     private static partial string m_MinorPerilsLocalizedText { get; }
-    [LocalizedString("ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomena_m_MajorPerilsLocalizedText", "Major Perils")]
+    [LocalizedString("ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_m_MajorPerilsLocalizedText", "Major Perils")]
     private static partial string m_MajorPerilsLocalizedText { get; }
-    [LocalizedString("ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomena_Name", "Customize Psychic Phenomena / Perils of the Warp")]
+    [LocalizedString("ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_Name", "Customize Psychic Phenomena / Perils of the Warp")]
     public override partial string Name { get; }
-    [LocalizedString("ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomena_Description", "Allows disabling specific psychic phenomenas or perils of the warp.")]
+    [LocalizedString("ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_Description", "Allows disabling specific psychic phenomenas or perils of the warp.")]
     public override partial string Description { get; }
-    [LocalizedString("ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomena_m_RefreshAvailablePhenomenas_PerilLocalizedText", "Refresh Available Phenomenas/Perils (for mod compat)")]
+    [LocalizedString("ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_m_RefreshAvailablePhenomenas_PerilLocalizedText", "Refresh Available Phenomenas/Perils (for mod compat)")]
     private static partial string m_RefreshAvailablePhenomenas_PerilLocalizedText { get; }
-    [LocalizedString("ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomena_m_StopExcludingLocalizedText", "Stop Excluding")]
+    [LocalizedString("ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_m_StopExcludingLocalizedText", "Stop Excluding")]
     private static partial string m_StopExcludingLocalizedText { get; }
-    [LocalizedString("ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomena_m_ExcludeLocalizedText", "Exclude")]
+    [LocalizedString("ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_m_ExcludeLocalizedText", "Exclude")]
     private static partial string m_ExcludeLocalizedText { get; }
-    [HarmonyPatch(typeof(BlueprintsCache), nameof(BlueprintsCache.Init), Priority.Last), HarmonyPostfix]
+    [HarmonyPatch(typeof(BlueprintsCache), nameof(BlueprintsCache.Init)), HarmonyPostfix, HarmonyPriority(Priority.Last)]
     private static void InitializePatch() {
-        var feature = GetInstance<CustomizePsychicPhenomena>();
+        var feature = GetInstance<CustomizePsychicPhenomenaFeature>();
         if (feature.IsEnabled) {
             feature.BackupPhenomena();
             feature.RemovePhenomena();
@@ -175,7 +175,7 @@ public partial class CustomizePsychicPhenomena : FeatureWithPatch, INeedEarlyIni
     }
     protected override string HarmonyName {
         get {
-            return "ToyBox.Features.BagOfTricks.RTSpecific.CustomizePsychicPhenomena";
+            return "ToyBox.Features.BagOfTricks.RTSpecific.CustomizePsychicPhenomenaFeature";
         }
     }
 }
