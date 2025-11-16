@@ -39,6 +39,10 @@
     "Original": "RT Resources",
     "Translated": null
   },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_RTTweaksLocalizedText": {
+    "Original": "RT Tweaks",
+    "Translated": null
+  },
   "ToyBox_Features_BagOfTricks_Cheats_HighlightHiddenObjectsFeature_Name": {
     "Original": "Highlight Hidden Objects",
     "Translated": null
@@ -375,6 +379,50 @@
     "Original": "This skips the splash screen that appears when the game starts. Helpful if you need to frequently restart the game.",
     "Translated": null
   },
+  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomena_m_CustomizeLocalizedText": {
+    "Original": "Open Customize UI",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomena_m_PsychicPhenomenaLocalizedText": {
+    "Original": "Psychic Phenomena",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomena_m_MinorPerilsLocalizedText": {
+    "Original": "Minor Perils",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomena_m_MajorPerilsLocalizedText": {
+    "Original": "Major Perils",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomena_Name": {
+    "Original": "Customize Psychic Phenomena / Perils of the Warp",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomena_Description": {
+    "Original": "Allows disabling specific psychic phenomenas or perils of the warp.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomena_m_RefreshAvailablePhenomenas_PerilLocalizedText": {
+    "Original": "Refresh Available Phenomenas/Perils (for mod compat)",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomena_m_StopExcludingLocalizedText": {
+    "Original": "Stop Excluding",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomena_m_ExcludeLocalizedText": {
+    "Original": "Exclude",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_DisableRandomWarpEncounterFeature_Name": {
+    "Original": "Disable Random Encounters in Warp",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_DisableRandomWarpEncounterFeature_Description": {
+    "Original": "Prevents random encounters in warp. Note that this also disables positive and flavor events!",
+    "Translated": null
+  },
   "ToyBox_Features_BagOfTricks_RTSpecific_ModifyFactionReputationFeature_Name": {
     "Original": "Modify Faction Reputation",
     "Translated": null
@@ -457,6 +505,22 @@
   },
   "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_SetLocalizedText": {
     "Original": "Set",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_PreventPsychicPhenomena_Name": {
+    "Original": "Prevent Psychic Phenomena",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_PreventPsychicPhenomena_Description": {
+    "Original": "Prevents Psyker Abilities from causing any kind of psychic phenomena. This includes e.g. the Dark Prayer ability and Chaos Sword.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_PreventVeilThicknessFromChanging_Name": {
+    "Original": "Prevent Veil Thickness from Changing",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_PreventVeilThicknessFromChanging_Description": {
+    "Original": "Forces the current veil thickness to 0.",
     "Translated": null
   },
   "ToyBox_Features_BagOfTricks_Teleport_TeleportMainToCursorFeature_Name": {

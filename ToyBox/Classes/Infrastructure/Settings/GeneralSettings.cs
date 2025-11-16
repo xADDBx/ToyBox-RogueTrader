@@ -100,6 +100,10 @@ internal class GeneralSettings : AbstractSettings {
     public bool DisableRandomWarpEncounters = false;
     public bool EnablePreventPsychicPhenomena = false;
     public bool EnablePreventVeilThicknessFromChanging = false;
+    public bool EnableCustomizePsychicPhenomena = false;
+    public HashSet<string> ExcludedRandomPhenomena = [];
+    public HashSet<string> ExcludedPerilsMinor = [];
+    public HashSet<string> ExcludedPerilsMajor = [];
 
     // - Cheats
     public bool HighlightHiddenObjects = false;

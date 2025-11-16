@@ -82,7 +82,8 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
 
         AddFeature(new DisableRandomWarpEncounterFeature(), m_RTTweaksLocalizedText);
         AddFeature(new PreventPsychicPhenomena(), m_RTTweaksLocalizedText);
-        AddFeature(new PreventVeilThicknessFromChanging, m_RTTweaksLocalizedText);
+        AddFeature(new PreventVeilThicknessFromChanging(), m_RTTweaksLocalizedText);
+        AddFeature(new CustomizePsychicPhenomena(), m_RTTweaksLocalizedText);
 
         AddFeature(new HighlightHiddenObjectsFeature(), m_CheatsText);
     }
