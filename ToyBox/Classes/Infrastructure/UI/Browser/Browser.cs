@@ -15,7 +15,7 @@ public partial class Browser<T> : VerticalList<T> where T : notnull {
     private string? m_SearchBarControlName;
     protected Action<Action<IEnumerable<T>>>? ShowAllFunc = null;
     private bool m_ShowAllFuncCalled = false;
-    protected bool ShowAll = false;
+    public bool ShowAll { get; protected set; } = false;
     private Task? m_DebounceTask;
     protected IEnumerable<T>? UnsearchedShowAllItems = null;
     protected IEnumerable<T> UnsearchedItems = [];

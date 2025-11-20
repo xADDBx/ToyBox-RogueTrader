@@ -463,6 +463,26 @@
     "Original": "Override for Space Combat",
     "Translated": null
   },
+  "ToyBox_Features_BagOfTricks_OtherMultipliers_BuffDurationMultiplierFeature_m_ManageExceptionsToBuffDurationMuLocalizedText": {
+    "Original": "Manage Exceptions to Buff Duration Multiplier",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_OtherMultipliers_BuffDurationMultiplierFeature_Name": {
+    "Original": "Buff Duration Multiplier",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_OtherMultipliers_BuffDurationMultiplierFeature_Description": {
+    "Original": "Multiplies the duration of buffs assuming they are not excluded and not casted by an enemy.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_OtherMultipliers_BuffDurationMultiplierFeature_m_StopExcludingLocalizedText": {
+    "Original": "Stop Excluding",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_OtherMultipliers_BuffDurationMultiplierFeature_m_ExcludeLocalizedText": {
+    "Original": "Exclude",
+    "Translated": null
+  },
   "ToyBox_Features_BagOfTricks_OtherMultipliers_MaxWalkDistanceFeature_Name": {
     "Original": "Max Walk distance",
     "Translated": null
