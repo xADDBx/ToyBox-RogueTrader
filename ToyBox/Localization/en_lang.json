@@ -103,6 +103,14 @@
     "Original": "This allows doing Infinite Actions per turn.",
     "Translated": null
   },
+  "ToyBox_Features_BagOfTricks_Cheats_EquipmentChangeDuringCombatFeature_Name": {
+    "Original": "Equipment Change during Combat",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_EquipmentChangeDuringCombatFeature_Description": {
+    "Original": "Allows changing your equipment while in combat.",
+    "Translated": null
+  },
   "ToyBox_Features_BagOfTricks_Cheats_FreeAbilitiesFeature_Name": {
     "Original": "Free Abilities",
     "Translated": null

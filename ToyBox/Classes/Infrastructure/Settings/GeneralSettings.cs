@@ -127,4 +127,5 @@ internal class GeneralSettings : AbstractSettings {
     public bool EnableIgnoreEquipmentRestrictions = false;
     public bool EnableRestoreSpellsAndSkillsAfterCombat = false;
     public bool EnableInstantRestAfterCombat = false;
+    public bool EnableEquipmentChangeDuringCombat = false;
 }
