@@ -150,4 +150,5 @@ internal class GeneralSettings : AbstractSettings {
 
     // - Other Multipliers
     public int? MaxWalkDistanceSetting = null;
+    public int? MinSprintDistanceSetting = null;
 }

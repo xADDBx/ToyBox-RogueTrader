@@ -471,6 +471,14 @@
     "Original": "Adjusts how far of your character you can click and still cause your character to walk instead of run.",
     "Translated": null
   },
+  "ToyBox_Features_BagOfTricks_OtherMultipliers_MinSprintDistanceFeature_Name": {
+    "Original": "Min Sprint distance",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_OtherMultipliers_MinSprintDistanceFeature_Description": {
+    "Original": "Adjusts how far of your character you have to click and still cause your character to spring. If this area overlaps with walk distance then this has priority.",
+    "Translated": null
+  },
   "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_RunActionHolderLocalizedText": {
     "Original": "RunActionHolder",
     "Translated": null
