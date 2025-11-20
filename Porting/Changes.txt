@@ -20,6 +20,7 @@ Rewrote some features:
 - PreventPsychicPhenomena now prevents all (including Unsanctioned Psyker)
 - CustomizePsychicPhenomena now also accounts for phenomena triggered in a non-standard way (e.g. Unsanctioned Psyker)
 - Add proper names/descriptions to each phenomena in CustomizePsychicPhenomena
+- Ignore Equipment Restrictions adjusted for armour?
 
 Removed useless/unimplemented features:
 - Lots of things were leftover from the initial Wrath => RogueTrader port and/or became useless over time; the toggles/buttons basically did nothing but were still in the UI and sometimes still applied their patches.

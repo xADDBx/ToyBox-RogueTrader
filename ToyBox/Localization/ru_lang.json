@@ -127,6 +127,14 @@
     "Original": "Also Highlight in Fog of War",
     "Translated": "Также выделять в тумане войны"
   },
+  "ToyBox_Features_BagOfTricks_Cheats_IgnoreEquipmentRestrictionsFeature_Name": {
+    "Original": "Ignore Equipment Restrictions",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_IgnoreEquipmentRestrictionsFeature_Description": {
+    "Original": "Allows equipping items regardless of class, stat, etc. requirements.",
+    "Translated": null
+  },
   "ToyBox_Features_BagOfTricks_Cheats_InfiniteChargesOnItemsFeature_Name": {
     "Original": "Infinite Charges on Items",
     "Translated": null

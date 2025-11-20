@@ -103,5 +103,6 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
         AddFeature(new PartialUnlimitedActionsPerTurnFeature(), m_CheatsText);
         AddFeature(new CompleteUnlimitedActionsPerTurnFeature(), m_CheatsText);
         AddFeature(new InfiniteChargesOnItemsFeature(), m_CheatsText);
+        AddFeature(new IgnoreEquipmentRestrictionsFeature(), m_CheatsText);
     }
 }
