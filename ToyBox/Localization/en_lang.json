@@ -143,6 +143,14 @@
     "Original": "Prevents charges on usable items from being spent.",
     "Translated": null
   },
+  "ToyBox_Features_BagOfTricks_Cheats_InstantRestAfterCombatFeature_Name": {
+    "Original": "Instant Rest after Combat",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_InstantRestAfterCombatFeature_Description": {
+    "Original": "Restores Item charges and rests Units once the party leaves combat.",
+    "Translated": null
+  },
   "ToyBox_Features_BagOfTricks_Cheats_NoAbilityCooldownsFeature_Name": {
     "Original": "No Ability Cooldowns",
     "Translated": null

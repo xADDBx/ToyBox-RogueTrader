@@ -1,17 +1,17 @@
-﻿using Kingmaker;
+﻿using Kingmaker.Cheats;
 using Kingmaker.PubSubSystem.Core;
 
 namespace ToyBox.Features.BagOfTricks.Cheats;
 
-public partial class RestoreSpellsAndSkillsAfterCombatFeature : ToggledFeature, IPartyCombatHandler {
+public partial class InstantRestAfterCombatFeature : ToggledFeature, IPartyCombatHandler {
     public override ref bool IsEnabled {
         get {
-            return ref Settings.EnableRestoreSpellsAndSkillsAfterCombat;
+            return ref Settings.EnableInstantRestAfterCombat;
         }
     }
-    [LocalizedString("ToyBox_Features_BagOfTricks_Cheats_RestoreSpellsAndSkillsAfterCombatFeature_Name", "Restore Spells and Skills after Combat")]
+    [LocalizedString("ToyBox_Features_BagOfTricks_Cheats_InstantRestAfterCombatFeature_Name", "Instant Rest after Combat")]
     public override partial string Name { get; }
-    [LocalizedString("ToyBox_Features_BagOfTricks_Cheats_RestoreSpellsAndSkillsAfterCombatFeature_Description", "Restores all ability resources once the party leaves combat.")]
+    [LocalizedString("ToyBox_Features_BagOfTricks_Cheats_InstantRestAfterCombatFeature_Description", "Restores Item charges and rests Units once the party leaves combat.")]
     public override partial string Description { get; }
     private bool m_IsSubscribed = false;
     public override void Initialize() {
@@ -30,12 +30,7 @@ public partial class RestoreSpellsAndSkillsAfterCombatFeature : ToggledFeature, 
     }
     public void HandlePartyCombatStateChanged(bool inCombat) {
         if (!inCombat) {
-            foreach (var u in Game.Instance.Player.PartyAndPets) {
-                foreach (var resource in u.AbilityResources) {
-                    u.AbilityResources.Restore(resource);
-                }
-                u.Brain.RestoreAvailableActions();
-            }
+            CheatsCombat.RestAll();
         }
     }
 }

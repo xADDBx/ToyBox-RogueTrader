@@ -105,5 +105,6 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
         AddFeature(new InfiniteChargesOnItemsFeature(), m_CheatsText);
         AddFeature(new IgnoreEquipmentRestrictionsFeature(), m_CheatsText);
         AddFeature(new RestoreSpellsAndSkillsAfterCombatFeature(), m_CheatsText);
+        AddFeature(new InstantRestAfterCombatFeature(), m_CheatsText);
     }
 }
