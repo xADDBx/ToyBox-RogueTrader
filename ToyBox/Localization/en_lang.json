@@ -167,6 +167,14 @@
     "Original": "Entering a trap zone while having traps disabled will prevent that trap from triggering even if you deactivate this option in the future.",
     "Translated": null
   },
+  "ToyBox_Features_BagOfTricks_Cheats_RestoreSpellsAndSkillsAfterCombatFeature_Name": {
+    "Original": "Restore Spells and Skills after Combat",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_RestoreSpellsAndSkillsAfterCombatFeature_Description": {
+    "Original": "Restores all ability resources once the party leaves combat.",
+    "Translated": null
+  },
   "ToyBox_Features_BagOfTricks_Cheats_UnlimitedStackingOfModifiersFeature_Name": {
     "Original": "Unlimited Stacking of Modifiers",
     "Translated": null

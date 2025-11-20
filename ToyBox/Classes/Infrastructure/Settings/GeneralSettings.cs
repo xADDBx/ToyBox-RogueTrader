@@ -125,4 +125,5 @@ internal class GeneralSettings : AbstractSettings {
     public bool EnableCompleteUnlimitedActionsPerTurn = false;
     public bool EnableInfiniteChargesOnItems = false;
     public bool EnableIgnoreEquipmentRestrictions = false;
+    public bool EnableRestoreSpellsAndSkillsAfterCombat = false;
 }
