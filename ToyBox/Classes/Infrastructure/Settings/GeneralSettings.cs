@@ -129,4 +129,9 @@ internal class GeneralSettings : AbstractSettings {
     public bool EnableInstantRestAfterCombat = false;
     public bool EnableEquipmentChangeDuringCombat = false;
     public bool EnableIInventorytemUseDuringCombat = false;
+    public bool EnableIgnoreAllAbilityRequirements = false;
+    public bool EnableIgnoreAoeOverlapAbilityRequirement = false;
+    public bool EnableIgnoreLineOfSightAbilityRequirement = false;
+    public bool EnableIgnoreTargetTooFarAbilityRequirement = false;
+    public bool EnableIgnoreTargetTooCloseAbilityRequirement = false;
 }

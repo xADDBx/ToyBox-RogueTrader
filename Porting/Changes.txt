@@ -21,6 +21,7 @@ Rewrote some features:
 - CustomizePsychicPhenomena now also accounts for phenomena triggered in a non-standard way (e.g. Unsanctioned Psyker)
 - Add proper names/descriptions to each phenomena in CustomizePsychicPhenomena
 - Ignore Equipment Restrictions adjusted for armour?
+- Fig Ignore Ability Requirement XYZ not working if Ignore All Requirements is disabled (making those other oness useless)
 
 Removed useless/unimplemented features:
 - Lots of things were leftover from the initial Wrath => RogueTrader port and/or became useless over time; the toggles/buttons basically did nothing but were still in the UI and sometimes still applied their patches.

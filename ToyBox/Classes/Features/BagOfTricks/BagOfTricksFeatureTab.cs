@@ -108,5 +108,10 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
         AddFeature(new InstantRestAfterCombatFeature(), m_CheatsText);
         AddFeature(new EquipmentChangeDuringCombatFeature(), m_CheatsText);
         AddFeature(new InventoryItemUseDuringCombatFeature(), m_CheatsText);
+        AddFeature(new IgnoreAllAbilityRequirementsFeature(), m_CheatsText);
+        AddFeature(new IgnoreAoeOverlapAbilityRequirementFeature(), m_CheatsText);
+        AddFeature(new IgnoreLineOfSightAbilityRequirementFeature(), m_CheatsText);
+        AddFeature(new IgnoreTargetTooFarAbilityRequirementFeature(), m_CheatsText);
+        AddFeature(new IgnoreTargetTooCloseAbilityRequirementFeature(), m_CheatsText);
     }
 }
