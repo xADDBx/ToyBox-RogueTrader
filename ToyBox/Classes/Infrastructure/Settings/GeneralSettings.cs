@@ -114,6 +114,7 @@ internal class GeneralSettings : AbstractSettings {
     public bool EnableDragCameraElevation = false;
 
     // - Cheats
+    public bool PreventTrapsFromTriggering = false;
     public bool HighlightHiddenObjects = false;
     public bool HighlightInFogOfWar = false;
     public bool HighlightHiddenTraps = false;
