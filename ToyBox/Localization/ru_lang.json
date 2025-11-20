@@ -47,6 +47,10 @@
     "Original": "Camera",
     "Translated": null
   },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_ExperienceMultipliersLocalizedText": {
+    "Original": "Experience Multipliers",
+    "Translated": null
+  },
   "ToyBox_Features_BagOfTricks_Camera_AllowRotateOnAllMapsAndCutscenesFeature_Name": {
     "Original": "Enable Rotate on all maps and cutscenes",
     "Translated": null
@@ -421,6 +425,38 @@
   },
   "ToyBox_Features_BagOfTricks_Dialog_RemoteCompanionDialogFeature_Description": {
     "Original": "Allow remote companions to make comments on dialog you are having.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_ExperienceMultipliers_ExperienceMultiplierFeature_Name": {
+    "Original": "Experience Multipliers",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_ExperienceMultipliers_ExperienceMultiplierFeature_Description": {
+    "Original": "Provides a general experience multiplier and possible overrides for specific kinds of experience sources.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_ExperienceMultipliers_ExperienceMultiplierFeature_m_AllExperienceLocalizedText": {
+    "Original": "All Experience",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_ExperienceMultipliers_ExperienceMultiplierFeature_m_OverrideForCombatLocalizedText": {
+    "Original": "Override for Combat",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_ExperienceMultipliers_ExperienceMultiplierFeature_m_OverrideForQuestsLocalizedText": {
+    "Original": "Override for Quests",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_ExperienceMultipliers_ExperienceMultiplierFeature_m_OverrideForSkillChecksLocalizedText": {
+    "Original": "Override for Skill Checks",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_ExperienceMultipliers_ExperienceMultiplierFeature_m_OverrideForChallengesLocalizedText": {
+    "Original": "Override for Challenges",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_ExperienceMultipliers_ExperienceMultiplierFeature_m_OverrideForSpaceCombatLocalizedText": {
+    "Original": "Override for Space Combat",
     "Translated": null
   },
   "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_RunActionHolderLocalizedText": {

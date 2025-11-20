@@ -32,11 +32,11 @@ public static partial class UI {
         }
     }
 
-    public static bool Toggle(string name, string? description, ref bool setting, Action? onEnable = null, Action? onDisable = null) {
+    public static bool Toggle(string name, string? description, ref bool setting, Action? onEnable = null, Action? onDisable = null, float? nameLabelWidhtOverride = null) {
         var changed = false;
         // Calculate the width because AutoWidth() would cause large empty spaces if the HorizontalScope is nested into another HorizontalScope
         // E.g. when you want to put something on the same line before/after the Toggle
-        var nameWidth = GUI.skin.toggle.CalcSize(new(name)).x;
+        var nameWidth = nameLabelWidhtOverride.HasValue ? nameLabelWidhtOverride.Value : GUI.skin.toggle.CalcSize(new(name)).x;
         var descWidth = 0f;
         if (description != null) {
             descWidth = GUI.skin.toggle.CalcSize(new(description)).x;

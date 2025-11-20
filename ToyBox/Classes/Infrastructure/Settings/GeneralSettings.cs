@@ -134,4 +134,17 @@ internal class GeneralSettings : AbstractSettings {
     public bool EnableIgnoreLineOfSightAbilityRequirement = false;
     public bool EnableIgnoreTargetTooFarAbilityRequirement = false;
     public bool EnableIgnoreTargetTooCloseAbilityRequirement = false;
+
+    // - Experience Multipliers
+    public bool UseCombatExperienceMultiplier = false;
+    public bool UseQuestExperienceMultiplier = false;
+    public bool UseSkillCheckMultiplier = false;
+    public bool UseChallengesMultiplier = false;
+    public bool UseSpaceCombatMultiplier = false;
+    public float AllExperienceMultiplier = 1f;
+    public float CombatExperienceMultiplier = 1f;
+    public float QuestExperienceMultiplier = 1f;
+    public float SkillCheckMultiplier = 1f;
+    public float ChallengeMultiplier = 1f;
+    public float SpaceCombatMultiplier = 1f;
 }

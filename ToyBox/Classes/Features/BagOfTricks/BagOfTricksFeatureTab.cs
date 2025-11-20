@@ -3,6 +3,7 @@ using ToyBox.Features.BagOfTricks.Cheats;
 using ToyBox.Features.BagOfTricks.Combat;
 using ToyBox.Features.BagOfTricks.Common;
 using ToyBox.Features.BagOfTricks.Dialog;
+using ToyBox.Features.BagOfTricks.ExperienceMultipliers;
 using ToyBox.Features.BagOfTricks.Preview;
 using ToyBox.Features.BagOfTricks.QualityOfLife;
 using ToyBox.Features.BagOfTricks.RTSpecific;
@@ -35,6 +36,8 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
     private static partial string m_RTTweaksLocalizedText { get; }
     [LocalizedString("ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_CameraLocalizedText", "Camera")]
     private static partial string m_CameraLocalizedText { get; }
+    [LocalizedString("ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_ExperienceMultipliersLocalizedText", "Experience Multipliers")]
+    private static partial string m_ExperienceMultipliersLocalizedText { get; }
     public BagOfTricksFeatureTab() {
         AddFeature(new RestAllFeature(), m_CombatLocalizedText);
         AddFeature(new RestSelectedFeature(), m_CombatLocalizedText);
@@ -113,5 +116,7 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
         AddFeature(new IgnoreLineOfSightAbilityRequirementFeature(), m_CheatsText);
         AddFeature(new IgnoreTargetTooFarAbilityRequirementFeature(), m_CheatsText);
         AddFeature(new IgnoreTargetTooCloseAbilityRequirementFeature(), m_CheatsText);
+
+        AddFeature(new ExperienceMultiplierFeature(), m_ExperienceMultipliersLocalizedText);
     }
 }
