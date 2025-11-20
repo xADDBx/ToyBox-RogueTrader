@@ -111,6 +111,22 @@
     "Original": "Also Highlight in Fog of War",
     "Translated": "Также выделять в тумане войны"
   },
+  "ToyBox_Features_BagOfTricks_Cheats_PreventTrapsFromTriggeringFeature_Name": {
+    "Original": "Prevent Traps from Triggering",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_PreventTrapsFromTriggeringFeature_Description": {
+    "Original": "Entering a trap zone while having traps disabled will prevent that trap from triggering even if you deactivate this option in the future.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_UnlimitedStackingOfModifiersFeature_Name": {
+    "Original": "Unlimited Stacking of Modifiers",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_UnlimitedStackingOfModifiersFeature_Description": {
+    "Original": "Makes modifiers like Stats or Damage stack for party members even if they shouldn't.",
+    "Translated": null
+  },
   "ToyBox_Features_BagOfTricks_Combat_ImmortalityBuffFeature_Name": {
     "Original": "Make Immortal",
     "Translated": null

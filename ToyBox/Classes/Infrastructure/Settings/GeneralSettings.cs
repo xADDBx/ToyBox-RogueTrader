@@ -115,6 +115,7 @@ internal class GeneralSettings : AbstractSettings {
 
     // - Cheats
     public bool PreventTrapsFromTriggering = false;
+    public bool EnableUnlimitedStackingOfModifiers = false;
     public bool HighlightHiddenObjects = false;
     public bool HighlightInFogOfWar = false;
     public bool HighlightHiddenTraps = false;
