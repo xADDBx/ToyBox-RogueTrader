@@ -21,7 +21,7 @@ public partial class UnlimitedStackingOfModifiersFeature : FeatureWithPatch {
         }
     }
     [HarmonyPatch(typeof(Modifier), nameof(Modifier.Stacks), MethodType.Getter), HarmonyPostfix]
-    public static void Modifier_Stacks_Patch(Modifier __instance, ref bool __result) {
+    private static void Modifier_Stacks_Patch(Modifier __instance, ref bool __result) {
         if (__instance?.AppliedTo?.Owner is BaseUnitEntity unit && ToyBoxUnitHelper.IsPartyOrPet(unit)) {
             __result = true;
         }

@@ -119,4 +119,5 @@ internal class GeneralSettings : AbstractSettings {
     public bool HighlightHiddenObjects = false;
     public bool HighlightInFogOfWar = false;
     public bool HighlightHiddenTraps = false;
+    public bool EnableInfiniteAbilities = false;
 }
