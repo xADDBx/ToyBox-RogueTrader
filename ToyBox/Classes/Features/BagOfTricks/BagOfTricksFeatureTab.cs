@@ -4,6 +4,7 @@ using ToyBox.Features.BagOfTricks.Combat;
 using ToyBox.Features.BagOfTricks.Common;
 using ToyBox.Features.BagOfTricks.Dialog;
 using ToyBox.Features.BagOfTricks.ExperienceMultipliers;
+using ToyBox.Features.BagOfTricks.OtherMultipliers;
 using ToyBox.Features.BagOfTricks.Preview;
 using ToyBox.Features.BagOfTricks.QualityOfLife;
 using ToyBox.Features.BagOfTricks.RTSpecific;
@@ -38,6 +39,8 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
     private static partial string m_CameraLocalizedText { get; }
     [LocalizedString("ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_ExperienceMultipliersLocalizedText", "Experience Multipliers")]
     private static partial string m_ExperienceMultipliersLocalizedText { get; }
+    [LocalizedString("ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_OtherMultipliersLocalizedText", "Other Multipliers")]
+    private static partial string m_OtherMultipliersLocalizedText { get; }
     public BagOfTricksFeatureTab() {
         AddFeature(new RestAllFeature(), m_CombatLocalizedText);
         AddFeature(new RestSelectedFeature(), m_CombatLocalizedText);
@@ -118,5 +121,7 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
         AddFeature(new IgnoreTargetTooCloseAbilityRequirementFeature(), m_CheatsText);
 
         AddFeature(new ExperienceMultiplierFeature(), m_ExperienceMultipliersLocalizedText);
+
+        AddFeature(new MaxWalkDistanceFeature(), m_OtherMultipliersLocalizedText);
     }
 }

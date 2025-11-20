@@ -51,6 +51,10 @@
     "Original": "Experience Multipliers",
     "Translated": null
   },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_OtherMultipliersLocalizedText": {
+    "Original": "Other Multipliers",
+    "Translated": null
+  },
   "ToyBox_Features_BagOfTricks_Camera_AllowRotateOnAllMapsAndCutscenesFeature_Name": {
     "Original": "Enable Rotate on all maps and cutscenes",
     "Translated": null
@@ -457,6 +461,14 @@
   },
   "ToyBox_Features_BagOfTricks_ExperienceMultipliers_ExperienceMultiplierFeature_m_OverrideForSpaceCombatLocalizedText": {
     "Original": "Override for Space Combat",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_OtherMultipliers_MaxWalkDistanceFeature_Name": {
+    "Original": "Max Walk distance",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_OtherMultipliers_MaxWalkDistanceFeature_Description": {
+    "Original": "Adjusts how far of your character you can click and still cause your character to walk instead of run.",
     "Translated": null
   },
   "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_RunActionHolderLocalizedText": {

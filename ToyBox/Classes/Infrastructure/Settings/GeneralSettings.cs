@@ -147,4 +147,7 @@ internal class GeneralSettings : AbstractSettings {
     public float SkillCheckMultiplier = 1f;
     public float ChallengeMultiplier = 1f;
     public float SpaceCombatMultiplier = 1f;
+
+    // - Other Multipliers
+    public int? MaxWalkDistanceSetting = null;
 }
