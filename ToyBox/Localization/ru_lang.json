@@ -127,6 +127,14 @@
     "Original": "Also Highlight in Fog of War",
     "Translated": "Также выделять в тумане войны"
   },
+  "ToyBox_Features_BagOfTricks_Cheats_InfiniteChargesOnItemsFeature_Name": {
+    "Original": "Infinite Charges on Items",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_InfiniteChargesOnItemsFeature_Description": {
+    "Original": "Prevents charges on usable items from being spent.",
+    "Translated": null
+  },
   "ToyBox_Features_BagOfTricks_Cheats_NoAbilityCooldownsFeature_Name": {
     "Original": "No Ability Cooldowns",
     "Translated": null

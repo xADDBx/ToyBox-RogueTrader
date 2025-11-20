@@ -123,4 +123,5 @@ internal class GeneralSettings : AbstractSettings {
     public bool EnableNoAbilityCooldowns = false;
     public bool EnablePartialUnlimitedActionsPerTurn = false;
     public bool EnableCompleteUnlimitedActionsPerTurn = false;
+    public bool EnableInfiniteChargesOnItems = false;
 }
