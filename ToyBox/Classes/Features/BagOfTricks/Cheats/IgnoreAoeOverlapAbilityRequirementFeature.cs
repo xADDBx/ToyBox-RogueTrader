@@ -14,7 +14,7 @@ public partial class IgnoreAoeOverlapAbilityRequirementFeature : FeatureWithPatc
             return ref Settings.EnableIgnoreAoeOverlapAbilityRequirement;
         }
     }
-    [LocalizedString("ToyBox_Features_BagOfTricks_Cheats_IgnoreAoeOverlapAbilityRequirementFeature_Name", "Ignore all Requirements - AoE Overlap")]
+    [LocalizedString("ToyBox_Features_BagOfTricks_Cheats_IgnoreAoeOverlapAbilityRequirementFeature_Name", "Ignore Ability Requirements - AoE Overlap")]
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_BagOfTricks_Cheats_IgnoreAoeOverlapAbilityRequirementFeature_Description", "")]
     public override partial string Description { get; }

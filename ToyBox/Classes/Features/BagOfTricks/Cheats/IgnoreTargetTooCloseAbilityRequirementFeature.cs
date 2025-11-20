@@ -14,7 +14,7 @@ public partial class IgnoreTargetTooCloseAbilityRequirementFeature : FeatureWith
             return ref Settings.EnableIgnoreTargetTooCloseAbilityRequirement;
         }
     }
-    [LocalizedString("ToyBox_Features_BagOfTricks_Cheats_IgnoreTargetTooCloseAbilityRequirementFeature_Name", "Ignore all Requirements - Too Close")]
+    [LocalizedString("ToyBox_Features_BagOfTricks_Cheats_IgnoreTargetTooCloseAbilityRequirementFeature_Name", "Ignore Ability Requirements - Too Close")]
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_BagOfTricks_Cheats_IgnoreTargetTooCloseAbilityRequirementFeature_Description", "")]
     public override partial string Description { get; }

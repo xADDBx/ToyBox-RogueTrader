@@ -14,7 +14,7 @@ public partial class IgnoreTargetTooFarAbilityRequirementFeature : FeatureWithPa
             return ref Settings.EnableIgnoreTargetTooFarAbilityRequirement;
         }
     }
-    [LocalizedString("ToyBox_Features_BagOfTricks_Cheats_IgnoreTargetTooFarAbilityRequirementFeature_Name", "Ignore all Requirements - Too Far")]
+    [LocalizedString("ToyBox_Features_BagOfTricks_Cheats_IgnoreTargetTooFarAbilityRequirementFeature_Name", "Ignore Ability Requirements - Too Far")]
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_BagOfTricks_Cheats_IgnoreTargetTooFarAbilityRequirementFeature_Description", "")]
     public override partial string Description { get; }

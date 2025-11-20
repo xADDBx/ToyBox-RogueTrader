@@ -14,7 +14,7 @@ public partial class IgnoreLineOfSightAbilityRequirementFeature : FeatureWithPat
             return ref Settings.EnableIgnoreLineOfSightAbilityRequirement;
         }
     }
-    [LocalizedString("ToyBox_Features_BagOfTricks_Cheats_IgnoreLineOfSightAbilityRequirementFeature_Name", "Ignore all Requirements - Line of Sight")]
+    [LocalizedString("ToyBox_Features_BagOfTricks_Cheats_IgnoreLineOfSightAbilityRequirementFeature_Name", "Ignore Ability Requirements - Line of Sight")]
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_BagOfTricks_Cheats_IgnoreLineOfSightAbilityRequirementFeature_Description", "")]
     public override partial string Description { get; }

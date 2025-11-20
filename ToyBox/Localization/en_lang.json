@@ -144,7 +144,7 @@
     "Translated": null
   },
   "ToyBox_Features_BagOfTricks_Cheats_IgnoreAoeOverlapAbilityRequirementFeature_Name": {
-    "Original": "Ignore all Requirements - AoE Overlap",
+    "Original": "Ignore Ability Requirements - AoE Overlap",
     "Translated": null
   },
   "ToyBox_Features_BagOfTricks_Cheats_IgnoreAoeOverlapAbilityRequirementFeature_Description": {
@@ -160,7 +160,7 @@
     "Translated": null
   },
   "ToyBox_Features_BagOfTricks_Cheats_IgnoreLineOfSightAbilityRequirementFeature_Name": {
-    "Original": "Ignore all Requirements - Line of Sight",
+    "Original": "Ignore Ability Requirements - Line of Sight",
     "Translated": null
   },
   "ToyBox_Features_BagOfTricks_Cheats_IgnoreLineOfSightAbilityRequirementFeature_Description": {
@@ -168,7 +168,7 @@
     "Translated": null
   },
   "ToyBox_Features_BagOfTricks_Cheats_IgnoreTargetTooCloseAbilityRequirementFeature_Name": {
-    "Original": "Ignore all Requirements - Too Close",
+    "Original": "Ignore Ability Requirements - Too Close",
     "Translated": null
   },
   "ToyBox_Features_BagOfTricks_Cheats_IgnoreTargetTooCloseAbilityRequirementFeature_Description": {
@@ -176,7 +176,7 @@
     "Translated": null
   },
   "ToyBox_Features_BagOfTricks_Cheats_IgnoreTargetTooFarAbilityRequirementFeature_Name": {
-    "Original": "Ignore all Requirements - Too Far",
+    "Original": "Ignore Ability Requirements - Too Far",
     "Translated": null
   },
   "ToyBox_Features_BagOfTricks_Cheats_IgnoreTargetTooFarAbilityRequirementFeature_Description": {
