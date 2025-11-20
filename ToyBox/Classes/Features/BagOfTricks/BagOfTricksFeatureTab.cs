@@ -98,6 +98,7 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
         AddFeature(new PreventTrapsFromTriggeringFeature(), m_CheatsText);
         AddFeature(new UnlimitedStackingOfModifiersFeature(), m_CheatsText);
         AddFeature(new HighlightHiddenObjectsFeature(), m_CheatsText);
-        AddFeature(new InfiniteAbilitiesFeature(), m_CheatsText);
+        AddFeature(new FreeAbilitiesFeature(), m_CheatsText);
+        AddFeature(new NoAbilityCooldownsFeature(), m_CheatsText);
     }
 }

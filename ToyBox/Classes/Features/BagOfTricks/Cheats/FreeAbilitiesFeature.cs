@@ -1,33 +1,25 @@
 ﻿using Kingmaker.EntitySystem.Entities;
-using Kingmaker.Mechanics.Entities;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.ActivatableAbilities;
-using Kingmaker.UnitLogic.Commands;
 
 namespace ToyBox.Features.BagOfTricks.Cheats;
 
-[HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.Cheats.InfiniteAbilitiesFeature")]
-public partial class InfiniteAbilitiesFeature : FeatureWithPatch {
+[HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.Cheats.FreeAbilitiesFeature")]
+public partial class FreeAbilitiesFeature : FeatureWithPatch {
     public override ref bool IsEnabled {
         get {
-            return ref Settings.EnableInfiniteAbilities;
+            return ref Settings.EnableFreeAbilities;
         }
     }
-    [LocalizedString("ToyBox_Features_BagOfTricks_Cheats_InfiniteAbilitiesFeature_Name", "Free Abilities")]
+    [LocalizedString("ToyBox_Features_BagOfTricks_Cheats_FreeAbilitiesFeature_Name", "Free Abilities")]
     public override partial string Name { get; }
-    [LocalizedString("ToyBox_Features_BagOfTricks_Cheats_InfiniteAbilitiesFeature_Description", "Makes abilities ignore cooldowns and have no cost.")]
+    [LocalizedString("ToyBox_Features_BagOfTricks_Cheats_FreeAbilitiesFeature_Description", "Makes abilities have no cost.")]
     public override partial string Description { get; }
 
     protected override string HarmonyName {
         get {
-            return "ToyBox.Features.BagOfTricks.Cheats.InfiniteAbilitiesFeature";
-        }
-    }
-    [HarmonyPatch(typeof(UnitUseAbilityParams), nameof(UnitUseAbilityParams.IgnoreCooldown), MethodType.Getter), HarmonyPostfix]
-    private static void UnitUseAbilityParams_IgnoreCooldown_Patch(UnitUseAbilityParams __instance, ref bool __result) {
-        if (__instance.Ability?.Caster is AbstractUnitEntity unit && ToyBoxUnitHelper.IsPartyOrPet(unit)) {
-            __result = true;
+            return "ToyBox.Features.BagOfTricks.Cheats.FreeAbilitiesFeature";
         }
     }
     [HarmonyPatch(typeof(AbilityResourceLogic), nameof(AbilityResourceLogic.Spend)), HarmonyPrefix]
