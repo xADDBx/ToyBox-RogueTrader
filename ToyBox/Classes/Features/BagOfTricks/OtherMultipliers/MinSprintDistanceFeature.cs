@@ -45,11 +45,11 @@ public partial class MinSprintDistanceFeature : FeatureWithPatch {
             if (UI.LogSlider(ref tmp, 0, 1000, m_OriginalMinSprintDistance.Value, null, AutoWidth(), GUILayout.MinWidth(50), GUILayout.MinWidth(150))) {
                 if (tmp == m_OriginalMinSprintDistance.Value) {
                     Settings.MinSprintDistanceSetting = null;
+                    Destroy();
                 } else {
                     Settings.MinSprintDistanceSetting = tmp;
+                    Initialize();
                 }
-                Destroy();
-                Initialize();
             }
             Space(10);
             UI.Label(Name);

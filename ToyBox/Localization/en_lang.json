@@ -479,6 +479,14 @@
     "Original": "Adjusts how far of your character you have to click and still cause your character to spring. If this area overlaps with walk distance then this has priority.",
     "Translated": null
   },
+  "ToyBox_Features_BagOfTricks_OtherMultipliers_MovementSpeedMultiplierFeature_Name": {
+    "Original": "Movement Speed",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_OtherMultipliers_MovementSpeedMultiplierFeature_Description": {
+    "Original": "Adjusts the movement speed of your party in area maps.",
+    "Translated": null
+  },
   "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_RunActionHolderLocalizedText": {
     "Original": "RunActionHolder",
     "Translated": null

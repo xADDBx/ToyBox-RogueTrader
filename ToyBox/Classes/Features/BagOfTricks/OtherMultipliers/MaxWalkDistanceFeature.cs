@@ -45,11 +45,11 @@ public partial class MaxWalkDistanceFeature : FeatureWithPatch {
             if (UI.LogSlider(ref tmp, 0, 1000, m_OriginalMaxWalkDistance.Value, null, AutoWidth(), GUILayout.MinWidth(50), GUILayout.MaxWidth(150))) {
                 if (tmp == m_OriginalMaxWalkDistance.Value) {
                     Settings.MaxWalkDistanceSetting = null;
+                    Destroy();
                 } else {
                     Settings.MaxWalkDistanceSetting = tmp;
+                    Initialize();
                 }
-                Destroy();
-                Initialize();
             }
             Space(10);
             UI.Label(Name);

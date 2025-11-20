@@ -124,5 +124,6 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
 
         AddFeature(new MaxWalkDistanceFeature(), m_OtherMultipliersLocalizedText);
         AddFeature(new MinSprintDistanceFeature(), m_OtherMultipliersLocalizedText);
+        AddFeature(new MovementSpeedMultiplierFeature(), m_OtherMultipliersLocalizedText);
     }
 }
