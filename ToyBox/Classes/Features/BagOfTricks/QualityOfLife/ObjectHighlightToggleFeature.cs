@@ -16,17 +16,22 @@ public partial class ObjectHighlightToggleFeature : FeatureWithPatch, IGameModeH
             return ref Settings.EnableObjectHighlightToggle;
         }
     }
+    private bool IsSubscribed = false;
     [LocalizedString("ToyBox_Features_BagOfTricks_QualityOfLife_ObjectHighlightToggleFeature_Name", "Object Highlight Toggle Mode")]
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_BagOfTricks_QualityOfLife_ObjectHighlightToggleFeature_Description", "Turns the object highlight key into a toggle (press to switch) outside of combat.")]
     public override partial string Description { get; }
     public override void Initialize() {
         base.Initialize();
-        _ = EventBus.Subscribe(this);
+        if (IsEnabled && !IsSubscribed) {
+            _ = EventBus.Subscribe(this);
+        }
     }
     public override void Destroy() {
         base.Destroy();
-        EventBus.Unsubscribe(this);
+        if (IsSubscribed) {
+            EventBus.Unsubscribe(this);
+        }
     }
     protected override string HarmonyName {
         get {
