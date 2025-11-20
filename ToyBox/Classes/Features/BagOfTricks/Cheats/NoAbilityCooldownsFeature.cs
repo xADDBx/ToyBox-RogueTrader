@@ -7,7 +7,7 @@ namespace ToyBox.Features.BagOfTricks.Cheats;
 public partial class NoAbilityCooldownsFeature : FeatureWithPatch {
     public override ref bool IsEnabled {
         get {
-            return ref Settings.EnableNoAbilityCooldownsFeature;
+            return ref Settings.EnableNoAbilityCooldowns;
         }
     }
     [LocalizedString("ToyBox_Features_BagOfTricks_Cheats_NoAbilityCooldownsFeature_Name", "No Ability Cooldowns")]

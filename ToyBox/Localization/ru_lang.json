@@ -95,6 +95,22 @@
     "Original": "Makes the game no longer force the camera to ground.",
     "Translated": null
   },
+  "ToyBox_Features_BagOfTricks_Cheats_CompleteUnlimitedActionsPerTurnFeature_Name": {
+    "Original": "Don't use any AP",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_CompleteUnlimitedActionsPerTurnFeature_Description": {
+    "Original": "This allows doing Infinite Actions per turn.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_FreeAbilitiesFeature_Name": {
+    "Original": "Free Abilities",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_FreeAbilitiesFeature_Description": {
+    "Original": "Makes abilities have no cost.",
+    "Translated": null
+  },
   "ToyBox_Features_BagOfTricks_Cheats_HighlightHiddenObjectsFeature_Name": {
     "Original": "Highlight Hidden Objects",
     "Translated": "Выделить скрытые объекты"
@@ -111,12 +127,20 @@
     "Original": "Also Highlight in Fog of War",
     "Translated": "Также выделять в тумане войны"
   },
-  "ToyBox_Features_BagOfTricks_Cheats_InfiniteAbilitiesFeature_Name": {
-    "Original": "Free Abilities",
+  "ToyBox_Features_BagOfTricks_Cheats_NoAbilityCooldownsFeature_Name": {
+    "Original": "No Ability Cooldowns",
     "Translated": null
   },
-  "ToyBox_Features_BagOfTricks_Cheats_InfiniteAbilitiesFeature_Description": {
-    "Original": "Makes abilities ignore cooldowns and have no cost.",
+  "ToyBox_Features_BagOfTricks_Cheats_NoAbilityCooldownsFeature_Description": {
+    "Original": "Makes abilities have no cooldown.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_PartialUnlimitedActionsPerTurnFeature_Name": {
+    "Original": "Don't use AP (Partial)",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_PartialUnlimitedActionsPerTurnFeature_Description": {
+    "Original": "Don't use any AP except for except for abilities which would consume all your AP at once.",
     "Translated": null
   },
   "ToyBox_Features_BagOfTricks_Cheats_PreventTrapsFromTriggeringFeature_Name": {

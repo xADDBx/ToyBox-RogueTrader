@@ -100,5 +100,7 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
         AddFeature(new HighlightHiddenObjectsFeature(), m_CheatsText);
         AddFeature(new FreeAbilitiesFeature(), m_CheatsText);
         AddFeature(new NoAbilityCooldownsFeature(), m_CheatsText);
+        AddFeature(new PartialUnlimitedActionsPerTurnFeature(), m_CheatsText);
+        AddFeature(new CompleteUnlimitedActionsPerTurnFeature(), m_CheatsText);
     }
 }

@@ -120,5 +120,7 @@ internal class GeneralSettings : AbstractSettings {
     public bool HighlightInFogOfWar = false;
     public bool HighlightHiddenTraps = false;
     public bool EnableFreeAbilities = false;
-    public bool EnableNoAbilityCooldownsFeature = false;
+    public bool EnableNoAbilityCooldowns = false;
+    public bool EnablePartialUnlimitedActionsPerTurn = false;
+    public bool EnableCompleteUnlimitedActionsPerTurn = false;
 }
