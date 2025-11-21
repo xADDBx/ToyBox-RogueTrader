@@ -157,4 +157,28 @@ internal class GeneralSettings : AbstractSettings {
             "6179bbe7a7b4b674c813dedbca121799", //Summoned Unit Appear Buff (causes inaction for summoned units)
             "12f2f2cf326dfd743b2cce5b14e99b3c", //Resurrection Buff
     ];
+
+    // - Dice Rolls
+    public bool EnableDiceRollsOverrides = false;
+    public UnitSelectType DiceRollsAllAttacksHit;
+    public UnitSelectType DiceRollsAllAttacksCrit;
+    public UnitSelectType DiceRollsRollWithAdvantage;
+    public UnitSelectType DiceRollsRollWithDisadvantage;
+    public UnitSelectType DiceRollsAlwaysRoll100;
+    public UnitSelectType DiceRollsAlwaysRoll50;
+    public UnitSelectType DiceRollsAlwaysRoll1;
+    public UnitSelectType DiceRollsNeverRoll100;
+    public UnitSelectType DiceRollsNeverRoll1;
+    public UnitSelectType DiceRollsInitiativeAlwaysRoll10;
+    public UnitSelectType DiceRollsInitiativeAlwaysRoll5;
+    public UnitSelectType DiceRollsInitiativeAlwaysRoll1;
+    public UnitSelectType DiceRollsSkillChecksTake50;
+    public UnitSelectType DiceRollsSkillChecksTake25;
+    public UnitSelectType DiceRollsSkillChecksTake1;
+    public UnitSelectType DiceRollsOutOfCombatTake50;
+    public UnitSelectType DiceRollsOutOfCombatTake25;
+    public UnitSelectType DiceRollsOutOfCombatTake1;
+    public UnitSelectType DiceRollsDamageTake50;
+    public UnitSelectType DiceRollsDamageTake25;
+    public UnitSelectType DiceRollsDamageTake1;
 }

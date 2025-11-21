@@ -55,6 +55,10 @@
     "Original": "Other Multipliers",
     "Translated": null
   },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_DiceRollsLocalizedText": {
+    "Original": "Dice Rolls",
+    "Translated": null
+  },
   "ToyBox_Features_BagOfTricks_Camera_AllowRotateOnAllMapsAndCutscenesFeature_Name": {
     "Original": "Enable Rotate on all maps and cutscenes",
     "Translated": null
@@ -429,6 +433,114 @@
   },
   "ToyBox_Features_BagOfTricks_Dialog_RemoteCompanionDialogFeature_Description": {
     "Original": "Allow remote companions to make comments on dialog you are having.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_Name": {
+    "Original": "Dice Roll Overrides",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_Description": {
+    "Original": "Allows changing the results of various dice rolls across the game.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_AdvantageMeansDoingTwoRollsAndTaLocalizedText": {
+    "Original": "Advantage means doing two rolls and taking the better result; which for Initiative and Damage rolls means the higher number and for Skill Checks the lower number.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_AllAttacksHitLocalizedText": {
+    "Original": "All Attacks Hit",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_AllAttacksCritLocalizedText": {
+    "Original": "All Attacks Crit",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_RollWithAdvantageLocalizedText": {
+    "Original": "Roll with Advantage",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_RollWithDisadvantageLocalizedText": {
+    "Original": "Roll with Disadvantage",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_Take100LocalizedText": {
+    "Original": "Take 100",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_Take50LocalizedText": {
+    "Original": "Take 50",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_Take1LocalizedText": {
+    "Original": "Take 1",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_NeverRoll100LocalizedText": {
+    "Original": "Never Roll 100",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_NeverRoll1LocalizedText": {
+    "Original": "Never Roll 1",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_OutOfCombat_Take50LocalizedText": {
+    "Original": "Out of Combat: Take 50",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_OutOfCombat_Take25LocalizedText": {
+    "Original": "Out of Combat: Take 25",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_OutOfCombat_Take1LocalizedText": {
+    "Original": "Out of Combat: Take 1",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_Initiative__HigherIsBetterLocalizedText": {
+    "Original": "Initiative -> Higher is better",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_Initiative_AlwaysRoll10LocalizedText": {
+    "Original": "Initiative: Always Roll 10",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_Initiative_AlwaysRoll5LocalizedText": {
+    "Original": "Initiative: Always Roll 5",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_Initiative_AlwaysRoll1LocalizedText": {
+    "Original": "Initiative: Always Roll 1",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_SkillChecks__LowerIsBetterLocalizedText": {
+    "Original": "Skill Checks -> Lower is better",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_SkillChecks_Take50LocalizedText": {
+    "Original": "Skill Checks: Take 50",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_SkillChecks_Take25LocalizedText": {
+    "Original": "Skill Checks: Take 25",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_SkillChecks_Take1LocalizedText": {
+    "Original": "Skill Checks: Take 1",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_Damage__HigherIsBetterLocalizedText": {
+    "Original": "Damage -> Higher is better",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_DamageRolls_Take50LocalizedText": {
+    "Original": "Damage Rolls: Take 50",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_DamageRolls_Take25LocalizedText": {
+    "Original": "Damage Rolls: Take 25",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_DamageRolls_Take1LocalizedText": {
+    "Original": "Damage Rolls: Take 1",
     "Translated": null
   },
   "ToyBox_Features_BagOfTricks_ExperienceMultipliers_ExperienceMultiplierFeature_Name": {
@@ -1685,6 +1797,14 @@
   },
   "ToyBox_Infrastructure_Enums_UnitSelectType_Localizer_OffText": {
     "Original": "Off",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Enums_UnitSelectType_Localizer_m_ShipLocalizedText": {
+    "Original": "Ship",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Enums_UnitSelectType_Localizer_m_EnemyShipLocalizedText": {
+    "Original": "Enemy Ship",
     "Translated": null
   },
   "ToyBox_FeatureTab_m_FeatureFailedInitializationLocalizedText": {

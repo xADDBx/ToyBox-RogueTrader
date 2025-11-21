@@ -3,6 +3,7 @@ using ToyBox.Features.BagOfTricks.Cheats;
 using ToyBox.Features.BagOfTricks.Combat;
 using ToyBox.Features.BagOfTricks.Common;
 using ToyBox.Features.BagOfTricks.Dialog;
+using ToyBox.Features.BagOfTricks.DiceRolls;
 using ToyBox.Features.BagOfTricks.ExperienceMultipliers;
 using ToyBox.Features.BagOfTricks.OtherMultipliers;
 using ToyBox.Features.BagOfTricks.Preview;
@@ -41,6 +42,8 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
     private static partial string m_ExperienceMultipliersLocalizedText { get; }
     [LocalizedString("ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_OtherMultipliersLocalizedText", "Other Multipliers")]
     private static partial string m_OtherMultipliersLocalizedText { get; }
+    [LocalizedString("ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_DiceRollsLocalizedText", "Dice Rolls")]
+    private static partial string m_DiceRollsLocalizedText { get; }
     public BagOfTricksFeatureTab() {
         AddFeature(new RestAllFeature(), m_CombatLocalizedText);
         AddFeature(new RestSelectedFeature(), m_CombatLocalizedText);
@@ -126,5 +129,7 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
         AddFeature(new MinSprintDistanceFeature(), m_OtherMultipliersLocalizedText);
         AddFeature(new MovementSpeedMultiplierFeature(), m_OtherMultipliersLocalizedText);
         AddFeature(new BuffDurationMultiplierFeature(), m_OtherMultipliersLocalizedText);
+
+        AddFeature(new DiceRollsOverridesFeature(), m_DiceRollsLocalizedText);
     }
 }

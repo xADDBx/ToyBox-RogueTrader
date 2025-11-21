@@ -7,6 +7,8 @@ public enum UnitSelectType {
     Friendly,
     Enemies,
     Everyone,
+    Ship,
+    EnemyShip
 }
 public static partial class UnitSelectType_Localizer {
     public static string GetLocalized(this UnitSelectType type) {
@@ -17,6 +19,8 @@ public static partial class UnitSelectType_Localizer {
             UnitSelectType.Friendly => m_FriendlyText,
             UnitSelectType.Enemies => m_EnemiesText,
             UnitSelectType.Everyone => m_EveryoneText,
+            UnitSelectType.Ship => m_ShipLocalizedText,
+            UnitSelectType.EnemyShip => m_EnemyShipLocalizedText,
             _ => "!!Error Unknown UnitSelectType!!",
         };
     }
@@ -33,4 +37,8 @@ public static partial class UnitSelectType_Localizer {
     private static partial string m_MainCharacterText { get; }
     [LocalizedString("ToyBox_Infrastructure_Enums_UnitSelectType_Localizer_OffText", "Off")]
     private static partial string m_OffText { get; }
+    [LocalizedString("ToyBox_Infrastructure_Enums_UnitSelectType_Localizer_m_ShipLocalizedText", "Ship")]
+    private static partial string m_ShipLocalizedText { get; }
+    [LocalizedString("ToyBox_Infrastructure_Enums_UnitSelectType_Localizer_m_EnemyShipLocalizedText", "Enemy Ship")]
+    private static partial string m_EnemyShipLocalizedText { get; }
 }
