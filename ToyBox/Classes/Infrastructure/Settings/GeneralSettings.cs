@@ -32,6 +32,7 @@ public class GeneralSettings : AbstractJsonSettings {
     public bool EnableLazyInit = true;
     public bool EnableLogHotkeysToCombatLog = false;
     public bool EnableShowRiskyToggles = false;
+    public bool EnableImguiColorFix = true;
 
     // - Browser
     public int PageLimit = 25;

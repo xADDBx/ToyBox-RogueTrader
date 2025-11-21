@@ -57,6 +57,7 @@ public partial class SettingsFeaturesTab : FeatureTab {
         AddFeature(new LogLevelSetting(), m_OtherText);
         AddFeature(new CharacterPickerNearbyRangeSetting(), m_OtherText);
         AddFeature(new LogHotkeysToCombatLogSetting(), m_OtherText);
+        AddFeature(new ImguiColorFixFeature(), m_OtherText);
 
         AddFeature(new LanguagePickerFeature(), m_LanguageText);
     }

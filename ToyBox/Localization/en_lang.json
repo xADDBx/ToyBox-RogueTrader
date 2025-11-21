@@ -1295,6 +1295,14 @@
     "Original": "Modifies the range for the Nearby Character Picker category",
     "Translated": null
   },
+  "ToyBox_Features_SettingsTab_Other_ImguiColorFixFeature_Name": {
+    "Original": "Fix IMGUI Colors",
+    "Translated": null
+  },
+  "ToyBox_Features_SettingsTab_Other_ImguiColorFixFeature_Description": {
+    "Original": "A Unity Engine Update somehow switched the Color Space of the Mod UI, making colors look washed out. This is a bandaid fix for that issue.",
+    "Translated": null
+  },
   "ToyBox_Features_SettingsTab_Other_LazyInitFeature_Name": {
     "Original": "Lazy Init",
     "Translated": null
