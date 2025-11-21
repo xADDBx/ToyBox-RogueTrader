@@ -354,6 +354,9 @@ dotnet_diagnostic.CA1309.severity = silent
 # CA2214: Do not call overridable methods in constructors
 dotnet_diagnostic.CA2214.severity = none
 
+# CA2008: Do not create tasks without passing a TaskScheduler
+dotnet_diagnostic.CA2008.severity = none
+
 [*.{cs,vb}]
 insert_final_newline = true
 dotnet_style_operator_placement_when_wrapping = beginning_of_line

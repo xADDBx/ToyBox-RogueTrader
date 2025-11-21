@@ -2,7 +2,7 @@
 
 namespace ToyBox.Infrastructure;
 
-internal abstract class AbstractSettings {
+public abstract class AbstractJsonSettings {
     protected abstract string Name { get; }
     private string GetFilePath() {
         var userConfigFolder = Path.Combine(Main.ModEntry.Path, "Settings");

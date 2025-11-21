@@ -1,14 +1,13 @@
 ﻿using Kingmaker;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.Mechanics.Entities;
-using Kingmaker.PubSubSystem.Core;
 using Kingmaker.UnitLogic.Parts;
 using Warhammer.SpaceCombat.StarshipLogic;
 
 namespace ToyBox.Infrastructure;
 
 public static class ToyBoxUnitHelper {
-    private static readonly Dictionary<AbstractUnitEntity, bool> m_PartyOrPetCache = new();
+    private static readonly Dictionary<AbstractUnitEntity, bool> m_PartyOrPetCache = [];
     private static bool m_IsInitialized = false;
     internal static void Initialize() {
         if (m_IsInitialized) {

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ToyBox.Infrastructure.Keybinds;
 
-internal class HotkeySettings : AbstractSettings {
+internal class HotkeySettings : AbstractJsonSettings {
     protected override string Name {
         get {
             return "Hotkeys.json";

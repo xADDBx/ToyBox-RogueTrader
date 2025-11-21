@@ -3,7 +3,7 @@
 namespace ToyBox.Infrastructure;
 
 public static partial class UI {
-    public static bool TextField(ref string content, Action<(string oldContent, string newContent)>? onContentChanged, params GUILayoutOption[] options) {
+    public static bool TextField(ref string content, Action<(string oldContent, string newContent)>? onContentChanged = null, params GUILayoutOption[] options) {
         options = options.Length == 0 ? [AutoWidth(), Width(600)] : options;
         var hasChanged = false;
         var oldContent = content;
@@ -19,7 +19,7 @@ public static partial class UI {
     // I'd like to make this generic
     // But implementations would probably either end up needing caching or
     // have a (probably negligible) overhead to parse an unspecified type
-    public static bool TextField(ref int content, Action<(int oldContent, int newContent)>? onContentChanged, params GUILayoutOption[] options) {
+    public static bool TextField(ref int content, Action<(int oldContent, int newContent)>? onContentChanged = null, params GUILayoutOption[] options) {
         options = options.Length == 0 ? [AutoWidth(), Width(600)] : options;
         var hasChanged = false;
         var oldContent = content;

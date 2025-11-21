@@ -53,4 +53,9 @@ public static class Helpers {
         }
         return default;
     }
+    public static SaveSpecificSettings? InSaveSettings {
+        get {
+            return SaveSpecificSettings.Instance;
+        }
+    }
 }

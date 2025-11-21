@@ -88,7 +88,9 @@ public abstract partial class FeatureTab {
         foreach (var (groupName, features) in Groups) {
             i++;
             using (VerticalScope()) {
-                UI.Label(groupName);
+                if (!string.IsNullOrWhiteSpace(groupName)) {
+                    UI.Label(groupName);
+                }
                 using (HorizontalScope()) {
                     Space(25);
                     using (VerticalScope()) {

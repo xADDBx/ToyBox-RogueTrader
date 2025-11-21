@@ -69,6 +69,7 @@ public static partial class Main {
             Debug($"BPLoader init took {sw2.ElapsedMilliseconds}ms");
 
             ToyBoxUnitHelper.Initialize();
+            SaveSpecificSettings.Initialize();
 
             sw2.Start();
             RegisterFeatureTabs();
@@ -98,9 +99,9 @@ public static partial class Main {
     private static string[]? m_TabNames;
     private static void RegisterFeatureTabs() {
         m_FeatureTabs.Add(new Features.BagOfTricks.BagOfTricksFeatureTab());
+        m_FeatureTabs.Add(new Features.LevelUp.LevelUpFeatureTab());
         m_FeatureTabs.Add(new Features.PartyTab.PartyFeatureTab());
         m_FeatureTabs.Add(new Features.SettingsFeatures.SettingsFeaturesTab());
-        m_FeatureTabs.Add(new Features.LevelUp.LevelUpFeatureTab());
         m_FeatureTabs.Add(new Features.FeatureSearch.FeatureSearchTab());
         m_FeatureTabs.Add(new Infrastructure.Blueprints.BlueprintActions.BlueprintActions());
     }

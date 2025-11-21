@@ -2,7 +2,7 @@
 
 namespace ToyBox.Infrastructure;
 
-internal class GeneralSettings : AbstractSettings {
+public class GeneralSettings : AbstractJsonSettings {
     private static readonly Lazy<GeneralSettings> m_Instance = new(() => {
         var instance = new GeneralSettings();
         instance.Load();
@@ -192,6 +192,8 @@ internal class GeneralSettings : AbstractSettings {
 
 
     // Level Up
+    public bool EnableRespecFromLevelX = false;
+    public int? CurrentRespecLevelSetting = null;
     public bool EnableIgnoreArchetypePrerequisites = false;
     public bool EnableIgnoreTalentPrerequisites = false;
     public bool EnableIgnoreStatPrerequisites = false;
