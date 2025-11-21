@@ -33,7 +33,7 @@ public partial class RespecFromLevelXFeature : FeatureWithPatch {
             using (HorizontalScope()) {
                 Space(25 * Main.UIScale);
                 using (VerticalScope()) {
-                    UI.DisclosureToggle(ref m_ShowDisclaimer, m_TryToKeepThisFeatureActivatedAftLocalizedText);
+                    UI.DisclosureToggle(ref m_ShowDisclaimer, m_TryToKeepThisFeatureActivatedAftLocalizedText.Orange());
                     if (m_ShowDisclaimer) {
                         using (HorizontalScope()) {
                             Space(35 * Main.UIScale);
@@ -41,7 +41,10 @@ public partial class RespecFromLevelXFeature : FeatureWithPatch {
                         }
                     }
                     var currentLabelText = Settings.CurrentRespecLevelSetting.HasValue ? Settings.CurrentRespecLevelSetting.Value.ToString() : m_NoneLocalizedText;
-                    UI.Label(m_CurrentRespecLevelOverrideLocalizedText.Cyan() + ": " + currentLabelText.Green());
+                    using (HorizontalScope()) {
+                        Space(12 * Main.UIScale);
+                        UI.Label(m_CurrentRespecLevelOverrideLocalizedText.Cyan() + ": " + currentLabelText.Green());
+                    }
                     var is0 = Settings.CurrentRespecLevelSetting == 0;
                     if (UI.Toggle(m_RespecFromLevel0LocalizedText, null, ref is0)) {
                         if (is0) {
