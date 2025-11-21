@@ -979,6 +979,26 @@
     "Original": "Feature Search",
     "Translated": null
   },
+  "ToyBox_Features_LevelUp_IgnoreArchetypePrerequisitesFeature_Name": {
+    "Original": "Ignore Archetypes Prerequisites",
+    "Translated": null
+  },
+  "ToyBox_Features_LevelUp_IgnoreArchetypePrerequisitesFeature_Description": {
+    "Original": "Slightly Buggy UI. This allows picking any one career per stage regardless of prerequisites. Warning: Picking e.g. Exemplar as second archetype will cause issues because you won't have a second archetype ability to upgrade.",
+    "Translated": null
+  },
+  "ToyBox_Features_LevelUp_IgnoreTalentPrerequisitesFeature_Name": {
+    "Original": "Ignore Talent Prerequisites",
+    "Translated": null
+  },
+  "ToyBox_Features_LevelUp_IgnoreTalentPrerequisitesFeature_Description": {
+    "Original": "Automatically succeeds fact-dependent prerequisite checks, both those asking for a feature to be present and those asking for a feature to not be present.",
+    "Translated": null
+  },
+  "ToyBox_Features_LevelUp_LevelUpFeatureTab_Name": {
+    "Original": "Level Up",
+    "Translated": null
+  },
   "ToyBox_Features_PartyTab_PartyBrowseAbilitiesFeature_Name": {
     "Original": "Browse Unit Abilities",
     "Translated": null

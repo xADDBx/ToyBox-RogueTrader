@@ -5,5 +5,6 @@ public partial class LevelUpFeatureTab : FeatureTab {
     public override partial string Name { get; }
     public LevelUpFeatureTab() {
         AddFeature(new IgnoreArchetypePrerequisitesFeature());
+        AddFeature(new IgnoreTalentPrerequisitesFeature());
     }
 }
