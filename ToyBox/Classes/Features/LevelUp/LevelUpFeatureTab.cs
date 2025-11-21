@@ -7,5 +7,6 @@ public partial class LevelUpFeatureTab : FeatureTab {
         AddFeature(new IgnoreArchetypePrerequisitesFeature());
         AddFeature(new IgnoreTalentPrerequisitesFeature());
         AddFeature(new IgnoreStatPrerequisitesFeature());
+        AddFeature(new IgnoreClassLevelsPrerequisitesFeature());
     }
 }

@@ -195,4 +195,5 @@ internal class GeneralSettings : AbstractSettings {
     public bool EnableIgnoreArchetypePrerequisites = false;
     public bool EnableIgnoreTalentPrerequisites = false;
     public bool EnableIgnoreStatPrerequisites = false;
+    public bool EnableIgnoreClassLevelsPrerequisites = false;
 }

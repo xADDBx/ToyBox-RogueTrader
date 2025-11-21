@@ -22,7 +22,7 @@ public partial class IgnoreStatPrerequisitesFeature : FeatureWithPatch {
         }
     }
     [HarmonyPatch(typeof(PrerequisiteStat), nameof(PrerequisiteStat.MeetsInternal)), HarmonyPostfix]
-    private static void PrerequisiteFact_MeetsInternal_Patch(PrerequisiteStat __instance, IBaseUnitEntity unit, ref bool __result) {
+    private static void PrerequisiteStat_MeetsInternal_Patch(PrerequisiteStat __instance, IBaseUnitEntity unit, ref bool __result) {
         // if Not is true we want result to be false
         // if Not is false we want result to be false
         // => we want to change the result if result XOR Not is false
