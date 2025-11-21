@@ -59,6 +59,10 @@
     "Original": "Dice Rolls",
     "Translated": null
   },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_EnemyStatModifierLocalizedText": {
+    "Original": "Enemy Stat Modifier",
+    "Translated": null
+  },
   "ToyBox_Features_BagOfTricks_Camera_AllowRotateOnAllMapsAndCutscenesFeature_Name": {
     "Original": "Enable Rotate on all maps and cutscenes",
     "Translated": null
@@ -541,6 +545,22 @@
   },
   "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_DamageRolls_Take1LocalizedText": {
     "Original": "Damage Rolls: Take 1",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_EnemyStatModifier_EnemyFlatStatModifierFeature_Name": {
+    "Original": "Flat Enemy Stat Modifier",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_EnemyStatModifier_EnemyFlatStatModifierFeature_Description": {
+    "Original": "Allows adding flat stat boosts to enemies, e.g. Enemy Health +20.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_EnemyStatModifier_EnemyStatMultiplierFeature_Name": {
+    "Original": "Enemy Stat Multiplier",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_EnemyStatModifier_EnemyStatMultiplierFeature_Description": {
+    "Original": "Allows adding stat multipliers, e.g. Enemy Health x3.",
     "Translated": null
   },
   "ToyBox_Features_BagOfTricks_ExperienceMultipliers_ExperienceMultiplierFeature_Name": {

@@ -1,4 +1,5 @@
 ﻿using Kingmaker;
+using Kingmaker.EntitySystem.Stats.Base;
 using Kingmaker.UI.Models.Log.CombatLog_ThreadSystem;
 using Kingmaker.UI.Models.Log.CombatLog_ThreadSystem.LogThreads.LifeEvents;
 using Kingmaker.UI.Models.Log.GameLogCntxt;
@@ -10,6 +11,13 @@ using UnityModManagerNet;
 namespace ToyBox.Infrastructure.Utilities;
 
 public static class Helpers {
+    public static readonly HashSet<StatType> NonHumanStats = [StatType.TemporaryHitPoints, StatType.Unknown, StatType.AttackOfOpportunityCount,
+                                                                StatType.Crew, StatType.TurretRadius, StatType.TurretRating, StatType.MilitaryRating,
+                                                                StatType.PsyRating, StatType.Evasion, StatType.MachineTrait, StatType.ArmourFore,
+                                                                StatType.ArmourPort, StatType.ArmourStarboard, StatType.ArmourAft, StatType.Inertia,
+                                                                StatType.Power, StatType.Aiming, StatType.RevealRadius, StatType.DetectionRadius,
+                                                                StatType.ShieldsAmount, StatType.ShieldsRegeneration, StatType.Morale, StatType.Discipline,
+                                                                StatType.DamageNonLethal];
     public static bool IsInGame() {
         return Game.Instance.Player?.Party?.Count > 0;
     }

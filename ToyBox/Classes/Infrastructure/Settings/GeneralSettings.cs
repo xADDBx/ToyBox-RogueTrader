@@ -1,4 +1,6 @@
-﻿namespace ToyBox.Infrastructure;
+﻿using Kingmaker.EntitySystem.Stats.Base;
+
+namespace ToyBox.Infrastructure;
 
 internal class GeneralSettings : AbstractSettings {
     private static readonly Lazy<GeneralSettings> m_Instance = new(() => {
@@ -181,4 +183,13 @@ internal class GeneralSettings : AbstractSettings {
     public UnitSelectType DiceRollsDamageTake50;
     public UnitSelectType DiceRollsDamageTake25;
     public UnitSelectType DiceRollsDamageTake1;
+
+    // - Enemy Stat Modifier
+    public bool EnableEnemyFlatStatModifier = false;
+    public bool EnableEnemyStatMultiplier = false;
+    public Dictionary<StatType, int> FlatEnemyMods = [];
+    public Dictionary<StatType, float> MultiplierEnemyMods = [];
+
+
+    // Level Up
 }

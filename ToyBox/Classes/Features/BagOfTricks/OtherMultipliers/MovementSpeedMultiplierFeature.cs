@@ -4,6 +4,7 @@ using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Commands;
 using Kingmaker.UnitLogic.Parts;
 using UnityEngine;
+using Warhammer.SpaceCombat.StarshipLogic;
 
 namespace ToyBox.Features.BagOfTricks.OtherMultipliers;
 
@@ -45,13 +46,13 @@ public partial class MovementSpeedMultiplierFeature : FeatureWithPatch {
     }
     [HarmonyPatch(typeof(PartMovable), nameof(PartMovable.ModifiedSpeedMps), MethodType.Getter), HarmonyPostfix]
     private static void PartMovable_getModifiedSpeedMps_Patch(PartMovable __instance, ref float __result) {
-        if (__instance.Owner is BaseUnitEntity unit && __instance.Owner is not StarshipEntity && ToyBoxUnitHelper.IsPartyOrPet(unit)) {
+        if (__instance.Owner is BaseUnitEntity unit && !unit.IsStarship() && ToyBoxUnitHelper.IsPartyOrPet(unit)) {
             __result *= Settings.MovementSpeedMultiplier ?? 1f;
         }
     }
     [HarmonyPatch(typeof(UnitHelper), nameof(UnitHelper.CreateMoveCommandUnit)), HarmonyPostfix]
     private static void UnitHelper_CreateMoveCommandUnit_Patch(AbstractUnitEntity unit, ref UnitMoveToProperParams __result) {
-        if (unit is not StarshipEntity && ToyBoxUnitHelper.IsPartyOrPet(unit)) {
+        if (!unit.IsStarship() && ToyBoxUnitHelper.IsPartyOrPet(unit)) {
             if (__result.OverrideSpeed != null) {
                 __result.OverrideSpeed *= Settings.MovementSpeedMultiplier ?? 1;
             }
@@ -59,7 +60,7 @@ public partial class MovementSpeedMultiplierFeature : FeatureWithPatch {
     }
     [HarmonyPatch(typeof(UnitHelper), nameof(UnitHelper.CreateMoveCommandParamsRT)), HarmonyPostfix]
     private static void UnitHelper_CreateMoveCommandParamsRT_Patch(BaseUnitEntity unit, ref UnitMoveToParams __result) {
-        if (unit is not StarshipEntity && ToyBoxUnitHelper.IsPartyOrPet(unit)) {
+        if (!unit.IsStarship() && ToyBoxUnitHelper.IsPartyOrPet(unit)) {
             if (__result.OverrideSpeed != null) {
                 __result.OverrideSpeed *= Settings.MovementSpeedMultiplier ?? 1;
             }
@@ -67,7 +68,7 @@ public partial class MovementSpeedMultiplierFeature : FeatureWithPatch {
     }
     [HarmonyPatch(typeof(PartMovable), nameof(PartMovable.CalculateCurrentSpeed)), HarmonyPostfix]
     private static void UnitHelper_CreateMoveCommandParamsRT_Patch(PartMovable __instance , ref float __result) {
-        if (__instance.Owner is BaseUnitEntity unit && unit is not StarshipEntity && ToyBoxUnitHelper.IsPartyOrPet(unit)) {
+        if (__instance.Owner is BaseUnitEntity unit && !unit.IsStarship() && ToyBoxUnitHelper.IsPartyOrPet(unit)) {
             __result *= Settings.MovementSpeedMultiplier ?? 1;
         }
     }
