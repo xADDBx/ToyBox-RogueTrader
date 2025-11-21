@@ -26,7 +26,11 @@ public partial class IgnoreTalentPrerequisitesFeature : FeatureWithPatch {
     private static bool m_IsChargenCall = false;
     [HarmonyPatch(typeof(PrerequisiteFact), nameof(PrerequisiteFact.MeetsInternal)), HarmonyPostfix]
     private static void PrerequisiteFact_MeetsInternal_Patch(PrerequisiteFact __instance, IBaseUnitEntity unit, ref bool __result) {
-        if (ToyBoxUnitHelper.IsPartyOrPet(unit as BaseUnitEntity) && !m_IsChargenCall && !(__result ^ __instance.Not)) {
+        // if Not is true we want result to be false
+        // if Not is false we want result to be false
+        // => we want to change the result if result XOR Not is false
+        // => !(result ^ Not) => result == Not
+        if (ToyBoxUnitHelper.IsPartyOrPet(unit as BaseUnitEntity) && !m_IsChargenCall && __result == __instance.Not) {
             __result = !__instance.Not;
         }
     }

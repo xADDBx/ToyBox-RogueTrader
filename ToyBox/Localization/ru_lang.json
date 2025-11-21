@@ -987,6 +987,14 @@
     "Original": "Slightly Buggy UI. This allows picking any one career per stage regardless of prerequisites. Warning: Picking e.g. Exemplar as second archetype will cause issues because you won't have a second archetype ability to upgrade.",
     "Translated": null
   },
+  "ToyBox_Features_LevelUp_IgnoreStatPrerequisitesFeature_Name": {
+    "Original": "Ignore Stat Prerequisites",
+    "Translated": null
+  },
+  "ToyBox_Features_LevelUp_IgnoreStatPrerequisitesFeature_Description": {
+    "Original": "Automatically succeeds stat-dependent prerequisite checks, both those asking for a minimum value and those asking for a feature maximum value.",
+    "Translated": null
+  },
   "ToyBox_Features_LevelUp_IgnoreTalentPrerequisitesFeature_Name": {
     "Original": "Ignore Talent Prerequisites",
     "Translated": null

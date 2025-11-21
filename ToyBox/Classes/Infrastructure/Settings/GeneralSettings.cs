@@ -194,4 +194,5 @@ internal class GeneralSettings : AbstractSettings {
     // Level Up
     public bool EnableIgnoreArchetypePrerequisites = false;
     public bool EnableIgnoreTalentPrerequisites = false;
+    public bool EnableIgnoreStatPrerequisites = false;
 }
