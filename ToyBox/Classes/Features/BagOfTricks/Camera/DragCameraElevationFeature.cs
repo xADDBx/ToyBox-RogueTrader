@@ -24,24 +24,23 @@ public partial class DragCameraElevationFeature : FeatureWithPatch {
     [HarmonyPatch(typeof(CameraRig), nameof(CameraRig.TickRotate)), HarmonyTranspiler]
     private static IEnumerable<CodeInstruction> CameraRig_TickRotate_Patch(IEnumerable<CodeInstruction> instructions) {
         var field = AccessTools.Field(typeof(CameraRig), nameof(CameraRig.m_RotationByKeyboard));
-        bool nextNewObj = false;
-        Label? lastTarget = null;
-        foreach (var instruction in instructions) {
-            if (instruction.LoadsField(field)) {
-                nextNewObj = true;
-            } else {
-                _ = instruction.Branches(out lastTarget);
-            }
-            if (instruction.opcode == OpCodes.Newobj && nextNewObj) {
-                nextNewObj = false;
-                yield return new CodeInstruction(OpCodes.Ldarg_0).WithLabels(instruction.labels);
+        var insts = instructions.ToArray();
+        for (var i = 0; i < insts.Length - 2; i++) {
+            if (insts[i].LoadsField(field) && insts[i+1].opcode == OpCodes.Brfalse && insts[i+2].opcode == OpCodes.Newobj) {
+                yield return insts[i];
+                yield return insts[i + 1];
+                yield return new CodeInstruction(OpCodes.Ldarg_0).WithLabels(insts[i+2].ExtractLabels());
                 yield return new(OpCodes.Ldloc_0);
                 yield return CodeInstruction.Call((CameraRig camera, Vector2 vec) => MaybeChangeHeight(camera, vec));
-                yield return new CodeInstruction(OpCodes.Brtrue, lastTarget);
+                yield return new CodeInstruction(OpCodes.Brtrue, insts[i+1].operand);
+                yield return insts[i + 2];
+                i += 2;
             } else {
-                yield return instruction;
+                yield return insts[i];
             }
         }
+        yield return insts[insts.Length - 2];
+        yield return insts[insts.Length - 1];
     }
     private static bool MaybeChangeHeight(CameraRig camera, Vector2 vec) {
         if (Input.GetKey(KeyCode.LeftControl)) {

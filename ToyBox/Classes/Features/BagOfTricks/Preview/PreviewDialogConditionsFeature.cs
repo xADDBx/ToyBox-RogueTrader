@@ -10,7 +10,7 @@ public partial class PreviewDialogConditionsFeature : FeatureWithPatch {
             return ref Settings.EnablePreviewDialogConditions;
         }
     }
-    [LocalizedString("ToyBox_Features_BagOfTricks_Preview_PreviewDialogConditionsFeature_Name", "Dialog Results")]
+    [LocalizedString("ToyBox_Features_BagOfTricks_Preview_PreviewDialogConditionsFeature_Name", "Dialog Conditions")]
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_BagOfTricks_Preview_PreviewDialogConditionsFeature_Description", "Shows conditions of answers in dialog.")]
     public override partial string Description { get; }

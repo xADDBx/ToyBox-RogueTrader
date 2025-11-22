@@ -7,7 +7,7 @@ namespace ToyBox.Features.BagOfTricks.Combat;
 
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.Combat.MurderHoboFeature")]
 public partial class MurderHoboFeature : FeatureWithPatch, IBindableFeature {
-    [LocalizedString("ToyBox_Features_BagOfTricks_Combat_MurderHoboFeature_Name", "Murer Hobo")]
+    [LocalizedString("ToyBox_Features_BagOfTricks_Combat_MurderHoboFeature_Name", "Murder Hobo")]
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_BagOfTricks_Combat_MurderHoboFeature_Description", "When enabled, enemies will be killed when they join combat.")]
     public override partial string Description { get; }

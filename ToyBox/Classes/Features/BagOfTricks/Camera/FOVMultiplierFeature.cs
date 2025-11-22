@@ -14,7 +14,7 @@ public partial class FOVMultiplierFeature : FeatureWithPatch {
     }
     public ref float Value {
         get {
-            return ref Settings.CameraElevationOffset;
+            return ref Settings.FOVMultiplierSetting;
         }
     }
     [LocalizedString("ToyBox_Features_BagOfTricks_Camera_FOVMultiplierFeature_Name", "Field Of View")]
