@@ -29,7 +29,7 @@ public partial class EnemyFlatStatModifierFeature : FeatureWithPatch {
     private readonly TimedCache<float> m_LabelWidth = new(() => {
     List<string> names = [];
         foreach (StatType stat in Enum.GetValues(typeof(StatType))) {
-            if (NonHumanStats.Contains(stat)) {
+            if (Constants.NonHumanStats.Contains(stat) || Constants.LegacyStats.Contains(stat)) {
                 continue;
             }
             var name = LocalizedTexts.Instance.Stats.GetText(stat);
@@ -48,7 +48,7 @@ public partial class EnemyFlatStatModifierFeature : FeatureWithPatch {
                 Space(25);
                 using (VerticalScope()) {
                     foreach (StatType stat in Enum.GetValues(typeof(StatType))) {
-                        if (NonHumanStats.Contains(stat)) {
+                        if (Constants.NonHumanStats.Contains(stat) || Constants.LegacyStats.Contains(stat)) {
                             continue;
                         }
                         _ = Settings.FlatEnemyMods.TryGetValue(stat, out var mod);
@@ -73,7 +73,7 @@ public partial class EnemyFlatStatModifierFeature : FeatureWithPatch {
     }
     [HarmonyPatch(typeof(ModifiableValue), nameof(ModifiableValue.ModifiedValue), MethodType.Getter), HarmonyPostfix]
     private static void ModifiableValue_getModifiedValue_Patch(ModifiableValue __instance, ref int __result) {
-        if (NonHumanStats.Contains(__instance.OriginalType)) {
+        if (Constants.NonHumanStats.Contains(__instance.OriginalType) || Constants.LegacyStats.Contains(__instance.OriginalType)) {
             return;
         }
         if (__instance.Owner is BaseUnitEntity entity && !entity.IsStarship() && entity.IsPlayerEnemy && Settings.FlatEnemyMods.TryGetValue(__instance.OriginalType, out var mod)) {
