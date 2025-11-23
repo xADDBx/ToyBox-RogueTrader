@@ -2,6 +2,7 @@
 
 namespace ToyBox.Features.BagOfTricks.Cheats;
 
+[IsTested]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.Cheats.PartialUnlimitedActionsPerTurnFeature")]
 public partial class PartialUnlimitedActionsPerTurnFeature : FeatureWithPatch {
     public override ref bool IsEnabled {

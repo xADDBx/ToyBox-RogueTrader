@@ -7,6 +7,7 @@ using UniRx;
 
 namespace ToyBox.Features.BagOfTricks.QualityOfLife;
 
+[IsTested]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.QualityOfLife.RefillBeltConsumablesFeature")]
 public partial class RefillBeltConsumablesFeature : FeatureWithPatch {
     public override ref bool IsEnabled {

@@ -5,6 +5,7 @@ using Kingmaker.UnitLogic.Progression.Features;
 
 namespace ToyBox.Features.BagOfTricks.Dialog;
 
+[IsTested]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.Dialog.OverrideStoryOccupationFeature")]
 public partial class OverrideStoryOccupationFeature : FeatureWithPatch {
     //                                                    AstraMilitarum                   ,  Commissar                        ,  Criminal

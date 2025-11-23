@@ -2,6 +2,7 @@
 
 namespace ToyBox.Features.BagOfTricks.Dialog;
 
+[IsTested]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.Dialog.IgnoreDialogRestrictionsSoulMarkFeature")]
 public partial class IgnoreDialogRestrictionsSoulMarkFeature : FeatureWithPatch {
     public override ref bool IsEnabled {

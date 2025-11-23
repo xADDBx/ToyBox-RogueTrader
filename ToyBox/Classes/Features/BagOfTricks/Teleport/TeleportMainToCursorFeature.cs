@@ -5,6 +5,7 @@ using Kingmaker.GameModes;
 
 namespace ToyBox.Features.BagOfTricks.Teleport;
 
+[IsTested]
 public partial class TeleportMainToCursorFeature : FeatureWithBindableAction {
     [LocalizedString("ToyBox_Features_BagOfTricks_Teleport_TeleportMainToCursorFeature_Name", "Teleport Main Character To Cursor")]
     public override partial string Name { get; }

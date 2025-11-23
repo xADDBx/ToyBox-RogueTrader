@@ -14,7 +14,10 @@ public partial class ChangePartyFeature : FeatureWithBindableAction {
         if (IsInGame() && (Game.Instance.CurrentMode == GameModeType.Default || Game.Instance.CurrentMode == GameModeType.Pause || Game.Instance.CurrentMode == GameModeType.GlobalMap)) {
             LogExecution(parameter);
             ToggleModWindow();
-            new ShowPartySelection().Run();
+            new ShowPartySelection() {
+                ActionsAfterPartySelection = new(),
+                ActionsIfCanceled = new(),
+            }.Run();
         }
     }
 }

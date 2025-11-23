@@ -3,6 +3,7 @@ using Kingmaker.UnitLogic.Parts;
 
 namespace ToyBox.Features.BagOfTricks.Combat;
 
+[IsTested]
 public partial class RestSelectedFeature : FeatureWithBindableAction {
     [LocalizedString("ToyBox_Features_BagOfTricks_Combat_RestSelectedFeature_Name", "Rest Selected")]
     public override partial string Name { get; }

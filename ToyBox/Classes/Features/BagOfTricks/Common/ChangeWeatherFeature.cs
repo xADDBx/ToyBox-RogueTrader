@@ -2,6 +2,7 @@
 
 namespace ToyBox.Features.BagOfTricks.Common;
 
+[IsTested]
 public partial class ChangeWeatherFeature : FeatureWithBindableAction {
     [LocalizedString("ToyBox_Features_BagOfTricks_Common_ChangeWeatherFeature_Name", "Change Weather")]
     public override partial string Name { get; }

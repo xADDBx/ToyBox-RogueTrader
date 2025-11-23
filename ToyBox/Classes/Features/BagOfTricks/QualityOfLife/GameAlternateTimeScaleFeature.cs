@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace ToyBox.Features.BagOfTricks.QualityOfLife;
 
+[IsTested]
 public partial class GameAlternateTimeScaleFeature : ToggledFeature, IBindableFeature {
     public override ref bool IsEnabled {
         get {

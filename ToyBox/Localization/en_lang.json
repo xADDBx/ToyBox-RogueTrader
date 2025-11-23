@@ -348,7 +348,7 @@
     "Translated": null
   },
   "ToyBox_Features_BagOfTricks_Common_GoToGlobalMapFeature_Description": {
-    "Original": "Tries to load the sector map area.",
+    "Original": "Tries to load the sector map area. Don't use in prologue.",
     "Translated": null
   },
   "ToyBox_Features_BagOfTricks_Common_OpenReputationTradeWindowFeature_Name": {

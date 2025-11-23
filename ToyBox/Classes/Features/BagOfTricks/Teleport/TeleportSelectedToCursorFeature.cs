@@ -5,6 +5,7 @@ using Kingmaker.UI.Selection;
 
 namespace ToyBox.Features.BagOfTricks.Teleport;
 
+[IsTested]
 public partial class TeleportSelectedToCursorFeature : FeatureWithBindableAction {
     [LocalizedString("ToyBox_Features_BagOfTricks_Teleport_TeleportSelectedToCursorFeature_Name", "Teleport Selected Characters To Cursor")]
     public override partial string Name { get; }

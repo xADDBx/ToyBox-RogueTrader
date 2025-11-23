@@ -3,6 +3,7 @@ using Kingmaker.Cheats;
 
 namespace ToyBox.Features.BagOfTricks.Combat;
 
+[IsTested]
 public partial class KillAllEnemiesFeature : FeatureWithBindableAction {
     [LocalizedString("ToyBox_Features_BagOfTricks_Combat_KillAllEnemiesFeature_Name", "Kill All Enemies")]
     public override partial string Name { get; }

@@ -4,10 +4,11 @@ using Kingmaker.EntitySystem.Persistence;
 
 namespace ToyBox.Features.BagOfTricks.Common;
 
+[IsTested]
 public partial class GoToGlobalMapFeature : FeatureWithBindableAction {
     [LocalizedString("ToyBox_Features_BagOfTricks_Common_GoToGlobalMapFeature_Name", "Go To Global Map")]
     public override partial string Name { get; }
-    [LocalizedString("ToyBox_Features_BagOfTricks_Common_GoToGlobalMapFeature_Description", "Tries to load the sector map area.")]
+    [LocalizedString("ToyBox_Features_BagOfTricks_Common_GoToGlobalMapFeature_Description", "Tries to load the sector map area. Don't use in prologue.")]
     public override partial string Description { get; }
 
     public override void ExecuteAction(params object[] parameter) {

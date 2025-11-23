@@ -5,6 +5,7 @@ using Kingmaker.Utility.DotNetExtensions;
 
 namespace ToyBox.Features.BagOfTricks.Common;
 
+[IsTested]
 public partial class RerollPerceptionFeature : FeatureWithBindableAction {
     [LocalizedString("ToyBox_Features_BagOfTricks_Common_RerollPerceptionFeature_Name", "Reroll Perception")]
     public override partial string Name { get; }

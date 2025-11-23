@@ -15,6 +15,7 @@ using Kingmaker.View.Spawners;
 
 namespace ToyBox.Features.BagOfTricks.Common;
 
+[IsTested]
 public partial class OpenReputationTradeWindowFeature : FeatureWithBindableAction {
     [LocalizedString("ToyBox_Features_BagOfTricks_Common_OpenReputationTradeWindowFeature_Name", "Open Trade Window")]
     public override partial string Name { get; }

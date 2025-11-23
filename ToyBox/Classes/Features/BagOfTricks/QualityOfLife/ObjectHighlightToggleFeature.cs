@@ -9,6 +9,7 @@ using Kingmaker.Utility.GameConst;
 
 namespace ToyBox.Features.BagOfTricks.QualityOfLife;
 
+[IsTested]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.QualityOfLife.ObjectHighlightToggleFeature")]
 public partial class ObjectHighlightToggleFeature : FeatureWithPatch, IGameModeHandler {
     public override ref bool IsEnabled {

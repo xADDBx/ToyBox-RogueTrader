@@ -2,6 +2,7 @@
 
 namespace ToyBox.Features.BagOfTricks.QualityOfLife;
 
+[IsTested]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.QualityOfLife.DisableEndTurnKeybindFeature")]
 public partial class DisableEndTurnKeybindFeature : FeatureWithPatch {
     public override ref bool IsEnabled {

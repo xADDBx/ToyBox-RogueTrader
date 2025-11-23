@@ -2,6 +2,7 @@
 
 namespace ToyBox.Features.BagOfTricks.QualityOfLife;
 
+[IsTested]
 public partial class GameTimeScaleFeature : FeatureWithFloatSlider {
     public override bool IsEnabled {
         get {

@@ -13,7 +13,7 @@ public partial class RemoveBuffsFeature : FeatureWithBindableAction {
             var units = Game.Instance.Player?.PartyAndPets ?? [];
             LogExecution(units);
             foreach (var unit in units) {
-                foreach (var buff in unit.Buffs.Enumerable) {
+                foreach (var buff in unit.Buffs.Enumerable.ToArray()) {
                     if (buff.Blueprint.IsHiddenInUI) {
                         continue;
                     }

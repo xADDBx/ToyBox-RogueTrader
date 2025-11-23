@@ -3,6 +3,7 @@ using Kingmaker.EntitySystem;
 
 namespace ToyBox.Features.BagOfTricks.Combat;
 
+[IsTested]
 public partial class LobotomizeEnemiesFeature : FeatureWithBindableAction {
     [LocalizedString("ToyBox_Features_BagOfTricks_Combat_LobotomizeEnemiesFeature_Name", "Lobotomize Enemies")]
     public override partial string Name { get; }

@@ -3,6 +3,7 @@ using Kingmaker.Designers.WarhammerSurfaceCombatPrototype.PsychicPowers;
 
 namespace ToyBox.Features.BagOfTricks.RTSpecific;
 
+[IsTested]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.RTSpecific.PreventVeilThicknessFromChangingFeature")]
 public partial class PreventVeilThicknessFromChangingFeature : FeatureWithPatch {
     public override ref bool IsEnabled {

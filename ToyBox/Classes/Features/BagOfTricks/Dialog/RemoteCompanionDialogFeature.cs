@@ -48,8 +48,11 @@ public partial class RemoteCompanionDialogFeature : FeatureWithPatch {
             if (maybeCompanion != null) {
                 if (maybeCompanion.State != CompanionState.None) {
                     if (maybeCompanion.State != CompanionState.ExCompanion || GetInstance<ExCompanionDialogFeature>().IsEnabled) {
-                        if (__instance.Owner is BlueprintCue cueBP) {
-                            OwlLog($"Overiding {cueBP.name} Companion {__instance.companion.name} ({__instance.companion.AssetGuid}) In Party to true");
+                        if (__instance.Owner is BlueprintCue cueBp) {
+                            Debug($"Overiding {cueBp.name} Companion {__instance.companion.name} ({__instance.companion.AssetGuid}) In Party to true");
+                            __result = true;
+                        } else if (__instance.Owner is BlueprintAnswer answeBp) {
+                            Debug($"Overiding {answeBp.name} Companion {__instance.companion.name} ({__instance.companion.AssetGuid}) In Party to true");
                             __result = true;
                         }
                     }
@@ -65,17 +68,17 @@ public partial class RemoteCompanionDialogFeature : FeatureWithPatch {
     private static bool m_OriginallyIncludedRemote;
     [HarmonyPatch(typeof(Kingmaker.Designers.EventConditionActionSystem.Evaluators.CompanionInParty), nameof(Kingmaker.Designers.EventConditionActionSystem.Evaluators.CompanionInParty.GetAbstractUnitEntityInternal)), HarmonyPrefix]
     private static void CompanionInParty_GetAbstractUnitEntityInternal_Pre_Patch(Kingmaker.Designers.EventConditionActionSystem.Evaluators.CompanionInParty __instance) {
-        if (__instance.Owner is BlueprintCue) {
+        if (__instance.Owner is BlueprintCue || __instance.Owner is BlueprintAnswer) {
             m_OriginallyIncludedEx = __instance.IncludeExCompanions;
             m_OriginallyIncludedRemote = __instance.IncludeRemote;
             __instance.IncludeExCompanions = GetInstance<ExCompanionDialogFeature>().IsEnabled;
             __instance.IncludeRemote = true;
-            OwlLog($"Evalutors checking {__instance} Guid:{__instance.AssetGuid} Owner:{__instance.Owner.name} OwnerGuid: {__instance.Owner.AssetGuid}); Allowed ex: {m_OriginallyIncludedEx}, now: {__instance.IncludeExCompanions}; Allowed remote: {m_OriginallyIncludedRemote}, now: true");
+            Debug($"Evalutors checking {__instance} Guid:{__instance.AssetGuid} Owner:{__instance.Owner.name} OwnerGuid: {__instance.Owner.AssetGuid}); Allowed ex: {m_OriginallyIncludedEx}, now: {__instance.IncludeExCompanions}; Allowed remote: {m_OriginallyIncludedRemote}, now: true");
         }
     }
     [HarmonyPatch(typeof(Kingmaker.Designers.EventConditionActionSystem.Evaluators.CompanionInParty), nameof(Kingmaker.Designers.EventConditionActionSystem.Evaluators.CompanionInParty.GetAbstractUnitEntityInternal)), HarmonyPostfix]
     private static void CompanionInParty_GetAbstractUnitEntityInternal_Post_Patch(Kingmaker.Designers.EventConditionActionSystem.Evaluators.CompanionInParty __instance) {
-        if (__instance.Owner is BlueprintCue) {
+        if (__instance.Owner is BlueprintCue || __instance.Owner is BlueprintAnswer) {
             __instance.IncludeExCompanions = m_OriginallyIncludedEx;
             __instance.IncludeRemote = m_OriginallyIncludedRemote;
         }

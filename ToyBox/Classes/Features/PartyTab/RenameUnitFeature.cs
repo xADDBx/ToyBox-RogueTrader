@@ -6,6 +6,7 @@ using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Classes.Features.PartyTab;
 
+[IsTested]
 public partial class RenameUnitFeature : Feature, INeedContextFeature<BaseUnitEntity> {
     [LocalizedString("ToyBox_Classes_Features_PartyTab_RenameUnitFeature_Name", "Rename Unit")]
     public override partial string Name { get; }
@@ -24,8 +25,8 @@ public partial class RenameUnitFeature : Feature, INeedContextFeature<BaseUnitEn
 
     public void OnGui(BaseUnitEntity unit) {
         UI.EditableLabel(unit.CharacterName, unit.UniqueId, newName => {
-            unit.Description.CustomName = newName;
-            EventBus.RaiseEvent<IUnitNameHandler>(handler => handler.OnUnitNameChanged());
+            unit.Description.SetName(newName);
+            EventBus.RaiseEvent<IUnitNameHandler>(unit, handler => handler.OnUnitNameChanged());
             Main.ScheduleForMainThread(FeatureTab.GetInstance<PartyFeatureTab>().NameSectionWidth.ForceRefresh);
         });
     }

@@ -9,6 +9,7 @@ using System.Reflection.Emit;
 
 namespace ToyBox.Features.BagOfTricks.Cheats;
 
+[IsTested]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.Cheats.EquipmentChangeDuringCombatFeature")]
 public partial class EquipmentChangeDuringCombatFeature : FeatureWithPatch {
     public override ref bool IsEnabled {

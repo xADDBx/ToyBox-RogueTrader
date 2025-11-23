@@ -4,6 +4,7 @@ using Kingmaker.Items;
 
 namespace ToyBox.Features.BagOfTricks.Cheats;
 
+[IsTested]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.Cheats.InfiniteChargesOnItemsFeature")]
 public partial class InfiniteChargesOnItemsFeature : FeatureWithPatch {
     public override ref bool IsEnabled {
