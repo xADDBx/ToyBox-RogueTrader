@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace ToyBox.Features.BagOfTricks.Camera;
 
+[IsTested]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.Camera.FOVMultiplierFeature")]
 public partial class FOVMultiplierFeature : FeatureWithPatch {
     private static bool m_IsEnabled = false;
@@ -49,4 +50,6 @@ public partial class FOVMultiplierFeature : FeatureWithPatch {
     private static void CameraZoom_getPhysicalZoomMax_Patch(ref float __result) {
         __result *= GetInstance<FOVMultiplierFeature>().Value;
     }
+    [HarmonyPatch(typeof(CameraZoom), nameof(CameraZoom.TickZoom)), HarmonyPrefix]
+    private static void NoInlining() { }
 }

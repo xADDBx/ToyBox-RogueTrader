@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace ToyBox.Features.BagOfTricks.Camera;
 
+[IsTested]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.Camera.FreeCamFeature")]
 public partial class FreeCamFeature : FeatureWithPatch {
     public override ref bool IsEnabled {
