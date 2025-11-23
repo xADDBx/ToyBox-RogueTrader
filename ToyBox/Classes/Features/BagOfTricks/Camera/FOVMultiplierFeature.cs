@@ -19,7 +19,7 @@ public partial class FOVMultiplierFeature : FeatureWithPatch {
     }
     [LocalizedString("ToyBox_Features_BagOfTricks_Camera_FOVMultiplierFeature_Name", "Field Of View")]
     public override partial string Name { get; }
-    [LocalizedString("ToyBox_Features_BagOfTricks_Camera_FOVMultiplierFeature_Description", "Multiplies the FOV with the specified value.")]
+    [LocalizedString("ToyBox_Features_BagOfTricks_Camera_FOVMultiplierFeature_Description", "Changes the min/max FoV (you can scroll further in and out)")]
     public override partial string Description { get; }
     public override void OnGui() {
         using (HorizontalScope()) {
@@ -41,11 +41,11 @@ public partial class FOVMultiplierFeature : FeatureWithPatch {
             return "ToyBox.Features.BagOfTricks.Camera.FOVMultiplierFeature";
         }
     }
-    [HarmonyPatch(typeof(CameraZoom), nameof(CameraZoom.PhysicalZoomMin), MethodType.Getter), HarmonyPostfix]
+    [HarmonyPatch(typeof(CameraZoom), nameof(CameraZoom.FovMin), MethodType.Getter), HarmonyPostfix]
     private static void CameraZoom_getPhysicalZoomMin_Patch(ref float __result) {
-        __result *= GetInstance<FOVMultiplierFeature>().Value;
+        __result /= GetInstance<FOVMultiplierFeature>().Value;
     }
-    [HarmonyPatch(typeof(CameraZoom), nameof(CameraZoom.PhysicalZoomMax), MethodType.Getter), HarmonyPostfix]
+    [HarmonyPatch(typeof(CameraZoom), nameof(CameraZoom.FovMax), MethodType.Getter), HarmonyPostfix]
     private static void CameraZoom_getPhysicalZoomMax_Patch(ref float __result) {
         __result *= GetInstance<FOVMultiplierFeature>().Value;
     }

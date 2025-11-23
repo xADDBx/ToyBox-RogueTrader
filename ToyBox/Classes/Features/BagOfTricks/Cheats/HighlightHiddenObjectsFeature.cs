@@ -1,4 +1,5 @@
-﻿using Kingmaker;
+﻿using HarmonyLib;
+using Kingmaker;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Entities.Base;
 using Kingmaker.View;
@@ -100,7 +101,7 @@ public partial class HighlightHiddenObjectsFeature : FeatureWithPatch {
                 yield return popInst;
                 yield return new(OpCodes.Ldc_I4_0);
             } else if (inst.Calls(get_HighlightOnHover)) {
-                yield return CodeInstruction.Call((MapObjectView view) => ShouldHighlightOnHover(view)).WithLabels(inst.ExtractLabels());
+                yield return CodeInstruction.Call((MapObjectView view) => ShouldHighlightOnHover(view)).MoveLabelsFrom(inst);
             } else {
                 yield return inst;
             }

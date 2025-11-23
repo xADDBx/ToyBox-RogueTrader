@@ -10,6 +10,7 @@ using Kingmaker.Utility.DotNetExtensions;
 
 namespace ToyBox.Features.BagOfTricks.Dialog;
 
+[IsTested]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.Dialog.RemoteCompanionDialogFeature")]
 public partial class RemoteCompanionDialogFeature : FeatureWithPatch {
     public override ref bool IsEnabled {

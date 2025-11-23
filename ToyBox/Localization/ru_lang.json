@@ -100,7 +100,7 @@
     "Translated": null
   },
   "ToyBox_Features_BagOfTricks_Camera_FOVMultiplierFeature_Description": {
-    "Original": "Multiplies the FOV with the specified value.",
+    "Original": "Changes the min/max FoV (you can scroll further in and out)",
     "Translated": null
   },
   "ToyBox_Features_BagOfTricks_Camera_FreeCamFeature_Name": {

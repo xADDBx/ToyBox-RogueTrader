@@ -6,9 +6,10 @@ using UnityEngine;
 
 namespace ToyBox.Features.BagOfTricks.QualityOfLife;
 
+[IsTested]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.QualityOfLife.AutoLoadLastSaveOnLaunchFeature")]
 public partial class AutoLoadLastSaveOnLaunchFeature : FeatureWithPatch {
-    private static bool m_IsLaunch = false;
+    private static bool m_IsLaunch = true;
     public override ref bool IsEnabled {
         get {
             return ref Settings.EnableAutoLoadLastSaveOnLaunch;
