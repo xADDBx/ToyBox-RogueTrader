@@ -5,6 +5,7 @@ using Kingmaker.UnitLogic.ActivatableAbilities;
 
 namespace ToyBox.Features.BagOfTricks.Cheats;
 
+[IsTested]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.Cheats.FreeAbilitiesFeature")]
 public partial class FreeAbilitiesFeature : FeatureWithPatch {
     public override ref bool IsEnabled {

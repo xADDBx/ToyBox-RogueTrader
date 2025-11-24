@@ -14,9 +14,9 @@ public partial class IgnoreAllAbilityRequirementsFeature : FeatureWithPatch {
             return ref Settings.EnableIgnoreAllAbilityRequirements;
         }
     }
-    [LocalizedString("ToyBox_Features_BagOfTricks_Cheats_IgnoreAllAbilityRequirementsFeature_Name", "Ignore all Requirements for Abilities")]
+    [LocalizedString("ToyBox_Features_BagOfTricks_Cheats_IgnoreAllAbilityRequirementsFeature_Name", "Ignore all Target Requirements for Abilities")]
     public override partial string Name { get; }
-    [LocalizedString("ToyBox_Features_BagOfTricks_Cheats_IgnoreAllAbilityRequirementsFeature_Description", "Always allows using abilities.")]
+    [LocalizedString("ToyBox_Features_BagOfTricks_Cheats_IgnoreAllAbilityRequirementsFeature_Description", "Always allows using abilities regardless of target restrictions like Line of Sight, Friendly Fire or something else.")]
     public override partial string Description { get; }
 
     protected override string HarmonyName {

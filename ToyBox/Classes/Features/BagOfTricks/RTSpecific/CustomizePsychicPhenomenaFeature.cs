@@ -8,6 +8,7 @@ using UnityEngine;
 
 namespace ToyBox.Features.BagOfTricks.RTSpecific;
 
+[IsTested]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.RTSpecific.CustomizePsychicPhenomenaFeature")]
 // Early Init to prevent threading from causing issues with mods adding new phenomenas
 public partial class CustomizePsychicPhenomenaFeature : FeatureWithPatch, INeedEarlyInitFeature {

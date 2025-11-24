@@ -8,6 +8,7 @@ using Warhammer.SpaceCombat.StarshipLogic;
 
 namespace ToyBox.Features.BagOfTricks.OtherMultipliers;
 
+[IsTested]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.OtherMultipliers.MovementSpeedMultiplierFeature")]
 public partial class MovementSpeedMultiplierFeature : FeatureWithPatch {
     [LocalizedString("ToyBox_Features_BagOfTricks_OtherMultipliers_MovementSpeedMultiplierFeature_Name", "Movement Speed")]

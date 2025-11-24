@@ -3,6 +3,7 @@ using Kingmaker.UnitLogic.Commands;
 
 namespace ToyBox.Features.BagOfTricks.Cheats;
 
+[IsTested]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.Cheats.NoAbilityCooldownsFeature")]
 public partial class NoAbilityCooldownsFeature : FeatureWithPatch {
     public override ref bool IsEnabled {

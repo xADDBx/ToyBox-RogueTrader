@@ -3,6 +3,7 @@ using Kingmaker.Items;
 
 namespace ToyBox.Features.BagOfTricks.Cheats;
 
+[IsTested]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.Cheats.IgnoreEquipmentRestrictionsFeature")]
 public partial class IgnoreEquipmentRestrictionsFeature : FeatureWithPatch {
     public override ref bool IsEnabled {

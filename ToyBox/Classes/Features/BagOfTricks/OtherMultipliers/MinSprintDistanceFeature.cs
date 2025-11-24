@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace ToyBox.Features.BagOfTricks.OtherMultipliers;
 
+[IsTested]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.OtherMultipliers.MinSprintDistanceFeature")]
 public partial class MinSprintDistanceFeature : FeatureWithPatch {
     private int? m_OriginalMinSprintDistance;

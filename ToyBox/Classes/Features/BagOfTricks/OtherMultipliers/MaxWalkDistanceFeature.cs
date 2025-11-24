@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace ToyBox.Features.BagOfTricks.OtherMultipliers;
 
+[IsTested]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.OtherMultipliers.MaxWalkDistanceFeature")]
 public partial class MaxWalkDistanceFeature : FeatureWithPatch {
     private int? m_OriginalMaxWalkDistance;

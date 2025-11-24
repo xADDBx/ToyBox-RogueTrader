@@ -3,6 +3,7 @@ using ToyBox.Infrastructure.Keybinds;
 
 namespace ToyBox.Features.BagOfTricks.QualityOfLife;
 
+[IsTested]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.QualityOfLife.ClickToTransferEntireStackFeature")]
 public partial class ClickToTransferEntireStackFeature : FeatureWithPatch, IBindableFeature {
     public override ref bool IsEnabled {

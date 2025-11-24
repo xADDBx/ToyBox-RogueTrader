@@ -3,6 +3,7 @@ using Kingmaker.UnitLogic.Mechanics.Actions;
 
 namespace ToyBox.Features.BagOfTricks.RTSpecific;
 
+[IsTested]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.RTSpecific.PreventPsychicPhenomenaFeature")]
 public partial class PreventPsychicPhenomenaFeature : FeatureWithPatch {
     public override ref bool IsEnabled {

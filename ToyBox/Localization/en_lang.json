@@ -160,11 +160,11 @@
     "Translated": null
   },
   "ToyBox_Features_BagOfTricks_Cheats_IgnoreAllAbilityRequirementsFeature_Name": {
-    "Original": "Ignore all Requirements for Abilities",
+    "Original": "Ignore all Target Requirements for Abilities",
     "Translated": null
   },
   "ToyBox_Features_BagOfTricks_Cheats_IgnoreAllAbilityRequirementsFeature_Description": {
-    "Original": "Always allows using abilities.",
+    "Original": "Always allows using abilities regardless of target restrictions like Line of Sight, Friendly Fire or something else.",
     "Translated": null
   },
   "ToyBox_Features_BagOfTricks_Cheats_IgnoreAoeOverlapAbilityRequirementFeature_Name": {
