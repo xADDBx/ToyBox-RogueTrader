@@ -59,4 +59,6 @@ public static partial class SharedStrings {
     public static partial string CurrentlyLocalizedText { get; }
     [LocalizedString("ToyBox_FeatureWithBindableAction_m_CurrentKeybindConflictsWithExistLocalizedText", "Current keybind conflicts with existing binding!")]
     public static partial string CurrentKeybindConflictsWithExistLocalizedText { get; }
+    [LocalizedString("ToyBox_Infrastructure_Utilities_ContextProvider_PetsNotAllowedForThisFeature_LocalizedText", "Pets not allowed for this feature!")]
+    public static partial string PetsNotAllowedForThisFeature_LocalizedText { get; }
 }

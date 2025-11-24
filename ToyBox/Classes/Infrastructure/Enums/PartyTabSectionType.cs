@@ -2,7 +2,7 @@
 
 public enum PartyTabSectionType {
     None,
-    Classes,
+    Careers,
     Stats,
     Features,
     Buffs,
@@ -14,7 +14,7 @@ public static partial class PartyTabSectionType_Localizer {
     public static string GetLocalized(this PartyTabSectionType type) {
         return type switch {
             PartyTabSectionType.None => SharedStrings.NoneText,
-            PartyTabSectionType.Classes => m_ClassesText,
+            PartyTabSectionType.Careers => m_ClassesText,
             PartyTabSectionType.Stats => m_StatsText,
             PartyTabSectionType.Features => m_FeaturesText,
             PartyTabSectionType.Buffs => m_BuffsText,
@@ -24,7 +24,7 @@ public static partial class PartyTabSectionType_Localizer {
             _ => "!!Error Unknown PartyTabSectionType!!",
         };
     }
-    [LocalizedString("ToyBox_Infrastructure_Enums_PartyTabSectionType_Localizer_ClassesText", "Classes")]
+    [LocalizedString("ToyBox_Infrastructure_Enums_PartyTabSectionType_Localizer_ClassesText", "Careers")]
     private static partial string m_ClassesText { get; }
     [LocalizedString("ToyBox_Infrastructure_Enums_PartyTabSectionType_Localizer_StatsText", "Stats")]
     private static partial string m_StatsText { get; }

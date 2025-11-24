@@ -1067,12 +1067,60 @@
     "Original": "Apply Custom Level",
     "Translated": null
   },
+  "ToyBox_Features_PartyTab_Careers_ModifyCharacterLevelFeature_Name": {
+    "Original": "Modify Character Level",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Careers_ModifyCharacterLevelFeature_Description": {
+    "Original": "Allows changing the character level of a unit without changing its experience. Use Increase Unit Level instead to properly adjust experience. This gets reset on save reload.",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Careers_ModifyCharacterLevelFeature_m_CharacterLevelLocalizedText": {
+    "Original": "Character Level",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Careers_ModifyExperienceFeature_Name": {
+    "Original": "Modify Unit Experience",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Careers_ModifyExperienceFeature_Description": {
+    "Original": "Allows changing the amount of experience points a unit has.",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Careers_ModifyExperienceFeature_m_ExperienceLocalizedText": {
+    "Original": "Experience",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Careers_ModifyExperienceFeature_m_AdjustBasedOnLevelLocalizedText": {
+    "Original": "Adjust based on Level",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Careers_ModifyExperienceFeature_m_ThisSetsYourExperienceToMatchTheLocalizedText": {
+    "Original": "This sets your experience to match the current value of character level",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Careers_ShowCareersFeature_Name": {
+    "Original": "Show Careers",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Careers_ShowCareersFeature_Description": {
+    "Original": "Lists the careers of a unit and their current level.",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Careers_ShowCareersFeature_m_LevelLocalizedText": {
+    "Original": "Level",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Careers_ShowCareersFeature_m_CareersLocalizedText": {
+    "Original": "Careers",
+    "Translated": null
+  },
   "ToyBox_Features_PartyTab_IncreaseUnitLevelFeature_Name": {
     "Original": "Increase Unit Level",
     "Translated": null
   },
   "ToyBox_Features_PartyTab_IncreaseUnitLevelFeature_Description": {
-    "Original": "Allows increasing the level of a unit by 1.",
+    "Original": "Allows granting enough experience to increase level by 1.",
     "Translated": null
   },
   "ToyBox_Features_PartyTab_IncreaseUnitLevelFeature_Maximum_Abbreviated": {
@@ -1884,7 +1932,7 @@
     "Translated": null
   },
   "ToyBox_Infrastructure_Enums_PartyTabSectionType_Localizer_ClassesText": {
-    "Original": "Classes",
+    "Original": "Careers",
     "Translated": null
   },
   "ToyBox_Infrastructure_Enums_PartyTabSectionType_Localizer_StatsText": {
@@ -2089,6 +2137,10 @@
   },
   "ToyBox_FeatureWithBindableAction_m_CurrentKeybindConflictsWithExistLocalizedText": {
     "Original": "Current keybind conflicts with existing binding!",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Utilities_ContextProvider_PetsNotAllowedForThisFeature_LocalizedText": {
+    "Original": "Pets not allowed for this feature!",
     "Translated": null
   },
   "ToyBox_Main_SomethingWentHorriblyWrongAndYou": {

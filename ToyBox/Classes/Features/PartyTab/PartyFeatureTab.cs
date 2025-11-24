@@ -3,6 +3,7 @@ using Kingmaker.Designers;
 using Kingmaker.EntitySystem;
 using Kingmaker.EntitySystem.Entities;
 using ToyBox.Classes.Features.PartyTab;
+using ToyBox.Features.PartyTab.Careers;
 using ToyBox.Infrastructure.Inspector;
 using ToyBox.Infrastructure.Utilities;
 using UnityEngine;
@@ -19,7 +20,7 @@ public partial class PartyFeatureTab : FeatureTab {
     public override partial string Name { get; }
     private PartyTabSectionType m_UncollapsedSection = PartyTabSectionType.None;
     private BaseUnitEntity? m_UncollapsedUnit = null;
-    private static readonly PartyTabSectionType[] m_Sections = [PartyTabSectionType.Classes, PartyTabSectionType.Stats, PartyTabSectionType.Features,
+    private static readonly PartyTabSectionType[] m_Sections = [PartyTabSectionType.Careers, PartyTabSectionType.Stats, PartyTabSectionType.Features,
         PartyTabSectionType.Buffs, PartyTabSectionType.Abilities, PartyTabSectionType.Mechadendrites, PartyTabSectionType.Inspect];
     private static readonly Lazy<float> m_InspectLabelWidth = new(() => UI.WidthInDisclosureStyle(m_InspectPartyText));
     public override void InitializeAll() {
@@ -36,6 +37,9 @@ public partial class PartyFeatureTab : FeatureTab {
         AddFeature(new PartyBrowseBuffsFeature());
         AddFeature(new RenameUnitFeature());
         AddFeature(new IncreaseUnitLevelFeature());
+        AddFeature(new ModifyExperienceFeature());
+        AddFeature(new ModifyCharacterLevelFeature());
+        AddFeature(new ShowCareersFeature());
     }
     public void Refresh() {
         m_UncollapsedSection = PartyTabSectionType.None;
@@ -105,15 +109,17 @@ public partial class PartyFeatureTab : FeatureTab {
                         }
                         GUILayout.FlexibleSpace();
                     }
+
                 }
                 if (m_UncollapsedUnit == unit && m_UncollapsedSection != PartyTabSectionType.None) {
                     using (HorizontalScope()) {
+                        Space(50 * Main.UIScale);
                         switch (m_UncollapsedSection) {
                             case PartyTabSectionType.Inspect: InspectorUI.Inspect(unit); break;
                             case PartyTabSectionType.Features: Feature.GetInstance<PartyBrowseFeatsFeature>().OnGui(unit); break;
                             case PartyTabSectionType.Buffs: Feature.GetInstance<PartyBrowseBuffsFeature>().OnGui(unit); break;
                             case PartyTabSectionType.Abilities: Feature.GetInstance<PartyBrowseAbilitiesFeature>().OnGui(unit); break;
-                            case PartyTabSectionType.Classes: OnClassesGui(unit); break;
+                            case PartyTabSectionType.Careers: OnCareersGui(unit); break;
                             case PartyTabSectionType.Stats: OnStatsGui(unit); break;
                             case PartyTabSectionType.Mechadendrites: OnMechadendritesGui(unit); break;
                             case PartyTabSectionType.None:
@@ -136,9 +142,17 @@ public partial class PartyFeatureTab : FeatureTab {
 #warning TODO
         UI.Label("Uncollapsed Stats");
     }
-    private static void OnClassesGui(BaseUnitEntity unit) {
-        Space(10);
-#warning TODO
-        UI.Label("Uncollapsed Classes");
+    private static void OnCareersGui(BaseUnitEntity unit) {
+        using (VerticalScope()) {
+            using (HorizontalScope()) {
+                Feature.GetInstance<ModifyCharacterLevelFeature>().OnGui(unit);
+            }
+            using (HorizontalScope()) {
+                Feature.GetInstance<ModifyExperienceFeature>().OnGui(unit);
+            }
+            using (HorizontalScope()) {
+                Feature.GetInstance<ShowCareersFeature>().OnGui(unit);
+            }
+        }
     }
 }

@@ -4,7 +4,7 @@ namespace ToyBox.Infrastructure.Utilities;
 
 public static partial class ContextProvider {
     private static bool m_UnitProviderShown = false;
-    public static bool BaseUnitEntity(out BaseUnitEntity? unit) {
+    public static bool BaseUnitEntity(out BaseUnitEntity? unit, bool allowPets = true) {
         unit = CharacterPicker.CurrentUnit;
         if (!IsInGame()) {
             UI.Label(SharedStrings.ThisCannotBeUsedFromTheMainMenu.Red());
@@ -27,6 +27,11 @@ public static partial class ContextProvider {
                 unit = CharacterPicker.CurrentUnit;
                 m_UnitProviderShown = !didChange || unit == null || justOpened;
             }
+        }
+        if (!allowPets && unit?.Master != null) {
+            UI.Label(SharedStrings.PetsNotAllowedForThisFeature_LocalizedText.Red());
+            unit = null;
+            return false;
         }
         return unit != null;
     }

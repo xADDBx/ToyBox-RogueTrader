@@ -7,11 +7,11 @@ namespace ToyBox.Features.PartyTab;
 public partial class IncreaseUnitLevelFeature : Feature, INeedContextFeature<BaseUnitEntity> {
     [LocalizedString("ToyBox_Features_PartyTab_IncreaseUnitLevelFeature_Name", "Increase Unit Level")]
     public override partial string Name { get; }
-    [LocalizedString("ToyBox_Features_PartyTab_IncreaseUnitLevelFeature_Description", "Allows increasing the level of a unit by 1.")]
+    [LocalizedString("ToyBox_Features_PartyTab_IncreaseUnitLevelFeature_Description", "Allows granting enough experience to increase level by 1.")]
     public override partial string Description { get; }
 
     public bool GetContext(out BaseUnitEntity? context) {
-        return ContextProvider.BaseUnitEntity(out context);
+        return ContextProvider.BaseUnitEntity(out context, false);
     }
 
     public override void OnGui() {
@@ -30,13 +30,13 @@ public partial class IncreaseUnitLevelFeature : Feature, INeedContextFeature<Bas
         while (highestReachableLevel < maxLevelIndex && unit.Progression.Experience >= xpTable.GetBonus(highestReachableLevel + 1)) {
             highestReachableLevel++;
         }
-        if (highestReachableLevel > currentLevel) {
+        if (highestReachableLevel > currentLevel && ToyBoxUnitHelper.IsPartyOrPet(unit)) {
             UI.Label(m_Lvl_LocalizedText + $" {currentLevel} > ".Green() + $"{highestReachableLevel}".Cyan(), Width(Main.UIScale * 75));
         } else {
             UI.Label(m_Lvl_LocalizedText + $" {currentLevel}".Green(), Width(Main.UIScale * 75));
         }
         // ??? Maybe filtering for pets?
-        if (Game.Instance.Player.AllCharacters.Contains(unit)) {
+        if (Game.Instance.Player.AllCharacters.Contains(unit) && unit.Master == null) {
             if (maxLevelIndex > highestReachableLevel) {
                 if (UI.Button("+1", null, null, Width(Main.UIScale * 35))) {
                     unit.Progression.AdvanceExperienceTo(xpTable.GetBonus(highestReachableLevel + 1), true);
