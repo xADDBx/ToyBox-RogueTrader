@@ -19,7 +19,9 @@ public partial class RenameUnitFeature : Feature, INeedContextFeature<BaseUnitEn
 
     public override void OnGui() {
         if (GetContext(out var unit)) {
-            OnGui(unit!);
+            using (HorizontalScope()) {
+                OnGui(unit!);
+            }
         }
     }
 

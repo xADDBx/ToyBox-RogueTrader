@@ -20,7 +20,7 @@ public partial class PartyFeatureTab : FeatureTab {
     private PartyTabSectionType m_UncollapsedSection = PartyTabSectionType.None;
     private BaseUnitEntity? m_UncollapsedUnit = null;
     private static readonly PartyTabSectionType[] m_Sections = [PartyTabSectionType.Classes, PartyTabSectionType.Stats, PartyTabSectionType.Features,
-        PartyTabSectionType.Buffs, PartyTabSectionType.Abilities, PartyTabSectionType.Inspect];
+        PartyTabSectionType.Buffs, PartyTabSectionType.Abilities, PartyTabSectionType.Mechadendrites, PartyTabSectionType.Inspect];
     private static readonly Lazy<float> m_InspectLabelWidth = new(() => UI.WidthInDisclosureStyle(m_InspectPartyText));
     public override void InitializeAll() {
         Main.OnHideGUIAction += Refresh;
@@ -35,6 +35,7 @@ public partial class PartyFeatureTab : FeatureTab {
         AddFeature(new PartyBrowseAbilitiesFeature());
         AddFeature(new PartyBrowseBuffsFeature());
         AddFeature(new RenameUnitFeature());
+        AddFeature(new IncreaseUnitLevelFeature());
     }
     public void Refresh() {
         m_UncollapsedSection = PartyTabSectionType.None;
@@ -75,21 +76,22 @@ public partial class PartyFeatureTab : FeatureTab {
             var mainChar = GameHelper.GetPlayerCharacter();
             foreach (var unit in units) {
                 using (HorizontalScope()) {
-                    using (HorizontalScope(Width(Math.Min(EffectiveWindowWidth() * 0.2f, NameSectionWidth + 110)))) {
-                        UI.Label(GetUnitName(unit), Width(NameSectionWidth));
-                        Space(2);
+                    UI.Label(GetUnitName(unit), Width(NameSectionWidth));
+                    Space(2);
 
-                        Feature.GetInstance<RenameUnitFeature>().OnGui(unit);
+                    Feature.GetInstance<RenameUnitFeature>().OnGui(unit);
 
-                        Dictionary<BaseUnitEntity, float> distanceCache = m_DistanceToCache;
-                        if (!distanceCache.TryGetValue(unit, out var dist)) {
-                            dist = mainChar.DistanceTo(unit);
-                            distanceCache[unit] = dist;
-                        }
-                        Space(13);
-                        UI.Label(dist < 1 ? "" : dist.ToString("0") + "m", Width(70));
-                        GUILayout.FlexibleSpace();
+                    Dictionary<BaseUnitEntity, float> distanceCache = m_DistanceToCache;
+                    if (!distanceCache.TryGetValue(unit, out var dist)) {
+                        dist = mainChar.DistanceTo(unit);
+                        distanceCache[unit] = dist;
                     }
+                    Space(13);
+                    UI.Label(dist < 1 ? "" : dist.ToString("0") + "m", Width(50));
+
+                    Feature.GetInstance<IncreaseUnitLevelFeature>().OnGui(unit);
+
+                    Space(15 * Main.UIScale);
                     foreach (var sec in m_Sections) {
                         var isUncollapsed = sec == m_UncollapsedSection && unit == m_UncollapsedUnit;
                         if (UI.DisclosureToggle(ref isUncollapsed, " " + sec.GetLocalized())) {
@@ -113,6 +115,7 @@ public partial class PartyFeatureTab : FeatureTab {
                             case PartyTabSectionType.Abilities: Feature.GetInstance<PartyBrowseAbilitiesFeature>().OnGui(unit); break;
                             case PartyTabSectionType.Classes: OnClassesGui(unit); break;
                             case PartyTabSectionType.Stats: OnStatsGui(unit); break;
+                            case PartyTabSectionType.Mechadendrites: OnMechadendritesGui(unit); break;
                             case PartyTabSectionType.None:
                                 break;
                             default:
@@ -122,6 +125,11 @@ public partial class PartyFeatureTab : FeatureTab {
                 }
             }
         }
+    }
+    private static void OnMechadendritesGui(BaseUnitEntity unit) {
+        Space(10);
+#warning TODO
+        UI.Label("Uncollapsed Mechadendrites");
     }
     private static void OnStatsGui(BaseUnitEntity unit) {
         Space(10);

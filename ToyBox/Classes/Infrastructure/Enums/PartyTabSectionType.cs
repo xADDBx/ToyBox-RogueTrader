@@ -7,6 +7,7 @@ public enum PartyTabSectionType {
     Features,
     Buffs,
     Abilities,
+    Mechadendrites,
     Inspect
 }
 public static partial class PartyTabSectionType_Localizer {
@@ -18,6 +19,7 @@ public static partial class PartyTabSectionType_Localizer {
             PartyTabSectionType.Features => m_FeaturesText,
             PartyTabSectionType.Buffs => m_BuffsText,
             PartyTabSectionType.Abilities => m_AbilitiesText,
+            PartyTabSectionType.Mechadendrites => m_MechadendritesText,
             PartyTabSectionType.Inspect => m_InspectText,
             _ => "!!Error Unknown PartyTabSectionType!!",
         };
@@ -34,4 +36,6 @@ public static partial class PartyTabSectionType_Localizer {
     private static partial string m_AbilitiesText { get; }
     [LocalizedString("ToyBox_Infrastructure_Enums_PartyTabSectionType_Localizer_InspectText", "Inspect")]
     private static partial string m_InspectText { get; }
+    [LocalizedString("ToyBox_Infrastructure_Enums_PartyTabSectionType_Localizer_m_MechadendritesLocalizedText", "Mechadendrites")]
+    private static partial string m_MechadendritesText { get; }
 }

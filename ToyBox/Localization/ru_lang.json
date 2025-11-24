@@ -1067,6 +1067,22 @@
     "Original": "Apply Custom Level",
     "Translated": null
   },
+  "ToyBox_Features_PartyTab_IncreaseUnitLevelFeature_Name": {
+    "Original": "Increase Unit Level",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_IncreaseUnitLevelFeature_Description": {
+    "Original": "Allows increasing the level of a unit by 1.",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_IncreaseUnitLevelFeature_Maximum_Abbreviated": {
+    "Original": "max",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_IncreaseUnitLevelFeature_Level_Abbreviated": {
+    "Original": "Lvl.",
+    "Translated": null
+  },
   "ToyBox_Features_PartyTab_PartyBrowseAbilitiesFeature_Name": {
     "Original": "Browse Unit Abilities",
     "Translated": null
@@ -1889,6 +1905,10 @@
   },
   "ToyBox_Infrastructure_Enums_PartyTabSectionType_Localizer_InspectText": {
     "Original": "Inspect",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Enums_PartyTabSectionType_Localizer_m_MechadendritesLocalizedText": {
+    "Original": "Mechadendrites",
     "Translated": null
   },
   "ToyBox_Infrastructure_Enums_UnitSelectType_Localizer_EveryoneText": {
