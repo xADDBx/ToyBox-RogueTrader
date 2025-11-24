@@ -115,6 +115,7 @@ public class GeneralSettings : AbstractJsonSettings {
     public bool EnableFreeCam = false;
     public float CameraElevationOffset = 0;
     public bool EnableDragCameraElevation = false;
+    public bool EnableMouse3DraggingToAimCamera = false;
 
     // - Cheats
     public bool PreventTrapsFromTriggering = false;

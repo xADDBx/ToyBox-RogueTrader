@@ -63,6 +63,14 @@
     "Original": "Enemy Stat Modifier",
     "Translated": null
   },
+  "ToyBox_Features_BagOfTricks_Camera_AllowMouse3DraggingToAimCameraFeature_Name": {
+    "Original": "Enable Mouse3 Dragging To Aim The Camera",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Camera_AllowMouse3DraggingToAimCameraFeature_Description": {
+    "Original": "Allows orbiting the camera while holding down Mouse Wheel.",
+    "Translated": null
+  },
   "ToyBox_Features_BagOfTricks_Camera_AllowRotateOnAllMapsAndCutscenesFeature_Name": {
     "Original": "Enable Rotate on all maps and cutscenes",
     "Translated": null

@@ -106,6 +106,7 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
         AddFeature(new FreeCamFeature(), m_CameraLocalizedText);
         AddFeature(new CameraElevationOffsetFeature(), m_CameraLocalizedText);
         AddFeature(new DragCameraElevationFeature(), m_CameraLocalizedText);
+        AddFeature(new AllowMouse3DraggingToAimCameraFeature(), m_CameraLocalizedText);
 
         AddFeature(new PreventTrapsFromTriggeringFeature(), m_CheatsText);
         AddFeature(new UnlimitedStackingOfModifiersFeature(), m_CheatsText);

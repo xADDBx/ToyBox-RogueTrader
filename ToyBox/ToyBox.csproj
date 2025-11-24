@@ -6,7 +6,7 @@
         <Description>ToyBox</Description>
         <AppDesignerFolder>Properties</AppDesignerFolder>
         <OutputType>Library</OutputType>
-        <Version>1.8.6</Version>
+        <Version>1.8.7</Version>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <LangVersion>preview</LangVersion>
         <Nullable>enable</Nullable>
