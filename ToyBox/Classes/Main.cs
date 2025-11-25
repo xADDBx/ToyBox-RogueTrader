@@ -128,6 +128,14 @@ public static partial class Main {
                 if (UnityModManager.UI.Instance.mUIScale != UIScale) {
                     OnUIScaleChanged?.Invoke();
                     UIScale = UnityModManager.UI.Instance.mUIScale;
+                    List<WeakReference<IPagedList>> newList = [];
+                    foreach (var maybeVl in m_VerticalLists) {
+                        if (maybeVl?.TryGetTarget(out var pagedList) ?? false) {
+                            newList.Add(maybeVl);
+                            pagedList.SetCacheInvalid();
+                        }
+                    }
+                    m_VerticalLists = newList;
                 }
                 if (BPLoader.IsLoading) {
                     UI.ProgressBar(BPLoader.Progress, "");

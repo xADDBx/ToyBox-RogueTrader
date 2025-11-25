@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace ToyBox.Features.BagOfTricks.ExperienceMultipliers;
 
+[IsTested]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.ExperienceMultipliers.ExperienceMultiplierFeature")]
 public partial class ExperienceMultiplierFeature : FeatureWithPatch {
     private static bool m_IsEnabled = false;

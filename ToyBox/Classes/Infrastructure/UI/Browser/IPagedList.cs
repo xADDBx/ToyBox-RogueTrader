@@ -2,4 +2,5 @@
 
 public interface IPagedList {
     void UpdatePages();
+    void SetCacheInvalid();
 }

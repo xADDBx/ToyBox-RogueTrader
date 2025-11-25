@@ -3,6 +3,7 @@ using Kingmaker.View;
 
 namespace ToyBox.Features.BagOfTricks.Camera;
 
+[IsTested]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.Camera.AllowRotateOnAllMapsAndCutscenesFeature")]
 public partial class AllowRotateOnAllMapsAndCutscenesFeature : FeatureWithPatch {
     public override ref bool IsEnabled {

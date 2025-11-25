@@ -16,6 +16,7 @@ public partial class FeatureSearchFeature : Feature {
     private readonly Browser<Feature> m_FeatureBrowser = new(f => f.SortKey, f => f.SearchKey, null, null, true, (int)(EffectiveWindowWidth() / 1.03f));
     private readonly Dictionary<Feature, bool> m_DisclosureStates = [];
     private bool m_OnlyFeaturesThatNeedTesting = false;
+    private float? m_NameLabelWidth;
     public override void OnGui() {
         if (!m_IsInitialized) {
             List<Feature> features = [];
@@ -39,6 +40,10 @@ public partial class FeatureSearchFeature : Feature {
             }
             m_FeatureBrowser.UpdateItems(features);
         }
+        if (!m_NameLabelWidth.HasValue || !m_FeatureBrowser.IsCachedValid) {
+            m_NameLabelWidth = CalculateLargestLabelSize(m_FeatureBrowser.PagedItems.Select(f => f.Name.Orange()));
+            m_FeatureBrowser.SetCacheValid();
+        }
         m_FeatureBrowser.OnGUI(feature => {
             using (VerticalScope()) {
                 if (!m_DisclosureStates.TryGetValue(feature, out var showNested)) {
@@ -50,7 +55,7 @@ public partial class FeatureSearchFeature : Feature {
                         m_DisclosureStates[feature] = showNested;
                     }
                     Space(15);
-                    UI.Label(feature.Name.Orange());
+                    UI.Label(feature.Name.Orange(), Width(m_NameLabelWidth.Value));
                     Space(15);
                     UI.Label(feature.Description.Yellow());
                 }
