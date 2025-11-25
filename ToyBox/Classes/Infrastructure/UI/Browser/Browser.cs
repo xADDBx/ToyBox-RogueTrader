@@ -17,11 +17,12 @@ public partial class Browser<T> : VerticalList<T> where T : notnull {
     private bool m_ShowAllFuncCalled = false;
     public bool ShowAll { get; protected set; } = false;
     private Task? m_DebounceTask;
-    protected IEnumerable<T>? UnsearchedShowAllItems = null;
+    protected List<T>? UnsearchedShowAllItems = null;
     protected IEnumerable<T> UnsearchedItems = [];
     protected Func<T, string> GetSearchKey;
     protected Func<T, string> GetSortKey;
     protected bool ShowSearchBar = true;
+    protected bool HideShowAll = false;
     protected ThreadedListSearcher<T> Searcher;
     /// <summary>
     /// Initializes a new instance of the <see cref="Browser{T}"/> class.
@@ -67,12 +68,19 @@ public partial class Browser<T> : VerticalList<T> where T : notnull {
     /// Optional override for the number of items per page.
     /// If null, uses the default from <see cref="VerticalList{T}"/>.
     /// </param>
-    public Browser(Func<T, string> sortKey, Func<T, string> searchKey, IEnumerable<T>? initialItems = null, Action<Action<IEnumerable<T>>>? showAllFunc = null, bool showDivBetweenItems = true, int? overridePageWidth = null, int? overridePageLimit = null, bool showSearchBar = true)
+    /// <param name="showSearchBar">
+    /// If false, hides the Search Bar.
+    /// </param>
+    /// <param name="hideShowAllEvenWithFunc">
+    /// If true, hides the Show All GUI even if a ShowAllFunc is provided (e.g. in combination with ForceShowAll()).
+    /// </param>
+    public Browser(Func<T, string> sortKey, Func<T, string> searchKey, IEnumerable<T>? initialItems = null, Action<Action<IEnumerable<T>>>? showAllFunc = null, bool showDivBetweenItems = true, int? overridePageWidth = null, int? overridePageLimit = null, bool showSearchBar = true, bool hideShowAllEvenWithFunc = false)
         : base(initialItems, showDivBetweenItems, overridePageWidth, overridePageLimit) {
         ShowAllFunc = showAllFunc;
         GetSearchKey = searchKey;
         GetSortKey = sortKey;
         ShowSearchBar = showSearchBar;
+        HideShowAll = hideShowAllEvenWithFunc;
         Searcher = new(this);
     }
     internal override void UpdateItems(IEnumerable<T> newItems, int? forcePage = null, bool onlyDisplayedItems = false) {
@@ -95,7 +103,7 @@ public partial class Browser<T> : VerticalList<T> where T : notnull {
     /// <param name="items">The complete collection of items to show when "Show All" is enabled.</param>
     public void RegisterShowAllItems(IEnumerable<T> items) {
         Main.ScheduleForMainThread(() => {
-            UnsearchedShowAllItems = items;
+            UnsearchedShowAllItems = [.. items];
             StartNewSearch(CurrentSearchString, true);
         });
     }
@@ -154,7 +162,7 @@ public partial class Browser<T> : VerticalList<T> where T : notnull {
             using (HorizontalScope()) {
                 PageGUI();
                 Space(30);
-                if (ShowAllFunc != null) {
+                if (ShowAllFunc != null && !HideShowAll) {
                     var newValue = GUILayout.Toggle(ShowAll, SharedStrings.ShowAllText.Cyan(), AutoWidth());
                     if (newValue != ShowAll) {
                         ShowAll = newValue;

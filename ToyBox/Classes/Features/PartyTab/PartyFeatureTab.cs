@@ -4,6 +4,7 @@ using Kingmaker.EntitySystem;
 using Kingmaker.EntitySystem.Entities;
 using ToyBox.Classes.Features.PartyTab;
 using ToyBox.Features.PartyTab.Careers;
+using ToyBox.Features.PartyTab.Stats;
 using ToyBox.Infrastructure.Inspector;
 using ToyBox.Infrastructure.Utilities;
 using UnityEngine;
@@ -45,6 +46,7 @@ public partial class PartyFeatureTab : FeatureTab {
         AddFeature(new ModifyExperienceFeature());
         AddFeature(new ModifyCharacterLevelFeature());
         AddFeature(new ShowCareersFeature());
+        AddFeature(new PortraitEditorFeature());
     }
     public void Refresh() {
         m_UncollapsedSection = PartyTabSectionType.None;
@@ -147,7 +149,9 @@ public partial class PartyFeatureTab : FeatureTab {
     private static void OnStatsGui(BaseUnitEntity unit) {
         Space(10);
 #warning TODO
-        UI.Label("Uncollapsed Stats");
+        using (VerticalScope()) {
+            Feature.GetInstance<PortraitEditorFeature>().OnGui(unit);
+        }
     }
     private static void OnCareersGui(BaseUnitEntity unit) {
         using (VerticalScope()) {

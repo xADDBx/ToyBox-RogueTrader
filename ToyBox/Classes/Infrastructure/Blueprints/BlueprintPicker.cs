@@ -40,7 +40,7 @@ public static class BlueprintPicker<T> where T : SimpleBlueprint {
                             });
                         }
                     } else {
-                        if (!m_Browser.IsCachedValid && m_Browser.PagedItems.Any()) {
+                        if (!m_Browser.IsCachedValid && m_Browser.PagedItems.Count > 0) {
                             m_CachedTitleWidth = Math.Min(0.3f * EffectiveWindowWidth(), CalculateLargestLabelSize(m_Browser.PagedItems.Select(bp => BPHelper.GetTitle(bp).Cyan().Bold())));
                             m_CachedTypeWidth = Math.Min(0.2f * EffectiveWindowWidth(), CalculateLargestLabelSize(m_Browser.PagedItems.Select(bp => bp.GetType().Name.Grey())));
                             m_CachedAssetIdWidth = Math.Min(0.3f * EffectiveWindowWidth(), CalculateLargestLabelSize(m_Browser.PagedItems.Select(bp => bp.AssetGuid.ToString()), GUI.skin.textField));

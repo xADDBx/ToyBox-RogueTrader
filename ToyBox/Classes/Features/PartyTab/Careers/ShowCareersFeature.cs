@@ -33,8 +33,7 @@ public partial class ShowCareersFeature : Feature, INeedContextFeature<BaseUnitE
         }
     }
 
-    [LocalizedString("ToyBox_Features_PartyTab_Careers_ShowCareersFeature_m_LevelLocalizedText", "Level"
-    )]
+    [LocalizedString("ToyBox_Features_PartyTab_Careers_ShowCareersFeature_m_LevelLocalizedText", "Level")]
     private static partial string m_LevelLocalizedText { get; }
     [LocalizedString("ToyBox_Features_PartyTab_Careers_ShowCareersFeature_m_CareersLocalizedText", "Careers")]
     private static partial string m_CareersLocalizedText { get; }

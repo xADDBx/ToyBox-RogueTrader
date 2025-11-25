@@ -1,22 +1,22 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-    <Import Project="$(SolutionDir)GamePathFinder.props" Condition="Exists('$(SolutionDir)GamePathFinder.props')" />
-    <PropertyGroup>
-        <TargetFramework>net481</TargetFramework>
-        <AssemblyName>ToyBox</AssemblyName>
-        <Description>ToyBox</Description>
-        <AppDesignerFolder>Properties</AppDesignerFolder>
-        <OutputType>Library</OutputType>
-        <Version>1.8.8</Version>
-        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-        <LangVersion>preview</LangVersion>
-        <Nullable>enable</Nullable>
-        <RootNamespace>ToyBox</RootNamespace>
+	<Import Project="$(SolutionDir)GamePathFinder.props" Condition="Exists('$(SolutionDir)GamePathFinder.props')" />
+	<PropertyGroup>
+		<TargetFramework>net481</TargetFramework>
+		<AssemblyName>ToyBox</AssemblyName>
+		<Description>ToyBox</Description>
+		<AppDesignerFolder>Properties</AppDesignerFolder>
+		<OutputType>Library</OutputType>
+		<Version>1.8.8</Version>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<LangVersion>preview</LangVersion>
+		<Nullable>enable</Nullable>
+		<RootNamespace>ToyBox</RootNamespace>
 		<AnalysisLevel>preview-all</AnalysisLevel>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-        <RestoreAdditionalProjectSources>https://api.nuget.org/v3/index.json</RestoreAdditionalProjectSources>
-    </PropertyGroup>
-    <ItemGroup>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<RestoreAdditionalProjectSources>https://api.nuget.org/v3/index.json</RestoreAdditionalProjectSources>
+	</PropertyGroup>
+	<ItemGroup>
 		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\netstandard*.dll" Private="false" />
 		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\Unity*.dll" Private="false" />
 		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\UnityEngine.IMGUIModule.dll*" Publicize="true" Private="false" />
@@ -47,36 +47,36 @@
 		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\UberLogger.dll*" Private="false" />
 		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\UniRx.dll*" Private="false" />
 		<Reference Include="System.IO.Compression" Private="false" />
-    </ItemGroup>
-    <ItemGroup>
-        <None Include="Info.json" CopyToOutputDirectory="PreserveNewest" />
-        <LocalizationFiles Include="Localization\*.*" />
-    </ItemGroup>
-    <Target Name="Deploy" AfterTargets="Build">
-        <Copy SourceFiles="@(LocalizationFiles)" DestinationFolder="$(TargetDir)Localization" />
-        <ItemGroup>
-            <FilesToHash Include="$(TargetDir)$(AssemblyName).dll" />
-        </ItemGroup>
-        <GetFileHash Files="@(FilesToHash)" Algorithm="SHA256">
-            <Output TaskParameter="Hash" PropertyName="DllHash" />
-        </GetFileHash>
-        <WriteLinesToFile File="$(TargetDir)checksum" Lines="$(DllHash)" Overwrite="true" />
-        <Message Text="DLL Hash (SHA256): $(DllHash)" Importance="High" />
-        
-        <ItemGroup>
-            <Files Include="$(TargetDir)\**\*.*" />
-        </ItemGroup>
-		
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="Info.json" CopyToOutputDirectory="PreserveNewest" />
+		<LocalizationFiles Include="Localization\*.*" />
+	</ItemGroup>
+	<Target Name="Deploy" AfterTargets="Build">
+		<Copy SourceFiles="@(LocalizationFiles)" DestinationFolder="$(TargetDir)Localization" />
+		<ItemGroup>
+			<FilesToHash Include="$(TargetDir)$(AssemblyName).dll" />
+		</ItemGroup>
+		<GetFileHash Files="@(FilesToHash)" Algorithm="SHA256">
+			<Output TaskParameter="Hash" PropertyName="DllHash" />
+		</GetFileHash>
+		<WriteLinesToFile File="$(TargetDir)checksum" Lines="$(DllHash)" Overwrite="true" />
+		<Message Text="DLL Hash (SHA256): $(DllHash)" Importance="High" />
+
+		<ItemGroup>
+			<Files Include="$(TargetDir)\**\*.*" />
+		</ItemGroup>
+
 		<Copy SourceFiles="@(Files)" DestinationFiles="@(Files->'$(RogueTraderData)\UnityModManager\0$(AssemblyName)0\%(RecursiveDir)%(Filename)%(Extension)')" />
 		<ZipDirectory SourceDirectory="$(MSBuildProjectDirectory)\$(OutputPath)" DestinationFile="$(MSBuildProjectDirectory)\$(OutputPath)\..\$(AssemblyName)-$(Version).zip" Overwrite="true" />
-    </Target>
-    <ItemGroup>
-        <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
-        <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" IncludeAssets="build; contentfiles" Version="0.4.2" PrivateAssets="all" />
-        <PackageReference Include="MicroUtils.HarmonyAnalyzers" IncludeAssets="runtime; build; native; contentfiles; analyzers" Version="*-*" PrivateAssets="all" />
-        <PackageReference Include="ToyBox.BuildTools" IncludeAssets="analyzers; build; compile" Version="1.1.9.5" PrivateAssets="all" />
-    </ItemGroup>
-    <Target Name="UpdateLocalizationFiles" BeforeTargets="Deploy">
-        <UpdateLocalizationTask LocalizationDirectoryPath="$(SolutionDir)ToyBox\Localization" AssemblyPath="$(TargetDir)$(AssemblyName).dll" />
-    </Target>
+	</Target>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
+		<PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" IncludeAssets="build; contentfiles" Version="0.4.2" PrivateAssets="all" />
+		<PackageReference Include="MicroUtils.HarmonyAnalyzers" IncludeAssets="runtime; build; native; contentfiles; analyzers" Version="*-*" PrivateAssets="all" />
+		<PackageReference Include="ToyBox.BuildTools" IncludeAssets="analyzers; build; compile" Version="1.1.9.5" PrivateAssets="all" />
+	</ItemGroup>
+	<Target Name="UpdateLocalizationFiles" BeforeTargets="Deploy">
+		<UpdateLocalizationTask LocalizationDirectoryPath="$(SolutionDir)ToyBox\Localization" AssemblyPath="$(TargetDir)$(AssemblyName).dll" />
+	</Target>
 </Project>

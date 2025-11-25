@@ -14,7 +14,7 @@ public partial class VerticalList<T> : IPagedList where T : notnull {
     protected int TotalPages = 1;
     protected int ItemCount = 0;
     protected bool ShowDivBetweenItems = true;
-    public IEnumerable<T> PagedItems = [];
+    public List<T> PagedItems = [];
     protected IEnumerable<T> Items = [];
     protected int? OverridePageLimit;
     protected int EffectivePageLimit {
@@ -110,7 +110,7 @@ public partial class VerticalList<T> : IPagedList where T : notnull {
     protected virtual void UpdatePagedItems() {
         var offset = Math.Min(ItemCount, (CurrentPage - 1) * EffectivePageLimit);
         PagedItemsCount = Math.Min(EffectivePageLimit, ItemCount - offset);
-        PagedItems = Items.Skip(offset).Take(PagedItemsCount);
+        PagedItems = [.. Items.Skip(offset).Take(PagedItemsCount)];
         SetCacheInvalid();
     }
     protected void PageGUI() {
@@ -142,6 +142,10 @@ public partial class VerticalList<T> : IPagedList where T : notnull {
             PageGUI();
         }
     }
+    public bool CurrentlyIsLastElement {
+        get;
+        private set;
+    }
     /// <summary>
     /// Renders the paged list using the provided item GUI rendering callback.
     /// </summary>
@@ -149,11 +153,15 @@ public partial class VerticalList<T> : IPagedList where T : notnull {
     public virtual void OnGUI(Action<T> onItemGUI) {
         using (VerticalScope(PageWidth)) {
             HeaderGUI();
-            foreach (var item in PagedItems) {
+            for (var i = 0; i < PagedItems.Count; i++) {
                 if (ShowDivBetweenItems) {
                     Div.DrawDiv();
                 }
-                onItemGUI(item);
+                if (i == PagedItems.Count - 1) {
+                    CurrentlyIsLastElement = true;
+                }
+                onItemGUI(PagedItems[i]);
+                CurrentlyIsLastElement = false;
             }
         }
     }
