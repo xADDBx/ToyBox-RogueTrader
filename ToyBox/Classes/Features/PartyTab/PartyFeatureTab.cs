@@ -22,13 +22,18 @@ public partial class PartyFeatureTab : FeatureTab {
     private BaseUnitEntity? m_UncollapsedUnit = null;
     private static readonly PartyTabSectionType[] m_Sections = [PartyTabSectionType.Careers, PartyTabSectionType.Stats, PartyTabSectionType.Features,
         PartyTabSectionType.Buffs, PartyTabSectionType.Abilities, PartyTabSectionType.Mechadendrites, PartyTabSectionType.Inspect];
-    private static readonly Lazy<float> m_InspectLabelWidth = new(() => UI.WidthInDisclosureStyle(m_InspectPartyText));
+    private static readonly TimedCache<float> m_InspectLabelWidth = new(() => UI.WidthInDisclosureStyle(m_InspectPartyText));
+    private void RefreshNameCache() {
+        NameSectionWidth.ForceRefresh();
+    }
     public override void InitializeAll() {
         Main.OnHideGUIAction += Refresh;
+        Main.OnUIScaleChanged += RefreshNameCache;
         base.InitializeAll();
     }
     public override void DestroyAll() {
         Main.OnHideGUIAction -= Refresh;
+        Main.OnUIScaleChanged -= RefreshNameCache;
         base.DestroyAll();
     }
     public PartyFeatureTab() {
@@ -74,7 +79,7 @@ public partial class PartyFeatureTab : FeatureTab {
         var units = CharacterPicker.CurrentUnits;
         using (VerticalScope()) {
             using (HorizontalScope()) {
-                UI.Label((m_PartyLevelText + ": ").Cyan() + Game.Instance.Player.PartyLevel.ToString().Orange().Bold(), Width(150));
+                UI.Label((m_PartyLevelText + ": ").Cyan() + Game.Instance.Player.PartyLevel.ToString().Orange().Bold(), Width(150 * Main.UIScale));
                 InspectorUI.InspectToggle("Party", m_InspectPartyText, units, -150, true, Width(m_InspectLabelWidth.Value + UI.DisclosureGlyphWidth.Value));
             }
             var mainChar = GameHelper.GetPlayerCharacter();
@@ -90,8 +95,10 @@ public partial class PartyFeatureTab : FeatureTab {
                         dist = mainChar.DistanceTo(unit);
                         distanceCache[unit] = dist;
                     }
-                    Space(13);
-                    UI.Label(dist < 1 ? "" : dist.ToString("0") + "m", Width(50));
+
+                    Space(10 * Main.UIScale);
+                    UI.Label(dist < 1 ? "" : dist.ToString("0") + "m", Width(20 * Main.UIScale));
+                    Space(10 * Main.UIScale);
 
                     Feature.GetInstance<IncreaseUnitLevelFeature>().OnGui(unit);
 

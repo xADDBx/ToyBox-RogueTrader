@@ -1,6 +1,7 @@
 ﻿using Kingmaker;
 using Kingmaker.EntitySystem.Entities;
 using ToyBox.Infrastructure.Utilities;
+using UnityEngine;
 
 namespace ToyBox.Features.PartyTab;
 
@@ -19,6 +20,12 @@ public partial class IncreaseUnitLevelFeature : Feature, INeedContextFeature<Bas
             OnGui(unit!);
         }
     }
+    private static readonly TimedCache<float> m_LevelLabelWidth = new(() => {
+        return CalculateLargestLabelSize([m_Lvl_LocalizedText + " 00 > 00 "], GUI.skin.label);
+    });
+    private static readonly TimedCache<float> m_MaxLabelWidth = new(() => {
+        return CalculateLargestLabelSize([m_MaxLocalizedText], GUI.skin.button) + 5 * Main.UIScale;
+    });
 
     public void OnGui(BaseUnitEntity unit) {
         var currentLevel = unit.Progression.CharacterLevel;
@@ -31,21 +38,20 @@ public partial class IncreaseUnitLevelFeature : Feature, INeedContextFeature<Bas
             highestReachableLevel++;
         }
         if (highestReachableLevel > currentLevel && ToyBoxUnitHelper.IsPartyOrPet(unit)) {
-            UI.Label(m_Lvl_LocalizedText + $" {currentLevel} > ".Green() + $"{highestReachableLevel}".Cyan(), Width(Main.UIScale * 75));
+            UI.Label(m_Lvl_LocalizedText + $" {currentLevel} > ".Green() + $"{highestReachableLevel}".Cyan(), Width(m_LevelLabelWidth));
         } else {
-            UI.Label(m_Lvl_LocalizedText + $" {currentLevel}".Green(), Width(Main.UIScale * 75));
+            UI.Label(m_Lvl_LocalizedText + $" {currentLevel}".Green(), Width(m_LevelLabelWidth));
         }
-        // ??? Maybe filtering for pets?
         if (Game.Instance.Player.AllCharacters.Contains(unit) && unit.Master == null) {
             if (maxLevelIndex > highestReachableLevel) {
-                if (UI.Button("+1", null, null, Width(Main.UIScale * 35))) {
+                if (UI.Button("+1", null, null, Width(m_MaxLabelWidth))) {
                     unit.Progression.AdvanceExperienceTo(xpTable.GetBonus(highestReachableLevel + 1), true);
                 }
             } else {
-                UI.Label(m_MaxLocalizedText, Width(Main.UIScale * 35));
+                UI.Label(m_MaxLocalizedText, Width(m_MaxLabelWidth));
             }
         } else {
-            UI.Label("", Width(Main.UIScale * 35));
+            UI.Label("", Width(m_MaxLabelWidth));
         }
     }
     [LocalizedString("ToyBox_Features_PartyTab_IncreaseUnitLevelFeature_Maximum_Abbreviated", "max")]

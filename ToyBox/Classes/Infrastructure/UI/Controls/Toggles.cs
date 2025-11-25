@@ -1,4 +1,5 @@
 ﻿using Kingmaker.Utility.UnityExtensions;
+using ToyBox.Infrastructure.Utilities;
 using UnityEngine;
 
 namespace ToyBox.Infrastructure;
@@ -24,11 +25,12 @@ public static partial class UI {
     public static float WidthInDisclosureStyle(string label) {
         return CalculateLargestLabelSize([Glyphs.DisclosureOn + label, Glyphs.DisclosureOff + label], m_DisclosureToggleStyle);
     }
-    public static Lazy<float> DisclosureGlyphWidth {
+    public static TimedCache<float> DisclosureGlyphWidth {
         get {
-            return new(() => {
+            field ??= new(() => {
                 return CalculateLargestLabelSize([Glyphs.DisclosureOn, Glyphs.DisclosureOff], m_DisclosureToggleStyle);
             });
+            return field;
         }
     }
 
