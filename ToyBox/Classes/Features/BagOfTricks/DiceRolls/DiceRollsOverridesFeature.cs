@@ -135,6 +135,7 @@ public partial class DiceRollsOverridesFeature : FeatureWithPatch {
     private static void RulePerformAttackRoll_OnTrigger_Patch(RulePerformAttackRoll __instance) {
         if (ToyBoxUnitHelper.IsOfSelectedType(__instance.InitiatorUnit, Settings.DiceRollsAllAttacksHit) && __instance.Result != AttackResult.Hit && __instance.Result != AttackResult.CoverHit && __instance.Result != AttackResult.RighteousFury) {
             __instance.Result = AttackResult.Hit;
+            __instance.ResultIsHit = true;
         }
         if (ToyBoxUnitHelper.IsOfSelectedType(__instance.InitiatorUnit, Settings.DiceRollsAllAttacksCrit) && !__instance.ShouldHaveBeenRighteousFury) {
             __instance.ResultIsRighteousFury = true;
