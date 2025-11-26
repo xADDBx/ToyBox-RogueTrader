@@ -22,7 +22,7 @@ public partial class PartyFeatureTab : FeatureTab {
     private PartyTabSectionType m_UncollapsedSection = PartyTabSectionType.None;
     private BaseUnitEntity? m_UncollapsedUnit = null;
     private static readonly PartyTabSectionType[] m_Sections = [PartyTabSectionType.Careers, PartyTabSectionType.Stats, PartyTabSectionType.Features,
-        PartyTabSectionType.Buffs, PartyTabSectionType.Abilities, PartyTabSectionType.Mechadendrites, PartyTabSectionType.Inspect];
+        PartyTabSectionType.Buffs, PartyTabSectionType.Abilities, PartyTabSectionType.Mechadendrites, PartyTabSectionType.FeatureLists, PartyTabSectionType.Inspect];
     private static readonly TimedCache<float> m_InspectLabelWidth = new(() => UI.WidthInDisclosureStyle(m_InspectPartyText));
     private void RefreshNameCache() {
         NameSectionWidth.ForceRefresh();
@@ -130,6 +130,7 @@ public partial class PartyFeatureTab : FeatureTab {
                             case PartyTabSectionType.Abilities: Feature.GetInstance<PartyBrowseAbilitiesFeature>().OnGui(unit); break;
                             case PartyTabSectionType.Careers: OnCareersGui(unit); break;
                             case PartyTabSectionType.Stats: OnStatsGui(unit); break;
+                            case PartyTabSectionType.FeatureLists: OnFeatureListsGui(unit); break;
                             case PartyTabSectionType.Mechadendrites: OnMechadendritesGui(unit); break;
                             case PartyTabSectionType.None:
                                 break;
@@ -140,6 +141,11 @@ public partial class PartyFeatureTab : FeatureTab {
                 }
             }
         }
+    }
+    private static void OnFeatureListsGui(BaseUnitEntity unit) {
+        Space(10);
+#warning TODO
+        UI.Label("Uncollapsed Feature Lists");
     }
     private static void OnMechadendritesGui(BaseUnitEntity unit) {
         Space(10);

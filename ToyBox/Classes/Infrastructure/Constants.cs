@@ -14,5 +14,6 @@ public static class Constants {
                                                                 StatType.PsyRating, StatType.Evasion, StatType.MachineTrait, StatType.ArmourFore,
                                                                 StatType.ArmourPort, StatType.ArmourStarboard, StatType.ArmourAft, StatType.Inertia,
                                                                 StatType.Power, StatType.Aiming, StatType.RevealRadius, StatType.DetectionRadius,
-                                                                StatType.ShieldsAmount, StatType.ShieldsRegeneration, StatType.Morale, StatType.Discipline];
+                                                                StatType.ShieldsAmount, StatType.ShieldsRegeneration, StatType.Morale, StatType.Discipline,
+                                                                StatType.InspirationInitialAmount, StatType.InspirationRegeneration];
 }

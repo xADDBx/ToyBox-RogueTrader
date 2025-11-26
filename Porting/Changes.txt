@@ -26,6 +26,7 @@ Rewrote some features:
 - Allow custom levels in RespecFromX
 - Fix Enemy Stat Multiplier not working for some stuff (e.g. Wounds)
 - Make Drag to Aim Camera persist in the session
+- Add new Dice Roll options; Fix some?
 
 Removed useless/unimplemented features:
 - Lots of things were leftover from the initial Wrath => RogueTrader port and/or became useless over time; the toggles/buttons basically did nothing but were still in the UI and sometimes still applied their patches.

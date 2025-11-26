@@ -173,6 +173,10 @@ public partial class DiceRollsOverridesFeature : FeatureWithPatch {
     private static void RuleRollDamage_TryNullifyDamage_PostPatch() {
         m_OverrideInitiator = null;
     }
+    [HarmonyPatch(typeof(RuleRollDice), nameof(RuleRollDice.Roll)), HarmonyFinalizer]
+    private static void DebugLog(RuleRollDice __instance) {
+        Log($"Debug print rule (context: {Rulebook.CurrentContext.Current}):\n{__instance.RollHistory.ToContentString()}");
+    }
     [HarmonyPatch(typeof(RuleRollDice), nameof(RuleRollDice.Roll)), HarmonyPostfix]
     private static void RuleRollDice_Roll_Patch(RuleRollDice __instance) {
         var isDamageRule = false;
