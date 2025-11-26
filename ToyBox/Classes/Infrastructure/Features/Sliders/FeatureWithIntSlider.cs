@@ -30,7 +30,7 @@ public abstract class FeatureWithIntSlider : Feature {
     }
     public override void OnGui() {
         using (HorizontalScope()) {
-            _ = UI.Slider(ref Value, Min, Max, Default, OnValueChanged, AutoWidth(), GUILayout.MinWidth(50), GUILayout.MaxWidth(150));
+            _ = UI.Slider(ref Value, Min, Max, Default, OnValueChanged, null, AutoWidth(), GUILayout.MinWidth(50), GUILayout.MaxWidth(150));
             Space(10);
             UI.Label(Name);
             Space(10);

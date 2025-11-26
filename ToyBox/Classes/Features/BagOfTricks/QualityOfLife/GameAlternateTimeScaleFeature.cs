@@ -33,7 +33,7 @@ public partial class GameAlternateTimeScaleFeature : ToggledFeature, IBindableFe
     }
     public override void OnGui() {
         using (HorizontalScope()) {
-            if (UI.Slider(ref Settings.GameAlternateTimeScaleMultiplier, 0.00001f, 20f, 1f, 3, null, AutoWidth(), GUILayout.MinWidth(50), GUILayout.MaxWidth(150))) {
+            if (UI.Slider(ref Settings.GameAlternateTimeScaleMultiplier, 0.00001f, 20f, 1f, 3, null, null, AutoWidth(), GUILayout.MinWidth(50), GUILayout.MaxWidth(150))) {
                 if (IsEnabled) {
                     Game.Instance.TimeController.DebugTimeScale = Settings.GameAlternateTimeScaleMultiplier;
                 }

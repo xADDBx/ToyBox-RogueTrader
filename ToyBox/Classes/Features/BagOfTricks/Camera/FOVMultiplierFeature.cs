@@ -24,7 +24,7 @@ public partial class FOVMultiplierFeature : FeatureWithPatch {
     public override partial string Description { get; }
     public override void OnGui() {
         using (HorizontalScope()) {
-            if (UI.Slider(ref Value, 0.4f, 5f, 1f, 2, null, AutoWidth(), GUILayout.MinWidth(50), GUILayout.MaxWidth(150))) {
+            if (UI.Slider(ref Value, 0.4f, 5f, 1f, 2, null, null, AutoWidth(), GUILayout.MinWidth(50), GUILayout.MaxWidth(150))) {
                 if (IsEnabled) {
                     Initialize();
                 } else {

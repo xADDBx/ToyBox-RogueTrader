@@ -19,7 +19,7 @@ public partial class CameraElevationOffsetFeature : FeatureWithPatch {
     }
     public override void OnGui() {
         using (HorizontalScope()) {
-            if (UI.Slider(ref Value, -10f, 100f, 0f, 0, null, AutoWidth(), GUILayout.MinWidth(50), GUILayout.MaxWidth(150))) {
+            if (UI.Slider(ref Value, -10f, 100f, 0f, 0, null, null, AutoWidth(), GUILayout.MinWidth(50), GUILayout.MaxWidth(150))) {
                 if (IsEnabled) {
                     Initialize();
                 } else {

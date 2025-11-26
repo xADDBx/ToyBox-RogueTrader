@@ -43,7 +43,7 @@ public partial class MinSprintDistanceFeature : FeatureWithPatch {
         }
         var tmp = Settings.MinSprintDistanceSetting ?? m_OriginalMinSprintDistance.Value;
         using (HorizontalScope()) {
-            if (UI.LogSlider(ref tmp, 0, 1000, m_OriginalMinSprintDistance.Value, null, AutoWidth(), GUILayout.MinWidth(50), GUILayout.MinWidth(150))) {
+            if (UI.LogSlider(ref tmp, 0, 1000, m_OriginalMinSprintDistance.Value, null, null, AutoWidth(), GUILayout.MinWidth(50), GUILayout.MinWidth(150))) {
                 if (tmp == m_OriginalMinSprintDistance.Value) {
                     Settings.MinSprintDistanceSetting = null;
                     Destroy();

@@ -23,9 +23,22 @@ public static partial class UI {
         options = options.Length == 0 ? [AutoWidth(), Width(600)] : options;
         var hasChanged = false;
         var oldContent = content;
-        var contentText = oldContent.ToString();
+        var contentText = oldContent.ToString("F0");
         var newText = GUILayout.TextField(contentText, options);
         if (newText != contentText && int.TryParse(newText, out var newContent)) {
+            content = newContent;
+            onContentChanged?.Invoke((oldContent, content));
+            hasChanged = true;
+        }
+        return hasChanged;
+    }
+    public static bool TextField(ref float content, Action<(float oldContent, float newContent)>? onContentChanged = null, params GUILayoutOption[] options) {
+        options = options.Length == 0 ? [AutoWidth(), Width(600)] : options;
+        var hasChanged = false;
+        var oldContent = content;
+        var contentText = oldContent.ToString("F");
+        var newText = GUILayout.TextField(contentText, options);
+        if (newText != contentText && float.TryParse(newText, out var newContent)) {
             content = newContent;
             onContentChanged?.Invoke((oldContent, content));
             hasChanged = true;

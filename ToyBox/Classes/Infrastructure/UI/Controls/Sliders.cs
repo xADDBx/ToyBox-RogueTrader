@@ -3,11 +3,15 @@
 namespace ToyBox.Infrastructure;
 
 public static partial class UI {
-    public static bool Slider(ref int value, float minValue, float maxValue, int? defaultValue = null, Action<(int oldValue, int newValue)>? onValueChanged = null, params GUILayoutOption[] options) {
+    public static bool Slider(ref int value, float minValue, float maxValue, int? defaultValue = null, Action<(int oldValue, int newValue)>? onValueChanged = null, int? valueLabelWidth = null, params GUILayoutOption[] options) {
         options = options.Length == 0 ? [AutoWidth(), Width(600)] : options;
         var oldValue = value;
         var result = (int)Math.Round(GUILayout.HorizontalSlider(oldValue, minValue, maxValue, options), 0);
-        Label(value.ToString().Orange() + " ");
+        if (valueLabelWidth.HasValue) {
+            Label(value.ToString("F0").Orange() + " ", Width(valueLabelWidth.Value));
+        } else {
+            Label(value.ToString("F0").Orange() + " ");
+        }
         if (defaultValue != null) {
             Space(4);
             _ = Button(SharedStrings.ResetToDefault, () => {
@@ -21,11 +25,15 @@ public static partial class UI {
         }
         return false;
     }
-    public static bool Slider(ref float value, float minValue, float maxValue, float? defaultValue = null, int digits = 2, Action<(float oldValue, float newValue)>? onValueChanged = null, params GUILayoutOption[] options) {
+    public static bool Slider(ref float value, float minValue, float maxValue, float? defaultValue = null, int digits = 2, Action<(float oldValue, float newValue)>? onValueChanged = null, int? valueLabelWidth = null, params GUILayoutOption[] options) {
         options = options.Length == 0 ? [AutoWidth(), Width(600)] : options;
         var oldValue = value;
         var result = (float)Math.Round(GUILayout.HorizontalSlider(oldValue, minValue, maxValue, options), digits);
-        Label(value.ToString().Orange() + " ");
+        if (valueLabelWidth.HasValue) {
+            Label(value.ToString("F").Orange() + " ", Width(valueLabelWidth.Value));
+        } else {
+            Label(value.ToString("F").Orange() + " ");
+        }
         if (defaultValue != null) {
             Space(4);
             _ = Button(SharedStrings.ResetToDefault, () => {
@@ -39,7 +47,7 @@ public static partial class UI {
         }
         return false;
     }
-    public static bool LogSlider(ref int value, float minValue, float maxValue, int? defaultValue = null, Action<(int oldValue, int newValue)>? onValueChanged = null, params GUILayoutOption[] options) {
+    public static bool LogSlider(ref int value, float minValue, float maxValue, int? defaultValue = null, Action<(int oldValue, int newValue)>? onValueChanged = null, int? valueLabelWidth = null, params GUILayoutOption[] options) {
         options = options.Length == 0 ? [AutoWidth(), Width(600)] : options;
         var oldValue = value;
         // Log(0) is bad; so shift to positive
@@ -51,7 +59,11 @@ public static partial class UI {
 
         var logResult = GUILayout.HorizontalSlider(logValue, logMin, logMax, options);
         var result = (int)Math.Round(Math.Pow(10, logResult / 100f) - offset, 0);
-        Label(value.ToString().Orange() + " ");
+        if (valueLabelWidth.HasValue) {
+            Label(value.ToString("F0").Orange() + " ", Width(valueLabelWidth.Value));
+        } else {
+            Label(value.ToString("F0").Orange() + " ");
+        }
         if (defaultValue != null) {
             Space(4);
             _ = Button(SharedStrings.ResetToDefault, () => {
@@ -77,7 +89,7 @@ public static partial class UI {
 
         var logResult = GUILayout.HorizontalSlider(logValue, logMin, logMax, options);
         var result = (float)Math.Round(Math.Pow(10, logResult / 100f) - offset, digits);
-        Label(value.ToString().Orange() + " ");
+        Label(value.ToString("F").Orange() + " ");
         if (defaultValue != null) {
             Space(4);
             _ = Button(SharedStrings.ResetToDefault, () => {
