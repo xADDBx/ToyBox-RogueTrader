@@ -119,6 +119,14 @@
     "Original": "Makes the game no longer force the camera to ground.",
     "Translated": null
   },
+  "ToyBox_Features_BagOfTricks_Camera_ResetCameraAimToDefaultFeature_Name": {
+    "Original": "Fix Camera",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Camera_ResetCameraAimToDefaultFeature_Description": {
+    "Original": "Resets the camera perspective to what it was before orbiting it.",
+    "Translated": null
+  },
   "ToyBox_Features_BagOfTricks_Cheats_CompleteUnlimitedActionsPerTurnFeature_Name": {
     "Original": "Don't use any AP",
     "Translated": null

@@ -3,6 +3,7 @@ using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Features.PartyTab.Careers;
 
+[IsTested]
 public partial class ModifyCharacterLevelFeature : Feature, INeedContextFeature<BaseUnitEntity> {
     [LocalizedString("ToyBox_Features_PartyTab_Careers_ModifyCharacterLevelFeature_Name", "Modify Character Level")]
     public override partial string Name { get; }

@@ -3,6 +3,7 @@ using static Kingmaker.EntitySystem.Stats.ModifiableValue;
 
 namespace ToyBox.Features.BagOfTricks.Cheats;
 
+[IsTested]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.Cheats.UnlimitedStackingOfModifiersFeature")]
 public partial class UnlimitedStackingOfModifiersFeature : FeatureWithPatch {
     public override ref bool IsEnabled {

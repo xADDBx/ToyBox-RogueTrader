@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace ToyBox.Features.PartyTab;
 
+[IsTested]
 public partial class IncreaseUnitLevelFeature : Feature, INeedContextFeature<BaseUnitEntity> {
     [LocalizedString("ToyBox_Features_PartyTab_IncreaseUnitLevelFeature_Name", "Increase Unit Level")]
     public override partial string Name { get; }

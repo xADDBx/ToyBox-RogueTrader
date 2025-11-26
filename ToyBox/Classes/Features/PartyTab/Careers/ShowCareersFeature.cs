@@ -3,6 +3,7 @@ using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Features.PartyTab.Careers;
 
+[IsTested]
 public partial class ShowCareersFeature : Feature, INeedContextFeature<BaseUnitEntity> {
     [LocalizedString("ToyBox_Features_PartyTab_Careers_ShowCareersFeature_Name", "Show Careers")]
     public override partial string Name { get; }

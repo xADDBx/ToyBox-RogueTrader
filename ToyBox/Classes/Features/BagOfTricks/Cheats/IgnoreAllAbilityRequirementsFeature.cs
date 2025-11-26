@@ -7,6 +7,7 @@ using static Kingmaker.UnitLogic.Abilities.AbilityData;
 
 namespace ToyBox.Features.BagOfTricks.Cheats;
 
+[IsTested]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.Cheats.IgnoreAllAbilityRequirementsFeature")]
 public partial class IgnoreAllAbilityRequirementsFeature : FeatureWithPatch {
     public override ref bool IsEnabled {

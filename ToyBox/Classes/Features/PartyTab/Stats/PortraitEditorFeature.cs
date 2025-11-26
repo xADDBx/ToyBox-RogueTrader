@@ -7,6 +7,7 @@ using UnityEngine;
 
 namespace ToyBox.Features.PartyTab.Stats;
 
+[IsTested]
 public partial class PortraitEditorFeature : Feature, INeedContextFeature<BaseUnitEntity> {
     [LocalizedString("ToyBox_Features_PartyTab_Stats_PortraitEditorFeature_Name", "Change Unit Portrait")]
     public override partial string Name { get; }

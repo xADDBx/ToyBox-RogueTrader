@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace ToyBox.Features.PartyTab.Careers;
 
+[IsTested]
 public partial class ModifyExperienceFeature : Feature, INeedContextFeature<BaseUnitEntity> {
     [LocalizedString("ToyBox_Features_PartyTab_Careers_ModifyExperienceFeature_Name", "Modify Unit Experience")]
     public override partial string Name { get; }
