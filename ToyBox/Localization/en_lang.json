@@ -231,14 +231,6 @@
     "Original": "Restores Item charges and rests Units once the party leaves combat.",
     "Translated": null
   },
-  "ToyBox_Features_BagOfTricks_Cheats_InventoryItemUseDuringCombatFeature_Name": {
-    "Original": "Inventory Item Use during Combat",
-    "Translated": null
-  },
-  "ToyBox_Features_BagOfTricks_Cheats_InventoryItemUseDuringCombatFeature_Description": {
-    "Original": "Allows using items in inventory during combat.",
-    "Translated": null
-  },
   "ToyBox_Features_BagOfTricks_Cheats_NoAbilityCooldownsFeature_Name": {
     "Original": "No Ability Cooldowns",
     "Translated": null
