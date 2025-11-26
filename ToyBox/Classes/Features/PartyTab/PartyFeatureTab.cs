@@ -38,15 +38,22 @@ public partial class PartyFeatureTab : FeatureTab {
         base.DestroyAll();
     }
     public PartyFeatureTab() {
-        AddFeature(new PartyBrowseFeatsFeature());
-        AddFeature(new PartyBrowseAbilitiesFeature());
-        AddFeature(new PartyBrowseBuffsFeature());
         AddFeature(new RenameUnitFeature());
+
         AddFeature(new IncreaseUnitLevelFeature());
+
         AddFeature(new ModifyExperienceFeature());
         AddFeature(new ModifyCharacterLevelFeature());
         AddFeature(new ShowCareersFeature());
+
         AddFeature(new PortraitEditorFeature());
+        AddFeature(new ChangeGenderFeature());
+
+        AddFeature(new PartyBrowseFeatsFeature());
+
+        AddFeature(new PartyBrowseAbilitiesFeature());
+
+        AddFeature(new PartyBrowseBuffsFeature());
     }
     public void Refresh() {
         m_UncollapsedSection = PartyTabSectionType.None;
@@ -157,6 +164,7 @@ public partial class PartyFeatureTab : FeatureTab {
 #warning TODO
         using (VerticalScope()) {
             Feature.GetInstance<PortraitEditorFeature>().OnGui(unit);
+            Feature.GetInstance<ChangeGenderFeature>().OnGui(unit);
         }
     }
     private static void OnCareersGui(BaseUnitEntity unit) {

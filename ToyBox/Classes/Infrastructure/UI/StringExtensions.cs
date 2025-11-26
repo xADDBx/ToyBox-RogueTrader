@@ -51,6 +51,10 @@ public static class StringExtensions {
         return s.Color("magenta");
     }
 
+    public static string Aqua(this string s) {
+        return s.Color("#00FEFEFE");
+    }
+
     public static string Yellow(this string s) {
         return s.Color("yellow");
     }

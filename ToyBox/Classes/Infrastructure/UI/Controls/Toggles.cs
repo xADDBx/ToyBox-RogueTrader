@@ -61,9 +61,9 @@ public static partial class UI {
         }
         return changed;
     }
-    public static bool DisclosureToggle(ref bool state, string? name = null, params GUILayoutOption[] options) {
+    public static bool DisclosureToggle(ref bool state, string? name = null, string? onText = null, string? offText = null, params GUILayoutOption[] options) {
         options = options.Length == 0 ? [AutoWidth()] : options;
-        var glyph = state ? Glyphs.DisclosureOn : Glyphs.DisclosureOff;
+        var glyph = state ? (onText ?? Glyphs.DisclosureOn) : (offText ?? Glyphs.DisclosureOff);
         var newValue = GUILayout.Toggle(state, glyph + (name ?? ""), m_DisclosureToggleStyle, options);
         if (newValue != state) {
             state = newValue;

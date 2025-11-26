@@ -56,7 +56,7 @@ public static partial class InspectorUI {
         if (options.Length == 0) {
             options = [Width(UI.DisclosureGlyphWidth.Value)];
         }
-        if (UI.DisclosureToggle(ref expanded, title, options)) {
+        if (UI.DisclosureToggle(ref expanded, title, null, null, options)) {
             if (expanded) {
                 m_ExpandedKeys.Clear();
                 _ = m_ExpandedKeys.Add(key);
@@ -200,7 +200,7 @@ public static partial class InspectorUI {
             }
 
             if (node.Children.Count > 0) {
-                _ = UI.DisclosureToggle(ref node.IsExpanded, node.LabelText, Width(calculatedWidth + discWidth));
+                _ = UI.DisclosureToggle(ref node.IsExpanded, node.LabelText, null, null, Width(calculatedWidth + discWidth));
             } else {
                 Space(discWidth);
                 GUILayout.Label(node.LabelText, Width(calculatedWidth));

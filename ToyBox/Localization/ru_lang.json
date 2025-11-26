@@ -1175,6 +1175,14 @@
     "Original": "Allows renaming the specified BaseUnitEntity",
     "Translated": null
   },
+  "ToyBox_Features_PartyTab_Stats_ChangeGenderFeature_Name": {
+    "Original": "Change Gender",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Stats_ChangeGenderFeature_Description": {
+    "Original": "Toggles the characters gender between male and female.",
+    "Translated": null
+  },
   "ToyBox_Features_PartyTab_Stats_PortraitEditorFeature_Name": {
     "Original": "Change Unit Portrait",
     "Translated": null
@@ -1997,6 +2005,10 @@
   },
   "ToyBox_Infrastructure_Enums_PartyTabSectionType_Localizer_InspectText": {
     "Original": "Inspect",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Enums_PartyTabSectionType_Localizer_FeatureListsText": {
+    "Original": "Feature Lists",
     "Translated": null
   },
   "ToyBox_Infrastructure_Enums_PartyTabSectionType_Localizer_m_MechadendritesLocalizedText": {
