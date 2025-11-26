@@ -7,7 +7,7 @@ namespace ToyBox.Features.BagOfTricks.Combat;
 
 [IsTested]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.Combat.MurderHoboFeature")]
-public partial class MurderHoboFeature : FeatureWithPatch, IBindableFeature {
+public partial class MurderHoboFeature : FeatureWithPatch, IToggledWithBinding {
     [LocalizedString("ToyBox_Features_BagOfTricks_Combat_MurderHoboFeature_Name", "Murder Hobo")]
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_BagOfTricks_Combat_MurderHoboFeature_Description", "When enabled, enemies will be killed when they join combat.")]
@@ -28,7 +28,7 @@ public partial class MurderHoboFeature : FeatureWithPatch, IBindableFeature {
     }
     public Hotkey? Keybind {
         get;
-        private set;
+        set;
     }
     public void ExecuteAction(params object[] parameter) {
         LogExecution();
@@ -41,16 +41,6 @@ public partial class MurderHoboFeature : FeatureWithPatch, IBindableFeature {
     }
     public void LogExecution(params object?[] parameter) {
         Helpers.LogExecution(this, parameter);
-    }
-    public override void OnGui() {
-        using (HorizontalScope()) {
-            base.OnGui();
-            Space(10);
-            var current = Keybind;
-            if (UI.HotkeyPicker(ref current, this)) {
-                Keybind = current;
-            }
-        }
     }
     [HarmonyPatch(typeof(PartUnitCombatState), nameof(PartUnitCombatState.JoinCombat)), HarmonyPostfix]
     private static void MaybeKillEnemy(PartUnitCombatState __instance) {

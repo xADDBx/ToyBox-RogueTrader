@@ -6,7 +6,7 @@ namespace ToyBox.Features.BagOfTricks.Camera;
 
 [IsTested]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.Camera.AllowMouse3DraggingToAimCameraFeature")]
-public partial class AllowMouse3DraggingToAimCameraFeature : FeatureWithPatch, IBindableFeature {
+public partial class AllowMouse3DraggingToAimCameraFeature : FeatureWithPatch, IToggledWithBinding {
     private static float m_OriginalMinSpaceCameraAngle;
     private static float m_OriginalMaxSpaceCameraAngle;
     private static bool m_OriginalEnableOrbitCamera;
@@ -31,7 +31,7 @@ public partial class AllowMouse3DraggingToAimCameraFeature : FeatureWithPatch, I
     }
     public Hotkey? Keybind {
         get;
-        private set;
+        set;
     }
     public void ExecuteAction(params object[] parameter) {
         LogExecution();
@@ -44,16 +44,6 @@ public partial class AllowMouse3DraggingToAimCameraFeature : FeatureWithPatch, I
     }
     public void LogExecution(params object?[] parameter) {
         Helpers.LogExecution(this, parameter);
-    }
-    public override void OnGui() {
-        using (HorizontalScope()) {
-            base.OnGui();
-            Space(10);
-            var current = Keybind;
-            if (UI.HotkeyPicker(ref current, this)) {
-                Keybind = current;
-            }
-        }
     }
     [HarmonyPatch(typeof(CameraRig), nameof(CameraRig.TickRotate)), HarmonyPrefix]
     private static void CameraRige_TickRotate_PrePatch(CameraRig __instance) {

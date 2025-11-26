@@ -5,7 +5,7 @@ namespace ToyBox.Features.BagOfTricks.QualityOfLife;
 
 [IsTested]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.BagOfTricks.QualityOfLife.ClickToTransferEntireStackFeature")]
-public partial class ClickToTransferEntireStackFeature : FeatureWithPatch, IBindableFeature {
+public partial class ClickToTransferEntireStackFeature : FeatureWithPatch, IToggledWithBinding {
     public override ref bool IsEnabled {
         get {
             return ref Settings.EnableClickToTransferEntireStack;
@@ -18,7 +18,7 @@ public partial class ClickToTransferEntireStackFeature : FeatureWithPatch, IBind
 
     public Hotkey? Keybind {
         get;
-        private set;
+        set;
     }
     public override void Initialize() {
         base.Initialize();
@@ -27,16 +27,6 @@ public partial class ClickToTransferEntireStackFeature : FeatureWithPatch, IBind
     protected override string HarmonyName {
         get {
             return "ToyBox.Features.BagOfTricks.QualityOfLife.ClickToTransferEntireStackFeature";
-        }
-    }
-    public override void OnGui() {
-        using (HorizontalScope()) {
-            base.OnGui();
-            Space(10);
-            var current = Keybind;
-            if (UI.HotkeyPicker(ref current, this, true)) {
-                Keybind = current;
-            }
         }
     }
     public void ExecuteAction(params object[] parameter) {
