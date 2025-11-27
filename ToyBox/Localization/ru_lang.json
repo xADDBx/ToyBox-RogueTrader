@@ -1248,7 +1248,7 @@
     "Translated": null
   },
   "ToyBox_Features_PartyTab_Stats_UnitBrowseVoicesFeature_m_TheButton_1_WillPlayTryToPlayARaLocalizedText": {
-    "Original": "The button {1} will play try to play a random PartyMemberUnconscious sound.",
+    "Original": "The button \"{0}\" will play try to play a random PartyMemberUnconscious sound.",
     "Translated": null
   },
   "ToyBox_Features_SettingsFeatures_Blueprints_BlueprintsLoaderChunkSizeSetting_Name": {

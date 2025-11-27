@@ -24,7 +24,7 @@ public partial class UnitBrowseVoicesFeature : Feature, INeedContextFeature<Base
     public void OnGui(BaseUnitEntity unit) {
         UI.DisclosureToggle(ref m_ShowBlueprintVoicePicker, m_ShowBlueprintVoicePickerLocalizedText);
         if (m_ShowBlueprintVoicePicker) {
-            UI.Label(m_TheButton_1_WillPlayTryToPlayARaLocalizedText.Format(GetInstance<PlayVoiceBA>().Name).Green());
+            UI.Label(m_TheButton_1_WillPlayTryToPlayARaLocalizedText.Format(PlayVoiceBA.PlayExampleLocalizedText).Green());
             if (unit.Asks.List != null) {
                 if (!unit.IsMainCharacter && !unit.IsCustomCompanion()) {
                     UI.Label(m_ChangingTheVoiceOfANon_customChaLocalizedText.Red());
@@ -50,6 +50,6 @@ public partial class UnitBrowseVoicesFeature : Feature, INeedContextFeature<Base
     private static partial string m_ChangingTheVoiceOfANon_customChaLocalizedText { get; }
     [LocalizedString("ToyBox_Features_PartyTab_Stats_UnitBrowseVoicesFeature_m_UsingANon_defaultVoiceToACustomCLocalizedText", "Using a non-default voice on a custom character is not tested.")]
     private static partial string m_UsingANon_defaultVoiceToACustomCLocalizedText { get; }
-    [LocalizedString("ToyBox_Features_PartyTab_Stats_UnitBrowseVoicesFeature_m_TheButton_1_WillPlayTryToPlayARaLocalizedText", "The button {1} will play try to play a random PartyMemberUnconscious sound.")]
+    [LocalizedString("ToyBox_Features_PartyTab_Stats_UnitBrowseVoicesFeature_m_TheButton_1_WillPlayTryToPlayARaLocalizedText", "The button \"{0}\" will play try to play a random PartyMemberUnconscious sound.")]
     private static partial string m_TheButton_1_WillPlayTryToPlayARaLocalizedText { get; }
 }

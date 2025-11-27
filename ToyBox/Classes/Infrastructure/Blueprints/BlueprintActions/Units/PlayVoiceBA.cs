@@ -35,7 +35,7 @@ public partial class PlayVoiceBA : BlueprintActionFeature, IBlueprintAction<Blue
     public bool? OnGui(BlueprintUnitAsksList blueprint, bool isFeatureSearch, params object[] parameter) {
         bool? result = null;
         if (CanExecute(blueprint, parameter)) {
-            _ = UI.Button(StyleActionString(m_PlayExampleLocalizedText, isFeatureSearch), () => {
+            _ = UI.Button(StyleActionString(PlayExampleLocalizedText, isFeatureSearch), () => {
                 result = Execute(blueprint, parameter);
             });
             UI.Label(" ");
@@ -58,7 +58,7 @@ public partial class PlayVoiceBA : BlueprintActionFeature, IBlueprintAction<Blue
     }
 
     [LocalizedString("ToyBox_Classes_Infrastructure_Blueprints_BlueprintActions_Units_PlayVoiceBA_m_PlayExampleLocalizedText", "Play Example")]
-    private static partial string m_PlayExampleLocalizedText { get; }
+    internal static partial string PlayExampleLocalizedText { get; }
     [LocalizedString("ToyBox_Classes_Infrastructure_Blueprints_BlueprintActions_Units_PlayVoiceBA_m_CanOnlyPlayAnExampleOfTheCurrentLocalizedText", "Can only play an example of the current voice!")]
     private static partial string m_CanOnlyPlayAnExampleOfTheCurrentLocalizedText { get; }
 }
