@@ -27,7 +27,7 @@ public partial class PartyBrowseAbilitiesFeature : Feature, INeedContextFeature<
     }
     public void OnGui(BaseUnitEntity unit) {
         if (!m_CachedBrowsers.TryGetValue(unit, out var browser) || !m_IsValid.Contains(unit)) {
-            browser ??= new(BPHelper.GetSortKey, BPHelper.GetSearchKey, null, func => BPLoader.GetBlueprintsOfType(func), overridePageWidth: (int)EffectiveWindowWidth() - 40);
+            browser ??= new(BPHelper.GetSortKey, BPHelper.GetSearchKey, null, func => BPLoader.GetBlueprintsOfType(func), overridePageWidth: (int)(EffectiveWindowWidth() - (40 * Main.UIScale)));
             browser.UpdateItems(unit.Abilities.Enumerable.Select(f => f.Blueprint));
             _ = m_IsValid.Add(unit);
             m_CachedBrowsers[unit] = browser;

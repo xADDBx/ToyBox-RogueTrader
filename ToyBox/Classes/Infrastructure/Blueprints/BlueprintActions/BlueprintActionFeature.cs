@@ -1,4 +1,6 @@
 ﻿using Kingmaker.Blueprints;
+using ToyBox.Classes.Infrastructure.Blueprints.BlueprintActions.Units;
+using ToyBox.Infrastructure.Blueprints.BlueprintActions.Units;
 
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
 
@@ -82,6 +84,8 @@ public class BlueprintActions : FeatureTab {
         AddFeature(new AddMechanicEntityFactBA());
         AddFeature(new ChangeBuffRankBA());
         AddFeature(new ChangeFeatureRankBA());
+        AddFeature(new ChangeVoiceBA());
+        AddFeature(new PlayVoiceBA());
         AddFeature(new RemoveAbilityResourceBA());
         AddFeature(new RemoveMechanicEntityFactBA());
         AddFeature(new SpawnUnitBA());

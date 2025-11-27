@@ -45,6 +45,7 @@ Removed useless/unimplemented features:
   - Show Rarity Tags
   - Color Item Names
   - Inventory item use during combat
+  - It is now possible to test a voice without having to change to it.
 
 Rewrote Inspector:
 - More options

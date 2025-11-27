@@ -8,10 +8,20 @@ using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.Items.Weapons;
+using Kingmaker.Blueprints.Quests;
+using Kingmaker.DialogSystem.Blueprints;
 using Kingmaker.GameInfo;
+using Kingmaker.Globalmap.Blueprints;
+using Kingmaker.Globalmap.Blueprints.Colonization;
+using Kingmaker.Globalmap.Blueprints.SectorMap;
+using Kingmaker.Globalmap.Blueprints.SystemMap;
 using Kingmaker.Modding;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.Mechanics.Blueprints;
+using Kingmaker.UnitLogic.Progression.Features;
+using Kingmaker.UnitLogic.Progression.Paths;
+using Kingmaker.Visual.Sound;
 using System.Runtime.Serialization;
 using System.Text;
 
@@ -37,11 +47,14 @@ public class BlueprintIdCache {
     public HashSet<(string, string)> OmmList = [];
     public Dictionary<Type, HashSet<string>> IdsByType = [];
     public static HashSet<Type> CachedIdTypes = [
-                typeof(BlueprintItem), typeof(BlueprintItemWeapon), typeof(BlueprintItemArmor),
-                typeof(BlueprintEtude), typeof(BlueprintArea), typeof(BlueprintItemEnchantment),
+                typeof(BlueprintItem), typeof(BlueprintItemWeapon), typeof(BlueprintItemArmor), typeof(BlueprintAbility),
+                typeof(BlueprintEtude), typeof(BlueprintArea), typeof(BlueprintItemEnchantment), typeof(BlueprintAnswer),
                 typeof(BlueprintBuff), typeof(BlueprintPortrait), typeof(BlueprintAbility), typeof(BlueprintAreaEnterPoint),
-                typeof(BlueprintUnit), typeof(BlueprintBrain), typeof(BlueprintUnitFact),
-                typeof(BlueprintAreaPreset), typeof(Cutscene)
+                typeof(BlueprintUnit), typeof(BlueprintBrain), typeof(BlueprintUnitFact), typeof(BlueprintFeature),
+                typeof(BlueprintAreaPreset), typeof(Cutscene), typeof(BlueprintUnitAsksList), typeof(BlueprintCareerPath),
+                typeof(BlueprintColony), typeof(BlueprintPlanet), typeof(BlueprintSectorMapPointStarSystem), typeof(BlueprintStarSystemMap),
+                typeof(BlueprintUnlockableFlag), typeof(BlueprintQuest), typeof(BlueprintQuestObjective), typeof(BlueprintAbilityResource),
+                typeof(BlueprintMechanicEntityFact)
         ];
 
     private static bool? m_NeedsCacheRebuilt = null;

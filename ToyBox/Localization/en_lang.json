@@ -1227,6 +1227,30 @@
     "Original": "Name of the new Blueprintportrait:",
     "Translated": null
   },
+  "ToyBox_Features_PartyTab_Stats_UnitBrowseVoicesFeature_Name": {
+    "Original": "Browse Voices",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitBrowseVoicesFeature_Description": {
+    "Original": "Allows browsing and changing the different voices on a unit.",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitBrowseVoicesFeature_m_ShowBlueprintVoicePickerLocalizedText": {
+    "Original": "Show Blueprint Voice Picker",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitBrowseVoicesFeature_m_ChangingTheVoiceOfANon_customChaLocalizedText": {
+    "Original": "Changing the voice of a non-custom character is not tested.",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitBrowseVoicesFeature_m_UsingANon_defaultVoiceToACustomCLocalizedText": {
+    "Original": "Using a non-default voice on a custom character is not tested.",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitBrowseVoicesFeature_m_TheButton_1_WillPlayTryToPlayARaLocalizedText": {
+    "Original": "The button {1} will play try to play a random PartyMemberUnconscious sound.",
+    "Translated": null
+  },
   "ToyBox_Features_SettingsFeatures_Blueprints_BlueprintsLoaderChunkSizeSetting_Name": {
     "Original": "Chunk Size",
     "Translated": null
@@ -1852,7 +1876,7 @@
     "Translated": null
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeBuffRankBA_Description": {
-    "Original": "Increases or decreases the value of the specified BlueprintBuff on the BlueprintUnit.",
+    "Original": "Increases or decreases the value of the specified BlueprintBuff on the unit.",
     "Translated": null
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeBuffRankBA_ThisBuffHasNoRanksText": {
@@ -1864,11 +1888,43 @@
     "Translated": null
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeFeatureRankBA_Description": {
-    "Original": "Increases or decreases the value of the specified BlueprintFeature on the BlueprintUnit.",
+    "Original": "Increases or decreases the value of the specified BlueprintFeature on the unit.",
     "Translated": null
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeFeatureRankBA_ThisFeatureHasNoRanksText": {
     "Original": "This feature has no ranks",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_Units_ChangeVoiceBA_Name": {
+    "Original": "Change Voice",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_Units_ChangeVoiceBA_Description": {
+    "Original": "Changes the voice of the specified unit to the specified BlueprintUnitAsksList.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_Units_ChangeVoiceBA_m_ChangeVoiceLocalizedText": {
+    "Original": "Change Voice",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_Units_ChangeVoiceBA_m_ThisIsTheCurrentVoice_LocalizedText": {
+    "Original": "This is the current voice!",
+    "Translated": null
+  },
+  "ToyBox_Classes_Infrastructure_Blueprints_BlueprintActions_Units_PlayVoiceBA_Name": {
+    "Original": "Play Voice Example",
+    "Translated": null
+  },
+  "ToyBox_Classes_Infrastructure_Blueprints_BlueprintActions_Units_PlayVoiceBA_Description": {
+    "Original": "Plays the PartyMemberUnconscious sound with the specified voice (if that sound doesn't exist for said voice nothing happens).",
+    "Translated": null
+  },
+  "ToyBox_Classes_Infrastructure_Blueprints_BlueprintActions_Units_PlayVoiceBA_m_PlayExampleLocalizedText": {
+    "Original": "Play Example",
+    "Translated": null
+  },
+  "ToyBox_Classes_Infrastructure_Blueprints_BlueprintActions_Units_PlayVoiceBA_m_CanOnlyPlayAnExampleOfTheCurrentLocalizedText": {
+    "Original": "Can only play an example of the current voice!",
     "Translated": null
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveAbilityResourceBA_Name": {
@@ -1912,7 +1968,7 @@
     "Translated": null
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_SpawnUnitBA_Description": {
-    "Original": "Spawns the specified unit in the vicinity.",
+    "Original": "Spawns the specified BlueprintUnit in the vicinity.",
     "Translated": null
   },
   "ToyBox_Infrastructure_CharacterPicker_ThereAreNoCharactersInThisList": {

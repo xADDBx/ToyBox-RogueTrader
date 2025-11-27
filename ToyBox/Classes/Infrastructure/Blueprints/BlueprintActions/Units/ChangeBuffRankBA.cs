@@ -69,7 +69,7 @@ public partial class ChangeBuffRankBA : BlueprintActionFeature, IBlueprintAction
     }
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeBuffRankBA_Name", "Modify Buff Rank")]
     public override partial string Name { get; }
-    [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeBuffRankBA_Description", "Increases or decreases the value of the specified BlueprintBuff on the BlueprintUnit.")]
+    [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeBuffRankBA_Description", "Increases or decreases the value of the specified BlueprintBuff on the unit.")]
     public override partial string Description { get; }
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeBuffRankBA_ThisBuffHasNoRanksText", "This buff has no ranks")]
     private static partial string m_ThisBuffHasNoRanksText { get; }

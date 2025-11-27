@@ -1,14 +1,13 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Facts;
 using Kingmaker.EntitySystem.Entities;
-using Kingmaker.UI.Models.Tooltip.Base;
 using Kingmaker.Utility.UnityExtensions;
 using ToyBox.Infrastructure.Blueprints.BlueprintActions;
 
 namespace ToyBox.Infrastructure.Blueprints;
 
 public static class BlueprintUI {
-    public static void BlueprintRowGUI<Blueprint>(Blueprint blueprint, BaseUnitEntity ch) where Blueprint : BlueprintScriptableObject, IUIDataProvider {
+    public static void BlueprintRowGUI<TBlueprint>(TBlueprint blueprint, BaseUnitEntity ch) where TBlueprint : SimpleBlueprint {
         object? maybeItem = null;
         if (blueprint is BlueprintUnitFact fact) {
             maybeItem = ch.Facts.Get(fact);
@@ -22,7 +21,7 @@ public static class BlueprintUI {
                 UI.Label(name, Width(CalculateTitleWidth()));
 #warning Proper Width?
 #warning AssetGuid
-                foreach (var action in BlueprintActionFeature.GetActionsForBlueprintType<Blueprint>()) {
+                foreach (var action in BlueprintActionFeature.GetActionsForBlueprintType<TBlueprint>()) {
                     _ = action.OnGui(blueprint, false, ch);
                 }
 

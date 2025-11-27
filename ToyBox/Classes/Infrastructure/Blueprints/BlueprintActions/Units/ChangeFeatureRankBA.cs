@@ -68,7 +68,7 @@ public partial class ChangeFeatureRankBA : BlueprintActionFeature, IBlueprintAct
     }
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeFeatureRankBA_Name", "Modify Feature Rank")]
     public override partial string Name { get; }
-    [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeFeatureRankBA_Description", "Increases or decreases the value of the specified BlueprintFeature on the BlueprintUnit.")]
+    [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeFeatureRankBA_Description", "Increases or decreases the value of the specified BlueprintFeature on the unit.")]
     public override partial string Description { get; }
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeFeatureRankBA_ThisFeatureHasNoRanksText", "This feature has no ranks")]
     private static partial string m_ThisFeatureHasNoRanksText { get; }
