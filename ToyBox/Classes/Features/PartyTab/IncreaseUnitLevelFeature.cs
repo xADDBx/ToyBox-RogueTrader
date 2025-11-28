@@ -38,10 +38,11 @@ public partial class IncreaseUnitLevelFeature : Feature, INeedContextFeature<Bas
         while (highestReachableLevel < maxLevelIndex && unit.Progression.Experience >= xpTable.GetBonus(highestReachableLevel + 1)) {
             highestReachableLevel++;
         }
+        var currentLevelString = currentLevel < 10 ? $"  {currentLevel}" : $"{currentLevel}";
         if (highestReachableLevel > currentLevel && ToyBoxUnitHelper.IsPartyOrPet(unit)) {
-            UI.Label(m_Lvl_LocalizedText + $" {currentLevel} > ".Green() + $"{highestReachableLevel}".Cyan(), Width(m_LevelLabelWidth));
+            UI.Label(m_Lvl_LocalizedText + $" {currentLevelString} > ".Green() + $"{highestReachableLevel}".Cyan(), Width(m_LevelLabelWidth));
         } else {
-            UI.Label(m_Lvl_LocalizedText + $" {currentLevel}".Green(), Width(m_LevelLabelWidth));
+            UI.Label(m_Lvl_LocalizedText + $" {currentLevelString}".Green(), Width(m_LevelLabelWidth));
         }
         if (Game.Instance.Player.AllCharacters.Contains(unit) && unit.Master == null) {
             if (maxLevelIndex > highestReachableLevel) {

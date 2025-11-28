@@ -23,7 +23,7 @@ public partial class PartyFeatureTab : FeatureTab {
     private BaseUnitEntity? m_UncollapsedUnit = null;
     private static readonly PartyTabSectionType[] m_Sections = [PartyTabSectionType.Careers, PartyTabSectionType.Stats, PartyTabSectionType.Features,
         PartyTabSectionType.Buffs, PartyTabSectionType.Abilities, PartyTabSectionType.Mechadendrites, PartyTabSectionType.FeatureLists, PartyTabSectionType.Inspect];
-    private static readonly TimedCache<float> m_InspectLabelWidth = new(() => UI.WidthInDisclosureStyle(m_InspectPartyText));
+    private readonly TimedCache<float> m_InspectLabelWidth = new(() => UI.WidthInDisclosureStyle(m_InspectPartyText));
     private void RefreshNameCache() {
         NameSectionWidth.ForceRefresh();
     }
@@ -94,7 +94,19 @@ public partial class PartyFeatureTab : FeatureTab {
                 UI.Label((m_PartyLevelText + ": ").Cyan() + Game.Instance.Player.PartyLevel.ToString().Orange().Bold(), Width(150 * Main.UIScale));
                 InspectorUI.InspectToggle("Party", m_InspectPartyText, units, -150, true, Width(m_InspectLabelWidth.Value + UI.DisclosureGlyphWidth.Value));
             }
+            if (units.Count == 0) {
+                return;
+            }
             var mainChar = GameHelper.GetPlayerCharacter();
+            Dictionary<BaseUnitEntity, float> distanceCache = m_DistanceToCache.Value;
+            float distanceLabelWidth;
+            if (distanceCache.Count == 0) {
+                foreach (var unit in units) {
+                    var dist = mainChar.DistanceTo(unit);
+                    distanceCache[unit] = dist;
+                }
+            }
+            distanceLabelWidth = CalculateLargestLabelSize(distanceCache.Values.Select(dist => dist < 1 ? "" : dist.ToString("0") + "m"));
             foreach (var unit in units) {
                 using (HorizontalScope()) {
                     UI.Label(GetUnitName(unit), Width(NameSectionWidth));
@@ -102,15 +114,14 @@ public partial class PartyFeatureTab : FeatureTab {
 
                     Feature.GetInstance<RenameUnitFeature>().OnGui(unit);
 
-                    Dictionary<BaseUnitEntity, float> distanceCache = m_DistanceToCache;
                     if (!distanceCache.TryGetValue(unit, out var dist)) {
                         dist = mainChar.DistanceTo(unit);
                         distanceCache[unit] = dist;
                     }
 
-                    Space(10 * Main.UIScale);
-                    UI.Label(dist < 1 ? "" : dist.ToString("0") + "m", Width(20 * Main.UIScale));
-                    Space(10 * Main.UIScale);
+                    Space(5 * Main.UIScale);
+                    UI.Label(dist < 1 ? "" : dist.ToString("0") + "m", Width(distanceLabelWidth + 5 * Main.UIScale));
+                    Space(5 * Main.UIScale);
 
                     Feature.GetInstance<IncreaseUnitLevelFeature>().OnGui(unit);
 
