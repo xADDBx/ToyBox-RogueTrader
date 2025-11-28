@@ -1259,6 +1259,18 @@
     "Original": "Prevents this character from talking with his voice.",
     "Translated": null
   },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideAiControlBehaviourFeature_Name": {
+    "Original": "Override AI Control Behaviour",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideAiControlBehaviourFeature_Description": {
+    "Original": "Allows toggling whether a unit should be controlled by the AI or by the player.",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideAiControlBehaviourFeature_m_MakeCharacterAIControlledLocalizedText": {
+    "Original": "AI should controll this Character",
+    "Translated": null
+  },
   "ToyBox_Features_SettingsFeatures_Blueprints_BlueprintsLoaderChunkSizeSetting_Name": {
     "Original": "Chunk Size",
     "Translated": null
