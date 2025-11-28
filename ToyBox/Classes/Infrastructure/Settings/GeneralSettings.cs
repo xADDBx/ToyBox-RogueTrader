@@ -200,4 +200,8 @@ public class GeneralSettings : AbstractJsonSettings {
     public bool EnableIgnoreTalentPrerequisites = false;
     public bool EnableIgnoreStatPrerequisites = false;
     public bool EnableIgnoreClassLevelsPrerequisites = false;
+
+
+    // Party
+    public HashSet<string> DisableVoiceoverForCharacterName = [];
 }

@@ -1251,6 +1251,14 @@
     "Original": "The button \"{0}\" will play try to play a random PartyMemberUnconscious sound.",
     "Translated": null
   },
+  "ToyBox_Features_PartyTab_Stats_UnitDisableVoiceoverAndBarksFeature_Name": {
+    "Original": "Disable Voiceover and Barks for Character",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitDisableVoiceoverAndBarksFeature_Description": {
+    "Original": "Prevents this character from talking with his voice.",
+    "Translated": null
+  },
   "ToyBox_Features_SettingsFeatures_Blueprints_BlueprintsLoaderChunkSizeSetting_Name": {
     "Original": "Chunk Size",
     "Translated": null

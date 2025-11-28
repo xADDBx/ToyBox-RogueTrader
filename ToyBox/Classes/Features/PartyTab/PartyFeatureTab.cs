@@ -49,6 +49,7 @@ public partial class PartyFeatureTab : FeatureTab {
         AddFeature(new PortraitEditorFeature());
         AddFeature(new ChangeGenderFeature());
         AddFeature(new UnitBrowseVoicesFeature());
+        AddFeature(new UnitDisableVoiceoverAndBarksFeature());
 
         AddFeature(new PartyBrowseFeatsFeature());
 
@@ -167,6 +168,7 @@ public partial class PartyFeatureTab : FeatureTab {
             Feature.GetInstance<PortraitEditorFeature>().OnGui(unit);
             Feature.GetInstance<ChangeGenderFeature>().OnGui(unit);
             Feature.GetInstance<UnitBrowseVoicesFeature>().OnGui(unit);
+            Feature.GetInstance<UnitDisableVoiceoverAndBarksFeature>().OnGui(unit);
         }
     }
     private static void OnCareersGui(BaseUnitEntity unit) {
