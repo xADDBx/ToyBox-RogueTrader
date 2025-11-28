@@ -60,7 +60,7 @@ public static class StringExtensions {
     }
 
     public static string Orange(this string s) {
-        return s.Color("orange");
+        return s.Color("#f99245");
     }
 
     public static string SizePercent(this string s, int percent) {
