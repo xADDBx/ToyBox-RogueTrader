@@ -6,6 +6,7 @@ using UnityEngine;
 
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
 
+[IsTested]
 public partial class SpawnUnitBA : BlueprintActionFeature, IBlueprintAction<BlueprintUnit> {
     public bool CanExecute(BlueprintUnit blueprint, params object[] parameter) {
         return IsInGame();

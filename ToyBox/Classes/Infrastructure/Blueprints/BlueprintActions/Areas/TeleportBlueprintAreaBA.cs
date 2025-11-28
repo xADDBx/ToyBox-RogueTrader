@@ -5,6 +5,7 @@ using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
 
+[IsTested]
 public partial class TeleportBlueprintAreaBA : BlueprintActionFeature, IBlueprintAction<BlueprintArea> {
     private static readonly Dictionary<BlueprintArea, BlueprintAreaEnterPoint?> m_MappingCache = [];
     public bool CanExecute(BlueprintArea blueprint, params object[] parameter) {

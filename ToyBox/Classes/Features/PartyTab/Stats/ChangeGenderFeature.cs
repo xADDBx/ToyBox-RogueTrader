@@ -4,6 +4,7 @@ using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Features.PartyTab.Stats;
 
+[IsTested]
 public partial class ChangeGenderFeature : FeatureWithAction, INeedContextFeature<BaseUnitEntity> {
     [LocalizedString("ToyBox_Features_PartyTab_Stats_ChangeGenderFeature_Name", "Change Gender")]
     public override partial string Name { get; }

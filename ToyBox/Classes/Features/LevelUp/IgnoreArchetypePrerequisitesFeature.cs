@@ -5,6 +5,7 @@ using Kingmaker.UnitLogic.Progression.Paths;
 
 namespace ToyBox.Features.LevelUp;
 
+[IsTested]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.LevelUp.IgnoreArchetypePrerequisitesFeature")]
 public partial class IgnoreArchetypePrerequisitesFeature : FeatureWithPatch {
     public override ref bool IsEnabled {

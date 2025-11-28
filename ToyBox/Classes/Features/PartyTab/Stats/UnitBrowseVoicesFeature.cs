@@ -6,6 +6,7 @@ using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Features.PartyTab.Stats;
 
+[IsTested]
 public partial class UnitBrowseVoicesFeature : Feature, INeedContextFeature<BaseUnitEntity> {
     [LocalizedString("ToyBox_Features_PartyTab_Stats_UnitBrowseVoicesFeature_Name", "Browse Voices")]
     public override partial string Name { get; }

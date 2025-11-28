@@ -5,6 +5,7 @@ using Kingmaker.UnitLogic.Progression.Prerequisites;
 
 namespace ToyBox.Features.LevelUp;
 
+[IsTested]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.LevelUp.IgnoreTalentPrerequisitesFeature")]
 public partial class IgnoreTalentPrerequisitesFeature : FeatureWithPatch {
     public override ref bool IsEnabled {

@@ -4,6 +4,7 @@ using Kingmaker.UnitLogic.Progression.Prerequisites;
 
 namespace ToyBox.Features.LevelUp;
 
+[IsTested]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.LevelUp.IgnoreStatPrerequisitesFeature")]
 public partial class IgnoreStatPrerequisitesFeature : FeatureWithPatch {
     public override ref bool IsEnabled {
