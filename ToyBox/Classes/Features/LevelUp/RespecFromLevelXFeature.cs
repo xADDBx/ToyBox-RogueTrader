@@ -97,14 +97,15 @@ public partial class RespecFromLevelXFeature : FeatureWithPatch {
             }
         } else {
             if (Settings.CurrentRespecLevelSetting.HasValue) {
-                InSaveSettings?.LastRespecLevelForUnit?[progression.Owner.Blueprint.AssetGuid] = Settings.CurrentRespecLevelSetting.Value;
+                var level = Math.Min(Settings.CurrentRespecLevelSetting.Value, progression.CharacterLevel);
+                InSaveSettings?.LastRespecLevelForUnit?[progression.Owner.Blueprint.AssetGuid] = level;
                 InSaveSettings?.Save();
-                return Settings.CurrentRespecLevelSetting.Value;
+                return level;
+                ;
             } else {
                 if (InSaveSettings?.LastRespecLevelForUnit?.Remove(progression.Owner.Blueprint.AssetGuid) ?? false) {
                     InSaveSettings.Save();
                 }
-               
             }
         }
         return progression.Owner.Blueprint.GetDefaultLevel();
