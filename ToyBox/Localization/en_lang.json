@@ -1271,6 +1271,22 @@
     "Original": "AI should controll this Character",
     "Translated": null
   },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideMechanicalSizeFeature_Name": {
+    "Original": "Enable Mechanical Size Overrides",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideMechanicalSizeFeature_Description": {
+    "Original": "If this is disabled, none of the previously set mechanical size overrides will take effect.",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideMechanicalSizeFeature_m_CurrentMechanicalSizeLocalizedText": {
+    "Original": "Current Mechanical Size",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideMechanicalSizeFeature_m_OverrideLocalizedText": {
+    "Original": "Override",
+    "Translated": null
+  },
   "ToyBox_Features_SettingsFeatures_Blueprints_BlueprintsLoaderChunkSizeSetting_Name": {
     "Original": "Chunk Size",
     "Translated": null

@@ -1,5 +1,6 @@
 ﻿using Kingmaker;
 using Kingmaker.EntitySystem.Persistence;
+using Kingmaker.Enums;
 using Newtonsoft.Json;
 
 namespace ToyBox.Infrastructure;
@@ -70,4 +71,5 @@ public class SaveSpecificSettings {
     }
     #endregion Infrastructure
     public Dictionary<string, int> LastRespecLevelForUnit = [];
+    public Dictionary<string, Size> MechanicalSizeOverrides = [];
 }

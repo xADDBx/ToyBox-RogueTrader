@@ -205,4 +205,5 @@ public class GeneralSettings : AbstractJsonSettings {
     // Party
     public HashSet<string> DisableVoiceoverForCharacterName = [];
     public Dictionary<string, bool> OverrideEnableAiForCompanions = [];
+    public bool EnableUnitOverrideMechanicalSize = false;
 }

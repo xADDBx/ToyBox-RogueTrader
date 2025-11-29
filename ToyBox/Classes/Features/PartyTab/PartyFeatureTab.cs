@@ -51,6 +51,7 @@ public partial class PartyFeatureTab : FeatureTab {
         AddFeature(new UnitBrowseVoicesFeature());
         AddFeature(new UnitDisableVoiceoverAndBarksFeature());
         AddFeature(new UnitOverrideAiControlBehaviourFeature());
+        AddFeature(new UnitOverrideMechanicalSizeFeature());
 
         AddFeature(new PartyBrowseFeatsFeature());
 
@@ -177,11 +178,18 @@ public partial class PartyFeatureTab : FeatureTab {
         Space(10);
 #warning TODO
         using (VerticalScope()) {
+            Div.DrawDiv();
             Feature.GetInstance<PortraitEditorFeature>().OnGui(unit);
+            Div.DrawDiv();
             Feature.GetInstance<ChangeGenderFeature>().OnGui(unit);
+            Div.DrawDiv();
             Feature.GetInstance<UnitBrowseVoicesFeature>().OnGui(unit);
+            Div.DrawDiv();
             Feature.GetInstance<UnitDisableVoiceoverAndBarksFeature>().OnGui(unit);
+            Div.DrawDiv();
             Feature.GetInstance<UnitOverrideAiControlBehaviourFeature>().OnGui(unit);
+            Div.DrawDiv();
+            Feature.GetInstance<UnitOverrideMechanicalSizeFeature>().OnGui(unit);
         }
     }
     private static void OnCareersGui(BaseUnitEntity unit) {

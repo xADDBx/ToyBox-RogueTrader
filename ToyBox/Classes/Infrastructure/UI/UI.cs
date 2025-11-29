@@ -10,6 +10,7 @@ public static partial class UI {
         m_EnumCache.Clear();
         m_IndexToEnumCache.Clear();
         m_EnumNameCache.Clear();
+        m_DefaultEnumNameCache.Clear();
     }
     private static void ClearHideCaches() {
         m_EditStateCaches.Clear();
