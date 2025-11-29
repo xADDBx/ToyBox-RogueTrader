@@ -62,8 +62,8 @@ public partial class UnitOverrideMechanicalSizeFeature : FeatureWithPatch, INeed
                                 InSaveSettings?.MechanicalSizeOverrides[unit.UniqueId] = m_CurrentlySelected;
                                 unit.State.Size = m_CurrentlySelected;
                             }
-                            unit.ViewTransform.localScale = unit.View.m_OriginalScale * (unit.View.m_Scale = unit.View.GetSizeScale());
                             InSaveSettings?.Save();
+                            unit.ViewTransform.localScale = unit.View.m_OriginalScale * (unit.View.m_Scale = unit.View.GetSizeScale());
                         }
                     }
                 }

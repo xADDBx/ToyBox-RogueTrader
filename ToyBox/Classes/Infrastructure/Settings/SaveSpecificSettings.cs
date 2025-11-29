@@ -72,4 +72,5 @@ public class SaveSpecificSettings {
     #endregion Infrastructure
     public Dictionary<string, int> LastRespecLevelForUnit = [];
     public Dictionary<string, Size> MechanicalSizeOverrides = [];
+    public Dictionary<string, float> VisualSizeOverrides = [];
 }

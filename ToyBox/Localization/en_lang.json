@@ -1287,6 +1287,18 @@
     "Original": "Override",
     "Translated": null
   },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideVisualSizeFeature_Name": {
+    "Original": "Enable Visual Size Overrides",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideVisualSizeFeature_Description": {
+    "Original": "If this is disabled, none of the previously set visual size overrides will take effect.",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideVisualSizeFeature_m_VisualOverrideLocalizedText": {
+    "Original": "Visual Override",
+    "Translated": null
+  },
   "ToyBox_Features_SettingsFeatures_Blueprints_BlueprintsLoaderChunkSizeSetting_Name": {
     "Original": "Chunk Size",
     "Translated": null

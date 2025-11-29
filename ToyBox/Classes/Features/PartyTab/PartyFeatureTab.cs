@@ -52,6 +52,7 @@ public partial class PartyFeatureTab : FeatureTab {
         AddFeature(new UnitDisableVoiceoverAndBarksFeature());
         AddFeature(new UnitOverrideAiControlBehaviourFeature());
         AddFeature(new UnitOverrideMechanicalSizeFeature());
+        AddFeature(new UnitOverrideVisualSizeFeature());
 
         AddFeature(new PartyBrowseFeatsFeature());
 
@@ -190,6 +191,8 @@ public partial class PartyFeatureTab : FeatureTab {
             Feature.GetInstance<UnitOverrideAiControlBehaviourFeature>().OnGui(unit);
             Div.DrawDiv();
             Feature.GetInstance<UnitOverrideMechanicalSizeFeature>().OnGui(unit);
+            Div.DrawDiv();
+            Feature.GetInstance<UnitOverrideVisualSizeFeature>().OnGui(unit);
         }
     }
     private static void OnCareersGui(BaseUnitEntity unit) {

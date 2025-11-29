@@ -206,4 +206,5 @@ public class GeneralSettings : AbstractJsonSettings {
     public HashSet<string> DisableVoiceoverForCharacterName = [];
     public Dictionary<string, bool> OverrideEnableAiForCompanions = [];
     public bool EnableUnitOverrideMechanicalSize = false;
+    public bool EnableUnitOverrideVisualSize = false;
 }
