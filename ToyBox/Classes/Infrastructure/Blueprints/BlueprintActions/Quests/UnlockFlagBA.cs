@@ -6,7 +6,7 @@ namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
 public partial class UnlockFlagBA : BlueprintActionFeature, IBlueprintAction<BlueprintUnlockableFlag> {
 
     public bool CanExecute(BlueprintUnlockableFlag blueprint, params object[] parameter) {
-        return IsInGame() && !blueprint.IsLocked;
+        return IsInGame() && blueprint.IsLocked;
     }
     private bool Execute(BlueprintUnlockableFlag blueprint) {
         LogExecution(blueprint);
