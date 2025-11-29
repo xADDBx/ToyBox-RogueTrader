@@ -4,6 +4,7 @@ using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions.Units;
 
+[IsTested]
 public partial class ChangeVoiceBA : BlueprintActionFeature, IBlueprintAction<BlueprintUnitAsksList>, INeedContextFeature<BaseUnitEntity> {
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_Units_ChangeVoiceBA_Name", "Change Voice")]
     public override partial string Name { get; }
