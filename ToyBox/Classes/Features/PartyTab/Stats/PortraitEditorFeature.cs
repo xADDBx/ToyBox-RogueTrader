@@ -56,10 +56,10 @@ public partial class PortraitEditorFeature : Feature, INeedContextFeature<BaseUn
     }
     private bool m_ShowCustomPortraitPicker = false;
     private static readonly TimedCache<float> m_NewCustomPortraitLabelWidth = new(() => {
-        return CalculateLargestLabelSize([m_NameOfTheNewCustomPortrait_LocalizedText + " "]);
+        return CalculateLargestLabelWidth([m_NameOfTheNewCustomPortrait_LocalizedText + " "]);
     });
     private static readonly TimedCache<float> m_NewBlueprintPortraitLabelWidth = new(() => {
-        return CalculateLargestLabelSize([m_NameOfTheNewBlueprintportrait_LocalizedText + " "]);
+        return CalculateLargestLabelWidth([m_NameOfTheNewBlueprintportrait_LocalizedText + " "]);
     });
     private bool m_TriedToPickUnknownId = false;
     private Browser<string>? m_CustomPortraitBrowser;
@@ -81,7 +81,7 @@ public partial class PortraitEditorFeature : Feature, INeedContextFeature<BaseUn
                     }
                 }
                 if (m_TriedToPickUnknownId) {
-                    Space(25 * Main.UIScale);
+                    Space(25);
                     UI.Label(m_UnknownID_LocalizedText.Red());
                 }
             }
@@ -91,7 +91,7 @@ public partial class PortraitEditorFeature : Feature, INeedContextFeature<BaseUn
                     m_LoadedCustomPortraits = true;
                 }
                 var currentIndex = 0;
-                var tragetWidth = (int)(692 * EffectiveWindowWidth() * 0.9f / (PortraitsPerRow * 780));
+                var targetWidth = (int)(692 * EffectiveWindowWidth() * 0.9f / (PortraitsPerRow * 780));
                 m_CustomPortraitBrowser.OnGUI(id => {
                     if (currentIndex % PortraitsPerRow == 0) {
                         GUILayout.BeginHorizontal();
@@ -102,14 +102,14 @@ public partial class PortraitEditorFeature : Feature, INeedContextFeature<BaseUn
                         if (m_CustomPortraitBrowser.CurrentlyIsLastElement) {
                             while (currentIndex % PortraitsPerRow != 0) {
                                 currentIndex++;
-                                Space(tragetWidth);
+                                UnscaledSpace(targetWidth);
                             }
                         }
                         GUILayout.EndHorizontal();
                         if (!m_CustomPortraitBrowser.CurrentlyIsLastElement) {
                             Div.DrawDiv();
                         }
-                        Space(2 * Main.UIScale);
+                        Space(2);
                     }
                 });
             }
@@ -142,25 +142,25 @@ public partial class PortraitEditorFeature : Feature, INeedContextFeature<BaseUn
                 m_BlueprintPortraitBrowser.ForceShowAll();
             }
             var currentIndex = 0;
-            var tragetWidth = (int)(692 * EffectiveWindowWidth() * 0.9f / (PortraitsPerRow * 780));
+            var targetWidth = (int)(692 * EffectiveWindowWidth() * 0.9f / (PortraitsPerRow * 780));
             m_BlueprintPortraitBrowser.OnGUI(bp => {
                 if (currentIndex % PortraitsPerRow == 0) {
                     GUILayout.BeginHorizontal();
                 }
                 currentIndex++;
-                OnPortraitGUI(bp, true, 0.5f, tragetWidth);
+                OnPortraitGUI(bp, true, 0.5f, targetWidth);
                 if (currentIndex % PortraitsPerRow == 0 || m_BlueprintPortraitBrowser.CurrentlyIsLastElement) {
                     if (m_BlueprintPortraitBrowser.CurrentlyIsLastElement) {
                         while (currentIndex % PortraitsPerRow != 0) {
                             currentIndex++;
-                            Space(tragetWidth);
+                            UnscaledSpace(targetWidth);
                         }
                     }
                     GUILayout.EndHorizontal();
                     if (!m_BlueprintPortraitBrowser.CurrentlyIsLastElement) {
                         Div.DrawDiv();
                     }
-                    Space(2 * Main.UIScale);
+                    Space(2);
                 }
             });
         }

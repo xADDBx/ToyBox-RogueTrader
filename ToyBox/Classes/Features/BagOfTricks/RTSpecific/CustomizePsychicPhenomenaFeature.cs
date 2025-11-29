@@ -34,7 +34,7 @@ public partial class CustomizePsychicPhenomenaFeature : FeatureWithPatch, INeedE
     private readonly Browser<BlueprintPsychicPhenomenaRoot.PsychicPhenomenaData> m_PsychicPhenomenaBrowser = new(GetPsychicPhenomenaString, GetPsychicPhenomenaString, overridePageWidth: (int)(0.8f * EffectiveWindowWidth()));
     private readonly Browser<BlueprintAbility> m_PerilsOfTheWarpMinorBrowser = new(BPHelper.GetSortKey, BPHelper.GetSearchKey, overridePageWidth:(int)(0.8f * EffectiveWindowWidth()));
     private readonly Browser<BlueprintAbility> m_PerilsOfTheWarpMajorBrowser = new(BPHelper.GetSortKey, BPHelper.GetSearchKey, overridePageWidth: (int)(0.8f * EffectiveWindowWidth()));
-    private readonly TimedCache<float> m_ButtonWidth = new(() => CalculateLargestLabelSize([m_StopExcludingLocalizedText, m_ExcludeLocalizedText], GUI.skin.button)); 
+    private readonly TimedCache<float> m_ButtonWidth = new(() => CalculateLargestLabelWidth([m_StopExcludingLocalizedText, m_ExcludeLocalizedText], GUI.skin.button)); 
     public override ref bool IsEnabled {
         get {
             return ref Settings.EnableCustomizePsychicPhenomena;

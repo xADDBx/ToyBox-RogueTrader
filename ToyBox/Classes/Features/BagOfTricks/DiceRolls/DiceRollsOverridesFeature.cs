@@ -25,7 +25,7 @@ public partial class DiceRollsOverridesFeature : FeatureWithPatch {
             return "ToyBox.Features.BagOfTricks.DiceRolls.DiceRollsOverridesFeature";
         }
     }
-    private readonly TimedCache<float> m_LabelWidth = new(() => CalculateLargestLabelSize([
+    private readonly TimedCache<float> m_LabelWidth = new(() => CalculateLargestLabelWidth([
         m_AllAttacksHitLocalizedText, m_AllAttacksCritLocalizedText, m_RollWithAdvantageLocalizedText, m_RollWithDisadvantageLocalizedText,
         m_Initiative_AlwaysRoll10LocalizedText, m_Initiative_AlwaysRoll5LocalizedText, m_Initiative_AlwaysRoll1LocalizedText, m_NeverRoll100LocalizedText, 
         m_NeverRoll1LocalizedText, m_DamageRolls_Take1LocalizedText, m_DamageRolls_Take25LocalizedText, m_DamageRolls_Take50LocalizedText, 

@@ -12,7 +12,7 @@ public static class BlueprintPicker<T> where T : SimpleBlueprint {
     private static Browser<T>? m_Browser;
     private static WeakReference<T>? m_CurrentBlueprint;
     // This is a TimedCache and not Lazy for the case where the user changes their UI scale
-    private static readonly TimedCache<float> m_ButtonWidth = new(() => CalculateLargestLabelSize([SharedStrings.PickBlueprintText], GUI.skin.button));
+    private static readonly TimedCache<float> m_ButtonWidth = new(() => CalculateLargestLabelWidth([SharedStrings.PickBlueprintText], GUI.skin.button));
     private static float m_CachedTitleWidth;
     private static float m_CachedTypeWidth;
     private static float m_CachedAssetIdWidth;
@@ -41,9 +41,9 @@ public static class BlueprintPicker<T> where T : SimpleBlueprint {
                         }
                     } else {
                         if (!m_Browser.IsCachedValid && m_Browser.PagedItems.Count > 0) {
-                            m_CachedTitleWidth = Math.Min(0.3f * EffectiveWindowWidth(), CalculateLargestLabelSize(m_Browser.PagedItems.Select(bp => BPHelper.GetTitle(bp).Cyan().Bold())));
-                            m_CachedTypeWidth = Math.Min(0.2f * EffectiveWindowWidth(), CalculateLargestLabelSize(m_Browser.PagedItems.Select(bp => bp.GetType().Name.Grey())));
-                            m_CachedAssetIdWidth = Math.Min(0.3f * EffectiveWindowWidth(), CalculateLargestLabelSize(m_Browser.PagedItems.Select(bp => bp.AssetGuid.ToString()), GUI.skin.textField));
+                            m_CachedTitleWidth = Math.Min(0.3f * EffectiveWindowWidth(), CalculateLargestLabelWidth(m_Browser.PagedItems.Select(bp => BPHelper.GetTitle(bp).Cyan().Bold())));
+                            m_CachedTypeWidth = Math.Min(0.2f * EffectiveWindowWidth(), CalculateLargestLabelWidth(m_Browser.PagedItems.Select(bp => bp.GetType().Name.Grey())));
+                            m_CachedAssetIdWidth = Math.Min(0.3f * EffectiveWindowWidth(), CalculateLargestLabelWidth(m_Browser.PagedItems.Select(bp => bp.AssetGuid.ToString()), GUI.skin.textField));
                             m_Browser.SetCacheValid();
                         }
                         m_Browser.OnGUI(bp => {

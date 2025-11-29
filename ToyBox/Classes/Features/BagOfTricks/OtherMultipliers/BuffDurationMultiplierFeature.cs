@@ -17,7 +17,7 @@ public partial class BuffDurationMultiplierFeature : FeatureWithPatch {
             return ref m_IsEnabled;
         }
     }
-    private readonly TimedCache<float> m_ButtonWidth = new(() => CalculateLargestLabelSize([m_StopExcludingLocalizedText, m_ExcludeLocalizedText], GUI.skin.button));
+    private readonly TimedCache<float> m_ButtonWidth = new(() => CalculateLargestLabelWidth([m_StopExcludingLocalizedText, m_ExcludeLocalizedText], GUI.skin.button));
     private bool m_ShowExclusionEditor = false;
     public override void OnGui() {
         var tmp = Settings.BuffDurationMultiplier ?? 1f;

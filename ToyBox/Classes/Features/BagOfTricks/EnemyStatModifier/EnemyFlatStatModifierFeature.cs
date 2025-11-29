@@ -30,14 +30,14 @@ public partial class EnemyFlatStatModifierFeature : FeatureWithPatch {
         if (list.Count == 0) {
             list.Add("1    ");
         }
-        return (int)CalculateLargestLabelSize(list);
+        return (int)CalculateLargestLabelWidth(list);
     });
     private readonly TimedCache<int> m_FieldWith = new(() => {
         var list = Settings.FlatEnemyMods.Values.Select(val => $"{val:F0}    ").ToList() ?? [];
         if (list.Count == 0) {
             list.Add("1    ");
         }
-        return (int)CalculateLargestLabelSize(list, GUI.skin.textField);
+        return (int)CalculateLargestLabelWidth(list, GUI.skin.textField);
     });
     private readonly TimedCache<float> m_LabelWidth = new(() => {
     List<string> names = [];
@@ -51,7 +51,7 @@ public partial class EnemyFlatStatModifierFeature : FeatureWithPatch {
             }
             names.Add(name);
         }
-        return CalculateLargestLabelSize(names, GUI.skin.label);
+        return CalculateLargestLabelWidth(names, GUI.skin.label);
     });
     public override void OnGui() {
         base.OnGui();
@@ -80,7 +80,7 @@ public partial class EnemyFlatStatModifierFeature : FeatureWithPatch {
                                     Settings.FlatEnemyMods[stat] = mod;
                                 }
                             }
-                            Space(5 * Main.UIScale);
+                            Space(5);
                             if (UI.TextField(ref mod, null, Width(m_FieldWith))) {
                                 if (mod == 1) {
                                     Settings.FlatEnemyMods.Remove(stat);

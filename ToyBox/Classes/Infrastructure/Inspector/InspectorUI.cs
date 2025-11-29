@@ -202,7 +202,7 @@ public static partial class InspectorUI {
             if (node.Children.Count > 0) {
                 _ = UI.DisclosureToggle(ref node.IsExpanded, node.LabelText, null, null, Width(calculatedWidth + discWidth));
             } else {
-                Space(discWidth);
+                UnscaledSpace(discWidth);
                 GUILayout.Label(node.LabelText, Width(calculatedWidth));
             }
 

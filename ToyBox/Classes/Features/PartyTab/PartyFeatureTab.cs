@@ -75,7 +75,7 @@ public partial class PartyFeatureTab : FeatureTab {
         Feature.GetInstance<PartyBrowseBuffsFeature>().MarkInvalid();
     }
     public readonly TimedCache<float> NameSectionWidth = new(() => {
-        return CalculateLargestLabelSize(CharacterPicker.CurrentUnits.Select(u => GetUnitName(u) + " "));
+        return CalculateLargestLabelWidth(CharacterPicker.CurrentUnits.Select(u => GetUnitName(u) + " "));
     }, 60 * 60 * 24);
     private static string GetUnitName(BaseUnitEntity? unit) {
         return ToyBoxUnitHelper.GetUnitName(unit).Orange().Bold();
@@ -106,7 +106,7 @@ public partial class PartyFeatureTab : FeatureTab {
                     distanceCache[unit] = dist;
                 }
             }
-            distanceLabelWidth = CalculateLargestLabelSize(distanceCache.Values.Select(dist => dist < 1 ? "" : dist.ToString("0") + "m"));
+            distanceLabelWidth = CalculateLargestLabelWidth(distanceCache.Values.Select(dist => dist < 1 ? "" : dist.ToString("0") + "m"));
             foreach (var unit in units) {
                 using (HorizontalScope()) {
                     UI.Label(GetUnitName(unit), Width(NameSectionWidth));
@@ -119,13 +119,13 @@ public partial class PartyFeatureTab : FeatureTab {
                         distanceCache[unit] = dist;
                     }
 
-                    Space(5 * Main.UIScale);
+                    Space(5);
                     UI.Label(dist < 1 ? "" : dist.ToString("0") + "m", Width(distanceLabelWidth + 5 * Main.UIScale));
-                    Space(5 * Main.UIScale);
+                    Space(5);
 
                     Feature.GetInstance<IncreaseUnitLevelFeature>().OnGui(unit);
 
-                    Space(15 * Main.UIScale);
+                    Space(15);
                     foreach (var sec in m_Sections) {
                         var isUncollapsed = sec == m_UncollapsedSection && unit == m_UncollapsedUnit;
                         if (UI.DisclosureToggle(ref isUncollapsed, " " + sec.GetLocalized())) {
@@ -143,7 +143,7 @@ public partial class PartyFeatureTab : FeatureTab {
                 }
                 if (m_UncollapsedUnit == unit && m_UncollapsedSection != PartyTabSectionType.None) {
                     using (HorizontalScope()) {
-                        Space(50 * Main.UIScale);
+                        Space(50);
                         switch (m_UncollapsedSection) {
                             case PartyTabSectionType.Inspect: InspectorUI.Inspect(unit); break;
                             case PartyTabSectionType.Features: Feature.GetInstance<PartyBrowseFeatsFeature>().OnGui(unit); break;

@@ -23,12 +23,12 @@ public static partial class UI {
         set;
     }
     public static float WidthInDisclosureStyle(string label) {
-        return CalculateLargestLabelSize([Glyphs.DisclosureOn + label, Glyphs.DisclosureOff + label], m_DisclosureToggleStyle);
+        return CalculateLargestLabelWidth([Glyphs.DisclosureOn + label, Glyphs.DisclosureOff + label], m_DisclosureToggleStyle);
     }
     public static TimedCache<float> DisclosureGlyphWidth {
         get {
             field ??= new(() => {
-                return CalculateLargestLabelSize([Glyphs.DisclosureOn, Glyphs.DisclosureOff], m_DisclosureToggleStyle);
+                return CalculateLargestLabelWidth([Glyphs.DisclosureOn, Glyphs.DisclosureOff], m_DisclosureToggleStyle);
             });
             return field;
         }

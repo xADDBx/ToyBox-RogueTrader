@@ -41,7 +41,7 @@ public partial class FeatureSearchFeature : Feature {
             m_FeatureBrowser.UpdateItems(features);
         }
         if (!m_NameLabelWidth.HasValue || !m_FeatureBrowser.IsCachedValid) {
-            m_NameLabelWidth = CalculateLargestLabelSize(m_FeatureBrowser.PagedItems.Select(f => f.Name.Orange()));
+            m_NameLabelWidth = CalculateLargestLabelWidth(m_FeatureBrowser.PagedItems.Select(f => f.Name.Orange() + " "));
             m_FeatureBrowser.SetCacheValid();
         }
         m_FeatureBrowser.OnGUI(feature => {
@@ -54,9 +54,9 @@ public partial class FeatureSearchFeature : Feature {
                     if (UI.DisclosureToggle(ref showNested, m_ShowGUIText)) {
                         m_DisclosureStates[feature] = showNested;
                     }
-                    Space(15);
+                    Space(10);
                     UI.Label(feature.Name.Orange(), Width(m_NameLabelWidth.Value));
-                    Space(15);
+                    Space(10);
                     UI.Label(feature.Description.Yellow());
                 }
                 using (HorizontalScope()) {

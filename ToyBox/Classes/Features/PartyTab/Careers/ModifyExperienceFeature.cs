@@ -21,7 +21,7 @@ public partial class ModifyExperienceFeature : Feature, INeedContextFeature<Base
         }
     }
     private static readonly TimedCache<float> m_ButtonWidth = new(() => {
-        return CalculateLargestLabelSize([m_AdjustBasedOnLevelLocalizedText], GUI.skin.button) + 5 * Main.UIScale;
+        return CalculateLargestLabelWidth([m_AdjustBasedOnLevelLocalizedText], GUI.skin.button) + 5 * Main.UIScale;
     });
     public void OnGui(BaseUnitEntity unit) {
         UI.Label((m_ExperienceLocalizedText + ": ").Cyan(), AutoWidth());
@@ -31,14 +31,14 @@ public partial class ModifyExperienceFeature : Feature, INeedContextFeature<Base
                 _ = UI.TextField(ref currentExperience, pair => {
                     unit.Progression.Experience = pair.newContent;
                 }, Width(m_ButtonWidth));
-                Space(Main.UIScale * 10);
+                Space(10);
                 UI.Label(Description.Green());
             }
             using (HorizontalScope()) {
                 if (UI.Button(m_AdjustBasedOnLevelLocalizedText, null, null, Width(m_ButtonWidth))) {
                     unit.Progression.Experience = unit.Progression.ExperienceTable.GetBonus(unit.Progression.CharacterLevel);
                 }
-                Space(Main.UIScale * 10);
+                Space(10);
                 UI.Label(m_ThisSetsYourExperienceToMatchTheLocalizedText.Green());
             }
         }

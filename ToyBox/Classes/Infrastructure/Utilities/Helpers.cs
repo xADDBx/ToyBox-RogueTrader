@@ -14,9 +14,21 @@ public static class Helpers {
     public static bool IsInGame() {
         return Game.Instance.Player?.Party?.Count > 0;
     }
-    public static float CalculateLargestLabelSize(IEnumerable<string> items, GUIStyle? style = null) {
+    public static float CalculateLargestLabelWidth(IEnumerable<string> items, GUIStyle? style = null) {
+        var max = 0f;
         style ??= GUI.skin.label;
-        return items.Max(item => style.CalcSize(new(item)).x);
+        foreach (var item in items) {
+            max = Math.Max(style.CalcSize(new(item)).x, max);
+        }
+        return max;
+    }
+    public static float CalculateLargestLabelHeight(IEnumerable<string> items, GUIStyle? style = null) {
+        var max = 0f;
+        style ??= GUI.skin.label;
+        foreach (var item in items) {
+            max = Math.Max(style.CalcSize(new(item)).y, max);
+        }
+        return max;
     }
     public static void ToggleModWindow() {
         UnityModManager.UI.Instance.ToggleWindow();

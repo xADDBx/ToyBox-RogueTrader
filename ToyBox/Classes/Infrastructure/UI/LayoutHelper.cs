@@ -70,6 +70,10 @@ public static class LayoutHelper {
     }
 
     public static void Space(float pixels) {
+        GUILayout.Space(pixels * Main.UIScale);
+    }
+
+    public static void UnscaledSpace(float pixels) {
         GUILayout.Space(pixels);
     }
 

@@ -57,14 +57,14 @@ public class InspectorNode : IComparable {
             if (Children.Count == 0) {
                 field ??= 0;
             } else {
-                field ??= CalculateLargestLabelSize(Children.Select(node => node.LabelText));
+                field ??= CalculateLargestLabelWidth(Children.Select(node => node.LabelText));
             }
             return field;
         }
     }
     public float? OwnTextLength {
         get {
-            field ??= CalculateLargestLabelSize([LabelText]);
+            field ??= CalculateLargestLabelWidth([LabelText]);
             return field;
         }
     }

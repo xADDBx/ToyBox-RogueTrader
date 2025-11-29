@@ -31,18 +31,18 @@ public partial class RespecFromLevelXFeature : FeatureWithPatch {
         base.OnGui();
         if (IsEnabled) {
             using (HorizontalScope()) {
-                Space(25 * Main.UIScale);
+                Space(25);
                 using (VerticalScope()) {
                     UI.DisclosureToggle(ref m_ShowDisclaimer, m_TryToKeepThisFeatureActivatedAftLocalizedText.Orange());
                     if (m_ShowDisclaimer) {
                         using (HorizontalScope()) {
-                            Space(35 * Main.UIScale);
+                            Space(35);
                             UI.Label(m_IfAUnitIsRespeccedWhileThisFeatuLocalizedText.Cyan(), Width(0.5f * EffectiveWindowWidth()));
                         }
                     }
                     var currentLabelText = Settings.CurrentRespecLevelSetting.HasValue ? Settings.CurrentRespecLevelSetting.Value.ToString() : m_NoneLocalizedText;
                     using (HorizontalScope()) {
-                        Space(12 * Main.UIScale);
+                        Space(12);
                         UI.Label(m_CurrentRespecLevelOverrideLocalizedText.Cyan() + ": " + currentLabelText.Green());
                     }
                     var is0 = Settings.CurrentRespecLevelSetting == 0;
@@ -79,9 +79,9 @@ public partial class RespecFromLevelXFeature : FeatureWithPatch {
                                 Settings.CurrentRespecLevelSetting = null;
                             }
                         }
-                        Space(5 * Main.UIScale);
+                        Space(5);
                         UI.TextField(ref m_CustomLevel, null, GUILayout.MinWidth(100 * Main.UIScale), GUILayout.MaxWidth(300 * Main.UIScale));
-                        Space(5 * Main.UIScale);
+                        Space(5);
                         if (UI.Button(m_ApplyCustomLevelLocalizedText)) {
                             Settings.CurrentRespecLevelSetting = m_CustomLevel;
                         }

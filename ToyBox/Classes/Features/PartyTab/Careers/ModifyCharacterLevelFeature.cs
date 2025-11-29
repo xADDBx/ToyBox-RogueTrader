@@ -29,7 +29,7 @@ public partial class ModifyCharacterLevelFeature : Feature, INeedContextFeature<
         if (UI.ValueAdjuster(ref level, 1, 0, 55)) {
             unit.Progression.m_CharacterLevel = level;
         }
-        Space(Main.UIScale * 10);
+        Space(10);
         UI.Label(Description.Green());
     }
 

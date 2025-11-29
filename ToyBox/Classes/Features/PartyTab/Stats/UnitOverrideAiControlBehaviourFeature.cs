@@ -42,7 +42,7 @@ public partial class UnitOverrideAiControlBehaviourFeature : FeatureWithPatch, I
         });
         if (currentlyOverriden) {
             using (HorizontalScope()) {
-                Space(20 * Main.UIScale);
+                Space(20);
                 if (UI.Toggle(m_MakeCharacterAIControlledLocalizedText, null, ref enableAi)) {
                     Settings.OverrideEnableAiForCompanions[unit.UniqueId] = enableAi;
                 }

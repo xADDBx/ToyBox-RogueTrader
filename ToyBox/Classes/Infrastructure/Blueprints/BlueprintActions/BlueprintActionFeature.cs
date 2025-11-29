@@ -36,7 +36,7 @@ public abstract class BlueprintActionFeature : FeatureWithAction {
     }
     protected static string StyleActionString(string text, bool isFeatureSearch) {
         if (isFeatureSearch) {
-            return text.Cyan().Bold().SizePercent(15);
+            return text.Cyan().Bold();
         } else {
             return text;
         }

@@ -24,7 +24,7 @@ public partial class ShowCareersFeature : Feature, INeedContextFeature<BaseUnitE
 
     public void OnGui(BaseUnitEntity unit) {
         UI.Label((m_CareersLocalizedText + ":").Cyan());
-        Space(Main.UIScale * 10);
+        Space(10);
         using (VerticalScope()) {
             foreach (var (blueprint, rank) in unit.Progression.AllCareerPaths) {
                 using (HorizontalScope()) {

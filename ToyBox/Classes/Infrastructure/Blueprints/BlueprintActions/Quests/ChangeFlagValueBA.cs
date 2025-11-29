@@ -26,13 +26,15 @@ public partial class ChangeFlagValueBA : BlueprintActionFeature, IBlueprintActio
             if (parameter.Length > 0 && parameter[0] is int tmpCount) {
                 count = tmpCount;
             }
-            _ = UI.Button(StyleActionString("<", isFeatureSearch), () => {
-                result = ExecuteDecrease(blueprint, count);
-            });
-            UI.Label(StyleActionString($" {Game.Instance.Player.UnlockableFlags.GetFlagValue(blueprint)} ".Bold().Orange(), isFeatureSearch));
-            _ = UI.Button(StyleActionString(">", isFeatureSearch), () => {
-                result = ExecuteIncrease(blueprint, count);
-            });
+            using (HorizontalScope()) {
+                _ = UI.Button(StyleActionString("<", isFeatureSearch), () => {
+                    result = ExecuteDecrease(blueprint, count);
+                });
+                UI.Label(StyleActionString($" {Game.Instance.Player.UnlockableFlags.GetFlagValue(blueprint)} ".Bold().Orange(), isFeatureSearch));
+                _ = UI.Button(StyleActionString(">", isFeatureSearch), () => {
+                    result = ExecuteIncrease(blueprint, count);
+                });
+            }
         } else if (isFeatureSearch) {
             if (IsInGame()) {
                 UI.Label(m_FlagIsNotUnlockedText.Red().Bold());
