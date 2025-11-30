@@ -38,7 +38,7 @@ public partial class UnitOverrideVisualSizeFeature : FeatureWithPatch, INeedCont
             using (HorizontalScope()) {
                 Space(20);
                 UI.Label(m_VisualOverrideLocalizedText + ": ");
-                float current = 0;
+                var current = 1f;
                 InSaveSettings?.VisualSizeOverrides.TryGetValue(unit.UniqueId, out current);
                 Space(10);
                 if (UI.LogSlider(ref current, 0.01f, 40f, 1, 2, null, Width(300 * Main.UIScale))) {

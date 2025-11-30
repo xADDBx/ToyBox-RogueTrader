@@ -26,7 +26,7 @@ public partial class VersionCompatabilityFeature : FeatureWithPatch, INeedEarlyI
     [HarmonyPatch(typeof(GameMainMenu), nameof(GameMainMenu.Awake)), HarmonyPrefix]
     private static void GameMainMenu_Awake_Prefix() {
         if (VersionChecker.ResultOfCheck.HasValue && !VersionChecker.ResultOfCheck.Value) {
-            Main.ModEntry.Info.DisplayName = "ToyBox ".Yellow().SizePercent(20) + m_ModVersionIsNotCompatibleWithThi.Red().Bold().SizePercent(40);
+            Main.ModEntry.Info.DisplayName = "ToyBox ".Yellow().SizePercent(120) + m_ModVersionIsNotCompatibleWithThi.Red().Bold().SizePercent(140);
             Main.ModEntry.mErrorOnLoading = true;
             Main.ModEntry.OnGUI = _ => UpdaterFeature.UpdaterGUI();
         }

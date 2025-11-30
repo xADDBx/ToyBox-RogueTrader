@@ -34,8 +34,7 @@ public partial class UnitOverrideMechanicalSizeFeature : FeatureWithPatch, INeed
             }
         }
     }
-    private Size m_CurrentlySelected;
-    private bool m_IsDefault = true;
+    private Size? m_CurrentlySelected;
     private string MaybeGetLocalizedSize(Size size) {
         var localized = LocalizedTexts.Instance.Sizes.GetText(size);
         if (string.IsNullOrWhiteSpace(localized)) {
@@ -51,16 +50,20 @@ public partial class UnitOverrideMechanicalSizeFeature : FeatureWithPatch, INeed
                 Space(20);
                 using (VerticalScope()) {
                     UI.Label(m_CurrentMechanicalSizeLocalizedText + ": " + MaybeGetLocalizedSize(unit.State.Size));
-                    m_IsDefault = !InSaveSettings?.MechanicalSizeOverrides.TryGetValue(unit.UniqueId, out m_CurrentlySelected) ?? true;
+                    if (InSaveSettings?.MechanicalSizeOverrides.TryGetValue(unit.UniqueId, out var current) ?? false) {
+                        m_CurrentlySelected = current;
+                    } else {
+                        m_CurrentlySelected = null;
+                    }
                     using (HorizontalScope()) {
                         UI.Label(m_OverrideLocalizedText + ": ");
-                        if (UI.SelectionGridWithDefault(ref m_CurrentlySelected, ref m_IsDefault, 6, size => size.isNone ? SharedStrings.NoneText : MaybeGetLocalizedSize(size.val))) {
-                            if (m_IsDefault) {
+                        if (UI.SelectionGrid(ref m_CurrentlySelected, 6, size => size.HasValue ? MaybeGetLocalizedSize(size.Value) : SharedStrings.NoneText)) {
+                            if (m_CurrentlySelected.HasValue) {
+                                InSaveSettings?.MechanicalSizeOverrides[unit.UniqueId] = m_CurrentlySelected.Value;
+                                unit.State.Size = m_CurrentlySelected.Value;
+                            } else {
                                 InSaveSettings?.MechanicalSizeOverrides.Remove(unit.UniqueId);
                                 unit.State.Size = unit.OriginalSize;
-                            } else {
-                                InSaveSettings?.MechanicalSizeOverrides[unit.UniqueId] = m_CurrentlySelected;
-                                unit.State.Size = m_CurrentlySelected;
                             }
                             InSaveSettings?.Save();
                             unit.ViewTransform.localScale = unit.View.m_OriginalScale * (unit.View.m_Scale = unit.View.GetSizeScale());

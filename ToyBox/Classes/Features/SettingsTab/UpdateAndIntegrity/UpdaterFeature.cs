@@ -143,7 +143,7 @@ public partial class UpdaterFeature : Feature {
             }
         }
         if (updated) {
-            Main.ModEntry.Info.DisplayName = "ToyBox ".Yellow().SizePercent(20) + m_RestartToFinishUpdateText.Green().Bold().SizePercent(40);
+            Main.ModEntry.Info.DisplayName = "ToyBox ".Yellow().SizePercent(120) + m_RestartToFinishUpdateText.Green().Bold().SizePercent(140);
         }
         new Action(() => {
             IsDoingUpdate = false;

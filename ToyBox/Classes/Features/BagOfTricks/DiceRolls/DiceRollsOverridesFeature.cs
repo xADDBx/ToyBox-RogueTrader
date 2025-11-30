@@ -1,7 +1,9 @@
-﻿using Kingmaker.EntitySystem.Entities;
+﻿using Kingmaker.Controllers.TurnBased;
+using Kingmaker.EntitySystem.Entities;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
+using Kingmaker.RuleSystem.Rules.Starships;
 using ToyBox.Infrastructure.Utilities;
 using UnityEngine;
 using static Kingmaker.RuleSystem.RulebookEvent;
@@ -131,6 +133,11 @@ public partial class DiceRollsOverridesFeature : FeatureWithPatch {
             }
         }
     }
+#warning DEBUG; REMOVE!
+    [HarmonyPatch(typeof(Initiative), nameof(Initiative.Roll), MethodType.Setter), HarmonyPrefix]
+    private static void Initiative_setRoll_Patch(Initiative __instance, float value) {
+        Log($"Setting initiative {value}:\n{new System.Diagnostics.StackTrace()}");
+    }
     [HarmonyPatch(typeof(RulePerformAttackRoll), nameof(RulePerformAttackRoll.OnTrigger)), HarmonyPostfix]
     private static void RulePerformAttackRoll_OnTrigger_Patch(RulePerformAttackRoll __instance) {
         if (ToyBoxUnitHelper.IsOfSelectedType(__instance.InitiatorUnit, Settings.DiceRollsAllAttacksHit) && __instance.Result != AttackResult.Hit && __instance.Result != AttackResult.CoverHit && __instance.Result != AttackResult.RighteousFury) {
@@ -141,6 +148,15 @@ public partial class DiceRollsOverridesFeature : FeatureWithPatch {
             __instance.ResultIsRighteousFury = true;
             __instance.Result = AttackResult.RighteousFury;
             __instance.RighteousFuryAmount = Math.Max(1f, __instance.RighteousFuryAmount);
+        }
+    }
+    [HarmonyPatch(typeof(RuleStarshipRollAttack), nameof(RuleStarshipRollAttack.OnTrigger)), HarmonyPostfix]
+    private static void RuleStarshipRollAttack_OnTrigger_Patch(RuleStarshipRollAttack __instance) {
+        if (ToyBoxUnitHelper.IsOfSelectedType(__instance.InitiatorUnit, Settings.DiceRollsAllAttacksHit) && !__instance.ResultIsHit && !__instance.ResultIsCrit) {
+            __instance.ResultIsHit = true;
+        }
+        if (ToyBoxUnitHelper.IsOfSelectedType(__instance.InitiatorUnit, Settings.DiceRollsAllAttacksCrit) && !__instance.ResultIsCrit) {
+            __instance.ResultIsCrit = true;
         }
     }
     [HarmonyPatch(typeof(RuleRollInitiative), nameof(RuleRollInitiative.ResultD10), MethodType.Getter), HarmonyPostfix]
