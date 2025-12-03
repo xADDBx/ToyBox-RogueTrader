@@ -1036,7 +1036,7 @@
     "Translated": null
   },
   "ToyBox_Features_LevelUp_RespecFromLevelXFeature_m_IfAUnitIsRespeccedWhileThisFeatuLocalizedText": {
-    "Original": "If a unit is respecced while this feature is enabled and the feature (or ToyBox) is later disabled, minor level-up UI glitches may occur. During level-up the game uses a base (original) copy of the unit. ToyBox must respec that copy when it's created (which only happens while the feature is active). If this is not done, there can be slight issues like the game thinking you have a feature despite not having it (because the base/original unit was supposed to have that feature, making the new copy having it too). This is in no way breaking as any issues can be fixed by respeccing the unit after disabling this feature/ToyBox.",
+    "Original": "If a unit is respecced while this feature is enabled and the feature (or ToyBox) is later disabled, minor level-up UI glitches may occur. During level-up the game uses a base (original) copy of the unit. ToyBox must respec that copy when it's created (which only happens while the feature is active). If this is not done, there can be slight issues like the game thinking you have a feature despite not having it (because the base/original unit was supposed to have that feature, making the new copy having it too). This is not a hard dependency as any issues can be fixed by respeccing the unit after disabling this feature/ToyBox.",
     "Translated": null
   },
   "ToyBox_Features_LevelUp_RespecFromLevelXFeature_m_NoneLocalizedText": {
@@ -1273,6 +1273,18 @@
   },
   "ToyBox_Features_PartyTab_Stats_UnitModifySoulMarksFeature_m_SoulMarksLocalizedText": {
     "Original": "Soul Marks",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitModifyStatsFeature_Name": {
+    "Original": "Modify Unit Stats",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitModifyStatsFeature_Description": {
+    "Original": "Allows modifying the various stats of a unit.",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitModifyStatsFeature_m_TryToKeepThisFeatureActivatedAftLocalizedText": {
+    "Original": "Try to keep this feature activated after using it (Click for Explanation)",
     "Translated": null
   },
   "ToyBox_Features_PartyTab_Stats_UnitOverrideAiControlBehaviourFeature_Name": {

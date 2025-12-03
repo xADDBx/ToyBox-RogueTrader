@@ -54,6 +54,7 @@ public partial class PartyFeatureTab : FeatureTab {
         AddFeature(new UnitOverrideMechanicalSizeFeature());
         AddFeature(new UnitOverrideVisualSizeFeature());
         AddFeature(new UnitModifySoulMarksFeature());
+        AddFeature(new UnitModifyStatsFeature());
 
         AddFeature(new PartyBrowseFeatsFeature());
 
@@ -178,7 +179,6 @@ public partial class PartyFeatureTab : FeatureTab {
     }
     private static void OnStatsGui(BaseUnitEntity unit) {
         Space(10);
-#warning TODO
         using (VerticalScope()) {
             Div.DrawDiv();
             Feature.GetInstance<PortraitEditorFeature>().OnGui(unit);
@@ -196,6 +196,8 @@ public partial class PartyFeatureTab : FeatureTab {
             Feature.GetInstance<UnitOverrideVisualSizeFeature>().OnGui(unit);
             Div.DrawDiv();
             Feature.GetInstance<UnitModifySoulMarksFeature>().OnGui(unit);
+            Div.DrawDiv();
+            Feature.GetInstance<UnitModifyStatsFeature>().OnGui(unit);
         }
     }
     private static void OnCareersGui(BaseUnitEntity unit) {

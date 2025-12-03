@@ -1,5 +1,6 @@
 ﻿using Kingmaker;
 using Kingmaker.EntitySystem.Persistence;
+using Kingmaker.EntitySystem.Stats.Base;
 using Kingmaker.Enums;
 using Newtonsoft.Json;
 
@@ -73,4 +74,5 @@ public class SaveSpecificSettings {
     public Dictionary<string, int> LastRespecLevelForUnit = [];
     public Dictionary<string, Size> MechanicalSizeOverrides = [];
     public Dictionary<string, float> VisualSizeOverrides = [];
+    public Dictionary<string, Dictionary<StatType, int>> AppliedUnitStatChanges = [];
 }

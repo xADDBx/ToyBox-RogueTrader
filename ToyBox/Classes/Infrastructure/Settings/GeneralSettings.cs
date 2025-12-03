@@ -207,4 +207,5 @@ public class GeneralSettings : AbstractJsonSettings {
     public Dictionary<string, bool> OverrideEnableAiForCompanions = [];
     public bool EnableUnitOverrideMechanicalSize = false;
     public bool EnableUnitOverrideVisualSize = false;
+    public bool EnableUnitModifyStats = false;
 }
