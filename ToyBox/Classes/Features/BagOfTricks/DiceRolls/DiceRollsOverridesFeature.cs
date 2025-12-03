@@ -1,5 +1,4 @@
-﻿using Kingmaker.Controllers.TurnBased;
-using Kingmaker.EntitySystem.Entities;
+﻿using Kingmaker.EntitySystem.Entities;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
@@ -132,11 +131,6 @@ public partial class DiceRollsOverridesFeature : FeatureWithPatch {
                 }
             }
         }
-    }
-#warning DEBUG; REMOVE!
-    [HarmonyPatch(typeof(Initiative), nameof(Initiative.Roll), MethodType.Setter), HarmonyPrefix]
-    private static void Initiative_setRoll_Patch(Initiative __instance, float value) {
-        Log($"Setting initiative {value}:\n{new System.Diagnostics.StackTrace()}");
     }
     [HarmonyPatch(typeof(RulePerformAttackRoll), nameof(RulePerformAttackRoll.OnTrigger)), HarmonyPostfix]
     private static void RulePerformAttackRoll_OnTrigger_Patch(RulePerformAttackRoll __instance) {

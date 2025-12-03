@@ -5,6 +5,7 @@ using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
 
+[IsTested]
 public partial class CompleteQuestBA : BlueprintActionFeature, IBlueprintAction<BlueprintQuest> {
 
     public bool CanExecute(BlueprintQuest blueprint, params object[] parameter) {

@@ -1259,6 +1259,22 @@
     "Original": "Prevents this character from talking with his voice.",
     "Translated": null
   },
+  "ToyBox_Features_PartyTab_Stats_UnitModifySoulMarksFeature_Name": {
+    "Original": "Modify Soul Marks",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitModifySoulMarksFeature_Description": {
+    "Original": "Allows modifying the alignment of the character.",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitModifySoulMarksFeature_m_UnitsOtherThanTheMainCharacterDoLocalizedText": {
+    "Original": "Units other than the main character don't really have an alignment. Assign the milestone features like SoulMarkCorruption2_Feature, though they might not work on other units.",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitModifySoulMarksFeature_m_SoulMarksLocalizedText": {
+    "Original": "Soul Marks",
+    "Translated": null
+  },
   "ToyBox_Features_PartyTab_Stats_UnitOverrideAiControlBehaviourFeature_Name": {
     "Original": "Override AI Control Behaviour",
     "Translated": null

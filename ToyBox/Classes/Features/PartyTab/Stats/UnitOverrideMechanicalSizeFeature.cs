@@ -6,6 +6,7 @@ using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Features.PartyTab.Stats;
 
+[IsTested]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.PartyTab.Stats.UnitOverrideMechanicalSizeFeature")]
 public partial class UnitOverrideMechanicalSizeFeature : FeatureWithPatch, INeedContextFeature<BaseUnitEntity> {
     public override ref bool IsEnabled {

@@ -4,6 +4,7 @@ using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
 
+[IsTested]
 public partial class UnstartEtudeBA : BlueprintActionFeature, IBlueprintAction<BlueprintEtude> {
 
     public bool CanExecute(BlueprintEtude blueprint, params object[] parameter) {

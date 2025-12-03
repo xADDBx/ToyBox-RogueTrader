@@ -9,6 +9,7 @@ using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Features.PartyTab.Stats;
 
+[IsTested]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.PartyTab.Stats.UnitDisableVoiceoverAndBarksFeature")]
 public partial class UnitDisableVoiceoverAndBarksFeature : FeatureWithPatch, INeedContextFeature<BaseUnitEntity> {
     private static bool m_IsEnabled = false;

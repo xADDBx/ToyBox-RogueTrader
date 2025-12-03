@@ -25,6 +25,11 @@ public static partial class UI {
         var oldContent = content;
         var contentText = oldContent.ToString("F0");
         var newText = GUILayout.TextField(contentText, options);
+        /*
+        if (string.IsNullOrWhiteSpace(newText)) {
+            newText = "0";
+        }
+        */
         if (newText != contentText && int.TryParse(newText, out var newContent)) {
             content = newContent;
             onContentChanged?.Invoke((oldContent, content));

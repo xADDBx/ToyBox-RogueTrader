@@ -4,32 +4,35 @@ namespace ToyBox.Infrastructure;
 
 public static partial class UI {
     private readonly static Dictionary<Type, Array> m_EnumCache = [];
-    private readonly static Dictionary<Type, Dictionary<object, int>> m_IndexToEnumCache = [];
+    private readonly static Dictionary<Type, Dictionary<Enum, int>> m_IndexToEnumCache = [];
     private readonly static Dictionary<Type, string[]> m_DefaultEnumNameCache = [];
-    private readonly static Dictionary<Type, string[]> m_EnumNameCache = []; 
+    private readonly static Dictionary<Type, string[]> m_EnumNameCache = [];
+    /// <summary>
+    /// An Enum Grid with a default option prepended.
+    /// </summary>
     public static bool SelectionGrid<TEnum>(ref TEnum? selected, int xCols, Func<TEnum?, string>? titler, params GUILayoutOption[] options) where TEnum : struct, Enum {
         if (!m_EnumCache.TryGetValue(typeof(TEnum?), out var vals)) {
-            TEnum?[] vals2 = [default, .. (TEnum[])Enum.GetValues(typeof(TEnum))];
+            TEnum?[] vals2 = [null, .. (TEnum[])Enum.GetValues(typeof(TEnum))];
             vals = vals2;
             m_EnumCache[typeof(TEnum?)] = vals;
         }
         if (!m_EnumNameCache.TryGetValue(typeof(TEnum?), out var names)) {
-            Dictionary<object, int> indexToEnum = [];
+            Dictionary<Enum, int> indexToEnum = [];
             List<string> tmpNames = [];
             for (var i = 0; i < vals.Length; i++) {
                 string name;
                 var val = vals.GetValue(i);
                 var maybeEnum = (TEnum?)val;
-                if (maybeEnum != null) {
-                    indexToEnum[maybeEnum] = i;
+                if (maybeEnum.HasValue) {
+                    indexToEnum[maybeEnum.Value] = i;
                 }
                 if (titler != null) {
                     name = titler(maybeEnum);
                 } else {
-                    if (maybeEnum == null) {
-                        name = SharedStrings.NoneText;
-                    } else {
+                    if (maybeEnum.HasValue) {
                         name = Enum.GetName(typeof(TEnum), val);
+                    } else {
+                        name = SharedStrings.NoneText;
                     }
                 }
                 tmpNames.Add(name);
@@ -42,8 +45,8 @@ public static partial class UI {
             xCols = vals.Length;
         }
         var selectedInt = 0;
-        if (selected != null) {
-            selectedInt = m_IndexToEnumCache[typeof(TEnum?)][selected];
+        if (selected.HasValue) {
+            selectedInt = m_IndexToEnumCache[typeof(TEnum?)][selected.Value];
         }
         var uncolored = names[selectedInt];
         names[selectedInt] = uncolored.Orange();
@@ -55,20 +58,23 @@ public static partial class UI {
         }
         return changed;
     }
+    /// <summary>
+    /// An Enum Grid.
+    /// </summary>
     public static bool SelectionGrid<TEnum>(ref TEnum selected, int xCols, Func<TEnum, string>? titler, params GUILayoutOption[] options) where TEnum : Enum {
         if (!m_EnumCache.TryGetValue(typeof(TEnum), out var vals)) {
             vals = Enum.GetValues(typeof(TEnum));
             m_EnumCache[typeof(TEnum)] = vals;
         }
         if (!m_EnumNameCache.TryGetValue(typeof(TEnum), out var names)) {
-            Dictionary<object, int> indexToEnum = [];
+            Dictionary<Enum, int> indexToEnum = [];
             List<string> tmpNames = [];
             for (var i = 0; i < vals.Length; i++) {
                 string name;
-                var val = vals.GetValue(i);
+                var val = (TEnum)vals.GetValue(i);
                 indexToEnum[val] = i;
                 if (titler != null) {
-                    name = titler((TEnum)val);
+                    name = titler(val);
                 } else {
                     name = Enum.GetName(typeof(TEnum), val);
                 }
@@ -95,6 +101,9 @@ public static partial class UI {
         }
         return changed;
     }
+    /// <summary>
+    /// A grid of values vals with a default value prepended.
+    /// </summary>
     public static bool SelectionGrid<T>(ref T? selected, IList<T> vals, int xCols, Func<T, string>? titler, params GUILayoutOption[] options) where T : notnull {
         if (xCols <= 0) {
             xCols = vals.Count;

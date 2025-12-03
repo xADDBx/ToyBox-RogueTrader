@@ -53,6 +53,7 @@ public partial class PartyFeatureTab : FeatureTab {
         AddFeature(new UnitOverrideAiControlBehaviourFeature());
         AddFeature(new UnitOverrideMechanicalSizeFeature());
         AddFeature(new UnitOverrideVisualSizeFeature());
+        AddFeature(new UnitModifySoulMarksFeature());
 
         AddFeature(new PartyBrowseFeatsFeature());
 
@@ -193,6 +194,8 @@ public partial class PartyFeatureTab : FeatureTab {
             Feature.GetInstance<UnitOverrideMechanicalSizeFeature>().OnGui(unit);
             Div.DrawDiv();
             Feature.GetInstance<UnitOverrideVisualSizeFeature>().OnGui(unit);
+            Div.DrawDiv();
+            Feature.GetInstance<UnitModifySoulMarksFeature>().OnGui(unit);
         }
     }
     private static void OnCareersGui(BaseUnitEntity unit) {

@@ -4,6 +4,7 @@ using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Features.PartyTab.Stats;
 
+[IsTested]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.PartyTab.Stats.UnitOverrideVisualSizeFeature")]
 public partial class UnitOverrideVisualSizeFeature : FeatureWithPatch, INeedContextFeature<BaseUnitEntity> {
     public override ref bool IsEnabled {
