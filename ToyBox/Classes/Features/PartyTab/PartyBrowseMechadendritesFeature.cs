@@ -1,6 +1,5 @@
 ﻿using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.EntitySystem.Entities;
-using Kingmaker.UnitLogic.Progression.Features;
 using Kingmaker.Utility.DotNetExtensions;
 using ToyBox.Infrastructure.Utilities;
 

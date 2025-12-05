@@ -3,8 +3,10 @@ using Kingmaker.Designers;
 using Kingmaker.EntitySystem;
 using Kingmaker.EntitySystem.Entities;
 using ToyBox.Classes.Features.PartyTab;
+using ToyBox.Features.PartyTab.Actions;
 using ToyBox.Features.PartyTab.Careers;
 using ToyBox.Features.PartyTab.Stats;
+using ToyBox.Features.SettingsFeatures;
 using ToyBox.Infrastructure.Inspector;
 using ToyBox.Infrastructure.Utilities;
 using UnityEngine;
@@ -63,6 +65,13 @@ public partial class PartyFeatureTab : FeatureTab {
         AddFeature(new PartyBrowseBuffsFeature());
 
         AddFeature(new PartyBrowseMechadendritesFeature());
+
+        AddFeature(new AddUnitToPartyAction());
+        AddFeature(new RemoveUnitFromPartyAction());
+        AddFeature(new RecruitUnitAction());
+        AddFeature(new UnrecruitUnitAction());
+        AddFeature(new RespecUnitAction());
+        AddFeature(new KillUnitAction());
     }
     public void Refresh() {
         m_UncollapsedSection = PartyTabSectionType.None;
@@ -93,16 +102,20 @@ public partial class PartyFeatureTab : FeatureTab {
             UI.Label(SharedStrings.ThisCannotBeUsedFromTheMainMenu.Red().Bold());
             return;
         }
+        Trace("Starting Party Tab OnGui");
         if (CharacterPicker.OnFilterPickerGUI(6, GUILayout.ExpandWidth(true))) {
             NameSectionWidth.ForceRefresh();
         }
-        var units = CharacterPicker.CurrentUnits;
+        var units = CharacterPicker.CurrentUnits.ToArray();
         using (VerticalScope()) {
             using (HorizontalScope()) {
                 UI.Label((m_PartyLevelText + ": ").Cyan() + Game.Instance.Player.PartyLevel.ToString().Orange().Bold(), Width(150 * Main.UIScale));
                 InspectorUI.InspectToggle("Party", m_InspectPartyText, units, -150, true, Width(m_InspectLabelWidth.Value + UI.DisclosureGlyphWidth.Value));
             }
-            if (units.Count == 0) {
+            if (CharacterPicker.CurrentList == CharacterListType.Nearby) {
+                Feature.GetInstance<CharacterPickerNearbyRangeSetting>().OnGui();
+            }
+            if (units.Length == 0) {
                 return;
             }
             var mainChar = GameHelper.GetPlayerCharacter();
@@ -116,57 +129,71 @@ public partial class PartyFeatureTab : FeatureTab {
             }
             distanceLabelWidth = CalculateLargestLabelWidth(distanceCache.Values.Select(dist => dist < 1 ? "" : dist.ToString("0") + "m"));
             foreach (var unit in units) {
-                using (HorizontalScope()) {
-                    UI.Label(GetUnitName(unit), Width(NameSectionWidth));
-                    Space(2);
+                try {
+                    Div.DrawDiv();
+                    using (HorizontalScope()) {
+                        UI.Label(GetUnitName(unit), Width(NameSectionWidth));
+                        Space(2);
 
-                    Feature.GetInstance<RenameUnitFeature>().OnGui(unit);
+                        Feature.GetInstance<RenameUnitFeature>().OnGui(unit);
 
-                    if (!distanceCache.TryGetValue(unit, out var dist)) {
-                        dist = mainChar.DistanceTo(unit);
-                        distanceCache[unit] = dist;
-                    }
+                        if (!distanceCache.TryGetValue(unit, out var dist)) {
+                            dist = mainChar.DistanceTo(unit);
+                            distanceCache[unit] = dist;
+                        }
 
-                    Space(5);
-                    UI.Label(dist < 1 ? "" : dist.ToString("0") + "m", Width(distanceLabelWidth + 5 * Main.UIScale));
-                    Space(5);
+                        Space(5);
+                        UI.Label(dist < 1 ? "" : dist.ToString("0") + "m", Width(distanceLabelWidth + 5 * Main.UIScale));
+                        Space(5);
 
-                    Feature.GetInstance<IncreaseUnitLevelFeature>().OnGui(unit);
+                        Feature.GetInstance<IncreaseUnitLevelFeature>().OnGui(unit);
 
-                    Space(15);
-                    foreach (var sec in m_Sections) {
-                        var isUncollapsed = sec == m_UncollapsedSection && unit == m_UncollapsedUnit;
-                        if (UI.DisclosureToggle(ref isUncollapsed, " " + sec.GetLocalized())) {
-                            if (isUncollapsed) {
-                                m_UncollapsedSection = sec;
-                                m_UncollapsedUnit = unit;
-                            } else {
-                                m_UncollapsedSection = PartyTabSectionType.None;
-                                m_UncollapsedUnit = null;
+                        Space(5);
+
+                        foreach (var sec in m_Sections) {
+                            var isUncollapsed = sec == m_UncollapsedSection && unit == m_UncollapsedUnit;
+                            if (UI.DisclosureToggle(ref isUncollapsed, " " + sec.GetLocalized())) {
+                                if (isUncollapsed) {
+                                    m_UncollapsedSection = sec;
+                                    m_UncollapsedUnit = unit;
+                                } else {
+                                    m_UncollapsedSection = PartyTabSectionType.None;
+                                    m_UncollapsedUnit = null;
+                                }
                             }
                         }
+                        Space(5);
+                        Feature.GetInstance<KillUnitAction>().OnGui(unit, false, true);
+                        Feature.GetInstance<RespecUnitAction>().OnGui(unit, false, true);
+                        Feature.GetInstance<AddUnitToPartyAction>().OnGui(unit, false, true);
+                        Feature.GetInstance<RemoveUnitFromPartyAction>().OnGui(unit, false, true);
+                        Feature.GetInstance<RecruitUnitAction>().OnGui(unit, false, true);
+                        Feature.GetInstance<UnrecruitUnitAction>().OnGui(unit, false, true);
                         GUILayout.FlexibleSpace();
                     }
-
-                }
-                if (m_UncollapsedUnit == unit && m_UncollapsedSection != PartyTabSectionType.None) {
-                    using (HorizontalScope()) {
-                        Space(50);
-                        switch (m_UncollapsedSection) {
-                            case PartyTabSectionType.Inspect: InspectorUI.Inspect(unit); break;
-                            case PartyTabSectionType.Features: Feature.GetInstance<PartyBrowseFeatsFeature>().OnGui(unit); break;
-                            case PartyTabSectionType.Buffs: Feature.GetInstance<PartyBrowseBuffsFeature>().OnGui(unit); break;
-                            case PartyTabSectionType.Abilities: Feature.GetInstance<PartyBrowseAbilitiesFeature>().OnGui(unit); break;
-                            case PartyTabSectionType.Careers: OnCareersGui(unit); break;
-                            case PartyTabSectionType.Stats: OnStatsGui(unit); break;
-                            case PartyTabSectionType.FeatureLists: OnFeatureListsGui(unit); break;
-                            case PartyTabSectionType.Mechadendrites: Feature.GetInstance<PartyBrowseMechadendritesFeature>().OnGui(unit); break;
-                            case PartyTabSectionType.None:
-                                break;
-                            default:
-                                break;
+                    if (m_UncollapsedUnit == unit && m_UncollapsedSection != PartyTabSectionType.None) {
+                        using (HorizontalScope()) {
+                            Space(50);
+                            switch (m_UncollapsedSection) {
+                                case PartyTabSectionType.Inspect: InspectorUI.Inspect(unit); break;
+                                case PartyTabSectionType.Features: Feature.GetInstance<PartyBrowseFeatsFeature>().OnGui(unit); break;
+                                case PartyTabSectionType.Buffs: Feature.GetInstance<PartyBrowseBuffsFeature>().OnGui(unit); break;
+                                case PartyTabSectionType.Abilities: Feature.GetInstance<PartyBrowseAbilitiesFeature>().OnGui(unit); break;
+                                case PartyTabSectionType.Careers: OnCareersGui(unit); break;
+                                case PartyTabSectionType.Stats: OnStatsGui(unit); break;
+                                case PartyTabSectionType.FeatureLists: OnFeatureListsGui(unit); break;
+                                case PartyTabSectionType.Mechadendrites: Feature.GetInstance<PartyBrowseMechadendritesFeature>().OnGui(unit); break;
+                                case PartyTabSectionType.None:
+                                    break;
+                                default:
+                                    break;
+                            }
                         }
                     }
+                } catch (Exception ex) {
+                    Warn($"Exception in Party GUI:\n{ex}");
+                    UI.Label("Party GUI errored for this unit!".Red());
+                    CharacterPicker.InvalidateAllCaches();
                 }
             }
         }

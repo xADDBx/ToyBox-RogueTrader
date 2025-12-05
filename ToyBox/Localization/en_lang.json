@@ -1067,6 +1067,102 @@
     "Original": "Apply Custom Level",
     "Translated": null
   },
+  "ToyBox_Features_PartyTab_Actions_AddUnitToPartyAction_Name": {
+    "Original": "Add Unit to Party",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Actions_AddUnitToPartyAction_Description": {
+    "Original": "Adds the specified unit or pet to the current party and teleports it to you if necessary.",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Actions_AddUnitToPartyAction_m_UnitIsAlreadyPartOfPartyLocalizedText": {
+    "Original": "Unit is already part of the active party or not recruited",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Actions_AddUnitToPartyAction_m_AddLocalizedText": {
+    "Original": "Add",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Actions_KillUnitAction_Name": {
+    "Original": "Kill Unit",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Actions_KillUnitAction_Description": {
+    "Original": "Kills the specified unit by marking it for death.",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Actions_KillUnitAction_m_WhatHappenedHereLocalizedText": {
+    "Original": "Something went wrong. You should not be able to see this.",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Actions_KillUnitAction_m_KillLocalizedText": {
+    "Original": "Kill",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Actions_RecruitUnitAction_Name": {
+    "Original": "Recruit Unit",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Actions_RecruitUnitAction_Description": {
+    "Original": "Recruits the specified unit and teleports it to you if possible.",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Actions_RecruitUnitAction_m_UnitIsAlreadyRecruitedLocalizedText": {
+    "Original": "Unit is already recruited",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Actions_RecruitUnitAction_m_RecruitLocalizedText": {
+    "Original": "Recruit",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Actions_RemoveUnitFromPartyAction_Name": {
+    "Original": "Remove Unit from Party",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Actions_RemoveUnitFromPartyAction_Description": {
+    "Original": "Removes the specified unit or pet from the current party.",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Actions_RemoveUnitFromPartyAction_m_UnitIsNotPartOfPartyLocalizedText": {
+    "Original": "Unit is not part of the active Party",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Actions_RemoveUnitFromPartyAction_m_RemoveLocalizedText": {
+    "Original": "Remove",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Actions_RespecUnitAction_Name": {
+    "Original": "Respec Unit",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Actions_RespecUnitAction_Description": {
+    "Original": "Respecs the specified unit and closes the mod UI.",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Actions_RespecUnitAction_m_Can_tRespecUnitLocalizedText": {
+    "Original": "Can't respec unit. This is either because unit is dead, a pet or below it's original level limit (e.g. the recruit level for companions).",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Actions_RespecUnitAction_m_RespecLocalizedText": {
+    "Original": "Respec",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Actions_UnrecruitUnitAction_Name": {
+    "Original": "Unrecruit Unit",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Actions_UnrecruitUnitAction_Description": {
+    "Original": "Unrecruits the specified companion.",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Actions_UnrecruitUnitAction_m_UnitIsNotRecruitedLocalizedText": {
+    "Original": "Unit is not recruited",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Actions_UnrecruitUnitAction_m_UnrecruitLocalizedText": {
+    "Original": "Unrecruit",
+    "Translated": null
+  },
   "ToyBox_Features_PartyTab_Careers_ModifyCharacterLevelFeature_Name": {
     "Original": "Modify Character Level",
     "Translated": null

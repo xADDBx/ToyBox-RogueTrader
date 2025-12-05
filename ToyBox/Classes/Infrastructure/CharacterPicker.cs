@@ -31,7 +31,10 @@ public static partial class CharacterPicker {
         }, m_CacheDuration),
         [CharacterListType.AllUnits] = new(() => Game.Instance.State.AllBaseUnits?.ToList() ?? [], m_CacheDuration)
     };
-    private static CharacterListType m_CurrentList;
+    public static CharacterListType CurrentList { 
+        private set;
+        get;
+    }
     private static WeakReference<BaseUnitEntity>? m_CurrentUnit;
     public static BaseUnitEntity? CurrentUnit {
         get {
@@ -44,7 +47,12 @@ public static partial class CharacterPicker {
     }
     public static List<BaseUnitEntity> CurrentUnits {
         get {
-            return m_Lists[m_CurrentList];
+            return m_Lists[CurrentList];
+        }
+    }
+    public static void InvalidateAllCaches() {
+        foreach (var list in m_Lists) {
+            list.Value.ForceRefresh();
         }
     }
     public static bool OnFilterPickerGUI(int? xcols = null, params GUILayoutOption[] options) {
@@ -52,7 +60,9 @@ public static partial class CharacterPicker {
             UI.Label(SharedStrings.ThisCannotBeUsedFromTheMainMenu.Red());
             return false;
         }
-        if (UI.SelectionGrid(ref m_CurrentList, xcols ?? Math.Min(11, m_Lists.Count), type => type.GetLocalized(), options)) {
+        var current = CurrentList;
+        if (UI.SelectionGrid(ref current, xcols ?? Math.Min(11, m_Lists.Count), type => type.GetLocalized(), options)) {
+            CurrentList = current;
             m_CurrentUnit = null;
             return true;
         }

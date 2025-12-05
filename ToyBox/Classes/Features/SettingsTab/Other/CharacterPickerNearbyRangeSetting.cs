@@ -34,4 +34,8 @@ public partial class CharacterPickerNearbyRangeSetting : FeatureWithLogIntSlider
             return 25;
         }
     }
+    protected override void OnValueChanged((int oldValue, int newValue) vals) {
+        base.OnValueChanged(vals);
+        CharacterPicker.InvalidateAllCaches();
+    }
 }

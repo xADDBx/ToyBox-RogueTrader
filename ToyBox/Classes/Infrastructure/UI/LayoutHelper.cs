@@ -74,7 +74,8 @@ public static class LayoutHelper {
     }
 
     public static void UnscaledSpace(float pixels) {
-        GUILayout.Space(pixels);
+        UI.Label("", Width(pixels));
+        //GUILayout.Space(pixels);
     }
 
     public static float EffectiveWindowWidth() {
