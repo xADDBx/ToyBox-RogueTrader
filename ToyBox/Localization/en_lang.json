@@ -1155,6 +1155,14 @@
     "Original": "Displays a Browser containing all the features of the unit in question and optionally allows removing them or adding new ones.",
     "Translated": null
   },
+  "ToyBox_Features_PartyTab_PartyBrowseMechadendritesFeature_Name": {
+    "Original": "Browse Unit Mechadendrites",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_PartyBrowseMechadendritesFeature_Description": {
+    "Original": "Displays a Browser containing all the mechadendrites of the unit in question and optionally allows removing them or adding new ones.",
+    "Translated": null
+  },
   "ToyBox_Features_PartyTab_PartyFeatureTab_PartyLevelText": {
     "Original": "Party Level",
     "Translated": null
@@ -1740,7 +1748,7 @@
     "Translated": null
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddItemBA_Add_x": {
-    "Original": "Add",
+    "Original": "Add Item",
     "Translated": null
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddItemBA_Name": {
@@ -1752,7 +1760,7 @@
     "Translated": null
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveItemBA_Remove_x": {
-    "Original": "Remove",
+    "Original": "Remove Item",
     "Translated": null
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveItemBA_Name": {
@@ -1947,6 +1955,22 @@
     "Original": "Unit already has this ability resource",
     "Translated": null
   },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechadendriteBA_Name": {
+    "Original": "Add Mechadendrite",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechadendriteBA_Description": {
+    "Original": "Adds the specified mechadendrite to the specified unit.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechadendriteBA_m_AddLocalizedText": {
+    "Original": "Equip Mechadendrite",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechadendriteBA_m_UnitAlreadyHasThisMechadendriteLocalizedText": {
+    "Original": "Unit already has this Mechadendrite",
+    "Translated": null
+  },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechanicEntityFactBA_AddText": {
     "Original": "Add",
     "Translated": null
@@ -2033,6 +2057,22 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveAbilityResourceBA_UnitAlreadyHasThisAbilityResourc": {
     "Original": "Unit does not have this ability resource",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechadendriteBA_Name": {
+    "Original": "Remove Mechadendrite",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechadendriteBA_Description": {
+    "Original": "Removes the specified mechadendrite from the specified unit.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechadendriteBA_m_RemoveLocalizedText": {
+    "Original": "Unequip Mechadendrite",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechadendriteBA_m_UnitDoesn_tHaveThisMechadendriteLocalizedText": {
+    "Original": "Unit doesn't have this Mechadendrite",
     "Translated": null
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechanicEntityFactBA_RemoveText": {

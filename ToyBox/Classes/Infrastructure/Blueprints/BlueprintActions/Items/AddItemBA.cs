@@ -40,7 +40,7 @@ public partial class AddItemBA : BlueprintActionFeature, IBlueprintAction<Bluepr
         }
     }
 
-    [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_AddItemBA_Add_x", "Add")]
+    [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_AddItemBA_Add_x", "Add Item")]
     private static partial string m_AddText { get; }
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_AddItemBA_Name", "Add Item")]
     public override partial string Name { get; }

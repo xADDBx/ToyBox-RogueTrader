@@ -7,6 +7,7 @@ using Kingmaker.Blueprints.Facts;
 using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Blueprints.Items.Ecnchantments;
+using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Blueprints.Quests;
 using Kingmaker.DialogSystem.Blueprints;
@@ -54,7 +55,8 @@ public class BlueprintIdCache {
                 typeof(BlueprintAreaPreset), typeof(Cutscene), typeof(BlueprintUnitAsksList), typeof(BlueprintCareerPath),
                 typeof(BlueprintColony), typeof(BlueprintPlanet), typeof(BlueprintSectorMapPointStarSystem), typeof(BlueprintStarSystemMap),
                 typeof(BlueprintUnlockableFlag), typeof(BlueprintQuest), typeof(BlueprintQuestObjective), typeof(BlueprintAbilityResource),
-                typeof(BlueprintMechanicEntityFact)
+                typeof(BlueprintMechanicEntityFact), typeof(BlueprintItemMechadendrite), typeof(BlueprintAbilityFXSettings), typeof(BlueprintResource),
+                typeof(BlueprintColonyTrait), typeof (BlueprintColonyEventResult)
         ];
 
     private static bool? m_NeedsCacheRebuilt = null;

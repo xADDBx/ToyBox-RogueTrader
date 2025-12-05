@@ -61,6 +61,8 @@ public partial class PartyFeatureTab : FeatureTab {
         AddFeature(new PartyBrowseAbilitiesFeature());
 
         AddFeature(new PartyBrowseBuffsFeature());
+
+        AddFeature(new PartyBrowseMechadendritesFeature());
     }
     public void Refresh() {
         m_UncollapsedSection = PartyTabSectionType.None;
@@ -72,11 +74,13 @@ public partial class PartyFeatureTab : FeatureTab {
         Feature.GetInstance<PartyBrowseFeatsFeature>().ClearFeatureCache();
         Feature.GetInstance<PartyBrowseAbilitiesFeature>().ClearFeatureCache();
         Feature.GetInstance<PartyBrowseBuffsFeature>().ClearFeatureCache();
+        Feature.GetInstance<PartyBrowseMechadendritesFeature>().ClearFeatureCache();
     }
     public static void FeatureRefresh() {
         Feature.GetInstance<PartyBrowseFeatsFeature>().MarkInvalid();
         Feature.GetInstance<PartyBrowseAbilitiesFeature>().MarkInvalid();
         Feature.GetInstance<PartyBrowseBuffsFeature>().MarkInvalid();
+        Feature.GetInstance<PartyBrowseMechadendritesFeature>().MarkInvalid();
     }
     public readonly TimedCache<float> NameSectionWidth = new(() => {
         return CalculateLargestLabelWidth(CharacterPicker.CurrentUnits.Select(u => GetUnitName(u) + " "));
@@ -156,7 +160,7 @@ public partial class PartyFeatureTab : FeatureTab {
                             case PartyTabSectionType.Careers: OnCareersGui(unit); break;
                             case PartyTabSectionType.Stats: OnStatsGui(unit); break;
                             case PartyTabSectionType.FeatureLists: OnFeatureListsGui(unit); break;
-                            case PartyTabSectionType.Mechadendrites: OnMechadendritesGui(unit); break;
+                            case PartyTabSectionType.Mechadendrites: Feature.GetInstance<PartyBrowseMechadendritesFeature>().OnGui(unit); break;
                             case PartyTabSectionType.None:
                                 break;
                             default:
@@ -171,11 +175,6 @@ public partial class PartyFeatureTab : FeatureTab {
         Space(10);
 #warning TODO
         UI.Label("Uncollapsed Feature Lists");
-    }
-    private static void OnMechadendritesGui(BaseUnitEntity unit) {
-        Space(10);
-#warning TODO
-        UI.Label("Uncollapsed Mechadendrites");
     }
     private static void OnStatsGui(BaseUnitEntity unit) {
         Space(10);

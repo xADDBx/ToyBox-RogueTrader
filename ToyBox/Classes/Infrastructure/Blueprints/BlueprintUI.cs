@@ -18,12 +18,12 @@ public static partial class BlueprintUI {
         public float AssetIdWidth;
     }
     private static readonly ConditionalWeakTable<IPagedList, Widths> m_CachedWidths = new();
-    public static void BlueprintRowGUI<TBlueprint>(Browser<TBlueprint> browser, TBlueprint blueprint, BaseUnitEntity ch) where TBlueprint : SimpleBlueprint {
+    public static void BlueprintRowGUI<TBlueprint>(Browser<TBlueprint> browser, TBlueprint blueprint, BaseUnitEntity ch, Type? overrideForActions = null) where TBlueprint : SimpleBlueprint {
         if (!m_CachedWidths.TryGetValue(browser, out var widths) || (!browser.IsCachedValid && browser.PagedItems.Count > 0)) {
             var wasDefault = widths == null;
             widths ??= new();
             widths.TitleWidth = Math.Min(0.3f * EffectiveWindowWidth(), CalculateLargestLabelWidth(browser.PagedItems.Select(bp => BPHelper.GetTitle(bp).Cyan().Bold())));
-            widths.TypeWidth = Math.Min(0.2f * EffectiveWindowWidth(), CalculateLargestLabelWidth(browser.PagedItems.Select(bp => bp.GetType().Name.Orange())));
+            widths.TypeWidth = Math.Min(0.2f * EffectiveWindowWidth(), CalculateLargestLabelWidth(browser.PagedItems.Select(bp => bp.GetType().Name.Orange())) + 5 * Main.UIScale);
             widths.AssetIdWidth = Math.Min(0.3f * EffectiveWindowWidth(), CalculateLargestLabelWidth(browser.PagedItems.Select(bp => bp.AssetGuid.ToString()), GUI.skin.textField));
             if (wasDefault) {
                 m_CachedWidths.Add(browser, widths);
@@ -52,7 +52,7 @@ public static partial class BlueprintUI {
                     _ = UI.TextField(ref tmp, null, Width(widths.AssetIdWidth));
                 }
                 Space(5);
-                foreach (var action in BlueprintActionFeature.GetActionsForBlueprintType<TBlueprint>()) {
+                foreach (var action in BlueprintActionFeature.GetActionsForBlueprintType<TBlueprint>(overrideForActions)) {
                     _ = action.OnGui(blueprint, false, ch);
                 }
                 Space(5);

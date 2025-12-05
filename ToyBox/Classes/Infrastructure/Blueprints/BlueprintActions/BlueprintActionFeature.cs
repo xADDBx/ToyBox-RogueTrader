@@ -14,13 +14,14 @@ public interface IBlueprintAction<T> : IExecutableAction<T>, INeedContextFeature
 public abstract class BlueprintActionFeature : FeatureWithAction {
     private static readonly List<object> m_AllActions = [];
     private static readonly Dictionary<Type, object> m_ActionsForType = [];
+    private static readonly Dictionary<(Type, Type), object> m_ExactActionsForType = [];
     public override void ExecuteAction(params object[] parameter) {
         LogExecution(parameter);
     }
     protected BlueprintActionFeature() {
         m_AllActions.Add(this);
     }
-    public static IEnumerable<IExecutableAction<T>> GetActionsForBlueprintType<T>() where T : SimpleBlueprint {
+    private static IEnumerable<IExecutableAction<T>> GetAllActionsForBPType<T>() where T : SimpleBlueprint {
         if (m_ActionsForType.TryGetValue(typeof(T), out var actions)) {
             return (List<IExecutableAction<T>>)actions;
         } else {
@@ -32,6 +33,25 @@ public abstract class BlueprintActionFeature : FeatureWithAction {
             }
             m_ActionsForType[typeof(T)] = newActions;
             return newActions;
+        }
+    }
+    public static IEnumerable<IExecutableAction<T>> GetActionsForBlueprintType<T>(Type? exactlyThis) where T : SimpleBlueprint {
+        if (exactlyThis == null) {
+            return GetAllActionsForBPType<T>();
+        } else {
+            if (m_ExactActionsForType.TryGetValue((typeof(T), exactlyThis), out var actions)) {
+                return (List<IExecutableAction<T>>)actions;
+            } else {
+                List<IExecutableAction<T>> newActions = [];
+                foreach (var action in GetAllActionsForBPType<T>()) {
+                    var interf = action.GetType().GetInterfaces().First(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IExecutableAction<>));
+                    if (interf.GetGenericArguments()[0] == exactlyThis) {
+                        newActions.Add(action);
+                    }
+                }
+                m_ExactActionsForType[(typeof(T), exactlyThis)] = newActions;
+                return newActions;
+            }
         }
     }
     protected static string StyleActionString(string text, bool isFeatureSearch) {
@@ -81,12 +101,14 @@ public class BlueprintActions : FeatureTab {
         AddFeature(new UnstartEtudeBA());
 
         AddFeature(new AddAbilityResourceBA());
+        AddFeature(new AddMechadendriteBA());
         AddFeature(new AddMechanicEntityFactBA());
         AddFeature(new ChangeBuffRankBA());
         AddFeature(new ChangeFeatureRankBA());
         AddFeature(new ChangeVoiceBA());
         AddFeature(new PlayVoiceBA());
         AddFeature(new RemoveAbilityResourceBA());
+        AddFeature(new RemoveMechadendriteBA());
         AddFeature(new RemoveMechanicEntityFactBA());
         AddFeature(new SpawnUnitBA());
     }
