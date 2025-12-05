@@ -43,7 +43,7 @@ public static class InspectorTraverser {
                 }
             }
             int index = 0;
-            foreach (object? element in node.AsEnumerableSafe()) {
+            foreach (var element in node.AsEnumerableSafe()) {
                 var childNode = new InspectorNode("<item_" + index + ">", node.Path, element?.GetType() ?? elementType ?? typeof(object), element, node, InspectorNode.EnumerableItemPrefix);
                 node.Children.Add(childNode);
                 index++;

@@ -137,7 +137,8 @@ public partial class VerticalList<T> : IPagedList where T : notnull {
         }
         GUI.enabled = prev;
     }
-    protected virtual void HeaderGUI() {
+    protected virtual void HeaderGUI(Action? onHeaderGui = null) {
+        onHeaderGui?.Invoke();
         using (HorizontalScope()) {
             PageGUI();
         }
@@ -150,9 +151,10 @@ public partial class VerticalList<T> : IPagedList where T : notnull {
     /// Renders the paged list using the provided item GUI rendering callback.
     /// </summary>
     /// <param name="onItemGUI">A delegate that renders an individual item of type <typeparamref name="T"/>.</param>
-    public virtual void OnGUI(Action<T> onItemGUI) {
+    /// <param name="onHeaderGui">An optional delegate to render a header GUI e.g. for settings <typeparamref name="T"/>.</param>
+    public virtual void OnGUI(Action<T> onItemGUI, Action? onHeaderGui = null) {
         using (VerticalScope(PageWidth)) {
-            HeaderGUI();
+            HeaderGUI(onHeaderGui);
             for (var i = 0; i < PagedItems.Count; i++) {
                 if (ShowDivBetweenItems) {
                     Div.DrawDiv();

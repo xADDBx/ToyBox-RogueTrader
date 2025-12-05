@@ -10,7 +10,10 @@ public partial class TeleportBlueprintAreaBA : BlueprintActionFeature, IBlueprin
     private static readonly Dictionary<BlueprintArea, BlueprintAreaEnterPoint?> m_MappingCache = [];
     public bool CanExecute(BlueprintArea blueprint, params object[] parameter) {
         if (!m_MappingCache.TryGetValue(blueprint, out var mapping)) {
-            mapping = BPLoader.GetBlueprintsOfType<BlueprintAreaEnterPoint>().FirstOrDefault(bp => bp.Area == blueprint);
+            var bps = BPLoader.GetBlueprintsOfType<BlueprintAreaEnterPoint>();
+            if (bps != null) {
+                mapping = bps.FirstOrDefault(bp => bp.Area == blueprint);
+            }
             m_MappingCache[blueprint] = mapping;
         }
         return IsInGame() && mapping != null;

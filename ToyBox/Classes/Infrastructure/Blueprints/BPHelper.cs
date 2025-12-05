@@ -16,6 +16,7 @@ public static class BPHelper {
         m_SortKeyCache.Clear();
         m_DescriptionCache.Clear();
         m_SearchKeyCache.Clear();
+        Main.InvalidateBrowserCaches();
     }
     public static string GetTitle(SimpleBlueprint blueprint, Func<string, string>? formatter = null) {
         formatter ??= s => s;
@@ -86,7 +87,8 @@ public static class BPHelper {
             Debug($"Error getting SearchKey for BP: {blueprint} - {blueprint.AssetGuid}:\n{ex}");
             ret ??= "<ToyBox Error>";
         }
-        return (ret + $" {blueprint.AssetGuid} {blueprint.GetType()}").ToUpper();
+        // I used to add " {blueprint.GetType()}", but that seems excessive
+        return (ret + $" {blueprint.AssetGuid}").ToUpper();
     }
     private static string CreateSortKey(SimpleBlueprint blueprint) {
         string? ret = null;
@@ -99,12 +101,12 @@ public static class BPHelper {
                     Debug($"Error while getting name for {uiDataProvider}:\n{ex}");
                 }
                 ret = CheckNullName(blueprint, Name);
-                if (Settings.SearchDescriptions) {
+                if (Settings.ToggleSearchDescriptions) {
                     ret += " " + GetDescription(blueprint);
                 }
             } else if (blueprint is BlueprintItemEnchantment enchantment) {
                 ret = CheckNullName(blueprint, enchantment.Name);
-                if (Settings.SearchDescriptions) {
+                if (Settings.ToggleSearchDescriptions) {
                     ret += " " + GetDescription(blueprint);
                 }
             }

@@ -157,8 +157,9 @@ public partial class Browser<T> : VerticalList<T> where T : notnull {
             _ = UI.Button(SharedStrings.SearchText, () => StartNewSearch(CurrentSearchString));
         }
     }
-    protected override void HeaderGUI() {
+    protected override void HeaderGUI(Action? onHeaderGui = null) {
         using (VerticalScope()) {
+            onHeaderGui?.Invoke();
             using (HorizontalScope()) {
                 PageGUI();
                 Space(30);

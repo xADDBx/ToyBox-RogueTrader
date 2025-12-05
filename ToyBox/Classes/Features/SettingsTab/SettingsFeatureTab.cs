@@ -29,6 +29,9 @@ public partial class SettingsFeaturesTab : FeatureTab {
         AddFeature(new PageLimitSetting(), m_ListsAndBrowsersText);
         AddFeature(new SearchAsYouTypeFeature(), m_ListsAndBrowsersText);
         AddFeature(new SearchDelaySetting(), m_ListsAndBrowsersText);
+        AddFeature(new ShowBlueprintAssetIdsSetting(), m_ListsAndBrowsersText);
+        AddFeature(new ShowBlueprintTypeSetting(), m_ListsAndBrowsersText);
+        AddFeature(new SearchDescriptionsSetting(), m_ListsAndBrowsersText);
 
         AddFeature(new IntegrityCheckerFeature(), m_VersionAndFileIntegrityText);
         AddFeature(new VersionCompatabilityFeature(), m_VersionAndFileIntegrityText);

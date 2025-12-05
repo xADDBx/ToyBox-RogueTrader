@@ -1379,6 +1379,22 @@
     "Original": "Always load all Blueprints on game Start. This increases initial load times and RAM usage, but can decrease game loading times once finished.",
     "Translated": null
   },
+  "ToyBox_Features_SettingsFeatures_Blueprints_ShowBlueprintAssetIdsSetting_Name": {
+    "Original": "Show Blueprint AssetGuids",
+    "Translated": null
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_ShowBlueprintAssetIdsSetting_Description": {
+    "Original": "Whether Browsers should display the asset id of a blueprint.",
+    "Translated": null
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_ShowBlueprintTypeSetting_Name": {
+    "Original": "Show Blueprint Type",
+    "Translated": null
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_ShowBlueprintTypeSetting_Description": {
+    "Original": "Whether Browsers should display the type of a blueprint.",
+    "Translated": null
+  },
   "ToyBox_Features_SettingsFeatures_Blueprints_ShowDisplayAndInternalNamesSetting_Name": {
     "Original": "Show Display And Internal Names",
     "Translated": null
@@ -2045,6 +2061,10 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_SpawnUnitBA_Description": {
     "Original": "Spawns the specified BlueprintUnit in the vicinity.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintUI_m_ShowSettingsLocalizedText": {
+    "Original": "Show Settings",
     "Translated": null
   },
   "ToyBox_Infrastructure_CharacterPicker_ThereAreNoCharactersInThisList": {

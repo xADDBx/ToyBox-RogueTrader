@@ -38,7 +38,10 @@ public class GeneralSettings : AbstractJsonSettings {
     public int PageLimit = 25;
     public bool ToggleSearchAsYouType = true;
     public float SearchDelay = 0.3f;
-    public bool SearchDescriptions = true;
+    public bool ToggleSearchDescriptions = true;
+    public bool ToggleBPsShowDisplayAndInternalName = false;
+    public bool ToggleShowBlueprintAssetIds = true;
+    public bool ToggleShowBlueprintType = false;
 
     // - Blueprints Settings
     public bool EnableThreadedBlueprintLoader = true;
@@ -49,7 +52,6 @@ public class GeneralSettings : AbstractJsonSettings {
     public bool UseBPIdCache = true;
     public bool AutomaticallyBuildBPIdCache = true;
     public bool EnableBlueprintPerformancePatches = true;
-    public bool ToggleBPsShowDisplayAndInternalName = false;
 
     // - Inspector
     public bool ToggleInspectorShowNullAndEmptyMembers = false;

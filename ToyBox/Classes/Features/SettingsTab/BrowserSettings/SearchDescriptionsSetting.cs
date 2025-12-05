@@ -4,7 +4,7 @@
 public partial class SearchDescriptionsSetting : ToggledFeature {
     public override ref bool IsEnabled {
         get {
-            return ref Settings.SearchDescriptions;
+            return ref Settings.ToggleSearchDescriptions;
         }
     }
 

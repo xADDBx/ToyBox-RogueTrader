@@ -39,8 +39,8 @@ public partial class UnitBrowseVoicesFeature : Feature, INeedContextFeature<Base
                     BPLoader.GetBlueprintsOfType<BlueprintUnitAsksList>(bps => m_CachedBrowser.QueueUpdateItems(bps.Where(bp => BPHelper.GetTitle(bp).StartsWith("RT"))));
                 }
                 m_CachedBrowser.OnGUI(voice => {
-                    BlueprintUI.BlueprintRowGUI(voice, unit);
-                });
+                    BlueprintUI.BlueprintRowGUI(m_CachedBrowser, voice, unit);
+                }, BlueprintUI.BlueprintHeaderGUI);
             }
         }
     }

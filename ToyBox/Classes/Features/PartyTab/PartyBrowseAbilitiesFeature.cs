@@ -33,7 +33,7 @@ public partial class PartyBrowseAbilitiesFeature : Feature, INeedContextFeature<
             m_CachedBrowsers[unit] = browser;
         }
         browser.OnGUI(feature => {
-            BlueprintUI.BlueprintRowGUI(feature, unit);
-        });
+            BlueprintUI.BlueprintRowGUI(browser, feature, unit);
+        }, BlueprintUI.BlueprintHeaderGUI);
     }
 }

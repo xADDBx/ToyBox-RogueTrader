@@ -116,7 +116,16 @@ public static partial class Main {
     private static bool OnToggle(UnityModManager.ModEntry modEntry, bool value) {
         return true;
     }
-
+    public static void InvalidateBrowserCaches() {
+        List<WeakReference<IPagedList>> newList = [];
+        foreach (var maybeVl in m_VerticalLists) {
+            if (maybeVl?.TryGetTarget(out var pagedList) ?? false) {
+                newList.Add(maybeVl);
+                pagedList.SetCacheInvalid();
+            }
+        }
+        m_VerticalLists = newList;
+    }
     private static int m_LoadedBps = 0;
     private static void OnGUI(UnityModManager.ModEntry modEntry) {
         if (m_CaughtException == null) {
@@ -128,14 +137,7 @@ public static partial class Main {
                 if (UnityModManager.UI.Instance.mUIScale != UIScale) {
                     OnUIScaleChanged?.Invoke();
                     UIScale = UnityModManager.UI.Instance.mUIScale;
-                    List<WeakReference<IPagedList>> newList = [];
-                    foreach (var maybeVl in m_VerticalLists) {
-                        if (maybeVl?.TryGetTarget(out var pagedList) ?? false) {
-                            newList.Add(maybeVl);
-                            pagedList.SetCacheInvalid();
-                        }
-                    }
-                    m_VerticalLists = newList;
+                    InvalidateBrowserCaches();
                 }
                 if (BPLoader.IsLoading) {
                     UI.ProgressBar(BPLoader.Progress, "");

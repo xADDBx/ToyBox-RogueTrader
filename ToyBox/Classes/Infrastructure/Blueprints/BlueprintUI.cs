@@ -2,12 +2,34 @@
 using Kingmaker.Blueprints.Facts;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.Utility.UnityExtensions;
+using System.Runtime.CompilerServices;
+using ToyBox.Features.SettingsFeatures.Blueprints;
+using ToyBox.Features.SettingsFeatures.BrowserSettings;
 using ToyBox.Infrastructure.Blueprints.BlueprintActions;
+using ToyBox.Infrastructure.Inspector;
+using UnityEngine;
 
 namespace ToyBox.Infrastructure.Blueprints;
 
-public static class BlueprintUI {
-    public static void BlueprintRowGUI<TBlueprint>(TBlueprint blueprint, BaseUnitEntity ch) where TBlueprint : SimpleBlueprint {
+public static partial class BlueprintUI {
+    private class Widths {
+        public float TitleWidth;
+        public float TypeWidth;
+        public float AssetIdWidth;
+    }
+    private static readonly ConditionalWeakTable<IPagedList, Widths> m_CachedWidths = new();
+    public static void BlueprintRowGUI<TBlueprint>(Browser<TBlueprint> browser, TBlueprint blueprint, BaseUnitEntity ch) where TBlueprint : SimpleBlueprint {
+        if (!m_CachedWidths.TryGetValue(browser, out var widths) || (!browser.IsCachedValid && browser.PagedItems.Count > 0)) {
+            var wasDefault = widths == null;
+            widths ??= new();
+            widths.TitleWidth = Math.Min(0.3f * EffectiveWindowWidth(), CalculateLargestLabelWidth(browser.PagedItems.Select(bp => BPHelper.GetTitle(bp).Cyan().Bold())));
+            widths.TypeWidth = Math.Min(0.2f * EffectiveWindowWidth(), CalculateLargestLabelWidth(browser.PagedItems.Select(bp => bp.GetType().Name.Orange())));
+            widths.AssetIdWidth = Math.Min(0.3f * EffectiveWindowWidth(), CalculateLargestLabelWidth(browser.PagedItems.Select(bp => bp.AssetGuid.ToString()), GUI.skin.textField));
+            if (wasDefault) {
+                m_CachedWidths.Add(browser, widths);
+            }
+            browser.SetCacheValid();
+        }
         object? maybeItem = null;
         if (blueprint is BlueprintUnitFact fact) {
             maybeItem = ch.Facts.Get(fact);
@@ -18,23 +40,43 @@ public static class BlueprintUI {
         }
         using (VerticalScope()) {
             using (HorizontalScope()) {
-                UI.Label(name, Width(CalculateTitleWidth()));
-#warning Proper Width?
-#warning AssetGuid
+                InspectorUI.InspectToggle(blueprint);
+                UI.Label(name, Width(widths.TitleWidth));
+                if (Feature.GetInstance<ShowBlueprintTypeSetting>().IsEnabled) {
+                    Space(5);
+                    UI.Label(blueprint.GetType().Name.Orange(), Width(widths.TypeWidth));
+                }
+                if (Feature.GetInstance<ShowBlueprintAssetIdsSetting>().IsEnabled) {
+                    Space(5);
+                    var tmp = blueprint.AssetGuid.ToString();
+                    _ = UI.TextField(ref tmp, null, Width(widths.AssetIdWidth));
+                }
+                Space(5);
                 foreach (var action in BlueprintActionFeature.GetActionsForBlueprintType<TBlueprint>()) {
                     _ = action.OnGui(blueprint, false, ch);
                 }
-
-                Space(10);
-#warning Type?
+                Space(5);
                 var desc = BPHelper.GetDescription(blueprint);
                 if (!desc.IsNullOrEmpty()) {
                     UI.Label(desc!.Green());
                 }
             }
+            InspectorUI.InspectIfExpanded(blueprint, maybeItem ?? blueprint);
         }
     }
-    private static float CalculateTitleWidth() {
-        return Math.Min(300, EffectiveWindowWidth() * 0.2f);
+    private static bool m_DoShowSettings = false;
+    public static void BlueprintHeaderGUI() {
+        using (VerticalScope()) {
+            UI.DisclosureToggle(ref m_DoShowSettings, m_ShowSettingsLocalizedText.Green().Bold());
+            if (m_DoShowSettings) {
+                Feature.GetInstance<ShowDisplayAndInternalNamesSetting>().OnGui();
+                Feature.GetInstance<ShowBlueprintAssetIdsSetting>().OnGui();
+                Feature.GetInstance<ShowBlueprintTypeSetting>().OnGui();
+                Feature.GetInstance<SearchDescriptionsSetting>().OnGui();
+            }
+        }
     }
+
+    [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintUI_m_ShowSettingsLocalizedText", "Show Settings")]
+    private static partial string m_ShowSettingsLocalizedText { get; }
 }
