@@ -7,6 +7,7 @@ using UnityEngine;
 
 namespace ToyBox.Features.PartyTab.Actions;
 
+[IsTested]
 public partial class AddUnitToPartyAction : FeatureWithAction, INeedContextFeature<BaseUnitEntity> {
     [LocalizedString("ToyBox_Features_PartyTab_Actions_AddUnitToPartyAction_Name", "Add Unit to Party")]
     public override partial string Name { get; }

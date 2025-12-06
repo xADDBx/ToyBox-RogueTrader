@@ -8,6 +8,7 @@ using UnityEngine;
 
 namespace ToyBox.Features.PartyTab.Actions;
 
+[IsTested]
 public partial class RecruitUnitAction : FeatureWithAction, INeedContextFeature<BaseUnitEntity> {
     [LocalizedString("ToyBox_Features_PartyTab_Actions_RecruitUnitAction_Name", "Recruit Unit")]
     public override partial string Name { get; }

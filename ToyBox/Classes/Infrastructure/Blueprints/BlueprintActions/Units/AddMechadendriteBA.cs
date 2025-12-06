@@ -4,6 +4,7 @@ using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
 
+[IsTested]
 public partial class AddMechadendriteBA : BlueprintActionFeature, IBlueprintAction<BlueprintItemMechadendrite>, INeedContextFeature<BaseUnitEntity> {
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechadendriteBA_Name", "Add Mechadendrite")]
     public override partial string Name { get; }

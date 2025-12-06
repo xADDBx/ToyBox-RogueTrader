@@ -15,6 +15,7 @@ using Warhammer.SpaceCombat.StarshipLogic;
 
 namespace ToyBox.Features.PartyTab.Stats;
 
+[IsTested]
 public partial class UnitModifySoulMarksFeature : Feature, INeedContextFeature<BaseUnitEntity> {
     [LocalizedString("ToyBox_Features_PartyTab_Stats_UnitModifySoulMarksFeature_Name", "Modify Soul Marks")]
     public override partial string Name { get; }

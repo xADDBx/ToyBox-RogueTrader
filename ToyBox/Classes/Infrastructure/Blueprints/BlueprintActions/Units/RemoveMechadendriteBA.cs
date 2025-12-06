@@ -6,6 +6,7 @@ using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
 
+[IsTested]
 public partial class RemoveMechadendriteBA : BlueprintActionFeature, IBlueprintAction<BlueprintItemMechadendrite>, INeedContextFeature<BaseUnitEntity> {
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechadendriteBA_Name", "Remove Mechadendrite")]
     public override partial string Name { get; }

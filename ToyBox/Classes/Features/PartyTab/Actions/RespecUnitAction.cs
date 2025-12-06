@@ -11,6 +11,7 @@ using UnityEngine;
 
 namespace ToyBox.Features.PartyTab.Actions;
 
+[IsTested]
 public partial class RespecUnitAction : FeatureWithAction, INeedContextFeature<BaseUnitEntity> {
     [LocalizedString("ToyBox_Features_PartyTab_Actions_RespecUnitAction_Name", "Respec Unit")]
     public override partial string Name { get; }

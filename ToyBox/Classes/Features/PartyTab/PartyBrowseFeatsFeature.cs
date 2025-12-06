@@ -4,6 +4,7 @@ using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Features.PartyTab;
 
+[IsTested]
 public partial class PartyBrowseFeatsFeature : Feature, INeedContextFeature<BaseUnitEntity> {
     [LocalizedString("ToyBox_Features_PartyTab_PartyBrowseFeatsFeature_Name", "Browse Unit Features")]
     public override partial string Name { get; }

@@ -9,6 +9,7 @@ using Warhammer.SpaceCombat.StarshipLogic;
 
 namespace ToyBox.Features.PartyTab.Stats;
 
+[IsTested]
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.PartyTab.Stats.UnitModifyStatsFeature")]
 public partial class UnitModifyStatsFeature : FeatureWithPatch, INeedContextFeature<BaseUnitEntity> {
     public override ref bool IsEnabled {

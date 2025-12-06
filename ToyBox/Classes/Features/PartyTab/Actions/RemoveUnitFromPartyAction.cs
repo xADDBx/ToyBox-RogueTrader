@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace ToyBox.Features.PartyTab.Actions;
 
+[IsTested]
 public partial class RemoveUnitFromPartyAction : FeatureWithAction, INeedContextFeature<BaseUnitEntity> {
     [LocalizedString("ToyBox_Features_PartyTab_Actions_RemoveUnitFromPartyAction_Name", "Remove Unit from Party")]
     public override partial string Name { get; }

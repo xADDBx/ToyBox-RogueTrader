@@ -5,6 +5,7 @@ using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Features.PartyTab;
 
+[IsTested]
 public partial class PartyBrowseMechadendritesFeature : Feature, INeedContextFeature<BaseUnitEntity> {
     [LocalizedString("ToyBox_Features_PartyTab_PartyBrowseMechadendritesFeature_Name", "Browse Unit Mechadendrites")]
     public override partial string Name { get; }
