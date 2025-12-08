@@ -210,4 +210,9 @@ public class GeneralSettings : AbstractJsonSettings {
     public bool EnableUnitOverrideMechanicalSize = false;
     public bool EnableUnitOverrideVisualSize = false;
     public bool EnableUnitModifyStats = false;
+
+    // Loot
+    public bool MassLootShowHiddenItems = false;
+    public bool MassLootShowLivingNPCItems = false;
+    public bool LootChecklistShowHiddenLoot = false;
 }

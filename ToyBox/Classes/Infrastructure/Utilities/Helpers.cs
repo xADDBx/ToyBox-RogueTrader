@@ -1,8 +1,8 @@
 ﻿using Kingmaker;
-using Kingmaker.EntitySystem.Stats.Base;
 using Kingmaker.UI.Models.Log.CombatLog_ThreadSystem;
 using Kingmaker.UI.Models.Log.CombatLog_ThreadSystem.LogThreads.LifeEvents;
 using Kingmaker.UI.Models.Log.GameLogCntxt;
+using System.Text.RegularExpressions;
 using ToyBox.Features.PartyTab;
 using ToyBox.Features.SettingsFeatures;
 using UnityEngine;
@@ -11,6 +11,9 @@ using UnityModManagerNet;
 namespace ToyBox.Infrastructure.Utilities;
 
 public static class Helpers {
+    public static string StripHTML(string s) {
+        return Regex.Replace(s, "<.*?>", string.Empty);
+    }
     public static bool IsInGame() {
         return Game.Instance.Player?.Party?.Count > 0;
     }

@@ -101,6 +101,8 @@ public static partial class Main {
         m_FeatureTabs.Add(new Features.BagOfTricks.BagOfTricksFeatureTab());
         m_FeatureTabs.Add(new Features.LevelUp.LevelUpFeatureTab());
         m_FeatureTabs.Add(new Features.PartyTab.PartyFeatureTab());
+        m_FeatureTabs.Add(new Features.Loot.LootFeatureTab());
+
         m_FeatureTabs.Add(new Features.SettingsFeatures.SettingsFeaturesTab());
         m_FeatureTabs.Add(new Features.FeatureSearch.FeatureSearchTab());
         m_FeatureTabs.Add(new Infrastructure.Blueprints.BlueprintActions.BlueprintActions());

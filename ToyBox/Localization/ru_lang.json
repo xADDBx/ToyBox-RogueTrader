@@ -1067,6 +1067,86 @@
     "Original": "Apply Custom Level",
     "Translated": null
   },
+  "ToyBox_Features_Loot_LootChecklistFeature_Name": {
+    "Original": "Loot Checklist",
+    "Translated": null
+  },
+  "ToyBox_Features_Loot_LootChecklistFeature_Description": {
+    "Original": "Displays a list of all the loot left on the map.",
+    "Translated": null
+  },
+  "ToyBox_Features_Loot_LootChecklistFeature_m_SearchLocalizedText": {
+    "Original": "Search",
+    "Translated": null
+  },
+  "ToyBox_Features_Loot_LootChecklistFeature_m_ContainersLocalizedText": {
+    "Original": "Containers",
+    "Translated": null
+  },
+  "ToyBox_Features_Loot_LootChecklistFeature_m_UnitsLocalizedText": {
+    "Original": "Units",
+    "Translated": null
+  },
+  "ToyBox_Features_Loot_LootChecklistFeature_m_SourceIsUnknownLocalizedText": {
+    "Original": "Unknown",
+    "Translated": null
+  },
+  "ToyBox_Features_Loot_LootChecklistFeature_m_SourceIsGroundLocalizedText": {
+    "Original": "Ground",
+    "Translated": null
+  },
+  "ToyBox_Features_Loot_LootChecklistFeature_m_NoLootAvailable_LocalizedText": {
+    "Original": "No Loot Available.",
+    "Translated": null
+  },
+  "ToyBox_Features_Loot_LootChecklistFeature_m_NotInAnyArea_LocalizedText": {
+    "Original": "Not in any area!",
+    "Translated": null
+  },
+  "ToyBox_Features_Loot_LootChecklistShowHiddenLootSetting_Name": {
+    "Original": "Show Hidden Loot in Checklist",
+    "Translated": null
+  },
+  "ToyBox_Features_Loot_LootChecklistShowHiddenLootSetting_Description": {
+    "Original": "Also includes containers that are still hidden in the list.",
+    "Translated": null
+  },
+  "ToyBox_Features_Loot_LootFeatureTab_Name": {
+    "Original": "Loot",
+    "Translated": null
+  },
+  "ToyBox_Features_Loot_LootFeatureTab_m_LootLocalizedText": {
+    "Original": "Loot",
+    "Translated": null
+  },
+  "ToyBox_Features_Loot_LootFeatureTab_m_ChecklistLocalizedText": {
+    "Original": "Checklist",
+    "Translated": null
+  },
+  "ToyBox_Features_Loot_MassLootShowHiddenItemsSetting_Name": {
+    "Original": "Show Everything When Leaving Map",
+    "Translated": null
+  },
+  "ToyBox_Features_Loot_MassLootShowHiddenItemsSetting_Description": {
+    "Original": "Shows items that are hidden or were not viewed. This might include quest items that the game might not intend for you to loot yet.",
+    "Translated": null
+  },
+  "ToyBox_Features_Loot_MassLootShowLivingNPCItemsSetting_Name": {
+    "Original": "Steal from living NPCs",
+    "Translated": null
+  },
+  "ToyBox_Features_Loot_MassLootShowLivingNPCItemsSetting_Description": {
+    "Original": "Includes items from living NPCs. This might include items you are not supposed to get.",
+    "Translated": null
+  },
+  "ToyBox_Features_Loot_OpenMassLootAction_Name": {
+    "Original": "Open Mass Loot Window",
+    "Translated": null
+  },
+  "ToyBox_Features_Loot_OpenMassLootAction_Description": {
+    "Original": "Lets you open up the area's mass loot screen to grab goodies whenever you want. Normally shown only when you exit the area. Only opens if there is actually any loot available.",
+    "Translated": null
+  },
   "ToyBox_Features_PartyTab_Actions_AddUnitToPartyAction_Name": {
     "Original": "Add Unit to Party",
     "Translated": null
