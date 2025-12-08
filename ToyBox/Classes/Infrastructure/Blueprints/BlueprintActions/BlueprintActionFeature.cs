@@ -97,6 +97,7 @@ public class BlueprintActions : FeatureTab {
         AddFeature(new StartEtudeBA());
         AddFeature(new StartQuestBA());
         AddFeature(new StartQuestObjectiveBA());
+        AddFeature(new UnlockAchievementBA());
         AddFeature(new UnlockFlagBA());
         AddFeature(new UnstartEtudeBA());
 

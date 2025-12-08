@@ -1,4 +1,16 @@
 {
+  "ToyBox_Features_Achievements_AchievementsFeatureTab_Name": {
+    "Original": "Achievements",
+    "Translated": null
+  },
+  "ToyBox_Features_Achievements_BrowseAchievementsFeature_Name": {
+    "Original": "Browse Achievements",
+    "Translated": null
+  },
+  "ToyBox_Features_Achievements_BrowseAchievementsFeature_Description": {
+    "Original": "Once a save is loaded, this allows looking through a list of achievements, supporting inspecting and unlocking them.",
+    "Translated": null
+  },
   "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_BagOfTricksText": {
     "Original": "Bag of Tricks",
     "Translated": null
@@ -2081,6 +2093,22 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartQuestObjectiveBA_QuestObjectiveStateIsNotNoneText": {
     "Original": "QuestObjectiveState is not none",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnlockAchievementBA_Name": {
+    "Original": "Unlock Achievement",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnlockAchievementBA_Description": {
+    "Original": "Unlocks the specified achievement.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnlockAchievementBA_UnlockText": {
+    "Original": "Unlock",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnlockAchievementBA_AchievementAlreadyUnlockedText": {
+    "Original": "Achievement is already unlocked",
     "Translated": null
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnlockFlagBA_Name": {

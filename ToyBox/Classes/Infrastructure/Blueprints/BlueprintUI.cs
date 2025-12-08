@@ -1,6 +1,8 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Facts;
+using Kingmaker.EntitySystem;
 using Kingmaker.EntitySystem.Entities;
+using Kingmaker.UnitLogic;
 using Kingmaker.Utility.UnityExtensions;
 using System.Runtime.CompilerServices;
 using ToyBox.Features.SettingsFeatures.Blueprints;
@@ -18,7 +20,13 @@ public static partial class BlueprintUI {
         public float AssetIdWidth;
     }
     private static readonly ConditionalWeakTable<IPagedList, Widths> m_CachedWidths = new();
-    public static void BlueprintRowGUI<TBlueprint>(Browser<TBlueprint> browser, TBlueprint blueprint, BaseUnitEntity ch, Type? overrideForActions = null) where TBlueprint : SimpleBlueprint {
+    private static EntityFact? DefaultItemGetter(object bp, BaseUnitEntity? ch) {
+        if (bp is BlueprintUnitFact fact && ch != null) {
+            return ch.Facts.Get(fact);
+        }
+        return null;
+    }
+    public static void BlueprintRowGUI<TBlueprint>(Browser<TBlueprint> browser, TBlueprint blueprint, BaseUnitEntity? ch, Type? overrideForActions = null, Func<TBlueprint, BaseUnitEntity?, object?>? maybeItemGetter = null) where TBlueprint : SimpleBlueprint {
         if (!m_CachedWidths.TryGetValue(browser, out var widths) || (!browser.IsCachedValid && browser.PagedItems.Count > 0)) {
             var wasDefault = widths == null;
             widths ??= new();
@@ -30,10 +38,7 @@ public static partial class BlueprintUI {
             }
             browser.SetCacheValid();
         }
-        object? maybeItem = null;
-        if (blueprint is BlueprintUnitFact fact) {
-            maybeItem = ch.Facts.Get(fact);
-        }
+        var maybeItem = (maybeItemGetter ?? DefaultItemGetter).Invoke(blueprint, ch);
         var name = BPHelper.GetTitle(blueprint);
         if (maybeItem != null) {
             name = name.Cyan().Bold();
@@ -53,7 +58,7 @@ public static partial class BlueprintUI {
                 }
                 Space(5);
                 foreach (var action in BlueprintActionFeature.GetActionsForBlueprintType<TBlueprint>(overrideForActions)) {
-                    _ = action.OnGui(blueprint, false, ch);
+                    _ = action.OnGui(blueprint, false, ch!);
                 }
                 Space(5);
                 var desc = BPHelper.GetDescription(blueprint);
