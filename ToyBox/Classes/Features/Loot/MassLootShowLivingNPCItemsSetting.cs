@@ -1,8 +1,10 @@
 ﻿using Kingmaker.EntitySystem.Entities;
+using Kingmaker.EntitySystem.Entities.Base;
 using Kingmaker.Mechanics.Entities;
 using Kingmaker.Utility;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using UnityEngine;
 
 namespace ToyBox.Features.Loot;
 
@@ -29,14 +31,20 @@ public partial class MassLootShowLivingNPCItemsSetting : FeatureWithPatch {
     [HarmonyTranspiler]
     private static IEnumerable<CodeInstruction> MassLootHelper_CompilerGenerated_GetMassLootFromCurrentArea_Transpiler(IEnumerable<CodeInstruction> instructions) {
         var isDeadAndHasLoot = AccessTools.PropertyGetter(typeof(AbstractUnitEntity), nameof(AbstractUnitEntity.IsDeadAndHasLoot));
+        var isRevealed = AccessTools.PropertyGetter(typeof(Entity), nameof(Entity.IsRevealed));
         foreach (var inst in instructions) {
             if (inst.Calls(isDeadAndHasLoot)) {
                 inst.operand = ((Func<BaseUnitEntity, bool>)IsDeadAndHasLoot).Method;
+            } else if (inst.Calls(isRevealed)) {
+                inst.operand = ((Func<Entity, bool>)True).Method;
             }
             yield return inst;
         }
     }
     private static bool IsDeadAndHasLoot(BaseUnitEntity unit) {
         return unit.IsDeadAndHasLoot || unit.Inventory.HasLoot;
+    }
+    private static bool True(Entity _) {
+        return true;
     }
 }

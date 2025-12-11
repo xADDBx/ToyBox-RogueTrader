@@ -13,7 +13,7 @@ public partial class MassLootShowHiddenItemsSetting : FeatureWithPatch {
             return ref Settings.MassLootShowHiddenItems;
         }
     }
-    [LocalizedString("ToyBox_Features_Loot_MassLootShowHiddenItemsSetting_Name", "Show Everything When Leaving Map")]
+    [LocalizedString("ToyBox_Features_Loot_MassLootShowHiddenItemsSetting_Name", "Show Hidden Items")]
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_Loot_MassLootShowHiddenItemsSetting_Description", "Shows items that are hidden or were not viewed. This might include quest items that the game might not intend for you to loot yet.")]
     public override partial string Description { get; }

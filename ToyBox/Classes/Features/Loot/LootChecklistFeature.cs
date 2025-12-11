@@ -1,6 +1,8 @@
 ﻿using Kingmaker;
 using Kingmaker.Items;
 using Kingmaker.Utility;
+using Kingmaker.View.MapObjects;
+using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Features.Loot;
 
@@ -31,11 +33,16 @@ public partial class LootChecklistFeature : Feature {
     }
     public static string GetSource(LootWrapper present) {
         if (present.InteractionLoot != null) {
-            var name = present.InteractionLoot.Source.ToString();
+            string? name = null;
+            if (present.InteractionLoot.Source is InteractionLoot source) {
+                name = source.name;
+            } else {
+                name = present.InteractionLoot.Source?.ToString();
+            }
             if (string.IsNullOrEmpty(name)) {
                 name = m_GroundLocalizedText;
             }
-            return name;
+            return name!;
         }
         return present.Unit?.CharacterName ?? m_UnknownLocalizedText;
     }
@@ -55,18 +62,19 @@ public partial class LootChecklistFeature : Feature {
             using (VerticalScope()) {
                 var actualSearchQuery = m_SearchQuery.ToUpper();
                 IEnumerable<IGrouping<string, LootWrapper>> orderedLootGroups = [.. lootGroups.Where(g => g.Key == m_ContainersLocalizedText), .. lootGroups.Where(g => g.Key == m_UnitsLocalizedText)];
+                Log(orderedLootGroups.ToContentString());
                 foreach (var group in orderedLootGroups) {
                     var presents = group.OrderByDescending(p => {
                         return GetLootFromWrapper(p, actualSearchQuery)?.Count ?? 0;
                     });
-                    UI.Label($"{group.Key}".Cyan());
+                    UI.Label($"{group.Key}".Cyan().Bold());
                     using (HorizontalScope()) {
                         Space(5);
                         using (VerticalScope()) {
                             Div.DrawDiv();
                             foreach (var present in presents) {
                                 var loot = GetLootFromWrapper(present, actualSearchQuery);
-                                if (loot?.Count > 0 && present.Unit != null) {
+                                if (loot?.Count > 0) {
                                     isEmpty = false;
                                     Div.DrawDiv();
                                     using (HorizontalScope()) {
@@ -74,10 +82,15 @@ public partial class LootChecklistFeature : Feature {
                                         UI.Label(GetSource(present).Orange());
                                         Space(15);
                                         using (VerticalScope()) {
+                                            var isFirst = true;
                                             foreach (var item in loot) {
+                                                if (!isFirst) {
+                                                    Div.DrawDiv();
+                                                }
+                                                isFirst = false;
                                                 var description = item.Blueprint.Description;
                                                 using (HorizontalScope()) {
-                                                    UI.Label(StripHTML(item.Name));
+                                                    UI.Label(StripHTML(item.Name).Cyan());
                                                     if (!string.IsNullOrWhiteSpace(description)) {
                                                         UI.Label(StripHTML(description.Green()));
                                                     }
