@@ -97,7 +97,6 @@ public static partial class Main {
         Debug($"Complete init took {sw.ElapsedMilliseconds}ms");
         return true;
     }
-    private static string[]? m_TabNames;
     private static void RegisterFeatureTabs() {
         m_FeatureTabs.Add(new Features.BagOfTricks.BagOfTricksFeatureTab());
         m_FeatureTabs.Add(new Features.LevelUp.LevelUpFeatureTab());

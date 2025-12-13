@@ -37,7 +37,7 @@ public partial class LazyInitFeature : FeatureWithPatch, INeedEarlyInitFeature {
         EnsureFinished();
     }
     public static void EnsureFinished() {
-        Debug($"Lazy init had {Stopwatch.ElapsedMilliseconds}ms before waiting");
+        Log($"Lazy init had {Stopwatch.ElapsedMilliseconds}ms before waiting");
         var sw = Stopwatch.StartNew();
         if (Main.LateInitTasks.Count > 0) {
             Task.WaitAll([.. Main.LateInitTasks]);
@@ -46,7 +46,7 @@ public partial class LazyInitFeature : FeatureWithPatch, INeedEarlyInitFeature {
             Critical($"Late init task IsFaulted: {t}\n{t.Exception?.ToString() ?? "Null Exception?"}");
         });
         Main.SuccessfullyInitialized = true;
-        Debug($"Waited {sw.ElapsedMilliseconds}ms for lazy init finish");
+        Log($"Waited {sw.ElapsedMilliseconds}ms for lazy init finish");
 
         if (FeatureTab.FailedFeatures.Count > 0) {
             Main.ModEntry.Info.DisplayName += ($" {FeatureTab.FailedFeatures.Count} " + m_FeaturesFailedInitialization_LocalizedText).Orange().Bold();

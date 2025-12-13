@@ -92,7 +92,7 @@ public partial class HighlightHiddenObjectsFeature : FeatureWithPatch {
         var get_IsPerceptionCheckPassed = AccessTools.PropertyGetter(typeof(MapObjectEntity), nameof(MapObjectEntity.IsAwarenessCheckPassed));
         var get_HighlightOnHover = AccessTools.PropertyGetter(typeof(MapObjectView), nameof(MapObjectView.HighlightOnHover));
         var foundCall = false;
-        var foundCall2 = false;
+        var foundCall2 = !Settings.HighlightInFogOfWar;
         var foundCall3 = false;
         foreach (var inst in instructions) {
             if (inst.Calls(get_IsRevealed) || inst.Calls(get_IsPerceptionCheckPassed)) {
@@ -112,6 +112,7 @@ public partial class HighlightHiddenObjectsFeature : FeatureWithPatch {
                 yield return inst;
             }
         }
+        Error($"{foundCall}, {foundCall2}, {foundCall3};!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         ThrowIfTrue(!foundCall || !foundCall2 || !foundCall3);
     }
     private static bool ShouldHighlightOnHover(MapObjectView view) {

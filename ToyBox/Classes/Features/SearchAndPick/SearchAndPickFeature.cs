@@ -1,4 +1,5 @@
 ﻿using Kingmaker.Blueprints;
+using Kingmaker.Utility.DotNetExtensions;
 using ToyBox.Infrastructure.Utilities;
 using UnityEngine;
 
@@ -15,15 +16,18 @@ public partial class SearchAndPickFeature : Feature {
     private Browser<string>? m_CollationCategoryBrowser;
     private bool m_ShowCollationCategoryPicker = false;
     private bool m_ShowCharacterFilterPicker = false;
+    private IBlueprintFilter<SimpleBlueprint> m_BlueprintFilter = null!;
     public override void OnGui() {
         using (HorizontalScope()) {
-            if (UI.SelectionGrid(ref Settings.CurrentBlueprintFilter, BlueprintFilters.Filters, 1, filter => filter.Name, Width(m_FilterWidth + 10 * Main.UIScale))) {
+            m_BlueprintFilter = BlueprintFilters.Filters[Settings.CurrentSearchAndPickBlueprintFilter];
+            if (UI.SelectionGrid(ref m_BlueprintFilter, BlueprintFilters.Filters, 1, filter => filter.Name, Width(m_FilterWidth + 10 * Main.UIScale))) {
                 m_CurrentCollationCategory = null;
+                Settings.CurrentSearchAndPickBlueprintFilter = BlueprintFilters.Filters.IndexOf(m_BlueprintFilter);
             }
-            var categories = Settings.CurrentBlueprintFilter.GetAllCollationCategories();
+            var categories = m_BlueprintFilter.GetAllCollationCategories();
             if (categories != null) {
                 if (categories.Count > 0) {
-                    var categoryWidth = Settings.CurrentBlueprintFilter.GetCollationCategoryWidth();
+                    var categoryWidth = m_BlueprintFilter.GetCollationCategoryWidth();
                     if (m_CurrentCollationCategory == null) {
                         m_CurrentCollationCategory = categories[0]; 
                         m_CollationCategoryBrowser = new(s => {
@@ -37,7 +41,7 @@ public partial class SearchAndPickFeature : Feature {
                         SetCategoryComparer();
                         m_CollationCategoryBrowser.UpdateItems(categories);
                         m_SearchNPickBrowser ??= new(BPHelper.GetSortKey, BPHelper.GetSearchKey, overridePageWidth: (int)(EffectiveWindowWidth() - (m_FilterWidth + 20 * Main.UIScale)), orderInitialCollection: true);
-                        m_SearchNPickBrowser.UpdateItems(Settings.CurrentBlueprintFilter.GetCollatedBlueprints(m_CurrentCollationCategory)!);
+                        m_SearchNPickBrowser.UpdateItems(m_BlueprintFilter.GetCollatedBlueprints(m_CurrentCollationCategory)!);
                     }
                     if (m_ShowCollationCategoryPicker) {
                         using (VerticalScope()) {
@@ -48,11 +52,11 @@ public partial class SearchAndPickFeature : Feature {
                             UI.Label((m_CurrentCollationCategoryLocalizedText + ": ").Green() + m_CurrentCollationCategory.Cyan());
                             m_CollationCategoryBrowser!.OnGUI(category => {
                                 if (category == m_CurrentCollationCategory) {
-                                    GUILayout.Toggle(true, category.Orange() + $" ({Settings.CurrentBlueprintFilter.GetCountForCategory(category)!.Value})", UI.LeftAlignedButtonStyle, Width(categoryWidth));
+                                    GUILayout.Toggle(true, category.Orange() + $" ({m_BlueprintFilter.GetCountForCategory(category)!.Value})", UI.LeftAlignedButtonStyle, Width(categoryWidth));
                                 } else {
-                                    if (GUILayout.Toggle(false, category.Yellow() + $" ({Settings.CurrentBlueprintFilter.GetCountForCategory(category)!.Value})", UI.LeftAlignedButtonStyle, Width(categoryWidth))) {
+                                    if (GUILayout.Toggle(false, category.Yellow() + $" ({m_BlueprintFilter.GetCountForCategory(category)!.Value})", UI.LeftAlignedButtonStyle, Width(categoryWidth))) {
                                         m_CurrentCollationCategory = category;
-                                        m_SearchNPickBrowser!.UpdateItems(Settings.CurrentBlueprintFilter.GetCollatedBlueprints(category)!);
+                                        m_SearchNPickBrowser!.UpdateItems(m_BlueprintFilter.GetCollatedBlueprints(category)!);
                                     }
                                 }
                             });
@@ -73,7 +77,7 @@ public partial class SearchAndPickFeature : Feature {
                 } else {
                     UI.Label("????????????????????????".Red().Bold());
                 }
-            } else if (Settings.CurrentBlueprintFilter.IsCollating) {
+            } else if (m_BlueprintFilter.IsCollating) {
                 UI.Label(m_Collating_LocalizedText.Red().Bold());
             }
         }
@@ -81,7 +85,7 @@ public partial class SearchAndPickFeature : Feature {
     private void SetCategoryComparer() {
         m_CollationCategoryBrowser!.SetComparer(GetInstance<SortCollationCategoriesByCountSetting>().IsEnabled ?  
             Comparer<string>.Create((string catA, string catB) => {
-                var ret = (Settings.CurrentBlueprintFilter.GetCountForCategory(catB) ?? 0) - (Settings.CurrentBlueprintFilter.GetCountForCategory(catA) ?? 0);
+                var ret = (m_BlueprintFilter.GetCountForCategory(catB) ?? 0) - (m_BlueprintFilter.GetCountForCategory(catA) ?? 0);
                 if (ret == 0) {
                     return catA.CompareTo(catB);
                 } else {

@@ -218,6 +218,6 @@ public class GeneralSettings : AbstractJsonSettings {
     public bool LootChecklistShowHiddenLoot = false;
 
     // Search 'n Pick
-    public IBlueprintFilter<SimpleBlueprint> CurrentBlueprintFilter = BlueprintFilters.Filters[0];
+    public int CurrentSearchAndPickBlueprintFilter = 0;
     public bool SortCollationCategoriesByCount = false;
 }
