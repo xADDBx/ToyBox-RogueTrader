@@ -24,6 +24,7 @@ public partial class DragCameraElevationFeature : FeatureWithPatch {
     [HarmonyPatch(typeof(CameraRig), nameof(CameraRig.TickRotate)), HarmonyTranspiler]
     private static IEnumerable<CodeInstruction> CameraRig_TickRotate_Patch(IEnumerable<CodeInstruction> instructions) {
         var field = AccessTools.Field(typeof(CameraRig), nameof(CameraRig.m_RotationByKeyboard));
+        var foundField = false;
         var insts = instructions.ToArray();
         for (var i = 0; i < insts.Length - 2; i++) {
             if (insts[i].LoadsField(field) && insts[i+1].opcode == OpCodes.Brfalse && insts[i+2].opcode == OpCodes.Newobj) {
@@ -35,12 +36,14 @@ public partial class DragCameraElevationFeature : FeatureWithPatch {
                 yield return new CodeInstruction(OpCodes.Brtrue, insts[i+1].operand);
                 yield return insts[i + 2];
                 i += 2;
+                foundField = true;
             } else {
                 yield return insts[i];
             }
         }
         yield return insts[insts.Length - 2];
         yield return insts[insts.Length - 1];
+        ThrowIfTrue(!foundField);
     }
     private static bool MaybeChangeHeight(CameraRig camera, Vector2 vec) {
         if (Input.GetKey(KeyCode.LeftControl)) {

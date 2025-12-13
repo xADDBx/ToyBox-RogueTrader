@@ -114,8 +114,21 @@ public partial class VerticalList<T> : IPagedList where T : notnull {
         SetCacheInvalid();
     }
     protected void PageGUI() {
-        UI.Label($"{SharedStrings.ShowingText.Orange()} {PagedItemsCount.ToString().Cyan()} / {ItemCount.ToString().Cyan()} {SharedStrings.ResultsText.Orange()},   " +
-            $"{SharedStrings.PageText.Orange()}: {CurrentPage.ToString().Cyan()} / {Math.Max(1, TotalPages).ToString().Cyan()}");
+        if (PageWidth < 300 * Main.UIScale) {
+            using (VerticalScope()) {
+                UI.Label($"{(SharedStrings.MatchesText + ":").Orange()} {ItemCount.ToString().Cyan()} => {PagedItemsCount.ToString().Cyan()},");
+                using (HorizontalScope()) {
+                    UI.Label($"{(SharedStrings.PageText + ":").Orange()} {CurrentPage.ToString().Cyan()} / {Math.Max(1, TotalPages).ToString().Cyan()}");
+                    SwapPageGUI();
+                }
+            }
+        } else {
+            UI.Label($"{(SharedStrings.MatchesText + ":").Orange()} {ItemCount.ToString().Cyan()} => {PagedItemsCount.ToString().Cyan()}, " +
+                $"{(SharedStrings.PageText + ":").Orange()} {CurrentPage.ToString().Cyan()} / {Math.Max(1, TotalPages).ToString().Cyan()}");
+            SwapPageGUI();
+        }
+    }
+    private void SwapPageGUI() {
         var prev = GUI.enabled;
         GUI.enabled = TotalPages > 1;
         Space(25);

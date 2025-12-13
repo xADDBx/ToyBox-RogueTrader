@@ -30,8 +30,9 @@ public partial class SkipSplashScreenFeature : FeatureWithPatch, INeedEarlyInitF
     }
     [HarmonyTranspiler]
     public static IEnumerable<CodeInstruction> Start(IEnumerable<CodeInstruction> instructions) {
+        var method = AccessTools.Method(typeof(GameStarter), nameof(GameStarter.IsSkippingMainMenu));
         foreach (var inst in instructions) {
-            if (inst.Calls(AccessTools.Method(typeof(GameStarter), nameof(GameStarter.IsSkippingMainMenu)))) {
+            if (inst.Calls(method)) {
                 yield return new CodeInstruction(OpCodes.Ldc_I4_1).WithLabels(inst.labels);
             } else if (inst.LoadsConstant("Logo Show Requested")) {
                 yield return new(OpCodes.Ldarg_0);

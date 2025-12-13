@@ -2,6 +2,7 @@
 using Kingmaker.UI.Models.Log.CombatLog_ThreadSystem;
 using Kingmaker.UI.Models.Log.CombatLog_ThreadSystem.LogThreads.LifeEvents;
 using Kingmaker.UI.Models.Log.GameLogCntxt;
+using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using ToyBox.Features.PartyTab;
 using ToyBox.Features.SettingsFeatures;
@@ -11,6 +12,12 @@ using UnityModManagerNet;
 namespace ToyBox.Infrastructure.Utilities;
 
 public static class Helpers {
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static void ThrowIfTrue(bool shouldThrow) {
+        if (shouldThrow) {
+            throw new NotSupportedException("Transpiler was unsuccessful; possibly outdated code?");
+        }
+    }
     public static string StripHTML(string s) {
         return Regex.Replace(s, "<.*?>", string.Empty);
     }

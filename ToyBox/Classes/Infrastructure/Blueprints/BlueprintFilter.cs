@@ -22,6 +22,7 @@ using Kingmaker.UnitLogic.Progression.Features;
 using Kingmaker.UnitLogic.Progression.Paths;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
+using ToyBox.Infrastructure.Utilities;
 using UnityEngine;
 
 namespace ToyBox.Infrastructure.Blueprints;
@@ -30,7 +31,9 @@ public interface IBlueprintFilter<out T> where T : SimpleBlueprint {
     string Name { get; }
     bool IsCollating { get; }
     IEnumerable<T>? GetCollatedBlueprints(string category);
+    int? GetCountForCategory(string category);
     List<string>? GetAllCollationCategories();
+    int GetCollationCategoryWidth();
 }
 public static partial class BlueprintFilters {
     private static string SubstringBetweenCharacters(string input, char charFrom, char charTo) {
@@ -222,8 +225,9 @@ public static partial class BlueprintFilters {
     [LocalizedString("ToyBox_Features_SearchAndPick_BlueprintFilters_m_CuesLocalizedText", "Cues")]
     private static partial string m_CuesLocalizedText { get; }
 }
-public class BlueprintFilter<T> : IBlueprintFilter<T> where T : SimpleBlueprint {
+public partial class BlueprintFilter<T> : IBlueprintFilter<T> where T : SimpleBlueprint {
     public string Name { get; }
+    private bool m_StartedCollating = false;
     public bool IsCollating {
         get;
         private set;
@@ -233,6 +237,7 @@ public class BlueprintFilter<T> : IBlueprintFilter<T> where T : SimpleBlueprint 
     public readonly Func<IEnumerable<T>>? BlueprintSource;
     private ConditionalWeakTable<T, List<string>> m_BlueprintToCollationCache = new();
     private Dictionary<string, List<T>>? m_CollatedBlueprintsCache;
+    private List<string>? m_CollationCategories;
     public BlueprintFilter(string name, Func<T, List<string>>? collator = null, Func<T, bool>? maybeFilter = null, Func<IEnumerable<T>>? maybeSource = null) {
         Name = name;
         Collator = collator ?? DefaultCollator;
@@ -270,15 +275,19 @@ public class BlueprintFilter<T> : IBlueprintFilter<T> where T : SimpleBlueprint 
             accessors = CacheTypeProperties(type);
         }
         foreach (var accessor in accessors) {
-            if (accessor.Item1(bp)) {
-                namesSet.Add(accessor.Item2);
+            try {
+                if (accessor.Item1(bp)) {
+                    namesSet.Add(accessor.Item2);
+                }
+            } catch (Exception ex) {
+                Log($"Error while collating bp {bp}: \n{ex}");
             }
         }
         return [.. namesSet];
     }
     private List<string> GetCollationCategories(T bp) {
         if (!m_BlueprintToCollationCache.TryGetValue(bp, out var collated)) {
-            collated = Collator(bp);
+            collated = [.. Collator(bp).Where(s => !string.IsNullOrWhiteSpace(s))];
             m_BlueprintToCollationCache.Add(bp, collated);
         }
         return collated;
@@ -296,7 +305,7 @@ public class BlueprintFilter<T> : IBlueprintFilter<T> where T : SimpleBlueprint 
                 }
             }
         }
-        return [.. m_CollatedBlueprintsCache.Keys];
+        return m_CollationCategories;
     }
     public IEnumerable<T>? GetBlueprints() {
         IEnumerable<T>? bps;
@@ -316,35 +325,71 @@ public class BlueprintFilter<T> : IBlueprintFilter<T> where T : SimpleBlueprint 
         Descending = -1
     };
     private const SortDirection Direction = SortDirection.Ascending;
+    public static readonly NaturalSortComparer Sorter = new(StringComparison.CurrentCultureIgnoreCase);
+    private TimedCache<int>? m_CategoryWidth;
+    public int GetCollationCategoryWidth() {
+        if (m_CollationCategories?.Count > 0) {
+            m_CategoryWidth ??= new(() => (int)(10 * Main.UIScale + CalculateLargestLabelWidth(m_CollationCategories.Select(s => s + $" ({GetCountForCategory(s)!.Value})"), UI.LeftAlignedButtonStyle)));
+            return m_CategoryWidth;
+        } else {
+            return (int)(100 * Main.UIScale);
+        }
+    }
     private void Collate() {
         var bps = GetBlueprints();
         if (bps?.Any() ?? false) {
-            IsCollating = true;
-            m_CollatedBlueprintsCache = [];
-            Task.Run(() => {
-                foreach (var bp in bps) {
-                    try {
-                        foreach (var key in GetCollationCategories(bp)) {
-                            if (m_CollatedBlueprintsCache.TryGetValue(key, out var group)) {
-                                group.Add(bp);
-                            } else {
-                                m_CollatedBlueprintsCache[key] = [bp];
+            if (!m_StartedCollating) {
+                m_StartedCollating = true;
+                Main.ScheduleForMainThread(() => {
+                    IsCollating = true;
+                    m_CollatedBlueprintsCache = [];
+                    Task.Run(() => {
+                        foreach (var bp in bps) {
+                            try {
+                                foreach (var key in GetCollationCategories(bp)) {
+                                    if (m_CollatedBlueprintsCache.TryGetValue(key, out var group)) {
+                                        group.Add(bp);
+                                    } else {
+                                        m_CollatedBlueprintsCache[key] = [bp];
+                                    }
+                                }
+                            } catch (Exception ex) {
+                                Error($"Error collating blueprint {bp}:\n{ex}");
                             }
                         }
-                    } catch (Exception ex) {
-                        Error($"Error collating blueprint {bp}:\n{ex}");
-                    }
-                }
-                foreach (var group in m_CollatedBlueprintsCache.Values) {
-                    group.Sort((x, y) => {
-                        return (int)Direction * BPHelper.GetSortKey(x).CompareTo(BPHelper.GetSortKey(y));
+                        var cat = m_CollatedBlueprintsCache.Keys.ToList();
+/*
+#warning Sort Order
+                        cat.Sort((a, b) => {
+                            return (int)Direction * Sorter.Compare(a, b);
+                        });
+*/
+                        cat.Insert(0, AllLocalizedText);
+                        m_CollationCategories = cat;
+                        m_CollatedBlueprintsCache[AllLocalizedText] = [.. bps];
+ /*
+                        foreach (var group in m_CollatedBlueprintsCache.Values) {
+                            group.Sort((x, y) => {
+                                return (int)Direction * BPHelper.GetSortKey(x).CompareTo(BPHelper.GetSortKey(y));
+                            });
+                        }
+ */
+                        Main.ScheduleForMainThread(() => {
+                            IsCollating = false;
+                        });
                     });
-                }
-                Main.ScheduleForMainThread(() => {
-                    IsCollating = false;
                 });
-            });
+            }
         }
+    }
+    public int? GetCountForCategory(string category) {
+        if (string.IsNullOrEmpty(category)) {
+            category = AllLocalizedText;
+        }
+        if (m_CollatedBlueprintsCache?.TryGetValue(category, out var collated) ?? false) {
+            return collated.Count;
+        }
+        return null;
     }
     public IEnumerable<T>? GetCollatedBlueprints(string category) {
         lock (this) {
@@ -362,4 +407,7 @@ public class BlueprintFilter<T> : IBlueprintFilter<T> where T : SimpleBlueprint 
         m_CollatedBlueprintsCache.TryGetValue(category, out var collated);
         return collated;
     }
+
+    [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintFilter_AllLocalizedText", "All")]
+    internal static partial string AllLocalizedText { get; }
 }

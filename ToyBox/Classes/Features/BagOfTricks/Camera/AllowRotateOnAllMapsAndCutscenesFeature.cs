@@ -24,24 +24,30 @@ public partial class AllowRotateOnAllMapsAndCutscenesFeature : FeatureWithPatch 
     [HarmonyPatch(typeof(CameraController), nameof(CameraController.Tick)), HarmonyTranspiler]
     private static IEnumerable<CodeInstruction> CameraController_Tick_Patch(IEnumerable<CodeInstruction> instructions) {
         var field = AccessTools.Field(typeof(CameraController), nameof(CameraController.m_AllowRotate));
+        var foundField = false;
         foreach (var instruction in instructions) {
             if (instruction.LoadsField(field)) {
                 yield return CodeInstruction.Call((object obj) => ReplacementTrue(obj)).WithLabels(instruction.labels);
+                foundField = true;
             } else {
                 yield return instruction;
             }
         }
+        ThrowIfTrue(!foundField);
     }
     [HarmonyPatch(typeof(CameraRig), nameof(CameraRig.TickRotate)), HarmonyTranspiler]
     private static IEnumerable<CodeInstruction> CameraRig_TickRotate_Patch(IEnumerable<CodeInstruction> instructions) {
         var field = AccessTools.Field(typeof(CameraRig), nameof(CameraRig.m_HandRotationLock));
+        var foundField = false;
         foreach (var instruction in instructions) {
             if (instruction.LoadsField(field)) {
                 yield return CodeInstruction.Call((object obj) => ReplacementFalse(obj)).WithLabels(instruction.labels);
+                foundField = true;
             } else {
                 yield return instruction;
             }
         }
+        ThrowIfTrue(!foundField);
     }
     private static bool ReplacementTrue(object _) {
         return true;

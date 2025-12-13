@@ -27,16 +27,20 @@ public partial class FreeCamFeature : FeatureWithPatch {
         var getNoClamp = AccessTools.PropertyGetter(typeof(CameraRig), nameof(CameraRig.NoClamp));
         var scrollOffset = AccessTools.Field(typeof(CameraRig), nameof(CameraRig.m_ScrollOffset));
         var getZero = AccessTools.PropertyGetter(typeof(Vector2), nameof(Vector2.zero));
+        var foundCall = false;
+        var foundField = false;
         var startSkipping = false;
         List<Label> labels = [];
         foreach (var inst in instructions) {
             if (inst.Calls(getNoClamp)) {
                 yield return new(OpCodes.Pop);
                 startSkipping = true;
+                foundCall = true;
             } else if (inst.StoresField(scrollOffset)) {
                 yield return new CodeInstruction(OpCodes.Ldarg_0).WithLabels(labels);
                 yield return new CodeInstruction(OpCodes.Call, getZero);
                 startSkipping = false;
+                foundField = true;
             }
             if (!startSkipping) {
                 yield return inst;
@@ -44,5 +48,6 @@ public partial class FreeCamFeature : FeatureWithPatch {
                 labels.AddRange(inst.labels);
             }
         }
+        ThrowIfTrue(!foundField || !foundCall);
     }
 }

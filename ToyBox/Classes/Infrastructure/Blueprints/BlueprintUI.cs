@@ -72,7 +72,7 @@ public static partial class BlueprintUI {
         var maybeItem = (maybeItemGetter ?? DefaultItemGetter).Invoke(blueprint, ch);
         var name = BPHelper.GetTitle(blueprint);
         if (maybeItem != null) {
-            name = name.Cyan().Bold();
+            name = name.Cyan();
         }
         using (VerticalScope()) {
             using (HorizontalScope()) {
@@ -109,6 +109,9 @@ public static partial class BlueprintUI {
                 Feature.GetInstance<ShowBlueprintAssetIdsSetting>().OnGui();
                 Feature.GetInstance<ShowBlueprintTypeSetting>().OnGui();
                 Feature.GetInstance<SearchDescriptionsSetting>().OnGui();
+                Feature.GetInstance<PageLimitSetting>().OnGui();
+                Feature.GetInstance<SearchAsYouTypeFeature>().OnGui();
+                Feature.GetInstance<SearchDelaySetting>().OnGui();
             }
         }
     }

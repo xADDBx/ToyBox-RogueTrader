@@ -24,6 +24,7 @@ public static partial class Main {
     public static Action? OnUIScaleChanged;
     private static Exception? m_CaughtException = null;
     internal static List<FeatureTab> m_FeatureTabs = [];
+    internal static List<FeatureTab> m_VisibleFeatureTabs = [];
     internal static List<WeakReference<IPagedList>> m_VerticalLists = [];
     private static readonly ConcurrentQueue<Action> m_MainThreadTaskQueue = [];
     private static readonly Lazy<bool> m_SuccessfullyInitialized = new(() => LateInitTasks.Count > 0 && LateInitTasks.All(t => t.IsCompleted));
@@ -108,6 +109,9 @@ public static partial class Main {
         m_FeatureTabs.Add(new Features.SettingsFeatures.SettingsFeaturesTab());
         m_FeatureTabs.Add(new Features.FeatureSearch.FeatureSearchTab());
         m_FeatureTabs.Add(new Infrastructure.Blueprints.BlueprintActions.BlueprintActions());
+
+
+        m_VisibleFeatureTabs = [.. m_FeatureTabs.Where(tab => !tab.IsHiddenFromUI)];
     }
     private static bool OnUnload(UnityModManager.ModEntry modEntry) {
         foreach (var tab in m_FeatureTabs) {
@@ -152,12 +156,14 @@ public static partial class Main {
                 Space(10);
 
                 UI.Label(SharedStrings.CurrentlyLoadedBPsText.Format(m_LoadedBps));
-                m_TabNames ??= [.. m_FeatureTabs.Where(tab => !tab.IsHiddenFromUI).Select(t => t.Name)];
-                Settings.SelectedTab = GUILayout.SelectionGrid(Settings.SelectedTab, m_TabNames, Math.Min(m_TabNames.Length, 10), Width(EffectiveWindowWidth()));
+                var selected = m_VisibleFeatureTabs[Settings.SelectedTab];
+                if (UI.SelectionGrid(ref selected, m_VisibleFeatureTabs, Math.Min(m_VisibleFeatureTabs.Count, 10), tab => tab.Name, Width(EffectiveWindowWidth()))) {
+                    Settings.SelectedTab = m_VisibleFeatureTabs.IndexOf(selected);
+                }
                 Space(10);
                 Div.DrawDiv();
                 Space(10);
-                m_FeatureTabs[Settings.SelectedTab].OnGui();
+                selected.OnGui();
             } catch (Exception ex) {
                 Error(ex);
                 m_CaughtException = ex;

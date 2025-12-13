@@ -3,6 +3,15 @@
 namespace ToyBox.Infrastructure;
 
 public static partial class UI {
+    internal static GUIStyle LeftAlignedButtonStyle {
+        get {
+            field ??= new GUIStyle(GUI.skin.button) {
+                richText = true,
+                alignment = TextAnchor.MiddleLeft,
+            };
+            return field;
+        }
+    }
     private readonly static Dictionary<Type, Array> m_EnumCache = [];
     private readonly static Dictionary<Type, Dictionary<Enum, int>> m_IndexToEnumCache = [];
     private readonly static Dictionary<Type, string[]> m_DefaultEnumNameCache = [];
@@ -50,7 +59,12 @@ public static partial class UI {
         }
         var uncolored = names[selectedInt];
         names[selectedInt] = uncolored.Orange();
-        var newSel = GUILayout.SelectionGrid(selectedInt, names, xCols, options);
+        int newSel;
+        if (xCols == 1) {
+            newSel = GUILayout.SelectionGrid(selectedInt, names, xCols, LeftAlignedButtonStyle, options);
+        } else {
+            newSel = GUILayout.SelectionGrid(selectedInt, names, xCols, options);
+        }
         names[selectedInt] = uncolored;
         var changed = selectedInt != newSel;
         if (changed) {
@@ -93,7 +107,12 @@ public static partial class UI {
         // Better idea: Just cache that one name and change it back after
         var uncolored = names[selectedInt];
         names[selectedInt] = uncolored.Orange();
-        var newSel = GUILayout.SelectionGrid(selectedInt, names, xCols, options);
+        int newSel;
+        if (xCols == 1) {
+            newSel = GUILayout.SelectionGrid(selectedInt, names, xCols, LeftAlignedButtonStyle, options);
+        } else {
+            newSel = GUILayout.SelectionGrid(selectedInt, names, xCols, options);
+        }
         names[selectedInt] = uncolored;
         var changed = selectedInt != newSel;
         if (changed) {
@@ -118,7 +137,12 @@ public static partial class UI {
             }
         })];
         names[selectedInt] = names[selectedInt].Orange();
-        var newSel = GUILayout.SelectionGrid(selectedInt, names, xCols, options);
+        int newSel;
+        if (xCols == 1) {
+            newSel = GUILayout.SelectionGrid(selectedInt, names, xCols, LeftAlignedButtonStyle, options);
+        } else {
+            newSel = GUILayout.SelectionGrid(selectedInt, names, xCols, options);
+        }
         var changed = selectedInt != newSel;
         if (changed) {
             if (newSel == 0) {
@@ -145,10 +169,15 @@ public static partial class UI {
             }
         })];
         names[selectedInt] = names[selectedInt].Orange();
-        var newSel = GUILayout.SelectionGrid(selectedInt, names, xCols, options);
+        int newSel;
+        if (xCols == 1) {
+            newSel = GUILayout.SelectionGrid(selectedInt, names, xCols, LeftAlignedButtonStyle, options);
+        } else {
+            newSel = GUILayout.SelectionGrid(selectedInt, names, xCols, options);
+        }
         var changed = selectedInt != newSel;
         if (changed) {
-                selected = vals[newSel];
+            selected = vals[newSel];
         }
         return changed;
     }

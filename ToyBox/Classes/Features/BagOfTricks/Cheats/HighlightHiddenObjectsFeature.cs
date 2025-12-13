@@ -91,21 +91,28 @@ public partial class HighlightHiddenObjectsFeature : FeatureWithPatch {
         var get_IsRevealed = AccessTools.PropertyGetter(typeof(Entity), nameof(Entity.IsRevealed));
         var get_IsPerceptionCheckPassed = AccessTools.PropertyGetter(typeof(MapObjectEntity), nameof(MapObjectEntity.IsAwarenessCheckPassed));
         var get_HighlightOnHover = AccessTools.PropertyGetter(typeof(MapObjectView), nameof(MapObjectView.HighlightOnHover));
+        var foundCall = false;
+        var foundCall2 = false;
+        var foundCall3 = false;
         foreach (var inst in instructions) {
             if (inst.Calls(get_IsRevealed) || inst.Calls(get_IsPerceptionCheckPassed)) {
                 var popInst = new CodeInstruction(OpCodes.Pop).MoveLabelsFrom(inst);
                 yield return popInst;
                 yield return new(OpCodes.Ldc_I4_1);
+                foundCall = true;
             } else if (Settings.HighlightInFogOfWar && inst.Calls(get_IsInFogOfWar)) {
                 var popInst = new CodeInstruction(OpCodes.Pop).MoveLabelsFrom(inst);
                 yield return popInst;
                 yield return new(OpCodes.Ldc_I4_0);
+                foundCall2 = true;
             } else if (inst.Calls(get_HighlightOnHover)) {
                 yield return CodeInstruction.Call((MapObjectView view) => ShouldHighlightOnHover(view)).MoveLabelsFrom(inst);
+                foundCall3 = true;
             } else {
                 yield return inst;
             }
         }
+        ThrowIfTrue(!foundCall || !foundCall2 || !foundCall3);
     }
     private static bool ShouldHighlightOnHover(MapObjectView view) {
         if (view.GetComponent<AwarenessCheckComponent>() != null) {
@@ -122,14 +129,17 @@ public partial class HighlightHiddenObjectsFeature : FeatureWithPatch {
     [HarmonyPatch(typeof(MapObjectView), nameof(MapObjectView.UpdateHighlight)), HarmonyTranspiler]
     private static IEnumerable<CodeInstruction> MapObjectView_UpdateHighlight_Patch(IEnumerable<CodeInstruction> instructions) {
         var shouldBeHighlighted = AccessTools.Method(typeof(MapObjectView), nameof(MapObjectView.ShouldBeHighlighted));
+        var foundCall = false;
         foreach (var inst in instructions) {
             yield return inst;
             if (inst.Calls(shouldBeHighlighted)) {
                 yield return new(OpCodes.Dup);
                 yield return new(OpCodes.Ldarg_0);
                 yield return CodeInstruction.Call((bool shouldBeHighlighted, MapObjectView view) => UpdateHighlight_Patch(shouldBeHighlighted, view));
+                foundCall = true;
             }
         }
+        ThrowIfTrue(!foundCall);
     }
     private static void UpdateHighlight_Patch(bool shouldBeHighlighted, MapObjectView view) {
         if (view.GetComponent<AwarenessCheckComponent>() != null) {
@@ -239,15 +249,18 @@ public partial class HighlightHiddenObjectsFeature : FeatureWithPatch {
         [HarmonyPatch(typeof(InteractionPart), nameof(InteractionPart.HasVisibleTrap)), HarmonyTranspiler]
         private static IEnumerable<CodeInstruction> InteractionPart_HasVisibleTrap_Patch(IEnumerable<CodeInstruction> instructions) {
             var get_IsPerceptionCheckPassed = AccessTools.PropertyGetter(typeof(MapObjectEntity), nameof(MapObjectEntity.IsAwarenessCheckPassed));
+            var foundCall = false;
             foreach (var inst in instructions) {
                 if (inst.Calls(get_IsPerceptionCheckPassed)) {
                     var popInst = new CodeInstruction(OpCodes.Pop);
                     yield return popInst.WithLabels(inst.ExtractLabels());
                     yield return new(OpCodes.Ldc_I4_1);
+                    foundCall = true;
                 } else {
                     yield return inst;
                 }
             }
+            ThrowIfTrue(!foundCall);
         }
     }
 }

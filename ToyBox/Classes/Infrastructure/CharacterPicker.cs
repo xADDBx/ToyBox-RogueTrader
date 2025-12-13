@@ -70,7 +70,7 @@ public static partial class CharacterPicker {
     }
     public static bool OnCharacterPickerGUI(int? xcols = null, params GUILayoutOption[] options) {
         if (!IsInGame()) {
-            UI.Label(SharedStrings.ThisCannotBeUsedFromTheMainMenu.Red());
+            UI.Label(SharedStrings.TheCharacterPickerCannotBeUsedFromTheMainMenu.Red());
             return false;
         }
         var charactersList = CurrentUnits;
@@ -78,7 +78,7 @@ public static partial class CharacterPicker {
             UI.Label(m_ThereAreNoCharactersInThisList.Orange(), options);
         } else {
             var tmp = CurrentUnit;
-            if (UI.SelectionGrid(ref tmp, charactersList, xcols ?? Math.Min(8, charactersList.Count + 1), unit => ToyBoxUnitHelper.GetUnitName(unit), options)) {
+            if (UI.SelectionGrid(ref tmp, charactersList, xcols ?? Math.Min(8, charactersList.Count + 1), unit => ToyBoxUnitHelper.GetUnitName(unit), null, options)) {
                 if (tmp != null) {
                     m_CurrentUnit = new(tmp);
                 } else {

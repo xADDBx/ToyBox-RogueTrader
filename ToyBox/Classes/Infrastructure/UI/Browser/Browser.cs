@@ -23,6 +23,7 @@ public partial class Browser<T> : VerticalList<T> where T : notnull {
     protected Func<T, string> GetSortKey;
     protected bool ShowSearchBar = true;
     protected bool HideShowAll = false;
+    public bool SortOnUpdateItems = false;
     protected ThreadedListSearcher<T> Searcher;
     /// <summary>
     /// Initializes a new instance of the <see cref="Browser{T}"/> class.
@@ -74,7 +75,7 @@ public partial class Browser<T> : VerticalList<T> where T : notnull {
     /// <param name="hideShowAllEvenWithFunc">
     /// If true, hides the Show All GUI even if a ShowAllFunc is provided (e.g. in combination with ForceShowAll()).
     /// </param>
-    public Browser(Func<T, string> sortKey, Func<T, string> searchKey, IEnumerable<T>? initialItems = null, Action<Action<IEnumerable<T>>>? showAllFunc = null, bool showDivBetweenItems = true, int? overridePageWidth = null, int? overridePageLimit = null, bool showSearchBar = true, bool hideShowAllEvenWithFunc = false)
+    public Browser(Func<T, string> sortKey, Func<T, string> searchKey, IEnumerable<T>? initialItems = null, Action<Action<IEnumerable<T>>>? showAllFunc = null, bool showDivBetweenItems = true, int? overridePageWidth = null, int? overridePageLimit = null, bool showSearchBar = true, bool hideShowAllEvenWithFunc = false, bool orderInitialCollection = false)
         : base(initialItems, showDivBetweenItems, overridePageWidth, overridePageLimit) {
         ShowAllFunc = showAllFunc;
         GetSearchKey = searchKey;
@@ -82,6 +83,9 @@ public partial class Browser<T> : VerticalList<T> where T : notnull {
         ShowSearchBar = showSearchBar;
         HideShowAll = hideShowAllEvenWithFunc;
         Searcher = new(this);
+        if (orderInitialCollection) {
+            RedoSearch();
+        }
     }
     internal override void UpdateItems(IEnumerable<T> newItems, int? forcePage = null, bool onlyDisplayedItems = false) {
         if (!onlyDisplayedItems) {
@@ -95,6 +99,9 @@ public partial class Browser<T> : VerticalList<T> where T : notnull {
     }
     public void RedoSearch() {
         StartNewSearch(CurrentSearchString, true);
+    }
+    public void SetComparer(IComparer<string>? newComparer) {
+        Searcher.Comparer = newComparer;
     }
 
     /// <summary>
@@ -152,13 +159,13 @@ public partial class Browser<T> : VerticalList<T> where T : notnull {
         using (HorizontalScope()) {
             _ = UI.ActionTextField(ref CurrentSearchString, m_SearchBarControlName, contentChangedAction, (string query) => {
                 StartNewSearch(query);
-            });
+            }, AutoWidth(), Width(Math.Max(Math.Min(600, PageWidth * 0.7f), Main.UIScale * 150)));
             Space(5);
             _ = UI.Button(SharedStrings.SearchText, () => StartNewSearch(CurrentSearchString));
         }
     }
     protected override void HeaderGUI(Action? onHeaderGui = null) {
-        using (VerticalScope()) {
+        using (VerticalScope(Width(PageWidth))) {
             onHeaderGui?.Invoke();
             using (HorizontalScope()) {
                 PageGUI();

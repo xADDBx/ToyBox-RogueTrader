@@ -125,6 +125,8 @@ public partial class RespecFromLevelXFeature : FeatureWithPatch {
     [HarmonyPatch(typeof(PartUnitProgression), nameof(PartUnitProgression.Respec)), HarmonyTranspiler]
     private static IEnumerable<CodeInstruction> PartUnitProgression_Respec_Patch(IEnumerable<CodeInstruction> instructions) {
         var shouldSkipNextInstruction = false;
+        var foundCall1 = false;
+        var foundCall2 = false;
         foreach (var instruction in instructions) {
             if (shouldSkipNextInstruction) {
                 shouldSkipNextInstruction = false;
@@ -134,14 +136,16 @@ public partial class RespecFromLevelXFeature : FeatureWithPatch {
                 yield return new CodeInstruction(OpCodes.Pop).WithLabels(instruction.labels);
                 yield return new CodeInstruction(OpCodes.Ldarg_0);
                 yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(RespecFromLevelXFeature), nameof(GetRespecLevel)));
+                foundCall1 = true;
                 continue;
             } else if (instruction.Calls(AccessTools.PropertyGetter(typeof(PartUnitProgression), nameof(PartUnitProgression.AllCareerPaths)))) {
                 instruction.operand = AccessTools.Method(typeof(RespecFromLevelXFeature), nameof(GetNextCareerNullable));
                 shouldSkipNextInstruction = true;
+                foundCall2 = true;
             }
             yield return instruction;
         }
-
+        ThrowIfTrue(!foundCall1 || !foundCall2);
     }
     [HarmonyPatch(typeof(BlueprintUnit), nameof(BlueprintUnit.CreateEntity)), HarmonyPostfix]
     private static void BlueprintUnit_CreateEntity_Patch(BlueprintUnit __instance, BaseUnitEntity __result) {

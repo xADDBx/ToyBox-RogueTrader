@@ -25,13 +25,17 @@ public partial class EnableAchievementsFeature : FeatureWithPatch {
     public override partial string Description { get; }
     [HarmonyPatch(typeof(AchievementEntity), nameof(AchievementEntity.IsDisabled), MethodType.Getter), HarmonyTranspiler]
     private static IEnumerable<CodeInstruction> AchievementEntity_IsDisabled_Transpiler(IEnumerable<CodeInstruction> instructions) {
+        var method = AccessTools.PropertyGetter(typeof(Player), nameof(Player.ModsUser));
+        var foundCall = false;
         foreach (var instruction in instructions) {
-            if (instruction.Calls(AccessTools.PropertyGetter(typeof(Player), nameof(Player.ModsUser)))) {
+            if (instruction.Calls(method)) {
                 yield return new(OpCodes.Pop);
                 yield return new(OpCodes.Ldc_I4_0);
+                foundCall = true;
             } else {
                 yield return instruction;
             }
         }
+        ThrowIfTrue(!foundCall);
     }
 }

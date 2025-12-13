@@ -21,7 +21,7 @@ public class GeneralSettings : AbstractJsonSettings {
         }
     }
 
-    public int SelectedTab = 0;
+    public int SelectedTab;
 
 
     // Settings Tab
@@ -219,4 +219,5 @@ public class GeneralSettings : AbstractJsonSettings {
 
     // Search 'n Pick
     public IBlueprintFilter<SimpleBlueprint> CurrentBlueprintFilter = BlueprintFilters.Filters[0];
+    public bool SortCollationCategoriesByCount = false;
 }

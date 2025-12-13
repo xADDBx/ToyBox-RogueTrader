@@ -1531,8 +1531,32 @@
     "Original": "Allows browsing through all the blueprints in the game and doing various actions with them.",
     "Translated": null
   },
+  "ToyBox_Features_SearchAndPick_SearchAndPickFeature_m_ShowCharacterFilterPickerLocalizedText": {
+    "Original": "Show Character Filter Picker",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_SearchAndPickFeature_m_CurrentCollationCategoryLocalizedText": {
+    "Original": "Current Category",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_SearchAndPickFeature_m_Collating_LocalizedText": {
+    "Original": "Collating!",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_SearchAndPickFeature_m_ShowCategoryPickerLocalizedText": {
+    "Original": "Show Category Picker",
+    "Translated": null
+  },
   "ToyBox_Features_SearchAndPick_SearchAndPickFeatureTab_Name": {
     "Original": "Search 'n Pick",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_SortCollationCategoriesByCountSetting_Name": {
+    "Original": "Sort by Count",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_SortCollationCategoriesByCountSetting_Description": {
+    "Original": "Whether to sort collation categories by their amount of blueprints instead of names.",
     "Translated": null
   },
   "ToyBox_Features_SettingsFeatures_Blueprints_BlueprintsLoaderChunkSizeSetting_Name": {
@@ -2455,6 +2479,10 @@
     "Original": "Cues",
     "Translated": null
   },
+  "ToyBox_Infrastructure_Blueprints_BlueprintFilter_AllLocalizedText": {
+    "Original": "All",
+    "Translated": null
+  },
   "ToyBox_Infrastructure_Blueprints_BlueprintUI_m_ShowSettingsLocalizedText": {
     "Original": "Show Settings",
     "Translated": null
@@ -2627,16 +2655,16 @@
     "Original": "This cannot be used from the main menu!",
     "Translated": null
   },
+  "ToyBox_Infrastructure_Utilities_Strings_SharedStrings_TheCharacterPickerCannotBeUsedFromTheMainMenu": {
+    "Original": "The character picker cannot be used from the main menu!",
+    "Translated": null
+  },
   "ToyBox_Infrastructure_Utilities_Strings_SharedStrings_Reset_to_default_Value": {
     "Original": "Reset",
     "Translated": null
   },
-  "ToyBox_Infrastructure_Utilities_Strings_SharedStrings_List_Showing_x_Items": {
-    "Original": "Showing",
-    "Translated": null
-  },
-  "ToyBox_Infrastructure_Utilities_Strings_SharedStrings_Search_List_Results_Lower_Case": {
-    "Original": "results",
+  "ToyBox_Infrastructure_Utilities_Strings_SharedStrings_List_x_Matches": {
+    "Original": "Matches",
     "Translated": null
   },
   "ToyBox_Infrastructure_UI_VerticalList_PageText": {

@@ -3,6 +3,7 @@ using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.UI.Models.Tooltip.Base;
 using System.Collections.Concurrent;
+using ToyBox.Features.SettingsFeatures.Blueprints;
 
 namespace ToyBox.Infrastructure.Blueprints;
 
@@ -57,9 +58,9 @@ public static class BPHelper {
                 } catch (Exception ex) {
                     Debug($"Error while getting name for {uiDataProvider}:\n{ex}");
                 }
-                ret = CheckNullName(blueprint, Name);
+                ret = CheckNullName(blueprint, Name, false, true);
             } else if (blueprint is BlueprintItemEnchantment enchantment) {
-                ret = CheckNullName(blueprint, enchantment.Name);
+                ret = CheckNullName(blueprint, enchantment.Name, false, true);
             }
             ret ??= blueprint.name;
         } catch (Exception ex) {
@@ -122,9 +123,9 @@ public static class BPHelper {
             return bp.name;
         }
         if (name == "<null>" || name.StartsWith("[unknown key: ")) {
-            name = colorInternal ? bp.name.DarkGrey() : bp.name;
-        } else if (Settings.ToggleBPsShowDisplayAndInternalName || forceInternalDisplay) {
-            name += colorInternal ? bp.name.DarkGrey() : bp.name;
+            name = colorInternal ? bp.name.Grey() : bp.name;
+        } else if (Feature.GetInstance<ShowDisplayAndInternalNamesSetting>().IsEnabled || forceInternalDisplay) {
+            name += $" ({(colorInternal ? bp.name.Grey() : bp.name)})";
         }
         return name;
     }
