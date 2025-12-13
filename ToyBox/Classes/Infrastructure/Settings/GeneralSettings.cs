@@ -1,4 +1,5 @@
-﻿using Kingmaker.EntitySystem.Stats.Base;
+﻿using Kingmaker.Blueprints;
+using Kingmaker.EntitySystem.Stats.Base;
 
 namespace ToyBox.Infrastructure;
 
@@ -215,4 +216,7 @@ public class GeneralSettings : AbstractJsonSettings {
     public bool MassLootShowHiddenItems = false;
     public bool MassLootShowLivingNPCItems = false;
     public bool LootChecklistShowHiddenLoot = false;
+
+    // Search 'n Pick
+    public IBlueprintFilter<SimpleBlueprint> CurrentBlueprintFilter = BlueprintFilters.Filters[0];
 }

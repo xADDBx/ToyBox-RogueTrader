@@ -47,6 +47,7 @@ public class ThreadedListSearcher<T> where T : notnull {
                             IsRunning = false;
                             cts.Dispose();
                         }
+                        #warning Sorting Order
                         m_Parent.QueueUpdateItems(allResults.AsParallel().WithDegreeOfParallelism(Environment.ProcessorCount).OrderBy(getSortKey).ToArray(), 1, true);
                         Debug("Cancelled Search");
                         return;
@@ -64,9 +65,11 @@ public class ThreadedListSearcher<T> where T : notnull {
                         }
                     }
                 }
+#warning Sorting Order
                 m_Parent.QueueUpdateItems(allResults.AsParallel().WithDegreeOfParallelism(Environment.ProcessorCount).OrderBy(getSortKey).ToArray(), 1, true);
                 Debug($"Searched {searched} items in {watch.ElapsedMilliseconds}ms; found {allResults.Count} results");
             } else {
+#warning Sorting Order
                 m_Parent.QueueUpdateItems(items.AsParallel().WithDegreeOfParallelism(Environment.ProcessorCount).OrderBy(getSortKey).ToArray(), 1, true);
                 Debug($"Searched {searched} items in {watch.ElapsedMilliseconds}ms; query is empty so used all items as result");
             }

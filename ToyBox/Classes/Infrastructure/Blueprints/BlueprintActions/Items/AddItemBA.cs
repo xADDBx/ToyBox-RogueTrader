@@ -21,7 +21,7 @@ public partial class AddItemBA : BlueprintActionFeature, IBlueprintAction<Bluepr
             if (parameter.Length > 0 && parameter[0] is int tmpCount) {
                 count = tmpCount;
             }
-            _ = UI.Button(StyleActionString(m_AddText + $" {count}", isFeatureSearch), () => {
+            _ = UI.Button(StyleActionString(m_AddText.Format(count), isFeatureSearch), () => {
                 result = Execute(blueprint, count);
             });
         } else if (isFeatureSearch) {
@@ -40,7 +40,7 @@ public partial class AddItemBA : BlueprintActionFeature, IBlueprintAction<Bluepr
         }
     }
 
-    [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_AddItemBA_Add_x", "Add Item")]
+    [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_AddItemBA_Add_x", "Add {0} Items")]
     private static partial string m_AddText { get; }
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_AddItemBA_Name", "Add Item")]
     public override partial string Name { get; }

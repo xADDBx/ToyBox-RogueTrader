@@ -4,6 +4,8 @@ using Kingmaker.EntitySystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.UnitLogic;
 using Kingmaker.Utility.UnityExtensions;
+using System.Linq.Expressions;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using ToyBox.Features.SettingsFeatures.Blueprints;
 using ToyBox.Features.SettingsFeatures.BrowserSettings;
@@ -25,6 +27,35 @@ public static partial class BlueprintUI {
             return ch.Facts.Get(fact);
         }
         return null;
+    }
+    private static readonly Dictionary<Type, Func<object, object, bool, BaseUnitEntity?, bool?>> m_ActionInvokerCache = [];
+    private static bool? InvokeAction(object action, object bp, bool isSearch, BaseUnitEntity? unit) {
+        var bpType = bp.GetType();
+        if (!m_ActionInvokerCache.TryGetValue(bpType, out var invoker)) {
+            m_ActionInvokerCache[bpType] = invoker = CreateActionInvoker(bpType);
+        }
+        return invoker(action, bp, isSearch, unit);
+    }
+    private static Func<object, object, bool, BaseUnitEntity?, bool?> CreateActionInvoker(Type bpType) {
+        var ifaceType = typeof(IExecutableAction<>).MakeGenericType(bpType);
+        var method = ifaceType.GetMethod("OnGui", BindingFlags.Public | BindingFlags.Instance);
+
+        var actionParam = Expression.Parameter(typeof(object), "actionObj");
+        var blueprintParam = Expression.Parameter(typeof(object), "blueprintObj");
+        var isSearchParam = Expression.Parameter(typeof(bool), "isSearch");
+        var chParam = Expression.Parameter(typeof(BaseUnitEntity), "ch");
+
+        var castAction = Expression.Convert(actionParam, ifaceType);
+
+        var castBlueprint = Expression.Convert(blueprintParam, bpType);
+
+        var paramsArray = Expression.NewArrayInit(typeof(object), Expression.Convert(chParam, typeof(object)));
+
+        var call = Expression.Call(castAction, method, castBlueprint, isSearchParam, paramsArray);
+
+        var lambda = Expression.Lambda<Func<object, object, bool, BaseUnitEntity?, bool?>>(Expression.Convert(call, typeof(bool?)), actionParam, blueprintParam, isSearchParam, chParam);
+
+        return lambda.Compile();
     }
     public static void BlueprintRowGUI<TBlueprint>(Browser<TBlueprint> browser, TBlueprint blueprint, BaseUnitEntity? ch, Type? overrideForActions = null, Func<TBlueprint, BaseUnitEntity?, object?>? maybeItemGetter = null) where TBlueprint : SimpleBlueprint {
         if (!m_CachedWidths.TryGetValue(browser, out var widths) || (!browser.IsCachedValid && browser.PagedItems.Count > 0)) {
@@ -57,8 +88,8 @@ public static partial class BlueprintUI {
                     _ = UI.TextField(ref tmp, null, Width(widths.AssetIdWidth));
                 }
                 Space(5);
-                foreach (var action in BlueprintActionFeature.GetActionsForBlueprintType<TBlueprint>(overrideForActions)) {
-                    _ = action.OnGui(blueprint, false, ch!);
+                foreach (var action in BlueprintActionFeature.GetActionsForBlueprintType(blueprint.GetType(), overrideForActions)) {
+                    _ = InvokeAction(action, blueprint, false, ch);
                 }
                 Space(5);
                 var desc = BPHelper.GetDescription(blueprint);

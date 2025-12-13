@@ -21,7 +21,7 @@ public partial class RemoveItemBA : BlueprintActionFeature, IBlueprintAction<Blu
             if (parameter.Length > 0 && parameter[0] is int tmpCount) {
                 count = tmpCount;
             }
-            _ = UI.Button(StyleActionString(m_RemoveText + $" {count}", isFeatureSearch), () => {
+            _ = UI.Button(StyleActionString(m_RemoveText.Format(count), isFeatureSearch), () => {
                 result = Execute(blueprint, count);
             });
         } else if (isFeatureSearch) {
@@ -39,7 +39,7 @@ public partial class RemoveItemBA : BlueprintActionFeature, IBlueprintAction<Blu
         }
     }
 
-    [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveItemBA_Remove_x", "Remove Item")]
+    [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveItemBA_Remove_x", "Remove {0} Items")]
     private static partial string m_RemoveText { get; }
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveItemBA_Name", "Remove Item")]
     public override partial string Name { get; }

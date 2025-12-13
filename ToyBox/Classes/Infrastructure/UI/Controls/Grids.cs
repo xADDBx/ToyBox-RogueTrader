@@ -104,16 +104,17 @@ public static partial class UI {
     /// <summary>
     /// A grid of values vals with a default value prepended.
     /// </summary>
-    public static bool SelectionGrid<T>(ref T? selected, IList<T> vals, int xCols, Func<T, string>? titler, params GUILayoutOption[] options) where T : notnull {
+    public static bool SelectionGrid<T>(ref T? selected, IList<T> vals, int xCols, Func<T, string>? titler, string? defaultName = null, params GUILayoutOption[] options) {
         if (xCols <= 0) {
             xCols = vals.Count;
         }
+        defaultName ??= SharedStrings.NoneText;
         var selectedInt = selected != null ? vals.IndexOf(selected) + 1 : 0;
-        string[] names = [SharedStrings.NoneText, .. vals.Select(x => {
+        string[] names = [defaultName, .. vals.Select(x => {
             if (titler != null) {
                 return titler(x);
             } else {
-                return x.ToString();
+                return x!.ToString();
             }
         })];
         names[selectedInt] = names[selectedInt].Orange();
@@ -125,6 +126,29 @@ public static partial class UI {
             } else {
                 selected = vals[newSel - 1];
             }
+        }
+        return changed;
+    }
+    /// <summary>
+    /// A grid of values vals.
+    /// </summary>
+    public static bool SelectionGrid<T>(ref T selected, IList<T> vals, int xCols, Func<T, string>? titler, params GUILayoutOption[] options) {
+        if (xCols <= 0) {
+            xCols = vals.Count;
+        }
+        var selectedInt = vals.IndexOf(selected);
+        string[] names = [.. vals.Select(x => {
+            if (titler != null) {
+                return titler(x);
+            } else {
+                return x!.ToString();
+            }
+        })];
+        names[selectedInt] = names[selectedInt].Orange();
+        var newSel = GUILayout.SelectionGrid(selectedInt, names, xCols, options);
+        var changed = selectedInt != newSel;
+        if (changed) {
+                selected = vals[newSel];
         }
         return changed;
     }

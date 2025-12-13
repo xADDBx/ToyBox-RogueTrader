@@ -102,6 +102,7 @@ public static partial class Main {
         m_FeatureTabs.Add(new Features.LevelUp.LevelUpFeatureTab());
         m_FeatureTabs.Add(new Features.PartyTab.PartyFeatureTab());
         m_FeatureTabs.Add(new Features.Loot.LootFeatureTab());
+        m_FeatureTabs.Add(new Features.SearchAndPick.SearchAndPickFeatureTab());
 
         m_FeatureTabs.Add(new Features.Achievements.AchievementsFeatureTab());
         m_FeatureTabs.Add(new Features.SettingsFeatures.SettingsFeaturesTab());

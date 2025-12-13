@@ -1523,6 +1523,18 @@
     "Original": "Visual Override",
     "Translated": null
   },
+  "ToyBox_Features_SearchAndPick_SearchAndPickFeature_Name": {
+    "Original": "Search 'n Pick",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_SearchAndPickFeature_Description": {
+    "Original": "Allows browsing through all the blueprints in the game and doing various actions with them.",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_SearchAndPickFeatureTab_Name": {
+    "Original": "Search 'n Pick",
+    "Translated": null
+  },
   "ToyBox_Features_SettingsFeatures_Blueprints_BlueprintsLoaderChunkSizeSetting_Name": {
     "Original": "Chunk Size",
     "Translated": null
@@ -1936,7 +1948,7 @@
     "Translated": null
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddItemBA_Add_x": {
-    "Original": "Add Item",
+    "Original": "Add {0} Items",
     "Translated": null
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddItemBA_Name": {
@@ -1948,7 +1960,7 @@
     "Translated": null
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveItemBA_Remove_x": {
-    "Original": "Remove Item",
+    "Original": "Remove {0} Items",
     "Translated": null
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveItemBA_Name": {
@@ -2305,6 +2317,142 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_SpawnUnitBA_Description": {
     "Original": "Spawns the specified BlueprintUnit in the vicinity.",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_AllLocalizedText": {
+    "Original": "All",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_FactsLocalizedText": {
+    "Original": "Facts",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_FeaturesLocalizedText": {
+    "Original": "Features",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_CareersLocalizedText": {
+    "Original": "Careers",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_ProgressionLocalizedText": {
+    "Original": "Progression",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_AbilitiesLocalizedText": {
+    "Original": "Abilities",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_SpellsLocalizedText": {
+    "Original": "Spells",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_BrainsLocalizedText": {
+    "Original": "Brains",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_AbilityRsrc_LocalizedText": {
+    "Original": "Ability Rsrc.",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_BuffsLocalizedText": {
+    "Original": "Buffs",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_ItemsLocalizedText": {
+    "Original": "Items",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_EquipmentLocalizedText": {
+    "Original": "Equipment",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_WeaponsLocalizedText": {
+    "Original": "Weapons",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_ArmorsLocalizedText": {
+    "Original": "Armors",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_UsableLocalizedText": {
+    "Original": "Usable",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_UnitsLocalizedText": {
+    "Original": "Units",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_UnitsCRLocalizedText": {
+    "Original": "Units CR",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_CRLocalizedText": {
+    "Original": "CR",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_RacesLocalizedText": {
+    "Original": "Races",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_AreasLocalizedText": {
+    "Original": "Areas",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_AreaEntryLocalizedText": {
+    "Original": "Area Entry",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_SystemMapLocalizedText": {
+    "Original": "System Map",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_SectorMapPointsLocalizedText": {
+    "Original": "Sector Map Points",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_CutscenesLocalizedText": {
+    "Original": "Cutscenes",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_QuestsLocalizedText": {
+    "Original": "Quests",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_QuestObj_LocalizedText": {
+    "Original": "Quest Obj.",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_EtudesLocalizedText": {
+    "Original": "Etudes",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_FlagsLocalizedText": {
+    "Original": "Flags",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_DailogsLocalizedText": {
+    "Original": "Dailogs",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_AnswersLocalizedText": {
+    "Original": "Answers",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_PlanetsLocalizedText": {
+    "Original": "Planets",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_ColoniesLocalizedText": {
+    "Original": "Colonies",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_AreaPresetsLocalizedText": {
+    "Original": "Area Presets",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_CuesLocalizedText": {
+    "Original": "Cues",
     "Translated": null
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintUI_m_ShowSettingsLocalizedText": {
