@@ -33,6 +33,9 @@ public class Hotkey(KeyCode key, bool ctrl = false, bool shift = false, bool alt
     public void Precompute() {
         m_PrecomputedMask = InternalGetMask();
     }
+    public bool IsActive() {
+        return IsActive(GetCurrentMask());
+    }
     public bool IsActive(uint currentMask) {
         if (currentMask != GetMask()) {
             return false;

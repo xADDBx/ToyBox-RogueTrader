@@ -1691,6 +1691,14 @@
     "Original": "Also search through the descriptions of blueprints",
     "Translated": null
   },
+  "ToyBox_Features_SettingsTab_Game_DisplayGuidsInTooltipsFeature_Name": {
+    "Original": "Display GUIDs in most Tooltips",
+    "Translated": null
+  },
+  "ToyBox_Features_SettingsTab_Game_DisplayGuidsInTooltipsFeature_Description": {
+    "Original": "Displays the guids of the items etc. in their tooltips and allows copying them by pressing LMB + Hotkey.",
+    "Translated": null
+  },
   "ToyBox_Features_SettingsTab_Game_EnableGameDevelopmentModeSetting_Name": {
     "Original": "Enable Game Development Mode",
     "Translated": null

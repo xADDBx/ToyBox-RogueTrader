@@ -31,6 +31,7 @@ public partial class SettingsFeaturesTab : FeatureTab {
         AddFeature(new UpdaterFeature(), m_UpdateText);
 
         AddFeature(new EnableGameDevelopmentModeSetting(), m_GameLocalizedText);
+        AddFeature(new DisplayGuidsInTooltipsFeature(), m_GameLocalizedText);
 
         AddFeature(new PageLimitSetting(), m_ListsAndBrowsersText);
         AddFeature(new SearchAsYouTypeFeature(), m_ListsAndBrowsersText);

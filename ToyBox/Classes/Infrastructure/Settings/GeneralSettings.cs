@@ -28,6 +28,7 @@ public class GeneralSettings : AbstractJsonSettings {
 
     // - Game
     public bool EnableGameDevelopmentMode = false;
+    public bool EnableDisplayGuidsInTooltips = false;
 
     // - Other
     public LogLevel LogLevel = LogLevel.Info;

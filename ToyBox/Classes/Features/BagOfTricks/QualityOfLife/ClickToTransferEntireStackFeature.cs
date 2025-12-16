@@ -38,7 +38,7 @@ public partial class ClickToTransferEntireStackFeature : FeatureWithPatch, ITogg
     }
     [HarmonyPatch(typeof(InventorySlotView), nameof(InventorySlotView.OnClick)), HarmonyPrefix]
     public static bool InventorySlotView_OnClick_Patch(InventorySlotView __instance) {
-        if (GetInstance<ClickToTransferEntireStackFeature>().Keybind?.IsActive(GetCurrentMask()) ?? false) {
+        if (GetInstance<ClickToTransferEntireStackFeature>().Keybind?.IsActive() ?? false) {
             __instance.OnDoubleClick();
             return false;
         }
