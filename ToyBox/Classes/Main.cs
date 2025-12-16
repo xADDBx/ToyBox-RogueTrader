@@ -103,7 +103,7 @@ public static partial class Main {
         m_FeatureTabs.Add(new Features.SearchAndPick.SearchAndPickFeatureTab());
         m_FeatureTabs.Add(new Features.Etudes.EtudesFeatureTab());
         m_FeatureTabs.Add(new Features.DialogAndNpc.DialogAndNpcFeatureTab());
-
+        m_FeatureTabs.Add(new Features.Saves.SavesFeatureTab());
         m_FeatureTabs.Add(new Features.Achievements.AchievementsFeatureTab());
         m_FeatureTabs.Add(new Features.SettingsFeatures.SettingsFeaturesTab());
         m_FeatureTabs.Add(new Features.FeatureSearch.FeatureSearchTab());

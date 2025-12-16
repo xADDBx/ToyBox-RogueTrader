@@ -1551,6 +1551,34 @@
     "Original": "Visual Override",
     "Translated": null
   },
+  "ToyBox_Features_Saves_BrowseSavesFeature_Name": {
+    "Original": "Browse Saves",
+    "Translated": null
+  },
+  "ToyBox_Features_Saves_BrowseSavesFeature_Description": {
+    "Original": "Allows looking through all available save games and viewing their char name, party level, area, save name and game id",
+    "Translated": null
+  },
+  "ToyBox_Features_Saves_BrowseSavesFeature_m_LevelLocalizedText": {
+    "Original": "Level",
+    "Translated": null
+  },
+  "ToyBox_Features_Saves_ChangeSaveIdFeature_Name": {
+    "Original": "Change Game Id",
+    "Translated": null
+  },
+  "ToyBox_Features_Saves_ChangeSaveIdFeature_Description": {
+    "Original": "Allows changing the game id of the current session, which causes saves after this to be grouped under a different header.",
+    "Translated": null
+  },
+  "ToyBox_Features_Saves_ChangeSaveIdFeature_m_N_ALocalizedText": {
+    "Original": "N/A",
+    "Translated": null
+  },
+  "ToyBox_Features_Saves_SavesFeatureTab_Name": {
+    "Original": "Saves",
+    "Translated": null
+  },
   "ToyBox_Features_SearchAndPick_SearchAndPickFeature_Name": {
     "Original": "Search 'n Pick",
     "Translated": null
