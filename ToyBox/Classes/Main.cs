@@ -102,6 +102,7 @@ public static partial class Main {
         m_FeatureTabs.Add(new Features.Loot.LootFeatureTab());
         m_FeatureTabs.Add(new Features.SearchAndPick.SearchAndPickFeatureTab());
         m_FeatureTabs.Add(new Features.Etudes.EtudesFeatureTab());
+        m_FeatureTabs.Add(new Features.DialogAndNpc.DialogAndNpcFeatureTab());
 
         m_FeatureTabs.Add(new Features.Achievements.AchievementsFeatureTab());
         m_FeatureTabs.Add(new Features.SettingsFeatures.SettingsFeaturesTab());
@@ -150,7 +151,7 @@ public static partial class Main {
                 Space(10);
 
                 var selected = m_VisibleFeatureTabs[Settings.SelectedTab];
-                if (UI.SelectionGrid(ref selected, m_VisibleFeatureTabs, Math.Min(m_VisibleFeatureTabs.Count, 10), tab => tab.Name, Width(EffectiveWindowWidth()))) {
+                if (UI.SelectionGrid(ref selected, m_VisibleFeatureTabs, Math.Min(m_VisibleFeatureTabs.Count, 6), tab => tab.Name, Width(EffectiveWindowWidth()))) {
                     Settings.SelectedTab = m_VisibleFeatureTabs.IndexOf(selected);
                 }
                 Space(10);

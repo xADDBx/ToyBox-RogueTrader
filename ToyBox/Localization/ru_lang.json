@@ -979,6 +979,18 @@
     "Original": "Teleports the selected units to the position your mouse points at.",
     "Translated": null
   },
+  "ToyBox_Features_DialogAndNpc_DialogAndNpcFeatureTab_Name": {
+    "Original": "Dialog & NPCs",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_InspectDialogControllerFeature_Name": {
+    "Original": "Inspect Dialog Controller",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_InspectDialogControllerFeature_Description": {
+    "Original": "Allows inspecting the current Dialog Controller to e.g. debug issues.",
+    "Translated": null
+  },
   "ToyBox_Features_Etudes_EtudesFeatureTab_Name": {
     "Original": "Etudes",
     "Translated": null
