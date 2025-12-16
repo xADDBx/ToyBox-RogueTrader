@@ -205,6 +205,7 @@ public class InspectorNode : IComparable {
         if (obj is not InspectorNode other) {
             return 1;
         }
-        return (m_ContainerPrefix + NameText).CompareTo(other.m_ContainerPrefix + other.NameText);
+        // return (m_ContainerPrefix + NameText).CompareTo(other.m_ContainerPrefix + other.NameText);
+        return NameText.CompareTo(other.NameText);
     }
 }

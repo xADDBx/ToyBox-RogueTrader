@@ -1,10 +1,7 @@
 using System.Collections.Concurrent;
 using System.Diagnostics;
-using System.Text;
 using ToyBox.Features.SettingsFeatures.UpdateAndIntegrity;
 using ToyBox.Features.SettingsTab.Other;
-using ToyBox.Infrastructure.Utilities;
-using UnityEngine;
 using UnityModManagerNet;
 
 namespace ToyBox;

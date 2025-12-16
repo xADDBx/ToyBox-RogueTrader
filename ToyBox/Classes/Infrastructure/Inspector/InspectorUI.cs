@@ -203,7 +203,7 @@ public static partial class InspectorUI {
                 _ = UI.DisclosureToggle(ref node.IsExpanded, node.LabelText, null, null, Width(calculatedWidth + discWidth));
             } else {
                 UnscaledSpace(discWidth);
-                GUILayout.Label(node.LabelText, Width(calculatedWidth));
+                UI.Label(node.LabelText, Width(calculatedWidth));
             }
 
             if (Settings.ToggleInspectorSlimMode) {
