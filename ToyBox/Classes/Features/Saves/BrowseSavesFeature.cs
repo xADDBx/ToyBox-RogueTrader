@@ -32,9 +32,9 @@ public partial class BrowseSavesFeature : Feature {
         }
         SaveBrowser.OnGUI(info => {
             using (HorizontalScope()) {
-                UI.Label(info.GameId == Game.Instance.Player.GameId ? info.PlayerCharacterName.Orange() : info.PlayerCharacterName, Width(150 * Main.UIScale));
+                UI.Label(info.GameId == Game.Instance.Player.GameId ? info.PlayerCharacterName.Orange() : info.PlayerCharacterName.Cyan(), Width(150 * Main.UIScale));
                 Space(25);
-                UI.Label($"{m_LevelLocalizedText}: {info.PlayerCharacterRank}", Width(50 * Main.UIScale));
+                UI.Label($"{m_LevelLocalizedText}: {info.PlayerCharacterRank}", Width(75 * Main.UIScale));
                 Space(25);
                 UI.Label(info.Area.AreaName, Width(300 * Main.UIScale));
                 Space(25);
