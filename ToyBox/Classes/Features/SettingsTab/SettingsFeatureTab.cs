@@ -1,6 +1,7 @@
 ﻿using ToyBox.Features.SettingsFeatures.Blueprints;
 using ToyBox.Features.SettingsFeatures.BrowserSettings;
 using ToyBox.Features.SettingsFeatures.UpdateAndIntegrity;
+using ToyBox.Features.SettingsTab.Game;
 using ToyBox.Features.SettingsTab.Inspector;
 using ToyBox.Features.SettingsTab.Other;
 
@@ -23,8 +24,13 @@ public partial class SettingsFeaturesTab : FeatureTab {
     private static partial string m_OtherText { get; }
     [LocalizedString("ToyBox_Features_SettingsFeatures_SettingsFeaturesTab_SettingsText", "Settings")]
     public override partial string Name { get; }
+
+    [LocalizedString("ToyBox_Features_SettingsFeatures_SettingsFeaturesTab_m_GameLocalizedText", "Game")]
+    private static partial string m_GameLocalizedText { get; }
     public SettingsFeaturesTab() {
         AddFeature(new UpdaterFeature(), m_UpdateText);
+
+        AddFeature(new EnableGameDevelopmentModeSetting(), m_GameLocalizedText);
 
         AddFeature(new PageLimitSetting(), m_ListsAndBrowsersText);
         AddFeature(new SearchAsYouTypeFeature(), m_ListsAndBrowsersText);
@@ -64,5 +70,4 @@ public partial class SettingsFeaturesTab : FeatureTab {
 
         AddFeature(new LanguagePickerFeature(), m_LanguageText);
     }
-
 }

@@ -1691,6 +1691,14 @@
     "Original": "Also search through the descriptions of blueprints",
     "Translated": null
   },
+  "ToyBox_Features_SettingsTab_Game_EnableGameDevelopmentModeSetting_Name": {
+    "Original": "Enable Game Development Mode",
+    "Translated": null
+  },
+  "ToyBox_Features_SettingsTab_Game_EnableGameDevelopmentModeSetting_Description": {
+    "Original": "This turns on the developer console which lets you access cheat commands, access a console and more.",
+    "Translated": null
+  },
   "ToyBox_Features_SettingsTab_Inspector_InspectorDrawLimitSetting_Name": {
     "Original": "Inspector Draw Limit",
     "Translated": null
@@ -1857,6 +1865,10 @@
   },
   "ToyBox_Features_SettingsFeatures_SettingsFeaturesTab_SettingsText": {
     "Original": "Settings",
+    "Translated": null
+  },
+  "ToyBox_Features_SettingsFeatures_SettingsFeaturesTab_m_GameLocalizedText": {
+    "Original": "Game",
     "Translated": null
   },
   "ToyBox_Features_UpdateAndIntegrity_UpdateCompatabilityFeature_EnableIntegrityCheckText": {

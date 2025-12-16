@@ -26,6 +26,9 @@ public class GeneralSettings : AbstractJsonSettings {
 
     // Settings Tab
 
+    // - Game
+    public bool EnableGameDevelopmentMode = false;
+
     // - Other
     public LogLevel LogLevel = LogLevel.Info;
     public string UILanguage = "en";
