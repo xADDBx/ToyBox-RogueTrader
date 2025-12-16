@@ -979,6 +979,22 @@
     "Original": "Teleports the selected units to the position your mouse points at.",
     "Translated": null
   },
+  "ToyBox_Features_Etudes_EtudesFeatureTab_Name": {
+    "Original": "Etudes",
+    "Translated": null
+  },
+  "ToyBox_Features_Etudes_LegacyEtudesEditorFeature_Name": {
+    "Original": "Etudes Editor",
+    "Translated": null
+  },
+  "ToyBox_Features_Etudes_LegacyEtudesEditorFeature_Description": {
+    "Original": "Allows inspecting the games Etudes/Flags/Elements in a tree view.",
+    "Translated": null
+  },
+  "ToyBox_Features_Etudes_LegacyEtudesEditorFeature_m_ThisFeatureIsAtTheMomentMostlyCoLocalizedText": {
+    "Original": "This feature is at the moment mostly copied from previous ToyBox, so there might be issues. It also does not yet support localization. The UI will get a complete rewrite eventually.",
+    "Translated": null
+  },
   "ToyBox_Features_FeatureSearch_FeatureSearchFeature_FeatureSearchNotImplementedForTh": {
     "Original": "Feature search not implemented for this feature!",
     "Translated": null

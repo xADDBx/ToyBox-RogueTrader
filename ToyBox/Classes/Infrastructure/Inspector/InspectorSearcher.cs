@@ -90,13 +90,4 @@ public static class InspectorSearcher {
         }
         return false;
     }
-    private static bool MatchString(string text, string query) {
-        if (!string.IsNullOrEmpty(query)) {
-            var terms = query.Split(' ').Select(s => s.ToUpper());
-            text = text.ToUpper();
-            return terms.All(text.Contains);
-        } else {
-            return false;
-        }
-    }
 }

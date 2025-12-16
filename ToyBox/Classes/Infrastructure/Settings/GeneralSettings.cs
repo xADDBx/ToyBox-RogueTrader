@@ -220,4 +220,8 @@ public class GeneralSettings : AbstractJsonSettings {
     // Search 'n Pick
     public int CurrentSearchAndPickBlueprintFilter = 0;
     public bool SortCollationCategoriesByCount = false;
+
+    // Etudes
+    public bool showEtudeComments = false;
+    public bool showAssetIDs = false;
 }

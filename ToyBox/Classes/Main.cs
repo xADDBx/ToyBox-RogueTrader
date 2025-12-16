@@ -1,10 +1,8 @@
-using Kingmaker.Pathfinding;
 using System.Collections.Concurrent;
 using System.Diagnostics;
 using ToyBox.Features.SettingsFeatures.UpdateAndIntegrity;
 using ToyBox.Features.SettingsTab.Other;
 using ToyBox.Infrastructure.Utilities;
-using UnityEngine;
 using UnityModManagerNet;
 
 namespace ToyBox;
@@ -103,6 +101,7 @@ public static partial class Main {
         m_FeatureTabs.Add(new Features.PartyTab.PartyFeatureTab());
         m_FeatureTabs.Add(new Features.Loot.LootFeatureTab());
         m_FeatureTabs.Add(new Features.SearchAndPick.SearchAndPickFeatureTab());
+        m_FeatureTabs.Add(new Features.Etudes.EtudesFeatureTab());
 
         m_FeatureTabs.Add(new Features.Achievements.AchievementsFeatureTab());
         m_FeatureTabs.Add(new Features.SettingsFeatures.SettingsFeaturesTab());
@@ -133,7 +132,6 @@ public static partial class Main {
         }
         m_VerticalLists = newList;
     }
-    private static int m_LoadedBps = 0;
     private static void OnGUI(UnityModManager.ModEntry modEntry) {
         if (m_CaughtException == null) {
             try {
@@ -149,12 +147,8 @@ public static partial class Main {
                 if (BPLoader.IsLoading) {
                     UI.ProgressBar(BPLoader.Progress, "");
                 }
-                if (ImguiCanChangeStateAtBeginning() && BPLoader.HasLoaded) {
-                    m_LoadedBps = BPLoader.GetBlueprints()!.Count;
-                }
                 Space(10);
 
-                UI.Label(SharedStrings.CurrentlyLoadedBPsText.Format(m_LoadedBps));
                 var selected = m_VisibleFeatureTabs[Settings.SelectedTab];
                 if (UI.SelectionGrid(ref selected, m_VisibleFeatureTabs, Math.Min(m_VisibleFeatureTabs.Count, 10), tab => tab.Name, Width(EffectiveWindowWidth()))) {
                     Settings.SelectedTab = m_VisibleFeatureTabs.IndexOf(selected);

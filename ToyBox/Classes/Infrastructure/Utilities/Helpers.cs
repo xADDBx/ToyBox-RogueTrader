@@ -12,6 +12,15 @@ using UnityModManagerNet;
 namespace ToyBox.Infrastructure.Utilities;
 
 public static class Helpers {
+    public static bool MatchString(string text, string query) {
+        if (!string.IsNullOrEmpty(query)) {
+            var terms = query.Split(' ').Select(s => s.ToUpper());
+            text = text.ToUpper();
+            return terms.All(text.Contains);
+        } else {
+            return false;
+        }
+    }
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     public static void ThrowIfTrue(bool shouldThrow) {
         if (shouldThrow) {

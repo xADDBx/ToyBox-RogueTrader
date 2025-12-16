@@ -209,7 +209,7 @@ public static partial class BlueprintFilters {
     [LocalizedString("ToyBox_Features_SearchAndPick_BlueprintFilters_m_QuestObj_LocalizedText", "Quest Obj.")]
     private static partial string m_QuestObj_LocalizedText { get; }
     [LocalizedString("ToyBox_Features_SearchAndPick_BlueprintFilters_m_EtudesLocalizedText", "Etudes")]
-    private static partial string m_EtudesLocalizedText { get; }
+    internal static partial string m_EtudesLocalizedText { get; }
     [LocalizedString("ToyBox_Features_SearchAndPick_BlueprintFilters_m_FlagsLocalizedText", "Flags")]
     private static partial string m_FlagsLocalizedText { get; }
     [LocalizedString("ToyBox_Features_SearchAndPick_BlueprintFilters_m_DailogsLocalizedText", "Dailogs")]
