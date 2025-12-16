@@ -1,8 +1,10 @@
 using System.Collections.Concurrent;
 using System.Diagnostics;
+using System.Text;
 using ToyBox.Features.SettingsFeatures.UpdateAndIntegrity;
 using ToyBox.Features.SettingsTab.Other;
 using ToyBox.Infrastructure.Utilities;
+using UnityEngine;
 using UnityModManagerNet;
 
 namespace ToyBox;
@@ -43,6 +45,7 @@ public static partial class Main {
             ModEntry.OnGUI = OnGUI;
             ModEntry.OnUpdate = OnUpdate;
             ModEntry.OnSaveGUI = OnSaveGUI;
+            modEntry.Info.DisplayName = modEntry.Info.DisplayName.Green().Bold();
 
             if (Settings.EnableFileIntegrityCheck && !IntegrityCheckerFeature.CheckFilesHealthy()) {
                 Critical("Failed Integrity Check. Files have issues!");
@@ -51,7 +54,7 @@ public static partial class Main {
                 return true;
             }
 
-            if (Settings.EnableVersionCompatibilityCheck) {
+            if (!IsInRestrictedMode && Settings.EnableVersionCompatibilityCheck) {
                 _ = Task.Run(() => {
                     var versionTimer = Stopwatch.StartNew();
                     VersionChecker.IsGameVersionSupported();
@@ -150,14 +153,22 @@ public static partial class Main {
                 }
                 Space(10);
 
-                var selected = m_VisibleFeatureTabs[Settings.SelectedTab];
-                if (UI.SelectionGrid(ref selected, m_VisibleFeatureTabs, Math.Min(m_VisibleFeatureTabs.Count, 6), tab => tab.Name, Width(EffectiveWindowWidth()))) {
-                    Settings.SelectedTab = m_VisibleFeatureTabs.IndexOf(selected);
+                if (IsInRestrictedMode) {
+                    UI.Label(m_ThisModWillAutomaticallyConntectLocalizedText.Green().Bold());
+                    Feature.GetInstance<VersionCompatabilityFeature>().OnGui();
+                    if (UI.Button(m_IUnderstandLocalizedText.Green().Bold())) {
+                        DisableRestrictedMode();
+                    }
+                } else {
+                    var selected = m_VisibleFeatureTabs[Settings.SelectedTab];
+                    if (UI.SelectionGrid(ref selected, m_VisibleFeatureTabs, Math.Min(m_VisibleFeatureTabs.Count, 6), tab => tab.Name, Width(EffectiveWindowWidth()))) {
+                        Settings.SelectedTab = m_VisibleFeatureTabs.IndexOf(selected);
+                    }
+                    Space(10);
+                    Div.DrawDiv();
+                    Space(10);
+                    selected.OnGui();
                 }
-                Space(10);
-                Div.DrawDiv();
-                Space(10);
-                selected.OnGui();
             } catch (Exception ex) {
                 Error(ex);
                 m_CaughtException = ex;
@@ -199,4 +210,8 @@ public static partial class Main {
 
     [LocalizedString("ToyBox_Main_SomethingWentHorriblyWrongAndYou", "Something went horribly wrong and you've somehow opened the UI before ToyBox finished initialization. Please report this to the mod author!")]
     private static partial string m_SomethingWentHorriblyWrongAndYou { get; }
+    [LocalizedString("ToyBox_Main_m_ThisModWillAutomaticallyConntectLocalizedText", "This mod will automatically conntect to the internet for various tasks. Here are the respective options (in the future found in the Settings tab).")]
+    private static partial string m_ThisModWillAutomaticallyConntectLocalizedText { get; }
+    [LocalizedString("ToyBox_Main_m_IUnderstandLocalizedText", "I understand")]
+    private static partial string m_IUnderstandLocalizedText { get; }
 }

@@ -319,12 +319,6 @@ public partial class BlueprintFilter<T> : IBlueprintFilter<T> where T : SimpleBl
         }
         return bps;
     }
-#warning SortDirection
-    public enum SortDirection {
-        Ascending = 1,
-        Descending = -1
-    };
-    private const SortDirection Direction = SortDirection.Ascending;
     public static readonly NaturalSortComparer Sorter = new(StringComparison.CurrentCultureIgnoreCase);
     private TimedCache<int>? m_CategoryWidth;
     public int GetCollationCategoryWidth() {

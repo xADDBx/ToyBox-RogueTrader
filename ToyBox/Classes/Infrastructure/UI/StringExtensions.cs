@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Text;
+using UnityEngine;
 
 namespace ToyBox.Infrastructure;
 
@@ -65,5 +66,20 @@ public static class StringExtensions {
 
     public static string SizePercent(this string s, int percent) {
         return $"<size={percent}%>{s}</size>";
+    }
+    public static string MakeRainbow(this string input, float offset = 0f) {
+        if (string.IsNullOrEmpty(input)) {
+            return input;
+        }
+
+        var sb = new StringBuilder();
+        var len = input.Length;
+        for (var i = 0; i < len; i++) {
+            var hue = ((float)i / Mathf.Max(1, len) + offset) % 1f;
+            var c = UnityEngine.Color.HSVToRGB(hue, 1, 1);
+            var hex = ColorUtility.ToHtmlStringRGB(c);
+            sb.AppendFormat("<color=#{0}>{1}</color>", hex, input[i]);
+        }
+        return sb.ToString();
     }
 }

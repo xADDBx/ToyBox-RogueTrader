@@ -14,7 +14,14 @@ public class GeneralSettings : AbstractJsonSettings {
             return m_Instance.Value;
         }
     }
-
+    public static bool IsInRestrictedMode {
+        get {
+            return !Settings.HasSeenFirstStartPageAlpha;
+        }
+    }
+    public static void DisableRestrictedMode() {
+        Settings.HasSeenFirstStartPageAlpha = true;
+    }
     protected override string Name {
         get {
             return "Settings.json";
@@ -23,6 +30,8 @@ public class GeneralSettings : AbstractJsonSettings {
 
     public int SelectedTab;
 
+    // Development
+    public bool HasSeenFirstStartPageAlpha = false;
 
     // Settings Tab
 

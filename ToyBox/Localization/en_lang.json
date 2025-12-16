@@ -2850,5 +2850,13 @@
   "ToyBox_Main_SomethingWentHorriblyWrongAndYou": {
     "Original": "Something went horribly wrong and you've somehow opened the UI before ToyBox finished initialization. Please report this to the mod author!",
     "Translated": null
+  },
+  "ToyBox_Main_m_ThisModWillAutomaticallyConntectLocalizedText": {
+    "Original": "This mod will automatically conntect to the internet for various tasks. Here are the respective options (in the future found in the Settings tab).",
+    "Translated": null
+  },
+  "ToyBox_Main_m_IUnderstandLocalizedText": {
+    "Original": "I understand",
+    "Translated": null
   }
 }
