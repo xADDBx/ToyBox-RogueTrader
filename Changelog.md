@@ -1,15 +1,109 @@
-### Toybox Wrath - Ver 1.7.13 (built for 2.6.0n)
+### Toybox Rogue - Ver 1.7.31 (built for 1.5.0.300)
+* (***ADDB***) Minor adjustments to love is free: Improved PcMale and PcFemale overrides; overriding only when necessary to get the romancy response.
+
+### Toybox Rogue - Ver 1.7.30 (built for 1.5.0.293)
+* (***ADDB***) Fix per-save settings loading too late, thereby breaking some features (e.g. Visual Size Multiplier)
+
+### Toybox Rogue - Ver 1.7.29 (built for 1.5.0.293)
+* (***ADDB***) Fix preview units not counting cheated base values for some special stats (e.g. Psy Rating)
+
+### Toybox Rogue - Ver 1.7.28 (built for 1.5.0.293)
+* (***ADDB***) Fix somewhat serious conflict when MicroPatches, ToyBox and other Owlmods that had BlueprintPatches were installed. Details:
+  * When all three mentioned components where installed, ToyBox threaded Blueprint Loading would have errors; causing significant issues down the line
+  * When BPIdCache is enabled; the first start after an update will always do a threaded blueprint load, causing ***people to be stuck at 42% or so in game startup*** for that first start (subsequent starts previously worked normally as long as nothing that loaded blueprints was used in ToyBox).
+
+### Toybox Rogue - Ver 1.7.27 (built for 1.5.0.293)
+* (***ADDB***) 1.5 Compat:
+  * The color fixup in 1.7.23 caused various issues in threads; those should be fixed (notably by Search 'n Pick working again)
+  * Fixed DisclosureToggle vertical text offset
+  * Fixed Party UI spacing issue on different ui scale
+* (***ADDB***) Prevent BPLoader from running too early if GUI is opened directly
+
+### Toybox Rogue - Ver 1.7.25 (built for 1.5.0.261)
+* (***ADDB***) Re-implement size change features under Party => Stats:
+  * View multiplier and size override can now both be applied at the same time (previously any size override would render view multiplier useless).
+  * Polymorphs (pretty much exclusively tied to cutscenes in this game) should no longer break/reset the size.
+
+### Toybox Rogue - Ver 1.7.24 (built for 1.5.0.261)
+* (***Ethyleye***) Updated Chinese localization
+* (***ADDB***) Fix oversized guid tooltip on items
+  
+### Toybox Rogue - Ver 1.7.23 (built for 1.5.0.261)
+* (***ADDB***) 1.5 Compat:
+  * A new way to calculate Skillcheck Experience was added; that's now covered under the existing multipliers again
+  * Remove "Make DLC1 theme play again in main menu" as there is a base game setting by now
+  * Fix TB AssetLoader (UnityEngine.ImageConversionModule targetting netstandard2.1 and using System.ReadOnlySpan`1 thereby causing a compile error)
+  * Fix sudden line wrapping issues caused by engine update
+  * Kinda fix color issues caused by engine update
+* (***ADDB***) Readd old Refill consumable feature since people complained about it being removed. I had new implementation; but the person who helped test it said there's an issue with it and then disappeared.
+
+### Toybox Rogue - Ver 1.7.22 (built for 1.4.1.231)
+* (***ADDB***) Prevent early cctor calls because of static Player fields by turning those into property getters
+
+### Toybox Rogue - Ver 1.7.21 (built for 1.4.1.231)
+* (***ADDB***) Change how Enemy Sliders were implemented: They should now take affect *after* existing modifiers are applied, meaning a x2 for hp should double hp. Thanks @Meagermantis1 for helping with testing.
+* (***ADDB***) Remove some unnecessary stats from enemy difficulty sliders
+* (***ADDB***) Fix Experience multiplier for some mobs and skill checks.
+* (***ADDB***) Proper Buff Rank handling
+* (***ADDB***) Remove "Refill consumables in belt slots if in inventory" as it is buggy. If anyone is actually using this reach out and we'll attempt to fix it.
+
+### Toybox Rogue - Ver 1.7.20 (built for 1.4.1.217)
+* (***ADDB***) Fix ToyBox breaking Owlmods in weird/random ways when it loads blueprints. (This is considered a major issue so previous versions will be marked as incompatible)
+
+### Toybox Rogue - Ver 1.7.19 (built for 1.4.1.208)
+* (***ADDB***) Fix issue with threaded loader
+* (***ADDB***) PatchTool: Allow dumping sprites
+* (***ADDB***) Catch more exceptions for BP GetTitle
+
+### Toybox Rogue - Ver 1.7.18 (built for 1.4.1.206)
+* (***ADDB / Microsoftenator***) Party => Mechadendrites Editor that allows adding/removing Mechadendrites?
+* (***ADDB***) Fix respec for units with pets
+* (***ADDB***) Refill Belt Consumables no longer works for enemies (???)
+* (***ADDB***) Enemy stat adjustments now allow fractional multipliers
+* (***ADDB***) Fix Version Checker
+* (***ADDB***) Fail more gracefully
+* (***ADDB***) "Don't use any AP during your turn" child feature is now automatically disabled when its parent is disabled.
+* (***bymck***) Partial Turkish Localization?
+
+### Toybox Rogue - Ver 1.7.17 (built for 1.4.0.185)
+* (***Deltharis***) Add new Arbitrator archetype to Bag of Tricks => Override Story Occupation
+* (***ADDB***) Fix Search 'n Pick issue where certain modded blueprints would have Element.GetCaption throw an uncaught exception.
+* (***ADDB***) PatchTool: Special case certain Unity Value types (e.g. Vector2) and allow instantiating them.
+
+### Toybox Rogue - Ver 1.7.16 (built for 1.4.0.185)
+* (***ADDB***) Probably fixed issue where ToyBox could cause a "Unable to change equipment in combat" warning.
+
+### Toybox Rogue - Ver 1.7.15 (built for 1.4.0.184)
+* (***ADDB***) Added Bag of Tricks => Quality of Life feature to play DLC1 main menu theme again.
+* (***ADDB***) DLC2 Fixes: Stuff related to the following things changed: some dialog features; stuff related to shields; Party Editor for pets
+* (***ADDB***) Allow adding flat and percent boosts to enemy stats (at the bottom of Bag of Tricks); e.g. Enemy Health Multiplier
+* (***ADDB***) Reset level now works in Party Tab
+* (***ADDB***) Fix Skip Splash Screen
+* (***ADDB***) Prevent log spam
+* (***ADDB***) PatchTool: Fix rare UI crash
+* (***ADDB***) PatchTool: Auto-Generate Components and Elements. ***Those need (unique) names or it could cause problems*** (e.g. in rare cases it can prevent saving). I still suggest creating your own name! This is merely a fix to stop some accidental issues
+* (***ADDB***) PatchTool: Now ignore whether the element type of an array or generic constraint is abstract or an interface; e.g. properly allowing instantiation of Condition[].
+* (***ADDB***) PatchTool: Now restrict new list elements to the type of the actual list object, not the field type. This could previously cause issues where the patch failed.
+* (***ADDB***) PatchTool: Introduced Dangerous Patches
+* (***ADDB***) PatchTool: Fixed some bugs related to Unity Objects
+* (***ADDB***) PatchTool: Apply Patches later so that it runs after most content mods.
+
+### ToyBox Rogue - Ver 1.7.13 built for Rogue Trader 1.3.1.11
+* (***ADDB***) PatchTool: List elements now properly show all their fields instead of only the fields of the list type
+* (***ADDB***) PatchTool: Properly track Element-types created via field Instantiation
 * (***ADDB***) PatchTool: Fix collections filled with null elements breaking ui
 * (***ADDB***) PatchTool: Catch error when target blueprint is missing (e.g. due to mod changes)
+* (***ADDB***) PatchTool: Support sbyte
+* (***ADDB***) Apply performance Transpilers only once. Whoopsie.
 
-### Toybox Wrath - Ver 1.7.12 (built for 2.6.0n)
+### ToyBox Rogue - Ver 1.7.12 built for Rogue Trader 1.3.1.11
 * (***ADDB***) PatchTool: Fix regression which broke enum patches
 * (***ADDB***) PatchTool: Properly deserialize nested operations with the custom converter
 
-### Toybox Wrath - Ver 1.7.11 (built for 2.6.0n)
+### ToyBox Rogue - Ver 1.7.11 built for Rogue Trader 1.3.1.11
 * (***ADDB***) PatchTool: Finish implementing patch versioning (I forgot)
 
-### Toybox Wrath - Ver 1.7.10 (built for 2.6.0n)
+### ToyBox Rogue - Ver 1.7.10 built for Rogue Trader 1.3.1.11
 * (***ADDB***) PatchTool: Make patch .json files better readable by serializing enums as strings and adding a No-Op when enums are unused.
 * (***ADDB***) PatchTool: Show failed patches in the list as actually failed.
 * (***ADDB***) PatchTool: Various Patcher optimizations, which very vastly improved initial load time for patches.
@@ -18,221 +112,260 @@
 * (***ADDB***) PatchTool: Prevent internal ToString exception from crashing the UI.
 * (***ADDB***) Prevent CompanionInParty.CheckCondition patch from causing exceptions on game load by no longer getting companion state of disposed units
 
-### Toybox Wrath - Ver 1.7.9 (built for 2.6.0n)
+### ToyBox Rogue - Ver 1.7.9 built for Rogue Trader 1.3.1.6
+* (***ADDB***) Fix Dice Rolls Cheats (e.g. "Always Roll 1") using the wrong unit as initiator for the damage negation roll from the "The Emperor Protects" feature. E.g. this could result in enemies being invincible if "Always Roll 1" is activated for the Party.
+* (***ADDB***) Fix "Ignore Talent Prerequisites", "Ignore Required Stat Values" and "Ignore Required Class Levels" not working for inverted checks. *Note: Unconfirmed since nobody was available for testing*
 * (***ADDB***) Fix localization removing Add/Remove buttons from Party Editor Browsers.
-* (***ADDB***) Patch Tool: Changed DeepCopy behaviour to prevent even more possible CrashToDesktop when patching certain blueprints. This should not affect existing or future patches in their functionality. If you notice an issue please reach out.
-
-### Toybox Wrath - Ver 1.7.8 (built for 2.6.0n)
-* (***ADDB***) Patch Tool: Changed DeepCopy behaviour to prevent possible CrashToDesktop when patching certain blueprints. This should not affect existing or future patches in their functionality. If you notice an issue please reach out.
-
-### Toybox Wrath - Ver 1.7.7 (built for 2.6.0n)
-* (***CascadingDragon***) Add Locust Begone
-* (***ADDB***) Fix Icky Stuff Begone not working and potentially breaking quests (o.O) --> *Previous versions will be marked as incompatible to encourage updates*
-* (***ADDB***) Icky Stuff Begone should now replace portraits too?
-* (***CascadingDragon***) Add toggle to stop locks from jamming (Bag of Tricks tab, Cheats subsection)
-* (***CascadingDragon***) Add toggle to output a divider line in the combat log at the start of every round (Bag of Tricks tab, Quality of Life subsection)
-* (***ADDB***) Add Slider to Enhanced Camera to (persistently) offset the Camera Elevation by a specified value
+* (***ADDB***) Patch Tool: Remove NameSpace from generic types, making list types a lot more readable
+* (***ADDB***) Patch Tool: Implement being able to null/delete field values (hidden by default)
 * (***ADDB***) Patch Tool: Implement being able to create field values (hidden by default)
 * (***ADDB***) Patch Tool: Add toggle to keep fields open after changing a value
 * (***ADDB***) Patch Tool: Rewrite UI to be path based --> Allow patching struct types
-* (***ADDB***) Patch Tool: Implement being able to null/delete field values (hidden by default)
-* (***ADDB***) Patch Tool: Remove NameSpace from generic types, making list types a lot more readable
+* (***ADDB***) Patch Tool: Fix patching some Blueprints causing CTDs
+* (***ADDB***) Patch Tool: Fix patching some other Blueprints causing CTDs
+* (***ADDB***) Patch Tool: Fix adding new elements to Collections of references breaking things
+* (***ADDB***) Add Slider to Enhanced Camera to (persistently) offset the Camera Elevation by a specified value
 
-### Toybox Wrath - Ver 1.7.5 (built for 2.6.0n)
+### ToyBox Rogue - Ver 1.7.8 built for Rogue Trader 1.3.0.57
 * (***ADDB***) Fix somewhat critical error in PatchTool which would DeepCopy Blueprints, messing up cached references (noticeable e.g. when Proficiency Requirements aren't satisfied after patching something until the game is restarted once).
 * (***ADDB***) No longer ignore delegates when Deep Copying => Fix e.g. Abilities disappearing from Weapons after patching them until restarting the game.
 * (***ADDB***) Prevent possible issue with Patch Tool?.
 * (***ADDB***) Fixed Patch Tool not being able to manually remove the last patch operation in the Patch Manager.
 * (***ADDB***) BPId Cache now Caches Items, Weapons and Armors (mostly noticeable in that the BlueprintPicker in PatchTool now has those as categories).
 
-### Toybox Wrath - Ver 1.7.4 (built for 2.6.0n)
+### ToyBox Rogue - Ver 1.7.7 built for Rogue Trader 1.3.0.57
+* (***Di-Crash***) Add "Skeleton replacer" to Party => Stats
+  * This feature allows tweaking the characters experience in a way.
+  * Using different sliders, you can e.g. modify your characters height and/or proportions, offsets etc.
+  * It's a little more involved, but offers quite a bit of freedom.
+* (***jonHinkerton***) Add Button (allows binding to hotkey) to open faction trade vendor window from anywhere.
+* (***ADDB***) Add "Show hidden loot in Checklist" to the Loot Tab. The checklist doesn't show loot which wasn't seen yet.
+* (***Di-Crash***) Minor UI adjustments in Party => Stats.
 * (***ADDB***) Patch Tool fixes:
   * Fix Patch Tool for types implementing IList<T>
-  * Fix Patch Tool BlueprintReferences
   * Fix Patch Tool possible stack overflow in DeepCopy
 
-### Toybox Wrath - Ver 1.7.3 (built for 2.5.0aa)
+### ToyBox Rogue - Ver 1.7.6 built for Rogue Trader 1.2.1.26
 * (***ADDB***) Fix Patch Tool not being able to modify top level primitives.
 * (***ADDB***) Improve Patch Tool UI (now highlighting currently selected row).
 
-### Toybox Wrath - Ver 1.7.2 (built for 2.5.0aa)
+### ToyBox Rogue - Ver 1.7.5 built for Rogue Trader 1.2.1.26
 * (***ADDB***) Fixed major issue in the Patch Tool system (fields in a collection could cause the patch to fail with a System.ArgumentException).
 * (***ADDB***) List elements now have their exact type shown.
 
-### Toybox Wrath - Ver 1.7.1 (built for 2.5.0aa)
+### ToyBox Rogue - Ver 1.7.4 built for Rogue Trader 1.2.1.26
 * (***ADDB***) Fix NRE in Patch Tool (Fix Deep Copy throwing when Object.GetHashCode throws).
 
-### Toybox Wrath - Ver 1.7.0 (built for 2.5.0aa)
-* (***ADDB***) Backported Patch Tool from RogueTrader ToyBox.
-* (***Hambeard***) Added option for Name Overtips to be hidden during Highlight Toggle mode.
-* (***CascadingDragon***) Add toggle for auto-skipping skippable cutscenes
-* (***ADDB***) Reinstall on checksum failure now reinstalls current version.
-* (***ADDB***) Fix Skill Point Cap (or rather made Barley remove the issue from RespecWrath and rewrote the).
-* (***ADDB***) Allow increasing "sel lvl" up to 40.
+### ToyBox Rogue - Ver 1.7.3 built for Rogue Trader 1.2.1.26
 * (***ADDB***) Add LoadPreset BP Action for BlueprintAreaPresets.
+* (***ADDB***) Patch Tool:
+  * Creating a new Element or Component now automatically assigns the Owner Blueprint.
+  * Fix null strings crashing UI.
+  * Fix UI Clipboard Label inverted Logic.
+* (***ADDB***) Prevent certain exceptions in Search 'n Pick with modded BPs
 
-### Toybox Wrath - Ver 1.6.10 (built for 2.4.1i)
+### ToyBox Rogue - Ver 1.7.1 built for Rogue Trader 1.2.1.26
+* (***ADDB***) Various Patch Tool UI fixes
+
+### ToyBox Rogue - Ver 1.7.0 built for Rogue Trader 1.2.1.26
+* (***ADDB***) Finished Patch Tool:
+  * Patch tool blueprint picker and blueprint references support.
+  * Reworked UI some more
+  * Allow filtering shown fields
+  * Allow removing the last PatchOperation in a patch (to undo a change)
+* (***ADDB***) Reimplemented Allow Equipment Change During Combat. That one was more complicated to fix than I expected...
+* (***ADDB***) Hide Loot Coloring Options since we don't actually have a heuristic to determine how valuable an object is.
+
+### ToyBox Rogue - Ver 1.6.12 built for Rogue Trader 1.2.1.19
+* (***ADDB***) Rewrite the Psychic Phenomena customizer since it seems like it might've caused crashes for some people.
+* (***ADDB***) Patch tool stuff:
+  * UI improvement (spaces should now be more consistent)
+  * Collection support (it is now possible to add and remove items to collections)
+  * Flag enum support
+  * Multiple tab support
+  * UI to manage existing patches
+  * Fix some patch tool bugs
+
+### ToyBox Rogue - Ver 1.6.11 (DEBUG) built for Rogue Trader 1.2.1.19
+* (***ADDB***) Initial Blueprint Patcher Impl.
+* (***ADDB***) Reinstall on checksum failure now reinstalls current version.
+* (***ADDB***) Fix very rare issue with Browser.
+
+### ToyBox Rogue - Ver 1.6.10 built for Rogue Trader 1.2.1.19
 * (***ADDB***) Added check for corrupted mod files.
 * (***ADDB***) Added notice gui when the mod is opened for the first time.
 * (***ADDB***) Changed auto-update to make it less error-prone.
 
-### Toybox Wrath - Ver 1.6.9 (built for 2.4.1i)
+### ToyBox Rogue - Ver 1.6.9 built for Rogue Trader 1.2.1.19
+* (***ADDB***) Fixed an issue where game files included faulty elements, which could potentially affect some answers not being shown is Dialog Preview was enabled. (Nobody confirmed any missing answers but I'll rate this as critical anyways).
+
+### ToyBox Rogue - Ver 1.6.8 built for Rogue Trader 1.2.1.17
+* (***ADDB***) After getting another report about "A Card Inverted", it seems like Remote Companion Dialog had an issue about units who had yet to spawn, sometimes preventing dialog options to appear. This should be fixed now.
 * (***ADDB***) Implement auto-update for incompatible outdated versions (enabled by default).
 * (***ADDB***) Implement always auto-update (tries to keep you on the latest version) (disabled by default).
-* (***ADDB***) Remove UMM Logger patch (finally no more issue for Doorstop?).
-  
-### Toybox Wrath - Ver 1.6.8 (built for 2.4.1i)
-* (***ADDB***) Probably fix Ignore Equipment Restrictions.
-* (***CascadingDragon***) Tixed Fypo.
 
-### Toybox Wrath - Ver 1.6.7 (built for 2.4.1i)
-* (***ADDB***) Probably finally fix the issue where using UnityModManager with Doorstop would cause a crash for some users.
+### ToyBox Rogue - Ver 1.6.7 built for Rogue Trader 1.2.1.17
+* (***ADDB***) Recompile for new version.
+* (***ADDB***) Change the mod display name if the mod is forcibly turned off.
 
-### Toybox Wrath - Ver 1.6.6 (built for 2.4.0x)
-* (***ADDB***) Make Time Scale feature apply on game launch instead of needing to open GUI.
-* (***ADDB***) Band-Aid fix for disappearing ability bars. This should be fixed for now. Someone should probably still look into addressing the issues of the refill belt consumeables feature.
-* *Note:* A lot of code was refactored for this release. If anything seems off (e.g. colors not working; GUI seeming different) please report that!
+### ToyBox Rogue - Ver 1.6.6 built for Rogue Trader 1.2.1.12
+* (***ADDB***) Fixed dialog preview for ConditionHaveFullCargo and ContextConditionHasItem.
 
-### Toybox Wrath - Ver 1.6.5 (built for 2.4.0x)
-* (***ADDB***) In v1.5.26 (late July '24), I had buffs that were class features or hidden in ui excluded from Buff Multiplier. I did this because they were hidden in the BuffExclusionEditor, so I assumed they didn't need to be multiplied. Since I had people report this to me as a bug, I instead reversed this and now made those buffs visible in the BuffExclusionEditor instead.
+### ToyBox Rogue - Ver 1.6.5 built for Rogue Trader 1.2.1.12
+* (***ADDB***) It seems that previous versions of ToyBox broke the "A Card Inverted" quest. It took me a while to figure out because nobody really reported the issue directly, but this should be fixed now.
 
-### Toybox Wrath - Ver 1.6.4 (built for 2.4.0x)
-* (***ADDB***) Add Micros new Static Harmony Patch Analyzer; Adjusted some patches based on that
-* (***CascadingDragon***) Attempt to fix disappearing ability bars (if you have this issue; feel free to reach out to us).
-* *Note: it seems some people still have the UnityModManager breaking issue. If you have that, we'd appreciate you contacting us about this in the Modding Channels of the Owlcat Discord.*
-  
-### Toybox Wrath - Ver 1.6.3 (built for 2.4.0x)
-* (***ADDB***) Maybe Fix ToyBox breaking UnityModManager for some players using the default Doorstop injection type.
-  
-### Toybox Wrath - Ver 1.6.2 (built for 2.3.3k)
-* (***ADDB***) Fix regression where Show All for Crusade General Skills didn't work.
+### ToyBox Rogue - Ver 1.6.4 built for Rogue Trader 1.2.1.12
+* (***ADDB***) Thanks to someone sending me a save; Actually fix the No Jealousy option for Kibella.
 
-### Toybox Wrath - Ver 1.6.1 (built for 2.3.3k)
-* (***ADDB***) Fix regression where Search 'n Pick could cause an InvalidCastException.
+### ToyBox Rogue - Ver 1.6.3 built for Rogue Trader 1.2.1.12
+* (***ADDB***) Tried to fix: No Jealousy option doesn't work for Kibella when *exactly* one other character is romanced.
 
-### Toybox Wrath - Ver 1.6.0 (built for 2.3.3k)
-* (***ADDB***) Optimized Collating and Copying phase.
-* (***ADDB / Microsoftenator***) Did various performance optimization to improve Blueprint Loading speed. This has been sped up by ***a lot***.
-* (***CascadingDragon***) Add toggles for disabling dialog restrictions based on Race.
-* (***String / CascadingDragon***) Add option to add a tag to the end of descriptions, indicating a feat/spell/ability is added by a mod or editted by a mod (Settings tab)
-* (***ADDB***) Windows other than Search 'n Pick will now only load the Blueprints they need after the first game start.
-* (***ADDB***) Various options regarding the above mentioned optimizations have been added to ToyBox => Settings.
-* (***ADDB***) Maybe fix Gestalt Level 0 Bug.
-* (***gabfou***) Add an option too copy and paste a unit.
-* To get a more detailled understanding, read the patchnotes of the last few patch versions (1.5.35 through 1.5.43). Thanks for everyone who helped (by contributing themselves, reporting bugs or running benchmarks)!
+### ToyBox Rogue - Ver 1.6.2 built for Rogue Trader 1.2.1.7
+* (***ADDB***) Fix BPs not loading in various menus.
+ 
+### ToyBox Rogue - Ver 1.6.1 built for Rogue Trader 1.2.1.7
+* (***ADDB***) Fix max walk distance/Min sprint distance multipliers.
 
-### ToyBox Wrath - Ver 1.5.43 (built for 2.3.3k)
-* (***CascadingDragon***) Add toggles for disabling dialog restrictions based on Race.
-* (***CascadingDragon***) Possible fix for the modded blueprint tagger.
-* 
-### Toybox Wrath - Ver 1.5.42 (built for 2.3.3k)
+### ToyBox Rogue - Ver 1.6.0 built for Rogue Trader 1.2.1.7
+* (***ADDB***) Fix for new version.
+* (***ADDB***) Implement Ignore Career Prerequisites better.
+* (***ADDB***) It is now possible to override origin for dialog purposes, making it possible to role play as a different (or multiple different) origins compared to what was chosen at character creation (Bag of Tricks => Dialog).
+* (***ADDB***) Something something static Harmony Patch Analyzer => Fixes; Initiative Rolls Cheats never worked???
 * (***ADDB***) Skip "Copying..." phase when no search query is used.
+* (***ADDB***) Fix the issue that Party tab browsers were flickering with Show All activated.
+* (***ADDB***) Something something Browser more resistent to malformed Blueprints?
 * (***ADDB***) Optimize "Collating..." phase. A lot. Like, really a lot.
 * (***ADDB***) Even more BP Loader optimizations. Ugh. (In relation to that added ToyBox => Settings => "Blueprint Loader Amount of Shards").
-* (***ADDB***) Something something Browser more resistent to malformed Blueprints?
 * (***ADDB***) Fixed blueprints sometimes loading twice in Search 'n Pick
 * (***ADDB / Microsoftenator***) Optimized Blueprint Loading times even more by improving Owlcat ReflectionBasedSerializer. (Probably ~25% to 50% on top of the previous reduction).
 * (***ADDB / Microsoftenator***) Fixed issue where the new BlueprintLoader could randomly blow up.
-* (***ADDB***) ***Experimental*** implemented partial loading. This means, if you aren't looking at Search 'n Pick, other tabs don't need to load every Blueprint. This massively reduces load times after the game was loaded the first time. (Certain tabs load more than 10 times faster).
-* (***ADDB***) ***Experimental*** threaded Blueprint Loading. When ToyBox needs to load blueprints it should now work faster. (Reduction of all Blueprint loading times of around ~25% to 50%).
-* (***ADDB***) ***Experimental*** Maybe fix Gestalt Level 0 Bug.
-* (***ADDB***) Fix the issue that Party tab browsers were flickering with Show All activated.
-* (***String / CascadingDragon***) Add option to add a tag to the end of descriptions, indicating a feat/spell/ability is added by a mod or editted by a mod (Settings tab)
-* (***ADDB***) Added Collation Error Handling.
+* (***ADDB***) Implemented partial loading. This means, if you aren't looking at Search 'n Pick, other tabs don't need to load every Blueprint. This massively reduces load times after the game was loaded the first time. (Certain tabs load more than 10 times faster).
+* (***ADDB***) Threaded Blueprint Loading. When ToyBox needs to load blueprints it should now work faster. (Reduction of all Blueprint loading times of around ~25% to 50%).
 * (***ADDB***) Added options to use BPIdCache and Automatically build said cache (by forcing a preload) in ToyBox => Settings.
-* (***ADDB***) Added option to enable blueprint preloading in ToyBox => Settings.
+* (***ADDB***) Added option to enable blueprint preloading in Settings.
 * (***ADDB***) Added options to change Blueprint Loading thread amount and chunk size in ToyBox => Settings.
 
-### Toybox Wrath - Ver 1.5.34 (built for 2.3.3k)
-* (***ADDB***) Description of some Crusade Events was not shown by default because of a missing Guard Clause. I also rewrote some faulty preview code; hopefully I didn't break any of the relic/decree result thingy.
-
-### Toybox Wrath - Ver 1.5.31 (built for 2.3.3k)
-* (***ADDB***) Fix some stuff being null during class picking/character creation. This mainly shows in that picking multiple archetypes is less buggy.
-
-### Toybox Wrath - Ver 1.5.30 (built for 2.3.3k)
-* (***AlterAsc***) Fix Multiple Archetypes making Archetypes that replace class prerequisites (for example Drunken Master) unpickeable while active.
-* (***AlterAsc***) Actually fix Heavenly Host and other related issues (sometimes related to missing animations?).
-* (***ADDB***) Fixed Gestalt not applying flags when counting level on *the first loaded save after game start*. Among other things, this caused issues like "Double Con Bonus" (oldest currently open ToyBox issue). Since I touched Gestalt code I might've unintentionally broken something; if that is the case please do report that.
-
-### Toybox Wrath - Ver 1.5.29 (built for 2.3.3k)
-* (***ADDB***) Fixed an issue in MiscTweaks where it tried to access Game.Instance.Player in a static constructor for assignment by replacing field with property (getter).
-
-### Toybox Wrath - Ver 1.5.28 (built for 2.3.3k)
-* (***CascadingDragon***) Added toggles for restoring just spells after combat, and just abilities after combat (In the Bag of Tricks  tab)
- 
-### Toybox Wrath - Ver 1.5.27 (built for 2.3.3k)
-* (***CascadingDragon***) Added toggle for Recharging Items After Combat (In the Bag of Tricks tab)
-
-### Toybox Wrath - Ver 1.5.26 (built for 2.3.3k)
-* (***ADDB***) Added Bag of Tricks => QoL => Skip Splash Screen (this is basically the mod I released a while ago built into ToyBox).
-* (***ADDB***) Always exclude HiddenInUI and IsClassFeature buffs from the buff multiplier (those are hidden from the Exclusion editor; so they should not be multiplied either).
-* (***ADDB***) Dice Rolls Changes (Advantage/Disadvantage now applies after never/atleast changes).
-* (***ADDB***) When NeverRoll1 and 20 are both active, rolling a 20 and then a reroll in the 1 (effectively bypassing NeverRoll1) is now no longer possible.
+### ToyBox Rogue - Ver 1.5.21 built for Rogue Trader 1.2.0.30
+* (***ADDB***) Fix Preview Dialog option disabling dialog hotkeys. (I did some refactoring for that method; if it somehow doesn't work anymore please report).
+* (***ADDB***) Added option to customize Perils of the Warp under Bag of Tricks => Rogue Cheats => "Tweaks" => "Customize Psychic Phenomena/Perils of the Warp" (pretty buch at the bottom of Rogue Cheats) (***Experimental***; it should'nt break anything but I don't know if it will work as expected; Feedback would be appreciated).
   
-### Toybox Wrath - Ver 1.5.24 (built for 2.3.2c)
-* (***Barley***) Add new feature, Toggle Feature Recommendations. This will turn off the thumbs up/down in the Feature Selections on Level Up (Toggle found in Level Up tab, under Ignore Feature Restrictions)
+### ToyBox Rogue - Ver 1.5.20 built for Rogue Trader 1.2.0.30
+* (***ADDB***) Added Bag of Tricks => QoL => Skip Splash Screen (this is basically the mod I released a while ago built into ToyBox).
+* (***ADDB***) Dice Rolls Changes (Advantage/Disadvantage now applies after never/atleast changes).
+* (***ADDB***) When NeverRoll1 and 100 are both active, rolling a 20 and then a reroll in the 1 (effectively bypassing NeverRoll1) is now no longer possible.
 
-### ToyBox Wrath - Ver 1.5.23 (built for 2.3.2c)
-* (***CascadingDragon***) Fix Ignore Feature Prerequisites When Choosing Class (now it now longer allows taking feats you shouldn't be able too).
+### ToyBox Rogue - Ver 1.5.18 built for Rogue Trader 1.2.0.28
+* (***ADDB***) Added options to start respec from before second archetype and before third archetype (Level up from 15, level up from 35).
 
-### ToyBox Wrath - Ver 1.5.22 (built for 2.3.2c)
-* (***ADDB***) Add feature under Party => Stats to turn on/off AI control of specific characters.
-* (***CascadingDragon***) Fix Roll 10 Initiative.
+### ToyBox Rogue - Ver 1.5.17 built for Rogue Trader 1.2.0.28
+* (***ADDB***) Unlimited Stacking of Modifiers no longer applies to enemies.
+* (***ADDB***) Added Level Up => Ignore Archetypes Prerequisites. It's buggy. It allows picking e.g. Warrior => Master Tactician. This does not allow picking 2 archetypes from the same level or skipping one.
+* (***ADDB***) Renamed "Walk (no run) Range" to "Max walk distance". Also changed the implementation; it should now also work when trying to interact with something.
+* (***ADDB***) Added Bag of Ticks => Other Multipliers => Min sprint distance.
 
-### ToyBox Wrath - Ver 1.5.21 (built for 2.3.2c)
+### ToyBox Rogue - Ver 1.5.16 built for Rogue Trader 1.2.0.25
+* (***ADDB***) Added Bag of Tricks => Other Multipliers => Walk (no run) Range; Adjusts how far of your character you can click and still cause your character to walk instead of run.
+ 
+### ToyBox Rogue - Ver 1.5.15 built for Rogue Trader 1.2.0.25
+* (***ADDB***) Release for new version.
 * (***ADDB***) Add incompatibility checker! From now on ToyBox will send a web request to check whether the current mod version has known incompatibilities with the current game version. This is done for cases where the mod still loads after updates, but causes issues in the background (i.e. enemies only having 1 HP). If it detects incompatibilities it will stop loading.
 
-### ToyBox Wrath - Ver 1.5.20 (built for 2.3.2c)
-* (***ADDB***) Maybe Party tab shows more features now? (Especially Parameterized stuff and such?).
-* (***CascadingDragon***) Fix Merging Manually Added Mythic Spell Books.
-
-### ToyBox Wrath - Ver 1.5.19 (built for 2.3.2c)
-* (***ADDB***) Maybe Fixed Remote Companions Dialog causing companions to talk about other companions you might've never even joined you.
-* (***ADDB***) My Magus changes broke some abilities (like Charge) if the feature is enabled. This should be fixed now.
-
-### ToyBox Wrath - Ver 1.5.18 (built for 2.3.1e)
-* (***ADDB***) Fix the Magus: Allow Spell Combat for dual wielding.
-* (***ADDB***) Maybe added setting to forcefully disable all tutorials.
-* (***ADDB***) Fix MysticalMayhem breaking Search 'n Pick. Is this mod even working correctly currently?.
-* (***Delth***) Add toggle to remove read-onlyness from etudes. 
-
-### ToyBox Wrath - Ver 1.5.15 (built for 2.3.1e)
-* (***ADDB***) Simply recompile for new version.
-
-### ToyBox Wrath - Ver 1.5.14 (built for 2.3.0bb)
-* (***ADDB***) Fixed Ignore Alignment When Choosing A Class not working for some classes (e.g. Bloodseeker).
-* (***ADDB***) Fixed Outdated Repository Link.
-* (***ADDB***) Fixed Ignore Alignment When Choosing A Class somehow breaking alignment window (Owlcat Logger is null? Why?).
-* (***ADDB***) Port to .NET Framework v4.8.1 (should make no difference to users; should improve compatability with other mods if necessary) ***This will increase minimum UMM version to a pretty recent version (at the same time it will prevent possible bugs because of UMM version being too recent)***.
-
-### ToyBox Wrath - Ver 1.5.13 (built for 2.3.0bb)
-* (***ADDB***) ***Important for users of Jealousy Begone!*** In BagOfTricks => Dialog, added an option to pick your romance for the end of DLC6.
-* (***ADDB***) It is now possible to use the Spellbook Editor to change the Level of Spells (This allows fusing with Cantrip spells, i.e. raise Cantrip level to 1 and then fuse).
-* (***ADDB***) It is now possible to show special spells (Metamagic, Fused Spells) in Spellbooks.
-* (***ADDB***) Ignore Dialog Mythic Restrictions should now show more available Mythic Answers?.
-* (***ADDB***) Ignore Dialog Mythic Restrictions should now show ***even more*** available Mythic Answers. How has this feature even worked before?.
+### ToyBox Rogue - Ver 1.5.14 built for Rogue Trader 1.1.67
+* (***ClaireDeVolta***) Add Russian Localization.
+ 
+### ToyBox Rogue - Ver 1.5.13a built for Rogue Trader 1.1.67
 * (***ADDB***) Added an option to disable Voice Over via Party => Stats.
 * (***ADDB***) Improve Party GUI tabs sometimes not clickeable (especially in Nearby configuration).
-* (***ADDB***) DLC Version compatability.
-* (***ADDB***) Backported alternate glyphs from RT ToyBox.
-* (***ADDB***) Removed Log Spam.
-* (***ADDB***) Added AssetGUID to Search Key.
 * (***ADDB***) Support adding new Blueprints even after ToyBox finished loading.
-* (***ADDB***) Saves Tab can now handle null Player Name without crashing (Admittedly that's a non issue for most people).
-* (***ADDB***) Updated localization keys in case someone actually wants to localize the mod.
 
-### ToyBox Wrath - Ver 1.5.10a (built for 2.2.4p)
-* (***evandixon***) Fix unusable map screen on console view (e.g. PC Controller User & Steam Deck).
-* (***ADDB***) Probably fixed Skill Point cap.
-* (***ADDB***) Equipment no Weight now works for single Units too (and not just for the whole party).
-* (***ADDB***) Fixed issue where game is stuck when camping and auto-succeeding skill checks with ToyBox.
+### ToyBox Rogue - Ver 1.5.12 built for Rogue Trader 1.1.67
+* (***ADDB***) Readded ArcaneTrixter's loading with Blueprint Errors (Why was it ever removed? Who knows.).
+* (***ADDB***) Fixed mod for new game version.
 
-### ToyBox Wrath - Ver 1.5.9 (built for 2.2.3c)
-* (***ADDB***) Fixed Search 'n Pick - missing key update if collation happens too fast.
-* (***ADDB***) Recompiled against new binaries.
-* (***ADDB***) Temporarily change repository link to my Fork until Narria's one is active again.
+### ToyBox Rogue - Ver 1.5.11 built for Rogue Trader 1.1.52
+* (***ADDB***) It's now possible to change the Ranks of Stat Advancements; meaning you can now modify your character creation Stats by using Party => Features.
 
-### ToyBox Wrath - Ver 1.5.8 (built for 2.2.0as)
+### ToyBox Rogue - Ver 1.5.10d built for Rogue Trader 1.1.28
+* (***ADDB***) Added Size Change to Party => Stats (this allows changing grid size of companions; < Large = 1x1; Large = 2x2; Huge = 3x3; Gargantum = 4x4). After saving + reloading the Character Model size will change automatically depending on the new size.
+* (***ADDB***) Fixes for new version (mostly fixing respec).
+* (***ADDB***) Added improved glyph support detection. If you're symbols used to be nice but are now weird then please report that!
+* (***ADDB***) Reworked Ascii Glyphs (for systems where default glyphs aren't supported).
+* (***ADDB***) Ported to SDK style project; Code Cleanup; etc. All in all this should not influence usage experience but should make developing and building for other people easier.
+
+### ToyBox Rogue - Ver 1.5.10a built for Rogue Trader 1.0.102
+* (***ADDB***) Removed experimental invisibility fix because it didn't work?
+* (***ADDB***) Removed some stuff related to Outfits which wasn't really finished.
+* (***ADDB***) Search 'n Pick now allows colonizing planets (this is pretty experimental; feel free to provide feedback). **You need to be in the respective Star System on the Star System Map to Colonize a planet**.
+
+### ToyBox Rogue - Ver 1.5.10 built for Rogue Trader 1.0.98
+* (***ADDB***) One of my previous changes broke Visual size multiplier; fixed that.
+* (***ADDB***) (Maybe) readded changing Ranks of features which support that.
+* (***Deltharis***) Reversing Advantage/Disadvantage for RT.
+* (***Deltharis***) Added ship options for roll cheats.
+* (***Deltharis***) Modified the infinite action stuff. An option to allow multiple attacks should now exist.
+* (***ADDB***) Fix Achievements tab?
+* (***ADDB***) Addressed a caching issue which made Achievements tab behave weirdly when loading another save.
+* (***ADDB***) Fix BlueprintVoiceEditor crashing mod when editing Unit without an existing voice.
+* (***ADDB***) Fixed Remote Companion Dialog somehow causing the game to assume that a companion was turned into an ExCompanion.
+* (***ADDB***) Maybe fix units teleporting during dialog?
+* (***ADDB***) Fix Show Interestingness Coefficient feature sometimes crashing the mod.
+* (***ADDB***) It is now possible to use the Party => Stats window to let AI take control of Companions during fights.
+* (***ADDB***) To prevent collisions this update introduced some changes which will reset existing VisualSizeMultiplier options. Until now those have been based on Character Name. They are now based on Character Unique Id.
+* (***ADDB***) Added experimental fix for recruited characters being invisible when changing Areas. **You need to manually activate this with the toggle located in the Party Tab.**
+* (***ADDB***) Development mode now allows cheat-only commands.
+* (***ADDB***) Fixed some recruited units being controlled by AI instead of the player.
+* (***ADDB***) Probably finally fixed Highlight Hidden Objects...
+* (***ADDB***) Fix (keep) highlighting wrong objects.
+* (***ADDB***) Maybe fix Remote Companion Dialog including Companions before recruiting them.
+* (***ADDB***) Readd unstart Etude.
+* (***ADDB***) Made Achievement Enabler opt-out by default. (If you are updating the mod then this changes nothing for you).
+* (***ADDB***) Remove more log spam.
+* (***ADDB***) Fixed broken Custom Portrait Editor.
+* (***ADDB***) Fixed some stuff staying highlighted when activating highlight hidden objects.
+* (***ADDB***) Infinite Actions now no longer works for enemies.
+* (***ADDB***) Added new option to really don't use AP (even for attacks and stuff).
+* (***ADDB***) Fixed Search 'n Pick gets stuck on collation in Progression Category.
+* (***ADDB***) Added option to pick character filter in Search 'n Pick window.
+* (***ADDB***) Did some work at Camera Tweaks in Enhanced UI; soem stuff works now; some not.
+* (***ADDB***) Added option to change/freeze Veil Thickness.
+* (***ADDB***) Maybe Removed Buff Multiplier error.
+
+### ToyBox Rogue - Ver 1.5.9 built for Rogue Trader 1.0.68
+* (***ADDB***) Fixed Remote Companion Dialog not showing dialog for... remote companions.
+* (***ADDB***) Fixed respecced from 0 for Cassia.
+* (***ADDB***) Added cheat to disable psychic phenomena.
+* (***ADDB***) Added option to dump/extract built-in portraits.
+* (***ADDB***) Fix Jealousy Begone (someone reached the part of the game where the jealous dialog can be triggered and noticed it still triggered; with that save I was able to fix it).
+* (***ADDB***) Fix Highlight Objects not revealing everything when the corresponding options are enaabled.
+* (***ADDB***) Add Voice to StatEditor.
+* (***ADDB***) Leveling up respecced from 0 companions now displays the picked/unpicked feats correctly.
+* (***ADDB***) Maybe fix some broken dice tweaks that broke while trying to fix some broken dice tweaks?
+* (***ADDB***) I accidentally broke Search 'n Pick in one of the last patches I think.
+* (***ADDB***) Add QoL option to disable end turn keybind.
+* (***ADDB***) KillAll could fail in some fights which crashed the mod (Invalid Cast Exception); that's fixed.
+* (***ADDB***) Since someonee requested it; changed PCMale and PCFemale overrides (Love is Free) to now also work for stuff that isn't explicitly a romance dialog (e.g. during private companion dialogs).
+* (***ADDB***) Disabled Expand Answers For Conditional Responses because it was actually broken and I don't have time to look at that whole system.
+* (***ADDB***) Added workaround for people who use Ignore Talent Perquisite in Character Creation.
+* (***ADDB***) Maybe fix some broken dice tweaks?
+* (***ADDB***) Added Show Risky Toggles option which hides a Show All Dialog Answers (Ignore Everything) options.
+* (***ADDB***) Removed log spam because of missing Etude Comment Translation
+* (***ADDB***) The Level Up preview no longer displays wrong numbers when doing a level up.
+* (***ADDB***) Rewrote object highlight system because people don't turn it off before combat.
+* (***ADDB***) Experimental Fix for issue where leaving a unit from another region selected in Search 'n Pick would crash the mod because that unit was already disposed.
+* (***ADDB***) Fix Stats Editor for Abelard (and any other companion with missing base soul marks).
+### ToyBox Rogue - Ver 1.5.8a built for Rogue Trader 1.0.62
+* (***ADDB***) Allow Respec From Zero for Companions and RT. See Level Up Category.
+* (***ADDB***) Fixed weird behaviour when changing stats using the Textfield.
+* (***ADDB***) Fixed Search 'n Pick - missing key update if collation happens too fast
+* (***ADDB***) Remove ~250 unimplemented settings (and UI Labels/Toggles in relation to them)
+* (***ADDB***) Maybe fix experience multiplier
+* (***ADDB***) Maybe fix BuffDuration multiplier
+* (***ADDB***) Remove Continue Audio on Lost Focus since the game natively supports this
+* (***ADDB***) Fix Soul Mark Editor
+* (***ADDB***) Fix some other stuff like Navigator Resources and Respec
+* (***ADDB***) Maybe Re-Add Remote Dialog options (buggy; report if you encounter anything!)
+* (***ADDB***) Maybe Re-Add Bi + Poly Romance options (buddy; report if you encounter anything!)
+### ToyBox Wrath - Ver 1.5.8b (built for 2.2.0as)
 * (***ADDB***) Ride everything now really allows riding everything. Looks ridiculous but still.
 * (***ADDB***) Fixed weird behaviour when changing stats using the Textfield.
 * (***ADDB***) Prevent mod from being unable to load when localization files are missing.
@@ -1778,16 +1911,17 @@ Search results will offer you actions such as adding a feature or item.
 
 ### Install & Use
 
-1. Install the [Unity Mod Manager﻿](https://www.nexusmods.com/site/mods/21/?tab=files)﻿.
-1. Install the mod using the Unity Mod Manager﻿ or extract the archive to your game's mod folder (e.g. '
-   \Steam\steamapps\common\Pathfinder Second Adventure\Mods').
-1. Start the game and load a save or start a new save (the mod's functions can't accessed from the main menu).
+1. Install the mod using Modfinder﻿ or extract the archive to your game's mod folder (e.g. 
+   `C:\Users\<YourUser>\AppData\LocalLow\Owlcat Games\Warhammer 40000 Rogue Trader\UnityModManager\ToyBox`).
+1. Start the game and load a save or start a new save (most of the mod's functions can't accessed from the main menu).
 1. Open the Unity Mod Manager﻿ by pressing CTRL + F10.
 1. Adjust the settings in the mod's menu
 
-Please feel free to make other enhancement requests[here](https://github.com/cabarius/ToyBox/issues)﻿. Please tap new
-issue and mark it as an `enhancement`.
-Please also file any bugs you find[here](https://github.com/cabarius/ToyBox/issues)﻿.
+### Development Setup
+
+1. Install ToyBox mod into your game via Unity Mod Manager
+2. Clone the git repo
+3. Build the solution and it will automatically build and install into the mod folder in the game
 
 ### Acknowledgments
 
@@ -1807,25 +1941,12 @@ Please also file any bugs you find[here](https://github.com/cabarius/ToyBox/issu
       this mod so much
 * PS: Learn to mod Kingmaker Games at
   Spacehamster's [Modding Wiki](https://github.com/spacehamster/OwlcatModdingWiki/wiki/Beginner-Guide )
-* Come visit the authors Narria et al on the [WoTR Discord](https://discord.gg/wotr)﻿
+* Come visit the authors on the [Owlcat Discord](https://discord.gg/owlcat)﻿
 
-### Source Code**: [https://github.com/cabarius/ToyBox](https://github.com/cabarius/ToyBox)
-
-### Development Setup
-
-1. Install ToyBox mod into your game via Unity Mod Manager
-2. Clone the git repo
-3. Locate the install folder of Pathfinder Wrath of the Righteous
-4. Go to System Properties > Environment Variables and add `WrathPath` with a value that looks like this:
-
-   `WrathPath   C:\Program Files (x86)\Steam\steamapps\common\Pathfinder Second Adventure`
-
-5. First time and when the game updates make sure you clean the solution to trigger the publicize step
-6. build the solution debug and it will automatically build and install into the mod folder in the game
-7. when you rebuild you can go to the mod and hit the reload button at the top to make it use the latest
 
 ### License: MIT
 
+Copyright <2025> ADDB
 Copyright <2021> Narria (github user Cabarius)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
