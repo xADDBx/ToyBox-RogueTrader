@@ -43,6 +43,10 @@ Here is a summarized list of features. This list only includes a part of the fea
 - **Quest Resolution**: this allows you to view your active quests and advance them as needed to work around bugs or
   skip quests you don't want to do. Be warned this may break your game progression if used carelessly.
   
+### Toybox Rogue - Ver 1.7.32 (built for 1.5.0.300)
+* (***ADDB***) Fix Etude tab throwing in case the Etude has a StartEtude/CompleteEtude GameAction that used an Evaluator instead of linking the Etude directly
+* (***ADDB***) Fix a PatchTool UI issue
+
 ### Toybox Rogue - Ver 1.7.31 (built for 1.5.0.300)
 * (***ADDB***) Minor adjustments to love is free: Improved PcMale and PcFemale overrides; overriding only when necessary to get the romancy response.
 

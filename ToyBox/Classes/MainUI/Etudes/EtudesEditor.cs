@@ -327,13 +327,33 @@ namespace ToyBox {
 
                                     }
                                     if (element is StartEtude started) {
-                                        DrawEtudeTree(started.Etude.Guid, 2, true);
+                                        string? guid;
+                                        if (started.Evaluate) {
+                                            guid = started.EtudeEvaluator?.GetValue()?.AssetGuid;
+                                        } else {
+                                            guid = started.Etude?.Guid;
+                                        }
+                                        if (!string.IsNullOrEmpty(guid)) {
+                                            DrawEtudeTree(guid, 2, true);
+                                        }
                                     }
                                     if (element is EtudeStatus status) {
-                                        DrawEtudeTree(status.m_Etude.Guid, 2, true);
+                                        string? guid;
+                                        guid = status.m_Etude?.Guid;
+                                        if (!string.IsNullOrEmpty(guid)) {
+                                            DrawEtudeTree(guid, 2, true);
+                                        }
                                     }
                                     if (element is CompleteEtude completed) {
-                                        DrawEtudeTree(completed.Etude.Guid, 2, true);
+                                        string? guid;
+                                        if (completed.Evaluate) {
+                                            guid = completed.EtudeEvaluator?.GetValue()?.AssetGuid;
+                                        } else {
+                                            guid = completed.Etude?.Guid;
+                                        }
+                                        if (!string.IsNullOrEmpty(guid)) {
+                                            DrawEtudeTree(guid, 2, true);
+                                        }
                                     }
                                     Div();
                                 }
