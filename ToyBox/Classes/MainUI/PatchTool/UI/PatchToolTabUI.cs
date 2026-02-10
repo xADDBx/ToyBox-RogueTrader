@@ -29,7 +29,7 @@ public class PatchToolTabUI {
     private Dictionary<string, bool> toggleStates = new();
     private Dictionary<string, bool> listToggleStates = new();
     internal Dictionary<string, AddItemState> addItemStates = new();
-    private HashSet<object> visited = new();
+    private HashSet<object> visited = new(new ReferenceEqualityComparer());
     private bool showBlueprintPicker = false;
     private bool showPatchManager = false;
     private bool showFieldsEditor = false;
