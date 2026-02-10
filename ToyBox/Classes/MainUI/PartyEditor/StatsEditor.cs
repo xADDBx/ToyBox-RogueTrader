@@ -346,8 +346,8 @@ namespace ToyBox {
             using (HorizontalScope()) {
                 Space(100);
 
+                #region SkeletonReplacer
                 using (VerticalScope()) {
-
                     DisclosureToggle("Body parts global offsets".localize(), ref listSkeletonPartsOffsets);
                     if (listSkeletonPartsOffsets) {
                         Space(6);
@@ -500,6 +500,7 @@ namespace ToyBox {
                         }
                     }
                 }
+                #endregion SkeletonReplacer
             }
             Div(100, 20, 755);
             if (ch != null && ch.HashKey() != null) {
