@@ -27,13 +27,13 @@ public partial class DragCameraElevationFeature : FeatureWithPatch {
         var foundField = false;
         var insts = instructions.ToArray();
         for (var i = 0; i < insts.Length - 2; i++) {
-            if (insts[i].LoadsField(field) && insts[i+1].opcode == OpCodes.Brfalse && insts[i+2].opcode == OpCodes.Newobj) {
+            if (insts[i].LoadsField(field) && insts[i + 1].opcode == OpCodes.Brfalse && insts[i + 2].opcode == OpCodes.Newobj) {
                 yield return insts[i];
                 yield return insts[i + 1];
-                yield return new CodeInstruction(OpCodes.Ldarg_0).WithLabels(insts[i+2].ExtractLabels());
+                yield return new CodeInstruction(OpCodes.Ldarg_0).WithLabels(insts[i + 2].ExtractLabels());
                 yield return new(OpCodes.Ldloc_0);
                 yield return CodeInstruction.Call((CameraRig camera, Vector2 vec) => MaybeChangeHeight(camera, vec));
-                yield return new CodeInstruction(OpCodes.Brtrue, insts[i+1].operand);
+                yield return new CodeInstruction(OpCodes.Brtrue, insts[i + 1].operand);
                 yield return insts[i + 2];
                 i += 2;
                 foundField = true;

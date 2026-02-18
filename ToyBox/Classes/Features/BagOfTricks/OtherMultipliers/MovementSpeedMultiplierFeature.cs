@@ -28,10 +28,10 @@ public partial class MovementSpeedMultiplierFeature : FeatureWithPatch {
             if (UI.LogSlider(ref tmp, 0f, 20f, 1f, 2, null, AutoWidth(), GUILayout.MinWidth(50), GUILayout.MinWidth(150))) {
                 if (tmp == 1f) {
                     Settings.MovementSpeedMultiplier = null;
-                    Destroy();
+                    Disable();
                 } else {
                     Settings.MovementSpeedMultiplier = tmp;
-                    Initialize();
+                    Enable();
                 }
             }
             Space(10);
@@ -68,7 +68,7 @@ public partial class MovementSpeedMultiplierFeature : FeatureWithPatch {
         }
     }
     [HarmonyPatch(typeof(PartMovable), nameof(PartMovable.CalculateCurrentSpeed)), HarmonyPostfix]
-    private static void UnitHelper_CreateMoveCommandParamsRT_Patch(PartMovable __instance , ref float __result) {
+    private static void UnitHelper_CreateMoveCommandParamsRT_Patch(PartMovable __instance, ref float __result) {
         if (__instance.Owner is BaseUnitEntity unit && !unit.IsStarship() && ToyBoxUnitHelper.IsPartyOrPet(unit)) {
             __result *= Settings.MovementSpeedMultiplier ?? 1;
         }

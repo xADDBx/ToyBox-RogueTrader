@@ -20,15 +20,15 @@ public partial class GameAlternateTimeScaleFeature : ToggledFeature, IBindableFe
         get;
         private set;
     }
-    public override void Initialize() {
-        base.Initialize();
+    public override void Enable() {
+        base.Enable();
         Keybind = Hotkeys.MaybeGetHotkey(GetType());
         if (IsEnabled) {
             Game.Instance.TimeController.DebugTimeScale = Settings.GameAlternateTimeScaleMultiplier;
         }
     }
-    public override void Destroy() {
-        base.Destroy();
+    public override void Disable() {
+        base.Disable();
         Game.Instance.TimeController.DebugTimeScale = GetInstance<GameTimeScaleFeature>().Value;
     }
     public override void OnGui() {
@@ -51,9 +51,9 @@ public partial class GameAlternateTimeScaleFeature : ToggledFeature, IBindableFe
         LogExecution();
         IsEnabled = !IsEnabled;
         if (IsEnabled) {
-            Initialize();
+            Enable();
         } else {
-            Destroy();
+            Disable();
         }
     }
 

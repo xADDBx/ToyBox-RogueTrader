@@ -25,11 +25,11 @@ public abstract class FeatureWithPatch : ToggledFeature {
         }
     }
 
-    public override void Initialize() {
+    public override void Enable() {
         Patch();
     }
 
-    public override void Destroy() {
+    public override void Disable() {
         Unpatch();
     }
 }

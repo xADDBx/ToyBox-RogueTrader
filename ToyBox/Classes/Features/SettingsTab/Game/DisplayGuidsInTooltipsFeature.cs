@@ -22,8 +22,8 @@ public partial class DisplayGuidsInTooltipsFeature : FeatureWithPatch, IBindable
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_SettingsTab_Game_DisplayGuidsInTooltipsFeature_Description", "Displays the guids of the items etc. in their tooltips and allows copying them by pressing LMB + Hotkey.")]
     public override partial string Description { get; }
-    public override void Initialize() {
-        base.Initialize();
+    public override void Enable() {
+        base.Enable();
         Keybind = Hotkeys.MaybeGetHotkey(GetType());
     }
     public Hotkey? Keybind {

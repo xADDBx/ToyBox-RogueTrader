@@ -40,11 +40,11 @@ public partial class UnitDisableVoiceoverAndBarksFeature : FeatureWithPatch, INe
         var currentlyDisabled = Settings.DisableVoiceoverForCharacterName.Contains(cName);
         UI.Toggle(Name, Description, ref currentlyDisabled, () => {
             Settings.DisableVoiceoverForCharacterName.Add(cName);
-            Initialize();
+            Enable();
         }, () => {
             Settings.DisableVoiceoverForCharacterName.Remove(cName);
             if (!IsEnabled) {
-                Destroy();
+                Disable();
             }
         });
     }

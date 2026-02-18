@@ -25,8 +25,8 @@ public partial class BrowseSavesFeature : Feature {
         saveManager.UpdateSaveListIfNeeded(false);
         if (m_NeedsUpdate || SaveBrowser == null) {
             SaveBrowser = new(info => $"{info.Name}{info.Area.AreaName}{info.Description}{info.FileName}{info.GameId}",
-                info => $"{info.PlayerCharacterName}, {info.GameSaveTime}", 
-                saveManager.m_SavedGames.Where(save => save?.GameId == Game.Instance.Player.GameId), 
+                info => $"{info.PlayerCharacterName}, {info.GameSaveTime}",
+                saveManager.m_SavedGames.Where(save => save?.GameId == Game.Instance.Player.GameId),
                 func => func(saveManager.m_SavedGames.NotNull()), overridePageWidth: (int)(EffectiveWindowWidth() * 0.9f));
             SaveBrowser.SetComparer(BlueprintFilter<SimpleBlueprint>.Sorter);
         }

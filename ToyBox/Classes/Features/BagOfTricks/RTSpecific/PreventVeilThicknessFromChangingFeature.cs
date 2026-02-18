@@ -15,8 +15,8 @@ public partial class PreventVeilThicknessFromChangingFeature : FeatureWithPatch 
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_BagOfTricks_RTSpecific_PreventVeilThicknessFromChangingFeature_Description", "Forces the current veil thickness to 0.")]
     public override partial string Description { get; }
-    public override void Initialize() {
-        base.Initialize();
+    public override void Enable() {
+        base.Enable();
         if (IsInGame()) {
             Game.Instance.TurnController?.VeilThicknessCounter?.Value = 0;
         }

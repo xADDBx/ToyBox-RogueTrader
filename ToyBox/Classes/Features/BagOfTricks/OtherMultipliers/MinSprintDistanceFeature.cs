@@ -20,14 +20,14 @@ public partial class MinSprintDistanceFeature : FeatureWithPatch {
             return ref m_IsEnabled;
         }
     }
-    public override void Initialize() {
-        base.Initialize();
+    public override void Enable() {
+        base.Enable();
         if (IsEnabled && m_OriginalMinSprintDistance.HasValue) {
             BlueprintRoot.Instance.MinSprintDistance = Settings.MinSprintDistanceSetting!.Value;
         }
     }
-    public override void Destroy() {
-        base.Destroy();
+    public override void Disable() {
+        base.Disable();
         if (m_OriginalMinSprintDistance.HasValue) {
             BlueprintRoot.Instance.MinSprintDistance = m_OriginalMinSprintDistance.Value;
         }
@@ -46,10 +46,10 @@ public partial class MinSprintDistanceFeature : FeatureWithPatch {
             if (UI.LogSlider(ref tmp, 0, 1000, m_OriginalMinSprintDistance.Value, null, null, AutoWidth(), GUILayout.MinWidth(50), GUILayout.MinWidth(150))) {
                 if (tmp == m_OriginalMinSprintDistance.Value) {
                     Settings.MinSprintDistanceSetting = null;
-                    Destroy();
+                    Disable();
                 } else {
                     Settings.MinSprintDistanceSetting = tmp;
-                    Initialize();
+                    Enable();
                 }
             }
             Space(10);

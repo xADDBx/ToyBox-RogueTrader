@@ -5,7 +5,7 @@ public abstract class ToggledFeature : Feature {
     public override void OnGui() {
         if (this is IToggledWithBinding bindable) {
             using (HorizontalScope()) {
-                _ = UI.Toggle(Name, Description, ref IsEnabled, Initialize, Destroy);
+                _ = UI.Toggle(Name, Description, ref IsEnabled, Enable, Disable);
                 Space(10);
                 var current = bindable.Keybind;
                 if (UI.HotkeyPicker(ref current, bindable)) {
@@ -13,7 +13,12 @@ public abstract class ToggledFeature : Feature {
                 }
             }
         } else {
-            _ = UI.Toggle(Name, Description, ref IsEnabled, Initialize, Destroy);
+            _ = UI.Toggle(Name, Description, ref IsEnabled, Enable, Disable);
+        }
+    }
+    public override void Initialize() {
+        if (IsEnabled) {
+            base.Initialize();
         }
     }
 }

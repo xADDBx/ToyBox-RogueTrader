@@ -34,11 +34,11 @@ public partial class UnitOverrideAiControlBehaviourFeature : FeatureWithPatch, I
         var currentlyOverriden = Settings.OverrideEnableAiForCompanions.TryGetValue(unit.UniqueId, out var enableAi);
         UI.Toggle(Name, Description, ref currentlyOverriden, () => {
             Settings.OverrideEnableAiForCompanions.Add(unit.UniqueId, enableAi);
-            Initialize();
+            Enable();
         }, () => {
             Settings.OverrideEnableAiForCompanions.Remove(unit.UniqueId);
             if (!IsEnabled) {
-                Destroy();
+                Disable();
             }
         });
         if (currentlyOverriden) {

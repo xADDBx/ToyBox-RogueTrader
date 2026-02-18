@@ -28,10 +28,10 @@ public partial class DiceRollsOverridesFeature : FeatureWithPatch {
     }
     private readonly TimedCache<float> m_LabelWidth = new(() => CalculateLargestLabelWidth([
         m_AllAttacksHitLocalizedText, m_AllAttacksCritLocalizedText, m_RollWithAdvantageLocalizedText, m_RollWithDisadvantageLocalizedText,
-        m_Initiative_AlwaysRoll10LocalizedText, m_Initiative_AlwaysRoll5LocalizedText, m_Initiative_AlwaysRoll1LocalizedText, m_NeverRoll100LocalizedText, 
-        m_NeverRoll1LocalizedText, m_DamageRolls_Take1LocalizedText, m_DamageRolls_Take25LocalizedText, m_DamageRolls_Take50LocalizedText, 
-        m_OutOfCombat_Take1LocalizedText, m_OutOfCombat_Take25LocalizedText, m_OutOfCombat_Take50LocalizedText, m_SkillChecks_Take1LocalizedText, 
-        m_SkillChecks_Take25LocalizedText, m_SkillChecks_Take50LocalizedText, m_Take100LocalizedText, m_Take1LocalizedText, 
+        m_Initiative_AlwaysRoll10LocalizedText, m_Initiative_AlwaysRoll5LocalizedText, m_Initiative_AlwaysRoll1LocalizedText, m_NeverRoll100LocalizedText,
+        m_NeverRoll1LocalizedText, m_DamageRolls_Take1LocalizedText, m_DamageRolls_Take25LocalizedText, m_DamageRolls_Take50LocalizedText,
+        m_OutOfCombat_Take1LocalizedText, m_OutOfCombat_Take25LocalizedText, m_OutOfCombat_Take50LocalizedText, m_SkillChecks_Take1LocalizedText,
+        m_SkillChecks_Take25LocalizedText, m_SkillChecks_Take50LocalizedText, m_Take100LocalizedText, m_Take1LocalizedText,
         m_Take50LocalizedText], GUI.skin.label));
     public override void OnGui() {
         base.OnGui();

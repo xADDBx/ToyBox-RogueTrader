@@ -31,7 +31,7 @@ public static partial class CharacterPicker {
         }, m_CacheDuration),
         [CharacterListType.AllUnits] = new(() => Game.Instance.State.AllBaseUnits?.ToList() ?? [], m_CacheDuration)
     };
-    public static CharacterListType CurrentList { 
+    public static CharacterListType CurrentList {
         private set;
         get;
     }

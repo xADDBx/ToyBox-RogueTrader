@@ -25,8 +25,8 @@ public partial class AllowMouse3DraggingToAimCameraFeature : FeatureWithPatch, I
             return "ToyBox.Features.BagOfTricks.Camera.AllowMouse3DraggingToAimCameraFeature";
         }
     }
-    public override void Initialize() {
-        base.Initialize();
+    public override void Enable() {
+        base.Enable();
         Keybind = Hotkeys.MaybeGetHotkey(GetType());
     }
     public Hotkey? Keybind {
@@ -37,9 +37,9 @@ public partial class AllowMouse3DraggingToAimCameraFeature : FeatureWithPatch, I
         LogExecution();
         IsEnabled = !IsEnabled;
         if (IsEnabled) {
-            Initialize();
+            Enable();
         } else {
-            Destroy();
+            Disable();
         }
     }
     public void LogExecution(params object?[] parameter) {

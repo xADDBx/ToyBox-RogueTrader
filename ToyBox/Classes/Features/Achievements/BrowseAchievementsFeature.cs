@@ -39,7 +39,7 @@ public partial class BrowseAchievementsFeature : Feature {
             m_AchievementsBrowser.UpdateItems(m_AllAchievements.Where(data => Game.Instance.Player.Achievements.m_Achievements?.Where(ach => ach.IsUnlocked && ach.Data == data).Any() ?? false));
         }
         m_AchievementsBrowser.OnGUI(ach => {
-            BlueprintUI.BlueprintRowGUI(m_AchievementsBrowser, ach, null, null, 
+            BlueprintUI.BlueprintRowGUI(m_AchievementsBrowser, ach, null, null,
                 (bp, unit) => Game.Instance.Player.Achievements.m_Achievements?.FirstOrDefault(ach => ach.IsUnlocked && ach.Data == bp));
         }, BlueprintUI.BlueprintHeaderGUI);
     }

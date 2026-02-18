@@ -83,7 +83,8 @@ public class ThreadedListSearcher<T> where T : notnull {
                     m_Parent.QueueUpdateItems(items.AsParallel().WithDegreeOfParallelism(Environment.ProcessorCount).OrderBy(getSortKey, Comparer).ToArray(), 1, true);
                 } else {
                     m_Parent.QueueUpdateItems(items.AsParallel().WithDegreeOfParallelism(Environment.ProcessorCount).OrderBy(getSortKey).ToArray(), 1, true);
-                } Debug($"Searched {searched} items in {watch.ElapsedMilliseconds}ms; query is empty so used all items as result");
+                }
+                Debug($"Searched {searched} items in {watch.ElapsedMilliseconds}ms; query is empty so used all items as result");
             }
         } catch (Exception e) {
             Error($"Encountered exception while trying to search!\n{e}");

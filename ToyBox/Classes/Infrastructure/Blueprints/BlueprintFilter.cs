@@ -352,22 +352,22 @@ public partial class BlueprintFilter<T> : IBlueprintFilter<T> where T : SimpleBl
                             }
                         }
                         var cat = m_CollatedBlueprintsCache.Keys.ToList();
-/*
-#warning Sort Order
-                        cat.Sort((a, b) => {
-                            return (int)Direction * Sorter.Compare(a, b);
-                        });
-*/
+                        /*
+                        #warning Sort Order
+                                                cat.Sort((a, b) => {
+                                                    return (int)Direction * Sorter.Compare(a, b);
+                                                });
+                        */
                         cat.Insert(0, AllLocalizedText);
                         m_CollationCategories = cat;
                         m_CollatedBlueprintsCache[AllLocalizedText] = [.. bps];
- /*
-                        foreach (var group in m_CollatedBlueprintsCache.Values) {
-                            group.Sort((x, y) => {
-                                return (int)Direction * BPHelper.GetSortKey(x).CompareTo(BPHelper.GetSortKey(y));
-                            });
-                        }
- */
+                        /*
+                                               foreach (var group in m_CollatedBlueprintsCache.Values) {
+                                                   group.Sort((x, y) => {
+                                                       return (int)Direction * BPHelper.GetSortKey(x).CompareTo(BPHelper.GetSortKey(y));
+                                                   });
+                                               }
+                        */
                         Main.ScheduleForMainThread(() => {
                             IsCollating = false;
                         });

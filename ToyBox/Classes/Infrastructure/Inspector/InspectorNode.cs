@@ -2,6 +2,7 @@
 using System.Collections;
 using ToyBox.Infrastructure.Utilities;
 using UnityEngine;
+using UnityEngine.Jobs;
 
 namespace ToyBox.Infrastructure.Inspector;
 
@@ -24,7 +25,14 @@ public class InspectorNode : IComparable {
     public readonly bool IsNullable = false;
     public readonly bool IsEnumerable = false;
     public readonly bool IsGameObject = false;
-    public readonly bool IsNull = false;
+    public bool IsNull {
+        get {
+            if (Value is TransformAccessArray taa) {
+                return !taa.isCreated;
+            }
+            return Value == null;
+        }
+    }
     public readonly bool IsCompilerGenerated = false;
     public bool IsExpanded = false;
     public Exception? Exception;
@@ -169,7 +177,7 @@ public class InspectorNode : IComparable {
         IsStatic = isStatic;
         IsPublic = isPublic;
         IsPrivate = isPrivate;
-        IsNull = value is null;
+        // IsNull = value is null;
         if (ToyBoxReflectionHelper.IsNullableT(type, out var maybeUnderlying)) {
             ConcreteType = maybeUnderlying!;
             IsNullable = true;
@@ -192,7 +200,6 @@ public class InspectorNode : IComparable {
         IsStatic = node.IsStatic;
         IsPublic = node.IsPublic;
         IsPrivate = node.IsPrivate;
-        IsNull = node.IsNull;
         ConcreteType = node.ConcreteType;
         IsNullable = node.IsNullable;
         IsGameObject = node.IsGameObject;

@@ -3,12 +3,12 @@
 namespace ToyBox;
 
 public abstract class FeatureWithIntSlider : Feature {
-    public override void Initialize() {
-        base.Initialize();
+    public override void Enable() {
+        base.Enable();
         IsInitialized = true;
     }
-    public override void Destroy() {
-        base.Destroy();
+    public override void Disable() {
+        base.Disable();
         IsInitialized = false;
     }
     protected bool IsInitialized = false;
@@ -20,11 +20,11 @@ public abstract class FeatureWithIntSlider : Feature {
     protected virtual void OnValueChanged((int oldValue, int newValue) vals) {
         if (IsEnabled) {
             if (!IsInitialized) {
-                Initialize();
+                Enable();
             }
         } else {
             if (IsInitialized) {
-                Destroy();
+                Disable();
             }
         }
     }

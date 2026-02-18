@@ -25,10 +25,10 @@ public partial class BuffDurationMultiplierFeature : FeatureWithPatch {
             if (UI.LogSlider(ref tmp, 0f, 10000f, 1f, 2, null, AutoWidth(), GUILayout.MinWidth(50), GUILayout.MinWidth(150))) {
                 if (tmp == 1f) {
                     Settings.BuffDurationMultiplier = null;
-                    Destroy();
+                    Disable();
                 } else {
                     Settings.BuffDurationMultiplier = tmp;
-                    Initialize();
+                    Enable();
                 }
             }
             Space(10);

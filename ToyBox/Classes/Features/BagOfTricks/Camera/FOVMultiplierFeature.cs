@@ -26,9 +26,9 @@ public partial class FOVMultiplierFeature : FeatureWithPatch {
         using (HorizontalScope()) {
             if (UI.Slider(ref Value, 0.4f, 5f, 1f, 2, null, null, AutoWidth(), GUILayout.MinWidth(50), GUILayout.MaxWidth(150))) {
                 if (IsEnabled) {
-                    Initialize();
+                    Enable();
                 } else {
-                    Destroy();
+                    Disable();
                 }
             }
             Space(10);

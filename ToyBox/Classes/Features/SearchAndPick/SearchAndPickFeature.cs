@@ -29,7 +29,7 @@ public partial class SearchAndPickFeature : Feature {
                 if (categories.Count > 0) {
                     var categoryWidth = m_BlueprintFilter.GetCollationCategoryWidth();
                     if (m_CurrentCollationCategory == null) {
-                        m_CurrentCollationCategory = categories[0]; 
+                        m_CurrentCollationCategory = categories[0];
                         m_CollationCategoryBrowser = new(s => {
                             if (s == BlueprintFilter<SimpleBlueprint>.AllLocalizedText) {
 #warning Sort Order
@@ -46,7 +46,7 @@ public partial class SearchAndPickFeature : Feature {
                     if (m_ShowCollationCategoryPicker) {
                         using (VerticalScope()) {
                             var feature = GetInstance<SortCollationCategoriesByCountSetting>();
-                            if (UI.Toggle(feature.Name.Cyan(), null, ref feature.IsEnabled, feature.Initialize, feature.Destroy)) {
+                            if (UI.Toggle(feature.Name.Cyan(), null, ref feature.IsEnabled, feature.Enable, feature.Disable)) {
                                 SetCategoryComparer();
                             }
                             UI.Label((m_CurrentCollationCategoryLocalizedText + ": ").Green() + m_CurrentCollationCategory.Cyan());
@@ -83,7 +83,7 @@ public partial class SearchAndPickFeature : Feature {
         }
     }
     private void SetCategoryComparer() {
-        m_CollationCategoryBrowser!.SetComparer(GetInstance<SortCollationCategoriesByCountSetting>().IsEnabled ?  
+        m_CollationCategoryBrowser!.SetComparer(GetInstance<SortCollationCategoriesByCountSetting>().IsEnabled ?
             Comparer<string>.Create((string catA, string catB) => {
                 var ret = (m_BlueprintFilter.GetCountForCategory(catB) ?? 0) - (m_BlueprintFilter.GetCountForCategory(catA) ?? 0);
                 if (ret == 0) {
@@ -91,7 +91,7 @@ public partial class SearchAndPickFeature : Feature {
                 } else {
                     return ret;
                 }
-        }) : BlueprintFilter<SimpleBlueprint>.Sorter);
+            }) : BlueprintFilter<SimpleBlueprint>.Sorter);
         m_CollationCategoryBrowser.RedoSearch();
     }
 

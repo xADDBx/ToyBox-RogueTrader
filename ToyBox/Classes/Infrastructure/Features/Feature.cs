@@ -27,10 +27,18 @@ public abstract class Feature {
     public abstract string Name { get; }
     public abstract string Description { get; }
     public abstract void OnGui();
-    // Guranteed to be called once at game init (in a thread if no INeedEarlyInit), and each time when enabled.
-    public virtual void Initialize() { }
-    // Guranteed to be called each time the feature is disabled.
-    public virtual void Destroy() { }
+    // Called once on mod load and e.g. every time it is toggled on
+    public virtual void Enable() { }
+    // Called once on mod load (possible in thread if not INeedEarlyInit feature)
+    public virtual void Initialize() {
+        Enable();
+    }
+    // Called once on mod disposal and e.g. Every time it is toggled off
+    public virtual void Disable() { }
+    // Called once on mod disposal
+    public virtual void Unload() {
+        Disable();
+    }
     public virtual bool ShouldHide {
         get {
             return false;

@@ -5,7 +5,8 @@ using System.Text;
 using Kingmaker.AreaLogic.Etudes;
 using Kingmaker.Blueprints;
 
-namespace ToyBox.Features.Etudes; 
+namespace ToyBox.Features.Etudes;
+
 public class ConflictingGroupIdReferences {
     public string Name;
     public List<string> Etudes = new();

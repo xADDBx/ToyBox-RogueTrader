@@ -7,8 +7,8 @@ public abstract partial class FeatureWithBindableAction : FeatureWithAction, IBi
         get;
         private set;
     }
-    public override void Initialize() {
-        base.Initialize();
+    public override void Enable() {
+        base.Enable();
         Keybind = Hotkeys.MaybeGetHotkey(GetType());
     }
     public override void OnGui() {

@@ -21,8 +21,8 @@ public partial class LazyInitFeature : FeatureWithPatch, INeedEarlyInitFeature {
         }
     }
     public static Stopwatch Stopwatch = new();
-    public override void Initialize() {
-        base.Initialize();
+    public override void Enable() {
+        base.Enable();
 #if DEBUG
         if (IsEnabled) {
             Task.Run(() => {

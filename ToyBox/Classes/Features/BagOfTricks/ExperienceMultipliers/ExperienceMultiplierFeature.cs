@@ -27,8 +27,8 @@ public partial class ExperienceMultiplierFeature : FeatureWithPatch {
     }
     private void MaybeReset() {
         if (m_IsEnabled != IsEnabled) {
-            Destroy();
-            Initialize();
+            Disable();
+            Enable();
         }
     }
     public override void OnGui() {

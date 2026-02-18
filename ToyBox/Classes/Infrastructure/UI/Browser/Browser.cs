@@ -142,18 +142,19 @@ public partial class Browser<T> : VerticalList<T> where T : notnull {
             return;
         }
 
-        void DebouncedSearch() {
-            Thread.Sleep((int)(Settings.SearchDelay * 1000));
-            if (!CurrentSearchString.Equals(LastSearchedFor)) {
-                StartNewSearch(CurrentSearchString);
-            }
+        Task DebouncedSearch() {
+            return Task.Delay((int)(Settings.SearchDelay * 1000)).ContinueWith(_ => {
+                if (!CurrentSearchString.Equals(LastSearchedFor)) {
+                    StartNewSearch(CurrentSearchString);
+                }
+            });
         }
         m_SearchBarControlName ??= RuntimeHelpers.GetHashCode(this).ToString();
         Action<(string oldContent, string newContent)>? contentChangedAction = Settings.ToggleSearchAsYouType ? (((string oldContent, string newContent) pair) => {
             if ((Time.time - LastSearchedAt) > Settings.SearchDelay) {
                 StartNewSearch(pair.newContent);
             } else {
-                m_DebounceTask ??= Task.Run(DebouncedSearch);
+                m_DebounceTask ??= DebouncedSearch();
             }
         }) : null;
         using (HorizontalScope()) {

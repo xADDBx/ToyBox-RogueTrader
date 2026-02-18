@@ -2,7 +2,8 @@
 using Kingmaker.AreaLogic.Etudes;
 using Kingmaker.Blueprints;
 
-namespace ToyBox.Features.Etudes; 
+namespace ToyBox.Features.Etudes;
+
 public class EtudesTreeModel {
     public IEnumerable<BlueprintEtude>? Etudes;
     public readonly BlueprintFilter<BlueprintEtude> m_EtudeFilter = (BlueprintFilters.Filters.First(filter => filter.Name == BlueprintFilters.m_EtudesLocalizedText) as BlueprintFilter<BlueprintEtude>)!;

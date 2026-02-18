@@ -14,12 +14,12 @@ public partial class InspectorShowCompilerGeneratedFieldsSetting : ToggledFeatur
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_SettingsTab_Inspector_InspectorShowCompilerGeneratedFields_Description", "Show fields that are marked as compiler generated in Inspector (e.g. backing fields of properties)")]
     public override partial string Description { get; }
-    public override void Initialize() {
-        base.Initialize();
+    public override void Enable() {
+        base.Enable();
         InspectorUI.RebuildCurrent();
     }
-    public override void Destroy() {
-        base.Destroy();
+    public override void Disable() {
+        base.Disable();
         InspectorUI.RebuildCurrent();
     }
 }

@@ -21,9 +21,9 @@ public partial class CameraElevationOffsetFeature : FeatureWithPatch {
         using (HorizontalScope()) {
             if (UI.Slider(ref Value, -10f, 100f, 0f, 0, null, null, AutoWidth(), GUILayout.MinWidth(50), GUILayout.MaxWidth(150))) {
                 if (IsEnabled) {
-                    Initialize();
+                    Enable();
                 } else {
-                    Destroy();
+                    Disable();
                 }
             }
             Space(10);

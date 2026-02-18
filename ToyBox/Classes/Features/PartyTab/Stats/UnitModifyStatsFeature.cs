@@ -59,7 +59,7 @@ public partial class UnitModifyStatsFeature : FeatureWithPatch, INeedContextFeat
             using (HorizontalScope()) {
                 Space(25);
                 using (VerticalScope()) {
-                    UI.DisclosureToggle(ref m_ShowDisclaimer, m_TryToKeepThisFeatureActivatedAftLocalizedText.Orange());
+                    _ = UI.DisclosureToggle(ref m_ShowDisclaimer, m_TryToKeepThisFeatureActivatedAftLocalizedText.Orange());
                     if (m_ShowDisclaimer) {
                         using (HorizontalScope()) {
                             Space(35);
@@ -70,7 +70,7 @@ public partial class UnitModifyStatsFeature : FeatureWithPatch, INeedContextFeat
                         if (Constants.WeirdStats.Contains(stat) || Constants.LegacyStats.Contains(stat) || (Constants.StarshipStats.Contains(stat) && !unit.IsStarship())) {
                             continue;
                         }
-                        var modifiableValue = unit.Stats.GetStatOptional(stat);
+                        var modifiableValue = unit.Stats.GetStat(stat, true);
                         var baseValue = 0;
                         var modifiedValue = 0;
                         if (modifiableValue != null) {
@@ -111,7 +111,7 @@ public partial class UnitModifyStatsFeature : FeatureWithPatch, INeedContextFeat
                             });
                             Space(10);
                             var val = modifiedValue;
-                            UI.TextField(ref val, pair => {
+                            _ = UI.TextField(ref val, pair => {
                                 if (modifiableValue == null) {
                                     modifiableValue = AddStat(stat, unit);
                                     baseValue = modifiableValue.BaseValue;
@@ -123,12 +123,13 @@ public partial class UnitModifyStatsFeature : FeatureWithPatch, INeedContextFeat
                         }
                         if (change > 0) {
                             if (InSaveSettings != null) {
-                                InSaveSettings.AppliedUnitStatChanges.TryGetValue(unit.UniqueId, out var dict);
-                                dict ??= [];
+                                if (!InSaveSettings.AppliedUnitStatChanges.TryGetValue(unit.UniqueId, out var dict)) {
+                                    dict ??= [];
+                                }
                                 if (dict.TryGetValue(stat, out var current)) {
                                     current += change;
                                     if (current == 0) {
-                                        dict.Remove(stat);
+                                        _ = dict.Remove(stat);
                                     } else {
                                         dict[stat] = current;
                                     }

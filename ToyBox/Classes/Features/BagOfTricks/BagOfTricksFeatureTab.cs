@@ -92,7 +92,7 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
         AddFeature(new LoadingWithBlueprintErrorsFeature(), m_QualityOfLifeText);
 
         AddFeature(new ModifyFactionReputationFeature(), m_RTFactionReputationLocalizedText);
-        
+
         AddFeature(new ModifyResourcesFeature(), m_RTResourcesLocalizedText);
 
         AddFeature(new DisableRandomWarpEncounterFeature(), m_RTTweaksLocalizedText);

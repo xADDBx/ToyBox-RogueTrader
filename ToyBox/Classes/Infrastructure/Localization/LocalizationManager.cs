@@ -7,23 +7,23 @@ namespace ToyBox.Infrastructure.Localization;
 public static class LocalizationManager {
     public static Language CurrentLocalization = new();
     private static HashSet<string> m_FoundLanguageFiles = new();
-    private static JsonSerializerSettings m_Settings = new() {
+    private static readonly JsonSerializerSettings m_Settings = new() {
         Formatting = Formatting.Indented,
         DefaultValueHandling = DefaultValueHandling.Populate,
         MissingMemberHandling = MissingMemberHandling.Ignore,
         Converters = [new FancyNameConverter()]
     };
-    private static bool IsEnabled = false;
+    private static bool m_IsEnabled = false;
     private static string GetPathToLocalizationFile(string LanguageCode) => Path.Combine(Main.ModEntry.Path, "Localization", LanguageCode + "_lang.json");
     public static void Enable() {
-        if (!IsEnabled) {
+        if (!m_IsEnabled) {
             try {
                 DiscoverLocalizations();
                 Update();
             } catch (Exception ex) {
                 Error($"Error while trying to import configured ui language {Settings.UILanguage}\n{ex}");
             }
-            IsEnabled = true;
+            m_IsEnabled = true;
         }
     }
     public static void Update() {
@@ -32,12 +32,10 @@ public static class LocalizationManager {
         }
         var filePath = GetPathToLocalizationFile(Settings.UILanguage);
         CurrentLocalization = JsonConvert.DeserializeObject<Language>(File.ReadAllText(filePath), m_Settings) ?? new();
-        if (Main.OnLocaleChanged != null) {
-            Main.OnLocaleChanged();
-        }
+        Main.OnLocaleChanged?.Invoke();
     }
     public static HashSet<string> DiscoverLocalizations() {
-        m_FoundLanguageFiles = new();
+        m_FoundLanguageFiles = [];
         foreach (var file in Directory.GetFiles(Path.Combine(Main.ModEntry.Path, "Localization"))) {
             if (file.EndsWith(".json")) {
                 var localeName = Path.GetFileNameWithoutExtension(file).Replace("_lang", "");

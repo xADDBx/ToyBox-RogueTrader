@@ -9,13 +9,13 @@ public abstract class FeatureWIthUnitSelectTypeGrid : FeatureWithPatch {
     }
 
     public abstract ref UnitSelectType SelectSetting { get; }
-    public override void Initialize() {
+    public override void Enable() {
         UpdateEnabled();
-        base.Initialize();
+        base.Enable();
     }
-    public override void Destroy() {
+    public override void Disable() {
         UpdateEnabled();
-        base.Destroy();
+        base.Disable();
     }
     private void UpdateEnabled() {
         m_IsEnabled = SelectSetting != UnitSelectType.Off;
@@ -33,11 +33,11 @@ public abstract class FeatureWIthUnitSelectTypeGrid : FeatureWithPatch {
                 if (UI.SelectionGrid(ref SelectSetting, 6, (type) => type.GetLocalized(), AutoWidth())) {
                     if (SelectSetting != UnitSelectType.Off) {
                         if (!m_IsEnabled) {
-                            Initialize();
+                            Enable();
                         }
                     } else {
                         if (m_IsEnabled) {
-                            Destroy();
+                            Disable();
                         }
                     }
                 }

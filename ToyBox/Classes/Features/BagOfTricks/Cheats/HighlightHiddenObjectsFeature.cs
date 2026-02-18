@@ -1,5 +1,4 @@
-﻿using HarmonyLib;
-using Kingmaker;
+﻿using Kingmaker;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Entities.Base;
 using Kingmaker.View;
@@ -40,8 +39,8 @@ public partial class HighlightHiddenObjectsFeature : FeatureWithPatch {
     private const string m_DecalName = "ToyBox.DecalHiddenHighlighter";
     private static readonly Color m_HighlightColor0 = new(1.0f, 0.0f, 1.0f, 0.8f);
     private static readonly Color m_HighlightColor1 = new(0.0f, 0.0f, 1.0f, 1.0f);
-    public override void Initialize() {
-        base.Initialize();
+    public override void Enable() {
+        base.Enable();
         Main.ScheduleForMainThread(() => {
             if (Game.Instance?.State != null) {
                 foreach (var mapObjectEntityData in Game.Instance.State.MapObjects) {
@@ -50,8 +49,8 @@ public partial class HighlightHiddenObjectsFeature : FeatureWithPatch {
             }
         });
     }
-    public override void Destroy() {
-        base.Destroy();
+    public override void Disable() {
+        base.Disable();
         Main.ScheduleForMainThread(() => {
             if (Game.Instance?.State != null) {
                 foreach (var mapObjectEntityData in Game.Instance.State.MapObjects) {
@@ -67,20 +66,20 @@ public partial class HighlightHiddenObjectsFeature : FeatureWithPatch {
         });
     }
     public void Reinitialize() {
-        Destroy();
-        Initialize();
+        Disable();
+        Enable();
     }
     public override void OnGui() {
         using (VerticalScope()) {
-            _ = UI.Toggle(Name, Description, ref Settings.HighlightHiddenObjects, Initialize, Destroy);
+            _ = UI.Toggle(Name, Description, ref Settings.HighlightHiddenObjects, Enable, Disable);
             if (Settings.HighlightHiddenObjects) {
                 using (HorizontalScope()) {
                     Space(50);
-                    _ = UI.Toggle(m_AlsoHighlightHiddenTrapsText, "", ref Settings.HighlightHiddenTraps, Initialize, Reinitialize);
+                    _ = UI.Toggle(m_AlsoHighlightHiddenTrapsText, "", ref Settings.HighlightHiddenTraps, Reinitialize, Reinitialize);
                 }
                 using (HorizontalScope()) {
                     Space(50);
-                    _ = UI.Toggle(m_AlsoHighlightInFogOfWarText, "", ref Settings.HighlightInFogOfWar, Initialize, Reinitialize);
+                    _ = UI.Toggle(m_AlsoHighlightInFogOfWarText, "", ref Settings.HighlightInFogOfWar, Reinitialize, Reinitialize);
                 }
             }
         }
@@ -112,7 +111,6 @@ public partial class HighlightHiddenObjectsFeature : FeatureWithPatch {
                 yield return inst;
             }
         }
-        Error($"{foundCall}, {foundCall2}, {foundCall3};!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         ThrowIfTrue(!foundCall || !foundCall2 || !foundCall3);
     }
     private static bool ShouldHighlightOnHover(MapObjectView view) {

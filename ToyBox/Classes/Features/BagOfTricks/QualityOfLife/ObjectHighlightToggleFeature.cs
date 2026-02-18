@@ -22,15 +22,15 @@ public partial class ObjectHighlightToggleFeature : FeatureWithPatch, IGameModeH
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_BagOfTricks_QualityOfLife_ObjectHighlightToggleFeature_Description", "Turns the object highlight key into a toggle (press to switch) outside of combat.")]
     public override partial string Description { get; }
-    public override void Initialize() {
-        base.Initialize();
+    public override void Enable() {
+        base.Enable();
         if (IsEnabled && !m_IsSubscribed) {
             _ = EventBus.Subscribe(this);
             m_IsSubscribed = true;
         }
     }
-    public override void Destroy() {
-        base.Destroy();
+    public override void Disable() {
+        base.Disable();
         if (m_IsSubscribed) {
             EventBus.Unsubscribe(this);
             m_IsSubscribed = false;
@@ -80,8 +80,7 @@ public partial class ObjectHighlightToggleFeature : FeatureWithPatch, IGameModeH
                     m_JustChangedViaBinding = false;
                     return false;
                 }
-                _ = Task.Run(() => {
-                    Thread.Sleep(250);
+                _ = Task.Delay(250).ContinueWith(_ => {
                     m_JustChangedViaBinding = false;
                 });
             }

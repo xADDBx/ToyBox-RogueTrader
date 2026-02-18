@@ -14,12 +14,12 @@ public partial class InspectorShowEnumerableFieldsSetting : ToggledFeature {
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_SettingsTab_Inspector_InspectorShowEnumerableFieldsSetting_Description", "Whether to also show other fields besides the actual collection items of IEnumerable types.")]
     public override partial string Description { get; }
-    public override void Initialize() {
-        base.Initialize();
+    public override void Enable() {
+        base.Enable();
         InspectorUI.RebuildCurrent();
     }
-    public override void Destroy() {
-        base.Destroy();
+    public override void Disable() {
+        base.Disable();
         InspectorUI.RebuildCurrent();
     }
 }

@@ -18,7 +18,8 @@ using UnityEngine;
 using UnityModManagerNet;
 using Application = UnityEngine.Application;
 
-namespace ToyBox.Features.Etudes; 
+namespace ToyBox.Features.Etudes;
+
 public static class EtudesEditor {
 
     private static string? _parent;
@@ -285,7 +286,7 @@ public static class EtudesEditor {
                         Space(25);
                         UI.Label("Can Start", Width(100));
                     }
-                    InspectorUI.InspectToggle(etude, "Inspect", options:Width(100));
+                    InspectorUI.InspectToggle(etude, "Inspect", options: Width(100));
                     if (Settings.showAssetIDs) {
                         var guid = etudeID.ToString();
                         UI.TextField(ref guid);
