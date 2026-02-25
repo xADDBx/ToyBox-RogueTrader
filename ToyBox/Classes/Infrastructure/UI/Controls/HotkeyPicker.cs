@@ -55,28 +55,46 @@ public static partial class UI {
                     Space(5);
                     Label(SharedStrings.CurrentKeybindConflictsWithExistLocalizedText.Red().Bold());
                 }
-                if (Event.current.isKey && Event.current.type == EventType.KeyDown && m_CurerntlyBindingHotkey != null) {
-                    m_LastBindingConflicted = false;
-                    m_CurerntlyBindingHotkey.IsShift = Event.current.modifiers.HasFlag(EventModifiers.Shift);
-                    m_CurerntlyBindingHotkey.IsAlt = Event.current.modifiers.HasFlag(EventModifiers.Alt);
-                    m_CurerntlyBindingHotkey.IsCtrl = Event.current.modifiers.HasFlag(EventModifiers.Control) || Event.current.modifiers.HasFlag(EventModifiers.Command);
-                    if (!IsCtrlAltOrShift(Event.current.keyCode)) {
-                        m_CurerntlyBindingHotkey.Key = Event.current.keyCode;
-                    } else if (Event.current.character != '\0') {
-                        foreach (KeyCode c in Enum.GetValues(typeof(KeyCode))) {
-                            if (Input.GetKeyDown(c)) {
-                                m_CurerntlyBindingHotkey.Key = c;
+                if (m_CurerntlyBindingHotkey != null) {
+                    var anyMouseButtonPressed = false;
+                    foreach (var button in m_MouseKeyCodes) {
+                        if (Input.GetKeyDown(button)) {
+                            anyMouseButtonPressed = true;
+                            break;
+                        }
+                    }
+                    if (Event.current.type == EventType.KeyDown || anyMouseButtonPressed) {
+                        m_CurerntlyBindingHotkey.IsShift = Event.current.modifiers.HasFlag(EventModifiers.Shift);
+                        m_CurerntlyBindingHotkey.IsAlt = Event.current.modifiers.HasFlag(EventModifiers.Alt);
+                        m_CurerntlyBindingHotkey.IsCtrl = Event.current.modifiers.HasFlag(EventModifiers.Control) || Event.current.modifiers.HasFlag(EventModifiers.Command);
+                        if (!IsCtrlAltOrShift(Event.current.keyCode)) {
+                            m_CurerntlyBindingHotkey.Key = Event.current.keyCode;
+                        } else {
+                            var found = false;
+                            foreach (KeyCode c in Enum.GetValues(typeof(KeyCode))) {
+                                if (IsCtrlAltOrShift(c)) {
+                                    continue;
+                                }
+                                if (Input.GetKeyDown(c)) {
+                                    m_CurerntlyBindingHotkey.Key = c;
+                                    found = true;
+                                    break;
+                                }
+                            }
+                            if (!found) {
+                                m_CurerntlyBindingHotkey.Key = KeyCode.None;
                             }
                         }
-                    } else {
-                        m_CurerntlyBindingHotkey.Key = KeyCode.None;
+                        if (Event.current.type is EventType.KeyDown or EventType.MouseDown or EventType.MouseUp) {
+                            Event.current.Use();
+                        }
                     }
-                    Event.current.Use();
                 }
             }
         }
         return changed;
     }
+    private static readonly KeyCode[] m_MouseKeyCodes = [KeyCode.Mouse0, KeyCode.Mouse1, KeyCode.Mouse2, KeyCode.Mouse3, KeyCode.Mouse4, KeyCode.Mouse5, KeyCode.Mouse6];
     private static bool IsCtrlAltOrShift(KeyCode code) {
 #pragma warning disable IDE0072 // Add missing cases
         return code switch {
