@@ -94,7 +94,7 @@ public static partial class UI {
         }
         return changed;
     }
-    private static readonly KeyCode[] m_MouseKeyCodes = [KeyCode.Mouse0, KeyCode.Mouse1, KeyCode.Mouse2, KeyCode.Mouse3, KeyCode.Mouse4, KeyCode.Mouse5, KeyCode.Mouse6];
+    private static readonly KeyCode[] m_MouseKeyCodes = [KeyCode.Mouse2, KeyCode.Mouse3, KeyCode.Mouse4, KeyCode.Mouse5, KeyCode.Mouse6];
     private static bool IsCtrlAltOrShift(KeyCode code) {
 #pragma warning disable IDE0072 // Add missing cases
         return code switch {
