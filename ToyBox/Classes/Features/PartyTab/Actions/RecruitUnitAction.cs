@@ -3,6 +3,7 @@ using Kingmaker.Designers;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.GameModes;
 using Kingmaker.UnitLogic.Parts;
+using ToyBox.Classes.Infrastructure.Features;
 using ToyBox.Infrastructure.Utilities;
 using UnityEngine;
 
@@ -14,17 +15,17 @@ public partial class RecruitUnitAction : FeatureWithAction, INeedContextFeature<
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_PartyTab_Actions_RecruitUnitAction_Description", "Recruits the specified unit and teleports it to you if possible.")]
     public override partial string Description { get; }
-    public bool CanExecute(params object?[] parameter) {
-        if (parameter.Length > 0 && parameter[0] is BaseUnitEntity unit) {
+    public override bool CanExecute(ActionParameter parameter) {
+        if (parameter.UnitParam is BaseUnitEntity unit) {
             var state = unit.GetCompanionOptional();
             return state == null || state.State == CompanionState.None || state.State == CompanionState.ExCompanion;
         } else {
             return false;
         }
     }
-    public override void ExecuteAction(params object?[] parameter) {
+    public override void ExecuteAction(ActionParameter parameter) {
         LogExecution(parameter);
-        var unit = (BaseUnitEntity)parameter[0]!;
+        var unit = parameter.UnitParam!;
         var currentMode = Game.Instance.CurrentMode;
         unit = GameHelper.RecruitNPC(unit, unit.Blueprint);
         if (currentMode == GameModeType.Default || currentMode == GameModeType.Pause) {
@@ -53,14 +54,15 @@ public partial class RecruitUnitAction : FeatureWithAction, INeedContextFeature<
 
     private static readonly TimedCache<float> m_WidthCache = new(() => CalculateLargestLabelWidth([m_RecruitLocalizedText], GUI.skin.button));
     public void OnGui(BaseUnitEntity unit, bool isFeatureSearch = false, bool narrow = false) {
-        if (CanExecute(unit)) {
+        var parameter = new ActionParameter(unit);
+        if (CanExecute(parameter)) {
             if (narrow) {
                 if (UI.Button(m_RecruitLocalizedText, null, null, Width(m_WidthCache))) {
-                    ExecuteAction(unit);
+                    ExecuteAction(parameter);
                 }
             } else {
                 if (UI.Button(m_RecruitLocalizedText)) {
-                    ExecuteAction(unit);
+                    ExecuteAction(parameter);
                 }
             }
         } else if (isFeatureSearch) {

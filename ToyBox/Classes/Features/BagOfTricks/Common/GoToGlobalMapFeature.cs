@@ -1,6 +1,7 @@
 ﻿using Kingmaker;
 using Kingmaker.Blueprints.Root;
 using Kingmaker.EntitySystem.Persistence;
+using ToyBox.Classes.Infrastructure.Features;
 
 namespace ToyBox.Features.BagOfTricks.Common;
 
@@ -10,8 +11,10 @@ public partial class GoToGlobalMapFeature : FeatureWithBindableAction {
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_BagOfTricks_Common_GoToGlobalMapFeature_Description", "Tries to load the sector map area. Don't use in prologue.")]
     public override partial string Description { get; }
-
-    public override void ExecuteAction(params object?[] parameter) {
+    public override bool CanExecute(ActionParameter parameter) {
+        throw new NotImplementedException();
+    }
+    public override void ExecuteAction(ActionParameter parameter) {
         if (IsInGame()) {
             var globalMap = BlueprintRoot.Instance.SectorMapArea;
             var areaEnterPoint = globalMap.SectorMapEnterPoint;

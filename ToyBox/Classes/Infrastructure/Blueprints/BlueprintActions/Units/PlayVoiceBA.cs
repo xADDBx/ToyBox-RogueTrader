@@ -1,6 +1,7 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.Visual.Sound;
+using ToyBox.Classes.Infrastructure.Features;
 using ToyBox.Infrastructure.Blueprints.BlueprintActions;
 using ToyBox.Infrastructure.Utilities;
 

@@ -1,4 +1,5 @@
-﻿using ToyBox.Infrastructure.Keybinds;
+﻿using ToyBox.Classes.Infrastructure.Features;
+using ToyBox.Infrastructure.Keybinds;
 
 namespace ToyBox;
 
@@ -11,10 +12,13 @@ public abstract partial class FeatureWithBindableAction : FeatureWithAction, IBi
         base.Enable();
         Keybind = Hotkeys.MaybeGetHotkey(GetType());
     }
+    public void LogExecution(ActionParameter parameter) {
+        base.LogExecution(parameter);
+    }
     public override void OnGui() {
         using (HorizontalScope()) {
             if (UI.Button(Name)) {
-                ExecuteAction();
+                ExecuteAction(default);
             }
             Space(10);
             UI.Label(Description.Green());

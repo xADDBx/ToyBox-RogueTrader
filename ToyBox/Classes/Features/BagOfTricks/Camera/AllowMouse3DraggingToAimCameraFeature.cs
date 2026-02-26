@@ -1,4 +1,5 @@
 ﻿using Kingmaker.View;
+using ToyBox.Classes.Infrastructure.Features;
 using ToyBox.Infrastructure.Keybinds;
 using ToyBox.Infrastructure.Utilities;
 
@@ -33,8 +34,8 @@ public partial class AllowMouse3DraggingToAimCameraFeature : FeatureWithPatch, I
         get;
         set;
     }
-    public void ExecuteAction(params object?[] parameter) {
-        LogExecution();
+    public void ExecuteAction(ActionParameter parameter) {
+        LogExecution(parameter);
         IsEnabled = !IsEnabled;
         if (IsEnabled) {
             Enable();
@@ -42,7 +43,7 @@ public partial class AllowMouse3DraggingToAimCameraFeature : FeatureWithPatch, I
             Disable();
         }
     }
-    public void LogExecution(params object?[] parameter) {
+    public void LogExecution(ActionParameter parameter) {
         Helpers.LogExecution(this, parameter);
     }
     [HarmonyPatch(typeof(CameraRig), nameof(CameraRig.TickRotate)), HarmonyPrefix]

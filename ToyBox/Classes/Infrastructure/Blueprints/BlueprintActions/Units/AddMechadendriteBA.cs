@@ -1,5 +1,6 @@
 ﻿using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.EntitySystem.Entities;
+using ToyBox.Classes.Infrastructure.Features;
 using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;

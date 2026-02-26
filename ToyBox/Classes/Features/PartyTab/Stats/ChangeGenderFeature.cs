@@ -1,5 +1,6 @@
 ﻿using Kingmaker.Blueprints.Base;
 using Kingmaker.EntitySystem.Entities;
+using ToyBox.Classes.Infrastructure.Features;
 using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Features.PartyTab.Stats;
@@ -10,9 +11,11 @@ public partial class ChangeGenderFeature : FeatureWithAction, INeedContextFeatur
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_PartyTab_Stats_ChangeGenderFeature_Description", "Toggles the characters gender between male and female.")]
     public override partial string Description { get; }
-
-    public override void ExecuteAction(params object?[] parameter) {
-        var unit = (parameter[0] as BaseUnitEntity)!;
+    public override bool CanExecute(ActionParameter parameter) {
+        return parameter.UnitParam != null;
+    }
+    public override void ExecuteAction(ActionParameter parameter) {
+        var unit = parameter.UnitParam!;
         switch (unit.Gender) {
             case Gender.Male: unit.Description?.SetGender(Gender.Female); break;
             case Gender.Female: unit.Description?.SetGender(Gender.Male); break;
@@ -35,7 +38,7 @@ public partial class ChangeGenderFeature : FeatureWithAction, INeedContextFeatur
             Space(5);
             var isFemale = unit.Gender == Gender.Female;
             if (UI.Button(isFemale ? "♀".Magenta() : "♂".Aqua(), null, null, Width(Main.UIScale * 40))) {
-                ExecuteAction(unit);
+                ExecuteAction(new(unit));
             }
         }
     }

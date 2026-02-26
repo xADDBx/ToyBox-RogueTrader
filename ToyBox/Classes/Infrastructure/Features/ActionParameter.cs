@@ -1,7 +1,7 @@
 ﻿using Kingmaker.EntitySystem.Entities;
 using System.Text;
 
-namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
+namespace ToyBox.Classes.Infrastructure.Features;
 
 public readonly struct ActionParameter : IEquatable<ActionParameter> {
     public readonly int IntParam {

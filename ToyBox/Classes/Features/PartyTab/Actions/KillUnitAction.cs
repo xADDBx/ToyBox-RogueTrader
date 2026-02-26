@@ -1,5 +1,6 @@
 ﻿using Kingmaker.Cheats;
 using Kingmaker.EntitySystem.Entities;
+using ToyBox.Classes.Infrastructure.Features;
 using ToyBox.Infrastructure.Utilities;
 using UnityEngine;
 
@@ -11,16 +12,12 @@ public partial class KillUnitAction : FeatureWithAction, INeedContextFeature<Bas
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_PartyTab_Actions_KillUnitAction_Description", "Kills the specified unit by marking it for death.")]
     public override partial string Description { get; }
-    public bool CanExecute(params object[] parameter) {
-        if (parameter.Length > 0 && parameter[0] is BaseUnitEntity) {
-            return true;
-        } else {
-            return false;
-        }
+    public override bool CanExecute(ActionParameter parameter) {
+        return parameter.UnitParam != null;
     }
-    public override void ExecuteAction(params object?[] parameter) {
+    public override void ExecuteAction(ActionParameter parameter) {
         LogExecution(parameter);
-        CheatsCombat.KillUnit((BaseUnitEntity)parameter[0]!);
+        CheatsCombat.KillUnit(parameter.UnitParam!);
     }
     public bool GetContext(out BaseUnitEntity? context) {
         return ContextProvider.BaseUnitEntity(out context);
@@ -35,14 +32,15 @@ public partial class KillUnitAction : FeatureWithAction, INeedContextFeature<Bas
     }
     private static readonly TimedCache<float> m_WidthCache = new(() => CalculateLargestLabelWidth([m_KillLocalizedText], GUI.skin.button));
     public void OnGui(BaseUnitEntity unit, bool isFeatureSearch = false, bool narrow = false) {
-        if (CanExecute(unit)) {
+        var parameter = new ActionParameter(unit);
+        if (CanExecute(parameter)) {
             if (narrow) {
                 if (UI.Button(m_KillLocalizedText, null, null, Width(m_WidthCache))) {
-                    ExecuteAction(unit);
+                    ExecuteAction(parameter);
                 }
             } else {
                 if (UI.Button(m_KillLocalizedText)) {
-                    ExecuteAction(unit);
+                    ExecuteAction(parameter);
                 }
             }
         } else if (isFeatureSearch) {

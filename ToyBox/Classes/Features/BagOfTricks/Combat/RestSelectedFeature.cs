@@ -1,5 +1,6 @@
 ﻿using Kingmaker;
 using Kingmaker.UnitLogic.Parts;
+using ToyBox.Classes.Infrastructure.Features;
 
 namespace ToyBox.Features.BagOfTricks.Combat;
 
@@ -9,9 +10,11 @@ public partial class RestSelectedFeature : FeatureWithBindableAction {
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_BagOfTricks_Combat_RestSelectedFeature_Description", "Revives and heals the selected characters + restores action points and ability cooldowns.")]
     public override partial string Description { get; }
-
-    public override void ExecuteAction(params object?[] parameter) {
-        if (IsInGame()) {
+    public override bool CanExecute(ActionParameter parameter) {
+        return IsInGame();
+    }
+    public override void ExecuteAction(ActionParameter parameter) {
+        if (CanExecute(parameter)) {
             var units = Game.Instance.SelectionCharacter?.SelectedUnits ?? [];
             LogExecution(units);
             foreach (var unit in units) {

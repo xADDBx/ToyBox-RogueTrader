@@ -6,13 +6,14 @@ using Kingmaker.PubSubSystem;
 using Kingmaker.PubSubSystem.Core;
 using Kingmaker.UI.Models.UnitSettings;
 using Owlcat.Runtime.UI.Tooltips;
+using ToyBox.Classes.Infrastructure.Features;
 using ToyBox.Infrastructure.Keybinds;
 using UnityEngine;
 
 namespace ToyBox.Features.SettingsTab.Game;
 
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.SettingsTab.Game.DisplayGuidsInTooltipsFeature")]
-public partial class DisplayGuidsInTooltipsFeature : FeatureWithPatch, IBindableFeature {
+public partial class DisplayGuidsInTooltipsFeature : FeatureWithPatch, IToggleWithPseudoBinding {
     public override ref bool IsEnabled {
         get {
             return ref Settings.EnableDisplayGuidsInTooltips;
@@ -30,27 +31,18 @@ public partial class DisplayGuidsInTooltipsFeature : FeatureWithPatch, IBindable
         get;
         set;
     }
-    public override void OnGui() {
-        using (HorizontalScope()) {
-            base.OnGui();
-            var current = Keybind;
-            if (UI.HotkeyPicker(ref current, this, true)) {
-                Keybind = current;
-            }
-        }
-    }
     protected override string HarmonyName {
         get {
             return "ToyBox.Features.SettingsTab.Game.DisplayGuidsInTooltipsFeature";
         }
     }
 
-    public void ExecuteAction(params object?[] parameter) {
-        throw new NotImplementedException();
+    public void ExecuteAction(ActionParameter parameter) {
+        throw new NotImplementedException("By Design");
     }
 
-    public void LogExecution(params object?[] parameter) {
-        throw new NotImplementedException();
+    public void LogExecution(ActionParameter parameter) {
+        throw new NotImplementedException("By Design");
     }
     private static TooltipBrickText GetTooltip(string text) {
         return new TooltipBrickText(text.Grey().SizePercent(105), TooltipTextType.Simple | TooltipTextType.Italic);

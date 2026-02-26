@@ -12,6 +12,7 @@ using Kingmaker.UI.Models.UnitSettings;
 using Kingmaker.UnitLogic.Parts;
 using Kingmaker.Utility.DotNetExtensions;
 using Kingmaker.View.Spawners;
+using ToyBox.Classes.Infrastructure.Features;
 
 namespace ToyBox.Features.BagOfTricks.Common;
 
@@ -21,9 +22,12 @@ public partial class OpenReputationTradeWindowFeature : FeatureWithBindableActio
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_BagOfTricks_Common_OpenReputationTradeWindowFeature_Description", "Opens the faction reputation trade window (when available).")]
     public override partial string Description { get; }
-    public override void ExecuteAction(params object?[] parameter) {
-        if (IsInGame()) {
-            //Trade window should not be available in the Dark City and in Chapter 5. The game already disables it in the prologue.
+    public override bool CanExecute(ActionParameter parameter) {
+        return IsInGame();
+    }
+    public override void ExecuteAction(ActionParameter parameter) {
+        if (CanExecute(parameter)) {
+            // Trade window should not be available in the Dark City and in Chapter 5. The game already disables it in the prologue.
             string[] blockedEtudes = ["725db1ff1322445c8185506f4f6d242e", "6571856eb6c0459cba30e13adc5c6314"];
             foreach (var blockedId in blockedEtudes) {
                 if (ResourcesLibrary.TryGetBlueprint(blockedId) is BlueprintEtude maybeBlocked) {

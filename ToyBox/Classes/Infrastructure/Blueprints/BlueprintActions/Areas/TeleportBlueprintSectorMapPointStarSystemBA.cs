@@ -1,6 +1,7 @@
 ﻿using Kingmaker;
 using Kingmaker.EntitySystem.Persistence;
 using Kingmaker.Globalmap.Blueprints.SectorMap;
+using ToyBox.Classes.Infrastructure.Features;
 using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;

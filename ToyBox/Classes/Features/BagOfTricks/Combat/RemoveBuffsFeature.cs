@@ -1,4 +1,5 @@
 ﻿using Kingmaker;
+using ToyBox.Classes.Infrastructure.Features;
 
 namespace ToyBox.Features.BagOfTricks.Combat;
 
@@ -8,9 +9,11 @@ public partial class RemoveBuffsFeature : FeatureWithBindableAction {
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_BagOfTricks_Combat_RemoveBuffsFeature_Description", "Removes all non-hidden and non-persistent buffs from all party members and pets.")]
     public override partial string Description { get; }
-
-    public override void ExecuteAction(params object?[] parameter) {
-        if (IsInGame()) {
+    public override bool CanExecute(ActionParameter parameter) {
+        return IsInGame();
+    }
+    public override void ExecuteAction(ActionParameter parameter) {
+        if (CanExecute(parameter)) {
             var units = Game.Instance.Player?.PartyAndPets ?? [];
             LogExecution(units);
             foreach (var unit in units) {

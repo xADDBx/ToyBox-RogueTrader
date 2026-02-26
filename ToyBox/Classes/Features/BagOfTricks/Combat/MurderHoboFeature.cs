@@ -1,5 +1,6 @@
 ﻿using Kingmaker.Cheats;
 using Kingmaker.Controllers.Combat;
+using ToyBox.Classes.Infrastructure.Features;
 using ToyBox.Infrastructure.Keybinds;
 using ToyBox.Infrastructure.Utilities;
 
@@ -30,8 +31,8 @@ public partial class MurderHoboFeature : FeatureWithPatch, IToggledWithBinding {
         get;
         set;
     }
-    public void ExecuteAction(params object?[] parameter) {
-        LogExecution();
+    public void ExecuteAction(ActionParameter parameter) {
+        LogExecution(parameter);
         IsEnabled = !IsEnabled;
         if (IsEnabled) {
             Enable();
@@ -39,7 +40,7 @@ public partial class MurderHoboFeature : FeatureWithPatch, IToggledWithBinding {
             Disable();
         }
     }
-    public void LogExecution(params object?[] parameter) {
+    public void LogExecution(ActionParameter parameter) {
         Helpers.LogExecution(this, parameter);
     }
     [HarmonyPatch(typeof(PartUnitCombatState), nameof(PartUnitCombatState.JoinCombat)), HarmonyPostfix]

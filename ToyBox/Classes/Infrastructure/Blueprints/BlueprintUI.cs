@@ -6,6 +6,7 @@ using Kingmaker.Utility.UnityExtensions;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using ToyBox.Classes.Infrastructure.Features;
 using ToyBox.Features.SettingsFeatures.Blueprints;
 using ToyBox.Features.SettingsFeatures.BrowserSettings;
 using ToyBox.Infrastructure.Blueprints.BlueprintActions;

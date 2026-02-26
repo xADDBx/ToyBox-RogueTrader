@@ -8,7 +8,7 @@ public abstract class ToggledFeature : Feature {
                 _ = UI.Toggle(Name, Description, ref IsEnabled, Enable, Disable);
                 Space(10);
                 var current = bindable.Keybind;
-                if (UI.HotkeyPicker(ref current, bindable)) {
+                if (UI.HotkeyPicker(ref current, bindable, this is IToggleWithPseudoBinding)) {
                     bindable.Keybind = current;
                 }
             }

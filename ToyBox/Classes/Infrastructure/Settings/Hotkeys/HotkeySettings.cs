@@ -49,7 +49,7 @@ internal class HotkeySettings : AbstractJsonSettings {
                 if (hotkey.IsActive(currentMask)) {
                     var feature = Feature.GetInstance<Feature>(m_BoundKeys[hotkey]);
                     if (feature is IBindableFeature action) {
-                        action.ExecuteAction();
+                        action.ExecuteAction(default);
                     } else {
                         throw new NotSupportedException($"Trying to execute feature via hotkey; but feature does not implement Execute: {feature.Name} (type: {feature.GetType()}");
                     }

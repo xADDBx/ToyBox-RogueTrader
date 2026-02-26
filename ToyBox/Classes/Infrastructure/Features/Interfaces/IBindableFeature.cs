@@ -1,4 +1,5 @@
-﻿using ToyBox.Infrastructure.Keybinds;
+﻿using ToyBox.Classes.Infrastructure.Features;
+using ToyBox.Infrastructure.Keybinds;
 
 namespace ToyBox;
 
@@ -6,6 +7,6 @@ public interface IBindableFeature {
     abstract Hotkey? Keybind {
         get;
     }
-    abstract void LogExecution(params object?[] parameter);
-    abstract void ExecuteAction(params object?[] parameter);
+    abstract void LogExecution(ActionParameter parameter);
+    abstract void ExecuteAction(ActionParameter parameter);
 }

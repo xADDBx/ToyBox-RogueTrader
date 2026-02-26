@@ -1,5 +1,6 @@
 ﻿using Kingmaker;
 using Kingmaker.UnitLogic;
+using ToyBox.Classes.Infrastructure.Features;
 using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Features.BagOfTricks.QualityOfLife;
@@ -10,9 +11,11 @@ public partial class FixIncorrectMainCharacterFeature : FeatureWithAction {
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_BagOfTricks_QualityOfLife_FixIncorrectMainCharacterFeature_Description", "Certain situations might cause the game to incorrectly assume someone else is the main character. This tries to restore the original main character.")]
     public override partial string Description { get; }
-
-    public override void ExecuteAction(params object?[] parameter) {
-        if (IsInGame()) {
+    public override bool CanExecute(ActionParameter parameter) {
+        return IsInGame();
+    }
+    public override void ExecuteAction(ActionParameter parameter) {
+        if (CanExecute(parameter)) {
             Helpers.LogExecution(this, parameter);
             var probablyPlayer = Game.Instance.Player.Party?.Where(x => !x.IsCustomCompanion() && !x.IsStoryCompanion()).ToList();
             if (probablyPlayer is { Count: 1 }) {
@@ -26,7 +29,7 @@ public partial class FixIncorrectMainCharacterFeature : FeatureWithAction {
     public override void OnGui() {
         using (HorizontalScope()) {
             if (UI.Button(Name)) {
-                ExecuteAction();
+                ExecuteAction(default);
             }
             Space(10);
             UI.Label(Description.Green());

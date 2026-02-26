@@ -1,5 +1,6 @@
 ﻿using Kingmaker;
 using Kingmaker.EntitySystem.Entities;
+using ToyBox.Classes.Infrastructure.Features;
 using ToyBox.Infrastructure.Utilities;
 using UnityEngine;
 
@@ -11,16 +12,16 @@ public partial class RemoveUnitFromPartyAction : FeatureWithAction, INeedContext
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_PartyTab_Actions_RemoveUnitFromPartyAction_Description", "Removes the specified unit or pet from the current party.")]
     public override partial string Description { get; }
-    public bool CanExecute(params object?[] parameter) {
-        if (parameter.Length > 0 && parameter[0] is BaseUnitEntity unit) {
+    public override bool CanExecute(ActionParameter parameter) {
+        if (parameter.UnitParam is BaseUnitEntity unit) {
             return Game.Instance.Player.ActiveCompanions.Contains(unit);
         } else {
             return false;
         }
     }
-    public override void ExecuteAction(params object?[] parameter) {
+    public override void ExecuteAction(ActionParameter parameter) {
         LogExecution(parameter);
-        var unit = (BaseUnitEntity)parameter[0]!;
+        var unit = parameter.UnitParam!;
         Game.Instance.Player.RemoveCompanion(unit);
         Game.Instance.Player.FixPartyAfterChange();
     }
@@ -38,14 +39,15 @@ public partial class RemoveUnitFromPartyAction : FeatureWithAction, INeedContext
 
     private static readonly TimedCache<float> m_WidthCache = new(() => CalculateLargestLabelWidth([m_RemoveLocalizedText], GUI.skin.button));
     public void OnGui(BaseUnitEntity unit, bool isFeatureSearch = false, bool narrow = false) {
-        if (CanExecute(unit)) {
+        var parameter = new ActionParameter(unit);
+        if (CanExecute(parameter)) {
             if (narrow) {
                 if (UI.Button(m_RemoveLocalizedText, null, null, Width(m_WidthCache))) {
-                    ExecuteAction(unit);
+                    ExecuteAction(parameter);
                 }
             } else {
                 if (UI.Button(m_RemoveLocalizedText)) {
-                    ExecuteAction(unit);
+                    ExecuteAction(parameter);
                 }
             }
         } else if (isFeatureSearch) {

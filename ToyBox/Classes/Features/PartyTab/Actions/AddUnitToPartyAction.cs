@@ -2,6 +2,7 @@
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.GameModes;
 using Kingmaker.UnitLogic.Parts;
+using ToyBox.Classes.Infrastructure.Features;
 using ToyBox.Infrastructure.Utilities;
 using UnityEngine;
 
@@ -13,16 +14,16 @@ public partial class AddUnitToPartyAction : FeatureWithAction, INeedContextFeatu
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_PartyTab_Actions_AddUnitToPartyAction_Description", "Adds the specified unit or pet to the current party and teleports it to you if necessary.")]
     public override partial string Description { get; }
-    public bool CanExecute(params object[] parameter) {
-        if (parameter.Length > 0 && parameter[0] is BaseUnitEntity unit) {
+    public override bool CanExecute(ActionParameter parameter) {
+        if (parameter.UnitParam is BaseUnitEntity unit) {
             return !Game.Instance.Player.PartyAndPets.Contains(unit) && Game.Instance.Player.AllCharacters.Contains(unit) && unit.GetCompanionOptional() != null;
         } else {
             return false;
         }
     }
-    public override void ExecuteAction(params object?[] parameter) {
+    public override void ExecuteAction(ActionParameter parameter) {
         LogExecution(parameter);
-        var unit = (BaseUnitEntity)parameter[0]!;
+        var unit = parameter.UnitParam!;
         var currentMode = Game.Instance.CurrentMode;
         Game.Instance.Player.AddCompanion(unit);
         if (currentMode == GameModeType.Default || currentMode == GameModeType.Pause) {
@@ -49,14 +50,15 @@ public partial class AddUnitToPartyAction : FeatureWithAction, INeedContextFeatu
 
     private static readonly TimedCache<float> m_WidthCache = new(() => CalculateLargestLabelWidth([m_AddLocalizedText], GUI.skin.button));
     public void OnGui(BaseUnitEntity unit, bool isFeatureSearch = false, bool narrow = false) {
-        if (CanExecute(unit)) {
+        var parameter = new ActionParameter(unit);
+        if (CanExecute(parameter)) {
             if (narrow) {
                 if (UI.Button(m_AddLocalizedText, null, null, Width(m_WidthCache))) {
-                    ExecuteAction(unit);
+                    ExecuteAction(parameter);
                 }
             } else {
                 if (UI.Button(m_AddLocalizedText)) {
-                    ExecuteAction(unit);
+                    ExecuteAction(parameter);
                 }
             }
         } else if (isFeatureSearch) {
