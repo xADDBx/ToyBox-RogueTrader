@@ -12,10 +12,10 @@ public partial class TeleportPartyToYouFeature : FeatureWithBindableAction {
     [LocalizedString("ToyBox_Features_BagOfTricks_Teleport_TeleportPartyToYouFeature_Description", "Teleports your party members and pets to the main character unit.")]
     public override partial string Description { get; }
     public override bool CanExecute(ActionParameter parameter) {
-        return IsInGame();
+        return IsInGame() && (Game.Instance.CurrentMode == GameModeType.Default || Game.Instance.CurrentMode == GameModeType.Pause);
     }
     public override void ExecuteAction(ActionParameter parameter) {
-        if (CanExecute(parameter) && (Game.Instance.CurrentMode == GameModeType.Default || Game.Instance.CurrentMode == GameModeType.Pause)) {
+        if (CanExecute(parameter)) {
             var position = Game.Instance.Player.MainCharacterEntity.Position;
             var units = Game.Instance.Player.m_PartyAndPets ?? [];
             LogExecution(position, units);

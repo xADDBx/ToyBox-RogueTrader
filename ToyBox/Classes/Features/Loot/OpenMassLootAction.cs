@@ -14,8 +14,8 @@ public partial class OpenMassLootAction : FeatureWithBindableAction {
         return IsInGame();
     }
     public override void ExecuteAction(ActionParameter parameter) {
-        LogExecution(parameter);
         if (CanExecute(parameter)) {
+            LogExecution(parameter);
             var loot = MassLootHelper.GetMassLootFromCurrentArea();
             if (loot == null || !loot.Any()) {
                 Warn("Mass Loot null or empty, aborting...");

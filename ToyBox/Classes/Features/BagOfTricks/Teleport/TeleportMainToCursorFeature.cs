@@ -13,10 +13,10 @@ public partial class TeleportMainToCursorFeature : FeatureWithBindableAction {
     [LocalizedString("ToyBox_Features_BagOfTricks_Teleport_TeleportMainToCursorFeature_Description", "Teleports your main character unit to the position your mouse points at.")]
     public override partial string Description { get; }
     public override bool CanExecute(ActionParameter parameter) {
-        return IsInGame();
+        return IsInGame() && (Game.Instance.CurrentMode == GameModeType.Default || Game.Instance.CurrentMode == GameModeType.Pause);
     }
     public override void ExecuteAction(ActionParameter parameter) {
-        if (CanExecute(parameter) && (Game.Instance.CurrentMode == GameModeType.Default || Game.Instance.CurrentMode == GameModeType.Pause)) {
+        if (CanExecute(parameter)) {
             var position = GetCursorPositionInWorld();
             List<BaseUnitEntity> units = [Game.Instance.Player.MainCharacterEntity];
             LogExecution(position, units);

@@ -12,10 +12,10 @@ public partial class TeleportPartyToCursorFeature : FeatureWithBindableAction {
     [LocalizedString("ToyBox_Features_BagOfTricks_Teleport_TeleportPartyToCursorFeature_Description", "Teleports all party units and pets to the position your mouse points at.")]
     public override partial string Description { get; }
     public override bool CanExecute(ActionParameter parameter) {
-        return IsInGame();
+        return IsInGame() && (Game.Instance.CurrentMode == GameModeType.Default || Game.Instance.CurrentMode == GameModeType.Pause);
     }
     public override void ExecuteAction(ActionParameter parameter) {
-        if (CanExecute(parameter) && (Game.Instance.CurrentMode == GameModeType.Default || Game.Instance.CurrentMode == GameModeType.Pause)) {
+        if (CanExecute(parameter)) {
             var position = GetCursorPositionInWorld();
             var units = Game.Instance.Player.PartyAndPets ?? [];
             LogExecution(position, units);
