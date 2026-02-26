@@ -22,7 +22,7 @@ public partial class RespecUnitAction : FeatureWithAction, INeedContextFeature<B
             if (unit.LifeState.IsDead || unit.IsPet) {
                 return false;
             }
-            CharacterLevelLimit component = unit.OriginalBlueprint.GetComponent<CharacterLevelLimit>();
+            var component = unit.OriginalBlueprint.GetComponent<CharacterLevelLimit>();
             var num = (component != null) ? component.LevelLimit : 0;
             if (GetInstance<RespecFromLevelXFeature>().IsEnabled) {
                 return unit.Progression.CharacterLevel > Settings.CurrentRespecLevelSetting;
@@ -33,10 +33,10 @@ public partial class RespecUnitAction : FeatureWithAction, INeedContextFeature<B
             return false;
         }
     }
-    public override void ExecuteAction(params object[] parameter) {
+    public override void ExecuteAction(params object?[] parameter) {
         LogExecution(parameter);
         ToggleModWindow();
-        var unit = (BaseUnitEntity)parameter[0];
+        var unit = (BaseUnitEntity)parameter[0]!;
         var pet = unit.Pet;
         unit.Progression.Respec();
         EventBus.RaiseEvent(unit, delegate (IRespecHandler h) {

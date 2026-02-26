@@ -8,14 +8,14 @@ namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
 
 [IsTested]
 public partial class SpawnUnitBA : BlueprintActionFeature, IBlueprintAction<BlueprintUnit> {
-    public bool CanExecute(BlueprintUnit blueprint, params object[] parameter) {
+    public bool CanExecute(BlueprintUnit blueprint, ActionParameter parameter) {
         return IsInGame();
     }
 
-    private bool Execute(BlueprintUnit blueprint, int count) {
-        LogExecution(blueprint, count);
+    public bool Execute(BlueprintUnit blueprint, ActionParameter parameter) {
+        LogExecution(blueprint, parameter);
         BaseUnitEntity? spawned = null;
-        for (var i = 0; i < count; i++) {
+        for (var i = 0; i < parameter.IntParam; i++) {
             var spawnPosition = Game.Instance.ClickEventsController.WorldPosition;
             var offset = 5f * UnityEngine.Random.insideUnitSphere;
             spawnPosition = new(spawnPosition.x + offset.x, spawnPosition.y, spawnPosition.z + offset.z);
@@ -23,15 +23,11 @@ public partial class SpawnUnitBA : BlueprintActionFeature, IBlueprintAction<Blue
         }
         return spawned != null;
     }
-    public bool? OnGui(BlueprintUnit blueprint, bool isFeatureSearch = false, params object[] parameter) {
+    public bool? OnGui(BlueprintUnit blueprint, bool isFeatureSearch, ActionParameter parameter) {
         bool? result = null;
         if (CanExecute(blueprint, parameter)) {
-            var count = 1;
-            if (parameter.Length > 0 && parameter[0] is int tmpCount) {
-                count = tmpCount;
-            }
-            _ = UI.Button(StyleActionString(m_SpawnText + $" {count}", isFeatureSearch), () => {
-                result = Execute(blueprint, count);
+            _ = UI.Button(StyleActionString(m_SpawnText + $" {parameter.IntParam}", isFeatureSearch), () => {
+                result = Execute(blueprint, parameter);
             });
         } else if (isFeatureSearch) {
             UI.Label(SharedStrings.ThisCannotBeUsedFromTheMainMenu.Red().Bold());
@@ -44,7 +40,7 @@ public partial class SpawnUnitBA : BlueprintActionFeature, IBlueprintAction<Blue
 
     public override void OnGui() {
         if (GetContext(out var bp)) {
-            _ = OnGui(bp!, true);
+            _ = OnGui(bp!, true, default);
         }
     }
 

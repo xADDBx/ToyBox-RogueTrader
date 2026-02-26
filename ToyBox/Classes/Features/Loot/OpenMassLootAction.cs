@@ -10,7 +10,7 @@ public partial class OpenMassLootAction : FeatureWithBindableAction {
     [LocalizedString("ToyBox_Features_Loot_OpenMassLootAction_Description", "Lets you open up the area's mass loot screen to grab goodies whenever you want. Normally shown only when you exit the area. Only opens if there is actually any loot available.")]
     public override partial string Description { get; }
 
-    public override void ExecuteAction(params object[] parameter) {
+    public override void ExecuteAction(params object?[] parameter) {
         LogExecution(parameter);
 
         var loot = MassLootHelper.GetMassLootFromCurrentArea();

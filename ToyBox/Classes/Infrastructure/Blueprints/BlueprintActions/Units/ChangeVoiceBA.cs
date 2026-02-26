@@ -11,20 +11,20 @@ public partial class ChangeVoiceBA : BlueprintActionFeature, IBlueprintAction<Bl
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_Units_ChangeVoiceBA_Description", "Changes the voice of the specified unit to the specified BlueprintUnitAsksList.")]
     public override partial string Description { get; }
 
-    public bool CanExecute(BlueprintUnitAsksList blueprint, params object[] parameter) {
-        if (parameter.Length > 0 && parameter[0] is BaseUnitEntity unit) {
+    public bool CanExecute(BlueprintUnitAsksList blueprint, ActionParameter parameter) {
+        if (parameter.UnitParam is BaseUnitEntity unit) {
             return unit.Asks.List != blueprint;
         }
         return false;
     }
-    private bool Execute(BlueprintUnitAsksList blueprint, params object[] parameter) {
+    public bool Execute(BlueprintUnitAsksList blueprint, ActionParameter parameter) {
         LogExecution(blueprint, parameter);
-        var unit = (BaseUnitEntity)parameter[0];
+        var unit = parameter.UnitParam!;
         unit.Asks.SetCustom(blueprint);
         unit.View.UpdateAsks();
         return true;
     }
-    public bool? OnGui(BlueprintUnitAsksList blueprint, bool isFeatureSearch, params object[] parameter) {
+    public bool? OnGui(BlueprintUnitAsksList blueprint, bool isFeatureSearch, ActionParameter parameter) {
         bool? result = null;
         if (CanExecute(blueprint, parameter)) {
             _ = UI.Button(StyleActionString(m_ChangeVoiceLocalizedText, isFeatureSearch), () => {
@@ -45,7 +45,7 @@ public partial class ChangeVoiceBA : BlueprintActionFeature, IBlueprintAction<Bl
 
     public override void OnGui() {
         if (GetContext(out BlueprintUnitAsksList? bp) && GetContext(out BaseUnitEntity? unit)) {
-            _ = OnGui(bp!, true, unit!);
+            _ = OnGui(bp!, true, new(unit));
         }
     }
 

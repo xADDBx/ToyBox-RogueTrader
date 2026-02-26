@@ -10,7 +10,7 @@ public partial class RestSelectedFeature : FeatureWithBindableAction {
     [LocalizedString("ToyBox_Features_BagOfTricks_Combat_RestSelectedFeature_Description", "Revives and heals the selected characters + restores action points and ability cooldowns.")]
     public override partial string Description { get; }
 
-    public override void ExecuteAction(params object[] parameter) {
+    public override void ExecuteAction(params object?[] parameter) {
         if (IsInGame()) {
             var units = Game.Instance.SelectionCharacter?.SelectedUnits ?? [];
             LogExecution(units);

@@ -11,16 +11,16 @@ public partial class RemoveUnitFromPartyAction : FeatureWithAction, INeedContext
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_PartyTab_Actions_RemoveUnitFromPartyAction_Description", "Removes the specified unit or pet from the current party.")]
     public override partial string Description { get; }
-    public bool CanExecute(params object[] parameter) {
+    public bool CanExecute(params object?[] parameter) {
         if (parameter.Length > 0 && parameter[0] is BaseUnitEntity unit) {
             return Game.Instance.Player.ActiveCompanions.Contains(unit);
         } else {
             return false;
         }
     }
-    public override void ExecuteAction(params object[] parameter) {
+    public override void ExecuteAction(params object?[] parameter) {
         LogExecution(parameter);
-        var unit = (BaseUnitEntity)parameter[0];
+        var unit = (BaseUnitEntity)parameter[0]!;
         Game.Instance.Player.RemoveCompanion(unit);
         Game.Instance.Player.FixPartyAfterChange();
     }

@@ -11,7 +11,7 @@ public partial class RerollPerceptionFeature : FeatureWithBindableAction {
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_BagOfTricks_Common_RerollPerceptionFeature_Description", "Resets the saved results of awareness rolls on map objects.")]
     public override partial string Description { get; }
-    public override void ExecuteAction(params object[] parameter) {
+    public override void ExecuteAction(params object?[] parameter) {
         if (IsInGame()) {
             LogExecution(parameter);
             var objects = Game.Instance.State.MapObjects;

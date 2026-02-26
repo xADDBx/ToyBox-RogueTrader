@@ -7,33 +7,24 @@ namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
 [IsTested]
 public partial class ChangeFlagValueBA : BlueprintActionFeature, IBlueprintAction<BlueprintUnlockableFlag> {
 
-    public bool CanExecute(BlueprintUnlockableFlag blueprint, params object[] parameter) {
+    public bool CanExecute(BlueprintUnlockableFlag blueprint, ActionParameter parameter) {
         return IsInGame() && blueprint.IsUnlocked;
     }
-    private bool ExecuteIncrease(BlueprintUnlockableFlag blueprint, int count) {
-        LogExecution(blueprint, count);
-        blueprint.Value += count;
+    public bool Execute(BlueprintUnlockableFlag blueprint, ActionParameter parameter) {
+        LogExecution(blueprint, parameter);
+        blueprint.Value += parameter.IntParam;
         return true;
     }
-    private bool ExecuteDecrease(BlueprintUnlockableFlag blueprint, int count) {
-        LogExecution(blueprint, -count);
-        blueprint.Value -= count;
-        return true;
-    }
-    public bool? OnGui(BlueprintUnlockableFlag blueprint, bool isFeatureSearch, params object[] parameter) {
+    public bool? OnGui(BlueprintUnlockableFlag blueprint, bool isFeatureSearch, ActionParameter parameter) {
         bool? result = null;
-        if (CanExecute(blueprint)) {
-            var count = 1;
-            if (parameter.Length > 0 && parameter[0] is int tmpCount) {
-                count = tmpCount;
-            }
+        if (CanExecute(blueprint, parameter)) {
             using (HorizontalScope()) {
                 _ = UI.Button(StyleActionString("<", isFeatureSearch), () => {
-                    result = ExecuteDecrease(blueprint, count);
+                    result = Execute(blueprint, new(-parameter.IntParam));
                 });
                 UI.Label(StyleActionString($" {Game.Instance.Player.UnlockableFlags.GetFlagValue(blueprint)} ".Bold().Orange(), isFeatureSearch));
                 _ = UI.Button(StyleActionString(">", isFeatureSearch), () => {
-                    result = ExecuteIncrease(blueprint, count);
+                    result = Execute(blueprint, parameter);
                 });
             }
         } else if (isFeatureSearch) {
@@ -52,7 +43,7 @@ public partial class ChangeFlagValueBA : BlueprintActionFeature, IBlueprintActio
 
     public override void OnGui() {
         if (GetContext(out var bp)) {
-            _ = OnGui(bp!, true);
+            _ = OnGui(bp!, true, default);
         }
     }
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeFlagValueBA_Name", "Modify Flag Value")]

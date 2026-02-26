@@ -33,7 +33,7 @@ public partial class AllowMouse3DraggingToAimCameraFeature : FeatureWithPatch, I
         get;
         set;
     }
-    public void ExecuteAction(params object[] parameter) {
+    public void ExecuteAction(params object?[] parameter) {
         LogExecution();
         IsEnabled = !IsEnabled;
         if (IsEnabled) {

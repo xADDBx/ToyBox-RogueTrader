@@ -9,7 +9,7 @@ public partial class RemoveBuffsFeature : FeatureWithBindableAction {
     [LocalizedString("ToyBox_Features_BagOfTricks_Combat_RemoveBuffsFeature_Description", "Removes all non-hidden and non-persistent buffs from all party members and pets.")]
     public override partial string Description { get; }
 
-    public override void ExecuteAction(params object[] parameter) {
+    public override void ExecuteAction(params object?[] parameter) {
         if (IsInGame()) {
             var units = Game.Instance.Player?.PartyAndPets ?? [];
             LogExecution(units);

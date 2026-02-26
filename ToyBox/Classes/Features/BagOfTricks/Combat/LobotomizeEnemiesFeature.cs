@@ -10,7 +10,7 @@ public partial class LobotomizeEnemiesFeature : FeatureWithBindableAction {
     [LocalizedString("ToyBox_Features_BagOfTricks_Combat_LobotomizeEnemiesFeature_Description", "Makes enemies unable to act, move and perform attack of opportunities.")]
     public override partial string Description { get; }
 
-    public override void ExecuteAction(params object[] parameter) {
+    public override void ExecuteAction(params object?[] parameter) {
         if (IsInGame() && Game.Instance.Player.IsInCombat) {
             var units = Game.Instance.State?.AllBaseUnits ?? [];
             LogExecution(units);

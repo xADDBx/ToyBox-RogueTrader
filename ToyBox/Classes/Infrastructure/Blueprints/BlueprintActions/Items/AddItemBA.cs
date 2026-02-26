@@ -5,24 +5,20 @@ using ToyBox.Infrastructure.Utilities;
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
 
 public partial class AddItemBA : BlueprintActionFeature, IBlueprintAction<BlueprintItem> {
-    public bool CanExecute(BlueprintItem blueprint, params object[] parameter) {
+    public bool CanExecute(BlueprintItem blueprint, ActionParameter parameter) {
         return IsInGame();
     }
 
-    private bool Execute(BlueprintItem blueprint, int count) {
-        LogExecution(blueprint, count);
-        Game.Instance.Player.Inventory.Add(blueprint, count);
+    public bool Execute(BlueprintItem blueprint, ActionParameter parameter) {
+        LogExecution(blueprint, parameter);
+        Game.Instance.Player.Inventory.Add(blueprint, parameter.IntParam);
         return true;
     }
-    public bool? OnGui(BlueprintItem blueprint, bool isFeatureSearch, params object[] parameter) {
+    public bool? OnGui(BlueprintItem blueprint, bool isFeatureSearch, ActionParameter parameter) {
         bool? result = null;
         if (CanExecute(blueprint, parameter)) {
-            var count = 1;
-            if (parameter.Length > 0 && parameter[0] is int tmpCount) {
-                count = tmpCount;
-            }
-            _ = UI.Button(StyleActionString(m_AddText.Format(count), isFeatureSearch), () => {
-                result = Execute(blueprint, count);
+            _ = UI.Button(StyleActionString(m_AddText.Format(parameter.IntParam), isFeatureSearch), () => {
+                result = Execute(blueprint, parameter);
             });
         } else if (isFeatureSearch) {
             UI.Label(SharedStrings.ThisCannotBeUsedFromTheMainMenu.Red().Bold());
@@ -36,7 +32,7 @@ public partial class AddItemBA : BlueprintActionFeature, IBlueprintAction<Bluepr
 
     public override void OnGui() {
         if (GetContext(out var bp)) {
-            _ = OnGui(bp!, true);
+            _ = OnGui(bp!, true, default);
         }
     }
 

@@ -2,7 +2,6 @@
 using Kingmaker.Blueprints.Facts;
 using Kingmaker.EntitySystem;
 using Kingmaker.EntitySystem.Entities;
-using Kingmaker.UnitLogic;
 using Kingmaker.Utility.UnityExtensions;
 using System.Linq.Expressions;
 using System.Reflection;
@@ -28,32 +27,30 @@ public static partial class BlueprintUI {
         }
         return null;
     }
-    private static readonly Dictionary<Type, Func<object, object, bool, BaseUnitEntity?, bool?>> m_ActionInvokerCache = [];
+    private static readonly Dictionary<Type, Func<object, object, bool, ActionParameter, bool?>> m_ActionInvokerCache = [];
     private static bool? InvokeAction(object action, object bp, bool isSearch, BaseUnitEntity? unit) {
         var bpType = bp.GetType();
         if (!m_ActionInvokerCache.TryGetValue(bpType, out var invoker)) {
             m_ActionInvokerCache[bpType] = invoker = CreateActionInvoker(bpType);
         }
-        return invoker(action, bp, isSearch, unit);
+        return invoker(action, bp, isSearch, new(unit));
     }
-    private static Func<object, object, bool, BaseUnitEntity?, bool?> CreateActionInvoker(Type bpType) {
+    private static Func<object, object, bool, ActionParameter, bool?> CreateActionInvoker(Type bpType) {
         var ifaceType = typeof(IExecutableAction<>).MakeGenericType(bpType);
         var method = ifaceType.GetMethod("OnGui", BindingFlags.Public | BindingFlags.Instance);
 
         var actionParam = Expression.Parameter(typeof(object), "actionObj");
         var blueprintParam = Expression.Parameter(typeof(object), "blueprintObj");
         var isSearchParam = Expression.Parameter(typeof(bool), "isSearch");
-        var chParam = Expression.Parameter(typeof(BaseUnitEntity), "ch");
+        var paramParam = Expression.Parameter(typeof(ActionParameter), "parameterObj");
 
         var castAction = Expression.Convert(actionParam, ifaceType);
 
         var castBlueprint = Expression.Convert(blueprintParam, bpType);
 
-        var paramsArray = Expression.NewArrayInit(typeof(object), Expression.Convert(chParam, typeof(object)));
+        var call = Expression.Call(castAction, method, castBlueprint, isSearchParam, paramParam);
 
-        var call = Expression.Call(castAction, method, castBlueprint, isSearchParam, paramsArray);
-
-        var lambda = Expression.Lambda<Func<object, object, bool, BaseUnitEntity?, bool?>>(Expression.Convert(call, typeof(bool?)), actionParam, blueprintParam, isSearchParam, chParam);
+        var lambda = Expression.Lambda<Func<object, object, bool, ActionParameter, bool?>>(Expression.Convert(call, typeof(bool?)), actionParam, blueprintParam, isSearchParam, paramParam);
 
         return lambda.Compile();
     }
@@ -62,7 +59,7 @@ public static partial class BlueprintUI {
             var wasDefault = widths == null;
             widths ??= new();
             widths.TitleWidth = Math.Min(0.3f * EffectiveWindowWidth(), CalculateLargestLabelWidth(browser.PagedItems.Select(bp => BPHelper.GetTitle(bp).Cyan().Bold())));
-            widths.TypeWidth = Math.Min(0.2f * EffectiveWindowWidth(), CalculateLargestLabelWidth(browser.PagedItems.Select(bp => bp.GetType().Name.Orange())) + 5 * Main.UIScale);
+            widths.TypeWidth = Math.Min(0.2f * EffectiveWindowWidth(), CalculateLargestLabelWidth(browser.PagedItems.Select(bp => bp.GetType().Name.Orange())) + (5 * Main.UIScale));
             widths.AssetIdWidth = Math.Min(0.3f * EffectiveWindowWidth(), CalculateLargestLabelWidth(browser.PagedItems.Select(bp => bp.AssetGuid.ToString()), GUI.skin.textField));
             if (wasDefault) {
                 m_CachedWidths.Add(browser, widths);
@@ -103,7 +100,7 @@ public static partial class BlueprintUI {
     private static bool m_DoShowSettings = false;
     public static void BlueprintHeaderGUI() {
         using (VerticalScope()) {
-            UI.DisclosureToggle(ref m_DoShowSettings, m_ShowSettingsLocalizedText.Green().Bold());
+            _ = UI.DisclosureToggle(ref m_DoShowSettings, m_ShowSettingsLocalizedText.Green().Bold());
             if (m_DoShowSettings) {
                 Feature.GetInstance<ShowDisplayAndInternalNamesSetting>().OnGui();
                 Feature.GetInstance<ShowBlueprintAssetIdsSetting>().OnGui();

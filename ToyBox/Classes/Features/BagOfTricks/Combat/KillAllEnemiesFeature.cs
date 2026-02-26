@@ -10,7 +10,7 @@ public partial class KillAllEnemiesFeature : FeatureWithBindableAction {
     [LocalizedString("ToyBox_Features_BagOfTricks_Combat_KillAllEnemiesFeature_Description", "Kills all enemies that are currently in combat with you.")]
     public override partial string Description { get; }
 
-    public override void ExecuteAction(params object[] parameter) {
+    public override void ExecuteAction(params object?[] parameter) {
         if (IsInGame() && Game.Instance.Player.IsInCombat) {
             var units = Game.Instance.State?.AllBaseUnits ?? [];
             LogExecution(units);

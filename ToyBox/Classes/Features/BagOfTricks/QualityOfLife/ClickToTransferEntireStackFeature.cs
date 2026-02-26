@@ -29,11 +29,11 @@ public partial class ClickToTransferEntireStackFeature : FeatureWithPatch, ITogg
             return "ToyBox.Features.BagOfTricks.QualityOfLife.ClickToTransferEntireStackFeature";
         }
     }
-    public void ExecuteAction(params object[] parameter) {
+    public void ExecuteAction(params object?[] parameter) {
         throw new NotImplementedException();
     }
 
-    public void LogExecution(params object[] parameter) {
+    public void LogExecution(params object?[] parameter) {
         throw new NotImplementedException();
     }
     [HarmonyPatch(typeof(InventorySlotView), nameof(InventorySlotView.OnClick)), HarmonyPrefix]

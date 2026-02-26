@@ -226,7 +226,7 @@ public static class EtudesEditor {
                 using (HorizontalScope(GUILayout.ExpandWidth(true))) {
                     using (HorizontalScope(Width(310))) {
                         foreach (var action in BlueprintActionFeature.GetActionsForBlueprintType<BlueprintEtude>()) {
-                            if (action.OnGui(etude.Blueprint, false) ?? false) {
+                            if (action.OnGui(etude.Blueprint, false, default) ?? false) {
                                 UpdateEtudeStates();
                             }
                         }

@@ -10,9 +10,9 @@ public partial class ResetCameraAimToDefaultFeature : FeatureWithBindableAction 
     public override void Enable() {
         base.Enable();
     }
-    public override void ExecuteAction(params object[] parameter) {
+    public override void ExecuteAction(params object?[] parameter) {
         LogExecution(parameter);
         var rig = CameraRig.Instance;
-        rig?.m_TargetRotate.x = 0;
+        _ = rig?.m_TargetRotate.x = 0;
     }
 }

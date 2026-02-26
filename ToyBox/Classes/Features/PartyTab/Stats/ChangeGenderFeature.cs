@@ -11,11 +11,13 @@ public partial class ChangeGenderFeature : FeatureWithAction, INeedContextFeatur
     [LocalizedString("ToyBox_Features_PartyTab_Stats_ChangeGenderFeature_Description", "Toggles the characters gender between male and female.")]
     public override partial string Description { get; }
 
-    public override void ExecuteAction(params object[] parameter) {
+    public override void ExecuteAction(params object?[] parameter) {
         var unit = (parameter[0] as BaseUnitEntity)!;
         switch (unit.Gender) {
             case Gender.Male: unit.Description?.SetGender(Gender.Female); break;
             case Gender.Female: unit.Description?.SetGender(Gender.Male); break;
+            default:
+                throw new NotSupportedException("Missing Gender Case?");
         }
     }
     public bool GetContext(out BaseUnitEntity? context) {

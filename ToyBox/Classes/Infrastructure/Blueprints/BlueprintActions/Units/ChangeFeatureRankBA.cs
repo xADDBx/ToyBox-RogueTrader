@@ -5,15 +5,15 @@ using ToyBox.Infrastructure.Utilities;
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
 
 public partial class ChangeFeatureRankBA : BlueprintActionFeature, IBlueprintAction<BlueprintFeature>, INeedContextFeature<BaseUnitEntity> {
-    public bool CanExecute(BlueprintFeature blueprint, params object[] parameter) {
+    public bool CanExecute(BlueprintFeature blueprint, ActionParameter parameter) {
         return CanExecute(blueprint, out _, out _, out _, parameter);
     }
 
-    private bool CanExecute(BlueprintFeature blueprint, out bool canDecrease, out bool canIncrease, out int rank, params object[] parameter) {
+    private bool CanExecute(BlueprintFeature blueprint, out bool canDecrease, out bool canIncrease, out int rank, ActionParameter parameter) {
         canDecrease = false;
         canIncrease = false;
         rank = 0;
-        if (parameter.Length > 0 && parameter[0] is BaseUnitEntity unit) {
+        if (parameter.UnitParam is BaseUnitEntity unit) {
             if (unit.Facts.Get(blueprint) is { } fact && blueprint.Ranks > 1) {
                 rank = fact.GetRank();
                 canDecrease = rank > 1;
@@ -23,17 +23,26 @@ public partial class ChangeFeatureRankBA : BlueprintActionFeature, IBlueprintAct
         }
         return false;
     }
-    private bool ExecuteIncrease(BlueprintFeature blueprint, params object[] parameter) {
+    public bool Execute(BlueprintFeature blueprint, ActionParameter parameter) {
         LogExecution(blueprint, parameter);
-        ((BaseUnitEntity)parameter[0]).Facts.Get<Kingmaker.UnitLogic.Feature>(blueprint).AddRank();
+        if (parameter.IntParam > 0) {
+            parameter.UnitParam!.Facts.Get<Kingmaker.UnitLogic.Feature>(blueprint).AddRank();
+        } else {
+            parameter.UnitParam!.Facts.Get<Kingmaker.UnitLogic.Feature>(blueprint).RemoveRank();
+        }
         return true;
     }
-    private bool ExecuteDecrease(BlueprintFeature blueprint, params object[] parameter) {
+    private bool ExecuteIncrease(BlueprintFeature blueprint, ActionParameter parameter) {
         LogExecution(blueprint, parameter);
-        ((BaseUnitEntity)parameter[0]).Facts.Get<Kingmaker.UnitLogic.Feature>(blueprint).RemoveRank();
+        parameter.UnitParam!.Facts.Get<Kingmaker.UnitLogic.Feature>(blueprint).AddRank();
         return true;
     }
-    public bool? OnGui(BlueprintFeature blueprint, bool isFeatureSearch, params object[] parameter) {
+    private bool ExecuteDecrease(BlueprintFeature blueprint, ActionParameter parameter) {
+        LogExecution(blueprint, parameter);
+        parameter.UnitParam!.Facts.Get<Kingmaker.UnitLogic.Feature>(blueprint).RemoveRank();
+        return true;
+    }
+    public bool? OnGui(BlueprintFeature blueprint, bool isFeatureSearch, ActionParameter parameter) {
         bool? result = null;
         if (CanExecute(blueprint, out var canDecrease, out var canIncrease, out var rank, parameter)) {
             if (canDecrease) {
@@ -63,7 +72,7 @@ public partial class ChangeFeatureRankBA : BlueprintActionFeature, IBlueprintAct
 
     public override void OnGui() {
         if (GetContext(out BlueprintFeature? bp) && GetContext(out BaseUnitEntity? unit)) {
-            _ = OnGui(bp!, true, unit!);
+            _ = OnGui(bp!, true, new(unit));
         }
     }
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeFeatureRankBA_Name", "Modify Feature Rank")]

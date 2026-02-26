@@ -7,11 +7,11 @@ namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
 
 public partial class PlayCutsceneBA : BlueprintActionFeature, IBlueprintAction<Cutscene> {
 
-    public bool CanExecute(Cutscene blueprint, params object[] parameter) {
+    public bool CanExecute(Cutscene blueprint, ActionParameter parameter) {
         return IsInGame();
     }
 
-    private bool Execute(Cutscene blueprint) {
+    public bool Execute(Cutscene blueprint, ActionParameter parameter) {
         LogExecution(blueprint);
         ToggleModWindow();
 
@@ -26,11 +26,11 @@ public partial class PlayCutsceneBA : BlueprintActionFeature, IBlueprintAction<C
 
         return true;
     }
-    public bool? OnGui(Cutscene blueprint, bool isFeatureSearch, params object[] parameter) {
+    public bool? OnGui(Cutscene blueprint, bool isFeatureSearch, ActionParameter parameter) {
         bool? result = null;
-        if (CanExecute(blueprint)) {
+        if (CanExecute(blueprint, parameter)) {
             _ = UI.Button(StyleActionString(m_PlayText, isFeatureSearch), () => {
-                result = Execute(blueprint);
+                result = Execute(blueprint, parameter);
             });
         } else if (isFeatureSearch) {
             UI.Label(SharedStrings.ThisCannotBeUsedFromTheMainMenu.Red().Bold());
@@ -44,7 +44,7 @@ public partial class PlayCutsceneBA : BlueprintActionFeature, IBlueprintAction<C
 
     public override void OnGui() {
         if (GetContext(out var bp)) {
-            _ = OnGui(bp!, true);
+            _ = OnGui(bp!, true, default);
         }
     }
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_PlayCutsceneBA_Name", "Play Cutscene")]

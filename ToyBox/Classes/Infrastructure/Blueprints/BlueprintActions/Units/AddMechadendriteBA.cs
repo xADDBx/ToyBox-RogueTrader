@@ -11,23 +11,23 @@ public partial class AddMechadendriteBA : BlueprintActionFeature, IBlueprintActi
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechadendriteBA_Description", "Adds the specified mechadendrite to the specified unit.")]
     public override partial string Description { get; }
 
-    public bool CanExecute(BlueprintItemMechadendrite blueprint, params object[] parameter) {
-        if (parameter.Length > 0 && parameter[0] is BaseUnitEntity unit) {
+    public bool CanExecute(BlueprintItemMechadendrite blueprint, ActionParameter parameter) {
+        if (parameter.UnitParam is BaseUnitEntity unit) {
             return !unit.Body.Mechadendrites.Any(slot => slot?.Item?.Blueprint == blueprint);
         } else {
             return false;
         }
     }
-    private bool Execute(BlueprintItemMechadendrite blueprint, params object[] parameter) {
+    public bool Execute(BlueprintItemMechadendrite blueprint, ActionParameter parameter) {
         LogExecution(blueprint, parameter);
-        var ch = (BaseUnitEntity)parameter[0];
+        var ch = parameter.UnitParam!;
         var slot = new Kingmaker.Items.Slots.EquipmentSlot<BlueprintItemMechadendrite>(ch);
         ch.Body.Mechadendrites.Add(slot);
         ch.Body.TryInsertItem(blueprint, slot);
         ch.View.Mechadendrites.Add(slot.Item);
         return true;
     }
-    public bool? OnGui(BlueprintItemMechadendrite blueprint, bool isFeatureSearch, params object[] parameter) {
+    public bool? OnGui(BlueprintItemMechadendrite blueprint, bool isFeatureSearch, ActionParameter parameter) {
         bool? result = null;
         if (CanExecute(blueprint, parameter)) {
             _ = UI.Button(StyleActionString(m_AddLocalizedText, isFeatureSearch), () => {
@@ -40,7 +40,7 @@ public partial class AddMechadendriteBA : BlueprintActionFeature, IBlueprintActi
     }
     public override void OnGui() {
         if (GetContext(out BlueprintItemMechadendrite? bp) && GetContext(out BaseUnitEntity? unit)) {
-            _ = OnGui(bp!, true, unit!);
+            _ = OnGui(bp!, true, new(unit));
         }
     }
     public bool GetContext(out BaseUnitEntity? context) {

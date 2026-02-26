@@ -6,16 +6,16 @@ using ToyBox.Infrastructure.Utilities;
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
 
 public partial class TeleportBlueprintAreaEnterPointBA : BlueprintActionFeature, IBlueprintAction<BlueprintAreaEnterPoint> {
-    public bool CanExecute(BlueprintAreaEnterPoint blueprint, params object[] parameter) {
+    public bool CanExecute(BlueprintAreaEnterPoint blueprint, ActionParameter parameter) {
         return IsInGame();
     }
 
-    private bool Execute(BlueprintAreaEnterPoint blueprint, params object[] parameter) {
+    public bool Execute(BlueprintAreaEnterPoint blueprint, ActionParameter parameter) {
         LogExecution(blueprint, parameter);
         Game.Instance.LoadArea(blueprint, AutoSaveMode.None, null);
         return true;
     }
-    public bool? OnGui(BlueprintAreaEnterPoint blueprint, bool isFeatureSearch, params object[] parameter) {
+    public bool? OnGui(BlueprintAreaEnterPoint blueprint, bool isFeatureSearch, ActionParameter parameter) {
         bool? result = null;
         if (CanExecute(blueprint, parameter)) {
             _ = UI.Button(StyleActionString(m_Teleport, isFeatureSearch), () => {
@@ -30,7 +30,7 @@ public partial class TeleportBlueprintAreaEnterPointBA : BlueprintActionFeature,
 
     public override void OnGui() {
         if (GetContext(out var bp)) {
-            _ = OnGui(bp!, true);
+            _ = OnGui(bp!, true, default);
         }
     }
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintAreaEnterPointBA_TeleportText", "Teleport")]

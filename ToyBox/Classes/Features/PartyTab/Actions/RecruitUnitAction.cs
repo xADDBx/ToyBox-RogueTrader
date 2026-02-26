@@ -14,7 +14,7 @@ public partial class RecruitUnitAction : FeatureWithAction, INeedContextFeature<
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_PartyTab_Actions_RecruitUnitAction_Description", "Recruits the specified unit and teleports it to you if possible.")]
     public override partial string Description { get; }
-    public bool CanExecute(params object[] parameter) {
+    public bool CanExecute(params object?[] parameter) {
         if (parameter.Length > 0 && parameter[0] is BaseUnitEntity unit) {
             var state = unit.GetCompanionOptional();
             return state == null || state.State == CompanionState.None || state.State == CompanionState.ExCompanion;
@@ -22,11 +22,11 @@ public partial class RecruitUnitAction : FeatureWithAction, INeedContextFeature<
             return false;
         }
     }
-    public override void ExecuteAction(params object[] parameter) {
+    public override void ExecuteAction(params object?[] parameter) {
         LogExecution(parameter);
-        var unit = (BaseUnitEntity)parameter[0];
+        var unit = (BaseUnitEntity)parameter[0]!;
         var currentMode = Game.Instance.CurrentMode;
-        GameHelper.RecruitNPC(unit, unit.Blueprint);
+        unit = GameHelper.RecruitNPC(unit, unit.Blueprint);
         if (currentMode == GameModeType.Default || currentMode == GameModeType.Pause) {
             unit.Position = Game.Instance.Player.MainCharacter.Entity.Position;
             unit.CombatState.LeaveCombat();

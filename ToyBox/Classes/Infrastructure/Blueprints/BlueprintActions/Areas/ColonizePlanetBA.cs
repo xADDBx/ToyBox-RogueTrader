@@ -9,7 +9,7 @@ using ToyBox.Infrastructure.Utilities;
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
 
 public partial class ColonizePlanetBA : BlueprintActionFeature, IBlueprintAction<BlueprintPlanet> {
-    public bool CanExecute(BlueprintPlanet blueprint, params object[] parameter) {
+    public bool CanExecute(BlueprintPlanet blueprint, ActionParameter parameter) {
         if (IsInGame()) {
             var system = blueprint.ConnectedAreas.FirstOrDefault(f => f is BlueprintStarSystemMap) as BlueprintStarSystemMap;
             return blueprint.GetComponent<ColonyComponent>() != null && Game.Instance.CurrentlyLoadedArea is BlueprintStarSystemMap && (system == null || Game.Instance.Player.CurrentStarSystem == system);
@@ -17,8 +17,7 @@ public partial class ColonizePlanetBA : BlueprintActionFeature, IBlueprintAction
             return false;
         }
     }
-
-    private bool Execute(BlueprintPlanet blueprint, params object[] parameter) {
+    public bool Execute(BlueprintPlanet blueprint, ActionParameter parameter) {
         LogExecution(blueprint, parameter);
         try {
             CheatsColonization.ColonizePlanet(blueprint);
@@ -28,7 +27,7 @@ public partial class ColonizePlanetBA : BlueprintActionFeature, IBlueprintAction
             return false;
         }
     }
-    public bool? OnGui(BlueprintPlanet blueprint, bool isFeatureSearch, params object[] parameter) {
+    public bool? OnGui(BlueprintPlanet blueprint, bool isFeatureSearch, ActionParameter parameter) {
         bool? result = null;
         if (CanExecute(blueprint, parameter)) {
             _ = UI.Button(StyleActionString(m_Colonize, isFeatureSearch), () => {
@@ -43,7 +42,7 @@ public partial class ColonizePlanetBA : BlueprintActionFeature, IBlueprintAction
 
     public override void OnGui() {
         if (GetContext(out var bp)) {
-            _ = OnGui(bp!, true);
+            _ = OnGui(bp!, true, default);
         }
     }
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_ColonizePlanetBA_ColonizeText", "Colonize")]

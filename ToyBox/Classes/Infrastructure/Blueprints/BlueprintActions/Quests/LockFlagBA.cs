@@ -6,19 +6,19 @@ namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
 [IsTested]
 public partial class LockFlagBA : BlueprintActionFeature, IBlueprintAction<BlueprintUnlockableFlag> {
 
-    public bool CanExecute(BlueprintUnlockableFlag blueprint, params object[] parameter) {
+    public bool CanExecute(BlueprintUnlockableFlag blueprint, ActionParameter parameter) {
         return IsInGame() && blueprint.IsUnlocked;
     }
-    private bool Execute(BlueprintUnlockableFlag blueprint) {
+    public bool Execute(BlueprintUnlockableFlag blueprint, ActionParameter parameter) {
         LogExecution(blueprint);
         blueprint.Lock();
         return true;
     }
-    public bool? OnGui(BlueprintUnlockableFlag blueprint, bool isFeatureSearch, params object[] parameter) {
+    public bool? OnGui(BlueprintUnlockableFlag blueprint, bool isFeatureSearch, ActionParameter parameter) {
         bool? result = null;
-        if (CanExecute(blueprint)) {
+        if (CanExecute(blueprint, parameter)) {
             _ = UI.Button(StyleActionString(m_LockText, isFeatureSearch), () => {
-                result = Execute(blueprint);
+                result = Execute(blueprint, parameter);
             });
         } else if (isFeatureSearch) {
             if (IsInGame()) {
@@ -36,7 +36,7 @@ public partial class LockFlagBA : BlueprintActionFeature, IBlueprintAction<Bluep
 
     public override void OnGui() {
         if (GetContext(out var bp)) {
-            _ = OnGui(bp!, true);
+            _ = OnGui(bp!, true, default);
         }
     }
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_LockFlagBA_Name", "Lock Flag")]

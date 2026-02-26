@@ -5,19 +5,19 @@ using ToyBox.Infrastructure.Utilities;
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
 
 public partial class AddAbilityResourceBA : BlueprintActionFeature, IBlueprintAction<BlueprintAbilityResource>, INeedContextFeature<BaseUnitEntity> {
-    public bool CanExecute(BlueprintAbilityResource blueprint, params object[] parameter) {
-        if (parameter.Length > 0 && parameter[0] is BaseUnitEntity unit) {
+    public bool CanExecute(BlueprintAbilityResource blueprint, ActionParameter parameter) {
+        if (parameter.UnitParam is BaseUnitEntity unit) {
             return !unit.AbilityResources.ContainsResource(blueprint);
         } else {
             return false;
         }
     }
-    private bool Execute(BlueprintAbilityResource blueprint, params object[] parameter) {
+    public bool Execute(BlueprintAbilityResource blueprint, ActionParameter parameter) {
         LogExecution(blueprint, parameter);
-        ((BaseUnitEntity)parameter[0])!.AbilityResources.Add(blueprint, true);
+        parameter.UnitParam!.AbilityResources.Add(blueprint, true);
         return true;
     }
-    public bool? OnGui(BlueprintAbilityResource blueprint, bool isFeatureSearch, params object[] parameter) {
+    public bool? OnGui(BlueprintAbilityResource blueprint, bool isFeatureSearch, ActionParameter parameter) {
         bool? result = null;
         if (CanExecute(blueprint, parameter)) {
             _ = UI.Button(StyleActionString(m_AddText, isFeatureSearch), () => {
@@ -30,7 +30,7 @@ public partial class AddAbilityResourceBA : BlueprintActionFeature, IBlueprintAc
     }
     public override void OnGui() {
         if (GetContext(out BlueprintAbilityResource? bp) && GetContext(out BaseUnitEntity? unit)) {
-            _ = OnGui(bp!, true, unit!);
+            _ = OnGui(bp!, true, new(unit));
         }
     }
     public bool GetContext(out BaseUnitEntity? context) {

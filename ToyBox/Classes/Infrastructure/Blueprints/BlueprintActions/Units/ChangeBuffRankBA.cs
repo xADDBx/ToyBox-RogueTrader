@@ -6,15 +6,15 @@ using ToyBox.Infrastructure.Utilities;
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
 
 public partial class ChangeBuffRankBA : BlueprintActionFeature, IBlueprintAction<BlueprintBuff>, INeedContextFeature<BaseUnitEntity> {
-    public bool CanExecute(BlueprintBuff blueprint, params object[] parameter) {
+    public bool CanExecute(BlueprintBuff blueprint, ActionParameter parameter) {
         return CanExecute(blueprint, out _, out _, out _, parameter);
     }
 
-    private bool CanExecute(BlueprintBuff blueprint, out bool canDecrease, out bool canIncrease, out int rank, params object[] parameter) {
+    private bool CanExecute(BlueprintBuff blueprint, out bool canDecrease, out bool canIncrease, out int rank, ActionParameter parameter) {
         canDecrease = false;
         canIncrease = false;
         rank = 0;
-        if (parameter.Length > 0 && parameter[0] is BaseUnitEntity unit) {
+        if (parameter.UnitParam is BaseUnitEntity unit) {
             if (unit.Facts.Get(blueprint) is { } fact && blueprint.MaxRank > 1) {
                 rank = fact.GetRank();
                 canDecrease = rank > 1;
@@ -24,17 +24,26 @@ public partial class ChangeBuffRankBA : BlueprintActionFeature, IBlueprintAction
         }
         return false;
     }
-    private bool ExecuteIncrease(BlueprintBuff blueprint, params object[] parameter) {
+    public bool Execute(BlueprintBuff blueprint, ActionParameter parameter) {
         LogExecution(blueprint, parameter);
-        ((BaseUnitEntity)parameter[0]).Facts.Get<Buff>(blueprint).AddRank();
+        if (parameter.IntParam > 0) {
+            parameter.UnitParam!.Facts.Get<Buff>(blueprint).AddRank();
+        } else {
+            parameter.UnitParam!.Facts.Get<Buff>(blueprint).RemoveRank();
+        }
         return true;
     }
-    private bool ExecuteDecrease(BlueprintBuff blueprint, params object[] parameter) {
+    private bool ExecuteIncrease(BlueprintBuff blueprint, ActionParameter parameter) {
         LogExecution(blueprint, parameter);
-        ((BaseUnitEntity)parameter[0]).Facts.Get<Buff>(blueprint).RemoveRank();
+        parameter.UnitParam!.Facts.Get<Buff>(blueprint).AddRank();
         return true;
     }
-    public bool? OnGui(BlueprintBuff blueprint, bool isFeatureSearch, params object[] parameter) {
+    private bool ExecuteDecrease(BlueprintBuff blueprint, ActionParameter parameter) {
+        LogExecution(blueprint, parameter);
+        parameter.UnitParam!.Facts.Get<Buff>(blueprint).RemoveRank();
+        return true;
+    }
+    public bool? OnGui(BlueprintBuff blueprint, bool isFeatureSearch, ActionParameter parameter) {
         bool? result = null;
         if (CanExecute(blueprint, out var canDecrease, out var canIncrease, out var rank, parameter)) {
             if (canDecrease) {
@@ -64,7 +73,7 @@ public partial class ChangeBuffRankBA : BlueprintActionFeature, IBlueprintAction
 
     public override void OnGui() {
         if (GetContext(out BlueprintBuff? bp) && GetContext(out BaseUnitEntity? unit)) {
-            _ = OnGui(bp!, true, unit!);
+            _ = OnGui(bp!, true, new(unit));
         }
     }
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeBuffRankBA_Name", "Modify Buff Rank")]

@@ -5,16 +5,16 @@ using ToyBox.Infrastructure.Utilities;
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
 
 public partial class LoadAreaPresetBA : BlueprintActionFeature, IBlueprintAction<BlueprintAreaPreset> {
-    public bool CanExecute(BlueprintAreaPreset blueprint, params object[] parameter) {
+    public bool CanExecute(BlueprintAreaPreset blueprint, ActionParameter parameter) {
         return true;
     }
 
-    private bool Execute(BlueprintAreaPreset blueprint, params object[] parameter) {
+    public bool Execute(BlueprintAreaPreset blueprint, ActionParameter parameter) {
         LogExecution(blueprint, parameter);
         CheatsTransfer.StartNewGame(blueprint);
         return true;
     }
-    public bool? OnGui(BlueprintAreaPreset blueprint, bool isFeatureSearch, params object[] parameter) {
+    public bool? OnGui(BlueprintAreaPreset blueprint, bool isFeatureSearch, ActionParameter parameter) {
         bool? result = null;
         if (CanExecute(blueprint, parameter)) {
             _ = UI.Button(StyleActionString(m_LoadPresetText, isFeatureSearch), () => {
@@ -29,7 +29,7 @@ public partial class LoadAreaPresetBA : BlueprintActionFeature, IBlueprintAction
 
     public override void OnGui() {
         if (GetContext(out var bp)) {
-            _ = OnGui(bp!, true);
+            _ = OnGui(bp!, true, default);
         }
     }
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_LoadAreaPresetBA_LoadPresetText", "Load Preset")]

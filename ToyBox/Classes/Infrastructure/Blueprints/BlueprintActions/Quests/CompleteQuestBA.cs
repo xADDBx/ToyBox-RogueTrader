@@ -8,21 +8,21 @@ namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
 [IsTested]
 public partial class CompleteQuestBA : BlueprintActionFeature, IBlueprintAction<BlueprintQuest> {
 
-    public bool CanExecute(BlueprintQuest blueprint, params object[] parameter) {
+    public bool CanExecute(BlueprintQuest blueprint, ActionParameter parameter) {
         return IsInGame() && Game.Instance.Player.QuestBook.GetQuest(blueprint)?.State == QuestState.Started;
     }
-    private bool Execute(BlueprintQuest blueprint) {
+    public bool Execute(BlueprintQuest blueprint, ActionParameter parameter) {
         LogExecution(blueprint);
         foreach (var objective in blueprint.Objectives) {
             Game.Instance.Player.QuestBook.CompleteObjective(objective);
         }
         return true;
     }
-    public bool? OnGui(BlueprintQuest blueprint, bool isFeatureSearch, params object[] parameter) {
+    public bool? OnGui(BlueprintQuest blueprint, bool isFeatureSearch, ActionParameter parameter) {
         bool? result = null;
-        if (CanExecute(blueprint)) {
+        if (CanExecute(blueprint, parameter)) {
             _ = UI.Button(StyleActionString(m_CompleteText, isFeatureSearch), () => {
-                result = Execute(blueprint);
+                result = Execute(blueprint, parameter);
             });
         } else if (isFeatureSearch) {
             if (IsInGame()) {
@@ -39,7 +39,7 @@ public partial class CompleteQuestBA : BlueprintActionFeature, IBlueprintAction<
 
     public override void OnGui() {
         if (GetContext(out var bp)) {
-            _ = OnGui(bp!, true);
+            _ = OnGui(bp!, true, default);
         }
     }
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_CompleteQuestBA_Name", "Complete Quest")]

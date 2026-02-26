@@ -11,7 +11,7 @@ public partial class GoToGlobalMapFeature : FeatureWithBindableAction {
     [LocalizedString("ToyBox_Features_BagOfTricks_Common_GoToGlobalMapFeature_Description", "Tries to load the sector map area. Don't use in prologue.")]
     public override partial string Description { get; }
 
-    public override void ExecuteAction(params object[] parameter) {
+    public override void ExecuteAction(params object?[] parameter) {
         if (IsInGame()) {
             var globalMap = BlueprintRoot.Instance.SectorMapArea;
             var areaEnterPoint = globalMap.SectorMapEnterPoint;

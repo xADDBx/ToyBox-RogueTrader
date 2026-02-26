@@ -45,11 +45,11 @@ public partial class DisplayGuidsInTooltipsFeature : FeatureWithPatch, IBindable
         }
     }
 
-    public void ExecuteAction(params object[] parameter) {
+    public void ExecuteAction(params object?[] parameter) {
         throw new NotImplementedException();
     }
 
-    public void LogExecution(params object[] parameter) {
+    public void LogExecution(params object?[] parameter) {
         throw new NotImplementedException();
     }
     private static TooltipBrickText GetTooltip(string text) {
@@ -107,6 +107,8 @@ public partial class DisplayGuidsInTooltipsFeature : FeatureWithPatch, IBindable
                 case MechanicActionBarSlotSpontaneusConvertedSpell cspell:
                     CopyToClipboard(cspell.Spell.Blueprint.AssetGuidThreadSafe);
                     return false;
+                default:
+                    throw new NotSupportedException("Missing SlotType Case?");
             }
         }
         return true;

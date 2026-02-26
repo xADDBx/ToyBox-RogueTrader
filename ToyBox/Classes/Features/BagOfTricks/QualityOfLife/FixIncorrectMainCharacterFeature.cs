@@ -11,7 +11,7 @@ public partial class FixIncorrectMainCharacterFeature : FeatureWithAction {
     [LocalizedString("ToyBox_Features_BagOfTricks_QualityOfLife_FixIncorrectMainCharacterFeature_Description", "Certain situations might cause the game to incorrectly assume someone else is the main character. This tries to restore the original main character.")]
     public override partial string Description { get; }
 
-    public override void ExecuteAction(params object[] parameter) {
+    public override void ExecuteAction(params object?[] parameter) {
         if (IsInGame()) {
             Helpers.LogExecution(this, parameter);
             var probablyPlayer = Game.Instance.Player.Party?.Where(x => !x.IsCustomCompanion() && !x.IsStoryCompanion()).ToList();

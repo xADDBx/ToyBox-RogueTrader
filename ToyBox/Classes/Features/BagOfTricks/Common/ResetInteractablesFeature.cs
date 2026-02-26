@@ -9,7 +9,7 @@ public partial class ResetInteractablesFeature : FeatureWithBindableAction {
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_BagOfTricks_Common_ResetInteractablesFeature_Description", "Re-enables skill checks on interactable objects in the area.")]
     public override partial string Description { get; }
-    public override void ExecuteAction(params object[] parameter) {
+    public override void ExecuteAction(params object?[] parameter) {
         if (IsInGame()) {
             LogExecution(parameter);
             foreach (var obj in Game.Instance.State.MapObjects) {

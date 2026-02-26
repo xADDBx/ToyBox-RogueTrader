@@ -6,16 +6,16 @@ using ToyBox.Infrastructure.Utilities;
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
 
 public partial class AddMechanicEntityFactBA : BlueprintActionFeature, IBlueprintAction<BlueprintMechanicEntityFact>, INeedContextFeature<BaseUnitEntity> {
-    public bool CanExecute(BlueprintMechanicEntityFact blueprint, params object[] parameter) {
-        if (parameter.Length > 0 && parameter[0] is BaseUnitEntity unit) {
+    public bool CanExecute(BlueprintMechanicEntityFact blueprint, ActionParameter parameter) {
+        if (parameter.UnitParam is BaseUnitEntity unit) {
             return unit.Facts.Get(blueprint) == null;
         }
         return false;
     }
-    internal bool Execute(BlueprintMechanicEntityFact blueprint, params object[] parameter) {
+    public bool Execute(BlueprintMechanicEntityFact blueprint, ActionParameter parameter) {
         LogExecution(blueprint, parameter);
         if (blueprint is BlueprintAbility) {
-            var fact = ((BaseUnitEntity)parameter[0]).AddFact(blueprint);
+            var fact = parameter.UnitParam!.AddFact(blueprint);
             if (fact != null) {
                 // Abilities need or source or they disappear after reloading
                 fact.AddSource(new Kingmaker.EntitySystem.EntityFactSource(blueprint));
@@ -24,10 +24,10 @@ public partial class AddMechanicEntityFactBA : BlueprintActionFeature, IBlueprin
                 return false;
             }
         } else {
-            return ((BaseUnitEntity)parameter[0]).AddFact(blueprint) != null;
+            return parameter.UnitParam!.AddFact(blueprint) != null;
         }
     }
-    public bool? OnGui(BlueprintMechanicEntityFact blueprint, bool isFeatureSearch, params object[] parameter) {
+    public bool? OnGui(BlueprintMechanicEntityFact blueprint, bool isFeatureSearch, ActionParameter parameter) {
         bool? result = null;
         if (CanExecute(blueprint, parameter)) {
             _ = UI.Button(StyleActionString(m_AddText, isFeatureSearch), () => {
@@ -50,7 +50,7 @@ public partial class AddMechanicEntityFactBA : BlueprintActionFeature, IBlueprin
 
     public override void OnGui() {
         if (GetContext(out BlueprintMechanicEntityFact? bp) && GetContext(out BaseUnitEntity? unit)) {
-            _ = OnGui(bp!, true, unit!);
+            _ = OnGui(bp!, true, new(unit));
         }
     }
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechanicEntityFactBA_AddText", "Add")]

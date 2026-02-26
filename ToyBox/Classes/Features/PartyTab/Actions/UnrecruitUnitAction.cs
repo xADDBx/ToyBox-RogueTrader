@@ -20,9 +20,9 @@ public partial class UnrecruitUnitAction : FeatureWithAction, INeedContextFeatur
         }
         return false;
     }
-    public override void ExecuteAction(params object[] parameter) {
+    public override void ExecuteAction(params object?[] parameter) {
         LogExecution(parameter);
-        var unit = (BaseUnitEntity)parameter[0];
+        var unit = (BaseUnitEntity)parameter[0]!;
         unit.GetCompanionOptional()?.SetState(CompanionState.None);
         unit.Remove<UnitPartCompanion>();
         Game.Instance.Player.FixPartyAfterChange();

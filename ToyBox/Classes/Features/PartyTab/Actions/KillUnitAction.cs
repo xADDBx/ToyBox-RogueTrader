@@ -18,9 +18,9 @@ public partial class KillUnitAction : FeatureWithAction, INeedContextFeature<Bas
             return false;
         }
     }
-    public override void ExecuteAction(params object[] parameter) {
+    public override void ExecuteAction(params object?[] parameter) {
         LogExecution(parameter);
-        CheatsCombat.KillUnit((BaseUnitEntity)parameter[0]);
+        CheatsCombat.KillUnit((BaseUnitEntity)parameter[0]!);
     }
     public bool GetContext(out BaseUnitEntity? context) {
         return ContextProvider.BaseUnitEntity(out context);

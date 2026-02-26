@@ -30,7 +30,7 @@ public partial class MurderHoboFeature : FeatureWithPatch, IToggledWithBinding {
         get;
         set;
     }
-    public void ExecuteAction(params object[] parameter) {
+    public void ExecuteAction(params object?[] parameter) {
         LogExecution();
         IsEnabled = !IsEnabled;
         if (IsEnabled) {

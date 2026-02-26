@@ -6,16 +6,16 @@ using ToyBox.Infrastructure.Utilities;
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
 
 public partial class TeleportBlueprintSectorMapPointStarSystemBA : BlueprintActionFeature, IBlueprintAction<BlueprintSectorMapPointStarSystem> {
-    public bool CanExecute(BlueprintSectorMapPointStarSystem blueprint, params object[] parameter) {
+    public bool CanExecute(BlueprintSectorMapPointStarSystem blueprint, ActionParameter parameter) {
         return IsInGame() && blueprint.StarSystemAreaPoint.GetBlueprint() != null;
     }
 
-    private bool Execute(BlueprintSectorMapPointStarSystem blueprint, params object[] parameter) {
+    public bool Execute(BlueprintSectorMapPointStarSystem blueprint, ActionParameter parameter) {
         LogExecution(blueprint, parameter);
         Game.Instance.LoadArea(blueprint.StarSystemAreaPoint, AutoSaveMode.None, null);
         return true;
     }
-    public bool? OnGui(BlueprintSectorMapPointStarSystem blueprint, bool isFeatureSearch, params object[] parameter) {
+    public bool? OnGui(BlueprintSectorMapPointStarSystem blueprint, bool isFeatureSearch, ActionParameter parameter) {
         bool? result = null;
         if (CanExecute(blueprint, parameter)) {
             _ = UI.Button(StyleActionString(m_Teleport, isFeatureSearch), () => {
@@ -30,7 +30,7 @@ public partial class TeleportBlueprintSectorMapPointStarSystemBA : BlueprintActi
 
     public override void OnGui() {
         if (GetContext(out var bp)) {
-            _ = OnGui(bp!, true);
+            _ = OnGui(bp!, true, default);
         }
     }
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintSectorMapPointStarSystemBA_TeleportText", "Teleport")]

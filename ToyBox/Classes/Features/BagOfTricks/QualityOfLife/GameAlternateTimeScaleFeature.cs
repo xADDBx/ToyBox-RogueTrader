@@ -47,7 +47,7 @@ public partial class GameAlternateTimeScaleFeature : ToggledFeature, IBindableFe
             }
         }
     }
-    public void ExecuteAction(params object[] parameter) {
+    public void ExecuteAction(params object?[] parameter) {
         LogExecution();
         IsEnabled = !IsEnabled;
         if (IsEnabled) {
@@ -57,7 +57,7 @@ public partial class GameAlternateTimeScaleFeature : ToggledFeature, IBindableFe
         }
     }
 
-    public void LogExecution(params object[] parameter) {
+    public void LogExecution(params object?[] parameter) {
         Helpers.LogExecution(this, parameter);
     }
 }

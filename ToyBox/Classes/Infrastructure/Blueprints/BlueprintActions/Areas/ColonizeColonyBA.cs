@@ -10,7 +10,7 @@ namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
 
 public partial class ColonizeColonyBA : BlueprintActionFeature, IBlueprintAction<BlueprintColony> {
     private static Dictionary<BlueprintColony, BlueprintPlanet>? m_ColonyToPlanet = null;
-    public bool CanExecute(BlueprintColony blueprint, params object[] parameter) {
+    public bool CanExecute(BlueprintColony blueprint, ActionParameter parameter) {
         if (IsInGame()) {
             if (m_ColonyToPlanet == null) {
                 var bps = BPLoader.GetBlueprintsOfType<BlueprintPlanet>();
@@ -33,8 +33,7 @@ public partial class ColonizeColonyBA : BlueprintActionFeature, IBlueprintAction
         }
         return false;
     }
-
-    private bool Execute(BlueprintColony blueprint, params object[] parameter) {
+    public bool Execute(BlueprintColony blueprint, ActionParameter parameter) {
         try {
             if (m_ColonyToPlanet?.TryGetValue(blueprint, out var planet) ?? false) {
                 LogExecution(blueprint, planet, parameter);
@@ -46,7 +45,7 @@ public partial class ColonizeColonyBA : BlueprintActionFeature, IBlueprintAction
             return false;
         }
     }
-    public bool? OnGui(BlueprintColony blueprint, bool isFeatureSearch, params object[] parameter) {
+    public bool? OnGui(BlueprintColony blueprint, bool isFeatureSearch, ActionParameter parameter) {
         bool? result = null;
         if (CanExecute(blueprint, parameter)) {
             _ = UI.Button(StyleActionString(m_Colonize, isFeatureSearch), () => {
@@ -61,7 +60,7 @@ public partial class ColonizeColonyBA : BlueprintActionFeature, IBlueprintAction
 
     public override void OnGui() {
         if (GetContext(out var bp)) {
-            _ = OnGui(bp!, true);
+            _ = OnGui(bp!, true, default);
         }
     }
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_ColonizeColonyBA_ColonizeText", "Colonize")]

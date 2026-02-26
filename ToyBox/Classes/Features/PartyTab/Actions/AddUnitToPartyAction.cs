@@ -20,9 +20,9 @@ public partial class AddUnitToPartyAction : FeatureWithAction, INeedContextFeatu
             return false;
         }
     }
-    public override void ExecuteAction(params object[] parameter) {
+    public override void ExecuteAction(params object?[] parameter) {
         LogExecution(parameter);
-        var unit = (BaseUnitEntity)parameter[0];
+        var unit = (BaseUnitEntity)parameter[0]!;
         var currentMode = Game.Instance.CurrentMode;
         Game.Instance.Player.AddCompanion(unit);
         if (currentMode == GameModeType.Default || currentMode == GameModeType.Pause) {

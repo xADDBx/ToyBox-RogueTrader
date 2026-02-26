@@ -8,7 +8,7 @@ namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
 
 public partial class TeleportBlueprintStarSystemMapBA : BlueprintActionFeature, IBlueprintAction<BlueprintStarSystemMap> {
     private static readonly Dictionary<BlueprintStarSystemMap, BlueprintAreaEnterPoint?> m_MappingCache = [];
-    public bool CanExecute(BlueprintStarSystemMap blueprint, params object[] parameter) {
+    public bool CanExecute(BlueprintStarSystemMap blueprint, ActionParameter parameter) {
         if (!m_MappingCache.TryGetValue(blueprint, out var mapping)) {
             var bps = BPLoader.GetBlueprintsOfType<BlueprintAreaEnterPoint>();
             if (bps != null) {
@@ -19,7 +19,7 @@ public partial class TeleportBlueprintStarSystemMapBA : BlueprintActionFeature, 
         return IsInGame() && mapping != null;
     }
 
-    private bool Execute(BlueprintStarSystemMap blueprint, params object[] parameter) {
+    public bool Execute(BlueprintStarSystemMap blueprint, ActionParameter parameter) {
         if (m_MappingCache.TryGetValue(blueprint, out var mapping)) {
             LogExecution(blueprint, mapping, parameter);
             Game.Instance.LoadArea(mapping, AutoSaveMode.None, null);
@@ -28,7 +28,7 @@ public partial class TeleportBlueprintStarSystemMapBA : BlueprintActionFeature, 
             return false;
         }
     }
-    public bool? OnGui(BlueprintStarSystemMap blueprint, bool isFeatureSearch, params object[] parameter) {
+    public bool? OnGui(BlueprintStarSystemMap blueprint, bool isFeatureSearch, ActionParameter parameter) {
         bool? result = null;
         if (CanExecute(blueprint, parameter)) {
             _ = UI.Button(StyleActionString(m_Teleport, isFeatureSearch), () => {
@@ -43,7 +43,7 @@ public partial class TeleportBlueprintStarSystemMapBA : BlueprintActionFeature, 
 
     public override void OnGui() {
         if (GetContext(out var bp)) {
-            _ = OnGui(bp!, true);
+            _ = OnGui(bp!, true, default);
         }
     }
     [LocalizedString("ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintStarSystemMapBA_TeleportText", "Teleport")]
