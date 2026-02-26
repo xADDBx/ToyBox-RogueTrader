@@ -12,10 +12,10 @@ public partial class GoToGlobalMapFeature : FeatureWithBindableAction {
     [LocalizedString("ToyBox_Features_BagOfTricks_Common_GoToGlobalMapFeature_Description", "Tries to load the sector map area. Don't use in prologue.")]
     public override partial string Description { get; }
     public override bool CanExecute(ActionParameter parameter) {
-        throw new NotImplementedException();
+        return IsInGame();
     }
     public override void ExecuteAction(ActionParameter parameter) {
-        if (IsInGame()) {
+        if (CanExecute(parameter)) {
             var globalMap = BlueprintRoot.Instance.SectorMapArea;
             var areaEnterPoint = globalMap.SectorMapEnterPoint;
             LogExecution(areaEnterPoint);
