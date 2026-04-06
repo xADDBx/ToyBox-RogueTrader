@@ -236,8 +236,7 @@ public class BlueprintLoader {
             }
             m_TotalLoading = allEntries.Count();
             Log($"Loading {m_TotalLoading} Blueprints");
-            m_BlueprintBeingLoaded = new(m_TotalLoading);
-            m_BlueprintBeingLoaded.AddRange(Enumerable.Repeat<SimpleBlueprint?>(null, m_TotalLoading));
+            m_BlueprintBeingLoaded = [with(m_TotalLoading), .. Enumerable.Repeat<SimpleBlueprint?>(null, m_TotalLoading)];
             var memStream = new MemoryStream();
             lock (bpCache.m_Lock) {
                 bpCache.m_PackFile.Position = 0;
