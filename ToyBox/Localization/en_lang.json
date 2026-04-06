@@ -1731,12 +1731,28 @@
     "Original": "Also search through the descriptions of blueprints",
     "Translated": null
   },
+  "ToyBox_Features_SettingsTab_Game_CopyLocationHotkeySetting_Name": {
+    "Original": "Hotkey to copy location to clipboard",
+    "Translated": null
+  },
+  "ToyBox_Features_SettingsTab_Game_CopyLocationHotkeySetting_m___ToyBox_FailedToCopyLocation_NoHLocalizedText": {
+    "Original": "[ToyBox] Failed to copy location: No hit for raycast.",
+    "Translated": null
+  },
+  "ToyBox_Features_SettingsTab_Game_CopyLocationHotkeySetting_m___ToyBox_CopiedLocationToClipboarLocalizedText": {
+    "Original": "[ToyBox] Copied Location to clipboard:",
+    "Translated": null
+  },
   "ToyBox_Features_SettingsTab_Game_DisplayGuidsInTooltipsFeature_Name": {
     "Original": "Display GUIDs in most Tooltips",
     "Translated": null
   },
   "ToyBox_Features_SettingsTab_Game_DisplayGuidsInTooltipsFeature_Description": {
     "Original": "Displays the guids of the items etc. in their tooltips and allows copying them by pressing LMB + Hotkey.",
+    "Translated": null
+  },
+  "ToyBox_Features_SettingsTab_Game_DisplayGuidsInTooltipsFeature_m_CopiedGuidToClipboard_LocalizedText": {
+    "Original": "Copied Guid to clipboard:",
     "Translated": null
   },
   "ToyBox_Features_SettingsTab_Game_EnableGameDevelopmentModeSetting_Name": {

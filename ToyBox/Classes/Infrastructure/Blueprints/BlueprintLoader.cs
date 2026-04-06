@@ -82,7 +82,9 @@ public class BlueprintLoader {
                         if (BlueprintIdCache.NeedsCacheRebuilt) {
                             BlueprintIdCache.RebuildCache(m_Blueprints);
                         }
-                        m_BlueprintsByType.Clear();
+                        lock (m_BlueprintsByType) {
+                            m_BlueprintsByType.Clear();
+                        }
                     });
                     return null;
                 }
@@ -108,10 +110,15 @@ public class BlueprintLoader {
         return (IEnumerable<SimpleBlueprint>)AccessTools.Method(typeof(BlueprintLoader), nameof(GetBlueprintsOfType)).MakeGenericMethod(type).Invoke(BPLoader, [onFinishLoadingCallback]);
     }
 
-    public IEnumerable<BPType>? GetBlueprintsOfType<BPType>(Action<IEnumerable<BPType>>? onFinishLoadingCallback = null) where BPType : SimpleBlueprint {
+    public IEnumerable<BPType>? GetBlueprintsOfType<BPType>(Action<IEnumerable<BPType>>? onFinishLoadingCallback = null) where BPType : notnull, SimpleBlueprint {
         if (m_Blueprints == null) {
             if (Settings.UseBPIdCache && !BlueprintIdCache.NeedsCacheRebuilt) {
-                if (m_BlueprintsByType.TryGetValue(typeof(BPType), out var bps)) {
+                var hasCached = false;
+                List<SimpleBlueprint>? bps;
+                lock (m_BlueprintsByType) {
+                    hasCached = m_BlueprintsByType.TryGetValue(typeof(BPType), out bps);
+                }
+                if (hasCached) {
                     var bps2 = bps.Cast<BPType>();
                     onFinishLoadingCallback?.Invoke(bps2);
                     return bps2;
@@ -136,7 +143,9 @@ public class BlueprintLoader {
                                 });
                             }
                         }
-                        m_BlueprintsByType[typeof(BPType)] = bps;
+                        lock (m_BlueprintsByType) {
+                            m_BlueprintsByType[typeof(BPType)] = bps;
+                        }
                         onFinishLoadingCallback?.Invoke(bps.Cast<BPType>());
                     }, ids);
                     return null;
@@ -147,8 +156,10 @@ public class BlueprintLoader {
         } else {
             IEnumerable<BPType>? bps = null;
             if (Settings.UseBPIdCache && !BlueprintIdCache.NeedsCacheRebuilt) {
-                if (m_BlueprintsByType.TryGetValue(typeof(BPType), out var bps2)) {
-                    bps = bps2.Cast<BPType>();
+                lock (m_BlueprintsByType) {
+                    if (m_BlueprintsByType.TryGetValue(typeof(BPType), out var bps2)) {
+                        bps = bps2.Cast<BPType>();
+                    }
                 }
             }
             bps ??= m_Blueprints.OfType<BPType>();

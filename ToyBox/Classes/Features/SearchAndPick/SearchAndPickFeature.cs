@@ -40,7 +40,7 @@ public partial class SearchAndPickFeature : Feature {
                         }, s => s, categories, showDivBetweenItems: false, overridePageWidth: categoryWidth, orderInitialCollection: true);
                         SetCategoryComparer();
                         m_CollationCategoryBrowser.UpdateItems(categories);
-                        m_SearchNPickBrowser ??= new(BPHelper.GetSortKey, BPHelper.GetSearchKey, overridePageWidth: (int)(EffectiveWindowWidth() - (m_FilterWidth + (20 * Main.UIScale))), orderInitialCollection: true);
+                        m_SearchNPickBrowser ??= new(BPHelper.GetSortKey, BPHelper.GetSearchKey, overridePageWidth: (int)(EffectiveWindowWidth() - (m_FilterWidth + (20 * Main.UIScale))));
                         m_SearchNPickBrowser.UpdateItems(m_BlueprintFilter.GetCollatedBlueprints(m_CurrentCollationCategory)!);
                     }
                     if (m_ShowCollationCategoryPicker) {

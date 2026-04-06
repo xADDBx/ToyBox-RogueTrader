@@ -49,7 +49,7 @@ public partial class DisplayGuidsInTooltipsFeature : FeatureWithPatch, IToggleWi
     }
     private static void CopyToClipboard(string guid) {
         GUIUtility.systemCopyBuffer = guid;
-        EventBus.RaiseEvent<IWarningNotificationUIHandler>(h => h.HandleWarning("Copied Guid to clipboard: " + guid, false));
+        EventBus.RaiseEvent<IWarningNotificationUIHandler>(h => h.HandleWarning(m_CopiedGuidToClipboard_LocalizedText + " " + guid, false));
     }
     [HarmonyPatch(typeof(TooltipTemplateAbility), nameof(TooltipTemplateAbility.GetBody)), HarmonyPostfix]
     private static void TooltipTemplateAbility_GetBody_Patch(TooltipTemplateAbility __instance, ref IEnumerable<ITooltipBrick> __result) {
@@ -115,4 +115,7 @@ public partial class DisplayGuidsInTooltipsFeature : FeatureWithPatch, IToggleWi
             }
         }
     }
+
+    [LocalizedString("ToyBox_Features_SettingsTab_Game_DisplayGuidsInTooltipsFeature_m_CopiedGuidToClipboard_LocalizedText", "Copied Guid to clipboard:")]
+    private static partial string m_CopiedGuidToClipboard_LocalizedText { get; }
 }
