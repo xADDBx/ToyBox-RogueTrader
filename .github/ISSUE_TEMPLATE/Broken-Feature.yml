@@ -77,15 +77,6 @@ body:
     placeholder: Examples - Windows, MacOS
   validations:
     required: false
-- type: dropdown
-  id: whatgame
-  attributes:
-    label: What game are you using Toybox on?
-    options:
-      - Pathfinder Wrath of the Righteous
-      - Rogue Trader
-  validations:
-    required: true
 - type: input
   id: gameversion
   attributes:
