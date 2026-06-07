@@ -48,27 +48,31 @@ public partial class UnitModifyStatsFeature : FeatureWithPatch, INeedContextFeat
             if (string.IsNullOrWhiteSpace(name)) {
                 name = stat.ToString();
             }
-            names.Add(name);
+            names.Add(name + " ");
         }
         return CalculateLargestLabelWidth(names, GUI.skin.label);
     });
-    private bool m_ShowDisclaimer = false;
+    private static readonly StatType[] m_Divider = [StatType.WarhammerBallisticSkill, StatType.SkillAthletics, StatType.HitPoints];
+    private static string GetText(StatType stat) {
+        var name = LocalizedTexts.Instance.Stats.GetText(stat);
+        if (string.IsNullOrWhiteSpace(name)) {
+            name = stat.ToString();
+        }
+        return name;
+    }
     public void OnGui(BaseUnitEntity unit) {
         base.OnGui();
         if (IsEnabled) {
             using (HorizontalScope()) {
                 Space(25);
                 using (VerticalScope()) {
-                    _ = UI.DisclosureToggle(ref m_ShowDisclaimer, m_TryToKeepThisFeatureActivatedAftLocalizedText.Orange());
-                    if (m_ShowDisclaimer) {
-                        using (HorizontalScope()) {
-                            Space(35);
-                            UI.Label("When this is turned off, the changed stats will still work in-game, but the respec UI might be very slightly buggy (e.g. +- values might be wrong). This is not a hard dependency as any issues can be fixed by respeccing the unit after disabling this feature/ToyBox.".Cyan(), Width(0.5f * EffectiveWindowWidth()));
-                        }
-                    }
+                    UI.Label(m_WhenThisIsTurnedOff_TheChangedStLocalizedText.Orange(), Width(0.5f * EffectiveWindowWidth()));
                     foreach (StatType stat in Enum.GetValues(typeof(StatType))) {
                         if (Constants.WeirdStats.Contains(stat) || Constants.LegacyStats.Contains(stat) || (Constants.StarshipStats.Contains(stat) && !unit.IsStarship())) {
                             continue;
+                        }
+                        if (m_Divider.Contains(stat)) {
+                            Div.DrawDiv();
                         }
                         var modifiableValue = unit.Stats.GetStat(stat, true);
                         var baseValue = 0;
@@ -83,9 +87,10 @@ public partial class UnitModifyStatsFeature : FeatureWithPatch, INeedContextFeat
                         var change = 0;
                         using (HorizontalScope()) {
                             Space(10);
-                            var name = LocalizedTexts.Instance.Stats.GetText(stat);
-                            if (string.IsNullOrWhiteSpace(name)) {
-                                name = stat.ToString();
+                            var name = GetText(stat);
+                            var ov = stat.TryGetOverride(unit);
+                            if (stat != ov) {
+                                name += $" ({m_OverridenByLocalizedText}: {GetText(ov)})";
                             }
                             UI.Label(name, Width(m_LabelWidth));
                             _ = UI.Button("<", () => {
@@ -98,7 +103,7 @@ public partial class UnitModifyStatsFeature : FeatureWithPatch, INeedContextFeat
                                 modifiableValue.BaseValue += change;
                                 modifiedValue += change;
                             });
-                            UI.Label($" {modifiedValue} ".Bold().Orange(), Width(50 * Main.UIScale));
+                            UI.Label($" {modifiedValue} ({baseValue}) ".Bold().Orange());
                             _ = UI.Button(">", () => {
                                 if (modifiableValue == null) {
                                     modifiableValue = AddStat(stat, unit);
@@ -109,7 +114,6 @@ public partial class UnitModifyStatsFeature : FeatureWithPatch, INeedContextFeat
                                 modifiableValue.BaseValue += change;
                                 modifiedValue += change;
                             });
-                            Space(10);
                             var val = modifiedValue;
                             _ = UI.TextField(ref val, pair => {
                                 if (modifiableValue == null) {
@@ -121,7 +125,7 @@ public partial class UnitModifyStatsFeature : FeatureWithPatch, INeedContextFeat
                                 modifiableValue.BaseValue += change;
                             }, Width(75 * Main.UIScale));
                         }
-                        if (change > 0) {
+                        if (change != 0) {
                             if (InSaveSettings != null) {
                                 if (!InSaveSettings.AppliedUnitStatChanges.TryGetValue(unit.UniqueId, out var dict)) {
                                     dict ??= [];
@@ -172,4 +176,8 @@ public partial class UnitModifyStatsFeature : FeatureWithPatch, INeedContextFeat
 
     [LocalizedString("ToyBox_Features_PartyTab_Stats_UnitModifyStatsFeature_m_TryToKeepThisFeatureActivatedAftLocalizedText", "Try to keep this feature activated after using it (Click for Explanation)")]
     private static partial string m_TryToKeepThisFeatureActivatedAftLocalizedText { get; }
+    [LocalizedString("ToyBox_Features_PartyTab_Stats_UnitModifyStatsFeature_m_OverridenByLocalizedText", "Overriden by")]
+    private static partial string m_OverridenByLocalizedText { get; }
+    [LocalizedString("ToyBox_Features_PartyTab_Stats_UnitModifyStatsFeature_m_WhenThisIsTurnedOff_TheChangedStLocalizedText", "When this is turned off, the changed stats will be \"forgotten\" after reloading the save because base stats are recalculated on save load.")]
+    private static partial string m_WhenThisIsTurnedOff_TheChangedStLocalizedText { get; }
 }

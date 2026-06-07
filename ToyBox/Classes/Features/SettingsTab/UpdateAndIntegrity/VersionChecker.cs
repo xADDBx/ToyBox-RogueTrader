@@ -16,11 +16,20 @@ public static class VersionChecker {
             var raw = web.DownloadString(Constants.LinkToIncompatibilitiesFile);
             var definition = new[] { new[] { "", "" } };
             var versions = JsonConvert.DeserializeAnonymousType(raw, definition);
-            var currentOrNewer = versions.FirstOrDefault(v => new Version(v[0]) >= Main.ModEntry.Version);
-            if (currentOrNewer == null) {
+            var currentModVersion = Main.ModEntry.Version;
+            var currentGameVersion = GetNumifiedVersion(GameVersion.GetVersion());
+            var rules = versions
+                            .Where(v => v.Length >= 2)
+                            .Select(v => new {
+                                ModVersion = new Version(v[0]),
+                                GameVersion = v[1]
+                            }).Where(v => v.ModVersion >= currentModVersion).OrderBy(v => v.ModVersion);
+
+            var selectedRule = rules.FirstOrDefault();
+            if (selectedRule == null) {
                 ResultOfCheck = true;
             } else {
-                ResultOfCheck = IsVersionGreaterThan(GetNumifiedVersion(currentOrNewer[1]), GetNumifiedVersion(GameVersion.GetVersion()));
+                ResultOfCheck = IsVersionGreaterThan(GetNumifiedVersion(selectedRule.GameVersion), currentGameVersion);
             }
         } catch (Exception ex) {
             Warn(ex.ToString());

@@ -115,7 +115,7 @@ public static partial class Main {
     }
     private static bool OnUnload(UnityModManager.ModEntry modEntry) {
         foreach (var tab in m_FeatureTabs) {
-            tab.DestroyAll();
+            tab.DisposeAll();
         }
         HarmonyInstance.UnpatchAll(m_HarmonyId);
         OnUnloadAction?.Invoke();

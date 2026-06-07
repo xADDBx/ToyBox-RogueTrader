@@ -13,7 +13,7 @@ public partial class LoadingWithBlueprintErrorsFeature : FeatureWithPatch {
     }
     [LocalizedString("ToyBox_Features_BagOfTricks_QualityOfLife_LoadingWithBlueprintErrorsFeature_Name", "Enable Loading with Blueprint Errors")]
     public override partial string Name { get; }
-    [LocalizedString("ToyBox_Features_BagOfTricks_QualityOfLife_LoadingWithBlueprintErrorsFeature_Description", "This dangerous allows loading saves even with missing blueprint mods. This can potentially allow you to recover a save, though you'll have to respec at minimum.")]
+    [LocalizedString("ToyBox_Features_BagOfTricks_QualityOfLife_LoadingWithBlueprintErrorsFeature_Description", "This feature allows loading saves even with missing blueprint mods, which can be dangerous. This can potentially allow you to recover a save, though you'll have to respec at minimum.")]
     public override partial string Description { get; }
 
     protected override string HarmonyName {

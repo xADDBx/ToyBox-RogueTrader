@@ -66,6 +66,10 @@ public class BlueprintIdCache {
                 return m_NeedsCacheRebuilt.Value && !IsRebuilding;
             }
 
+            if (string.IsNullOrWhiteSpace(Instance.CachedGameVersion)) {
+                return true;
+            }
+
             foreach (var type in CachedIdTypes) {
                 if (!Instance.IdsByType.TryGetValue(type, out var ids)) {
                     Error($"BPId Cache does not contain type {type}!");

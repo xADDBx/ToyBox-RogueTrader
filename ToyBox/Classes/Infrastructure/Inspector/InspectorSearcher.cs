@@ -4,16 +4,17 @@ using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Infrastructure.Inspector;
 
-public static class InspectorSearcher {
-    private static readonly object m_SyncRoot = new();
-    internal static bool IsRunning {
+public class InspectorSearcher : IDisposable {
+    private readonly object m_SyncRoot = new();
+    internal bool IsRunning {
         get;
         private set;
     } = false;
-    public static string? LastPrompt = "";
-    private static Stopwatch? m_Stopwatch;
-    public static bool ShouldCancel = false;
-    public static bool DidSearch {
+    public string? LastPrompt = "";
+    private Stopwatch? m_Stopwatch;
+    public bool ShouldCancel = false;
+    private bool m_DisposedValue;
+    public bool DidSearch {
         get {
             return !string.IsNullOrEmpty(LastPrompt) && !IsRunning;
         }
@@ -23,7 +24,7 @@ public static class InspectorSearcher {
         TypeSearch,
         NameSearch
     }
-    public static void StartSearch(SearchMode mode, InspectorNode root, int depthToSearch, string query) {
+    public void StartSearch(SearchMode mode, InspectorNode root, int depthToSearch, string query) {
         lock (m_SyncRoot) {
             var upperQuery = query.ToUpper();
             if (upperQuery != LastPrompt && !IsRunning) {
@@ -35,7 +36,7 @@ public static class InspectorSearcher {
             }
         }
     }
-    private static IEnumerator SearchCoroutine(SearchMode mode, InspectorNode root, int depthToSearch, string query) {
+    private IEnumerator SearchCoroutine(SearchMode mode, InspectorNode root, int depthToSearch, string query) {
         var work = new Stack<(InspectorNode node, int depth, bool childrenPushed)>();
         foreach (var child in root.Children) {
             child.IsChildMatched = false;
@@ -43,7 +44,7 @@ public static class InspectorSearcher {
             work.Push((child, depthToSearch, false));
         }
 
-        int processed = 0;
+        var processed = 0;
         while (work.Count > 0) {
             var (node, depth, childrenPushed) = work.Pop();
 
@@ -76,7 +77,7 @@ public static class InspectorSearcher {
         }
         Debug($"Inspector Search finished in {m_Stopwatch?.ElapsedMilliseconds.ToString() ?? "??????? Something is seriously wrong "}ms");
     }
-    private static bool MatchNode(SearchMode mode, InspectorNode node, string query) {
+    private bool MatchNode(SearchMode mode, InspectorNode node, string query) {
         try {
             if (mode == SearchMode.ValueSearch) {
                 return MatchString(node.ValueText, query);
@@ -89,5 +90,19 @@ public static class InspectorSearcher {
             Warn($"Error trying to match node {node?.NameText ?? "NullName"} for mode {mode}:\n{ex}");
         }
         return false;
+    }
+    protected virtual void Dispose(bool disposing) {
+        if (!m_DisposedValue) {
+            if (disposing) {
+                ShouldCancel = true;
+                LastPrompt = "";
+            }
+            m_DisposedValue = true;
+        }
+    }
+
+    public void Dispose() {
+        Dispose(disposing: true);
+        GC.SuppressFinalize(this);
     }
 }

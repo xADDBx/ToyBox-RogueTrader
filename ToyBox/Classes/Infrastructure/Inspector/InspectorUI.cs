@@ -25,6 +25,7 @@ public static partial class InspectorUI {
         }
     }
     private static readonly Dictionary<object, InspectorNode> m_CurrentlyInspecting = [];
+    private static readonly Dictionary<object, InspectorSearcher> m_Searchers = [];
     private static readonly HashSet<object> m_ExpandedKeys = [];
     static InspectorUI() {
         Main.OnHideGUIAction += ClearCache;
@@ -35,8 +36,10 @@ public static partial class InspectorUI {
     public static void ClearCache() {
         m_CurrentlyInspecting.Clear();
         m_ExpandedKeys.Clear();
-        InspectorSearcher.ShouldCancel = true;
-        InspectorSearcher.LastPrompt = "";
+        foreach (var searcher in m_Searchers.Values) {
+            searcher.Dispose();
+        }
+        m_Searchers.Clear();
     }
     public static void InspectToggle(object key, string? title = null, object? toInspect = null, int indent = 0, bool inspectInline = false, params GUILayoutOption[] options) {
         title ??= key.ToString();
@@ -86,6 +89,9 @@ public static partial class InspectorUI {
             if (obj == null) {
                 UI.Label(SharedStrings.CurrentlyInspectingText + ": " + "<null>".Cyan());
             } else {
+                if (!m_Searchers.TryGetValue(obj, out var searcher)) {
+                    m_Searchers[obj] = searcher = new();
+                }
                 var valueText = "";
                 try {
                     valueText = obj.ToString();
@@ -98,11 +104,11 @@ public static partial class InspectorUI {
                     _ = UI.DisclosureToggle(ref m_DoShowSearch, m_ShowSearchText);
                     Space(20);
                     _ = UI.DisclosureToggle(ref m_DoShowSettings, m_ShowSettingsText);
-                    if (InspectorSearcher.IsRunning) {
+                    if (searcher.IsRunning) {
                         Space(20);
                         UI.Label(SharedStrings.SearchInProgresText.Orange());
                         Space(20);
-                        _ = UI.Button(SharedStrings.CancelText.Cyan(), () => InspectorSearcher.ShouldCancel = true);
+                        _ = UI.Button(SharedStrings.CancelText.Cyan(), () => searcher.ShouldCancel = true);
                     }
                 }
                 if (m_DoShowSettings) {
@@ -122,8 +128,8 @@ public static partial class InspectorUI {
                     using (HorizontalScope()) {
                         UI.Label(m_SearchDepthText + ": ", Width(200));
                         if (UI.ValueAdjuster(ref m_SearchDepth, 1, 0, 8, false)) {
-                            if (InspectorSearcher.DidSearch) {
-                                InspectorSearcher.LastPrompt = null;
+                            if (searcher.DidSearch) {
+                                searcher.LastPrompt = null;
                             }
                         }
                     }
@@ -133,11 +139,11 @@ public static partial class InspectorUI {
                     m_CurrentlyInspecting[obj] = root;
                 }
 
-                SearchBarGUI(root);
+                SearchBarGUI(root, searcher);
                 m_DrawnNodes = 0;
                 foreach (var child in root.Children) {
-                    if (!InspectorSearcher.DidSearch || child.IsMatched) {
-                        DrawNode(child, 1);
+                    if (!searcher.DidSearch || child.IsMatched) {
+                        DrawNode(child, 1, searcher);
                     }
                 }
                 if (m_DrawnNodes >= Settings.InspectorDrawLimit) {
@@ -146,41 +152,41 @@ public static partial class InspectorUI {
             }
         }
     }
-    private static void SearchBarGUI(InspectorNode root) {
+    private static void SearchBarGUI(InspectorNode root, InspectorSearcher searcher) {
         if (m_DoShowSearch) {
             using (HorizontalScope()) {
                 UI.Label(m_SearchByNameText + ":", Width(200));
-                _ = UI.ActionTextField(ref m_NameSearch, "InspectorNameSearch", null, (string prompt) => {
-                    InspectorSearcher.StartSearch(InspectorSearcher.SearchMode.NameSearch, root, m_SearchDepth, prompt);
+                _ = UI.ActionTextField(ref m_NameSearch, "InspectorNameSearch", null, prompt => {
+                    searcher.StartSearch(InspectorSearcher.SearchMode.NameSearch, root, m_SearchDepth, prompt);
                 }, Width(200), GUILayout.MaxWidth(EffectiveWindowWidth() * 0.3f));
                 Space(10);
                 _ = UI.Button(SharedStrings.SearchText, () => {
-                    InspectorSearcher.StartSearch(InspectorSearcher.SearchMode.NameSearch, root, m_SearchDepth, m_NameSearch);
+                    searcher.StartSearch(InspectorSearcher.SearchMode.NameSearch, root, m_SearchDepth, m_NameSearch);
                 });
             }
             using (HorizontalScope()) {
                 UI.Label(m_SearchByTypeText + ":", Width(200));
-                _ = UI.ActionTextField(ref m_TypeSearch, "InspectorTypeSearch", null, (string prompt) => {
-                    InspectorSearcher.StartSearch(InspectorSearcher.SearchMode.TypeSearch, root, m_SearchDepth, prompt);
+                _ = UI.ActionTextField(ref m_TypeSearch, "InspectorTypeSearch", null, prompt => {
+                    searcher.StartSearch(InspectorSearcher.SearchMode.TypeSearch, root, m_SearchDepth, prompt);
                 }, Width(200), GUILayout.MaxWidth(EffectiveWindowWidth() * 0.3f));
                 Space(10);
                 _ = UI.Button(SharedStrings.SearchText, () => {
-                    InspectorSearcher.StartSearch(InspectorSearcher.SearchMode.TypeSearch, root, m_SearchDepth, m_TypeSearch);
+                    searcher.StartSearch(InspectorSearcher.SearchMode.TypeSearch, root, m_SearchDepth, m_TypeSearch);
                 });
             }
             using (HorizontalScope()) {
                 UI.Label(m_SearchByValueText + ":", Width(200));
-                _ = UI.ActionTextField(ref m_ValueSearch, "InspectorValueSearch", null, (string prompt) => {
-                    InspectorSearcher.StartSearch(InspectorSearcher.SearchMode.ValueSearch, root, m_SearchDepth, prompt);
+                _ = UI.ActionTextField(ref m_ValueSearch, "InspectorValueSearch", null, prompt => {
+                    searcher.StartSearch(InspectorSearcher.SearchMode.ValueSearch, root, m_SearchDepth, prompt);
                 }, Width(200), GUILayout.MaxWidth(EffectiveWindowWidth() * 0.3f));
                 Space(10);
                 _ = UI.Button(SharedStrings.SearchText, () => {
-                    InspectorSearcher.StartSearch(InspectorSearcher.SearchMode.ValueSearch, root, m_SearchDepth, m_ValueSearch);
+                    searcher.StartSearch(InspectorSearcher.SearchMode.ValueSearch, root, m_SearchDepth, m_ValueSearch);
                 });
             }
         }
     }
-    public static void DrawNode(InspectorNode node, int indent) {
+    public static void DrawNode(InspectorNode node, int indent, InspectorSearcher searcher) {
         if (m_DrawnNodes >= Settings.InspectorDrawLimit) {
             return;
         }
@@ -192,7 +198,7 @@ public static partial class InspectorUI {
 
             m_DrawnNodes++;
 
-            var discWidth = UI.DisclosureGlyphWidth.Value;
+            var discWidth = UI.DisclosureGlyphWidth.Value + 5 * Main.UIScale;
             var leftOverWidth = EffectiveWindowWidth() /*- (indent * Settings.InspectorIndentWidth)*/ - 40 - discWidth;
             var calculatedWidth = Settings.InspectorNameFractionOfWidth * leftOverWidth;
             if (Settings.ToggleInspectorSlimMode) {
@@ -221,16 +227,16 @@ public static partial class InspectorUI {
                 UI.Label("");
             }
         }
-        if (InspectorSearcher.DidSearch) {
+        if (searcher.DidSearch) {
             foreach (var child in node.Children) {
                 if (node.IsExpanded || child.IsMatched) {
-                    DrawNode(child, indent + 1);
+                    DrawNode(child, indent + 1, searcher);
                 }
             }
         } else {
             if (node.IsExpanded) {
                 foreach (var child in node.Children) {
-                    DrawNode(child, indent + 1);
+                    DrawNode(child, indent + 1, searcher);
                 }
             }
         }

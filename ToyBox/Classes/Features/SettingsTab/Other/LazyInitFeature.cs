@@ -1,6 +1,7 @@
 ﻿using Kingmaker;
 using Kingmaker.Utility.DotNetExtensions;
 using System.Diagnostics;
+using UnityModManagerNet;
 
 namespace ToyBox.Features.SettingsTab.Other;
 
@@ -34,23 +35,35 @@ public partial class LazyInitFeature : FeatureWithPatch, INeedEarlyInitFeature {
     }
     [HarmonyPatch(typeof(GameMainMenu), nameof(GameMainMenu.Awake)), HarmonyPostfix]
     private static void GameMainMenu_Awake_Postfix() {
-        EnsureFinished();
+        try {
+            EnsureFinished();
+        } catch (Exception ex) {
+            Error(ex);
+        }
     }
     public static void EnsureFinished() {
-        Log($"Lazy init had {Stopwatch.ElapsedMilliseconds}ms before waiting");
-        var sw = Stopwatch.StartNew();
-        if (Main.LateInitTasks.Count > 0) {
-            Task.WaitAll([.. Main.LateInitTasks]);
+        if (!Main.SuccessfullyInitialized) {
+            Log($"Lazy init had {Stopwatch.ElapsedMilliseconds}ms before waiting");
+            var sw = Stopwatch.StartNew();
+            if (Main.LateInitTasks.Count > 0) {
+                Task.WaitAll([.. Main.LateInitTasks]);
+            }
+            Main.LateInitTasks.Where(t => t.IsFaulted).ForEach(t => {
+                Critical($"Late init task IsFaulted: {t}\n{t.Exception?.ToString() ?? "Null Exception?"}");
+            });
+            Main.SuccessfullyInitialized = true;
+            Log($"Waited {sw.ElapsedMilliseconds}ms for lazy init finish");
         }
-        Main.LateInitTasks.Where(t => t.IsFaulted).ForEach(t => {
-            Critical($"Late init task IsFaulted: {t}\n{t.Exception?.ToString() ?? "Null Exception?"}");
-        });
-        Main.SuccessfullyInitialized = true;
-        Log($"Waited {sw.ElapsedMilliseconds}ms for lazy init finish");
-
-        if (FeatureTab.FailedFeatures.Count > 0) {
-            Main.ModEntry.Info.DisplayName += ($" {FeatureTab.FailedFeatures.Count} " + m_FeaturesFailedInitialization_LocalizedText).Orange().Bold();
-            ToggleModWindow();
+    }
+    [HarmonyPatch(typeof(UnityModManager.UI), nameof(UnityModManager.UI.Awake)), HarmonyPostfix]
+    private static void UnityModManager_UI_Awake_Patch() {
+        try {
+            if (FeatureTab.FailedFeatures.Count > 0) {
+                Main.ModEntry.Info.DisplayName += ($" {FeatureTab.FailedFeatures.Count} " + m_FeaturesFailedInitialization_LocalizedText).Orange().Bold();
+                ToggleModWindow(true);
+            }
+        } catch (Exception ex) {
+            Error(ex);
         }
     }
     [LocalizedString("ToyBox_Infrastructure_LazyInit_X_Amount_Of_FeaturesFailedInitialization_LocalizedText", "features failed initialization!")]

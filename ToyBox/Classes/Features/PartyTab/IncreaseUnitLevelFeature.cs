@@ -25,7 +25,7 @@ public partial class IncreaseUnitLevelFeature : Feature, INeedContextFeature<Bas
         return CalculateLargestLabelWidth([m_Lvl_LocalizedText + " 00 > 00 "], GUI.skin.label);
     });
     private static readonly TimedCache<float> m_MaxLabelWidth = new(() => {
-        return CalculateLargestLabelWidth([m_MaxLocalizedText], GUI.skin.button) + 5 * Main.UIScale;
+        return CalculateLargestLabelWidth([m_MaxLocalizedText], GUI.skin.button) + (5 * Main.UIScale);
     });
 
     public void OnGui(BaseUnitEntity unit) {

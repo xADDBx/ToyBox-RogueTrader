@@ -4,6 +4,8 @@ public partial class LootFeatureTab : FeatureTab {
     [LocalizedString("ToyBox_Features_Loot_LootFeatureTab_Name", "Loot")]
     public override partial string Name { get; }
     public LootFeatureTab() {
+        AddFeature(new LootAoEFeature(), m_LootLocalizedText);
+        AddFeature(new LootAoERangeFeature(), m_LootLocalizedText);
         AddFeature(new OpenMassLootAction(), m_LootLocalizedText);
         AddFeature(new MassLootShowHiddenItemsSetting(), m_LootLocalizedText);
         AddFeature(new MassLootShowLivingNPCItemsSetting(), m_LootLocalizedText);

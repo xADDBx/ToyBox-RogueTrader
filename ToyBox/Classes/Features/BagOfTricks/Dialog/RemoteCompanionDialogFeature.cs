@@ -50,11 +50,13 @@ public partial class RemoteCompanionDialogFeature : FeatureWithPatch {
                 if (maybeCompanion.State != CompanionState.None) {
                     if (maybeCompanion.State != CompanionState.ExCompanion || GetInstance<ExCompanionDialogFeature>().IsEnabled) {
                         if (__instance.Owner is BlueprintCue cueBp) {
-                            Debug($"Overiding {cueBp.name} Companion {__instance.companion.name} ({__instance.companion.AssetGuid}) In Party to true");
+                            Trace($"Overiding {cueBp.name} Companion {__instance.companion.name} ({__instance.companion.AssetGuid}) In Party to true");
                             __result = true;
                         } else if (__instance.Owner is BlueprintAnswer answeBp) {
-                            Debug($"Overiding {answeBp.name} Companion {__instance.companion.name} ({__instance.companion.AssetGuid}) In Party to true");
+                            Trace($"Overiding {answeBp.name} Companion {__instance.companion.name} ({__instance.companion.AssetGuid}) In Party to true");
                             __result = true;
+                        } else {
+                            Log($"Encountered IsCompanionInParty with unhandled owner type: {__instance.Owner.AssetGuid}");
                         }
                     }
                 }

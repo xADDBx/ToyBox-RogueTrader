@@ -79,7 +79,7 @@ public abstract partial class FeatureTab {
         }
         Debug($"!!Threaded!!: {GetType().Name} lazy init took {a.ElapsedMilliseconds}ms");
     }
-    public virtual void DestroyAll() {
+    public virtual void DisposeAll() {
         foreach (var feature in Features) {
             feature.Unload();
         }

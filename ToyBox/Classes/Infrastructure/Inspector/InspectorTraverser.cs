@@ -8,13 +8,16 @@ namespace ToyBox.Infrastructure.Inspector;
 public static class InspectorTraverser {
     private const BindingFlags m_All = BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.GetField | BindingFlags.SetField | BindingFlags.GetProperty | BindingFlags.SetProperty;
     private const BindingFlags m_AllInstance = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.GetField | BindingFlags.SetField | BindingFlags.GetProperty | BindingFlags.SetProperty;
+    public static readonly IComparer<string> Sorter = new NaturalSortComparer(StringComparison.CurrentCultureIgnoreCase);
     public static InspectorNode BuildRoot(object obj) {
         var type = obj?.GetType() ?? typeof(object);
         return new InspectorNode("root", "", type, obj, null, "");
     }
     internal static void BuildChildren(InspectorNode node) {
         BuildChildrenInternal(node);
-        node.Children!.Sort();
+        node.Children.Sort((a, b) => {
+            return Sorter.Compare(a.NameText, b.NameText);
+        });
     }
     private static void BuildChildrenInternal(InspectorNode node) {
         node.Children = [];

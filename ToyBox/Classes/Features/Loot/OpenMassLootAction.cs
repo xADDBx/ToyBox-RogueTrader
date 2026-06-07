@@ -11,7 +11,7 @@ public partial class OpenMassLootAction : FeatureWithBindableAction {
     [LocalizedString("ToyBox_Features_Loot_OpenMassLootAction_Description", "Lets you open up the area's mass loot screen to grab goodies whenever you want. Normally shown only when you exit the area. Only opens if there is actually any loot available.")]
     public override partial string Description { get; }
     public override bool CanExecute(ActionParameter parameter) {
-        return IsInGame();
+        return IsInGameNoDialog();
     }
     public override void ExecuteAction(ActionParameter parameter) {
         if (CanExecute(parameter)) {

@@ -229,6 +229,7 @@ public class GeneralSettings : AbstractJsonSettings {
     public bool MassLootShowHiddenItems = false;
     public bool MassLootShowLivingNPCItems = false;
     public bool LootChecklistShowHiddenLoot = false;
+    public int LootAoERange = 15;
 
     // Search 'n Pick
     public int CurrentSearchAndPickBlueprintFilter = 0;

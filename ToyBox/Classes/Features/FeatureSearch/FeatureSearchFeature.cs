@@ -28,7 +28,7 @@ public partial class FeatureSearchFeature : Feature {
             m_FeatureBrowser.UpdateItems(features);
             m_IsInitialized = true;
         }
-        if (UI.Toggle("Filter for untested features", null, ref m_OnlyFeaturesThatNeedTesting)) {
+        if (UI.Toggle(m_FilterForUntestedFeaturesLocalizedText, null, ref m_OnlyFeaturesThatNeedTesting)) {
             List<Feature> features = [];
             foreach (var tab in Main.m_FeatureTabs) {
                 if (tab.Name != LocalizationManager.CurrentLocalization.ToyBox_Features_FeatureSearch_FeatureSearchTab_Name.Translated) {
@@ -75,4 +75,7 @@ public partial class FeatureSearchFeature : Feature {
             }
         });
     }
+
+    [LocalizedString("ToyBox_Features_FeatureSearch_FeatureSearchFeature_m_FilterForUntestedFeaturesLocalizedText", "Filter for untested features")]
+    private static partial string m_FilterForUntestedFeaturesLocalizedText { get; }
 }

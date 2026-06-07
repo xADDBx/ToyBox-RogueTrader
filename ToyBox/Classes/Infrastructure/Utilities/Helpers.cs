@@ -1,4 +1,5 @@
 ﻿using Kingmaker;
+using Kingmaker.GameModes;
 using Kingmaker.UI.Models.Log.CombatLog_ThreadSystem;
 using Kingmaker.UI.Models.Log.CombatLog_ThreadSystem.LogThreads.LifeEvents;
 using Kingmaker.UI.Models.Log.GameLogCntxt;
@@ -30,8 +31,11 @@ public static class Helpers {
     public static string StripHTML(string s) {
         return Regex.Replace(s, "<.*?>", string.Empty);
     }
+    public static bool IsInGameNoDialog() {
+        return Game.Instance.CurrentMode == GameModeType.Default;
+    }
     public static bool IsInGame() {
-        return Game.Instance.Player?.Party?.Count > 0;
+        return Game.Instance.CurrentMode != GameModeType.None || Game.Instance?.LevelUpController?.m_BaseUnit != null;
     }
     public static float CalculateLargestLabelWidth(IEnumerable<string> items, GUIStyle? style = null) {
         var max = 0f;
@@ -51,6 +55,9 @@ public static class Helpers {
     }
     public static void ToggleModWindow() {
         UnityModManager.UI.Instance.ToggleWindow();
+    }
+    public static void ToggleModWindow(bool open) {
+        UnityModManager.UI.Instance.ToggleWindow(open);
     }
     public static void LogExecution(Feature feature, params object?[] parameter) {
         var toLog = "Executed action " + feature.Name;

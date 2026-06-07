@@ -8,7 +8,7 @@ namespace ToyBox.Infrastructure;
 /// </summary>
 /// <typeparam name="T">The type of items to display. Must be non-nullable.</typeparam>
 public partial class VerticalList<T> : IPagedList where T : notnull {
-    protected int PageWidth = 600;
+    public int PageWidth { get; set; } = 600;
     protected int CurrentPage = 1;
     protected int PagedItemsCount = 0;
     protected int TotalPages = 1;

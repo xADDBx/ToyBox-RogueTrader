@@ -16,4 +16,5 @@ public static class Constants {
                                                                 StatType.Power, StatType.Aiming, StatType.RevealRadius, StatType.DetectionRadius,
                                                                 StatType.ShieldsAmount, StatType.ShieldsRegeneration, StatType.Morale, StatType.Discipline,
                                                                 StatType.InspirationInitialAmount, StatType.InspirationRegeneration];
+    public const string RootEtudeId = "4f66e8b792ecfad46ae1d9ecfd7ecbc2";
 }

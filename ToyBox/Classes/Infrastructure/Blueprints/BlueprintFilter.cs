@@ -62,7 +62,10 @@ public static partial class BlueprintFilters {
         var min = Mathf.Pow(binSize, floorLogV);
         var minStr = AddSuffix(min, units);
         var max = Mathf.Pow(binSize, floorLogV + 1);
-        if (min == max) return $"{min:0}{units}";
+        if (min == max) {
+            return $"{min:0}{units}";
+        }
+
         var maxStr = AddSuffix(max, units);
         return $"{minStr} - {maxStr}";
     }
@@ -261,7 +264,7 @@ public partial class BlueprintFilter<T> : IBlueprintFilter<T> where T : notnull,
                 var parameter = Expression.Parameter(typeof(SimpleBlueprint), "bp");
                 var propertyAccess = Expression.Property(Expression.Convert(parameter, type), prop);
                 var lambda = Expression.Lambda<Func<SimpleBlueprint, bool>>(propertyAccess, parameter);
-                Func<SimpleBlueprint, bool> compiled = lambda.Compile();
+                var compiled = lambda.Compile();
                 accessors.Add((compiled, prop.Name));
             }
         }

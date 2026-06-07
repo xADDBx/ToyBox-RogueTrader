@@ -1,4 +1,5 @@
-﻿using Kingmaker;
+﻿#pragma warning disable
+using Kingmaker;
 using Kingmaker.AreaLogic.Etudes;
 using Kingmaker.Blueprints;
 

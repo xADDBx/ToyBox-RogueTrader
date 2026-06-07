@@ -33,14 +33,14 @@ public sealed class ToyBoxPatchCategoryAttribute : Attribute {
             if (attr == null && type.GetCustomAttribute<CompilerGeneratedAttribute>() == null) {
                 attr = type.DeclaringType?.GetCustomAttribute<ToyBoxPatchCategoryAttribute>();
                 if (attr != null) {
-                    Debug($"Category attribute null for {type.Name}; found on declaring type {type.DeclaringType!.Name} instead.");
+                    Trace($"Category attribute null for {type.Name}; found on declaring type {type.DeclaringType!.Name} instead.");
                 }
             }
             if (!string.IsNullOrEmpty(attr?.Category)) {
                 if (!m_HarmonyCategoryCache.TryGetValue(attr!.Category, out var typeList)) {
                     typeList ??= [];
                 }
-                typeList.Add(type);
+                _ = typeList.Add(type);
                 m_HarmonyCategoryCache[attr.Category] = typeList;
             } else if (type.GetCustomAttribute<HarmonyPatch>() != null) {
                 Error($"If you see this please report to mod author! Found type {type.FullName} with patches but no assigned category. This means the patch probably won't be applied.", false);
