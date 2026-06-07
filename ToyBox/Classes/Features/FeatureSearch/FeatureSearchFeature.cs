@@ -15,7 +15,9 @@ public partial class FeatureSearchFeature : Feature {
     private bool m_IsInitialized = false;
     private readonly Browser<Feature> m_FeatureBrowser = new(f => f.SortKey, f => f.SearchKey, null, null, true, (int)(EffectiveWindowWidth() / 1.03f));
     private readonly Dictionary<Feature, bool> m_DisclosureStates = [];
+#if DEBUG
     private bool m_OnlyFeaturesThatNeedTesting = false;
+#endif
     private float? m_NameLabelWidth;
     public override void OnGui() {
         if (!m_IsInitialized) {
@@ -28,6 +30,7 @@ public partial class FeatureSearchFeature : Feature {
             m_FeatureBrowser.UpdateItems(features);
             m_IsInitialized = true;
         }
+#if DEBUG
         if (UI.Toggle(m_FilterForUntestedFeaturesLocalizedText, null, ref m_OnlyFeaturesThatNeedTesting)) {
             List<Feature> features = [];
             foreach (var tab in Main.m_FeatureTabs) {
@@ -40,6 +43,7 @@ public partial class FeatureSearchFeature : Feature {
             }
             m_FeatureBrowser.UpdateItems(features);
         }
+#endif
         if (!m_NameLabelWidth.HasValue || !m_FeatureBrowser.IsCachedValid) {
             m_NameLabelWidth = CalculateLargestLabelWidth(m_FeatureBrowser.PagedItems.Select(f => f.Name.Orange() + " "));
             m_FeatureBrowser.SetCacheValid();
