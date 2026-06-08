@@ -1007,6 +1007,90 @@
     "Original": "This feature is at the moment mostly copied from previous ToyBox, so there might be issues. It also does not yet support localization. The UI will get a complete rewrite eventually.",
     "Translated": null
   },
+  "ToyBox_Features_Etudes_EtudesFeature_Name": {
+    "Original": "Etudes Editor",
+    "Translated": null
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_Description": {
+    "Original": "Browse the game's Etudes in a tree view, with state and relationship details.",
+    "Translated": null
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_LoadingText": {
+    "Original": "Loading Etudes...",
+    "Translated": null
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_RootText": {
+    "Original": "Root",
+    "Translated": null
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_RootNotFoundText": {
+    "Original": "Root etude not found in current snapshot:",
+    "Translated": null
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_SearchTextLabel": {
+    "Original": "Search",
+    "Translated": null
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_FlagsOnlyText": {
+    "Original": "Flags Only",
+    "Translated": null
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_ShowGuidsText": {
+    "Original": "Show GUIDs",
+    "Translated": null
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_ShowCommentsText": {
+    "Original": "Show Comments",
+    "Translated": null
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_RefreshText": {
+    "Original": "Refresh",
+    "Translated": null
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_AreaFilterText": {
+    "Original": "Area Filter",
+    "Translated": null
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_NoEtudesText": {
+    "Original": "No Etudes",
+    "Translated": null
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_CompletesParentText": {
+    "Original": "Completes Parent",
+    "Translated": null
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_InspectText": {
+    "Original": "Inspect",
+    "Translated": null
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_ElementsText": {
+    "Original": "Elements",
+    "Translated": null
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_ConflictsText": {
+    "Original": "Conflicts",
+    "Translated": null
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_m_EncounteredErrorWhileBuildingEtuLocalizedText": {
+    "Original": "Encountered error while building Etudes Tree!",
+    "Translated": null
+  },
+  "ToyBox_Features_Etudes_EtudesEditorFeature_m_AllLocalizedText": {
+    "Original": "All",
+    "Translated": null
+  },
+  "ToyBox_Features_Etudes_EtudeRecord_m_ChainedEtude_0___1__HasDifferentLocalizedText": {
+    "Original": "Chained etude {0} ({1}) has different parent: {2} than {3} parent: {4}",
+    "Translated": null
+  },
+  "ToyBox_Features_Etudes_EtudeRecord_m_LinkedToChild_0___1__WithDiffereLocalizedText": {
+    "Original": "Linked to child {0} ({1}) with different parent: {2} than {3} parent {4}",
+    "Translated": null
+  },
+  "ToyBox_Features_Etudes_EtudeRecord_m_NoneLocalizedText": {
+    "Original": "None",
+    "Translated": null
+  },
   "ToyBox_Features_FeatureSearch_FeatureSearchFeature_FeatureSearchNotImplementedForTh": {
     "Original": "Feature search not implemented for this feature!",
     "Translated": null
@@ -2653,6 +2737,30 @@
   },
   "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_AllUnitsText": {
     "Original": "All Units",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Enums_EtudeState_Localizer_m_NotStartedLocalizedText": {
+    "Original": "Not Started",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Enums_EtudeState_Localizer_m_StartedLocalizedText": {
+    "Original": "Started",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Enums_EtudeState_Localizer_m_ActiveLocalizedText": {
+    "Original": "Active",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Enums_EtudeState_Localizer_m_PreCompletedLocalizedText": {
+    "Original": "Pre Completed",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Enums_EtudeState_Localizer_m_CompletedLocalizedText": {
+    "Original": "Completed",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Enums_EtudeState_Localizer_m_CompletionInProgressLocalizedText": {
+    "Original": "Completion in Progress",
     "Translated": null
   },
   "ToyBox_Infrastructure_Enums_LogLevel_Localizer_ErrorText": {
