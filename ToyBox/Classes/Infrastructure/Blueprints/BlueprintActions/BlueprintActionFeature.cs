@@ -15,8 +15,14 @@ public interface IBlueprintAction<T> : IExecutableAction<T>, INeedContextFeature
 }
 public abstract class BlueprintActionFeature : FeatureWithAction {
     private static readonly List<object> m_AllActions = [];
-    private static readonly Dictionary<Type, object> m_ActionsForType = [];
-    private static readonly Dictionary<(Type, Type), object> m_ExactActionsForType = [];
+    // ._.
+    // Non-generic caches (List<object>)
+    private static readonly Dictionary<Type, List<object>> m_ActionsForType = [];
+    private static readonly Dictionary<(Type, Type), List<object>> m_ExactActionsForType = [];
+    // Typed caches (List<IExecutableAction<T>> boxed as object)
+    private static readonly Dictionary<Type, object> m_TypedActionsForType = [];
+    private static readonly Dictionary<(Type, Type), object> m_TypedExactActionsForType = [];
+
     // Adapter to allow FeatureWithAction inheritance.
     // Might need adjustments in the future if BlueprintActions should be allowed for hotkeys
     public override void ExecuteAction(ActionParameter parameter) {
@@ -28,9 +34,17 @@ public abstract class BlueprintActionFeature : FeatureWithAction {
     protected BlueprintActionFeature() {
         m_AllActions.Add(this);
     }
-    private static IEnumerable<object> GetAllActionsForBPType(Type blueprintType) {
+    private static bool InterfaceIsAssignable(object action, Type type) {
+        var interf = action.GetType().GetInterfaces().Where(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IExecutableAction<>));
+        return interf.Any(i => i.GetGenericArguments()[0].IsAssignableFrom(type));
+    }
+    private static bool InterfaceMatchesExactly(object action, Type type) {
+        var interf = action.GetType().GetInterfaces().Where(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IExecutableAction<>));
+        return interf.Any(i => i.GetGenericArguments()[0] == type);
+    }
+    private static List<object> GetAllActionsForBPType(Type blueprintType) {
         if (m_ActionsForType.TryGetValue(blueprintType, out var actions)) {
-            return (IEnumerable<object>)actions;
+            return actions;
         } else {
             List<object> newActions = [];
             foreach (var action in m_AllActions) {
@@ -42,20 +56,12 @@ public abstract class BlueprintActionFeature : FeatureWithAction {
             return newActions;
         }
     }
-    private static bool InterfaceIsAssignable(object action, Type type) {
-        var interf = action.GetType().GetInterfaces().Where(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IExecutableAction<>));
-        return interf.Any(i => i.GetGenericArguments()[0].IsAssignableFrom(type));
-    }
-    private static bool InterfaceMatchesExactly(object action, Type type) {
-        var interf = action.GetType().GetInterfaces().Where(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IExecutableAction<>));
-        return interf.Any(i => i.GetGenericArguments()[0] == type);
-    }
-    public static IEnumerable<object> GetActionsForBlueprintType(Type blueprintType, Type? exactlyThis = null) {
+    public static List<object> GetActionsForBlueprintType(Type blueprintType, Type? exactlyThis = null) {
         if (exactlyThis == null) {
             return GetAllActionsForBPType(blueprintType);
         } else {
             if (m_ExactActionsForType.TryGetValue((blueprintType, exactlyThis), out var actions)) {
-                return (List<object>)actions;
+                return actions;
             } else {
                 List<object> newActions = [];
                 foreach (var action in GetAllActionsForBPType(blueprintType)) {
@@ -68,8 +74,8 @@ public abstract class BlueprintActionFeature : FeatureWithAction {
             }
         }
     }
-    private static IEnumerable<IExecutableAction<T>> GetAllActionsForBPType<T>() where T : SimpleBlueprint {
-        if (m_ActionsForType.TryGetValue(typeof(T), out var actions)) {
+    private static List<IExecutableAction<T>> GetAllActionsForBPType<T>() where T : SimpleBlueprint {
+        if (m_TypedActionsForType.TryGetValue(typeof(T), out var actions)) {
             return (List<IExecutableAction<T>>)actions;
         } else {
             List<IExecutableAction<T>> newActions = [];
@@ -78,15 +84,15 @@ public abstract class BlueprintActionFeature : FeatureWithAction {
                     newActions.Add(typedAction);
                 }
             }
-            m_ActionsForType[typeof(T)] = newActions;
+            m_TypedActionsForType[typeof(T)] = newActions;
             return newActions;
         }
     }
-    public static IEnumerable<IExecutableAction<T>> GetActionsForBlueprintType<T>(Type? exactlyThis = null) where T : SimpleBlueprint {
+    public static List<IExecutableAction<T>> GetActionsForBlueprintType<T>(Type? exactlyThis = null) where T : SimpleBlueprint {
         if (exactlyThis == null) {
             return GetAllActionsForBPType<T>();
         } else {
-            if (m_ExactActionsForType.TryGetValue((typeof(T), exactlyThis), out var actions)) {
+            if (m_TypedExactActionsForType.TryGetValue((typeof(T), exactlyThis), out var actions)) {
                 return (List<IExecutableAction<T>>)actions;
             } else {
                 List<IExecutableAction<T>> newActions = [];
@@ -95,7 +101,7 @@ public abstract class BlueprintActionFeature : FeatureWithAction {
                         newActions.Add(action);
                     }
                 }
-                m_ExactActionsForType[(typeof(T), exactlyThis)] = newActions;
+                m_TypedExactActionsForType[(typeof(T), exactlyThis)] = newActions;
                 return newActions;
             }
         }

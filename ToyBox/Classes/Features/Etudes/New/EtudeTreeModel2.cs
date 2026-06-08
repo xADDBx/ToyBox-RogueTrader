@@ -89,6 +89,7 @@ public class EtudesTreeModel2 {
             }
 
             var snapshot = new EtudeSnapshot(records, conflictingGroups);
+            snapshot.UpdateRuntimeStates();
             snapshot.BuildDerivedSets(initialSearchText);
 
             Main.ScheduleForMainThread(() => {

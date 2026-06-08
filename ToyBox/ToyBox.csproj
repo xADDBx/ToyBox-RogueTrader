@@ -6,7 +6,7 @@
 		<Description>ToyBox</Description>
 		<AppDesignerFolder>Properties</AppDesignerFolder>
 		<OutputType>Library</OutputType>
-		<Version>1.8.24</Version>
+		<Version>1.8.25</Version>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<LangVersion>preview</LangVersion>
 		<Nullable>enable</Nullable>
@@ -75,6 +75,9 @@
 		<PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" IncludeAssets="build; contentfiles" Version="0.4.2" PrivateAssets="all" />
 		<PackageReference Include="MicroUtils.HarmonyAnalyzers" IncludeAssets="runtime; build; native; contentfiles; analyzers" Version="*-*" PrivateAssets="all" />
 		<PackageReference Include="ToyBox.BuildTools" IncludeAssets="analyzers; build; compile" Version="1.1.9.5" PrivateAssets="all" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Classes\Features\Etudes\New\Model\" />
 	</ItemGroup>
 	<Target Name="UpdateLocalizationFiles" BeforeTargets="Deploy">
 		<UpdateLocalizationTask LocalizationDirectoryPath="$(SolutionDir)ToyBox\Localization" AssemblyPath="$(TargetDir)$(AssemblyName).dll" />

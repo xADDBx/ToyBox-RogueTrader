@@ -20,7 +20,7 @@ Changed some features:
 - CustomizePsychicPhenomena now also accounts for phenomena triggered in a non-standard way (e.g. Unsanctioned Psyker)
 - Add proper names/descriptions to each phenomena in CustomizePsychicPhenomena
 - Ignore Equipment Restrictions adjusted for armour?
-- Fig Ignore Ability Requirement XYZ not working if Ignore All Requirements is disabled (which made the other togles useless)
+- Fig Ignore Ability Requirement XYZ not working if Ignore All Requirements is disabled (which made the other toggles useless)
 - Fix some level up ui issues that could happen if people changed the RespecFromX settings after doing respecs on a different setting.
 - Allow custom levels in RespecFromX
 - Fix Enemy Stat Multiplier not working for some stuff (e.g. Wounds)

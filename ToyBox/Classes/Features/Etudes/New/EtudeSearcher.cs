@@ -45,10 +45,15 @@ public class EtudeSearcher : IDisposable {
     private IEnumerator SearchCoroutine(SearchMode mode, Dictionary<string, EtudeRecord> etudes, string query) {
         var work = new Queue<EtudeRecord>();
         var processed = 0;
+        var matched = 0;
         foreach (var rec in etudes.Values) {
             rec.IsDescendantMatched = false;
-            rec.IsMatched = MatchNode(mode, rec, query);
-            if (++processed % 100 == 0) {
+            var result = MatchNode(mode, rec, query);
+            if (result) {
+                matched++;
+            }
+            rec.IsMatched = result;
+            if (++processed % 200 == 0) {
                 if (ShouldCancel) {
                     lock (m_SyncRoot) {
                         LastPrompt = "";
@@ -79,7 +84,7 @@ public class EtudeSearcher : IDisposable {
         lock (m_SyncRoot) {
             IsRunning = false;
         }
-        Debug($"Etude Search finished in {m_Stopwatch?.ElapsedMilliseconds.ToString() ?? "??????? Something is seriously wrong "}ms");
+        Debug($"Etude Search finished in {m_Stopwatch?.ElapsedMilliseconds.ToString() ?? "??????? Something is seriously wrong "}ms with {matched} matches.");
     }
     private bool MatchNode(SearchMode mode, EtudeRecord node, string query) {
         try {

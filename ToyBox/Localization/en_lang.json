@@ -1007,6 +1007,18 @@
     "Original": "This feature is at the moment mostly copied from previous ToyBox, so there might be issues. It also does not yet support localization. The UI will get a complete rewrite eventually.",
     "Translated": null
   },
+  "ToyBox_Features_Etudes_EtudeRecord_m_ChainedEtude_0___1__HasDifferentLocalizedText": {
+    "Original": "Chained etude {0} ({1}) has different parent: {2} than {3} parent: {4}",
+    "Translated": null
+  },
+  "ToyBox_Features_Etudes_EtudeRecord_m_LinkedToChild_0___1__WithDiffereLocalizedText": {
+    "Original": "Linked to child {0} ({1}) with different parent: {2} than {3} parent {4}",
+    "Translated": null
+  },
+  "ToyBox_Features_Etudes_EtudeRecord_m_NoneLocalizedText": {
+    "Original": "None",
+    "Translated": null
+  },
   "ToyBox_Features_Etudes_EtudesFeature_Name": {
     "Original": "Etudes Editor",
     "Translated": null
@@ -1077,18 +1089,6 @@
   },
   "ToyBox_Features_Etudes_EtudesEditorFeature_m_AllLocalizedText": {
     "Original": "All",
-    "Translated": null
-  },
-  "ToyBox_Features_Etudes_EtudeRecord_m_ChainedEtude_0___1__HasDifferentLocalizedText": {
-    "Original": "Chained etude {0} ({1}) has different parent: {2} than {3} parent: {4}",
-    "Translated": null
-  },
-  "ToyBox_Features_Etudes_EtudeRecord_m_LinkedToChild_0___1__WithDiffereLocalizedText": {
-    "Original": "Linked to child {0} ({1}) with different parent: {2} than {3} parent {4}",
-    "Translated": null
-  },
-  "ToyBox_Features_Etudes_EtudeRecord_m_NoneLocalizedText": {
-    "Original": "None",
     "Translated": null
   },
   "ToyBox_Features_FeatureSearch_FeatureSearchFeature_FeatureSearchNotImplementedForTh": {
