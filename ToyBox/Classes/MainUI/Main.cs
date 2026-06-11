@@ -82,7 +82,7 @@ namespace ToyBox {
             _resetRequestTime = DateTime.Now;
             Mod.Debug($"resetRequested - {_resetRequestTime}");
         }
-        public static bool IsInGame => Game.Instance.Player?.Party.Any() ?? false;
+        public static bool IsInGame => Game.Instance.CurrentMode != GameModeType.None || Game.Instance?.LevelUpController?.m_BaseUnit != null;
         private static Exception _caughtException = null;
 
         public static List<GameObject> Objects;
@@ -143,7 +143,7 @@ namespace ToyBox {
                         modEntry.Logger.Log("Fatal! The current Game Version has known incompatabilities with your current ToyBox version! Please Update.");
                         if (Settings.shouldTryUpdate) {
                             modEntry.Info.DisplayName = "ToyBox" + " Trying to update the mod...".localize().Red().Bold().SizePercent(80);
-                            if (Updater.Update(modEntry, true)) {
+                            if (Updater.Update(modEntry)) {
                                 modEntry.Info.DisplayName = "ToyBox" + " Restart the game to finish the update!".localize().Green().Bold().SizePercent(80);
                                 return false;
                             }

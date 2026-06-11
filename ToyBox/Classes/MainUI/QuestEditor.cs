@@ -46,11 +46,11 @@ namespace ToyBox {
             "red"
         };
 
-        public static bool IsRevealed(this QuestObjective objective) => objective.State == QuestObjectiveState.Started || objective.State == QuestObjectiveState.Completed;
+        public static bool IsRevealed(this QuestBookEntityEntry objective) => objective.State == QuestObjectiveState.Started || objective.State == QuestObjectiveState.Completed;
         public static string? stateColored(this string? text, Quest quest) => RichText.Color(text, questColors[(int)quest.State]);
-        public static string? stateColored(this string? text, QuestObjective objective) => RichText.Color(text, questColors[(int)objective.State]);
+        public static string? stateColored(this string? text, QuestBookEntityEntry objective) => RichText.Color(text, questColors[(int)objective.State]);
         public static string? titleColored(this Quest quest) => quest.Blueprint.Title.StringValue().Color(titleColors[(int)quest.State]);
-        public static string? titleColored(this QuestObjective objective, BlueprintQuestObjective? bp = null) {
+        public static string? titleColored(this QuestBookEntityEntry objective, BlueprintQuestObjective? bp = null) {
             var blueprint = objective?.Blueprint ?? bp;
             var state = objective?.State ?? QuestObjectiveState.None;
             var title = blueprint.Title.StringValue();
@@ -64,7 +64,7 @@ namespace ToyBox {
         }
         public static string? titleColored(this string title, QuestObjectiveState state) => title.Color(titleColors[(int)state]);
         public static string? stateString(this Quest quest) => quest.State == QuestState.None ? "" : RichText.Bold($"{quest.State}".stateColored(quest));
-        public static string? stateString(this QuestObjective objective) => objective.State == QuestObjectiveState.None ? "" : RichText.Bold($"{objective.State}".stateColored(objective));
+        public static string? stateString(this QuestBookEntityEntry objective) => objective.State == QuestObjectiveState.None ? "" : RichText.Bold($"{objective.State}".stateColored(objective));
     }
 
     public class QuestEditor {
@@ -119,66 +119,66 @@ namespace ToyBox {
                         }
                         if (_selectedQuests[index]) {
                             var objectiveIndex = 0;
-                            foreach (var questObjective in quest.Objectives) {
-                                if (Settings.toggleQuestsShowUnrevealedObjectives || questObjective.IsRevealed()) {
-                                    if (questObjective.ParentObjective == null) {
+                            foreach (var QuestBookEntityEntry in quest.Objectives) {
+                                if (Settings.toggleQuestsShowUnrevealedObjectives || QuestBookEntityEntry.IsRevealed()) {
+                                    if (QuestBookEntityEntry.ParentObjective == null) {
                                         Div(100, 25);
                                         using (HorizontalScope(AutoWidth())) {
                                             Space(50);
-                                            objectiveIndex = questObjective.Order == 0 ? objectiveIndex + 1 : questObjective.Order;
+                                            objectiveIndex = QuestBookEntityEntry.Order == 0 ? objectiveIndex + 1 : QuestBookEntityEntry.Order;
                                             Label($"{objectiveIndex}", Width(50));
-                                            Label(questObjective.titleColored(), Width(600));
+                                            Label(QuestBookEntityEntry.titleColored(), Width(600));
                                             25.space();
-                                            Label(questObjective.stateString(), Width(150));
+                                            Label(QuestBookEntityEntry.stateString(), Width(150));
                                             if (Settings.toggleQuestInspector)
-                                                ReflectionTreeView.DetailToggle("Inspect".localize(), questObjective, questObjective, 0);
+                                                ReflectionTreeView.DetailToggle("Inspect".localize(), QuestBookEntityEntry, QuestBookEntityEntry, 0);
                                             Space(25);
                                             using (HorizontalScope(300)) {
                                                 Space(0);
-                                                if (questObjective.State == QuestObjectiveState.None && quest.State == QuestState.Started) {
-                                                    ActionButton("Start".localize(), () => { questObjective.Start(); }, Width(150));
-                                                } else if (questObjective.State == QuestObjectiveState.Started) {
-                                                    ActionButton(questObjective.Blueprint.IsFinishParent ? "Finish".localize() : "Complete".localize(), () => {
-                                                        questObjective.Complete();
+                                                if (QuestBookEntityEntry.State == QuestObjectiveState.None && quest.State == QuestState.Started) {
+                                                    ActionButton("Start".localize(), () => { QuestBookEntityEntry.Start(); }, Width(150));
+                                                } else if (QuestBookEntityEntry.State == QuestObjectiveState.Started) {
+                                                    ActionButton(QuestBookEntityEntry.Blueprint.IsFinishParent ? "Finish".localize() : "Complete".localize(), () => {
+                                                        QuestBookEntityEntry.Complete();
                                                     }, Width(150));
-                                                    if (questObjective.Blueprint.AutoFailDays > 0) {
+                                                    if (QuestBookEntityEntry.Blueprint.AutoFailDays > 0) {
                                                         ActionButton("Reset Time".localize(), () => {
-                                                            Traverse.Create(questObjective).Field("m_ObjectiveStartTime").SetValue(Game.Instance.Player.GameTime);
+                                                            Traverse.Create(QuestBookEntityEntry).Field("m_ObjectiveStartTime").SetValue(Game.Instance.Player.GameTime);
                                                         }, Width(150));
                                                     }
-                                                } else if (questObjective.State == QuestObjectiveState.Failed && (questObjective.Blueprint.IsFinishParent || quest.State == QuestState.Started)) {
+                                                } else if (QuestBookEntityEntry.State == QuestObjectiveState.Failed && (QuestBookEntityEntry.Blueprint.IsFinishParent || quest.State == QuestState.Started)) {
                                                     ActionButton("Restart".localize(), () => {
                                                         if (quest.State == QuestState.Completed || quest.State == QuestState.Failed) {
                                                             Traverse.Create(quest).Field("m_State").SetValue(QuestState.Started);
                                                         }
-                                                        questObjective.Reset();
-                                                        questObjective.Start();
+                                                        QuestBookEntityEntry.Reset();
+                                                        QuestBookEntityEntry.Start();
                                                     }, Width(50));
                                                 }
                                             }
-                                            DrawTeleports(questObjective);
-                                            Label(RichText.Green(questObjective.Blueprint.Description.StringValue().StripHTML()), 1000.width());
+                                            DrawTeleports(QuestBookEntityEntry);
+                                            Label(RichText.Green(QuestBookEntityEntry.Blueprint.Description.StringValue().StripHTML()), 1000.width());
                                             Label("", AutoWidth());
                                         }
                                         if (Settings.toggleQuestInspector) {
-                                            ReflectionTreeView.OnDetailGUI(questObjective);
+                                            ReflectionTreeView.OnDetailGUI(QuestBookEntityEntry);
                                         }
-                                        if (questObjective.State == QuestObjectiveState.Started) {
+                                        if (QuestBookEntityEntry.State == QuestObjectiveState.Started) {
                                             var childIndex = 0;
                                             foreach (var childObjective in quest.Objectives) {
                                                 if (Settings.toggleQuestsShowUnrevealedObjectives || childObjective.IsRevealed()) {
-                                                    if (childObjective.ParentObjective == questObjective) {
+                                                    if (childObjective.ParentObjective == QuestBookEntityEntry) {
                                                         Div(100, 25);
                                                         using (HorizontalScope(AutoWidth())) {
                                                             Space(100);
-                                                            childIndex = childObjective.Order == 0 ? childIndex + 1 : questObjective.Order;
+                                                            childIndex = childObjective.Order == 0 ? childIndex + 1 : QuestBookEntityEntry.Order;
                                                             Label($"{childIndex}", Width(50));
                                                             Space(10);
                                                             Label(childObjective.titleColored(), Width(600));
                                                             25.space();
                                                             Label(childObjective.stateString(), Width(150));
                                                             if (Settings.toggleQuestInspector)
-                                                                ReflectionTreeView.DetailToggle("Inspect".localize(), questObjective, questObjective, 0);
+                                                                ReflectionTreeView.DetailToggle("Inspect".localize(), QuestBookEntityEntry, QuestBookEntityEntry, 0);
                                                             Space(25);
                                                             using (HorizontalScope(300)) {
                                                                 if (childObjective.State == QuestObjectiveState.None) {
@@ -211,7 +211,7 @@ namespace ToyBox {
             }
             Space(25);
         }
-        public static void DrawTeleports(QuestObjective objective) {
+        public static void DrawTeleports(QuestBookEntityEntry objective) {
         }
     }
 }

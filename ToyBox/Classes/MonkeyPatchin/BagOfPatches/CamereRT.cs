@@ -85,8 +85,7 @@ namespace ToyBox.BagOfPatches {
 
                 if (__instance.m_ZoomRoutine != null || __instance.ZoomLock)
                     return false;
-                if (!__instance.IsScrollBusy
-                    && Game.Instance.IsControllerMouse
+                if (Game.Instance.IsControllerMouse
                     && !__instance.IsOutOfScreen
                     && !PointerController.InGui)
                     __instance.m_PlayerScrollPosition += Input.GetAxis("Mouse ScrollWheel");

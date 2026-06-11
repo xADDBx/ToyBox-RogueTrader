@@ -35,6 +35,8 @@ using Kingmaker.Stores.DlcInterfaces;
 //using Kingmaker.UI._ConsoleUI.Models;
 using Kingmaker.UI.Common;
 using Kingmaker.UI.Models.Log.CombatLog_ThreadSystem;
+using Kingmaker.UnitLogic.Abilities;
+
 // using Steamworks;
 //using Kingmaker.UI.RestCamp;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
@@ -56,6 +58,7 @@ using UniRx;
 //using Kingmaker.UI._ConsoleUI.GroupChanger;
 using UnityEngine;
 using UnityModManagerNet;
+using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 namespace ToyBox.BagOfPatches {
     internal static partial class Misc {
@@ -289,6 +292,57 @@ namespace ToyBox.BagOfPatches {
 
         [HarmonyPatch(typeof(InventorySlotView), nameof(InventorySlotPCView.OnClick))]
         public static class InventorySlotView_OnClick_Patch {
+            public static bool TryUseFromInventory(ItemEntity __instance, BaseUnitEntity user, TargetWrapper target) {
+                if (!__instance.IsUsableFromInventory) {
+                    PFLog.Default.Error($"Can't use item from inventory now: {__instance}");
+                    return false;
+                }
+                if (!ItemEntity.IsSuitableUnitForUseAbility(user)) {
+                    PFLog.Default.Error($"Invalid user: {user} (item: {__instance})");
+                    return false;
+                }
+                BlueprintAbility blueprintAbility = (__instance.Blueprint as BlueprintItemEquipment)?.Abilities.FirstOrDefault();
+                if (!blueprintAbility) {
+                    PFLog.Default.Error($"Can't use item {__instance}");
+                    return false;
+                }
+                Ability ability = user.Abilities.Add(blueprintAbility);
+                if (ability == null) {
+                    PFLog.Default.Error($"Invalid ability blueprint: {blueprintAbility}");
+                    return false;
+                }
+                ability.AddSource(__instance);
+                try {
+                    if (!ability.Data.IsAvailable) {
+                        PFLog.Default.Error($"Ability is not available: {ability}");
+                        return false;
+                    }
+                    if (!ability.Data.CanTarget(target, out var unavailableReason)) {
+                        PFLog.Default.Error($"Invalid target for ability: {ability} (target; {target}) because of {unavailableReason}");
+                        return false;
+                    }
+                    RulePerformAbility rulePerformAbility = Rulebook.Trigger(new RulePerformAbility(ability, target));
+                    if (rulePerformAbility.Success) {
+                        rulePerformAbility.Result.InstantDeliver();
+                        rulePerformAbility.Result.Detach();
+                        int num = 0;
+                        while (!rulePerformAbility.Result.IsEnded && num++ < 1000) {
+                            rulePerformAbility.Result.Tick();
+                        }
+                        if (num >= 1000) {
+                            PFLog.Default.Error($"Hang up execution process when using {__instance.Blueprint} from inventory.");
+                        }
+                    } else {
+                        PFLog.Default.Error(ability.Blueprint, $"Spell casting failed: {ability}");
+                    }
+                    return true;
+                } catch (Exception ex) {
+                    PFLog.Default.Exception(ex);
+                    return false;
+                } finally {
+                    user.Abilities.Remove(ability);
+                }
+            }
             public static bool Prefix(InventorySlotView __instance) {
                 Mod.Debug("InventorySlotPCView.OnClick");
                 if (Settings.toggleShiftClickToFastTransfer && KeyBindings.GetBinding("ClickToTransferModifier").IsModifierActive) {
@@ -304,7 +358,7 @@ namespace ToyBox.BagOfPatches {
                         var user = item.GetBestAvailableUser();
                         var target = RTExtensions.GetCurrentCharacter();
                         Mod.Debug($"user: {user.CharacterName} - target:{target.CharacterName}");
-                        item.TryUseFromInventory(user, target);
+                        TryUseFromInventory(item, user, target);
                     } catch (Exception e) {
                         Mod.Error($"InventorySlotPCView_OnClick_Patch - {e}");
                     }

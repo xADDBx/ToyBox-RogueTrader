@@ -42,8 +42,12 @@ Here is a summarized list of features. This list only includes a part of the fea
   your save before using. Remember that "with great power comes great responsibility"
 - **Quest Resolution**: this allows you to view your active quests and advance them as needed to work around bugs or
   skip quests you don't want to do. Be warned this may break your game progression if used carelessly.
-  
-### Toybox Rogue - Ver 1.7.32 (built for 1.5.0.300)
+
+### Toybox Rogue - Ver 1.7.32 (built for 1.6.0.231)
+* (***ADDB***) Fix for new version
+* (***ADDB***) Updater will no longer try to reinstall the same version if an update is not yet released for an incompatible version. Whoopsie.
+
+### Toybox Rogue - Ver 1.7.32 (built for 1.5.0.320)
 * (***ADDB***) Fix Etude tab throwing in case the Etude has a StartEtude/CompleteEtude GameAction that used an Evaluator instead of linking the Etude directly
 * (***ADDB***) Fix a PatchTool UI issue
 * (***devilmandare***) Update Chinese Localization
