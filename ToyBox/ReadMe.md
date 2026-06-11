@@ -43,7 +43,7 @@ Here is a summarized list of features. This list only includes a part of the fea
 - **Quest Resolution**: this allows you to view your active quests and advance them as needed to work around bugs or
   skip quests you don't want to do. Be warned this may break your game progression if used carelessly.
 
-### Toybox Rogue - Ver 1.7.32 (built for 1.6.0.231)
+### Toybox Rogue - Ver 1.7.33 (built for 1.6.0.471)
 * (***ADDB***) Fix for new version
 * (***ADDB***) Updater will no longer try to reinstall the same version if an update is not yet released for an incompatible version. Whoopsie.
 
