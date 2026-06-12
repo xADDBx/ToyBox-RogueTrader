@@ -11,7 +11,7 @@ namespace ToyBox.FontFix {
     [HarmonyPatch]
     public class FontFix {
         private static FontAsset Replacement(Font font, int samplingPointSize, int atlasPadding, GlyphRenderMode renderMode, int atlasWidth, int atlasHeight, UnityEngine.TextCore.Text.AtlasPopulationMode atlasPopulationMode, bool enableMultiAtlasSupport) {
-            if (TryFind(font.fontNames[0], FontCache.CacheInstance.CachedFontInfo, out var result)) {
+            if (font?.fontNames?.Length > 0 && TryFind(font.fontNames[0], FontCache.CacheInstance.CachedFontInfo, out var result)) {
                 return FontAsset.CreateFontAsset(result.Family, result.Style, 90);
             } else {
                 return FontAsset.CreateFontAsset(font, samplingPointSize, atlasPadding, renderMode, atlasWidth, atlasHeight, atlasPopulationMode, enableMultiAtlasSupport);
