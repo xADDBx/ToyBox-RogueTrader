@@ -42,6 +42,9 @@ Here is a summarized list of features. This list only includes a part of the fea
   your save before using. Remember that "with great power comes great responsibility"
 - **Quest Resolution**: this allows you to view your active quests and advance them as needed to work around bugs or
   skip quests you don't want to do. Be warned this may break your game progression if used carelessly.
+  
+### Toybox Rogue - Ver 1.7.34 (built for 1.6.0.474)
+* (***ADDB***) Fix the Unity bug where IMGUI can't resolve OS fonts when converting to FontAssets. Commonly expressed by text not being displayed in the mod UI or switching fonts in UnityModManager not being possible.
 
 ### Toybox Rogue - Ver 1.7.33 (built for 1.6.0.471)
 * (***ADDB***) Fix for new version
