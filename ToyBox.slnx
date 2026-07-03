@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path="Changelog.md" />
+    <File Path="Credits.md" />
+    <File Path="ReadMe.md" />
+  </Folder>
+  <Project Path="ToyBox/ToyBox.csproj" />
+</Solution>

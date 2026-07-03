@@ -1,6 +1,7 @@
 ﻿using Kingmaker;
 using Kingmaker.Blueprints.Classes.Experience;
 using Kingmaker.GameModes;
+using Kingmaker.Globalmap.SystemMap;
 using UnityEngine;
 
 namespace ToyBox.Features.BagOfTricks.ExperienceMultipliers;
@@ -93,6 +94,10 @@ public partial class ExperienceMultiplierFeature : FeatureWithPatch {
     private static partial string m_OverrideForSpaceCombatLocalizedText { get; }
 
     #region Patches
+    [HarmonyPatch(typeof(PlanetEntity), nameof(PlanetEntity.ExperienceForScan)), HarmonyPostfix]
+    private static void PlanetEntity_ExperienceForScan_Patch(ref int __result) {
+        __result = Mathf.RoundToInt(__result * Settings.AllExperienceMultiplier);
+    }
     [HarmonyPatch(typeof(ExperienceHelper), nameof(ExperienceHelper.GetCheckExp)), HarmonyPostfix]
     private static void ExperienceHelper_GetCheckExp_Patch(ref int __result) {
         var mult = Settings.AllExperienceMultiplier;

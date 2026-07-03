@@ -1,5 +1,4 @@
-﻿using Kingmaker.Blueprints;
-using Kingmaker.EntitySystem.Stats.Base;
+﻿using Kingmaker.EntitySystem.Stats.Base;
 
 namespace ToyBox.Infrastructure;
 
@@ -236,6 +235,10 @@ public class GeneralSettings : AbstractJsonSettings {
     public bool SortCollationCategoriesByCount = false;
 
     // Etudes
-    public bool showEtudeComments = false;
-    public bool showAssetIDs = false;
+    public bool ShowEtudeComments = false;
+    public bool ShowAssetIDs = false;
+
+    // PatchTools
+    public HashSet<string> DisabledPatches = [];
+    public bool EnableDangerousPatchToolPatches = false;
 }

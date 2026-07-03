@@ -103,10 +103,10 @@ public partial class EtudesEditorFeature : Feature {
             _ = UI.Toggle(m_FlagsOnlyText.Cyan(), null, ref m_ShowOnlyFlagLike);
 
             Space(20);
-            _ = UI.Toggle(m_ShowGuidsText.Cyan(), null, ref Settings.showAssetIDs);
+            _ = UI.Toggle(m_ShowGuidsText.Cyan(), null, ref Settings.ShowAssetIDs);
 
             Space(20);
-            _ = UI.Toggle(m_ShowCommentsText.Cyan(), null, ref Settings.showEtudeComments);
+            _ = UI.Toggle(m_ShowCommentsText.Cyan(), null, ref Settings.ShowEtudeComments);
 
             Space(20);
             if (UI.Button(m_RefreshText.Cyan(), () => {
@@ -250,7 +250,7 @@ public partial class EtudesEditorFeature : Feature {
 
                 InspectorUI.InspectToggle(etude.Blueprint, m_InspectText, options: AutoWidth());
 
-                if (Settings.showAssetIDs) {
+                if (Settings.ShowAssetIDs) {
                     var tmp = etude.Blueprint.AssetGuid.ToString();
                     Space(5);
                     _ = UI.TextField(ref tmp, null, Width(m_AssetIdWidth.Value));
@@ -265,7 +265,7 @@ public partial class EtudesEditorFeature : Feature {
 
                 Space(10);
 
-                if (Settings.showEtudeComments && !string.IsNullOrWhiteSpace(etude.Comment)) {
+                if (Settings.ShowEtudeComments && !string.IsNullOrWhiteSpace(etude.Comment)) {
                     UI.Label(etude.Comment.Green(), GUILayout.ExpandWidth(true));
                 }
             }
@@ -340,7 +340,7 @@ public partial class EtudesEditorFeature : Feature {
                     UI.Label(element.GetType().Name.Cyan(), Width(420 * Main.UIScale));
                 }
 
-                if (Settings.showEtudeComments) {
+                if (Settings.ShowEtudeComments) {
                     UI.Label(element.GetDescription().Green(), GUILayout.ExpandWidth(true));
                 }
             }
