@@ -54,11 +54,11 @@ public partial class AddUnitToPartyAction : FeatureWithAction, INeedContextFeatu
         if (CanExecute(parameter)) {
             if (narrow) {
                 if (UI.Button(m_AddLocalizedText, null, null, Width(m_WidthCache))) {
-                    ExecuteAction(parameter);
+                    Main.ScheduleForMainThread(() => ExecuteAction(parameter));
                 }
             } else {
                 if (UI.Button(m_AddLocalizedText)) {
-                    ExecuteAction(parameter);
+                    Main.ScheduleForMainThread(() => ExecuteAction(parameter));
                 }
             }
         } else if (isFeatureSearch) {

@@ -36,11 +36,11 @@ public partial class KillUnitAction : FeatureWithAction, INeedContextFeature<Bas
         if (CanExecute(parameter)) {
             if (narrow) {
                 if (UI.Button(m_KillLocalizedText, null, null, Width(m_WidthCache))) {
-                    ExecuteAction(parameter);
+                    Main.ScheduleForMainThread(() => ExecuteAction(parameter));
                 }
             } else {
                 if (UI.Button(m_KillLocalizedText)) {
-                    ExecuteAction(parameter);
+                    Main.ScheduleForMainThread(() => ExecuteAction(parameter));
                 }
             }
         } else if (isFeatureSearch) {

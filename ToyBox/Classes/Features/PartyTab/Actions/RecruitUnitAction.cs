@@ -58,11 +58,11 @@ public partial class RecruitUnitAction : FeatureWithAction, INeedContextFeature<
         if (CanExecute(parameter)) {
             if (narrow) {
                 if (UI.Button(m_RecruitLocalizedText, null, null, Width(m_WidthCache))) {
-                    ExecuteAction(parameter);
+                    Main.ScheduleForMainThread(() => ExecuteAction(parameter));
                 }
             } else {
                 if (UI.Button(m_RecruitLocalizedText)) {
-                    ExecuteAction(parameter);
+                    Main.ScheduleForMainThread(() => ExecuteAction(parameter));
                 }
             }
         } else if (isFeatureSearch) {

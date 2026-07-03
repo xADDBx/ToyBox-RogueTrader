@@ -1,3 +1,7 @@
+### Toybox Rogue - Coming Soon
+* (***ADDB***) Fix party tab crashing the whole mod UI when using per-unit actions (Recruit/Unrecruit/Add/Remove/Kill/Respec). These actions now run after the GUI pass instead of mutating the unit mid-render, which previously caused an IMGUI layout mismatch that aborted the entire OnGUI.
+* (***ADDB***) Ported the Patch Tool to ToyBox 2.
+
 ### Toybox Rogue - Ver 1.7.31 (built for 1.5.0.300)
 * (***ADDB***) Minor adjustments to love is free: Improved PcMale and PcFemale overrides; overriding only when necessary to get the romancy response.
 

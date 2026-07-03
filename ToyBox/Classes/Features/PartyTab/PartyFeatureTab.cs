@@ -191,7 +191,6 @@ public partial class PartyFeatureTab : FeatureTab {
                     }
                 } catch (Exception ex) {
                     Warn($"Exception in Party GUI:\n{ex}");
-                    UI.Label("Party GUI errored for this unit!".Red());
                     CharacterPicker.InvalidateAllCaches();
                 }
             }

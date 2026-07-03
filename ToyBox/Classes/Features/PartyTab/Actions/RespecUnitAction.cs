@@ -72,11 +72,11 @@ public partial class RespecUnitAction : FeatureWithAction, INeedContextFeature<B
         if (CanExecute(parameter)) {
             if (narrow) {
                 if (UI.Button(m_RespecLocalizedText, null, null, Width(m_WidthCache))) {
-                    ExecuteAction(parameter);
+                    Main.ScheduleForMainThread(() => ExecuteAction(parameter));
                 }
             } else {
                 if (UI.Button(m_RespecLocalizedText)) {
-                    ExecuteAction(parameter);
+                    Main.ScheduleForMainThread(() => ExecuteAction(parameter));
                 }
             }
         } else if (isFeatureSearch) {

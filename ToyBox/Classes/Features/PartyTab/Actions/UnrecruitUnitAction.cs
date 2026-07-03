@@ -46,11 +46,11 @@ public partial class UnrecruitUnitAction : FeatureWithAction, INeedContextFeatur
         if (CanExecute(parameter)) {
             if (narrow) {
                 if (UI.Button(m_UnrecruitLocalizedText, null, null, Width(m_WidthCache))) {
-                    ExecuteAction(parameter);
+                    Main.ScheduleForMainThread(() => ExecuteAction(parameter));
                 }
             } else {
                 if (UI.Button(m_UnrecruitLocalizedText)) {
-                    ExecuteAction(parameter);
+                    Main.ScheduleForMainThread(() => ExecuteAction(parameter));
                 }
             }
         } else if (isFeatureSearch) {
