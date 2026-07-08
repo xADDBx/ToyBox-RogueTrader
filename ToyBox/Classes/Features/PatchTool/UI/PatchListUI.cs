@@ -65,7 +65,7 @@ public static class PatchListUI {
                 Space(50);
                 Label(PatchToolStrings.PatchId.Green(), Width(300));
                 Space(50);
-                Label(PatchToolStrings.Applied.Green());
+                Label(PatchToolStrings.Applied.Green(), Width(100));
             }
         });
     }

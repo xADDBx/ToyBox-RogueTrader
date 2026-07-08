@@ -240,7 +240,8 @@ public class GeneralSettings : AbstractJsonSettings {
 
     // PatchTools
     public HashSet<string> DisabledPatches = [];
-    public bool EnableDangerousPatchToolPatches = false;
+#warning Add setting and chane to false
+    public bool EnableDangerousPatchToolPatches = true;
     public bool ApplyBlueprintPatchesOnLoad = true;
     public bool ShowPatchToolPrimitiveTypes = true;
     public bool ShowPatchToolEnums = true;
