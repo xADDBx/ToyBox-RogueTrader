@@ -1,6 +1,7 @@
 ﻿using ToyBox.Features.SettingsFeatures.Blueprints;
 using ToyBox.Features.SettingsFeatures.BrowserSettings;
 using ToyBox.Features.SettingsFeatures.UpdateAndIntegrity;
+using ToyBox.Features.FontFix;
 using ToyBox.Features.SettingsTab.Game;
 using ToyBox.Features.SettingsTab.Inspector;
 using ToyBox.Features.SettingsTab.Other;
@@ -70,6 +71,7 @@ public partial class SettingsFeaturesTab : FeatureTab {
         AddFeature(new LogHotkeysToCombatLogSetting(), m_OtherText);
         AddFeature(new ImguiColorFixFeature(), m_OtherText);
         AddFeature(new GlyphSettingsFeature(), m_OtherText);
+        AddFeature(new FontFixFeature(), m_OtherText);
 
         AddFeature(new LanguagePickerFeature(), m_LanguageText);
     }

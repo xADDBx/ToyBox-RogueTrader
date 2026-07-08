@@ -2303,6 +2303,14 @@
     "Original": "Modifies the range for the Nearby Character Picker category",
     "Translated": null
   },
+  "ToyBox_Features_FontFix_FontFixFeature_Name": {
+    "Original": "Fix game fonts",
+    "Translated": null
+  },
+  "ToyBox_Features_FontFix_FontFixFeature_Description": {
+    "Original": "There is a Unity bug that causes some systen fonts to become weird in IMGUI (the mod GUI). This feature fixes that.",
+    "Translated": null
+  },
   "ToyBox_Features_SettingsTab_Other_GlyphSettingsFeature_Name": {
     "Original": "Glyphs",
     "Translated": null

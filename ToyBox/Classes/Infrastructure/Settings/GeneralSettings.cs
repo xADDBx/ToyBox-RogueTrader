@@ -46,6 +46,7 @@ public class GeneralSettings : AbstractJsonSettings {
     public bool EnableLogHotkeysToCombatLog = false;
     public bool EnableShowRiskyToggles = false;
     public bool EnableImguiColorFix = true;
+    public bool EnableFontFix = true;
     public bool CheckForGlyphSupport = true;
     public bool UseDefaultGlyphs = true;
 
