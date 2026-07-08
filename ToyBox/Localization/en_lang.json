@@ -1671,6 +1671,14 @@
     "Original": "When enabled, blueprint patches created with the Patch Tool are applied when the game loads its blueprints. Disable to run with unmodified blueprints without deleting your patches.",
     "Translated": null
   },
+  "ToyBox_Features_PatchTool_PatchToolDangerousPatchesFeature_Name": {
+    "Original": "Allow dangerous PatchTool patches",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolDangerousPatchesFeature_Description": {
+    "Original": "Master switch for dangerous patches. These edit shared prefabs/GameObjects globally and cannot be recommended. Off by default; enable only if you know what you're doing.",
+    "Translated": null
+  },
   "ToyBox_Features_PatchTool_PatchToolFeatureTab_Name": {
     "Original": "Patch Tool",
     "Translated": null

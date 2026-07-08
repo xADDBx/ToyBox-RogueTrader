@@ -1,4 +1,5 @@
 ### Toybox Rogue - Coming Soon
+* (***ADDB***) Ported TB1's "Allow dangerous PatchTool patches" master switch.
 * (***ADDB***) Ported TB1's browser sort-order option: searchable browsers now have a "Sort: A-Z / Z-A" button in the header to flip between ascending and descending order.
 * (***ADDB***) Ported TB1 glyph handling: ToyBox probes the game font on the first UI frame and falls back to plain ASCII when the fancy glyphs (▼ ▶ ✎ ✔ ✖) can't be rendered. Configurable under Settings > Other.
 * (***ADDB***) Fix party tab crashing the whole mod UI when using per-unit actions (Recruit/Unrecruit/Add/Remove/Kill/Respec). These actions now run after the GUI pass instead of mutating the unit mid-render, which previously caused an IMGUI layout mismatch that aborted the entire OnGUI.
