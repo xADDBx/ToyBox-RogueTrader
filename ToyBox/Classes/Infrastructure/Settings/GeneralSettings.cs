@@ -241,4 +241,14 @@ public class GeneralSettings : AbstractJsonSettings {
     // PatchTools
     public HashSet<string> DisabledPatches = [];
     public bool EnableDangerousPatchToolPatches = false;
+    public bool ApplyBlueprintPatchesOnLoad = true;
+    public bool ShowPatchToolPrimitiveTypes = true;
+    public bool ShowPatchToolEnums = true;
+    public bool ShowPatchToolBlueprintReferences = true;
+    public bool ShowPatchToolCollections = true;
+    public bool ShowPatchToolComplexTypes = true;
+    public bool ShowPatchToolUnityObjects = false;
+    public bool ShowPatchToolDeleteButtons = false;
+    public bool ShowPatchToolCreateButtons = false;
+    public bool CollapseAllPatchToolPathsOnPatch = false;
 }

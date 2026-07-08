@@ -1663,6 +1663,334 @@
     "Original": "Visual Override",
     "Translated": null
   },
+  "ToyBox_Features_PatchTool_PatchToolApplyPatchesFeature_Name": {
+    "Original": "Apply blueprint patches on load",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolApplyPatchesFeature_Description": {
+    "Original": "When enabled, blueprint patches created with the Patch Tool are applied when the game loads its blueprints. Disable to run with unmodified blueprints without deleting your patches.",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolFeatureTab_Name": {
+    "Original": "Patch Tool",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_WarningLabel": {
+    "Original": "Warning:",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_NoteLabel": {
+    "Original": "Note:",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_PowerfulFeatureWarning": {
+    "Original": "This is a very powerful feature. You won't break your game by simply changing the damage of a weapon,",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_PowerfulFeatureWarning2": {
+    "Original": "but this feature allows doing a lot of things that could potentially cause issues.",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_KeepABackup": {
+    "Original": "Beware of that and always keep a backup.",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_RestartAdvised": {
+    "Original": "After finishing creating a patch, it is advised to restart the game before playing on a proper save.",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_NewFeatureWarning": {
+    "Original": "This feature is new. Please reach out if anything seems buggy or you encounter any issues.",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ManageExistingPatches": {
+    "Original": "Manage existing patches",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Tabs": {
+    "Original": "Tabs",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_CreateNewTab": {
+    "Original": "Create New Tab",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_NewTab": {
+    "Original": "New Tab",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Close": {
+    "Original": "Close",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_NoTabsOpen": {
+    "Original": "No tabs open.",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_PatchesNotLoaded": {
+    "Original": "Patches not loaded yet...",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Blueprint": {
+    "Original": "Blueprint",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_PatchId": {
+    "Original": "PatchId",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Applied": {
+    "Original": "Applied?",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Yes": {
+    "Original": "Yes",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_No": {
+    "Original": "No",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Failed": {
+    "Original": "Failed!",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Enable": {
+    "Original": "Enable",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Disable": {
+    "Original": "Disable",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_OpenInTab": {
+    "Original": "Open in Tab",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Delete": {
+    "Original": "Delete",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ShowBrowserPicker": {
+    "Original": "Show Browser Picker",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ShowBrowser": {
+    "Original": "Show Browser (starts loading all blueprints of the selected type)",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_BpCategory": {
+    "Original": "BP Category",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ShowPatchManager": {
+    "Original": "Show Patch Manager",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Inspect": {
+    "Original": "Inspect",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Remove": {
+    "Original": "Remove",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ApplyChanges": {
+    "Original": "Apply Changes",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_CurrentPatchInfo": {
+    "Original": "Current Patch targets bp: {0}({1}) and has {2} operations.",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_OperationRow": {
+    "Original": "Operation: {0}",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_FieldRow": {
+    "Original": "Field: {0}",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ConfigureFieldsToShow": {
+    "Original": "Configure which types of fields to show:",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Primitives": {
+    "Original": "Primitives",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Enums": {
+    "Original": "Enums",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_BlueprintReferences": {
+    "Original": "Blueprint References",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Collections": {
+    "Original": "Collections",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ComplexTypes": {
+    "Original": "Complex Types",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ShowUnityObjects": {
+    "Original": "Show Unity Objects",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_OtherSettings": {
+    "Original": "Other Settings:",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ShowDeleteButton": {
+    "Original": "Show Delete Button",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ShowCreateButton": {
+    "Original": "Show Create Button",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_CollapseOnPatch": {
+    "Original": "Close all opened fields on patch",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_EnableDangerousForThisPatch": {
+    "Original": "Enable Dangerous Patches for this Patch",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ShowFieldsEditor": {
+    "Original": "Show Fields Editor",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_AlreadyOpenedElsewhere": {
+    "Original": "Already opened on another level!",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Create": {
+    "Original": "Create",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_NewItem": {
+    "Original": "New Item:",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ShowValues": {
+    "Original": "Show Values",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Change": {
+    "Original": "Change",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_UnityObject": {
+    "Original": "Unity Object",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_DumpToToyBoxFolder": {
+    "Original": "Dump to ToyBox folder",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_EditReference": {
+    "Original": "Edit Reference",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_NonGenericReference": {
+    "Original": "Non-Generic Reference. If you're seeing this please report to mod author!",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Null": {
+    "Original": "Null",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_NullValue": {
+    "Original": "Null (value)",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Entries": {
+    "Original": "Entries",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ShowEntries": {
+    "Original": "Show Entries",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_AddItem": {
+    "Original": "Add Item",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_AddBefore": {
+    "Original": "Add Before",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_AddAfter": {
+    "Original": "Add After",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ShowFields": {
+    "Original": "Show fields",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_AddAsNewEntry": {
+    "Original": "Add as new entry",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ExceptionInToString": {
+    "Original": "Exception in ToString",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_FailedToParse": {
+    "Original": "Failed to parse value {0} to type {1}",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ExchangeUnityObject": {
+    "Original": "Exchange",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_AssetGuid": {
+    "Original": "Asset Guid",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_AssetFileId": {
+    "Original": "File Id",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_CurrentAsset": {
+    "Original": "Current asset: guid={0} fileid={1}",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_CurrentAssetUnknown": {
+    "Original": "Current asset is not registered in the asset list (its id is unknown).",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_CouldNotResolveAsset": {
+    "Original": "Could not resolve a Unity asset for the given guid/fileid.",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_IncompatibleAssetType": {
+    "Original": "Resolved asset is a {0}, which is not assignable to this {1} field.",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ComponentsHeader": {
+    "Original": "Components:",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ChildrenHeader": {
+    "Original": "Children:",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ComponentRow": {
+    "Original": "Component: {0} [{1}]",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ChildRow": {
+    "Original": "Child [{0}]: {1}",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolTabUI_m_ShowBlueprintPickerLocalizedText": {
+    "Original": "Show Blueprint Picker",
+    "Translated": null
+  },
   "ToyBox_Features_Saves_BrowseSavesFeature_Name": {
     "Original": "Browse Saves",
     "Translated": null

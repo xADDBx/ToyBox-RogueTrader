@@ -1,6 +1,9 @@
 ### Toybox Rogue - Coming Soon
 * (***ADDB***) Fix party tab crashing the whole mod UI when using per-unit actions (Recruit/Unrecruit/Add/Remove/Kill/Respec). These actions now run after the GUI pass instead of mutating the unit mid-render, which previously caused an IMGUI layout mismatch that aborted the entire OnGUI.
 * (***ADDB***) Ported the Patch Tool to ToyBox 2.
+* (***ADDB***) Patch Tool: added inspector-style navigation into a GameObject's components and children to edit their fields (dangerous mode), and the ability to exchange a Unity object field for another registered asset via its (guid, fileid).
+* (***ADDB***) Patch Tool: reverting patches now replays tracked inverse operations instead of restoring a full DeepCopy of the blueprint, making disable/delete/re-apply reliable.
+* (***ADDB***) Patch Tool: hardened patch loading/applying — a field or type renamed by a game update now fails a single patch with a clear message instead of throwing an opaque NullReferenceException or silently doing nothing, and a bad revert can no longer abort the remaining patches. Exchanging a Unity asset in a collection element now validates against the collection's declared element type (no longer wrongly rejected), GameObject component/child edits are correctly gated behind dangerous mode, and a reordered child hierarchy is warned about instead of silently editing the wrong child.
 
 ### Toybox Rogue - Ver 1.7.31 (built for 1.5.0.300)
 * (***ADDB***) Minor adjustments to love is free: Improved PcMale and PcFemale overrides; overriding only when necessary to get the romancy response.
