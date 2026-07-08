@@ -2295,6 +2295,30 @@
     "Original": "Modifies the range for the Nearby Character Picker category",
     "Translated": null
   },
+  "ToyBox_Features_SettingsTab_Other_GlyphSettingsFeature_Name": {
+    "Original": "Glyphs",
+    "Translated": null
+  },
+  "ToyBox_Features_SettingsTab_Other_GlyphSettingsFeature_Description": {
+    "Original": "ToyBox uses special characters (▼ ▶ ✎ ✔ ✖) in its UI. If the game font can't render them, ToyBox falls back to plain ASCII.",
+    "Translated": null
+  },
+  "ToyBox_Features_SettingsTab_Other_GlyphSettingsFeature_CheckLabel": {
+    "Original": "Auto-detect glyph support",
+    "Translated": null
+  },
+  "ToyBox_Features_SettingsTab_Other_GlyphSettingsFeature_CheckDescription": {
+    "Original": "Probe the game font on the first UI frame and pick glyphs or ASCII automatically.",
+    "Translated": null
+  },
+  "ToyBox_Features_SettingsTab_Other_GlyphSettingsFeature_UseDefaultLabel": {
+    "Original": "Use fancy glyphs",
+    "Translated": null
+  },
+  "ToyBox_Features_SettingsTab_Other_GlyphSettingsFeature_UseDefaultDescription": {
+    "Original": "Off falls back to plain ASCII. Only used when auto-detect is disabled.",
+    "Translated": null
+  },
   "ToyBox_Features_SettingsTab_Other_ImguiColorFixFeature_Name": {
     "Original": "Fix IMGUI Colors",
     "Translated": null

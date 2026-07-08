@@ -136,11 +136,16 @@ public static partial class Main {
         m_VerticalLists = newList;
     }
     private static bool m_ShowBlueprintLoadingProgress = false;
+    private static bool m_NeedsGlyphSupportCheck = true;
     private static void OnGUI(UnityModManager.ModEntry modEntry) {
         try {
             if (!SuccessfullyInitialized) {
                 UI.Label(m_SomethingWentHorriblyWrongAndYou.Red().Bold());
                 return;
+            }
+            if (m_NeedsGlyphSupportCheck) {
+                m_NeedsGlyphSupportCheck = false;
+                Glyphs.CheckGlyphSupport();
             }
             if (UnityModManager.UI.Instance.mUIScale != UIScale) {
                 OnUIScaleChanged?.Invoke();

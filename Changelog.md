@@ -1,4 +1,5 @@
 ### Toybox Rogue - Coming Soon
+* (***ADDB***) Ported TB1 glyph handling: ToyBox probes the game font on the first UI frame and falls back to plain ASCII when the fancy glyphs (▼ ▶ ✎ ✔ ✖) can't be rendered. Configurable under Settings > Other (auto-detect on/off, and a manual override when auto-detect is off).
 * (***ADDB***) Fix party tab crashing the whole mod UI when using per-unit actions (Recruit/Unrecruit/Add/Remove/Kill/Respec). These actions now run after the GUI pass instead of mutating the unit mid-render, which previously caused an IMGUI layout mismatch that aborted the entire OnGUI.
 * (***ADDB***) Ported the Patch Tool to ToyBox 2.
 * (***ADDB***) Patch Tool: added inspector-style navigation into a GameObject's components and children to edit their fields (dangerous mode), and the ability to exchange a Unity object field for another registered asset via its (guid, fileid).
