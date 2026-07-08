@@ -2300,7 +2300,7 @@
     "Translated": null
   },
   "ToyBox_Features_SettingsTab_Other_GlyphSettingsFeature_Description": {
-    "Original": "ToyBox uses special characters (▼ ▶ ✎ ✔ ✖) in its UI. If the game font can't render them, ToyBox falls back to plain ASCII.",
+    "Original": "ToyBox uses some non-ascii characters (▼ ▶ ✎ ✔ ✖) in its UI. If the game font can't render them, ToyBox falls back to plain ASCII.",
     "Translated": null
   },
   "ToyBox_Features_SettingsTab_Other_GlyphSettingsFeature_CheckLabel": {
@@ -3273,6 +3273,14 @@
   },
   "ToyBox_Infrastructure_UI_Browser_SearchText": {
     "Original": "Search",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_UI_Browser_SortAscendingText": {
+    "Original": "Sort Ascending",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_UI_Browser_SortDescendingText": {
+    "Original": "Sort Descending",
     "Translated": null
   },
   "ToyBox_Infrastructure_UI_UI_MinimumText": {

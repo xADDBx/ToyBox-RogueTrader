@@ -14,6 +14,7 @@ public class ThreadedListSearcher<T> where T : notnull {
     private CancellationTokenSource? m_SearchCts;
     public ConcurrentQueue<T>? m_InProgress;
     public IComparer<string>? Comparer;
+    public bool SortDescending = false;
     public ThreadedListSearcher(VerticalList<T> parent) {
         m_Parent = parent;
     }
@@ -48,12 +49,7 @@ public class ThreadedListSearcher<T> where T : notnull {
                             IsRunning = false;
                             cts.Dispose();
                         }
-#warning Sorting Order
-                        if (Comparer != null) {
-                            m_Parent.QueueUpdateItems(allResults.AsParallel().WithDegreeOfParallelism(Environment.ProcessorCount).OrderBy(getSortKey, Comparer).ToArray(), 1, true);
-                        } else {
-                            m_Parent.QueueUpdateItems(allResults.AsParallel().WithDegreeOfParallelism(Environment.ProcessorCount).OrderBy(getSortKey).ToArray(), 1, true);
-                        }
+                        m_Parent.QueueUpdateItems(Sort(allResults, getSortKey), 1, true);
                         Debug("Cancelled Search");
                         return;
                     }
@@ -70,20 +66,10 @@ public class ThreadedListSearcher<T> where T : notnull {
                         }
                     }
                 }
-#warning Sorting Order
-                if (Comparer != null) {
-                    m_Parent.QueueUpdateItems(allResults.AsParallel().WithDegreeOfParallelism(Environment.ProcessorCount).OrderBy(getSortKey, Comparer).ToArray(), 1, true);
-                } else {
-                    m_Parent.QueueUpdateItems(allResults.AsParallel().WithDegreeOfParallelism(Environment.ProcessorCount).OrderBy(getSortKey).ToArray(), 1, true);
-                }
+                m_Parent.QueueUpdateItems(Sort(allResults, getSortKey), 1, true);
                 Debug($"Searched {searched} items in {watch.ElapsedMilliseconds}ms; found {allResults.Count} results");
             } else {
-#warning Sorting Order
-                if (Comparer != null) {
-                    m_Parent.QueueUpdateItems(items.AsParallel().WithDegreeOfParallelism(Environment.ProcessorCount).OrderBy(getSortKey, Comparer).ToArray(), 1, true);
-                } else {
-                    m_Parent.QueueUpdateItems(items.AsParallel().WithDegreeOfParallelism(Environment.ProcessorCount).OrderBy(getSortKey).ToArray(), 1, true);
-                }
+                m_Parent.QueueUpdateItems(Sort(items, getSortKey), 1, true);
                 Debug($"Searched {searched} items in {watch.ElapsedMilliseconds}ms; query is empty so used all items as result");
             }
         } catch (Exception e) {
@@ -93,6 +79,13 @@ public class ThreadedListSearcher<T> where T : notnull {
             IsRunning = false;
             cts.Dispose();
         }
+    }
+    private T[] Sort(IEnumerable<T> items, Func<T, string> getSortKey) {
+        var query = items.AsParallel().WithDegreeOfParallelism(Environment.ProcessorCount);
+        var ordered = Comparer != null
+            ? (SortDescending ? query.OrderByDescending(getSortKey, Comparer) : query.OrderBy(getSortKey, Comparer))
+            : (SortDescending ? query.OrderByDescending(getSortKey) : query.OrderBy(getSortKey));
+        return ordered.ToArray();
     }
     public void StopSearch() {
         m_SearchCts?.Cancel();

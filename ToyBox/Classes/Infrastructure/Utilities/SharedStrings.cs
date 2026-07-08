@@ -23,6 +23,10 @@ public static partial class SharedStrings {
     public static partial string CurrentlyLoadedBPsText { get; }
     [LocalizedString("ToyBox_Infrastructure_UI_Browser_SearchText", "Search")]
     public static partial string SearchText { get; }
+    [LocalizedString("ToyBox_Infrastructure_UI_Browser_SortAscendingText", "Sort Ascending")]
+    public static partial string SortAscendingText { get; }
+    [LocalizedString("ToyBox_Infrastructure_UI_Browser_SortDescendingText", "Sort Descending")]
+    public static partial string SortDescendingText { get; }
     [LocalizedString("ToyBox_Infrastructure_UI_UI_MinimumText", "min")]
     public static partial string MinText { get; }
     [LocalizedString("ToyBox_Infrastructure_UI_UI_MaximumText", "max")]

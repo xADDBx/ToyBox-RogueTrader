@@ -32,12 +32,11 @@ public partial class SearchAndPickFeature : Feature {
                         m_CurrentCollationCategory = categories[0];
                         m_CollationCategoryBrowser = new(s => {
                             if (s == BlueprintFilter<SimpleBlueprint>.AllLocalizedText) {
-#warning Sort Order
                                 return "";
                             } else {
                                 return s;
                             }
-                        }, s => s, categories, showDivBetweenItems: false, overridePageWidth: categoryWidth, orderInitialCollection: true);
+                        }, s => s, categories, showDivBetweenItems: false, overridePageWidth: categoryWidth, orderInitialCollection: true, showSortToggle: false);
                         SetCategoryComparer();
                         m_CollationCategoryBrowser.UpdateItems(categories);
                         m_SearchNPickBrowser ??= new(BPHelper.GetSortKey, BPHelper.GetSearchKey, overridePageWidth: (int)(EffectiveWindowWidth() - (m_FilterWidth + (20 * Main.UIScale))));

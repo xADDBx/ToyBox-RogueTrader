@@ -23,8 +23,23 @@ public partial class Browser<T> : VerticalList<T> where T : notnull {
     protected Func<T, string> GetSortKey;
     protected bool ShowSearchBar = true;
     protected bool HideShowAll = false;
+    protected bool ShowSortToggle = true;
     public bool SortOnUpdateItems = false;
     protected ThreadedListSearcher<T> Searcher;
+    /// <summary>
+    /// Sort order of the search results. Setting it re-runs the current search.
+    /// </summary>
+    public bool SortDescending {
+        get {
+            return Searcher.SortDescending;
+        }
+        set {
+            if (Searcher.SortDescending != value) {
+                Searcher.SortDescending = value;
+                RedoSearch();
+            }
+        }
+    }
     /// <summary>
     /// Initializes a new instance of the <see cref="Browser{T}"/> class.
     /// </summary>
@@ -75,14 +90,17 @@ public partial class Browser<T> : VerticalList<T> where T : notnull {
     /// <param name="hideShowAllEvenWithFunc">
     /// If true, hides the Show All GUI even if a ShowAllFunc is provided (e.g. in combination with ForceShowAll()).
     /// </param>
-    public Browser(Func<T, string> sortKey, Func<T, string> searchKey, IEnumerable<T>? initialItems = null, Action<Action<IEnumerable<T>>>? showAllFunc = null, bool showDivBetweenItems = true, int? overridePageWidth = null, int? overridePageLimit = null, bool showSearchBar = true, bool hideShowAllEvenWithFunc = false, bool orderInitialCollection = false)
+    public Browser(Func<T, string> sortKey, Func<T, string> searchKey, IEnumerable<T>? initialItems = null, Action<Action<IEnumerable<T>>>? showAllFunc = null, bool showDivBetweenItems = true, int? overridePageWidth = null, int? overridePageLimit = null, bool showSearchBar = true, bool hideShowAllEvenWithFunc = false, bool orderInitialCollection = false, bool showSortToggle = true, bool sortDescending = false)
         : base(initialItems, showDivBetweenItems, overridePageWidth, overridePageLimit) {
         ShowAllFunc = showAllFunc;
         GetSearchKey = searchKey;
         GetSortKey = sortKey;
         ShowSearchBar = showSearchBar;
         HideShowAll = hideShowAllEvenWithFunc;
-        Searcher = new(this);
+        ShowSortToggle = showSortToggle;
+        Searcher = new(this) {
+            SortDescending = sortDescending
+        };
         if (orderInitialCollection) {
             RedoSearch();
         }
@@ -182,6 +200,10 @@ public partial class Browser<T> : VerticalList<T> where T : notnull {
                             RedoSearch();
                         }
                     }
+                }
+                if (ShowSortToggle) {
+                    Space(30);
+                    _ = UI.Button((SortDescending ? SharedStrings.SortDescendingText : SharedStrings.SortAscendingText).Cyan(), () => SortDescending = !SortDescending, null, AutoWidth());
                 }
             }
             SearchBarGUI();
