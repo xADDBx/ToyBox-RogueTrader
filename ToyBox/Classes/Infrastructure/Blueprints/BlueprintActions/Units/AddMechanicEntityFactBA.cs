@@ -1,4 +1,5 @@
-﻿using Kingmaker.EntitySystem.Entities;
+﻿using Kingmaker.Blueprints.Items;
+using Kingmaker.EntitySystem.Entities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Blueprints;
 using ToyBox.Classes.Infrastructure.Features;
@@ -8,7 +9,7 @@ namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
 
 public partial class AddMechanicEntityFactBA : BlueprintActionFeature, IBlueprintAction<BlueprintMechanicEntityFact>, INeedContextFeature<BaseUnitEntity> {
     public bool CanExecute(BlueprintMechanicEntityFact blueprint, ActionParameter parameter) {
-        if (parameter.UnitParam is BaseUnitEntity unit) {
+        if (parameter.UnitParam is BaseUnitEntity unit && blueprint is not BlueprintItem) {
             return unit.Facts.Get(blueprint) == null;
         }
         return false;
