@@ -2,6 +2,7 @@
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Blueprints.JsonSystem.BinaryFormat;
 using Kingmaker.Blueprints.JsonSystem.Converters;
+using Kingmaker.Blueprints.JsonSystem.Helpers;
 using Kingmaker.Localization;
 using Kingmaker.Modding;
 using Kingmaker.Utility.DotNetExtensions;
@@ -9,6 +10,8 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Collections.Concurrent;
 using System.Diagnostics;
+using System.Reflection;
+using System.Reflection.Emit;
 using System.Text;
 using ToyBox.Infrastructure.Utilities;
 
@@ -57,6 +60,10 @@ public class BlueprintLoader {
             toPatch = AccessTools.Method(typeof(SharedStringConverter), nameof(SharedStringConverter.ReadJson));
             patch = AccessTools.Method(typeof(BlueprintLoader), nameof(SharedStringConverter_ReadJson_Patch));
             _ = Main.HarmonyInstance.Patch(toPatch, prefix: new(patch));
+
+            toPatch = AccessTools.Method(typeof(BlueprintFieldsTraverser), nameof(BlueprintFieldsTraverser.GetUnitySerializedFields));
+            patch = AccessTools.Method(typeof(BlueprintLoader), nameof(BlueprintFieldsTraverser_GetUnitySerializedFields));
+            _ = Main.HarmonyInstance.Patch(toPatch, transpiler: new(patch));
         }
     }
     public List<SimpleBlueprint>? GetBlueprints(Action<IEnumerable<SimpleBlueprint>>? blueprintsAreLoadedCallback = null) {
@@ -436,5 +443,20 @@ public class BlueprintLoader {
         };
         __result = sharedStringAsset;
         return false;
+    }
+    private static readonly ThreadLocal<Dictionary<Type, List<FieldInfo>>> m_FieldsCache = new(() => [], false);
+    private static Dictionary<Type, List<FieldInfo>> FieldsCache() {
+        return m_FieldsCache.Value;
+    }
+    private static IEnumerable<CodeInstruction> BlueprintFieldsTraverser_GetUnitySerializedFields(IEnumerable<CodeInstruction> instructions) {
+        var f = AccessTools.Field(typeof(BlueprintFieldsTraverser), nameof(BlueprintFieldsTraverser.FieldsCache));
+        var m = AccessTools.Method(typeof(BlueprintLoader), nameof(BlueprintLoader.FieldsCache));
+        foreach (var inst in instructions) {
+            if (inst.LoadsField(f)) {
+                yield return new CodeInstruction(OpCodes.Call, m).WithLabels(inst.labels);
+            } else {
+                yield return inst;
+            }
+        }
     }
 }

@@ -21,7 +21,7 @@
 		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\UnityEngine.TextCoreTextEngineModule.dll*" Publicize="true" Private="false" />
 		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\Unity*.dll" Exclude="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\UnityEngine.TextCoreTextEngineModule.dll" Private="false" />
 		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\UnityEngine.IMGUIModule.dll*" Publicize="true" Private="false" />
-		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\Kingmaker*.dll" Private="false" />
+		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\Kingmaker*.dll" Publicize="true" Private="false" />
 		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\Utility*.dll" Private="false" />
 		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\Core*.dll" Private="false" />
 		<Reference Include="$(RogueTraderInstallDir)\WH40KRT_Data\Managed\Owlcat*.dll" Publicize="true" Private="false" />
