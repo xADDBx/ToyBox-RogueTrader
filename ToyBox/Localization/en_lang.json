@@ -983,12 +983,132 @@
     "Original": "Dialog & NPCs",
     "Translated": null
   },
+  "ToyBox_Features_DialogAndNpc_DialogEditorFeature_Name": {
+    "Original": "Dialog Editor",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_DialogEditorFeature_Description": {
+    "Original": "Shows the structure of the currently active dialog (cues, answers, conditions and results).",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_DialogEditorFeature_m_NoActiveDialogText": {
+    "Original": "No Active Dialog",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_DialogEditorFeature_m_CurrentText": {
+    "Original": "Current",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_DialogEditorFeature_m_AnswerText": {
+    "Original": "Answer",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_DialogEditorFeature_m_SelectionText": {
+    "Original": "Selection",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_DialogEditorFeature_m_CueText": {
+    "Original": "Cue",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_DialogEditorFeature_m_NextText": {
+    "Original": "Next",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_DialogEditorFeature_m_CondText": {
+    "Original": "Cond",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_DialogEditorFeature_m_RepeatText": {
+    "Original": "[Repeat]",
+    "Translated": null
+  },
   "ToyBox_Features_DialogAndNpc_InspectDialogControllerFeature_Name": {
     "Original": "Inspect Dialog Controller",
     "Translated": null
   },
   "ToyBox_Features_DialogAndNpc_InspectDialogControllerFeature_Description": {
     "Original": "Allows inspecting the current Dialog Controller to e.g. debug issues.",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_Name": {
+    "Original": "Interesting NPCs in the local area",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_Description": {
+    "Original": "Shows a list of NPCs that may have quest objectives or other interesting interactions. (Warning: Spoilers)",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_ShowInactiveConditionsText": {
+    "Original": "Show Inactive Conditions",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_ShowOtherVersionsText": {
+    "Original": "Show other versions of NPCs",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_RefreshText": {
+    "Original": "Refresh",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_InterestingnessCoefficientText": {
+    "Original": "Interestingness Coefficient: ",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_UnitText": {
+    "Original": "Unit",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_DialogText": {
+    "Original": "Dialog",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_ConditionsText": {
+    "Original": "Conditions",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_ElementsText": {
+    "Original": "Elements",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_ConditionalText": {
+    "Original": "Conditional:",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_QuestStatusText": {
+    "Original": "Quest Status: ",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_ObjectiveStatusText": {
+    "Original": "Objective Status: ",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_EtudeStatusText": {
+    "Original": "Etude Status: ",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_StatusText": {
+    "Original": "status: ",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_ConditionText": {
+    "Original": "condition: ",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_SourceText": {
+    "Original": "source: ",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_CaptionText": {
+    "Original": "caption: ",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_TrueText": {
+    "Original": "True",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_FalseText": {
+    "Original": "False",
     "Translated": null
   },
   "ToyBox_Features_Etudes_EtudesFeatureTab_Name": {

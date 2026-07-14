@@ -227,6 +227,10 @@ public class GeneralSettings : AbstractJsonSettings {
     public bool EnableUnitOverrideVisualSize = false;
     public bool EnableUnitModifyStats = false;
 
+    // Dialog & NPCs
+    public bool ShowInactiveInterestingNpcConditions = false;
+    public bool InterestingNpcsShowHidden = false;
+
     // Loot
     public bool MassLootShowHiddenItems = false;
     public bool MassLootShowLivingNPCItems = false;

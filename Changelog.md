@@ -1,4 +1,6 @@
 ### Toybox Rogue - Coming Soon
+* (***ADDB***) Fix BPLoader race (which Kuru pointed out)
+* (***ADDB***) Ported TB1's Dialog & NPCs tab
 * (***ADDB***) Ported TB1's Font Fix.
 * (***ADDB***) Ported TB1's "Allow dangerous PatchTool patches" master switch.
 * (***ADDB***) Ported TB1's browser sort-order option: searchable browsers now have a "Sort: A-Z / Z-A" button in the header to flip between ascending and descending order.
