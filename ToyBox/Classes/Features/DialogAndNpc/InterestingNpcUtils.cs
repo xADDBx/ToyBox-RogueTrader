@@ -130,12 +130,12 @@ public static class InterestingNpcUtils {
 
         // Pull Conditionals out of element lists into their own condition entries so they show under "Conditions".
         foreach (var entry in elements) {
-            var conditionals = entry.Elements!.OfType<Conditional>().ToList();
+            var conditionals = entry.Elements.OfType<Conditional>().ToList();
             if (conditionals.Count > 0) {
                 foreach (var conditional in conditionals) {
                     _ = result.Add(new InterestingnessEntry(entry.Unit, conditional, conditional.ConditionsChecker));
                 }
-                entry.Elements = entry.Elements.Where(element => element is not Conditional).ToList();
+                entry.Elements = [.. entry.Elements.Where(element => element is not Conditional)];
             }
         }
         result.UnionWith(elements);
