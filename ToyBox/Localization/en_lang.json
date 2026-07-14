@@ -979,6 +979,90 @@
     "Original": "Teleports the selected units to the position your mouse points at.",
     "Translated": null
   },
+  "ToyBox_Features_Colonies_ColoniesFeatureTab_Name": {
+    "Original": "Colonies",
+    "Translated": null
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_Name": {
+    "Original": "Colony Editor",
+    "Translated": null
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_Description": {
+    "Original": "View and edit your colonies: their stats, traits, ongoing events and projects, and the shared resource pool.",
+    "Translated": null
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_NoColoniesText": {
+    "Original": "You have not founded any colonies yet.",
+    "Translated": null
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_ColoniesText": {
+    "Original": "Colonies",
+    "Translated": null
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_OngoingEventsText": {
+    "Original": "Ongoing Events",
+    "Translated": null
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_OngoingProjectsText": {
+    "Original": "Ongoing Projects",
+    "Translated": null
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_FinishText": {
+    "Original": "Finish",
+    "Translated": null
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_ContentmentText": {
+    "Original": "Contentment",
+    "Translated": null
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_EfficiencyText": {
+    "Original": "Efficiency",
+    "Translated": null
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_SecurityText": {
+    "Original": "Security",
+    "Translated": null
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_ChangeStatText": {
+    "Original": "Change Colony Stat",
+    "Translated": null
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_AdjustByText": {
+    "Original": "Adjust the selected stat by this amount",
+    "Translated": null
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_AddText": {
+    "Original": "Add",
+    "Translated": null
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_RemoveText": {
+    "Original": "Remove",
+    "Translated": null
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_TraitsText": {
+    "Original": "Colony Traits",
+    "Translated": null
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_ShowGuidsText": {
+    "Original": "Show GUIDs",
+    "Translated": null
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_InspectText": {
+    "Original": "Inspect",
+    "Translated": null
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_EditResourcesText": {
+    "Original": "Edit Resources",
+    "Translated": null
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_ResourceAdjustText": {
+    "Original": "Adjust resource amount by",
+    "Translated": null
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_CurrentAmountText": {
+    "Original": "Current",
+    "Translated": null
+  },
   "ToyBox_Features_DialogAndNpc_DialogAndNpcFeatureTab_Name": {
     "Original": "Dialog & NPCs",
     "Translated": null
@@ -1052,7 +1136,7 @@
     "Translated": null
   },
   "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_InterestingnessCoefficientText": {
-    "Original": "Interestingness Coefficient: ",
+    "Original": "Interestingness Coefficient",
     "Translated": null
   },
   "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_UnitText": {
@@ -1072,35 +1156,35 @@
     "Translated": null
   },
   "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_ConditionalText": {
-    "Original": "Conditional:",
+    "Original": "Conditional",
     "Translated": null
   },
   "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_QuestStatusText": {
-    "Original": "Quest Status: ",
+    "Original": "Quest Status",
     "Translated": null
   },
   "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_ObjectiveStatusText": {
-    "Original": "Objective Status: ",
+    "Original": "Objective Status",
     "Translated": null
   },
   "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_EtudeStatusText": {
-    "Original": "Etude Status: ",
+    "Original": "Etude Status",
     "Translated": null
   },
   "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_StatusText": {
-    "Original": "status: ",
+    "Original": "Status",
     "Translated": null
   },
   "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_ConditionText": {
-    "Original": "condition: ",
+    "Original": "Condition",
     "Translated": null
   },
   "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_SourceText": {
-    "Original": "source: ",
+    "Original": "Source",
     "Translated": null
   },
   "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_CaptionText": {
-    "Original": "caption: ",
+    "Original": "Caption",
     "Translated": null
   },
   "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_TrueText": {
@@ -2119,6 +2203,62 @@
     "Original": "Show Blueprint Picker",
     "Translated": null
   },
+  "ToyBox_Features_Quests_QuestEditorFeature_Name": {
+    "Original": "Quest Editor",
+    "Translated": null
+  },
+  "ToyBox_Features_Quests_QuestEditorFeature_Description": {
+    "Original": "Browse your quests and objectives and force their state: start or complete objectives, restart failed ones, etc.",
+    "Translated": null
+  },
+  "ToyBox_Features_Quests_QuestEditorFeature_m_NoQuestsText": {
+    "Original": "You have no quests in your quest book yet.",
+    "Translated": null
+  },
+  "ToyBox_Features_Quests_QuestEditorFeature_m_HideCompletedText": {
+    "Original": "Hide Completed",
+    "Translated": null
+  },
+  "ToyBox_Features_Quests_QuestEditorFeature_m_ShowUnrevealedText": {
+    "Original": "Show Unrevealed Steps",
+    "Translated": null
+  },
+  "ToyBox_Features_Quests_QuestEditorFeature_m_ShowInspectorText": {
+    "Original": "Inspect Quests and Objectives",
+    "Translated": null
+  },
+  "ToyBox_Features_Quests_QuestEditorFeature_m_InspectText": {
+    "Original": "Inspect",
+    "Translated": null
+  },
+  "ToyBox_Features_Quests_QuestEditorFeature_m_StartText": {
+    "Original": "Start",
+    "Translated": null
+  },
+  "ToyBox_Features_Quests_QuestEditorFeature_m_CompleteText": {
+    "Original": "Complete",
+    "Translated": null
+  },
+  "ToyBox_Features_Quests_QuestEditorFeature_m_FinishText": {
+    "Original": "Finish",
+    "Translated": null
+  },
+  "ToyBox_Features_Quests_QuestEditorFeature_m_ResetTimeText": {
+    "Original": "Reset Time",
+    "Translated": null
+  },
+  "ToyBox_Features_Quests_QuestEditorFeature_m_RestartText": {
+    "Original": "Restart",
+    "Translated": null
+  },
+  "ToyBox_Features_Quests_QuestEditorFeature_m_AddendumText": {
+    "Original": "Addendum",
+    "Translated": null
+  },
+  "ToyBox_Features_Quests_QuestsFeatureTab_Name": {
+    "Original": "Quests",
+    "Translated": null
+  },
   "ToyBox_Features_Saves_BrowseSavesFeature_Name": {
     "Original": "Browse Saves",
     "Translated": null
@@ -2497,6 +2637,38 @@
   },
   "ToyBox_Features_SettingsTab_Other_ShowRiskyTogglesFeature_Description": {
     "Original": "ToyBox hides some options by default. Activating this will unhide those features.",
+    "Translated": null
+  },
+  "ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_Name": {
+    "Original": "Import ToyBox 1 Settings",
+    "Translated": null
+  },
+  "ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_Description": {
+    "Original": "Imports settings from an installed ToyBox 1 (the Settings.xml in its mod folder) into ToyBox 2. Settings whose meaning changed or that no longer exist are skipped.",
+    "Translated": null
+  },
+  "ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_PathText": {
+    "Original": "ToyBox 1 Settings.xml",
+    "Translated": null
+  },
+  "ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_ImportText": {
+    "Original": "Import",
+    "Translated": null
+  },
+  "ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_ImportedText": {
+    "Original": "Imported {0} settings from ToyBox 1. Reload the mod (or restart the game) so every change takes full effect.",
+    "Translated": null
+  },
+  "ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_PerSaveImportedText": {
+    "Original": "Also imported {0} save-specific settings (unit size / AI overrides) from the loaded save.",
+    "Translated": null
+  },
+  "ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_PerSaveSkippedText": {
+    "Original": "Load a ToyBox 1 save and import again to also bring over its save-specific settings (unit size / AI overrides).",
+    "Translated": null
+  },
+  "ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_FailedText": {
+    "Original": "Import failed.",
     "Translated": null
   },
   "ToyBox_Features_SettingsFeatures_SettingsFeaturesTab_UpdateText": {

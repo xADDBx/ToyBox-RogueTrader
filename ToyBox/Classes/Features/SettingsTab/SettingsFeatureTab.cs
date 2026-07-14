@@ -72,6 +72,7 @@ public partial class SettingsFeaturesTab : FeatureTab {
         AddFeature(new ImguiColorFixFeature(), m_OtherText);
         AddFeature(new GlyphSettingsFeature(), m_OtherText);
         AddFeature(new FontFixFeature(), m_OtherText);
+        AddFeature(new TB1SettingsImporterFeature(), m_OtherText);
 
         AddFeature(new LanguagePickerFeature(), m_LanguageText);
     }

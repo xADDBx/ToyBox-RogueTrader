@@ -104,6 +104,8 @@ public static partial class Main {
         m_FeatureTabs.Add(new Features.SearchAndPick.SearchAndPickFeatureTab());
         m_FeatureTabs.Add(new Features.Etudes.EtudesFeatureTab());
         m_FeatureTabs.Add(new Features.DialogAndNpc.DialogAndNpcFeatureTab());
+        m_FeatureTabs.Add(new Features.Colonies.ColoniesFeatureTab());
+        m_FeatureTabs.Add(new Features.Quests.QuestsFeatureTab());
         m_FeatureTabs.Add(new Features.PatchTool.PatchToolFeatureTab());
         m_FeatureTabs.Add(new Features.Saves.SavesFeatureTab());
         m_FeatureTabs.Add(new Features.Achievements.AchievementsFeatureTab());
@@ -163,6 +165,13 @@ public static partial class Main {
             if (IsInRestrictedMode) {
                 UI.Label(m_ThisModWillAutomaticallyConntectLocalizedText.Green().Bold());
                 Feature.GetInstance<VersionCompatabilityFeature>().OnGui();
+                Space(10);
+                Div.DrawDiv();
+                Space(10);
+                Feature.GetInstance<TB1SettingsImporterFeature>().OnGui();
+                Space(10);
+                Div.DrawDiv();
+                Space(10);
                 if (UI.Button(m_IUnderstandLocalizedText.Green().Bold())) {
                     DisableRestrictedMode();
                 }

@@ -231,6 +231,11 @@ public class GeneralSettings : AbstractJsonSettings {
     public bool ShowInactiveInterestingNpcConditions = false;
     public bool InterestingNpcsShowHidden = false;
 
+    // Quests
+    public bool QuestsHideCompleted = false;
+    public bool QuestsShowUnrevealedObjectives = false;
+    public bool QuestsShowInspector = false;
+
     // Loot
     public bool MassLootShowHiddenItems = false;
     public bool MassLootShowLivingNPCItems = false;

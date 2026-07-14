@@ -1,4 +1,7 @@
 ### Toybox Rogue - Coming Soon
+* (***ADDB***) Added a ToyBox 1 settings importer (Settings > Other, and offered in the first-start window); best-effort maps the still-equivalent settings into ToyBox 2. If a save that was played with ToyBox 1 is loaded, it also imports that save's per-save settings (unit size / AI overrides).
+* (***ADDB***) Ported TB1's Quests tab.
+* (***ADDB***) Ported TB1's Colonies tab
 * (***ADDB***) Fix BPLoader race (which Kuru pointed out)
 * (***ADDB***) Ported TB1's Dialog & NPCs tab
 * (***ADDB***) Ported TB1's Font Fix.

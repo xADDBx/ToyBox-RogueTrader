@@ -1,4 +1,4 @@
-using Kingmaker;
+﻿using Kingmaker;
 using Kingmaker.AreaLogic.QuestSystem;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.EventConditionActionSystem.Conditions;
@@ -80,7 +80,7 @@ public partial class InterestingNpcsFeature : Feature {
                 var name = coefficient > 0 ? u.CharacterName.Orange() : u.CharacterName.Grey();
                 UI.Label(name, Width(400));
                 Space(20);
-                UI.Label(m_InterestingnessCoefficientText.Grey() + coefficient.ToString().Cyan());
+                UI.Label((m_InterestingnessCoefficientText + ": ").Grey() + coefficient.ToString().Cyan());
                 Space(20);
                 InspectorUI.InspectToggle(u, m_UnitText.Cyan());
                 if (dialogs.Count > 0) {
@@ -181,7 +181,7 @@ public partial class InterestingNpcsFeature : Feature {
         if (conditional.ConditionsChecker.Conditions.Length == 0) {
             return;
         }
-        UI.Label(m_ConditionalText.Cyan(), Width(150));
+        UI.Label((m_ConditionalText + ":").Cyan(), Width(150));
         UI.Label(conditional.Comment ?? "", Width(375));
         using (VerticalScope()) {
             ConditionsCheckerGUI(conditional.ConditionsChecker, source, 0, true);
@@ -189,21 +189,21 @@ public partial class InterestingNpcsFeature : Feature {
     }
 
     private void QuestStatusGUI(QuestStatus questStatus, object source) {
-        UI.Label(m_QuestStatusText.Cyan(), Width(150));
+        UI.Label((m_QuestStatusText + ": ").Cyan(), Width(150));
         var quest = questStatus.Quest;
         var state = Game.Instance.Player.QuestBook.GetQuestState(quest);
         UI.Label(ColorByState(quest.Title.Text, state).Bold(), Width(500));
         Space(22);
         using (VerticalScope()) {
             UI.Label(quest.Description.Text.Green());
-            UI.Label(m_StatusText.Cyan() + state.ToString());
-            UI.Label(m_ConditionText.Cyan() + CaptionString(questStatus));
-            UI.Label(m_SourceText.Cyan() + source.ToString().Yellow());
+            UI.Label((m_StatusText + ": ").Cyan() + state.ToString());
+            UI.Label((m_ConditionText + ": ").Cyan() + CaptionString(questStatus));
+            UI.Label((m_SourceText + ": ").Cyan() + source.ToString().Yellow());
         }
     }
 
     private void ObjectiveStatusGUI(ObjectiveStatus objectiveStatus, object source) {
-        UI.Label(m_ObjectiveStatusText.Cyan(), Width(150));
+        UI.Label((m_ObjectiveStatusText + ": ").Cyan(), Width(150));
         var objectiveBP = objectiveStatus.QuestObjective;
         var objective = Game.Instance.Player.QuestBook.GetObjective(objectiveBP);
         var quest = objectiveBP.Quest;
@@ -213,14 +213,14 @@ public partial class InterestingNpcsFeature : Feature {
         Space(22);
         using (VerticalScope()) {
             UI.Label(objectiveBP.Description.Text.Green());
-            UI.Label(m_StatusText.Cyan() + ColorByState(state.ToString(), state));
-            UI.Label(m_ConditionText.Cyan() + CaptionString(objectiveStatus));
-            UI.Label(m_SourceText.Cyan() + source.ToString().Yellow());
+            UI.Label((m_StatusText + ": ").Cyan() + ColorByState(state.ToString(), state));
+            UI.Label((m_ConditionText + ": ").Cyan() + CaptionString(objectiveStatus));
+            UI.Label((m_SourceText + ": ").Cyan() + source.ToString().Yellow());
         }
     }
 
     private void EtudeStatusGUI(EtudeStatus etudeStatus, object source) {
-        UI.Label(m_EtudeStatusText.Cyan(), Width(150));
+        UI.Label((m_EtudeStatusText + ": ").Cyan(), Width(150));
         var etudeBP = etudeStatus.Etude;
         UI.Label(etudeBP.name.Orange(), Width(500));
         var etudeState = Game.Instance.Player.EtudesSystem.GetSavedState(etudeBP);
@@ -228,9 +228,9 @@ public partial class InterestingNpcsFeature : Feature {
         Space(22);
         using (VerticalScope()) {
             UI.Label(debugInfo.Green());
-            UI.Label(m_StatusText.Cyan() + etudeState.ToString());
-            UI.Label(m_ConditionText.Cyan() + CaptionString(etudeStatus));
-            UI.Label(m_SourceText.Cyan() + source.ToString().Yellow());
+            UI.Label((m_StatusText + ": ").Cyan() + etudeState.ToString());
+            UI.Label((m_ConditionText + ": ").Cyan() + CaptionString(etudeStatus));
+            UI.Label((m_SourceText + ": ").Cyan() + source.ToString().Yellow());
         }
     }
 
@@ -239,7 +239,7 @@ public partial class InterestingNpcsFeature : Feature {
         UI.Label(source.ToString().Yellow(), Width(500));
         Space(22);
         using (VerticalScope()) {
-            UI.Label(m_ConditionText.Cyan() + CaptionString(condition));
+            UI.Label((m_ConditionText + ": ").Cyan() + CaptionString(condition));
         }
     }
 
@@ -248,7 +248,7 @@ public partial class InterestingNpcsFeature : Feature {
         UI.Label(source.ToString().Yellow(), Width(500));
         Space(22);
         using (VerticalScope()) {
-            UI.Label(m_CaptionText.Cyan() + element.GetCaption().Orange());
+            UI.Label((m_CaptionText + ": ").Cyan() + element.GetCaption().Orange());
         }
     }
 
@@ -285,7 +285,7 @@ public partial class InterestingNpcsFeature : Feature {
     private static partial string m_ShowOtherVersionsText { get; }
     [LocalizedString("ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_RefreshText", "Refresh")]
     private static partial string m_RefreshText { get; }
-    [LocalizedString("ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_InterestingnessCoefficientText", "Interestingness Coefficient: ")]
+    [LocalizedString("ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_InterestingnessCoefficientText", "Interestingness Coefficient")]
     private static partial string m_InterestingnessCoefficientText { get; }
     [LocalizedString("ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_UnitText", "Unit")]
     private static partial string m_UnitText { get; }
@@ -295,21 +295,21 @@ public partial class InterestingNpcsFeature : Feature {
     private static partial string m_ConditionsText { get; }
     [LocalizedString("ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_ElementsText", "Elements")]
     private static partial string m_ElementsText { get; }
-    [LocalizedString("ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_ConditionalText", "Conditional:")]
+    [LocalizedString("ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_ConditionalText", "Conditional")]
     private static partial string m_ConditionalText { get; }
-    [LocalizedString("ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_QuestStatusText", "Quest Status: ")]
+    [LocalizedString("ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_QuestStatusText", "Quest Status")]
     private static partial string m_QuestStatusText { get; }
-    [LocalizedString("ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_ObjectiveStatusText", "Objective Status: ")]
+    [LocalizedString("ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_ObjectiveStatusText", "Objective Status")]
     private static partial string m_ObjectiveStatusText { get; }
-    [LocalizedString("ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_EtudeStatusText", "Etude Status: ")]
+    [LocalizedString("ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_EtudeStatusText", "Etude Status")]
     private static partial string m_EtudeStatusText { get; }
-    [LocalizedString("ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_StatusText", "status: ")]
+    [LocalizedString("ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_StatusText", "Status")]
     private static partial string m_StatusText { get; }
-    [LocalizedString("ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_ConditionText", "condition: ")]
+    [LocalizedString("ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_ConditionText", "Condition")]
     private static partial string m_ConditionText { get; }
-    [LocalizedString("ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_SourceText", "source: ")]
+    [LocalizedString("ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_SourceText", "Source")]
     private static partial string m_SourceText { get; }
-    [LocalizedString("ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_CaptionText", "caption: ")]
+    [LocalizedString("ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_CaptionText", "Caption")]
     private static partial string m_CaptionText { get; }
     [LocalizedString("ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_TrueText", "True")]
     private static partial string m_TrueText { get; }
