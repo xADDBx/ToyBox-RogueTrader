@@ -1,19 +1,3 @@
-Reworked Localization:
-- Old System was very bad (changing a typo in english would break that string for other languages; etc.)
-- New System has better performance; it also needs basically no maintainance outside of actually translation.
-
-Reworked Patching:
-- Patches are now very granular, which means that
-  1. With just ToyBox installed and no feature enabled, the game would be nearly vanilla (i.e. nearly no changes)
-  2. Improved general performance. Impact might be minor; but it does exist
-  3. Improved compatbility with game updates: One feature breaking wouldn't break the whole mod
-  4. Controller compatibility: previously few specific features would break with controllers. Since they no longer automatically apply their patches, ToyBox should work with controllers as long as those features aren't enabled.
-  5. Less stuff that can cause different behaviour even though no relevant feature is activated (Did you know: ToyBox added an extra renderer/highlighter for every object by default. Why it did that, none of the remaining devs know (or even knew about that at all))
-
-Reworked Browsers. Again:
-- Improved search performance by performing consecutive searches on the already found subset; also removed some synchronization
-- Abstracted things in such a way that it would be possible to support an alternate fuzzy search mode
-
 Changed some features:
 - Remote Companion Dialog now also handles answers
 - Fixed Preview Dialog Results predicting the wrong dialog paths in rare situations
@@ -28,6 +12,27 @@ Changed some features:
 - Filter stats displayed in Enemy Stat multiplier
 - Make Drag to Aim Camera persist in the session
 - Add new Dice Roll options; Fix some?
+- Patch Tool
+  - added inspector-style navigation into a GameObject's components and children to edit their fields (dangerous mode), and the ability to exchange a Unity object field for another registered asset via its (guid, fileid).
+  - reverting patches now replays tracked inverse operations instead of restoring a full DeepCopy of the blueprint.
+  - hardened patch loading/applying; changed patch file format
+
+Reworked Localization:
+- Old System was very bad (changing a typo in English would break that string for other languages; etc.)
+- New System has better performance; it also needs less maintainance.
+
+Reworked Internals:
+- Patches (the way in which ToyBox changes how the game works) are now very granular, which means that
+  1. With just ToyBox installed and no feature enabled, the game would be nearly vanilla (i.e. nearly no changes)
+  2. Improved general performance. Impact might be minor; but it does exist
+  3. Improved compatbility with game updates: One feature breaking wouldn't break the whole mod
+  4. Controller compatibility: previously few specific features would break with controllers. Since they no longer automatically apply their patches, ToyBox should work with controllers as long as those features aren't enabled.
+  5. Less stuff that can cause different behaviour even though no relevant feature is activated
+
+Reworked Browsers.
+- Improved search performance by performing consecutive searches on the already found subset; also removed some synchronization
+- Abstracted things in such a way that it would be possible to support an alternate fuzzy search mode/regex search mode?
+Rewrote Inspector.
 
 Removed useless/unimplemented features:
 - Lots of things were leftover from the initial Wrath => RogueTrader port and/or became useless over time; the toggles/buttons basically did nothing but were still in the UI and sometimes still applied their patches.
@@ -47,7 +52,3 @@ Removed useless/unimplemented features:
   - Color Item Names
   - Inventory item use during combat
   - It is now possible to test a voice without having to change to it.
-
-Rewrote Inspector:
-- More options
-- Less crashes
