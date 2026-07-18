@@ -15,6 +15,7 @@ Reworked Browsers. Again:
 - Abstracted things in such a way that it would be possible to support an alternate fuzzy search mode
 
 Changed some features:
+- Remote Companion Dialog now also handles answers
 - Fixed Preview Dialog Results predicting the wrong dialog paths in rare situations
 - PreventPsychicPhenomena now prevents all (including Unsanctioned Psyker)
 - CustomizePsychicPhenomena now also accounts for phenomena triggered in a non-standard way (e.g. Unsanctioned Psyker)
