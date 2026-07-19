@@ -13,7 +13,7 @@ public partial class KillUnitAction : FeatureWithAction, INeedContextFeature<Bas
     [LocalizedString("ToyBox_Features_PartyTab_Actions_KillUnitAction_Description", "Kills the specified unit by marking it for death.")]
     public override partial string Description { get; }
     public override bool CanExecute(ActionParameter parameter) {
-        return parameter.UnitParam != null;
+        return parameter.UnitParam != null && !ToyBoxUnitHelper.IsOfSelectedType(parameter.UnitParam, UnitSelectType.Ship);
     }
     public override void ExecuteAction(ActionParameter parameter) {
         LogExecution(parameter);

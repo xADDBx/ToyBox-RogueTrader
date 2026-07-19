@@ -8,6 +8,7 @@ public enum CharacterListType {
     Remote,
     CustomCompanions,
     Pets,
+    Starships,
     Nearby,
     Friendly,
     Enemies,
@@ -23,6 +24,7 @@ public static partial class CharacterListType_Localizer {
             CharacterListType.Remote => m_RemoteText,
             CharacterListType.CustomCompanions => m_CustomCompanionText,
             CharacterListType.Pets => m_PetsText,
+            CharacterListType.Starships => m_StarshipsLocalizedText,
             CharacterListType.Nearby => m_NearbyText,
             CharacterListType.Friendly => m_FriendlyText,
             CharacterListType.Enemies => m_EnemiesText,
@@ -52,4 +54,6 @@ public static partial class CharacterListType_Localizer {
     private static partial string m_EnemiesText { get; }
     [LocalizedString("ToyBox_Infrastructure_Enums_CharacterListType_Localizer_AllUnitsText", "All Units")]
     private static partial string m_AllUnitsText { get; }
+    [LocalizedString("ToyBox_Infrastructure_Enums_CharacterListType_Localizer_m_StarshipsLocalizedText", "Starships")]
+    private static partial string m_StarshipsLocalizedText { get; }
 }

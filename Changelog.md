@@ -1,3 +1,7 @@
+### ToyBox Rogue - Ver 2.0.2 (built for 1.6.1.511)
+* (***ADDB***) Re-add Starships section to Party Tab
+* (***ADDB***) Prevent Kill Unit Action from running on friendly starships
+
 ### ToyBox Rogue - Ver 2.0.1 (built for 1.6.1.511)
 * (***ADDB***) Port the TB1 Etude tab exception (where an Evaluator was necessary instead of direct guid access)
 

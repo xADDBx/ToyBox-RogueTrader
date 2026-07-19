@@ -17,6 +17,7 @@ public static partial class CharacterPicker {
         [CharacterListType.Remote] = new(() => Game.Instance.Player.RemoteCompanions?.ToList() ?? [], m_CacheDuration),
         [CharacterListType.CustomCompanions] = new(() => Game.Instance.Player.AllCharacters.Where(u => u.IsCustomCompanion())?.ToList() ?? [], m_CacheDuration),
         [CharacterListType.Pets] = new(() => Game.Instance.Player.AllCharacters.Where(u => u.IsPet)?.ToList() ?? [], m_CacheDuration),
+        [CharacterListType.Starships] = new(() => Game.Instance.Player.AllStarships ?? [], m_CacheDuration),
         [CharacterListType.Nearby] = new(() => {
             var player = GameHelper.GetPlayerCharacter();
             return GameHelper.GetTargetsAround(player.Position, Settings.NearbyRange, false, false)?.ToList() ?? [];
