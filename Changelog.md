@@ -1,3 +1,6 @@
+### ToyBox Rogue - Ver 2.0.3 (built for 1.6.1.511)
+* (***ADDB***) Fix "Search Description" not actually searching descriptions (it did sort by them, though).
+
 ### ToyBox Rogue - Ver 2.0.2 (built for 1.6.1.511)
 * (***ADDB***) Re-add Starships section to Party Tab
 * (***ADDB***) Prevent Kill Unit Action from running on friendly starships

@@ -80,8 +80,14 @@ public static class BPHelper {
                     Debug($"Error while getting name for {uiDataProvider}:\n{ex}");
                 }
                 ret = CheckNullName(blueprint, Name, true);
+                if (Settings.ToggleSearchDescriptions) {
+                    ret += " " + GetDescription(blueprint);
+                }
             } else if (blueprint is BlueprintItemEnchantment enchantment) {
                 ret = CheckNullName(blueprint, enchantment.Name, true);
+                if (Settings.ToggleSearchDescriptions) {
+                    ret += " " + GetDescription(blueprint);
+                }
             }
             ret ??= blueprint.name;
         } catch (Exception ex) {
