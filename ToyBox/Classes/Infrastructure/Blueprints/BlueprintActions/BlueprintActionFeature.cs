@@ -128,7 +128,6 @@ public class BlueprintActions : FeatureTab {
     }
 
     public BlueprintActions() {
-#warning TODO: BlueprintSelection; BlueprintSelectionFeature
         AddFeature(new ColonizeColonyBA());
         AddFeature(new ColonizePlanetBA());
         AddFeature(new LoadAreaPresetBA());
