@@ -1,3 +1,6 @@
+### ToyBox Rogue - Ver 2.0.4 (built for 1.6.1.511)
+* (***ADDB***) Port and fix Party => Stats => skeleton / bone editor 
+
 ### ToyBox Rogue - Ver 2.0.3 (built for 1.6.1.511)
 * (***ADDB***) Fix "Search Description" not actually searching descriptions (it did sort by them, though).
 

@@ -88,11 +88,11 @@ public partial class TB1SettingsImporterFeature : Feature {
     private static partial string m_PathText { get; }
     [LocalizedString("ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_ImportText", "Import")]
     private static partial string m_ImportText { get; }
-    [LocalizedString("ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_ImportedText", "Imported {0} settings from ToyBox 1. Reload the mod (or restart the game) so every change takes full effect.")]
+    [LocalizedString("ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_ImportedText", "Imported {0} settings from ToyBox 1. Restart the game so every change takes full effect.")]
     private static partial string m_ImportedText { get; }
-    [LocalizedString("ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_PerSaveImportedText", "Also imported {0} save-specific settings (unit size / AI overrides) from the loaded save.")]
+    [LocalizedString("ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_PerSaveImportedText", "Also imported {0} save-specific settings from the loaded save (quick save and then load the new save for chanes to take effect).")]
     private static partial string m_PerSaveImportedText { get; }
-    [LocalizedString("ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_PerSaveSkippedText", "Load a ToyBox 1 save and import again to also bring over its save-specific settings (unit size / AI overrides).")]
+    [LocalizedString("ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_PerSaveSkippedText", "Load a ToyBox 1 save and import again to also bring over its save-specific settings (unit size / AI overrides / skeleton changes).")]
     private static partial string m_PerSaveSkippedText { get; }
     [LocalizedString("ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_FailedText", "Import failed.")]
     private static partial string m_FailedText { get; }

@@ -370,6 +370,21 @@ internal static class TB1SettingsPorter {
                 applied++;
             }
         }
+        if (data["characterSkeletonReplacers"] is JObject skeletonReplacers) {
+            foreach (var p in skeletonReplacers.Properties()) {
+                if (p.Value is not JObject parts) {
+                    continue;
+                }
+                var partMap = new Dictionary<string, float>();
+                foreach (var part in parts.Properties()) {
+                    partMap[part.Name] = part.Value.Value<float>();
+                }
+                if (partMap.Count > 0) {
+                    inSave.SkeletonBoneOverrides[p.Name] = partMap;
+                    applied++;
+                }
+            }
+        }
         if (data["doOverrideEnableAiForCompanions"] is JObject aiOverrides) {
             foreach (var p in aiOverrides.Properties()) {
                 if (p.Value["Item1"]?.Value<bool>() ?? false) {

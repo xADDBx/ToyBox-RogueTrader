@@ -1759,6 +1759,38 @@
     "Original": "Name of the new Blueprintportrait:",
     "Translated": null
   },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideSkeletonFeature_Name": {
+    "Original": "Enable Skeleton / Bone Editor",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideSkeletonFeature_Description": {
+    "Original": "If this is disabled, none of the previously set bone overrides will take effect. Lets you resize and offset individual bones (body parts) and equipment attach points per character.",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideSkeletonFeature_m_GlobalOffsetsText": {
+    "Original": "Body parts global offsets",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideSkeletonFeature_m_GlobalScalesText": {
+    "Original": "Body parts global scales",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideSkeletonFeature_m_LocalSizesText": {
+    "Original": "Body parts local sizes",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideSkeletonFeature_m_EquipmentOffsetsText": {
+    "Original": "Equipment elements offsets",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideSkeletonFeature_m_EquipmentSizesText": {
+    "Original": "Equipment elements sizes",
+    "Translated": null
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideSkeletonFeature_m_NoAvatarText": {
+    "Original": "This unit has no editable character avatar / skeleton.",
+    "Translated": null
+  },
   "ToyBox_Features_PartyTab_Stats_UnitBrowseVoicesFeature_Name": {
     "Original": "Browse Voices",
     "Translated": null
@@ -2656,15 +2688,15 @@
     "Translated": null
   },
   "ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_ImportedText": {
-    "Original": "Imported {0} settings from ToyBox 1. Reload the mod (or restart the game) so every change takes full effect.",
+    "Original": "Imported {0} settings from ToyBox 1. Restart the game so every change takes full effect.",
     "Translated": null
   },
   "ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_PerSaveImportedText": {
-    "Original": "Also imported {0} save-specific settings (unit size / AI overrides) from the loaded save.",
+    "Original": "Also imported {0} save-specific settings from the loaded save (quick save and then load the new save for chanes to take effect).",
     "Translated": null
   },
   "ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_PerSaveSkippedText": {
-    "Original": "Load a ToyBox 1 save and import again to also bring over its save-specific settings (unit size / AI overrides).",
+    "Original": "Load a ToyBox 1 save and import again to also bring over its save-specific settings (unit size / AI overrides / skeleton changes).",
     "Translated": null
   },
   "ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_FailedText": {

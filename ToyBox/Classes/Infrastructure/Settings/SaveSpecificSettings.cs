@@ -75,4 +75,6 @@ public class SaveSpecificSettings {
     public Dictionary<string, Size> MechanicalSizeOverrides = [];
     public Dictionary<string, float> VisualSizeOverrides = [];
     public Dictionary<string, Dictionary<StatType, int>> AppliedUnitStatChanges = [];
+    // Per-unit bone-part overrides: unit UniqueId -> (part key -> parameter)
+    public Dictionary<string, Dictionary<string, float>> SkeletonBoneOverrides = [];
 }
