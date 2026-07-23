@@ -82,7 +82,7 @@ public partial class UnitModifyStatsFeature : FeatureWithPatch, INeedContextFeat
                             modifiedValue = modifiableValue.ModifiedValue;
                         } else {
                             // Note: We *could* support this by just not skipping the iteration here. 
-                            continue;
+                            // continue;
                         }
                         var change = 0;
                         using (HorizontalScope()) {

@@ -11,7 +11,7 @@ public static class Constants {
                                                                 // Those two stats only exist on armor and destructible objects
                                                                 StatType.DamageDeflection, StatType.DamageAbsorption];
     public static readonly HashSet<StatType> StarshipStats = [StatType.Crew, StatType.TurretRadius, StatType.TurretRating, StatType.MilitaryRating,
-                                                                StatType.PsyRating, StatType.Evasion, StatType.MachineTrait, StatType.ArmourFore,
+                                                                StatType.Evasion, StatType.MachineTrait, StatType.ArmourFore,
                                                                 StatType.ArmourPort, StatType.ArmourStarboard, StatType.ArmourAft, StatType.Inertia,
                                                                 StatType.Power, StatType.Aiming, StatType.RevealRadius, StatType.DetectionRadius,
                                                                 StatType.ShieldsAmount, StatType.ShieldsRegeneration, StatType.Morale, StatType.Discipline,

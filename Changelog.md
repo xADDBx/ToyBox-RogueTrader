@@ -1,3 +1,7 @@
+### ToyBox Rogue - Ver 2.0.6 (built for 1.6.1.511)
+* (***ADDB***) No longer classify Psy Rating as a Starship stat (and thereby hide it for normal units)
+* (***ADDB***) Allow modifying stats which are not on the unit (thereby adding that stat to the unit)
+
 ### ToyBox Rogue - Ver 2.0.5 (built for 1.6.1.511)
 * (***ADDB***) Port and fix Party => Stats => skeleton / bone editor 
 * (***ADDB***) Fix Etudes tab crashing when expanding an etude whose element condition uses an evaluator that can't be resolved (e.g. HasBuff on a companion not in the party)
