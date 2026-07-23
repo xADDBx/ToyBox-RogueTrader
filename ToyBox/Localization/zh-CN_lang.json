@@ -1,0 +1,3686 @@
+{
+  "ToyBox_Features_Achievements_AchievementsFeatureTab_Name": {
+    "Original": "Achievements",
+    "Translated": "成就"
+  },
+  "ToyBox_Features_Achievements_BrowseAchievementsFeature_Name": {
+    "Original": "Browse Achievements",
+    "Translated": "浏览成就"
+  },
+  "ToyBox_Features_Achievements_BrowseAchievementsFeature_Description": {
+    "Original": "Once a save is loaded, this allows looking through a list of achievements, supporting inspecting and unlocking them.",
+    "Translated": "载入存档后，可浏览成就列表，并查看或解锁成就。"
+  },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_BagOfTricksText": {
+    "Original": "Bag of Tricks",
+    "Translated": "百宝袋"
+  },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_QualityOfLifeText": {
+    "Original": "Quality of Life",
+    "Translated": "便利功能"
+  },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_CheatsText": {
+    "Original": "Cheats",
+    "Translated": "作弊"
+  },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_CombatLocalizedText": {
+    "Original": "Combat",
+    "Translated": "战斗"
+  },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_TeleportLocalizedText": {
+    "Original": "Teleport",
+    "Translated": "传送"
+  },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_CommonLocalizedText": {
+    "Original": "Common",
+    "Translated": "通用"
+  },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_PreviewLocalizedText": {
+    "Original": "Preview",
+    "Translated": "预览"
+  },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_DialogLocalizedText": {
+    "Original": "Dialog",
+    "Translated": "对话"
+  },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_RTFactionReputationLocalizedText": {
+    "Original": "RT Faction Reputation",
+    "Translated": "行商浪人阵营声望"
+  },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_RTResourcesLocalizedText": {
+    "Original": "RT Resources",
+    "Translated": "行商浪人资源"
+  },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_RTTweaksLocalizedText": {
+    "Original": "RT Tweaks",
+    "Translated": "行商浪人调整"
+  },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_CameraLocalizedText": {
+    "Original": "Camera",
+    "Translated": "相机"
+  },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_ExperienceMultipliersLocalizedText": {
+    "Original": "Experience Multipliers",
+    "Translated": "经验倍数"
+  },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_OtherMultipliersLocalizedText": {
+    "Original": "Other Multipliers",
+    "Translated": "其他倍数"
+  },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_DiceRollsLocalizedText": {
+    "Original": "Dice Rolls",
+    "Translated": "掷骰"
+  },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_EnemyStatModifierLocalizedText": {
+    "Original": "Enemy Stat Modifier",
+    "Translated": "敌人属性调整"
+  },
+  "ToyBox_Features_BagOfTricks_Camera_AllowMouse3DraggingToAimCameraFeature_Name": {
+    "Original": "Enable Mouse3 Dragging To Aim The Camera",
+    "Translated": "允许鼠标中键拖动来调整相机"
+  },
+  "ToyBox_Features_BagOfTricks_Camera_AllowMouse3DraggingToAimCameraFeature_Description": {
+    "Original": "Allows orbiting the camera while holding down Mouse Wheel.",
+    "Translated": "按住鼠标中键时可环绕旋转镜头。"
+  },
+  "ToyBox_Features_BagOfTricks_Camera_AllowRotateOnAllMapsAndCutscenesFeature_Name": {
+    "Original": "Enable Rotate on all maps and cutscenes",
+    "Translated": "在所有地图和过场中启用视角旋转"
+  },
+  "ToyBox_Features_BagOfTricks_Camera_AllowRotateOnAllMapsAndCutscenesFeature_Description": {
+    "Original": "Note: For cutscenes and some situations the rotation keys are disabled so you have to hold down Mouse3 to drag in order to get rotation",
+    "Translated": "注意：在过场动画和某些场景中，旋转按键会被禁用；此时需按住鼠标中键并拖动才能旋转镜头。"
+  },
+  "ToyBox_Features_BagOfTricks_Camera_AllowZoomOnAllMapsAndCutscenesFeature_Name": {
+    "Original": "Enable Zoom on all maps and cutscenes",
+    "Translated": "在所有地图和过场中启用视角缩放"
+  },
+  "ToyBox_Features_BagOfTricks_Camera_AllowZoomOnAllMapsAndCutscenesFeature_Description": {
+    "Original": "Makes CameraController always allow zoom and ignore ZoomLock.",
+    "Translated": "使镜头控制器始终允许缩放，并忽略缩放锁定。"
+  },
+  "ToyBox_Features_BagOfTricks_Camera_CameraElevationOffsetFeature_Name": {
+    "Original": "Modify Camera Elevation Offset",
+    "Translated": "调整镜头高度偏移"
+  },
+  "ToyBox_Features_BagOfTricks_Camera_CameraElevationOffsetFeature_Description": {
+    "Original": "Adds a flat modifier to the height of the camera above the ground.",
+    "Translated": "对镜头离地高度应用固定偏移值。"
+  },
+  "ToyBox_Features_BagOfTricks_Camera_DragCameraElevationFeature_Name": {
+    "Original": "Press CTRL while rotating camera to change height",
+    "Translated": "旋转镜头时按住 CTRL 调整高度"
+  },
+  "ToyBox_Features_BagOfTricks_Camera_DragCameraElevationFeature_Description": {
+    "Original": "CTRL + Mouse3 to adjust camera height",
+    "Translated": "CTRL + 鼠标中键：调整镜头高度"
+  },
+  "ToyBox_Features_BagOfTricks_Camera_FOVMultiplierFeature_Name": {
+    "Original": "Field Of View",
+    "Translated": "视野"
+  },
+  "ToyBox_Features_BagOfTricks_Camera_FOVMultiplierFeature_Description": {
+    "Original": "Changes the min/max FoV (you can scroll further in and out)",
+    "Translated": "调整最小/最大视野范围（可进一步拉近或拉远）。"
+  },
+  "ToyBox_Features_BagOfTricks_Camera_FreeCamFeature_Name": {
+    "Original": "Free Camera",
+    "Translated": "自由相机视角"
+  },
+  "ToyBox_Features_BagOfTricks_Camera_FreeCamFeature_Description": {
+    "Original": "Makes the game no longer force the camera to ground.",
+    "Translated": "解除镜头贴地限制。"
+  },
+  "ToyBox_Features_BagOfTricks_Camera_ResetCameraAimToDefaultFeature_Name": {
+    "Original": "Fix Camera",
+    "Translated": "修正相机视角"
+  },
+  "ToyBox_Features_BagOfTricks_Camera_ResetCameraAimToDefaultFeature_Description": {
+    "Original": "Resets the camera perspective to what it was before orbiting it.",
+    "Translated": "将镜头视角重置为环绕旋转前的状态。"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_CompleteUnlimitedActionsPerTurnFeature_Name": {
+    "Original": "Don't use any AP",
+    "Translated": "行动不消耗 AP"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_CompleteUnlimitedActionsPerTurnFeature_Description": {
+    "Original": "This allows doing Infinite Actions per turn.",
+    "Translated": "每回合可执行无限次行动。"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_EquipmentChangeDuringCombatFeature_Name": {
+    "Original": "Equipment Change during Combat",
+    "Translated": "战斗中更换装备"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_EquipmentChangeDuringCombatFeature_Description": {
+    "Original": "Allows changing your equipment while in combat.",
+    "Translated": "允许在战斗中更换装备。"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_FreeAbilitiesFeature_Name": {
+    "Original": "Free Abilities",
+    "Translated": "能力无消耗"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_FreeAbilitiesFeature_Description": {
+    "Original": "Makes abilities have no cost.",
+    "Translated": "使能力不消耗资源。"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_HighlightHiddenObjectsFeature_Name": {
+    "Original": "Highlight Hidden Objects",
+    "Translated": "高亮隐藏物体"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_HighlightHiddenObjectsFeature_Description": {
+    "Original": "Highlights objects even if they would normally be hidden by a perception Check or otherwise. Optionally also highlight objects in Fog Of War and hidden traps.",
+    "Translated": "高亮通常会因察觉检定等原因而隐藏的物体；还可选择高亮战争迷雾中的物体和隐藏陷阱。"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_HighlightHiddenObjectsFeature_AlsoHighlightHiddenTrapsText": {
+    "Original": "Also Highlight Hidden Traps",
+    "Translated": "同时高亮隐藏陷阱"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_HighlightHiddenObjectsFeature_AlsoHighlightInFogOfWarText": {
+    "Original": "Also Highlight in Fog of War",
+    "Translated": "同时高亮战争迷雾中的物体"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_IgnoreAllAbilityRequirementsFeature_Name": {
+    "Original": "Ignore all Target Requirements for Abilities",
+    "Translated": "忽略能力的所有目标要求"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_IgnoreAllAbilityRequirementsFeature_Description": {
+    "Original": "Always allows using abilities regardless of target restrictions like Line of Sight, Friendly Fire or something else.",
+    "Translated": "无视视线、友军伤害等目标限制，始终允许使用能力。"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_IgnoreAoeOverlapAbilityRequirementFeature_Name": {
+    "Original": "Ignore Ability Requirements - AoE Overlap",
+    "Translated": "忽略能力要求：范围效果重叠"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_IgnoreAoeOverlapAbilityRequirementFeature_Description": {
+    "Original": "",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_IgnoreEquipmentRestrictionsFeature_Name": {
+    "Original": "Ignore Equipment Restrictions",
+    "Translated": "忽略装备限制"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_IgnoreEquipmentRestrictionsFeature_Description": {
+    "Original": "Allows equipping items regardless of class, stat, etc. requirements.",
+    "Translated": "无视职业、属性等要求，允许装备任意物品。"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_IgnoreLineOfSightAbilityRequirementFeature_Name": {
+    "Original": "Ignore Ability Requirements - Line of Sight",
+    "Translated": "忽略能力要求：视线"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_IgnoreLineOfSightAbilityRequirementFeature_Description": {
+    "Original": "",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_IgnoreTargetTooCloseAbilityRequirementFeature_Name": {
+    "Original": "Ignore Ability Requirements - Too Close",
+    "Translated": "忽略能力要求：目标过近"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_IgnoreTargetTooCloseAbilityRequirementFeature_Description": {
+    "Original": "",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_IgnoreTargetTooFarAbilityRequirementFeature_Name": {
+    "Original": "Ignore Ability Requirements - Too Far",
+    "Translated": "忽略能力要求：目标过远"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_IgnoreTargetTooFarAbilityRequirementFeature_Description": {
+    "Original": "",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_InfiniteChargesOnItemsFeature_Name": {
+    "Original": "Infinite Charges on Items",
+    "Translated": "可用物品次数无限"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_InfiniteChargesOnItemsFeature_Description": {
+    "Original": "Prevents charges on usable items from being spent.",
+    "Translated": "使用可用物品时不消耗使用次数。"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_InstantRestAfterCombatFeature_Name": {
+    "Original": "Instant Rest after Combat",
+    "Translated": "战斗后立即休整"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_InstantRestAfterCombatFeature_Description": {
+    "Original": "Restores Item charges and rests Units once the party leaves combat.",
+    "Translated": "队伍脱离战斗后，恢复物品使用次数并使所有单位休整。"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_NoAbilityCooldownsFeature_Name": {
+    "Original": "No Ability Cooldowns",
+    "Translated": "能力无冷却"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_NoAbilityCooldownsFeature_Description": {
+    "Original": "Makes abilities have no cooldown.",
+    "Translated": "使能力没有冷却时间。"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_PartialUnlimitedActionsPerTurnFeature_Name": {
+    "Original": "Don't use AP (Partial)",
+    "Translated": "行动不消耗 AP（部分）"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_PartialUnlimitedActionsPerTurnFeature_Description": {
+    "Original": "Don't use any AP except for except for abilities which would consume all your AP at once.",
+    "Translated": "除会一次性消耗全部 AP 的能力外，其他行动均不消耗 AP。"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_PreventTrapsFromTriggeringFeature_Name": {
+    "Original": "Prevent Traps from Triggering",
+    "Translated": "禁止触发陷阱"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_PreventTrapsFromTriggeringFeature_Description": {
+    "Original": "Entering a trap zone while having traps disabled will prevent that trap from triggering even if you deactivate this option in the future.",
+    "Translated": "启用时进入陷阱区域会使该陷阱不再触发；即使日后关闭此选项，该陷阱仍不会恢复触发。"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_RestoreSpellsAndSkillsAfterCombatFeature_Name": {
+    "Original": "Restore Spells and Skills after Combat",
+    "Translated": "战斗后恢复法术与技能"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_RestoreSpellsAndSkillsAfterCombatFeature_Description": {
+    "Original": "Restores all ability resources once the party leaves combat.",
+    "Translated": "队伍脱离战斗后，恢复所有能力资源。"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_UnlimitedStackingOfModifiersFeature_Name": {
+    "Original": "Unlimited Stacking of Modifiers",
+    "Translated": "调整值无限叠加"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_UnlimitedStackingOfModifiersFeature_Description": {
+    "Original": "Makes modifiers like Stats or Damage stack for party members even if they shouldn't.",
+    "Translated": "允许队伍成员的属性、伤害等调整值无限叠加，即使正常情况下不应叠加。"
+  },
+  "ToyBox_Features_BagOfTricks_Combat_ImmortalityBuffFeature_Name": {
+    "Original": "Make Immortal",
+    "Translated": "赋予不死"
+  },
+  "ToyBox_Features_BagOfTricks_Combat_ImmortalityBuffFeature_Description": {
+    "Original": "Applies a buff to the selected units which makes them immortal.",
+    "Translated": "为所选单位添加使其不会死亡的状态效果。"
+  },
+  "ToyBox_Features_BagOfTricks_Combat_KillAllEnemiesFeature_Name": {
+    "Original": "Kill All Enemies",
+    "Translated": "杀死所有敌人"
+  },
+  "ToyBox_Features_BagOfTricks_Combat_KillAllEnemiesFeature_Description": {
+    "Original": "Kills all enemies that are currently in combat with you.",
+    "Translated": "杀死当前与玩家交战的所有敌人。"
+  },
+  "ToyBox_Features_BagOfTricks_Combat_LobotomizeEnemiesFeature_Name": {
+    "Original": "Lobotomize Enemies",
+    "Translated": "移除敌人 AI"
+  },
+  "ToyBox_Features_BagOfTricks_Combat_LobotomizeEnemiesFeature_Description": {
+    "Original": "Makes enemies unable to act, move and perform attack of opportunities.",
+    "Translated": "使敌人无法行动、移动或发动借机攻击。"
+  },
+  "ToyBox_Features_BagOfTricks_Combat_MurderHoboFeature_Name": {
+    "Original": "Murder Hobo",
+    "Translated": "杀人狂模式"
+  },
+  "ToyBox_Features_BagOfTricks_Combat_MurderHoboFeature_Description": {
+    "Original": "When enabled, enemies will be killed when they join combat.",
+    "Translated": "启用后，敌人一进入战斗便会被杀死。"
+  },
+  "ToyBox_Features_BagOfTricks_Combat_RemoveBuffsFeature_Name": {
+    "Original": "Remove Buffs",
+    "Translated": "移除增益"
+  },
+  "ToyBox_Features_BagOfTricks_Combat_RemoveBuffsFeature_Description": {
+    "Original": "Removes all non-hidden and non-persistent buffs from all party members and pets.",
+    "Translated": "移除所有队伍成员与宠物身上非隐藏、非永久的状态效果。"
+  },
+  "ToyBox_Features_BagOfTricks_Combat_RestAllFeature_Name": {
+    "Original": "Rest All",
+    "Translated": "全体休息"
+  },
+  "ToyBox_Features_BagOfTricks_Combat_RestAllFeature_Description": {
+    "Original": "Revives and heals all characters + restores action points, ability cooldowns and item charges.",
+    "Translated": "复活并治疗所有角色，同时恢复行动点、能力冷却和物品使用次数。"
+  },
+  "ToyBox_Features_BagOfTricks_Combat_RestSelectedFeature_Name": {
+    "Original": "Rest Selected",
+    "Translated": "选中休息"
+  },
+  "ToyBox_Features_BagOfTricks_Combat_RestSelectedFeature_Description": {
+    "Original": "Revives and heals the selected characters + restores action points and ability cooldowns.",
+    "Translated": "复活并治疗所选角色，同时恢复行动点和能力冷却。"
+  },
+  "ToyBox_Features_BagOfTricks_Common_ChangePartyFeature_Name": {
+    "Original": "Change Party",
+    "Translated": "调整队伍"
+  },
+  "ToyBox_Features_BagOfTricks_Common_ChangePartyFeature_Description": {
+    "Original": "Opens the party member selection screen.",
+    "Translated": "打开队伍成员选择界面。"
+  },
+  "ToyBox_Features_BagOfTricks_Common_ChangeWeatherFeature_Name": {
+    "Original": "Change Weather",
+    "Translated": "改变天气"
+  },
+  "ToyBox_Features_BagOfTricks_Common_ChangeWeatherFeature_Description": {
+    "Original": "Sets the time until next weather change to 0.",
+    "Translated": "将距离下次天气变化的时间设为 0。"
+  },
+  "ToyBox_Features_BagOfTricks_Common_GiveAllItemsFeature_Name": {
+    "Original": "Give All Items",
+    "Translated": "给予所有物品"
+  },
+  "ToyBox_Features_BagOfTricks_Common_GiveAllItemsFeature_Description": {
+    "Original": "Adds 1 of each BlueprintItem to the player inventory.",
+    "Translated": "向玩家物品栏中添加每种物品蓝图各 1 件。"
+  },
+  "ToyBox_Features_BagOfTricks_Common_GoToGlobalMapFeature_Name": {
+    "Original": "Go To Global Map",
+    "Translated": "前往世界地图"
+  },
+  "ToyBox_Features_BagOfTricks_Common_GoToGlobalMapFeature_Description": {
+    "Original": "Tries to load the sector map area. Don't use in prologue.",
+    "Translated": "尝试载入星区地图区域。请勿在序章中使用。"
+  },
+  "ToyBox_Features_BagOfTricks_Common_OpenReputationTradeWindowFeature_Name": {
+    "Original": "Open Trade Window",
+    "Translated": "打开交易窗口"
+  },
+  "ToyBox_Features_BagOfTricks_Common_OpenReputationTradeWindowFeature_Description": {
+    "Original": "Opens the faction reputation trade window (when available).",
+    "Translated": "在可用时打开阵营声望交易窗口。"
+  },
+  "ToyBox_Features_BagOfTricks_Common_RerollPerceptionFeature_Name": {
+    "Original": "Reroll Perception",
+    "Translated": "重掷察觉检定"
+  },
+  "ToyBox_Features_BagOfTricks_Common_RerollPerceptionFeature_Description": {
+    "Original": "Resets the saved results of awareness rolls on map objects.",
+    "Translated": "重置地图物体已保存的察觉检定结果。"
+  },
+  "ToyBox_Features_BagOfTricks_Common_ResetInteractablesFeature_Name": {
+    "Original": "Reset Interactables",
+    "Translated": "重置可交互物体"
+  },
+  "ToyBox_Features_BagOfTricks_Common_ResetInteractablesFeature_Description": {
+    "Original": "Re-enables skill checks on interactable objects in the area.",
+    "Translated": "重新启用当前区域内可交互物体的技能检定。"
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_ExCompanionDialogFeature_Name": {
+    "Original": "Include Ex-Companions In Remote Companion Dialog",
+    "Translated": "在远程同伴对话中包含离队同伴"
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_ExCompanionDialogFeature_Description": {
+    "Original": "This makes Remote Companion Dialog also include companions who left the party.",
+    "Translated": "使远程同伴对话也包含已经离队的同伴。"
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_IgnoreDialogRestrictionsEverythingFeature_Name": {
+    "Original": "Ignore Dialog Restrictions (Everything, Experimental)",
+    "Translated": "忽略对话限制（全部，实验性）"
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_IgnoreDialogRestrictionsEverythingFeature_Description": {
+    "Original": "Answers that were restricted will be made available.",
+    "Translated": "使原本受限的回答可供选择。"
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_IgnoreDialogRestrictionsSoulMarkFeature_Name": {
+    "Original": "Ignore Dialog Restrictions (SoulMark)",
+    "Translated": "忽略对话限制（灵魂印记）"
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_IgnoreDialogRestrictionsSoulMarkFeature_Description": {
+    "Original": "Answers that were restricted based on your conviction/soul marks will be made available.",
+    "Translated": "使因信念/灵魂印记限制而不可用的回答可供选择。"
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_JealousyBegoneFeature_Name": {
+    "Original": "Jealousy Begone!",
+    "Translated": "嫉妒走开！"
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_JealousyBegoneFeature_Description": {
+    "Original": "Allow multiple romances at the same time",
+    "Translated": "允许同时发展多段恋情"
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_LoveIsFreeFeature_Name": {
+    "Original": "Love Is Free",
+    "Translated": "自由恋爱"
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_LoveIsFreeFeature_Description": {
+    "Original": "Allow any gender for any Romance.",
+    "Translated": "允许任意性别与任意恋爱对象发展关系。"
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_OverrideStoryOccupationFeature_Name": {
+    "Original": "Override Story Occupation",
+    "Translated": "覆盖剧情职业"
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_OverrideStoryOccupationFeature_Description": {
+    "Original": "Make the game recognize you as e.g. having the Sanctioned Psyker instead of whatever you actually picked.",
+    "Translated": "让游戏将你的剧情职业识别为指定选项，例如“受制裁灵能者”，而非实际选择的职业。"
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_OverrideStoryOccupationFeature_m_RemoveLocalizedText": {
+    "Original": "Remove",
+    "Translated": "移除"
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_OverrideStoryOccupationFeature_m_AddLocalizedText": {
+    "Original": "Add",
+    "Translated": "添加"
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_RemoteCompanionDialogFeature_Name": {
+    "Original": "Expand Dialog To Include Remote Companions",
+    "Translated": "扩展对话以包含远程同伴"
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_RemoteCompanionDialogFeature_Description": {
+    "Original": "Allow remote companions to make comments on dialog you are having.",
+    "Translated": "允许未在当前队伍中的同伴对正在进行的对话发表评论。"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_Name": {
+    "Original": "Dice Roll Overrides",
+    "Translated": "掷骰结果覆盖"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_Description": {
+    "Original": "Allows changing the results of various dice rolls across the game.",
+    "Translated": "允许修改游戏中多种掷骰的结果。"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_AdvantageMeansDoingTwoRollsAndTaLocalizedText": {
+    "Original": "Advantage means doing two rolls and taking the better result; which for Initiative and Damage rolls means the higher number and for Skill Checks the lower number.",
+    "Translated": "优势表示掷骰两次并取较优结果：先攻和伤害掷骰取较高值，技能检定取较低值。"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_AllAttacksHitLocalizedText": {
+    "Original": "All Attacks Hit",
+    "Translated": "所有攻击命中"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_AllAttacksCritLocalizedText": {
+    "Original": "All Attacks Crit",
+    "Translated": "所有攻击必定暴击"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_RollWithAdvantageLocalizedText": {
+    "Original": "Roll with Advantage",
+    "Translated": "优势掷骰"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_RollWithDisadvantageLocalizedText": {
+    "Original": "Roll with Disadvantage",
+    "Translated": "劣势掷骰"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_Take100LocalizedText": {
+    "Original": "Take 100",
+    "Translated": "固定取 100"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_Take50LocalizedText": {
+    "Original": "Take 50",
+    "Translated": "固定取 50"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_Take1LocalizedText": {
+    "Original": "Take 1",
+    "Translated": "固定取 1"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_NeverRoll100LocalizedText": {
+    "Original": "Never Roll 100",
+    "Translated": "永远不会掷100"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_NeverRoll1LocalizedText": {
+    "Original": "Never Roll 1",
+    "Translated": "永远不会掷1"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_OutOfCombat_Take50LocalizedText": {
+    "Original": "Out of Combat: Take 50",
+    "Translated": "非战斗：固定取 50"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_OutOfCombat_Take25LocalizedText": {
+    "Original": "Out of Combat: Take 25",
+    "Translated": "非战斗：固定取 25"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_OutOfCombat_Take1LocalizedText": {
+    "Original": "Out of Combat: Take 1",
+    "Translated": "非战斗：固定取 1"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_Initiative__HigherIsBetterLocalizedText": {
+    "Original": "Initiative -> Higher is better",
+    "Translated": "先攻 → 数值越高越好"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_Initiative_AlwaysRoll10LocalizedText": {
+    "Original": "Initiative: Always Roll 10",
+    "Translated": "先攻：永远掷10"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_Initiative_AlwaysRoll5LocalizedText": {
+    "Original": "Initiative: Always Roll 5",
+    "Translated": "先攻：永远掷5"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_Initiative_AlwaysRoll1LocalizedText": {
+    "Original": "Initiative: Always Roll 1",
+    "Translated": "先攻：永远掷1"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_SkillChecks__LowerIsBetterLocalizedText": {
+    "Original": "Skill Checks -> Lower is better",
+    "Translated": "技能检定 → 数值越低越好"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_SkillChecks_Take50LocalizedText": {
+    "Original": "Skill Checks: Take 50",
+    "Translated": "技能检定：掷50"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_SkillChecks_Take25LocalizedText": {
+    "Original": "Skill Checks: Take 25",
+    "Translated": "技能检定：掷25"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_SkillChecks_Take1LocalizedText": {
+    "Original": "Skill Checks: Take 1",
+    "Translated": "技能检定：掷1"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_Damage__HigherIsBetterLocalizedText": {
+    "Original": "Damage -> Higher is better",
+    "Translated": "伤害 → 数值越高越好"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_DamageRolls_Take50LocalizedText": {
+    "Original": "Damage Rolls: Take 50",
+    "Translated": "伤害掷骰：固定取 50"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_DamageRolls_Take25LocalizedText": {
+    "Original": "Damage Rolls: Take 25",
+    "Translated": "伤害掷骰：固定取 25"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_DamageRolls_Take1LocalizedText": {
+    "Original": "Damage Rolls: Take 1",
+    "Translated": "伤害掷骰：固定取 1"
+  },
+  "ToyBox_Features_BagOfTricks_EnemyStatModifier_EnemyFlatStatModifierFeature_Name": {
+    "Original": "Flat Enemy Stat Modifier",
+    "Translated": "敌人属性固定加值"
+  },
+  "ToyBox_Features_BagOfTricks_EnemyStatModifier_EnemyFlatStatModifierFeature_Description": {
+    "Original": "Allows adding flat stat boosts to enemies, e.g. Enemy Health +20.",
+    "Translated": "为敌人属性添加固定加值，例如敌人生命值 +20。"
+  },
+  "ToyBox_Features_BagOfTricks_EnemyStatModifier_EnemyStatMultiplierFeature_Name": {
+    "Original": "Enemy Stat Multiplier",
+    "Translated": "敌人属性倍率"
+  },
+  "ToyBox_Features_BagOfTricks_EnemyStatModifier_EnemyStatMultiplierFeature_Description": {
+    "Original": "Allows adding stat multipliers, e.g. Enemy Health x3.",
+    "Translated": "为敌人属性应用倍率，例如敌人生命值 ×3。"
+  },
+  "ToyBox_Features_BagOfTricks_ExperienceMultipliers_ExperienceMultiplierFeature_Name": {
+    "Original": "Experience Multipliers",
+    "Translated": "经验倍数"
+  },
+  "ToyBox_Features_BagOfTricks_ExperienceMultipliers_ExperienceMultiplierFeature_Description": {
+    "Original": "Provides a general experience multiplier and possible overrides for specific kinds of experience sources.",
+    "Translated": "提供通用经验倍率，并可针对特定经验来源单独覆盖。"
+  },
+  "ToyBox_Features_BagOfTricks_ExperienceMultipliers_ExperienceMultiplierFeature_m_AllExperienceLocalizedText": {
+    "Original": "All Experience",
+    "Translated": "所有经验"
+  },
+  "ToyBox_Features_BagOfTricks_ExperienceMultipliers_ExperienceMultiplierFeature_m_OverrideForCombatLocalizedText": {
+    "Original": "Override for Combat",
+    "Translated": "战斗经验单独设置"
+  },
+  "ToyBox_Features_BagOfTricks_ExperienceMultipliers_ExperienceMultiplierFeature_m_OverrideForQuestsLocalizedText": {
+    "Original": "Override for Quests",
+    "Translated": "任务经验单独设置"
+  },
+  "ToyBox_Features_BagOfTricks_ExperienceMultipliers_ExperienceMultiplierFeature_m_OverrideForSkillChecksLocalizedText": {
+    "Original": "Override for Skill Checks",
+    "Translated": "技能检定经验单独设置"
+  },
+  "ToyBox_Features_BagOfTricks_ExperienceMultipliers_ExperienceMultiplierFeature_m_OverrideForChallengesLocalizedText": {
+    "Original": "Override for Challenges",
+    "Translated": "覆盖挑战"
+  },
+  "ToyBox_Features_BagOfTricks_ExperienceMultipliers_ExperienceMultiplierFeature_m_OverrideForSpaceCombatLocalizedText": {
+    "Original": "Override for Space Combat",
+    "Translated": "覆盖太空战斗"
+  },
+  "ToyBox_Features_BagOfTricks_OtherMultipliers_BuffDurationMultiplierFeature_m_ManageExceptionsToBuffDurationMuLocalizedText": {
+    "Original": "Manage Exceptions to Buff Duration Multiplier",
+    "Translated": "管理状态效果持续时间倍率的例外项"
+  },
+  "ToyBox_Features_BagOfTricks_OtherMultipliers_BuffDurationMultiplierFeature_Name": {
+    "Original": "Buff Duration Multiplier",
+    "Translated": "状态效果持续时间倍率"
+  },
+  "ToyBox_Features_BagOfTricks_OtherMultipliers_BuffDurationMultiplierFeature_Description": {
+    "Original": "Multiplies the duration of buffs assuming they are not excluded and not casted by an enemy.",
+    "Translated": "对未被排除且并非由敌人施放的状态效果应用持续时间倍率。"
+  },
+  "ToyBox_Features_BagOfTricks_OtherMultipliers_BuffDurationMultiplierFeature_m_StopExcludingLocalizedText": {
+    "Original": "Stop Excluding",
+    "Translated": "取消排除"
+  },
+  "ToyBox_Features_BagOfTricks_OtherMultipliers_BuffDurationMultiplierFeature_m_ExcludeLocalizedText": {
+    "Original": "Exclude",
+    "Translated": "排除"
+  },
+  "ToyBox_Features_BagOfTricks_OtherMultipliers_MaxWalkDistanceFeature_Name": {
+    "Original": "Max Walk distance",
+    "Translated": "最大步行距离"
+  },
+  "ToyBox_Features_BagOfTricks_OtherMultipliers_MaxWalkDistanceFeature_Description": {
+    "Original": "Adjusts how far of your character you can click and still cause your character to walk instead of run.",
+    "Translated": "调整点击位置距角色多远时仍会步行而非奔跑。"
+  },
+  "ToyBox_Features_BagOfTricks_OtherMultipliers_MinSprintDistanceFeature_Name": {
+    "Original": "Min Sprint distance",
+    "Translated": "最小冲刺距离"
+  },
+  "ToyBox_Features_BagOfTricks_OtherMultipliers_MinSprintDistanceFeature_Description": {
+    "Original": "Adjusts how far of your character you have to click and still cause your character to spring. If this area overlaps with walk distance then this has priority.",
+    "Translated": "调整点击位置距角色多远时会触发冲刺。若与步行距离范围重叠，则以本设置为准。"
+  },
+  "ToyBox_Features_BagOfTricks_OtherMultipliers_MovementSpeedMultiplierFeature_Name": {
+    "Original": "Movement Speed",
+    "Translated": "移动速度"
+  },
+  "ToyBox_Features_BagOfTricks_OtherMultipliers_MovementSpeedMultiplierFeature_Description": {
+    "Original": "Adjusts the movement speed of your party in area maps.",
+    "Translated": "调整队伍在区域地图中的移动速度。"
+  },
+  "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_RunActionHolderLocalizedText": {
+    "Original": "RunActionHolder",
+    "Translated": "运行操作容器"
+  },
+  "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_ConditionsHolderLocalizedText": {
+    "Original": "Conditions Holder",
+    "Translated": "条件容器"
+  },
+  "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_ShowCheck__0_DC__1__LocalizedText": {
+    "Original": "Show Check ({0} DC: {1})",
+    "Translated": "显示检定（{0}，DC：{1}）"
+  },
+  "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_ShowConditionsLocalizedText": {
+    "Original": "Show Conditions",
+    "Translated": "显示条件"
+  },
+  "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_SelectConditionsLocalizedText": {
+    "Original": "Select Conditions",
+    "Translated": "选择条件"
+  },
+  "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_EmptyActionLocalizedText": {
+    "Original": "Empty Action",
+    "Translated": "空操作"
+  },
+  "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_SoulMarkShift_0_By_1__DescriptioLocalizedText": {
+    "Original": "SoulMarkShift {0} by {1} - Description: {2}",
+    "Translated": "灵魂印记偏移 {0}，数值 {1}——说明：{2}"
+  },
+  "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_SoulMarkRequiredLocalizedText": {
+    "Original": "SoulMarkRequired",
+    "Translated": "灵魂印记要求"
+  },
+  "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_SoulMarkShiftLocalizedText": {
+    "Original": "SoulMarkShift",
+    "Translated": "灵魂印记偏移"
+  },
+  "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_Check__1__DC_2__Hidden_3__LocalizedText": {
+    "Original": "Check({1}, DC {2}, hidden {3})",
+    "Translated": "检定（{1}，DC {2}，隐藏：{3}）"
+  },
+  "ToyBox_Features_BagOfTricks_Preview_PreviewDialogConditionsFeature_Name": {
+    "Original": "Dialog Conditions",
+    "Translated": "对话条件"
+  },
+  "ToyBox_Features_BagOfTricks_Preview_PreviewDialogConditionsFeature_Description": {
+    "Original": "Shows conditions of answers in dialog.",
+    "Translated": "显示对话回答的触发条件。"
+  },
+  "ToyBox_Features_BagOfTricks_Preview_PreviewDialogResultsFeature_Name": {
+    "Original": "Dialog Results",
+    "Translated": "对话结果"
+  },
+  "ToyBox_Features_BagOfTricks_Preview_PreviewDialogResultsFeature_Description": {
+    "Original": "Shows results of cues and answers in dialog.",
+    "Translated": "显示对话节点和回答的结果。"
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_AutoLoadLastSaveOnLaunchFeature_Name": {
+    "Original": "Auto load Last Save on launch",
+    "Translated": "启动时自动加载最新存档"
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_AutoLoadLastSaveOnLaunchFeature_Description": {
+    "Original": "Hold down shift during launch to bypass.",
+    "Translated": "启动时按住 Shift 可跳过。"
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_ClickToTransferEntireStackFeature_Name": {
+    "Original": "Click to Transfer Entire Stack",
+    "Translated": "单击转移整组物品"
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_ClickToTransferEntireStackFeature_Description": {
+    "Original": "Enabling this will let you do KEYBIND + Click an item to shift its entire stack.",
+    "Translated": "启用后，可用“快捷键 + 单击”一次转移整组物品。"
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_DisableEndTurnKeybindFeature_Name": {
+    "Original": "Disable End Turn Hotkey",
+    "Translated": "禁用结束回合快捷键"
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_DisableEndTurnKeybindFeature_Description": {
+    "Original": "Disables the base game end turn hotkey.",
+    "Translated": "禁用游戏原有的结束回合快捷键。"
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_EnableAchievementsFeature_AllowAchievementsWhileUsingModsT": {
+    "Original": "Allow Achievements While Using Mods",
+    "Translated": "使用Mod时允许成就"
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_EnableAchievementsFeature_ThisIsIntendedForYouToBeAbleToEn": {
+    "Original": "This is intended for you to be able to enjoy the game while using mods that enhance your quality of life.",
+    "Translated": "旨在让你在使用便利类 MOD 的同时正常体验游戏。"
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_FixIncorrectMainCharacterFeature_Name": {
+    "Original": "Fix Incorrect Main Character",
+    "Translated": "修正不正确的主角"
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_FixIncorrectMainCharacterFeature_Description": {
+    "Original": "Certain situations might cause the game to incorrectly assume someone else is the main character. This tries to restore the original main character.",
+    "Translated": "某些情况下，游戏可能错误地将其他角色认定为主角；此功能会尝试恢复原始主角。"
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_GameAlternateTimeScaleFeature_Name": {
+    "Original": "Alternate Game Time Scale",
+    "Translated": "备用游戏时间倍率"
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_GameAlternateTimeScaleFeature_Description": {
+    "Original": "Optional alternate time scale which can be swapped to via hotkey.",
+    "Translated": "可通过快捷键切换的备用时间倍率。"
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_GameTimeScaleFeature_Name": {
+    "Original": "Game Time Scale",
+    "Translated": "游戏时间倍率"
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_GameTimeScaleFeature_Description": {
+    "Original": "Speeds up or slows down the entire game (movement, animation, everything)",
+    "Translated": "加速或减速整个游戏（移动、动画、一切）"
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_LoadingWithBlueprintErrorsFeature_Name": {
+    "Original": "Enable Loading with Blueprint Errors",
+    "Translated": "允许在蓝图错误时加载存档"
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_LoadingWithBlueprintErrorsFeature_Description": {
+    "Original": "This feature allows loading saves even with missing blueprint mods, which can be dangerous. This can potentially allow you to recover a save, though you'll have to respec at minimum.",
+    "Translated": "即使缺少蓝图 MOD 也允许加载存档，存在风险。此功能可能帮助恢复存档，但至少需要重新训练角色。"
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_ObjectHighlightToggleFeature_Name": {
+    "Original": "Object Highlight Toggle Mode",
+    "Translated": "物体高亮切换模式"
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_ObjectHighlightToggleFeature_Description": {
+    "Original": "Turns the object highlight key into a toggle (press to switch) outside of combat.",
+    "Translated": "将战斗外的物体高亮键改为切换模式（按一次开启或关闭）。"
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_RefillBeltConsumablesFeature_Name": {
+    "Original": "Refill Belt Consumables",
+    "Translated": "自动补充腰带消耗品"
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_RefillBeltConsumablesFeature_Description": {
+    "Original": "Automatically refill consumables in belt slots if there are some in your inventory.",
+    "Translated": "物品栏中有同类物品时，自动补充腰带栏位中的消耗品。"
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_SkipSplashScreenFeature_Name": {
+    "Original": "Skip Splash Screen",
+    "Translated": "跳过启动画面"
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_SkipSplashScreenFeature_Description": {
+    "Original": "This skips the splash screen that appears when the game starts. Helpful if you need to frequently restart the game.",
+    "Translated": "跳过游戏启动时显示的启动画面，适合需要频繁重启游戏时使用。"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_m_CustomizeLocalizedText": {
+    "Original": "Open Customize UI",
+    "Translated": "打开自定义界面"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_m_PsychicPhenomenaLocalizedText": {
+    "Original": "Psychic Phenomena",
+    "Translated": "灵能现象"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_m_MinorPerilsLocalizedText": {
+    "Original": "Minor Perils",
+    "Translated": "轻微亚空间危害"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_m_MajorPerilsLocalizedText": {
+    "Original": "Major Perils",
+    "Translated": "严重亚空间危害"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_Name": {
+    "Original": "Customize Psychic Phenomena / Perils of the Warp",
+    "Translated": "自定义灵能现象/亚空间危害"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_Description": {
+    "Original": "Allows disabling specific psychic phenomenas or perils of the warp.",
+    "Translated": "允许禁用特定灵能现象或亚空间危害。"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_m_RefreshAvailablePhenomenas_PerilLocalizedText": {
+    "Original": "Refresh Available Phenomenas/Perils (for mod compat)",
+    "Translated": "刷新可用灵能现象/危害（用于 MOD 兼容）"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_m_StopExcludingLocalizedText": {
+    "Original": "Stop Excluding",
+    "Translated": "取消排除"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_m_ExcludeLocalizedText": {
+    "Original": "Exclude",
+    "Translated": "排除"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_DisableRandomWarpEncounterFeature_Name": {
+    "Original": "Disable Random Encounters in Warp",
+    "Translated": "禁用亚空间随机遭遇"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_DisableRandomWarpEncounterFeature_Description": {
+    "Original": "Prevents random encounters in warp. Note that this also disables positive and flavor events!",
+    "Translated": "阻止亚空间中的随机遭遇。注意：这也会禁用正面事件和氛围事件！"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyFactionReputationFeature_Name": {
+    "Original": "Modify Faction Reputation",
+    "Translated": "修改阵营声望"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyFactionReputationFeature_Description": {
+    "Original": "Allows you to modify the reputation at the various in-game factions.",
+    "Translated": "允许修改游戏中各阵营的声望。"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyFactionReputationFeature_m_CurrentReputationLocalizedText": {
+    "Original": "Current Reputation",
+    "Translated": "当前声望"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyFactionReputationFeature_m_LevelLocalizedText": {
+    "Original": "Level",
+    "Translated": "等级"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyFactionReputationFeature_m_ExperienceLocalizedText": {
+    "Original": "Experience",
+    "Translated": "经验"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyFactionReputationFeature_m_AdjustReputationByTheFollowingAmLocalizedText": {
+    "Original": "Adjust Reputation by the following amount",
+    "Translated": "按以下数值调整声望"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyFactionReputationFeature_m_AddLocalizedText": {
+    "Original": "Add",
+    "Translated": "添加"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyFactionReputationFeature_m_RemoveLocalizedText": {
+    "Original": "Remove",
+    "Translated": "移除"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_Name": {
+    "Original": "Modify RT Resources",
+    "Translated": "修改行商浪人资源"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_Description": {
+    "Original": "Allows modifying Scrap, Profit Factor, Navigators Insight and possibly current Veil Thickness.",
+    "Translated": "允许修改废料、利润因素、导航员洞察力，以及可能的当前帷幕厚度。"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_CurrentNavigatorInsightLocalizedText": {
+    "Original": "Current Navigator Insight",
+    "Translated": "当前导航员洞察点"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_AdjustNavigatorInsightByTheFolloLocalizedText": {
+    "Original": "Adjust Navigator Insight by the following amount",
+    "Translated": "按以下数值调整导航员洞察力"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_AddLocalizedText": {
+    "Original": "Add",
+    "Translated": "添加"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_RemoveLocalizedText": {
+    "Original": "Remove",
+    "Translated": "移除"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_CurrentScrapLocalizedText": {
+    "Original": "Current Scrap",
+    "Translated": "当前废料"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_AdjustScrapByTheFollowingAmountLocalizedText": {
+    "Original": "Adjust Scrap by the following amount",
+    "Translated": "按以下数值调整废料"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_CurrentProfitFactorLocalizedText": {
+    "Original": "Current Profit Factor",
+    "Translated": "当前利润系数"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_AdjustProfitFactorByTheFollowingLocalizedText": {
+    "Original": "Adjust Profit Factor by the following amount",
+    "Translated": "按以下数值调整利润因素"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_CurrentVeilThicknessLocalizedText": {
+    "Original": "Current Veil Thickness",
+    "Translated": "当前帷幕厚度"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_SetVeilThicknessToTheFollowingAmLocalizedText": {
+    "Original": "Set Veil Thickness to the following amount",
+    "Translated": "将帷幕厚度设为以下数值"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_SetLocalizedText": {
+    "Original": "Set",
+    "Translated": "设置"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_PreventPsychicPhenomenaFeature_Name": {
+    "Original": "Prevent Psychic Phenomena",
+    "Translated": "防止灵能现象"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_PreventPsychicPhenomenaFeature_Description": {
+    "Original": "Prevents Psyker Abilities from causing any kind of psychic phenomena. This includes e.g. the Dark Prayer ability and Chaos Sword.",
+    "Translated": "防止灵能者能力引发任何灵能现象，包括“黑暗祈祷”能力和“混沌之剑”等。"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_PreventVeilThicknessFromChangingFeature_Name": {
+    "Original": "Prevent Veil Thickness from Changing",
+    "Translated": "防止帷幕厚度变化"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_PreventVeilThicknessFromChangingFeature_Description": {
+    "Original": "Forces the current veil thickness to 0.",
+    "Translated": "强制将当前帷幕厚度设为 0。"
+  },
+  "ToyBox_Features_BagOfTricks_Teleport_TeleportMainToCursorFeature_Name": {
+    "Original": "Teleport Main Character To Cursor",
+    "Translated": "将主角传送到光标位置"
+  },
+  "ToyBox_Features_BagOfTricks_Teleport_TeleportMainToCursorFeature_Description": {
+    "Original": "Teleports your main character unit to the position your mouse points at.",
+    "Translated": "将主角单位传送到鼠标指向的位置。"
+  },
+  "ToyBox_Features_BagOfTricks_Teleport_TeleportPartyToCursorFeature_Name": {
+    "Original": "Teleport Party Characters To Cursor",
+    "Translated": "将队伍传送到光标位置"
+  },
+  "ToyBox_Features_BagOfTricks_Teleport_TeleportPartyToCursorFeature_Description": {
+    "Original": "Teleports all party units and pets to the position your mouse points at.",
+    "Translated": "将所有队伍单位和宠物传送到鼠标指向的位置。"
+  },
+  "ToyBox_Features_BagOfTricks_Teleport_TeleportPartyToYouFeature_Name": {
+    "Original": "Teleport Party To You",
+    "Translated": "将队伍传送到你身边"
+  },
+  "ToyBox_Features_BagOfTricks_Teleport_TeleportPartyToYouFeature_Description": {
+    "Original": "Teleports your party members and pets to the main character unit.",
+    "Translated": "将队伍成员和宠物传送到主角单位身边。"
+  },
+  "ToyBox_Features_BagOfTricks_Teleport_TeleportSelectedToCursorFeature_Name": {
+    "Original": "Teleport Selected Characters To Cursor",
+    "Translated": "将所选角色传送到光标位置"
+  },
+  "ToyBox_Features_BagOfTricks_Teleport_TeleportSelectedToCursorFeature_Description": {
+    "Original": "Teleports the selected units to the position your mouse points at.",
+    "Translated": "将所选单位传送到鼠标指向的位置。"
+  },
+  "ToyBox_Features_Colonies_ColoniesFeatureTab_Name": {
+    "Original": "Colonies",
+    "Translated": "殖民地"
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_Name": {
+    "Original": "Colony Editor",
+    "Translated": "殖民地编辑器"
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_Description": {
+    "Original": "View and edit your colonies: their stats, traits, ongoing events and projects, and the shared resource pool.",
+    "Translated": "查看并编辑殖民地的属性、特性、进行中的事件与项目，以及共享资源池。"
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_NoColoniesText": {
+    "Original": "You have not founded any colonies yet.",
+    "Translated": "你尚未建立任何殖民地。"
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_ColoniesText": {
+    "Original": "Colonies",
+    "Translated": "殖民地"
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_OngoingEventsText": {
+    "Original": "Ongoing Events",
+    "Translated": "进行中的事件"
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_OngoingProjectsText": {
+    "Original": "Ongoing Projects",
+    "Translated": "进行中的项目"
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_FinishText": {
+    "Original": "Finish",
+    "Translated": "完成"
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_ContentmentText": {
+    "Original": "Contentment",
+    "Translated": "满意度"
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_EfficiencyText": {
+    "Original": "Efficiency",
+    "Translated": "效率"
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_SecurityText": {
+    "Original": "Security",
+    "Translated": "安保"
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_ChangeStatText": {
+    "Original": "Change Colony Stat",
+    "Translated": "修改殖民地属性"
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_AdjustByText": {
+    "Original": "Adjust the selected stat by this amount",
+    "Translated": "按此数值调整所选属性"
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_AddText": {
+    "Original": "Add",
+    "Translated": "添加"
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_RemoveText": {
+    "Original": "Remove",
+    "Translated": "移除"
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_TraitsText": {
+    "Original": "Colony Traits",
+    "Translated": "殖民地特性"
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_ShowGuidsText": {
+    "Original": "Show GUIDs",
+    "Translated": "显示 GUID"
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_InspectText": {
+    "Original": "Inspect",
+    "Translated": "检查"
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_EditResourcesText": {
+    "Original": "Edit Resources",
+    "Translated": "编辑资源"
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_ResourceAdjustText": {
+    "Original": "Adjust resource amount by",
+    "Translated": "资源数量调整值"
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_CurrentAmountText": {
+    "Original": "Current",
+    "Translated": "当前"
+  },
+  "ToyBox_Features_DialogAndNpc_DialogAndNpcFeatureTab_Name": {
+    "Original": "Dialog & NPCs",
+    "Translated": "对话与NPC"
+  },
+  "ToyBox_Features_DialogAndNpc_DialogEditorFeature_Name": {
+    "Original": "Dialog Editor",
+    "Translated": "对话编辑器"
+  },
+  "ToyBox_Features_DialogAndNpc_DialogEditorFeature_Description": {
+    "Original": "Shows the structure of the currently active dialog (cues, answers, conditions and results).",
+    "Translated": "显示当前对话的结构（对话节点、回答、条件和结果）。"
+  },
+  "ToyBox_Features_DialogAndNpc_DialogEditorFeature_m_NoActiveDialogText": {
+    "Original": "No Active Dialog",
+    "Translated": "无活动对话"
+  },
+  "ToyBox_Features_DialogAndNpc_DialogEditorFeature_m_CurrentText": {
+    "Original": "Current",
+    "Translated": "当前"
+  },
+  "ToyBox_Features_DialogAndNpc_DialogEditorFeature_m_AnswerText": {
+    "Original": "Answer",
+    "Translated": "回答"
+  },
+  "ToyBox_Features_DialogAndNpc_DialogEditorFeature_m_SelectionText": {
+    "Original": "Selection",
+    "Translated": "选中项"
+  },
+  "ToyBox_Features_DialogAndNpc_DialogEditorFeature_m_CueText": {
+    "Original": "Cue",
+    "Translated": "对话节点（Cue）"
+  },
+  "ToyBox_Features_DialogAndNpc_DialogEditorFeature_m_NextText": {
+    "Original": "Next",
+    "Translated": "下一项"
+  },
+  "ToyBox_Features_DialogAndNpc_DialogEditorFeature_m_CondText": {
+    "Original": "Cond",
+    "Translated": "条件"
+  },
+  "ToyBox_Features_DialogAndNpc_DialogEditorFeature_m_RepeatText": {
+    "Original": "[Repeat]",
+    "Translated": "[重复]"
+  },
+  "ToyBox_Features_DialogAndNpc_InspectDialogControllerFeature_Name": {
+    "Original": "Inspect Dialog Controller",
+    "Translated": "检查对话控制器"
+  },
+  "ToyBox_Features_DialogAndNpc_InspectDialogControllerFeature_Description": {
+    "Original": "Allows inspecting the current Dialog Controller to e.g. debug issues.",
+    "Translated": "可检查当前对话控制器，例如用于调试问题。"
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_Name": {
+    "Original": "Interesting NPCs in the local area",
+    "Translated": "当前区域的重要 NPC"
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_Description": {
+    "Original": "Shows a list of NPCs that may have quest objectives or other interesting interactions. (Warning: Spoilers)",
+    "Translated": "显示可能涉及任务目标或其他重要互动的 NPC 列表。（警告：含剧透）"
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_ShowInactiveConditionsText": {
+    "Original": "Show Inactive Conditions",
+    "Translated": "显示未激活条件"
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_ShowOtherVersionsText": {
+    "Original": "Show other versions of NPCs",
+    "Translated": "显示 NPC 的其他版本"
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_RefreshText": {
+    "Original": "Refresh",
+    "Translated": "刷新"
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_InterestingnessCoefficientText": {
+    "Original": "Interestingness Coefficient",
+    "Translated": "重要度系数"
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_UnitText": {
+    "Original": "Unit",
+    "Translated": "单位"
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_DialogText": {
+    "Original": "Dialog",
+    "Translated": "对话"
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_ConditionsText": {
+    "Original": "Conditions",
+    "Translated": "条件"
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_ElementsText": {
+    "Original": "Elements",
+    "Translated": "元素"
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_ConditionalText": {
+    "Original": "Conditional",
+    "Translated": "条件性"
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_QuestStatusText": {
+    "Original": "Quest Status",
+    "Translated": "任务状态"
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_ObjectiveStatusText": {
+    "Original": "Objective Status",
+    "Translated": "目标状态"
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_EtudeStatusText": {
+    "Original": "Etude Status",
+    "Translated": "剧情状态（Etude）"
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_StatusText": {
+    "Original": "Status",
+    "Translated": "状态"
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_ConditionText": {
+    "Original": "Condition",
+    "Translated": "条件"
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_SourceText": {
+    "Original": "Source",
+    "Translated": "来源"
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_CaptionText": {
+    "Original": "Caption",
+    "Translated": "标题"
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_TrueText": {
+    "Original": "True",
+    "Translated": "真"
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_FalseText": {
+    "Original": "False",
+    "Translated": "假"
+  },
+  "ToyBox_Features_Etudes_EtudesFeatureTab_Name": {
+    "Original": "Etudes",
+    "Translated": "剧情状态（Etudes）"
+  },
+  "ToyBox_Features_Etudes_LegacyEtudesEditorFeature_Name": {
+    "Original": "Etudes Editor",
+    "Translated": "剧情状态编辑器（Etudes）"
+  },
+  "ToyBox_Features_Etudes_LegacyEtudesEditorFeature_Description": {
+    "Original": "Allows inspecting the games Etudes/Flags/Elements in a tree view.",
+    "Translated": "可通过树状视图检查游戏中的剧情状态（Etudes）、标志和元素。"
+  },
+  "ToyBox_Features_Etudes_LegacyEtudesEditorFeature_m_ThisFeatureIsAtTheMomentMostlyCoLocalizedText": {
+    "Original": "This feature is at the moment mostly copied from previous ToyBox, so there might be issues. It also does not yet support localization. The UI will get a complete rewrite eventually.",
+    "Translated": "此功能目前大多沿用旧版 ToyBox 的实现，因此可能存在问题。它尚不支持本地化，界面以后将彻底重写。"
+  },
+  "ToyBox_Features_Etudes_EtudeRecord_m_ChainedEtude_0___1__HasDifferentLocalizedText": {
+    "Original": "Chained etude {0} ({1}) has different parent: {2} than {3} parent: {4}",
+    "Translated": "链式剧情状态 {0}（{1}）的父项为 {2}，与 {3} 的父项 {4} 不同。"
+  },
+  "ToyBox_Features_Etudes_EtudeRecord_m_LinkedToChild_0___1__WithDiffereLocalizedText": {
+    "Original": "Linked to child {0} ({1}) with different parent: {2} than {3} parent {4}",
+    "Translated": "已链接至子项 {0}（{1}），但其父项为 {2}，与 {3} 的父项 {4} 不同。"
+  },
+  "ToyBox_Features_Etudes_EtudeRecord_m_NoneLocalizedText": {
+    "Original": "None",
+    "Translated": "无"
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_Name": {
+    "Original": "Etudes Editor",
+    "Translated": "剧情状态编辑器（Etudes）"
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_Description": {
+    "Original": "Browse the game's Etudes in a tree view, with state and relationship details.",
+    "Translated": "以树状视图浏览游戏中的剧情状态（Etudes），并查看其状态和关联关系。"
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_LoadingText": {
+    "Original": "Loading Etudes...",
+    "Translated": "正在加载剧情状态（Etudes）……"
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_RootText": {
+    "Original": "Root",
+    "Translated": "根节点"
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_RootNotFoundText": {
+    "Original": "Root etude not found in current snapshot:",
+    "Translated": "当前快照中未找到根剧情状态："
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_SearchTextLabel": {
+    "Original": "Search",
+    "Translated": "搜索"
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_FlagsOnlyText": {
+    "Original": "Flags Only",
+    "Translated": "仅显示标志"
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_ShowGuidsText": {
+    "Original": "Show GUIDs",
+    "Translated": "显示 GUID"
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_ShowCommentsText": {
+    "Original": "Show Comments",
+    "Translated": "显示注释"
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_RefreshText": {
+    "Original": "Refresh",
+    "Translated": "刷新"
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_AreaFilterText": {
+    "Original": "Area Filter",
+    "Translated": "区域筛选"
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_NoEtudesText": {
+    "Original": "No Etudes",
+    "Translated": "无剧情状态（Etudes）"
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_CompletesParentText": {
+    "Original": "Completes Parent",
+    "Translated": "完成父项"
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_InspectText": {
+    "Original": "Inspect",
+    "Translated": "检查"
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_ElementsText": {
+    "Original": "Elements",
+    "Translated": "元素"
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_ConflictsText": {
+    "Original": "Conflicts",
+    "Translated": "冲突"
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_m_EncounteredErrorWhileBuildingEtuLocalizedText": {
+    "Original": "Encountered error while building Etudes Tree!",
+    "Translated": "构建剧情状态树时遇到错误！"
+  },
+  "ToyBox_Features_Etudes_EtudesEditorFeature_m_AllLocalizedText": {
+    "Original": "All",
+    "Translated": "所有"
+  },
+  "ToyBox_Features_FeatureSearch_FeatureSearchFeature_FeatureSearchNotImplementedForTh": {
+    "Original": "Feature search not implemented for this feature!",
+    "Translated": "此功能尚未实现功能搜索！"
+  },
+  "ToyBox_Features_FeatureSearch_FeatureSearchFeature_ShowGUIText": {
+    "Original": "Show GUI",
+    "Translated": "显示界面"
+  },
+  "ToyBox_Features_FeatureSearch_FeatureSearchFeature_Name": {
+    "Original": "Default Name",
+    "Translated": "默认名称"
+  },
+  "ToyBox_Features_FeatureSearch_FeatureSearchFeature_Description": {
+    "Original": "Default Description",
+    "Translated": "默认说明"
+  },
+  "ToyBox_Features_FeatureSearch_FeatureSearchFeature_m_FilterForUntestedFeaturesLocalizedText": {
+    "Original": "Filter for untested features",
+    "Translated": "筛选未经测试的功能"
+  },
+  "ToyBox_Features_FeatureSearch_FeatureSearchTab_Name": {
+    "Original": "Feature Search",
+    "Translated": "功能搜索"
+  },
+  "ToyBox_Features_LevelUp_IgnoreArchetypePrerequisitesFeature_Name": {
+    "Original": "Ignore Archetypes Prerequisites",
+    "Translated": "忽略原型前置条件"
+  },
+  "ToyBox_Features_LevelUp_IgnoreArchetypePrerequisitesFeature_Description": {
+    "Original": "Slightly Buggy UI. This allows picking any one career per stage regardless of prerequisites. Warning: Picking e.g. Exemplar as second archetype will cause issues because you won't have a second archetype ability to upgrade.",
+    "Translated": "界面可能有轻微异常。允许在每个阶段无视前置条件选择任意一个职业。警告：例如将“典范”选为第二原型会导致问题，因为你没有可升级的第二原型能力。"
+  },
+  "ToyBox_Features_LevelUp_IgnoreClassLevelsPrerequisitesFeature_Name": {
+    "Original": "Ignore Class Level Prerequisites",
+    "Translated": "忽略职业等级前置条件"
+  },
+  "ToyBox_Features_LevelUp_IgnoreClassLevelsPrerequisitesFeature_Description": {
+    "Original": "Automatically succeeds level-dependent prerequisite checks, both those asking for a minimum level and those asking for a feature maximum level.",
+    "Translated": "自动通过与等级有关的前置条件检查，包括最低等级要求和特性最高等级要求。"
+  },
+  "ToyBox_Features_LevelUp_IgnoreStatPrerequisitesFeature_Name": {
+    "Original": "Ignore Stat Prerequisites",
+    "Translated": "忽略属性前置条件"
+  },
+  "ToyBox_Features_LevelUp_IgnoreStatPrerequisitesFeature_Description": {
+    "Original": "Automatically succeeds stat-dependent prerequisite checks, both those asking for a minimum value and those asking for a feature maximum value.",
+    "Translated": "自动通过与属性有关的前置条件检查，包括最低数值要求和特性最高数值要求。"
+  },
+  "ToyBox_Features_LevelUp_IgnoreTalentPrerequisitesFeature_Name": {
+    "Original": "Ignore Talent Prerequisites",
+    "Translated": "忽略天赋先决条件"
+  },
+  "ToyBox_Features_LevelUp_IgnoreTalentPrerequisitesFeature_Description": {
+    "Original": "Automatically succeeds fact-dependent prerequisite checks, both those asking for a feature to be present and those asking for a feature to not be present.",
+    "Translated": "自动通过与事实（Fact）有关的前置条件检查，包括要求拥有某项特性或不得拥有某项特性。"
+  },
+  "ToyBox_Features_LevelUp_LevelUpFeatureTab_Name": {
+    "Original": "Level Up",
+    "Translated": "升级"
+  },
+  "ToyBox_Features_LevelUp_RespecFromLevelXFeature_Name": {
+    "Original": "Respec From Level X",
+    "Translated": "从指定等级重新训练"
+  },
+  "ToyBox_Features_LevelUp_RespecFromLevelXFeature_Description": {
+    "Original": "Allows changing the base respec level for units (including companions). Setting this to level 35 allows repicking the third archetype. Level 15 allows changing both the second and third arche type. Level 0 allows changing all three archetypes.",
+    "Translated": "可修改单位（包括同伴）的基础重新训练等级。设为 35 级可重选第三原型；设为 15 级可重选第二、第三原型；设为 0 级可重选全部三个原型。"
+  },
+  "ToyBox_Features_LevelUp_RespecFromLevelXFeature_m_TryToKeepThisFeatureActivatedAftLocalizedText": {
+    "Original": "Try to keep this feature activated after using it (Click for Explanation)",
+    "Translated": "使用后尽量保持此功能启用（单击查看说明）"
+  },
+  "ToyBox_Features_LevelUp_RespecFromLevelXFeature_m_IfAUnitIsRespeccedWhileThisFeatuLocalizedText": {
+    "Original": "If a unit is respecced while this feature is enabled and the feature (or ToyBox) is later disabled, minor level-up UI glitches may occur. During level-up the game uses a base (original) copy of the unit. ToyBox must respec that copy when it's created (which only happens while the feature is active). If this is not done, there can be slight issues like the game thinking you have a feature despite not having it (because the base/original unit was supposed to have that feature, making the new copy having it too). This is not a hard dependency as any issues can be fixed by respeccing the unit after disabling this feature/ToyBox.",
+    "Translated": "如果在此功能启用时重新训练单位，随后又关闭该功能或 ToyBox，升级界面可能出现轻微异常。升级时，游戏会使用该单位的基础（原始）副本；ToyBox 必须在该副本创建时对其重新训练，而这只会在功能启用时发生。若未完成，可能出现游戏误认为你拥有某项特性等问题（因为基础/原始单位本应拥有该特性，新副本也会继承）。这并非硬性依赖；关闭此功能或 ToyBox 后，再次重新训练单位即可修复。"
+  },
+  "ToyBox_Features_LevelUp_RespecFromLevelXFeature_m_NoneLocalizedText": {
+    "Original": "None",
+    "Translated": "无"
+  },
+  "ToyBox_Features_LevelUp_RespecFromLevelXFeature_m_CurrentRespecLevelOverrideLocalizedText": {
+    "Original": "Current Respec Level Override",
+    "Translated": "当前重新训练等级覆盖"
+  },
+  "ToyBox_Features_LevelUp_RespecFromLevelXFeature_m_RespecFromLevel0LocalizedText": {
+    "Original": "Respec from Level 0",
+    "Translated": "从 0 级重新训练"
+  },
+  "ToyBox_Features_LevelUp_RespecFromLevelXFeature_m_RespecFromLevel15LocalizedText": {
+    "Original": "Respec from Level 15",
+    "Translated": "从 15 级重新训练"
+  },
+  "ToyBox_Features_LevelUp_RespecFromLevelXFeature_m_RespecFromLevel35LocalizedText": {
+    "Original": "Respec from Level 35",
+    "Translated": "从 35 级重新训练"
+  },
+  "ToyBox_Features_LevelUp_RespecFromLevelXFeature_m_RespecFromCustomLevelLocalizedText": {
+    "Original": "Respec from Custom Level",
+    "Translated": "从自定义等级重新训练"
+  },
+  "ToyBox_Features_LevelUp_RespecFromLevelXFeature_m_ApplyCustomLevelLocalizedText": {
+    "Original": "Apply Custom Level",
+    "Translated": "应用自定义等级"
+  },
+  "ToyBox_Features_Loot_LootAoEFeature_Name": {
+    "Original": "AoE Loot",
+    "Translated": "范围拾取"
+  },
+  "ToyBox_Features_Loot_LootAoEFeature_Description": {
+    "Original": "Opens a loot window containing all the loot within a configurable range (default 15m).",
+    "Translated": "打开拾取窗口，显示可配置范围内（默认 15 米）的全部战利品。"
+  },
+  "ToyBox_Features_Loot_LootAoERangeFeature_Name": {
+    "Original": "AoE Loot Range",
+    "Translated": "范围拾取距离"
+  },
+  "ToyBox_Features_Loot_LootAoERangeFeature_Description": {
+    "Original": "Modifies the range (in m) in which the AoE Loot collects the loot.",
+    "Translated": "调整范围拾取收集战利品的距离（米）。"
+  },
+  "ToyBox_Features_Loot_LootChecklistFeature_Name": {
+    "Original": "Loot Checklist",
+    "Translated": "战利品清单"
+  },
+  "ToyBox_Features_Loot_LootChecklistFeature_Description": {
+    "Original": "Displays a list of all the loot left on the map.",
+    "Translated": "显示地图上所有尚未拾取的战利品列表。"
+  },
+  "ToyBox_Features_Loot_LootChecklistFeature_m_SearchLocalizedText": {
+    "Original": "Search",
+    "Translated": "搜索"
+  },
+  "ToyBox_Features_Loot_LootChecklistFeature_m_ContainersLocalizedText": {
+    "Original": "Containers",
+    "Translated": "容器"
+  },
+  "ToyBox_Features_Loot_LootChecklistFeature_m_UnitsLocalizedText": {
+    "Original": "Units",
+    "Translated": "单位"
+  },
+  "ToyBox_Features_Loot_LootChecklistFeature_m_SourceIsUnknownLocalizedText": {
+    "Original": "Unknown",
+    "Translated": "未知"
+  },
+  "ToyBox_Features_Loot_LootChecklistFeature_m_SourceIsGroundLocalizedText": {
+    "Original": "Ground",
+    "Translated": "地面"
+  },
+  "ToyBox_Features_Loot_LootChecklistFeature_m_NoLootAvailable_LocalizedText": {
+    "Original": "No Loot Available.",
+    "Translated": "没有可用战利品。"
+  },
+  "ToyBox_Features_Loot_LootChecklistFeature_m_NotInAnyArea_LocalizedText": {
+    "Original": "Not in any area!",
+    "Translated": "当前不在任何区域！"
+  },
+  "ToyBox_Features_Loot_LootChecklistShowHiddenLootSetting_Name": {
+    "Original": "Show Hidden Loot in Checklist",
+    "Translated": "在清单中显示隐藏战利品"
+  },
+  "ToyBox_Features_Loot_LootChecklistShowHiddenLootSetting_Description": {
+    "Original": "Also includes containers that are still hidden in the list.",
+    "Translated": "清单中同时包含仍处于隐藏状态的容器。"
+  },
+  "ToyBox_Features_Loot_LootFeatureTab_Name": {
+    "Original": "Loot",
+    "Translated": "战利品"
+  },
+  "ToyBox_Features_Loot_LootFeatureTab_m_LootLocalizedText": {
+    "Original": "Loot",
+    "Translated": "战利品"
+  },
+  "ToyBox_Features_Loot_LootFeatureTab_m_ChecklistLocalizedText": {
+    "Original": "Checklist",
+    "Translated": "清单"
+  },
+  "ToyBox_Features_Loot_MassLootShowHiddenItemsSetting_Name": {
+    "Original": "Show Hidden Items",
+    "Translated": "显示隐藏物品"
+  },
+  "ToyBox_Features_Loot_MassLootShowHiddenItemsSetting_Description": {
+    "Original": "Shows items that are hidden or were not viewed. This might include quest items that the game might not intend for you to loot yet.",
+    "Translated": "显示隐藏或尚未查看的物品，其中可能包括游戏暂不希望玩家取得的任务物品。"
+  },
+  "ToyBox_Features_Loot_MassLootShowLivingNPCItemsSetting_Name": {
+    "Original": "Steal from living NPCs",
+    "Translated": "窃取存活 NPC 的物品"
+  },
+  "ToyBox_Features_Loot_MassLootShowLivingNPCItemsSetting_Description": {
+    "Original": "Includes items from living NPCs. This might include items you are not supposed to get.",
+    "Translated": "包含存活 NPC 身上的物品，其中可能有本不应取得的物品。"
+  },
+  "ToyBox_Features_Loot_OpenMassLootAction_Name": {
+    "Original": "Open Mass Loot Window",
+    "Translated": "打开战利品窗口"
+  },
+  "ToyBox_Features_Loot_OpenMassLootAction_Description": {
+    "Original": "Lets you open up the area's mass loot screen to grab goodies whenever you want. Normally shown only when you exit the area. Only opens if there is actually any loot available.",
+    "Translated": "可随时打开当前区域的批量拾取界面获取物品。该界面通常只在离开区域时显示；仅在确有战利品时打开。"
+  },
+  "ToyBox_Features_PartyTab_Actions_AddUnitToPartyAction_Name": {
+    "Original": "Add Unit to Party",
+    "Translated": "将单位加入队伍"
+  },
+  "ToyBox_Features_PartyTab_Actions_AddUnitToPartyAction_Description": {
+    "Original": "Adds the specified unit or pet to the current party and teleports it to you if necessary.",
+    "Translated": "将指定单位或宠物加入当前队伍，并在必要时传送到你身边。"
+  },
+  "ToyBox_Features_PartyTab_Actions_AddUnitToPartyAction_m_UnitIsAlreadyPartOfPartyLocalizedText": {
+    "Original": "Unit is already part of the active party or not recruited",
+    "Translated": "单位已在当前队伍中，或尚未招募"
+  },
+  "ToyBox_Features_PartyTab_Actions_AddUnitToPartyAction_m_AddLocalizedText": {
+    "Original": "Add",
+    "Translated": "添加"
+  },
+  "ToyBox_Features_PartyTab_Actions_KillUnitAction_Name": {
+    "Original": "Kill Unit",
+    "Translated": "杀死单位"
+  },
+  "ToyBox_Features_PartyTab_Actions_KillUnitAction_Description": {
+    "Original": "Kills the specified unit by marking it for death.",
+    "Translated": "将指定单位标记为死亡。"
+  },
+  "ToyBox_Features_PartyTab_Actions_KillUnitAction_m_WhatHappenedHereLocalizedText": {
+    "Original": "Something went wrong. You should not be able to see this.",
+    "Translated": "出现错误。正常情况下不应看到此信息。"
+  },
+  "ToyBox_Features_PartyTab_Actions_KillUnitAction_m_KillLocalizedText": {
+    "Original": "Kill",
+    "Translated": "杀死"
+  },
+  "ToyBox_Features_PartyTab_Actions_RecruitUnitAction_Name": {
+    "Original": "Recruit Unit",
+    "Translated": "招募单位"
+  },
+  "ToyBox_Features_PartyTab_Actions_RecruitUnitAction_Description": {
+    "Original": "Recruits the specified unit and teleports it to you if possible.",
+    "Translated": "招募指定单位，并在可能时将其传送到你身边。"
+  },
+  "ToyBox_Features_PartyTab_Actions_RecruitUnitAction_m_UnitIsAlreadyRecruitedLocalizedText": {
+    "Original": "Unit is already recruited",
+    "Translated": "单位已被招募"
+  },
+  "ToyBox_Features_PartyTab_Actions_RecruitUnitAction_m_RecruitLocalizedText": {
+    "Original": "Recruit",
+    "Translated": "招募"
+  },
+  "ToyBox_Features_PartyTab_Actions_RemoveUnitFromPartyAction_Name": {
+    "Original": "Remove Unit from Party",
+    "Translated": "将单位移出队伍"
+  },
+  "ToyBox_Features_PartyTab_Actions_RemoveUnitFromPartyAction_Description": {
+    "Original": "Removes the specified unit or pet from the current party.",
+    "Translated": "将指定单位或宠物移出当前队伍。"
+  },
+  "ToyBox_Features_PartyTab_Actions_RemoveUnitFromPartyAction_m_UnitIsNotPartOfPartyLocalizedText": {
+    "Original": "Unit is not part of the active Party",
+    "Translated": "单位不在当前队伍中"
+  },
+  "ToyBox_Features_PartyTab_Actions_RemoveUnitFromPartyAction_m_RemoveLocalizedText": {
+    "Original": "Remove",
+    "Translated": "移除"
+  },
+  "ToyBox_Features_PartyTab_Actions_RespecUnitAction_Name": {
+    "Original": "Respec Unit",
+    "Translated": "重新训练单位"
+  },
+  "ToyBox_Features_PartyTab_Actions_RespecUnitAction_Description": {
+    "Original": "Respecs the specified unit and closes the mod UI.",
+    "Translated": "重新训练指定单位，并关闭 MOD 界面。"
+  },
+  "ToyBox_Features_PartyTab_Actions_RespecUnitAction_m_Can_tRespecUnitLocalizedText": {
+    "Original": "Can't respec unit. This is either because unit is dead, a pet or below it's original level limit (e.g. the recruit level for companions).",
+    "Translated": "无法重新训练单位。原因可能是单位已死亡、属于宠物，或等级低于其原始等级下限（例如同伴的招募等级）。"
+  },
+  "ToyBox_Features_PartyTab_Actions_RespecUnitAction_m_RespecLocalizedText": {
+    "Original": "Respec",
+    "Translated": "重新训练"
+  },
+  "ToyBox_Features_PartyTab_Actions_UnrecruitUnitAction_Name": {
+    "Original": "Unrecruit Unit",
+    "Translated": "取消招募单位"
+  },
+  "ToyBox_Features_PartyTab_Actions_UnrecruitUnitAction_Description": {
+    "Original": "Unrecruits the specified companion.",
+    "Translated": "取消招募指定同伴。"
+  },
+  "ToyBox_Features_PartyTab_Actions_UnrecruitUnitAction_m_UnitIsNotRecruitedLocalizedText": {
+    "Original": "Unit is not recruited",
+    "Translated": "单位尚未招募"
+  },
+  "ToyBox_Features_PartyTab_Actions_UnrecruitUnitAction_m_UnrecruitLocalizedText": {
+    "Original": "Unrecruit",
+    "Translated": "取消招募"
+  },
+  "ToyBox_Features_PartyTab_Careers_ModifyCharacterLevelFeature_Name": {
+    "Original": "Modify Character Level",
+    "Translated": "修改角色等级"
+  },
+  "ToyBox_Features_PartyTab_Careers_ModifyCharacterLevelFeature_Description": {
+    "Original": "Allows changing the character level of a unit without changing its experience. Use Increase Unit Level instead to properly adjust experience. This gets reset on save reload.",
+    "Translated": "可在不改变经验值的情况下修改单位的角色等级。要正确同步经验值，请改用“提升单位等级”。重新载入存档后，此修改会被重置。"
+  },
+  "ToyBox_Features_PartyTab_Careers_ModifyCharacterLevelFeature_m_CharacterLevelLocalizedText": {
+    "Original": "Character Level",
+    "Translated": "角色等级"
+  },
+  "ToyBox_Features_PartyTab_Careers_ModifyExperienceFeature_Name": {
+    "Original": "Modify Unit Experience",
+    "Translated": "修改单位经验"
+  },
+  "ToyBox_Features_PartyTab_Careers_ModifyExperienceFeature_Description": {
+    "Original": "Allows changing the amount of experience points a unit has.",
+    "Translated": "可修改单位拥有的经验值。"
+  },
+  "ToyBox_Features_PartyTab_Careers_ModifyExperienceFeature_m_ExperienceLocalizedText": {
+    "Original": "Experience",
+    "Translated": "经验"
+  },
+  "ToyBox_Features_PartyTab_Careers_ModifyExperienceFeature_m_AdjustBasedOnLevelLocalizedText": {
+    "Original": "Adjust based on Level",
+    "Translated": "基于当前等级调整"
+  },
+  "ToyBox_Features_PartyTab_Careers_ModifyExperienceFeature_m_ThisSetsYourExperienceToMatchTheLocalizedText": {
+    "Original": "This sets your experience to match the current value of character level",
+    "Translated": "这将使你的经验值与角色当前等级的经验值相匹配"
+  },
+  "ToyBox_Features_PartyTab_Careers_ShowCareersFeature_Name": {
+    "Original": "Show Careers",
+    "Translated": "显示职业"
+  },
+  "ToyBox_Features_PartyTab_Careers_ShowCareersFeature_Description": {
+    "Original": "Lists the careers of a unit and their current level.",
+    "Translated": "列出单位的职业及其当前等级。"
+  },
+  "ToyBox_Features_PartyTab_Careers_ShowCareersFeature_m_LevelLocalizedText": {
+    "Original": "Level",
+    "Translated": "等级"
+  },
+  "ToyBox_Features_PartyTab_Careers_ShowCareersFeature_m_CareersLocalizedText": {
+    "Original": "Careers",
+    "Translated": "职业"
+  },
+  "ToyBox_Features_PartyTab_IncreaseUnitLevelFeature_Name": {
+    "Original": "Increase Unit Level",
+    "Translated": "提升单位等级"
+  },
+  "ToyBox_Features_PartyTab_IncreaseUnitLevelFeature_Description": {
+    "Original": "Allows granting enough experience to increase level by 1.",
+    "Translated": "给予足够经验，使单位提升 1 级。"
+  },
+  "ToyBox_Features_PartyTab_IncreaseUnitLevelFeature_Maximum_Abbreviated": {
+    "Original": "max",
+    "Translated": "最大"
+  },
+  "ToyBox_Features_PartyTab_IncreaseUnitLevelFeature_Level_Abbreviated": {
+    "Original": "Lvl.",
+    "Translated": "级"
+  },
+  "ToyBox_Features_PartyTab_PartyBrowseAbilitiesFeature_Name": {
+    "Original": "Browse Unit Abilities",
+    "Translated": "浏览单位能力"
+  },
+  "ToyBox_Features_PartyTab_PartyBrowseAbilitiesFeature_Description": {
+    "Original": "Displays a Browser containing all the abilities of the unit in question and optionally allows removing them or adding new ones.",
+    "Translated": "显示包含该单位全部能力的浏览器，并可选择移除现有能力或添加新能力。"
+  },
+  "ToyBox_Features_PartyTab_PartyBrowseBuffsFeature_Name": {
+    "Original": "Browse Unit Buffs",
+    "Translated": "浏览单位状态效果"
+  },
+  "ToyBox_Features_PartyTab_PartyBrowseBuffsFeature_Description": {
+    "Original": "Displays a Browser containing all the buffs of the unit in question and optionally allows removing them or adding new ones.",
+    "Translated": "显示包含该单位全部状态效果的浏览器，并可选择移除现有效果或添加新效果。"
+  },
+  "ToyBox_Features_PartyTab_PartyBrowseFeatsFeature_Name": {
+    "Original": "Browse Unit Features",
+    "Translated": "浏览单位特性"
+  },
+  "ToyBox_Features_PartyTab_PartyBrowseFeatsFeature_Description": {
+    "Original": "Displays a Browser containing all the features of the unit in question and optionally allows removing them or adding new ones.",
+    "Translated": "显示包含该单位全部特性的浏览器，并可选择移除现有特性或添加新特性。"
+  },
+  "ToyBox_Features_PartyTab_PartyBrowseMechadendritesFeature_Name": {
+    "Original": "Browse Unit Mechadendrites",
+    "Translated": "浏览单位机械触手"
+  },
+  "ToyBox_Features_PartyTab_PartyBrowseMechadendritesFeature_Description": {
+    "Original": "Displays a Browser containing all the mechadendrites of the unit in question and optionally allows removing them or adding new ones.",
+    "Translated": "显示包含该单位全部机械触手的浏览器，并可选择移除现有项或添加新项。"
+  },
+  "ToyBox_Features_PartyTab_PartyFeatureTab_PartyLevelText": {
+    "Original": "Party Level",
+    "Translated": "队伍等级"
+  },
+  "ToyBox_Features_PartyTab_PartyFeatureTab_InspectParty_forDebugging__Text": {
+    "Original": "Inspect Party (for debugging)",
+    "Translated": "检查队伍（用于调试）"
+  },
+  "ToyBox_Features_PartyTab_PartyFeatureTab_Name": {
+    "Original": "Party",
+    "Translated": "队伍"
+  },
+  "ToyBox_Classes_Features_PartyTab_RenameUnitFeature_Name": {
+    "Original": "Rename Unit",
+    "Translated": "重命名单位"
+  },
+  "ToyBox_Classes_Features_PartyTab_RenameUnitFeature_Description": {
+    "Original": "Allows renaming the specified BaseUnitEntity",
+    "Translated": "可重命名指定的单位实体。"
+  },
+  "ToyBox_Features_PartyTab_Stats_ChangeGenderFeature_Name": {
+    "Original": "Change Gender",
+    "Translated": "更改性别"
+  },
+  "ToyBox_Features_PartyTab_Stats_ChangeGenderFeature_Description": {
+    "Original": "Toggles the characters gender between male and female.",
+    "Translated": "在男性与女性之间切换角色性别。"
+  },
+  "ToyBox_Features_PartyTab_Stats_PortraitEditorFeature_Name": {
+    "Original": "Change Unit Portrait",
+    "Translated": "更换单位头像"
+  },
+  "ToyBox_Features_PartyTab_Stats_PortraitEditorFeature_Description": {
+    "Original": "Allows changing the portrait of a unit to a custom portrait or another blueprint (built-in) portrait. You need to manually update the UI (change area/reload game) to make this change visible on the top bar.",
+    "Translated": "可将单位头像改为自定义头像或其他蓝图（内置）头像。要让顶部栏显示变化，需手动刷新界面（切换区域或重新载入游戏）。"
+  },
+  "ToyBox_Features_PartyTab_Stats_PortraitEditorFeature_m_CurrentCustomPortraitLocalizedText": {
+    "Original": "Current Custom Portrait",
+    "Translated": "当前自定义头像"
+  },
+  "ToyBox_Features_PartyTab_Stats_PortraitEditorFeature_m_CurrentBlueprintPortraitLocalizedText": {
+    "Original": "Current Blueprint Portrait",
+    "Translated": "当前蓝图头像"
+  },
+  "ToyBox_Features_PartyTab_Stats_PortraitEditorFeature_m_SavePortraitAsPngLocalizedText": {
+    "Original": "Save portrait as png",
+    "Translated": "将头像保存为 PNG"
+  },
+  "ToyBox_Features_PartyTab_Stats_PortraitEditorFeature_m_ShowCustomPortraitPickerLocalizedText": {
+    "Original": "Show Custom Portrait Picker",
+    "Translated": "显示自定义头像选择器"
+  },
+  "ToyBox_Features_PartyTab_Stats_PortraitEditorFeature_m_ShowBlueprintPortraitPickerLocalizedText": {
+    "Original": "Show Blueprint Portrait Picker",
+    "Translated": "显示蓝图头像选择器"
+  },
+  "ToyBox_Features_PartyTab_Stats_PortraitEditorFeature_m_NameOfTheNewCustomPortrait_LocalizedText": {
+    "Original": "Name of the new Custom Portrait:",
+    "Translated": "新自定义头像名称："
+  },
+  "ToyBox_Features_PartyTab_Stats_PortraitEditorFeature_m_UnknownID_LocalizedText": {
+    "Original": "Unknown Custom Portrait ID!",
+    "Translated": "未知的自定义头像 ID！"
+  },
+  "ToyBox_Features_PartyTab_Stats_PortraitEditorFeature_m_ChangePortraitLocalizedText": {
+    "Original": "Change Portrait",
+    "Translated": "更换头像"
+  },
+  "ToyBox_Features_PartyTab_Stats_PortraitEditorFeature_m_NameOfTheNewBlueprintportrait_LocalizedText": {
+    "Original": "Name of the new Blueprintportrait:",
+    "Translated": "新蓝图头像名称："
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitBrowseVoicesFeature_Name": {
+    "Original": "Browse Voices",
+    "Translated": "浏览语音"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitBrowseVoicesFeature_Description": {
+    "Original": "Allows browsing and changing the different voices on a unit.",
+    "Translated": "可浏览并更改单位使用的语音。"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitBrowseVoicesFeature_m_ShowBlueprintVoicePickerLocalizedText": {
+    "Original": "Show Blueprint Voice Picker",
+    "Translated": "显示蓝图声音选择器"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitBrowseVoicesFeature_m_ChangingTheVoiceOfANon_customChaLocalizedText": {
+    "Original": "Changing the voice of a non-custom character is not tested.",
+    "Translated": "尚未测试更改非自定义角色的语音。"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitBrowseVoicesFeature_m_UsingANon_defaultVoiceToACustomCLocalizedText": {
+    "Original": "Using a non-default voice on a custom character is not tested.",
+    "Translated": "尚未测试为自定义角色使用非默认语音。"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitBrowseVoicesFeature_m_TheButton_1_WillPlayTryToPlayARaLocalizedText": {
+    "Original": "The button \"{0}\" will play try to play a random PartyMemberUnconscious sound.",
+    "Translated": "按钮“{0}”会尝试随机播放一条 PartyMemberUnconscious 语音。"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitDisableVoiceoverAndBarksFeature_Name": {
+    "Original": "Disable Voiceover and Barks for Character",
+    "Translated": "禁用角色配音与语音提示"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitDisableVoiceoverAndBarksFeature_Description": {
+    "Original": "Prevents this character from talking with his voice.",
+    "Translated": "阻止该角色播放配音和语音提示。"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitModifySoulMarksFeature_Name": {
+    "Original": "Modify Soul Marks",
+    "Translated": "修改灵魂印记"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitModifySoulMarksFeature_Description": {
+    "Original": "Allows modifying the alignment of the character.",
+    "Translated": "可修改角色的阵营倾向。"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitModifySoulMarksFeature_m_UnitsOtherThanTheMainCharacterDoLocalizedText": {
+    "Original": "Units other than the main character don't really have an alignment. Assign the milestone features like SoulMarkCorruption2_Feature, though they might not work on other units.",
+    "Translated": "除主角外的单位实际上没有阵营倾向。可以赋予 SoulMarkCorruption2_Feature 等里程碑特性，但这些特性在其他单位身上可能不起作用。"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitModifySoulMarksFeature_m_SoulMarksLocalizedText": {
+    "Original": "Soul Marks",
+    "Translated": "灵魂印记"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitModifyStatsFeature_Name": {
+    "Original": "Modify Unit Stats",
+    "Translated": "修改单位属性"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitModifyStatsFeature_Description": {
+    "Original": "Allows modifying the various stats of a unit.",
+    "Translated": "可修改单位的各项属性。"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitModifyStatsFeature_m_TryToKeepThisFeatureActivatedAftLocalizedText": {
+    "Original": "Try to keep this feature activated after using it (Click for Explanation)",
+    "Translated": "使用后尽量保持此功能启用（单击查看说明）"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitModifyStatsFeature_m_OverridenByLocalizedText": {
+    "Original": "Overriden by",
+    "Translated": "覆盖来源"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitModifyStatsFeature_m_WhenThisIsTurnedOff_TheChangedStLocalizedText": {
+    "Original": "When this is turned off, the changed stats will be \"forgotten\" after reloading the save because base stats are recalculated on save load.",
+    "Translated": "关闭此功能后，重新载入存档会重新计算基础属性，因此修改后的属性将被“遗忘”。"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideAiControlBehaviourFeature_Name": {
+    "Original": "Override AI Control Behaviour",
+    "Translated": "覆盖 AI 控制方式"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideAiControlBehaviourFeature_Description": {
+    "Original": "Allows toggling whether a unit should be controlled by the AI or by the player.",
+    "Translated": "可切换单位由 AI 或玩家控制。"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideAiControlBehaviourFeature_m_MakeCharacterAIControlledLocalizedText": {
+    "Original": "AI should controll this Character",
+    "Translated": "由 AI 控制此角色"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideMechanicalSizeFeature_Name": {
+    "Original": "Enable Mechanical Size Overrides",
+    "Translated": "启用机械尺寸覆盖"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideMechanicalSizeFeature_Description": {
+    "Original": "If this is disabled, none of the previously set mechanical size overrides will take effect.",
+    "Translated": "禁用后，先前设置的所有机械尺寸覆盖均不会生效。"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideMechanicalSizeFeature_m_CurrentMechanicalSizeLocalizedText": {
+    "Original": "Current Mechanical Size",
+    "Translated": "当前机械尺寸"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideMechanicalSizeFeature_m_OverrideLocalizedText": {
+    "Original": "Override",
+    "Translated": "覆盖"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideVisualSizeFeature_Name": {
+    "Original": "Enable Visual Size Overrides",
+    "Translated": "启用视觉尺寸覆盖"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideVisualSizeFeature_Description": {
+    "Original": "If this is disabled, none of the previously set visual size overrides will take effect.",
+    "Translated": "禁用后，先前设置的所有视觉尺寸覆盖均不会生效。"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideVisualSizeFeature_m_VisualOverrideLocalizedText": {
+    "Original": "Visual Override",
+    "Translated": "视觉尺寸覆盖"
+  },
+  "ToyBox_Features_PatchTool_PatchToolApplyPatchesFeature_Name": {
+    "Original": "Apply blueprint patches on load",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolApplyPatchesFeature_Description": {
+    "Original": "When enabled, blueprint patches created with the Patch Tool are applied when the game loads its blueprints. Disable to run with unmodified blueprints without deleting your patches.",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolDangerousPatchesFeature_Name": {
+    "Original": "Allow dangerous PatchTool patches",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolDangerousPatchesFeature_Description": {
+    "Original": "Master switch for dangerous patches. These edit shared prefabs/GameObjects globally and cannot be recommended. Off by default; enable only if you know what you're doing.",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolFeatureTab_Name": {
+    "Original": "Patch Tool",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_WarningLabel": {
+    "Original": "Warning:",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_NoteLabel": {
+    "Original": "Note:",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_PowerfulFeatureWarning": {
+    "Original": "This is a very powerful feature. You won't break your game by simply changing the damage of a weapon,",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_PowerfulFeatureWarning2": {
+    "Original": "but this feature allows doing a lot of things that could potentially cause issues.",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_KeepABackup": {
+    "Original": "Beware of that and always keep a backup.",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_RestartAdvised": {
+    "Original": "After finishing creating a patch, it is advised to restart the game before playing on a proper save.",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_NewFeatureWarning": {
+    "Original": "This feature is new. Please reach out if anything seems buggy or you encounter any issues.",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ManageExistingPatches": {
+    "Original": "Manage existing patches",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Tabs": {
+    "Original": "Tabs",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_CreateNewTab": {
+    "Original": "Create New Tab",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_NewTab": {
+    "Original": "New Tab",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Close": {
+    "Original": "Close",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_NoTabsOpen": {
+    "Original": "No tabs open.",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_PatchesNotLoaded": {
+    "Original": "Patches not loaded yet...",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Blueprint": {
+    "Original": "Blueprint",
+    "Translated": "蓝图（Blueprint）"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_PatchId": {
+    "Original": "PatchId",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Applied": {
+    "Original": "Applied?",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Yes": {
+    "Original": "Yes",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_No": {
+    "Original": "No",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Failed": {
+    "Original": "Failed!",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Enable": {
+    "Original": "Enable",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Disable": {
+    "Original": "Disable",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_OpenInTab": {
+    "Original": "Open in Tab",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Delete": {
+    "Original": "Delete",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ShowBrowserPicker": {
+    "Original": "Show Browser Picker",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ShowBrowser": {
+    "Original": "Show Browser (starts loading all blueprints of the selected type)",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_BpCategory": {
+    "Original": "BP Category",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ShowPatchManager": {
+    "Original": "Show Patch Manager",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Inspect": {
+    "Original": "Inspect",
+    "Translated": "检查"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Remove": {
+    "Original": "Remove",
+    "Translated": "移除"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ApplyChanges": {
+    "Original": "Apply Changes",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_CurrentPatchInfo": {
+    "Original": "Current Patch targets bp: {0}({1}) and has {2} operations.",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_OperationRow": {
+    "Original": "Operation: {0}",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_FieldRow": {
+    "Original": "Field: {0}",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ConfigureFieldsToShow": {
+    "Original": "Configure which types of fields to show:",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Primitives": {
+    "Original": "Primitives",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Enums": {
+    "Original": "Enums",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_BlueprintReferences": {
+    "Original": "Blueprint References",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Collections": {
+    "Original": "Collections",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ComplexTypes": {
+    "Original": "Complex Types",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ShowUnityObjects": {
+    "Original": "Show Unity Objects",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_OtherSettings": {
+    "Original": "Other Settings:",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ShowDeleteButton": {
+    "Original": "Show Delete Button",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ShowCreateButton": {
+    "Original": "Show Create Button",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_CollapseOnPatch": {
+    "Original": "Close all opened fields on patch",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_EnableDangerousForThisPatch": {
+    "Original": "Enable Dangerous Patches for this Patch",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ShowFieldsEditor": {
+    "Original": "Show Fields Editor",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_AlreadyOpenedElsewhere": {
+    "Original": "Already opened on another level!",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Create": {
+    "Original": "Create",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_NewItem": {
+    "Original": "New Item:",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ShowValues": {
+    "Original": "Show Values",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Change": {
+    "Original": "Change",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_UnityObject": {
+    "Original": "Unity Object",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_DumpToToyBoxFolder": {
+    "Original": "Dump to ToyBox folder",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_EditReference": {
+    "Original": "Edit Reference",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_NonGenericReference": {
+    "Original": "Non-Generic Reference. If you're seeing this please report to mod author!",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Null": {
+    "Original": "Null",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_NullValue": {
+    "Original": "Null (value)",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Entries": {
+    "Original": "Entries",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ShowEntries": {
+    "Original": "Show Entries",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_AddItem": {
+    "Original": "Add Item",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_AddBefore": {
+    "Original": "Add Before",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_AddAfter": {
+    "Original": "Add After",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ShowFields": {
+    "Original": "Show fields",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_AddAsNewEntry": {
+    "Original": "Add as new entry",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ExceptionInToString": {
+    "Original": "Exception in ToString",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_FailedToParse": {
+    "Original": "Failed to parse value {0} to type {1}",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ExchangeUnityObject": {
+    "Original": "Exchange",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_AssetGuid": {
+    "Original": "Asset Guid",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_AssetFileId": {
+    "Original": "File Id",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_CurrentAsset": {
+    "Original": "Current asset: guid={0} fileid={1}",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_CurrentAssetUnknown": {
+    "Original": "Current asset is not registered in the asset list (its id is unknown).",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_CouldNotResolveAsset": {
+    "Original": "Could not resolve a Unity asset for the given guid/fileid.",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_IncompatibleAssetType": {
+    "Original": "Resolved asset is a {0}, which is not assignable to this {1} field.",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ComponentsHeader": {
+    "Original": "Components:",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ChildrenHeader": {
+    "Original": "Children:",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ComponentRow": {
+    "Original": "Component: {0} [{1}]",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ChildRow": {
+    "Original": "Child [{0}]: {1}",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolTabUI_m_ShowBlueprintPickerLocalizedText": {
+    "Original": "Show Blueprint Picker",
+    "Translated": null
+  },
+  "ToyBox_Features_Quests_QuestEditorFeature_Name": {
+    "Original": "Quest Editor",
+    "Translated": "任务编辑器"
+  },
+  "ToyBox_Features_Quests_QuestEditorFeature_Description": {
+    "Original": "Browse your quests and objectives and force their state: start or complete objectives, restart failed ones, etc.",
+    "Translated": "浏览任务和目标并强制修改其状态：开始或完成目标、重新启动失败目标等。"
+  },
+  "ToyBox_Features_Quests_QuestEditorFeature_m_NoQuestsText": {
+    "Original": "You have no quests in your quest book yet.",
+    "Translated": "任务日志中尚无任务。"
+  },
+  "ToyBox_Features_Quests_QuestEditorFeature_m_HideCompletedText": {
+    "Original": "Hide Completed",
+    "Translated": "隐藏已完成"
+  },
+  "ToyBox_Features_Quests_QuestEditorFeature_m_ShowUnrevealedText": {
+    "Original": "Show Unrevealed Steps",
+    "Translated": "显示未显示的步骤"
+  },
+  "ToyBox_Features_Quests_QuestEditorFeature_m_ShowInspectorText": {
+    "Original": "Inspect Quests and Objectives",
+    "Translated": "检查任务与目标"
+  },
+  "ToyBox_Features_Quests_QuestEditorFeature_m_InspectText": {
+    "Original": "Inspect",
+    "Translated": "检查"
+  },
+  "ToyBox_Features_Quests_QuestEditorFeature_m_StartText": {
+    "Original": "Start",
+    "Translated": "开始"
+  },
+  "ToyBox_Features_Quests_QuestEditorFeature_m_CompleteText": {
+    "Original": "Complete",
+    "Translated": "完成"
+  },
+  "ToyBox_Features_Quests_QuestEditorFeature_m_FinishText": {
+    "Original": "Finish",
+    "Translated": "完成"
+  },
+  "ToyBox_Features_Quests_QuestEditorFeature_m_ResetTimeText": {
+    "Original": "Reset Time",
+    "Translated": "重置时间"
+  },
+  "ToyBox_Features_Quests_QuestEditorFeature_m_RestartText": {
+    "Original": "Restart",
+    "Translated": "重新开始"
+  },
+  "ToyBox_Features_Quests_QuestEditorFeature_m_AddendumText": {
+    "Original": "Addendum",
+    "Translated": "附加项"
+  },
+  "ToyBox_Features_Quests_QuestsFeatureTab_Name": {
+    "Original": "Quests",
+    "Translated": "任务"
+  },
+  "ToyBox_Features_Saves_BrowseSavesFeature_Name": {
+    "Original": "Browse Saves",
+    "Translated": "浏览存档"
+  },
+  "ToyBox_Features_Saves_BrowseSavesFeature_Description": {
+    "Original": "Allows looking through all available save games and viewing their char name, party level, area, save name and game id",
+    "Translated": "浏览所有可用存档，并查看角色名、队伍等级、区域、存档名和游戏 ID。"
+  },
+  "ToyBox_Features_Saves_BrowseSavesFeature_m_LevelLocalizedText": {
+    "Original": "Level",
+    "Translated": "等级"
+  },
+  "ToyBox_Features_Saves_ChangeSaveIdFeature_Name": {
+    "Original": "Change Game Id",
+    "Translated": "修改游戏 ID"
+  },
+  "ToyBox_Features_Saves_ChangeSaveIdFeature_Description": {
+    "Original": "Allows changing the game id of the current session, which causes saves after this to be grouped under a different header.",
+    "Translated": "修改当前会话的游戏 ID；之后生成的存档会被归入另一个分组标题。"
+  },
+  "ToyBox_Features_Saves_ChangeSaveIdFeature_m_N_ALocalizedText": {
+    "Original": "N/A",
+    "Translated": "N/A"
+  },
+  "ToyBox_Features_Saves_SavesFeatureTab_Name": {
+    "Original": "Saves",
+    "Translated": "存档"
+  },
+  "ToyBox_Features_SearchAndPick_SearchAndPickFeature_Name": {
+    "Original": "Search 'n Pick",
+    "Translated": "搜索与选取"
+  },
+  "ToyBox_Features_SearchAndPick_SearchAndPickFeature_Description": {
+    "Original": "Allows browsing through all the blueprints in the game and doing various actions with them.",
+    "Translated": "可浏览游戏中的所有蓝图，并对其执行各种操作。"
+  },
+  "ToyBox_Features_SearchAndPick_SearchAndPickFeature_m_ShowCharacterFilterPickerLocalizedText": {
+    "Original": "Show Character Filter Picker",
+    "Translated": "显示角色筛选器选择面板"
+  },
+  "ToyBox_Features_SearchAndPick_SearchAndPickFeature_m_CurrentCollationCategoryLocalizedText": {
+    "Original": "Current Category",
+    "Translated": "当前类别"
+  },
+  "ToyBox_Features_SearchAndPick_SearchAndPickFeature_m_Collating_LocalizedText": {
+    "Original": "Collating!",
+    "Translated": "正在整理分类！"
+  },
+  "ToyBox_Features_SearchAndPick_SearchAndPickFeature_m_ShowCategoryPickerLocalizedText": {
+    "Original": "Show Category Picker",
+    "Translated": "显示类别选择面板"
+  },
+  "ToyBox_Features_SearchAndPick_SearchAndPickFeatureTab_Name": {
+    "Original": "Search 'n Pick",
+    "Translated": "搜索与选取"
+  },
+  "ToyBox_Features_SearchAndPick_SortCollationCategoriesByCountSetting_Name": {
+    "Original": "Sort by Count",
+    "Translated": "按数量排序"
+  },
+  "ToyBox_Features_SearchAndPick_SortCollationCategoriesByCountSetting_Description": {
+    "Original": "Whether to sort collation categories by their amount of blueprints instead of names.",
+    "Translated": "是否按各类别包含的蓝图数量排序，而不是按名称排序。"
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_BlueprintsLoaderChunkSizeSetting_Name": {
+    "Original": "Chunk Size",
+    "Translated": "分块大小"
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_BlueprintsLoaderChunkSizeSetting_Description": {
+    "Original": "Affects the amount of blueprints a thread loads at once. A lower number means better load balancing but more synchronization overhead.",
+    "Translated": "影响每个线程一次加载的蓝图数量。数值越低，负载均衡越好，但同步开销越大。"
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_BlueprintsLoaderNumShardSetting_Name": {
+    "Original": "Amount of Shards",
+    "Translated": "分片数量"
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_BlueprintsLoaderNumShardSetting_Description": {
+    "Original": "This affects the amount of dictionaries that will be used to reduce synchronization overhead when threaded loading.",
+    "Translated": "影响用于降低多线程加载同步开销的字典数量。"
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_BlueprintsLoaderNumThreadSetting_Name": {
+    "Original": "Amount of Threads",
+    "Translated": "线程数量"
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_BlueprintsLoaderNumThreadSetting_Description": {
+    "Original": "This affects the amount of threads that will be used to simultaneously load blueprints. Larger is not necessarily better.",
+    "Translated": "影响同时加载蓝图的线程数。数量越多不一定越好。"
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_BPIdCacheFeature_Name": {
+    "Original": "Enable BlueprintId Cache",
+    "Translated": "启用 BlueprintId 缓存"
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_BPIdCacheFeature_Description": {
+    "Original": "When enabled, ToyBox will create a cache for ids of different blueprint types. Certain menus like Search 'n Pick will then try to load only blueprints of the specified type (e.g. BlueprintFeature), thereby speeding up load times.",
+    "Translated": "启用后，ToyBox 会为不同蓝图类型的 ID 创建缓存。“搜索与选取”等菜单会尝试只加载指定类型的蓝图（例如 BlueprintFeature），从而缩短加载时间。"
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_BPIdCacheFeature_ResetCache_inCaseOfIssues_Text": {
+    "Original": "Reset BlueprintId Cache (in case of issues)",
+    "Translated": "重置 BlueprintId 缓存（出现问题时）"
+  },
+  "ToyBox_Features_SettingsFeatures_BlueprintLoaderSettings_PerformanceEnhancementFeatures_PerformanceEnhancementText": {
+    "Original": "Performance Enhancement",
+    "Translated": "性能优化"
+  },
+  "ToyBox_Features_SettingsFeatures_BlueprintLoaderSettings_PerformanceEnhancementFeatures_EnhancesBlueprintLoadingPerforma": {
+    "Original": "Enhances Blueprint loading performance",
+    "Translated": "提升蓝图加载性能"
+  },
+  "ToyBox_Features_SettingsFeatures_BlueprintLoaderSettings_PreloadBlueprintsFeature_PreloadBlueprintsText": {
+    "Original": "Preload Blueprints",
+    "Translated": "预加载蓝图"
+  },
+  "ToyBox_Features_SettingsFeatures_BlueprintLoaderSettings_PreloadBlueprintsFeature_AlwaysLoadAllBlueprintsOnGameSta": {
+    "Original": "Always load all Blueprints on game Start. This increases initial load times and RAM usage, but can decrease game loading times once finished.",
+    "Translated": "游戏启动时始终加载全部蓝图。这会增加初始加载时间和内存占用，但完成后可缩短游戏内加载时间。"
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_ShowBlueprintAssetIdsSetting_Name": {
+    "Original": "Show Blueprint AssetGuids",
+    "Translated": "显示蓝图 AssetGUID"
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_ShowBlueprintAssetIdsSetting_Description": {
+    "Original": "Whether Browsers should display the asset id of a blueprint.",
+    "Translated": "是否在浏览器中显示蓝图的资源 ID。"
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_ShowBlueprintTypeSetting_Name": {
+    "Original": "Show Blueprint Type",
+    "Translated": "显示蓝图类型"
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_ShowBlueprintTypeSetting_Description": {
+    "Original": "Whether Browsers should display the type of a blueprint.",
+    "Translated": "是否在浏览器中显示蓝图类型。"
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_ShowDisplayAndInternalNamesSetting_Name": {
+    "Original": "Show Display And Internal Names",
+    "Translated": "同时显示显示名称和内部名称"
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_ShowDisplayAndInternalNamesSetting_Description": {
+    "Original": "Blueprints have both internal names and display names. By default, ToyBox will try to show the Display name and fall back to the Internal one in case of issues. This feature will display both at the same time.",
+    "Translated": "蓝图同时具有内部名称和显示名称。ToyBox 默认优先显示显示名称，出现问题时回退为内部名称；此功能会同时显示两者。"
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_ThreadedBlueprintsLoaderSetting_Name": {
+    "Original": "Enable threaded Blueprint Loader (Needs Restart!)",
+    "Translated": "启用多线程蓝图加载器（需要重启！）"
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_ThreadedBlueprintsLoaderSetting_Description": {
+    "Original": "Massively speeds up blueprint loading; but can have very rare bugs (especially after updates).",
+    "Translated": "可大幅加快蓝图加载，但极少数情况下可能出现错误（尤其是在更新后）。"
+  },
+  "ToyBox_Features_SettingsFeatures_BrowserSettings_PageLimitSetting_Name": {
+    "Original": "Page Limit",
+    "Translated": "每页数量上限"
+  },
+  "ToyBox_Features_SettingsFeatures_BrowserSettings_PageLimitSetting_Description": {
+    "Original": "Restricts the amount of items a page of a list/browser can display",
+    "Translated": "限制列表/浏览器每页可显示的项目数量。"
+  },
+  "ToyBox_Features_SettingsFeatures_BrowserSettings_SearchAsYouTypeFeature_Name": {
+    "Original": "Search as you type",
+    "Translated": "输入时即时搜索"
+  },
+  "ToyBox_Features_SettingsFeatures_BrowserSettings_SearchAsYouTypeFeature_Description": {
+    "Original": "Automatically start a new search after a configurable delay even while you are typing",
+    "Translated": "即使仍在输入，也会在可配置的延迟后自动开始新搜索。"
+  },
+  "ToyBox_Features_SettingsFeatures_BrowserSettings_SearchDelaySetting_Name": {
+    "Original": "Search Delay",
+    "Translated": "搜索延迟"
+  },
+  "ToyBox_Features_SettingsFeatures_BrowserSettings_SearchDelaySetting_Description": {
+    "Original": "This is the time in seconds that is waited before a new search is automatically started",
+    "Translated": "自动开始新搜索前等待的秒数。"
+  },
+  "ToyBox_Features_SettingsFeatures_BrowserSettings_SearchDescriptionsSetting_Name": {
+    "Original": "Search Descriptions",
+    "Translated": "搜索描述"
+  },
+  "ToyBox_Features_SettingsFeatures_BrowserSettings_SearchDescriptionsSetting_Description": {
+    "Original": "Also search through the descriptions of blueprints",
+    "Translated": "同时搜索蓝图说明。"
+  },
+  "ToyBox_Features_SettingsTab_Game_CopyLocationHotkeySetting_Name": {
+    "Original": "Hotkey to copy location to clipboard",
+    "Translated": "复制位置到剪贴板的快捷键"
+  },
+  "ToyBox_Features_SettingsTab_Game_CopyLocationHotkeySetting_m___ToyBox_FailedToCopyLocation_NoHLocalizedText": {
+    "Original": "[ToyBox] Failed to copy location: No hit for raycast.",
+    "Translated": "[ToyBox] 复制位置失败：射线检测未命中。"
+  },
+  "ToyBox_Features_SettingsTab_Game_CopyLocationHotkeySetting_m___ToyBox_CopiedLocationToClipboarLocalizedText": {
+    "Original": "[ToyBox] Copied Location to clipboard:",
+    "Translated": "[ToyBox] 已将位置复制到剪贴板："
+  },
+  "ToyBox_Features_SettingsTab_Game_DisplayGuidsInTooltipsFeature_Name": {
+    "Original": "Display GUIDs in most Tooltips",
+    "Translated": "在大多数工具提示中显示 GUID"
+  },
+  "ToyBox_Features_SettingsTab_Game_DisplayGuidsInTooltipsFeature_Description": {
+    "Original": "Displays the guids of the items etc. in their tooltips and allows copying them by pressing LMB + Hotkey.",
+    "Translated": "在物品等对象的工具提示中显示 GUID，并可按“鼠标左键 + 快捷键”复制。"
+  },
+  "ToyBox_Features_SettingsTab_Game_DisplayGuidsInTooltipsFeature_m_CopiedGuidToClipboard_LocalizedText": {
+    "Original": "Copied Guid to clipboard:",
+    "Translated": "已将 GUID 复制到剪贴板："
+  },
+  "ToyBox_Features_SettingsTab_Game_EnableGameDevelopmentModeSetting_Name": {
+    "Original": "Enable Game Development Mode",
+    "Translated": "启用游戏开发模式"
+  },
+  "ToyBox_Features_SettingsTab_Game_EnableGameDevelopmentModeSetting_Description": {
+    "Original": "This turns on the developer console which lets you access cheat commands, access a console and more.",
+    "Translated": "启用开发者控制台，可使用作弊命令、访问控制台等功能。"
+  },
+  "ToyBox_Features_SettingsTab_Inspector_InspectorDrawLimitSetting_Name": {
+    "Original": "Inspector Draw Limit",
+    "Translated": "检查器绘制上限"
+  },
+  "ToyBox_Features_SettingsTab_Inspector_InspectorDrawLimitSetting_Description": {
+    "Original": "Limits the amount of items/rows that are drawn to prevent freezing the ui. Items exceeding the limit are discarded.",
+    "Translated": "限制绘制的项目/行数，防止界面卡死；超出上限的项目会被丢弃。"
+  },
+  "ToyBox_Features_SettingsTab_Inspector_InspectorIndentWidthSetting_Name": {
+    "Original": "Indent Width",
+    "Translated": "缩进宽度"
+  },
+  "ToyBox_Features_SettingsTab_Inspector_InspectorIndentWidthSetting_Description": {
+    "Original": "Amount of space that is indented for each nested level in the inspector",
+    "Translated": "检查器每一级嵌套的缩进空间。"
+  },
+  "ToyBox_Features_SettingsTab_Inspector_InspectorNameFractionOfWidthSetting_Name": {
+    "Original": "Name section relative width",
+    "Translated": "名称区域相对宽度"
+  },
+  "ToyBox_Features_SettingsTab_Inspector_InspectorNameFractionOfWidthSetting_Description": {
+    "Original": "The fraction of the screen width the name part of inspector takes (0.3 means 30%).",
+    "Translated": "检查器中名称部分占屏幕宽度的比例（0.3 表示 30%）。"
+  },
+  "ToyBox_Features_SettingsTab_Inspector_InspectorSearcherBatchSizeSetting_Name": {
+    "Original": "Inspector Searcher Batch Size",
+    "Translated": "检查器搜索批次大小"
+  },
+  "ToyBox_Features_SettingsTab_Inspector_InspectorSearcherBatchSizeSetting_Description": {
+    "Original": "Lower numbers mean less ui lag during search but longer search time.",
+    "Translated": "数值越低，搜索时界面卡顿越少，但搜索时间越长。"
+  },
+  "ToyBox_Features_SettingsTab_Inspector_InspectorShowCompilerGeneratedFields_Name": {
+    "Original": "Show compiler generated fields",
+    "Translated": "显示编译器生成的字段"
+  },
+  "ToyBox_Features_SettingsTab_Inspector_InspectorShowCompilerGeneratedFields_Description": {
+    "Original": "Show fields that are marked as compiler generated in Inspector (e.g. backing fields of properties)",
+    "Translated": "在检查器中显示被标记为编译器生成的字段（例如属性的后备字段）。"
+  },
+  "ToyBox_Features_SettingsTab_Inspector_InspectorShowEnumerableFieldsSetting_Name": {
+    "Original": "Show fields on enumerable",
+    "Translated": "显示可枚举对象的其他字段"
+  },
+  "ToyBox_Features_SettingsTab_Inspector_InspectorShowEnumerableFieldsSetting_Description": {
+    "Original": "Whether to also show other fields besides the actual collection items of IEnumerable types.",
+    "Translated": "对 IEnumerable 类型，是否除集合项目外同时显示其他字段。"
+  },
+  "ToyBox_Features_SettingsTab_Inspector_InspectorShowNullAndEmptyMembersSetting_Name": {
+    "Original": "Show members that are null or empty",
+    "Translated": "显示为 null 或空的成员"
+  },
+  "ToyBox_Features_SettingsTab_Inspector_InspectorShowNullAndEmptyMembersSetting_Description": {
+    "Original": "Shows Fields/Properties that are either null or an empty collection",
+    "Translated": "显示值为 null 或空集合的字段/属性。"
+  },
+  "ToyBox_Features_SettingsTab_Inspector_InspectorShowStaticMembersSetting_Name": {
+    "Original": "Show static fields and properties",
+    "Translated": "显示静态字段和属性"
+  },
+  "ToyBox_Features_SettingsTab_Inspector_InspectorShowStaticMembersSetting_Description": {
+    "Original": "Whether to show static members of types.",
+    "Translated": "是否显示类型的静态成员。"
+  },
+  "ToyBox_Features_SettingsTab_Inspector_InspectorSlimModeSetting_Name": {
+    "Original": "Slim Mode",
+    "Translated": "紧凑模式"
+  },
+  "ToyBox_Features_SettingsTab_Inspector_InspectorSlimModeSetting_Description": {
+    "Original": "If you hate whitespace and alignment",
+    "Translated": "适合不喜欢留白和对齐的用户。"
+  },
+  "ToyBox_Features_SettingsFeatures_LanguagePickerFeature_LanguagePickerText": {
+    "Original": "Language Picker",
+    "Translated": "语言选择器"
+  },
+  "ToyBox_Features_SettingsFeatures_LanguagePickerFeature_PickYourCurrentUiLocaleText": {
+    "Original": "Pick your current ui locale",
+    "Translated": "选择当前界面语言"
+  },
+  "ToyBox_Features_SettingsFeatures_LanguagePickerFeature_CurrentCultureText": {
+    "Original": "Current Language",
+    "Translated": "当前语言"
+  },
+  "ToyBox_Features_SettingsFeatures_CharacterPickerNearbyRangeSetting_Name": {
+    "Original": "Nearby Range",
+    "Translated": "附近范围"
+  },
+  "ToyBox_Features_SettingsFeatures_CharacterPickerNearbyRangeSetting_Description": {
+    "Original": "Modifies the range for the Nearby Character Picker category",
+    "Translated": "调整“附近角色”选择分类的范围。"
+  },
+  "ToyBox_Features_FontFix_FontFixFeature_Name": {
+    "Original": "Fix game fonts",
+    "Translated": "修复游戏字体"
+  },
+  "ToyBox_Features_FontFix_FontFixFeature_Description": {
+    "Original": "There is a Unity bug that causes some systen fonts to become weird in IMGUI (the mod GUI). This feature fixes that.",
+    "Translated": "Unity 存在一个错误，会导致部分系统字体在 IMGUI（MOD 界面）中显示异常；此功能可修复该问题。"
+  },
+  "ToyBox_Features_SettingsTab_Other_GlyphSettingsFeature_Name": {
+    "Original": "Glyphs",
+    "Translated": "字形"
+  },
+  "ToyBox_Features_SettingsTab_Other_GlyphSettingsFeature_Description": {
+    "Original": "ToyBox uses some non-ascii characters (▼ ▶ ✎ ✔ ✖) in its UI. If the game font can't render them, ToyBox falls back to plain ASCII.",
+    "Translated": "ToyBox 界面使用部分非 ASCII 字符（▼ ▶ ✎ ✔ ✖）。若游戏字体无法显示，会回退为普通 ASCII 字符。"
+  },
+  "ToyBox_Features_SettingsTab_Other_GlyphSettingsFeature_CheckLabel": {
+    "Original": "Auto-detect glyph support",
+    "Translated": "自动检测字形支持"
+  },
+  "ToyBox_Features_SettingsTab_Other_GlyphSettingsFeature_CheckDescription": {
+    "Original": "Probe the game font on the first UI frame and pick glyphs or ASCII automatically.",
+    "Translated": "在界面首次绘制时检测游戏字体，并自动选择特殊字形或 ASCII 字符。"
+  },
+  "ToyBox_Features_SettingsTab_Other_GlyphSettingsFeature_UseDefaultLabel": {
+    "Original": "Use fancy glyphs",
+    "Translated": "使用特殊字形"
+  },
+  "ToyBox_Features_SettingsTab_Other_GlyphSettingsFeature_UseDefaultDescription": {
+    "Original": "Off falls back to plain ASCII. Only used when auto-detect is disabled.",
+    "Translated": "关闭后回退为普通 ASCII 字符。仅在禁用自动检测时生效。"
+  },
+  "ToyBox_Features_SettingsTab_Other_ImguiColorFixFeature_Name": {
+    "Original": "Fix IMGUI Colors",
+    "Translated": "修复 IMGUI 颜色"
+  },
+  "ToyBox_Features_SettingsTab_Other_ImguiColorFixFeature_Description": {
+    "Original": "A Unity Engine Update somehow switched the Color Space of the Mod UI, making colors look washed out. This is a bandaid fix for that issue.",
+    "Translated": "Unity 引擎更新改变了 MOD 界面的色彩空间，导致颜色发白；此选项是针对该问题的临时修复。"
+  },
+  "ToyBox_Features_SettingsTab_Other_LazyInitFeature_Name": {
+    "Original": "Lazy Init",
+    "Translated": "延迟初始化"
+  },
+  "ToyBox_Features_SettingsTab_Other_LazyInitFeature_Description": {
+    "Original": "The mod tries to speed up initial game load time by only doing important initialization on the main thread and doing the rest on a separate thread.",
+    "Translated": "MOD 仅在主线程执行重要初始化，其余工作转移到独立线程，以缩短游戏初始加载时间。"
+  },
+  "ToyBox_Infrastructure_LazyInit_X_Amount_Of_FeaturesFailedInitialization_LocalizedText": {
+    "Original": "features failed initialization!",
+    "Translated": null
+  },
+  "ToyBox_Features_SettingsFeatures_LogHotkeysToCombatLogSetting_Name": {
+    "Original": "Log Hotkey Execution",
+    "Translated": "记录快捷键执行"
+  },
+  "ToyBox_Features_SettingsFeatures_LogHotkeysToCombatLogSetting_Description": {
+    "Original": "When ticked this shows ToyBox commands in the combat log which is helpful for you to know when you used the shortcut.",
+    "Translated": "勾选后，在战斗日志中显示 ToyBox 指令，便于确认何时触发了快捷键。"
+  },
+  "ToyBox_Features_SettingsFeatures_LogLevelSetting_Name": {
+    "Original": "Log Level",
+    "Translated": "日志级别"
+  },
+  "ToyBox_Features_SettingsFeatures_LogLevelSetting_Description": {
+    "Original": "Decides what type of messages get written to the log file.",
+    "Translated": "决定哪些类型的信息会写入日志文件。"
+  },
+  "ToyBox_Features_SettingsTab_Other_ShowRiskyTogglesFeature_Name": {
+    "Original": "Display Risky Options",
+    "Translated": "显示高风险选项"
+  },
+  "ToyBox_Features_SettingsTab_Other_ShowRiskyTogglesFeature_Description": {
+    "Original": "ToyBox hides some options by default. Activating this will unhide those features.",
+    "Translated": "ToyBox 默认隐藏部分选项；启用后将显示这些功能。"
+  },
+  "ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_Name": {
+    "Original": "Import ToyBox 1 Settings",
+    "Translated": "导入 ToyBox 1 设置"
+  },
+  "ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_Description": {
+    "Original": "Imports settings from an installed ToyBox 1 (the Settings.xml in its mod folder) into ToyBox 2. Settings whose meaning changed or that no longer exist are skipped.",
+    "Translated": "从已安装的 ToyBox 1（其 MOD 文件夹中的 Settings.xml）导入设置到 ToyBox 2。含义已改变或已不存在的设置会被跳过。"
+  },
+  "ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_PathText": {
+    "Original": "ToyBox 1 Settings.xml",
+    "Translated": "ToyBox 1 设置文件（Settings.xml）"
+  },
+  "ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_ImportText": {
+    "Original": "Import",
+    "Translated": "导入"
+  },
+  "ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_ImportedText": {
+    "Original": "Imported {0} settings from ToyBox 1. Reload the mod (or restart the game) so every change takes full effect.",
+    "Translated": "已从 ToyBox 1 导入 {0} 项设置。请重新加载 MOD（或重启游戏），使所有更改完全生效。"
+  },
+  "ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_PerSaveImportedText": {
+    "Original": "Also imported {0} save-specific settings (unit size / AI overrides) from the loaded save.",
+    "Translated": "还从已载入的存档导入了 {0} 项存档专属设置（单位尺寸/AI 覆盖）。"
+  },
+  "ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_PerSaveSkippedText": {
+    "Original": "Load a ToyBox 1 save and import again to also bring over its save-specific settings (unit size / AI overrides).",
+    "Translated": "请载入一个 ToyBox 1 存档后再次导入，以同时迁移其存档专属设置（单位尺寸/AI 覆盖）。"
+  },
+  "ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_FailedText": {
+    "Original": "Import failed.",
+    "Translated": "导入失败。"
+  },
+  "ToyBox_Features_SettingsFeatures_SettingsFeaturesTab_UpdateText": {
+    "Original": "Update",
+    "Translated": "更新"
+  },
+  "ToyBox_Features_SettingsFeatures_SettingsFeaturesTab_VersionAndFileIntegrityCategory": {
+    "Original": "Version and File Integrity",
+    "Translated": "版本与文件完整性"
+  },
+  "ToyBox_Features_SettingsFeatures_SettingsFeaturesTab_BlueprintsCategory": {
+    "Original": "Blueprints",
+    "Translated": "蓝图（Blueprints）"
+  },
+  "ToyBox_Features_SettingsFeatures_SettingsFeaturesTab_LanguageCategory": {
+    "Original": "Language",
+    "Translated": "语言"
+  },
+  "ToyBox_Features_SettingsFeatures_SettingsFeaturesTab_ListsAndBrowsersText": {
+    "Original": "Lists and Browsers",
+    "Translated": "列表与浏览器"
+  },
+  "ToyBox_Features_SettingsFeatures_SettingsFeaturesTab_InspectorText": {
+    "Original": "Inspector",
+    "Translated": "检查器（Inspector）"
+  },
+  "ToyBox_Features_SettingsFeatures_SettingsFeaturesTab_OtherText": {
+    "Original": "Other",
+    "Translated": "其他"
+  },
+  "ToyBox_Features_SettingsFeatures_SettingsFeaturesTab_SettingsText": {
+    "Original": "Settings",
+    "Translated": "设置"
+  },
+  "ToyBox_Features_SettingsFeatures_SettingsFeaturesTab_m_GameLocalizedText": {
+    "Original": "Game",
+    "Translated": "游戏"
+  },
+  "ToyBox_Features_UpdateAndIntegrity_UpdateCompatabilityFeature_EnableIntegrityCheckText": {
+    "Original": "Enable Integrity Check",
+    "Translated": "启用完整性检查"
+  },
+  "ToyBox_Features_UpdateAndIntegrity_UpdateCompatabilityFeature_CheckTheIntegrityOfToyBoxFilesTe": {
+    "Original": "Check the integrity of ToyBox files",
+    "Translated": "检查 ToyBox 文件的完整性"
+  },
+  "ToyBox_Features_UpdateAndIntegrity_UpdaterFeature_RestartToFinishUpdateText": {
+    "Original": "Restart to finish update",
+    "Translated": "重启以完成更新"
+  },
+  "ToyBox_Features_UpdateAndIntegrity_UpdaterFeature_TryReinstallCurrentVersionText": {
+    "Original": "Try reinstall current version",
+    "Translated": "尝试重新安装当前版本"
+  },
+  "ToyBox_Features_UpdateAndIntegrity_UpdaterFeature_TryUpdatingToNewestVersionText": {
+    "Original": "Try updating to newest version",
+    "Translated": "尝试更新到最新版本"
+  },
+  "ToyBox_Features_UpdateAndIntegrity_UpdaterFeature_DownloadProgress_Text": {
+    "Original": "Download Progress:",
+    "Translated": "下载进度："
+  },
+  "ToyBox_Features_SettingsFeatures_UpdateAndIntegrity_UpdaterFeature_UpdateModText": {
+    "Original": "Update Mod",
+    "Translated": "更新 MOD"
+  },
+  "ToyBox_Features_SettingsFeatures_UpdateAndIntegrity_UpdaterFeature_ReinstallTheCurrentModVersionOrU": {
+    "Original": "Reinstall the current mod version or update to the latest available version",
+    "Translated": "重新安装当前 MOD 版本，或更新到最新可用版本。"
+  },
+  "ToyBox_Features_UpdateAndIntegrity_VersionCompatabilityFeature_Name": {
+    "Original": "Enable Version Compatibility Check",
+    "Translated": "启用版本兼容性检查"
+  },
+  "ToyBox_Features_UpdateAndIntegrity_VersionCompatabilityFeature_Description": {
+    "Original": "Check whether the current mod version is compatible with the current game version",
+    "Translated": "检查当前 MOD 版本是否与当前游戏版本兼容"
+  },
+  "ToyBox_Features_SettingsFeatures_UpdateAndIntegrity_VersionCompatabilityFeature_ModVersionIsNotCompatibleWithThi": {
+    "Original": "Mod Version is not compatible with this game version!",
+    "Translated": "MOD 版本与当前游戏版本不兼容！"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ColonizeColonyBA_ColonizeText": {
+    "Original": "Colonize",
+    "Translated": "殖民"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ColonizeColonyBA_Name": {
+    "Original": "Colonize BlueprintColony",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ColonizeColonyBA_Description": {
+    "Original": "Tries to colonize the specified BlueprintColony in the current Star System.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ColonizePlanetBA_ColonizeText": {
+    "Original": "Colonize",
+    "Translated": "殖民"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ColonizePlanetBA_Name": {
+    "Original": "Colonize BlueprintPlanet",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ColonizePlanetBA_Description": {
+    "Original": "Tries to colonize the specified BlueprintPlanet in the current Star System.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_LoadAreaPresetBA_LoadPresetText": {
+    "Original": "Load Preset",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_LoadAreaPresetBA_Name": {
+    "Original": "Load Area Preset",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_LoadAreaPresetBA_Description": {
+    "Original": "Loads a specified BlueprintAreaPreset.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintAreaBA_TeleportText": {
+    "Original": "Teleport",
+    "Translated": "传送"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintAreaBA_Name": {
+    "Original": "Teleport to BlueprintArea",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintAreaBA_Description": {
+    "Original": "Gets the first AreaEnterPoint corresponding to the specified BlueprintArea and loads it.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintAreaEnterPointBA_TeleportText": {
+    "Original": "Teleport",
+    "Translated": "传送"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintAreaEnterPointBA_Name": {
+    "Original": "Teleport to BlueprintAreaEnterPoint",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintAreaEnterPointBA_Description": {
+    "Original": "Loads the area of the specified BlueprintAreaEnterPoint.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintSectorMapPointStarSystemBA_TeleportText": {
+    "Original": "Teleport",
+    "Translated": "传送"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintSectorMapPointStarSystemBA_Name": {
+    "Original": "Teleport to BlueprintSectorMapPointStarSystem",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintSectorMapPointStarSystemBA_Description": {
+    "Original": "Gets the first AreaEnterPoint corresponding to the specified BlueprintSectorMapPointStarSystem and loads it.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintStarSystemMapBA_TeleportText": {
+    "Original": "Teleport",
+    "Translated": "传送"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintStarSystemMapBA_Name": {
+    "Original": "Teleport to BlueprintStarSystemMap",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintStarSystemMapBA_Description": {
+    "Original": "Gets the first AreaEnterPoint corresponding to the specified BlueprintStarSystemMap and loads it.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddItemBA_Add_x": {
+    "Original": "Add {0} Items",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddItemBA_Name": {
+    "Original": "Add Item",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddItemBA_Description": {
+    "Original": "Adds the specified BlueprintItem to your inventory.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveItemBA_Remove_x": {
+    "Original": "Remove {0} Items",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveItemBA_Name": {
+    "Original": "Remove Item",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveItemBA_Description": {
+    "Original": "Removes the specified BlueprintItem from your inventory.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeFlagValueBA_Name": {
+    "Original": "Modify Flag Value",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeFlagValueBA_Description": {
+    "Original": "Increases or decreases the value of the specified BlueprintUnlockableFlag.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeFlagValueBA_FlagIsNotUnlockedText": {
+    "Original": "Flag is not unlocked",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_CompleteEtudeBA_Name": {
+    "Original": "Complete Etude",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_CompleteEtudeBA_Description": {
+    "Original": "Complete the specified BlueprintEtude. A failed Etude is often used to mark a failed quest state.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_CompleteEtudeBA_CompleteText": {
+    "Original": "Complete",
+    "Translated": "完成"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_CompleteEtudeBA_EtudeIsNotStartedText": {
+    "Original": "Etude is not started",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_CompleteQuestBA_Name": {
+    "Original": "Complete Quest",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_CompleteQuestBA_Description": {
+    "Original": "Completes the specified BlueprintQuest by forcing each objective to complete.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_CompleteQuestBA_CompleteText": {
+    "Original": "Complete",
+    "Translated": "完成"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_CompleteQuestBA_QuestIsNotStartedText": {
+    "Original": "Quest is not started",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_CompleteQuestObjectiveBA_Name": {
+    "Original": "Complete Quest Objective",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_CompleteQuestObjectiveBA_Description": {
+    "Original": "Completes the specified BlueprintQuestObjective.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_CompleteQuestObjectiveBA_CompleteText": {
+    "Original": "Complete",
+    "Translated": "完成"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_CompleteQuestObjectiveBA_QuestObjectiveIsNotStartedText": {
+    "Original": "Quest objective is not started",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_LockFlagBA_Name": {
+    "Original": "Lock Flag",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_LockFlagBA_Description": {
+    "Original": "Locks the specified BlueprintUnlockableFlag.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_LockFlagBA_LockText": {
+    "Original": "Lock",
+    "Translated": "锁定"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_LockFlagBA_FlagIsNotUnlockedText": {
+    "Original": "Flag is not unlocked",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_PlayCutsceneBA_Name": {
+    "Original": "Play Cutscene",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_PlayCutsceneBA_Description": {
+    "Original": "Plays the specified Cutscene.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_PlayCutsceneBA_PlayText": {
+    "Original": "Play",
+    "Translated": "播放"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartEtudeBA_Name": {
+    "Original": "Start Etude",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartEtudeBA_Description": {
+    "Original": "Starts the specified BlueprintEtude.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartEtudeBA_StartText": {
+    "Original": "Start",
+    "Translated": "开始"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartEtudeBA_EtudeIsAlreadyStartedOrCompleted": {
+    "Original": "Etude is already started or completed",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartQuestBA_Name": {
+    "Original": "Start Quest",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartQuestBA_Description": {
+    "Original": "Starts the specified BlueprintQuest by starting its first objective.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartQuestBA_StartText": {
+    "Original": "Start",
+    "Translated": "开始"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartQuestBA_QuestAlreadyStartedText": {
+    "Original": "Quest already started",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartQuestObjectiveBA_Name": {
+    "Original": "Start Quest Objective",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartQuestObjectiveBA_Description": {
+    "Original": "Starts the specified BlueprintQuestObjective.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartQuestObjectiveBA_StartText": {
+    "Original": "Start",
+    "Translated": "开始"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartQuestObjectiveBA_QuestObjectiveStateIsNotNoneText": {
+    "Original": "QuestObjectiveState is not none",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnlockAchievementBA_Name": {
+    "Original": "Unlock Achievement",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnlockAchievementBA_Description": {
+    "Original": "Unlocks the specified achievement.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnlockAchievementBA_UnlockText": {
+    "Original": "Unlock",
+    "Translated": "解锁"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnlockAchievementBA_AchievementAlreadyUnlockedText": {
+    "Original": "Achievement is already unlocked",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnlockFlagBA_Name": {
+    "Original": "Unlock Flag",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnlockFlagBA_Description": {
+    "Original": "Unlocks the specified BlueprintUnlockableFlag.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnlockFlagBA_UnlockText": {
+    "Original": "Unlock",
+    "Translated": "解锁"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnlockFlagBA_FlagIsNotLockedText": {
+    "Original": "Flag is not locked",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnstartEtudeBA_Name": {
+    "Original": "Unstart Etude",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnstartEtudeBA_Description": {
+    "Original": "Unstarts the specified BlueprintEtude.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnstartEtudeBA_UnstartText": {
+    "Original": "Unstart",
+    "Translated": "取消启动"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnstartEtudeBA_EtudeIsNotStartedText": {
+    "Original": "Etude is not started or completed",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddAbilityResourceBA_Name": {
+    "Original": "Add Ability Resource",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddAbilityResourceBA_Description": {
+    "Original": "Adds the specified BlueprintAbilityResource to the chosen unit.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddAbilityResourceBA_AddText": {
+    "Original": "Add",
+    "Translated": "添加"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddAbilityResourceBA_UnitAlreadyHasThisAbilityResourc": {
+    "Original": "Unit already has this ability resource",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechadendriteBA_Name": {
+    "Original": "Add Mechadendrite",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechadendriteBA_Description": {
+    "Original": "Adds the specified mechadendrite to the specified unit.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechadendriteBA_m_AddLocalizedText": {
+    "Original": "Equip Mechadendrite",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechadendriteBA_m_UnitAlreadyHasThisMechadendriteLocalizedText": {
+    "Original": "Unit already has this Mechadendrite",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechanicEntityFactBA_AddText": {
+    "Original": "Add",
+    "Translated": "添加"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechanicEntityFactBA_Name": {
+    "Original": "Add Fact",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechanicEntityFactBA_Description": {
+    "Original": "Adds the specified BlueprintMechanicEntityFact to the chosen unit.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechanicEntityFactBA_UnitAlreadyHasThisFactText": {
+    "Original": "Unit already has this Fact",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeBuffRankBA_Name": {
+    "Original": "Modify Buff Rank",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeBuffRankBA_Description": {
+    "Original": "Increases or decreases the value of the specified BlueprintBuff on the unit.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeBuffRankBA_ThisBuffHasNoRanksText": {
+    "Original": "This buff has no ranks",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeFeatureRankBA_Name": {
+    "Original": "Modify Feature Rank",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeFeatureRankBA_Description": {
+    "Original": "Increases or decreases the value of the specified BlueprintFeature on the unit.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeFeatureRankBA_ThisFeatureHasNoRanksText": {
+    "Original": "This feature has no ranks",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_Units_ChangeVoiceBA_Name": {
+    "Original": "Change Voice",
+    "Translated": "更改语音"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_Units_ChangeVoiceBA_Description": {
+    "Original": "Changes the voice of the specified unit to the specified BlueprintUnitAsksList.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_Units_ChangeVoiceBA_m_ChangeVoiceLocalizedText": {
+    "Original": "Change Voice",
+    "Translated": "更改语音"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_Units_ChangeVoiceBA_m_ThisIsTheCurrentVoice_LocalizedText": {
+    "Original": "This is the current voice!",
+    "Translated": "这是当前声音！"
+  },
+  "ToyBox_Classes_Infrastructure_Blueprints_BlueprintActions_Units_PlayVoiceBA_Name": {
+    "Original": "Play Voice Example",
+    "Translated": "播放语音示例"
+  },
+  "ToyBox_Classes_Infrastructure_Blueprints_BlueprintActions_Units_PlayVoiceBA_Description": {
+    "Original": "Plays the PartyMemberUnconscious sound with the specified voice (if that sound doesn't exist for said voice nothing happens).",
+    "Translated": "使用指定语音播放 PartyMemberUnconscious 音效（如果该语音没有对应音效，则不会发生任何操作）。"
+  },
+  "ToyBox_Classes_Infrastructure_Blueprints_BlueprintActions_Units_PlayVoiceBA_m_PlayExampleLocalizedText": {
+    "Original": "Play Example",
+    "Translated": "播放示例"
+  },
+  "ToyBox_Classes_Infrastructure_Blueprints_BlueprintActions_Units_PlayVoiceBA_m_CanOnlyPlayAnExampleOfTheCurrentLocalizedText": {
+    "Original": "Can only play an example of the current voice!",
+    "Translated": "只能播放当前语音的示例！"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveAbilityResourceBA_Name": {
+    "Original": "Remove Ability Resource",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveAbilityResourceBA_Description": {
+    "Original": "Removes the specified BlueprintAbilityResource from the chosen unit.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveAbilityResourceBA_RemoveText": {
+    "Original": "Remove",
+    "Translated": "移除"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveAbilityResourceBA_UnitAlreadyHasThisAbilityResourc": {
+    "Original": "Unit does not have this ability resource",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechadendriteBA_Name": {
+    "Original": "Remove Mechadendrite",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechadendriteBA_Description": {
+    "Original": "Removes the specified mechadendrite from the specified unit.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechadendriteBA_m_RemoveLocalizedText": {
+    "Original": "Unequip Mechadendrite",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechadendriteBA_m_UnitDoesn_tHaveThisMechadendriteLocalizedText": {
+    "Original": "Unit doesn't have this Mechadendrite",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechanicEntityFactBA_RemoveText": {
+    "Original": "Remove",
+    "Translated": "移除"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechanicEntityFactBA_Name": {
+    "Original": "Remove Fact",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechanicEntityFactBA_Description": {
+    "Original": "Removes the specified BlueprintMechanicEntityFact from the chosen unit.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechanicEntityFactBA_UnitDoesNotHaveThisFactText": {
+    "Original": "Unit does not have this Fact",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_SpawnUnitBA_Spawn_x": {
+    "Original": "Spawn",
+    "Translated": "生成"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_SpawnUnitBA_Name": {
+    "Original": "Spawn Unit",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_SpawnUnitBA_Description": {
+    "Original": "Spawns the specified BlueprintUnit in the vicinity.",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_AllLocalizedText": {
+    "Original": "All",
+    "Translated": "所有"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_FactsLocalizedText": {
+    "Original": "Facts",
+    "Translated": "事实（Facts）"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_FeaturesLocalizedText": {
+    "Original": "Features",
+    "Translated": "功能"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_CareersLocalizedText": {
+    "Original": "Careers",
+    "Translated": "职业"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_ProgressionLocalizedText": {
+    "Original": "Progression",
+    "Translated": "成长与进程"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_AbilitiesLocalizedText": {
+    "Original": "Abilities",
+    "Translated": "能力"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_SpellsLocalizedText": {
+    "Original": "Spells",
+    "Translated": "法术"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_BrainsLocalizedText": {
+    "Original": "Brains",
+    "Translated": "AI 逻辑"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_AbilityRsrc_LocalizedText": {
+    "Original": "Ability Rsrc.",
+    "Translated": "能力资源"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_BuffsLocalizedText": {
+    "Original": "Buffs",
+    "Translated": "状态效果"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_ItemsLocalizedText": {
+    "Original": "Items",
+    "Translated": "物品"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_EquipmentLocalizedText": {
+    "Original": "Equipment",
+    "Translated": "装备"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_WeaponsLocalizedText": {
+    "Original": "Weapons",
+    "Translated": "武器"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_ArmorsLocalizedText": {
+    "Original": "Armors",
+    "Translated": "护甲"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_UsableLocalizedText": {
+    "Original": "Usable",
+    "Translated": "可使用物品"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_UnitsLocalizedText": {
+    "Original": "Units",
+    "Translated": "单位"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_UnitsCRLocalizedText": {
+    "Original": "Units CR",
+    "Translated": "单位挑战等级（CR）"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_CRLocalizedText": {
+    "Original": "CR",
+    "Translated": "挑战等级（CR）"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_RacesLocalizedText": {
+    "Original": "Races",
+    "Translated": "种族"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_AreasLocalizedText": {
+    "Original": "Areas",
+    "Translated": "区域"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_AreaEntryLocalizedText": {
+    "Original": "Area Entry",
+    "Translated": "区域入口"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_SystemMapLocalizedText": {
+    "Original": "System Map",
+    "Translated": "星系地图"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_SectorMapPointsLocalizedText": {
+    "Original": "Sector Map Points",
+    "Translated": "星区地图点位"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_CutscenesLocalizedText": {
+    "Original": "Cutscenes",
+    "Translated": "过场动画"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_QuestsLocalizedText": {
+    "Original": "Quests",
+    "Translated": "任务"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_QuestObj_LocalizedText": {
+    "Original": "Quest Obj.",
+    "Translated": "任务目标"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_EtudesLocalizedText": {
+    "Original": "Etudes",
+    "Translated": "剧情状态（Etudes）"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_FlagsLocalizedText": {
+    "Original": "Flags",
+    "Translated": "标志"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_DailogsLocalizedText": {
+    "Original": "Dailogs",
+    "Translated": "对话"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_AnswersLocalizedText": {
+    "Original": "Answers",
+    "Translated": "对话选项"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_PlanetsLocalizedText": {
+    "Original": "Planets",
+    "Translated": "行星"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_ColoniesLocalizedText": {
+    "Original": "Colonies",
+    "Translated": "殖民地"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_AreaPresetsLocalizedText": {
+    "Original": "Area Presets",
+    "Translated": "区域预设"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_CuesLocalizedText": {
+    "Original": "Cues",
+    "Translated": "对话节点（Cues）"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintFilter_AllLocalizedText": {
+    "Original": "All",
+    "Translated": "所有"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintUI_m_ShowSettingsLocalizedText": {
+    "Original": "Show Settings",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_CharacterPicker_ThereAreNoCharactersInThisList": {
+    "Original": "There are no characters in this list!",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_PartyText": {
+    "Original": "Party",
+    "Translated": "队伍"
+  },
+  "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_PartyAndPetsText": {
+    "Original": "Party & Pets",
+    "Translated": "队伍与宠物"
+  },
+  "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_AllText": {
+    "Original": "All Characters",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_ActiveText": {
+    "Original": "Active",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_RemoteText": {
+    "Original": "Remote",
+    "Translated": "未随队"
+  },
+  "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_CustomCompanionText": {
+    "Original": "Custom Companions",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_PetsText": {
+    "Original": "Pets",
+    "Translated": "宠物"
+  },
+  "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_NearbyText": {
+    "Original": "Nearby",
+    "Translated": "附近"
+  },
+  "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_FriendlyText": {
+    "Original": "Friendly",
+    "Translated": "友方"
+  },
+  "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_EnemiesText": {
+    "Original": "Enemies",
+    "Translated": "敌人"
+  },
+  "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_AllUnitsText": {
+    "Original": "All Units",
+    "Translated": "所有单位"
+  },
+  "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_m_StarshipsLocalizedText": {
+    "Original": "Starships",
+    "Translated": "星舰"
+  },
+  "ToyBox_Infrastructure_Enums_EtudeState_Localizer_m_NotStartedLocalizedText": {
+    "Original": "Not Started",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Enums_EtudeState_Localizer_m_StartedLocalizedText": {
+    "Original": "Started",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Enums_EtudeState_Localizer_m_ActiveLocalizedText": {
+    "Original": "Active",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Enums_EtudeState_Localizer_m_PreCompletedLocalizedText": {
+    "Original": "Pre Completed",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Enums_EtudeState_Localizer_m_CompletedLocalizedText": {
+    "Original": "Completed",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Enums_EtudeState_Localizer_m_CompletionInProgressLocalizedText": {
+    "Original": "Completion in Progress",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Enums_LogLevel_Localizer_ErrorText": {
+    "Original": "Error",
+    "Translated": "错误"
+  },
+  "ToyBox_Infrastructure_Enums_LogLevel_Localizer_WarningText": {
+    "Original": "Warning",
+    "Translated": "警告"
+  },
+  "ToyBox_Infrastructure_Enums_LogLevel_Localizer_InfoText": {
+    "Original": "Info",
+    "Translated": "信息"
+  },
+  "ToyBox_Infrastructure_Enums_LogLevel_Localizer_DebugText": {
+    "Original": "Debug",
+    "Translated": "调试"
+  },
+  "ToyBox_Infrastructure_Enums_LogLevel_Localizer_TraceText": {
+    "Original": "Trace",
+    "Translated": "跟踪"
+  },
+  "ToyBox_Infrastructure_Enums_PartyTabSectionType_Localizer_ClassesText": {
+    "Original": "Careers",
+    "Translated": "职业"
+  },
+  "ToyBox_Infrastructure_Enums_PartyTabSectionType_Localizer_StatsText": {
+    "Original": "Stats",
+    "Translated": "属性"
+  },
+  "ToyBox_Infrastructure_Enums_PartyTabSectionType_Localizer_FeaturesText": {
+    "Original": "Features",
+    "Translated": "功能"
+  },
+  "ToyBox_Infrastructure_Enums_PartyTabSectionType_Localizer_BuffsText": {
+    "Original": "Buffs",
+    "Translated": "状态效果"
+  },
+  "ToyBox_Infrastructure_Enums_PartyTabSectionType_Localizer_AbilitiesText": {
+    "Original": "Abilities",
+    "Translated": "能力"
+  },
+  "ToyBox_Infrastructure_Enums_PartyTabSectionType_Localizer_InspectText": {
+    "Original": "Inspect",
+    "Translated": "检查"
+  },
+  "ToyBox_Infrastructure_Enums_PartyTabSectionType_Localizer_FeatureListsText": {
+    "Original": "Feature Lists",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Enums_PartyTabSectionType_Localizer_m_MechadendritesLocalizedText": {
+    "Original": "Mechadendrites",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Enums_UnitSelectType_Localizer_EveryoneText": {
+    "Original": "Everyone",
+    "Translated": "所有人"
+  },
+  "ToyBox_Infrastructure_Enums_UnitSelectType_Localizer_EnemiesText": {
+    "Original": "Enemies",
+    "Translated": "敌人"
+  },
+  "ToyBox_Infrastructure_Enums_UnitSelectType_Localizer_FriendlyText": {
+    "Original": "Friendly",
+    "Translated": "友方"
+  },
+  "ToyBox_Infrastructure_Enums_UnitSelectType_Localizer_PartyText": {
+    "Original": "Party",
+    "Translated": "队伍"
+  },
+  "ToyBox_Infrastructure_Enums_UnitSelectType_Localizer_MainCharacterText": {
+    "Original": "Main Character",
+    "Translated": "主角"
+  },
+  "ToyBox_Infrastructure_Enums_UnitSelectType_Localizer_OffText": {
+    "Original": "Off",
+    "Translated": "关闭"
+  },
+  "ToyBox_Infrastructure_Enums_UnitSelectType_Localizer_m_ShipLocalizedText": {
+    "Original": "Ship",
+    "Translated": "星舰"
+  },
+  "ToyBox_Infrastructure_Enums_UnitSelectType_Localizer_m_EnemyShipLocalizedText": {
+    "Original": "Enemy Ship",
+    "Translated": null
+  },
+  "ToyBox_FeatureTab_m_FeatureFailedInitializationLocalizedText": {
+    "Original": "Feature failed initialization",
+    "Translated": "功能初始化失败"
+  },
+  "ToyBox_Infrastructure_Inspector_InspectorUI_ShowSearchText": {
+    "Original": "Show Search",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Inspector_InspectorUI_ShowSearchSettingsText": {
+    "Original": "Show Settings",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Inspector_InspectorUI_SearchByNameText": {
+    "Original": "Search by Name",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Inspector_InspectorUI_SearchByTypeText": {
+    "Original": "Search by Type",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Inspector_InspectorUI_SearchByValueText": {
+    "Original": "Search by Value",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Inspector_InspectorUI_SearchDepthText": {
+    "Original": "Search Depth",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Inspector_InspectorUI_StoppedDrawingEntriesToPreventUI": {
+    "Original": "Stopped drawing entries to prevent UI crash",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Utilities_Strings_SharedStrings_ThisCannotBeUsedFromTheMainMenu": {
+    "Original": "This cannot be used from the main menu!",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Utilities_Strings_SharedStrings_TheCharacterPickerCannotBeUsedFromTheMainMenu": {
+    "Original": "The character picker cannot be used from the main menu!",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Utilities_Strings_SharedStrings_Reset_to_default_Value": {
+    "Original": "Reset",
+    "Translated": "重置"
+  },
+  "ToyBox_Infrastructure_Utilities_Strings_SharedStrings_List_x_Matches": {
+    "Original": "Matches",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_UI_VerticalList_PageText": {
+    "Original": "Page",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_UI_Browser_ShowAllText": {
+    "Original": "Show All",
+    "Translated": "显示所有"
+  },
+  "ToyBox_Main_ModFilesAreCorrupted_Text": {
+    "Original": "Mod files are corrupted!",
+    "Translated": "MOD 文件已损坏！"
+  },
+  "ToyBox_Infrastructure_Inspector_InspectorUI_CurrentlyInspectingText": {
+    "Original": "Currently Inspecting",
+    "Translated": null
+  },
+  "ToyBox_Main_ResetText": {
+    "Original": "Reset",
+    "Translated": "重置"
+  },
+  "ToyBox_Main_CurrentlyLoadedBPsText": {
+    "Original": "Currently loaded blueprints: {0}",
+    "Translated": "当前已加载蓝图：{0}"
+  },
+  "ToyBox_Infrastructure_UI_Browser_SearchText": {
+    "Original": "Search",
+    "Translated": "搜索"
+  },
+  "ToyBox_Infrastructure_UI_Browser_SortAscendingText": {
+    "Original": "Sort Ascending",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_UI_Browser_SortDescendingText": {
+    "Original": "Sort Descending",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_UI_UI_MinimumText": {
+    "Original": "min",
+    "Translated": "最小"
+  },
+  "ToyBox_Infrastructure_UI_UI_MaximumText": {
+    "Original": "max",
+    "Translated": "最大"
+  },
+  "ToyBox_Infrastructure_Inspector_InspectorUI_SearchInProgres___Text": {
+    "Original": "Search in progres...",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Inspector_InspectorUI_CancelText": {
+    "Original": "Cancel",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_BlueprintPicker_EnterTargetBlueprintIdText": {
+    "Original": "Enter target blueprint id",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_BlueprintPicker_PickBlueprintText": {
+    "Original": "Pick Blueprint",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_BlueprintPicker_NoBlueprintWithThatGuidFound_Text": {
+    "Original": "No blueprint with that guid found.",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_BlueprintPicker_ShowListOfBlueprintsText": {
+    "Original": "Show List of Blueprints",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_BlueprintPicker_CurrentlySelectedBlueprint_Text": {
+    "Original": "Currently selected blueprint",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_UnitPicker_CurrentlySelectedUnit_Text": {
+    "Original": "Currently selected unit",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Utilities_ContextProvider_NoneText": {
+    "Original": "None",
+    "Translated": "无"
+  },
+  "ToyBox_FeatureWithBindableAction_m_DeleteLocalizedText": {
+    "Original": "Delete",
+    "Translated": "删除"
+  },
+  "ToyBox_FeatureWithBindableAction_m_RebindLocalizedText": {
+    "Original": "Rebind",
+    "Translated": "重新绑定"
+  },
+  "ToyBox_FeatureWithBindableAction_m_BindLocalizedText": {
+    "Original": "Bind",
+    "Translated": "绑定"
+  },
+  "ToyBox_FeatureWithBindableAction_m_CancelLocalizedText": {
+    "Original": "Cancel",
+    "Translated": "取消"
+  },
+  "ToyBox_FeatureWithBindableAction_m_ApplyLocalizedText": {
+    "Original": "Apply",
+    "Translated": "应用"
+  },
+  "ToyBox_FeatureWithBindableAction_In_Progress_Keybind": {
+    "Original": "Currently",
+    "Translated": "当前"
+  },
+  "ToyBox_FeatureWithBindableAction_m_CurrentKeybindConflictsWithExistLocalizedText": {
+    "Original": "Current keybind conflicts with existing binding!",
+    "Translated": "当前快捷键与现有绑定冲突！"
+  },
+  "ToyBox_Infrastructure_Utilities_ContextProvider_PetsNotAllowedForThisFeature_LocalizedText": {
+    "Original": "Pets not allowed for this feature!",
+    "Translated": null
+  },
+  "ToyBox_Main_SomethingWentHorriblyWrongAndYou": {
+    "Original": "Something went horribly wrong and you've somehow opened the UI before ToyBox finished initialization. Please report this to the mod author!",
+    "Translated": "发生严重错误：ToyBox 尚未完成初始化，你却不知为何打开了界面。请向 MOD 作者报告！"
+  },
+  "ToyBox_Main_m_ThisModWillAutomaticallyConntectLocalizedText": {
+    "Original": "This mod will automatically conntect to the internet for various tasks. Here are the respective options (in the future found in the Settings tab).",
+    "Translated": "本 MOD 会为执行多项任务自动连接互联网。相关选项如下（以后可在“设置”页中找到）。"
+  },
+  "ToyBox_Main_m_IUnderstandLocalizedText": {
+    "Original": "I understand",
+    "Translated": "我已了解"
+  }
+}
