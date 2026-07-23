@@ -46,6 +46,9 @@ public partial class EtudesEditorFeature : Feature {
         m_AreaBrowser = null;
         m_AreaByName.Clear();
         m_SelectedArea = null;
+        // Reset the init latch too: without this the area browser is never rebuilt
+        // (EnsureAreaBrowser stays stuck returning false) and the tab renders empty.
+        m_NeedInitAreaBrowserWidth = null;
     }
 
     public override void OnGui() {
@@ -332,10 +335,10 @@ public partial class EtudesEditorFeature : Feature {
 
                 Space(10);
                 if (element is Condition cond) {
-                    UI.Label($"{element.GetType().Name.Cyan()} : {cond.CheckCondition().ToString().Orange()}", Width(420 * Main.UIScale));
+                    UI.Label($"{element.GetType().Name.Cyan()} : {SafeEvaluate(cond.CheckCondition)}", Width(420 * Main.UIScale));
                 } else if (element is Conditional conditional) {
                     var caption = string.Join(", ", conditional.ConditionsChecker.Conditions.Select(c => c.GetCaption()));
-                    UI.Label($"{element.GetType().Name.Cyan()} : {conditional.ConditionsChecker.Check().ToString().Orange()} - {caption.Yellow()}", Width(420 * Main.UIScale));
+                    UI.Label($"{element.GetType().Name.Cyan()} : {SafeEvaluate(() => conditional.ConditionsChecker.Check())} - {caption.Yellow()}", Width(420 * Main.UIScale));
                 } else {
                     UI.Label(element.GetType().Name.Cyan(), Width(420 * Main.UIScale));
                 }
@@ -363,6 +366,17 @@ public partial class EtudesEditorFeature : Feature {
             }
         }
     }
+
+    private static string SafeEvaluate(Func<bool> check) {
+        try {
+            return check().ToString().Orange();
+        } catch (Exception ex) {
+            return $"{m_EvaluationFailedText} ({ex.GetType().Name})".Red();
+        }
+    }
+
+    [LocalizedString("ToyBox_Features_Etudes_EtudesFeature_EvaluationFailedText", "Evaluation failed")]
+    private static partial string m_EvaluationFailedText { get; }
 
     [LocalizedString("ToyBox_Features_Etudes_EtudesFeature_LoadingText", "Loading Etudes...")]
     private static partial string m_LoadingText { get; }

@@ -1,5 +1,9 @@
-### ToyBox Rogue - Ver 2.0.4 (built for 1.6.1.511)
+### ToyBox Rogue - Ver 2.0.5 (built for 1.6.1.511)
 * (***ADDB***) Port and fix Party => Stats => skeleton / bone editor 
+* (***ADDB***) Fix Etudes tab crashing when expanding an etude whose element condition uses an evaluator that can't be resolved (e.g. HasBuff on a companion not in the party)
+* (***ADDB***) Fix Etudes tab becoming empty sometimes
+* (***ADDB***) Make the "Reset" button more reliable
+* (***WFMinerva***) Add Chinese Localization (https://github.com/xADDBx/ToyBox-RogueTrader/pull/63)
 
 ### ToyBox Rogue - Ver 2.0.3 (built for 1.6.1.511)
 * (***ADDB***) Fix "Search Description" not actually searching descriptions (it did sort by them, though).

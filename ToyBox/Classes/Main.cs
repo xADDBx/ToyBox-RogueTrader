@@ -2,7 +2,6 @@ using System.Collections.Concurrent;
 using System.Diagnostics;
 using ToyBox.Features.SettingsFeatures.UpdateAndIntegrity;
 using ToyBox.Features.SettingsTab.Other;
-using UnityEngine;
 using UnityModManagerNet;
 
 namespace ToyBox;
@@ -139,8 +138,13 @@ public static partial class Main {
     }
     private static bool m_ShowBlueprintLoadingProgress = false;
     private static bool m_NeedsGlyphSupportCheck = true;
+    private static Exception? m_PendingException = null;
     private static void OnGUI(UnityModManager.ModEntry modEntry) {
         try {
+            if (m_PendingException != null && ImguiCanChangeStateAtBeginning()) {
+                m_CaughtException = m_PendingException;
+                m_PendingException = null;
+            }
             if (!SuccessfullyInitialized) {
                 UI.Label(m_SomethingWentHorriblyWrongAndYou.Red().Bold());
                 return;
@@ -176,29 +180,28 @@ public static partial class Main {
                     DisableRestrictedMode();
                 }
             } else {
+                if (m_CaughtException != null) {
+                    UI.Label(m_CaughtException.ToString());
+                    if (UI.Button(SharedStrings.ResetLabel.Orange().Bold().SizePercent(130), null, null, AutoWidth())) {
+                        m_CaughtException = null;
+                    }
+                }
                 var selected = m_VisibleFeatureTabs[Settings.SelectedTab];
                 if (UI.SelectionGrid(ref selected, m_VisibleFeatureTabs, Math.Min(m_VisibleFeatureTabs.Count, 6), tab => tab.Name, Width(EffectiveWindowWidth()))) {
                     Settings.SelectedTab = m_VisibleFeatureTabs.IndexOf(selected);
                 }
+                if (m_CaughtException != null) {
+                    UI.Label(m_YouNeedToClearTheException_LocalizedText.Orange().Bold());
+                    return;
+                }
                 Space(10);
                 Div.DrawDiv();
                 Space(10);
-                if (m_CaughtException == null) {
-                    selected.OnGui();
-                } else {
-                    UI.Label(m_CaughtException.ToString());
-                    using (HorizontalScope()) {
-                        GUILayout.FlexibleSpace();
-                        if (UI.Button(SharedStrings.ResetLabel.Orange().Bold().SizePercent(130))) {
-                            m_CaughtException = null;
-                        }
-                        GUILayout.FlexibleSpace();
-                    }
-                }
+                selected.OnGui();
             }
         } catch (Exception ex) {
             Error(ex);
-            m_CaughtException ??= ex;
+            m_PendingException ??= ex;
         }
     }
     private static void OnSaveGUI(UnityModManager.ModEntry modEntry) {
@@ -235,4 +238,6 @@ public static partial class Main {
     private static partial string m_ThisModWillAutomaticallyConntectLocalizedText { get; }
     [LocalizedString("ToyBox_Main_m_IUnderstandLocalizedText", "I understand")]
     private static partial string m_IUnderstandLocalizedText { get; }
+    [LocalizedString("ToyBox_Main_m_YouNeedToClearTheException_LocalizedText", "You need to clear the exception!")]
+    private static partial string m_YouNeedToClearTheException_LocalizedText { get; }
 }

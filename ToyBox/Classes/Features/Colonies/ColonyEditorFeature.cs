@@ -101,7 +101,12 @@ public partial class ColonyEditorFeature : Feature {
                     foreach (var proj in activeProjects) {
                         using (HorizontalScope()) {
                             UI.Label(BPHelper.GetTitle(proj.Blueprint).Orange(), Width(500));
-                            _ = UI.Button(m_FinishText.Cyan(), () => colony.FinishProject(proj), null, AutoWidth());
+                            try {
+                                _ = UI.Button(m_FinishText.Cyan(), () => colony.FinishProject(proj), null, AutoWidth());
+                            } catch (Exception ex) {
+                                // One of the subscribers throws. I think that's caught already but I'll catch just in case
+                                Debug(ex.ToString());
+                            }
                         }
                     }
                 }

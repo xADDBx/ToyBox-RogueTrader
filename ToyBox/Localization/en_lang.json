@@ -1231,6 +1231,10 @@
     "Original": "Browse the game's Etudes in a tree view, with state and relationship details.",
     "Translated": null
   },
+  "ToyBox_Features_Etudes_EtudesFeature_EvaluationFailedText": {
+    "Original": "Evaluation failed",
+    "Translated": null
+  },
   "ToyBox_Features_Etudes_EtudesFeature_LoadingText": {
     "Original": "Loading Etudes...",
     "Translated": null
@@ -3709,6 +3713,10 @@
   },
   "ToyBox_Main_m_IUnderstandLocalizedText": {
     "Original": "I understand",
+    "Translated": null
+  },
+  "ToyBox_Main_m_YouNeedToClearTheException_LocalizedText": {
+    "Original": "You need to clear the exception!",
     "Translated": null
   }
 }

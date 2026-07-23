@@ -143,7 +143,7 @@ public partial class PartyFeatureTab : FeatureTab {
                         }
 
                         Space(5);
-                        UI.Label(dist < 1 ? "" : dist.ToString("0") + "m", Width(distanceLabelWidth + 5 * Main.UIScale));
+                        UI.Label(dist < 1 ? "" : dist.ToString("0") + "m", Width(distanceLabelWidth + (5 * Main.UIScale)));
                         Space(5);
 
                         Feature.GetInstance<IncreaseUnitLevelFeature>().OnGui(unit);
