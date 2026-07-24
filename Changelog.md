@@ -1,3 +1,8 @@
+### ToyBox Rogue - Ver 2.0.7 (built for 1.6.1.511)
+* (***ADDB***) Some fixes for the settings porter:
+  * Fixed some settings not being imported: toggleCameraPitch, alwaysRoll1OutOfCombat, toggleDialogRestrictions and toggleDialogRestrictionsEverything
+  * Fixed CameraElevationOffset being imported even if toggleOffsetCameraHeight was disabled in TB1
+
 ### ToyBox Rogue - Ver 2.0.6 (built for 1.6.1.511)
 * (***ADDB***) No longer classify Psy Rating as a Starship stat (and thereby hide it for normal units)
 * (***ADDB***) Allow modifying stats which are not on the unit (thereby adding that stat to the unit)

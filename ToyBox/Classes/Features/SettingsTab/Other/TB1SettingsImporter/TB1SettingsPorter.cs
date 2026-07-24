@@ -128,8 +128,11 @@ internal static class TB1SettingsPorter {
         MapBool("toggleZoomOnAllMaps", ref Settings.EnableAllowZoomOnAllMapsAndCutscenes);
         MapBool("toggleRotateOnAllMaps", ref Settings.EnableAllowRotateOnAllMapsAndCutscenes);
         MapBool("toggleCameraElevation", ref Settings.EnableDragCameraElevation);
+        MapBool("toggleCameraPitch", ref Settings.EnableMouse3DraggingToAimCamera);
         MapBool("toggleFreeCamera", ref Settings.EnableFreeCam);
-        MapFloat("CameraElevationOffset", ref Settings.CameraElevationOffset);
+        if (TryBool("toggleOffsetCameraHeight", out var offsetCameraHeight) && offsetCameraHeight) {
+            MapFloat("CameraElevationOffset", ref Settings.CameraElevationOffset);
+        }
         MapFloat("fovMultiplier", ref Settings.FOVMultiplierSetting);
 
         // Tweaks / cheats
@@ -233,6 +236,7 @@ internal static class TB1SettingsPorter {
         MapDice("alwaysRoll1", ref Settings.DiceRollsAlwaysRoll1);
         MapDice("neverRoll100", ref Settings.DiceRollsNeverRoll100);
         MapDice("neverRoll1", ref Settings.DiceRollsNeverRoll1);
+        MapDice("alwaysRoll1OutOfCombat", ref Settings.DiceRollsOutOfCombatTake1);
         MapDice("roll10Initiative", ref Settings.DiceRollsInitiativeAlwaysRoll10);
         MapDice("roll5Initiative", ref Settings.DiceRollsInitiativeAlwaysRoll5);
         MapDice("roll1Initiative", ref Settings.DiceRollsInitiativeAlwaysRoll1);
@@ -252,6 +256,8 @@ internal static class TB1SettingsPorter {
         MapBool("sortCollationByEntries", ref Settings.SortCollationCategoriesByCount);
 
         // Dialog & previews
+        MapBool("toggleDialogRestrictions", ref Settings.EnableIgnoreDialogRestrictionsSoulMark);
+        MapBool("toggleDialogRestrictionsEverything", ref Settings.EnableIgnoreDialogRestrictionsEverything);
         MapBool("previewDialogResults", ref Settings.EnablePreviewDialogResults);
         MapBool("previewDialogConditions", ref Settings.EnablePreviewDialogConditions);
         MapBool("toggleAllowAnyGenderRomance", ref Settings.EnableLoveIsFree);
