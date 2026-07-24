@@ -1,3 +1,7 @@
+### ToyBox Rogue - Ver 2.0.8 (built for 1.6.1.511)
+* (***ADDB***) Add TextField next to Slider for Visual Override feature
+* (***ADDB***) Fix Visual Override defaulting to 0 instead of 1
+
 ### ToyBox Rogue - Ver 2.0.7 (built for 1.6.1.511)
 * (***ADDB***) Some fixes for the settings porter:
   * Fixed some settings not being imported: toggleCameraPitch, alwaysRoll1OutOfCombat, toggleDialogRestrictions and toggleDialogRestrictionsEverything

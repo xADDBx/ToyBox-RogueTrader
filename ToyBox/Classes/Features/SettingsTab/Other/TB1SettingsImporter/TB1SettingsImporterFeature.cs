@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace ToyBox.Features.SettingsTab.Other;
 
 public partial class TB1SettingsImporterFeature : Feature {

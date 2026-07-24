@@ -40,13 +40,17 @@ public partial class UnitOverrideVisualSizeFeature : FeatureWithPatch, INeedCont
                 Space(20);
                 UI.Label(m_VisualOverrideLocalizedText + ": ");
                 var current = 1f;
-                InSaveSettings?.VisualSizeOverrides.TryGetValue(unit.UniqueId, out current);
+                if (InSaveSettings?.VisualSizeOverrides.TryGetValue(unit.UniqueId, out var stored) ?? false) {
+                    current = stored;
+                }
                 Space(10);
-                if (UI.LogSlider(ref current, 0.01f, 40f, 1, 2, null, Width(300 * Main.UIScale))) {
+                var changed = UI.LogSlider(ref current, 0.01f, 40f, 1, 2, null, Width(300 * Main.UIScale));
+                changed |= UI.TextField(ref current, null, Width(75 * Main.UIScale));
+                if (changed) {
                     if (current == 1) {
-                        InSaveSettings?.VisualSizeOverrides.Remove(unit.UniqueId);
+                        _ = (InSaveSettings?.VisualSizeOverrides.Remove(unit.UniqueId));
                     } else {
-                        InSaveSettings?.VisualSizeOverrides[unit.UniqueId] = current;
+                        _ = (InSaveSettings?.VisualSizeOverrides[unit.UniqueId] = current);
                     }
                     InSaveSettings?.Save();
                     unit.ViewTransform.localScale = unit.View.m_OriginalScale * (unit.View.m_Scale = unit.View.GetSizeScale());
