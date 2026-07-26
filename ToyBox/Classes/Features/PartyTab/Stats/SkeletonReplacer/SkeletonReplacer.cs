@@ -5,11 +5,6 @@ using UnityEngine;
 
 namespace ToyBox.Features.PartyTab.Stats;
 
-// Port of the TB1 skeleton/bone editor. Duplicates a character's Skeleton, mutates the duplicate's
-// bone data, and swaps it onto the CharacterAvatar so per-character bone tweaks don't leak into the
-// shared skeleton asset. Since 1.6.0.448 the bone-update job reads a filtered COPY of the bone data
-// (Character.m_FilteredBoneDataForJob) that is only refreshed on CacheSkeletonBones(); we therefore
-// force a re-cache after every modification (see ApplyBonesModification).
 internal class SkeletonReplacer {
     private readonly string m_Owner;
     private readonly Skeleton m_OldSkeleton;

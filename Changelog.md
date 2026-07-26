@@ -1,3 +1,6 @@
+### ToyBox Rogue - Ver 2.0.10 (built for 1.6.1.511)
+* (***WFMinerva***) Update Chinese Localization (https://github.com/xADDBx/ToyBox-RogueTrader/pull/64)
+
 ### ToyBox Rogue - Ver 2.0.9 (built for 1.6.1.511)
 * (***ADDB***) Make Party => Stats => Skeleton Replacer have separate size multipliers for left and right weapon hand
 

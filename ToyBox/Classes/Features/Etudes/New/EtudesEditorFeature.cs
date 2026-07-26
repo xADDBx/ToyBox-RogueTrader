@@ -46,8 +46,6 @@ public partial class EtudesEditorFeature : Feature {
         m_AreaBrowser = null;
         m_AreaByName.Clear();
         m_SelectedArea = null;
-        // Reset the init latch too: without this the area browser is never rebuilt
-        // (EnsureAreaBrowser stays stuck returning false) and the tab renders empty.
         m_NeedInitAreaBrowserWidth = null;
     }
 
