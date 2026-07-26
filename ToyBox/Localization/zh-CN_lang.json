@@ -61,7 +61,7 @@
   },
   "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_ExperienceMultipliersLocalizedText": {
     "Original": "Experience Multipliers",
-    "Translated": "经验倍数"
+    "Translated": "经验倍率"
   },
   "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_OtherMultipliersLocalizedText": {
     "Original": "Other Multipliers",
@@ -85,7 +85,7 @@
   },
   "ToyBox_Features_BagOfTricks_Camera_AllowRotateOnAllMapsAndCutscenesFeature_Name": {
     "Original": "Enable Rotate on all maps and cutscenes",
-    "Translated": "在所有地图和过场中启用视角旋转"
+    "Translated": "在所有地图和过场动画中启用视角旋转"
   },
   "ToyBox_Features_BagOfTricks_Camera_AllowRotateOnAllMapsAndCutscenesFeature_Description": {
     "Original": "Note: For cutscenes and some situations the rotation keys are disabled so you have to hold down Mouse3 to drag in order to get rotation",
@@ -93,11 +93,11 @@
   },
   "ToyBox_Features_BagOfTricks_Camera_AllowZoomOnAllMapsAndCutscenesFeature_Name": {
     "Original": "Enable Zoom on all maps and cutscenes",
-    "Translated": "在所有地图和过场中启用视角缩放"
+    "Translated": "在所有地图和过场动画中启用视角缩放"
   },
   "ToyBox_Features_BagOfTricks_Camera_AllowZoomOnAllMapsAndCutscenesFeature_Description": {
     "Original": "Makes CameraController always allow zoom and ignore ZoomLock.",
-    "Translated": "使镜头控制器始终允许缩放，并忽略缩放锁定。"
+    "Translated": "使 CameraController 始终允许缩放，并忽略 ZoomLock。"
   },
   "ToyBox_Features_BagOfTricks_Camera_CameraElevationOffsetFeature_Name": {
     "Original": "Modify Camera Elevation Offset",
@@ -229,11 +229,11 @@
   },
   "ToyBox_Features_BagOfTricks_Cheats_InfiniteChargesOnItemsFeature_Name": {
     "Original": "Infinite Charges on Items",
-    "Translated": "可用物品次数无限"
+    "Translated": "物品使用次数无限"
   },
   "ToyBox_Features_BagOfTricks_Cheats_InfiniteChargesOnItemsFeature_Description": {
     "Original": "Prevents charges on usable items from being spent.",
-    "Translated": "使用可用物品时不消耗使用次数。"
+    "Translated": "使用可用物品时不消耗其使用次数。"
   },
   "ToyBox_Features_BagOfTricks_Cheats_InstantRestAfterCombatFeature_Name": {
     "Original": "Instant Rest after Combat",
@@ -317,7 +317,7 @@
   },
   "ToyBox_Features_BagOfTricks_Combat_RemoveBuffsFeature_Name": {
     "Original": "Remove Buffs",
-    "Translated": "移除增益"
+    "Translated": "移除状态效果"
   },
   "ToyBox_Features_BagOfTricks_Combat_RemoveBuffsFeature_Description": {
     "Original": "Removes all non-hidden and non-persistent buffs from all party members and pets.",
@@ -333,7 +333,7 @@
   },
   "ToyBox_Features_BagOfTricks_Combat_RestSelectedFeature_Name": {
     "Original": "Rest Selected",
-    "Translated": "选中休息"
+    "Translated": "所选角色休息"
   },
   "ToyBox_Features_BagOfTricks_Combat_RestSelectedFeature_Description": {
     "Original": "Revives and heals the selected characters + restores action points and ability cooldowns.",
@@ -361,11 +361,11 @@
   },
   "ToyBox_Features_BagOfTricks_Common_GiveAllItemsFeature_Description": {
     "Original": "Adds 1 of each BlueprintItem to the player inventory.",
-    "Translated": "向玩家物品栏中添加每种物品蓝图各 1 件。"
+    "Translated": "向玩家物品栏中添加每种 BlueprintItem 各 1 件。"
   },
   "ToyBox_Features_BagOfTricks_Common_GoToGlobalMapFeature_Name": {
     "Original": "Go To Global Map",
-    "Translated": "前往世界地图"
+    "Translated": "前往星区地图"
   },
   "ToyBox_Features_BagOfTricks_Common_GoToGlobalMapFeature_Description": {
     "Original": "Tries to load the sector map area. Don't use in prologue.",
@@ -501,7 +501,7 @@
   },
   "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_NeverRoll100LocalizedText": {
     "Original": "Never Roll 100",
-    "Translated": "永远不会掷100"
+    "Translated": "永不掷出 100"
   },
   "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_NeverRoll1LocalizedText": {
     "Original": "Never Roll 1",
@@ -541,15 +541,15 @@
   },
   "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_SkillChecks_Take50LocalizedText": {
     "Original": "Skill Checks: Take 50",
-    "Translated": "技能检定：掷50"
+    "Translated": "技能检定：固定取 50"
   },
   "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_SkillChecks_Take25LocalizedText": {
     "Original": "Skill Checks: Take 25",
-    "Translated": "技能检定：掷25"
+    "Translated": "技能检定：固定取 25"
   },
   "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_SkillChecks_Take1LocalizedText": {
     "Original": "Skill Checks: Take 1",
-    "Translated": "技能检定：掷1"
+    "Translated": "技能检定：固定取 1"
   },
   "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_Damage__HigherIsBetterLocalizedText": {
     "Original": "Damage -> Higher is better",
@@ -585,7 +585,7 @@
   },
   "ToyBox_Features_BagOfTricks_ExperienceMultipliers_ExperienceMultiplierFeature_Name": {
     "Original": "Experience Multipliers",
-    "Translated": "经验倍数"
+    "Translated": "经验倍率"
   },
   "ToyBox_Features_BagOfTricks_ExperienceMultipliers_ExperienceMultiplierFeature_Description": {
     "Original": "Provides a general experience multiplier and possible overrides for specific kinds of experience sources.",
@@ -609,11 +609,11 @@
   },
   "ToyBox_Features_BagOfTricks_ExperienceMultipliers_ExperienceMultiplierFeature_m_OverrideForChallengesLocalizedText": {
     "Original": "Override for Challenges",
-    "Translated": "覆盖挑战"
+    "Translated": "挑战经验单独设置"
   },
   "ToyBox_Features_BagOfTricks_ExperienceMultipliers_ExperienceMultiplierFeature_m_OverrideForSpaceCombatLocalizedText": {
     "Original": "Override for Space Combat",
-    "Translated": "覆盖太空战斗"
+    "Translated": "太空战斗经验单独设置"
   },
   "ToyBox_Features_BagOfTricks_OtherMultipliers_BuffDurationMultiplierFeature_m_ManageExceptionsToBuffDurationMuLocalizedText": {
     "Original": "Manage Exceptions to Buff Duration Multiplier",
@@ -661,7 +661,7 @@
   },
   "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_RunActionHolderLocalizedText": {
     "Original": "RunActionHolder",
-    "Translated": "运行操作容器"
+    "Translated": null
   },
   "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_ConditionsHolderLocalizedText": {
     "Original": "Conditions Holder",
@@ -685,7 +685,7 @@
   },
   "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_SoulMarkShift_0_By_1__DescriptioLocalizedText": {
     "Original": "SoulMarkShift {0} by {1} - Description: {2}",
-    "Translated": "灵魂印记偏移 {0}，数值 {1}——说明：{2}"
+    "Translated": "灵魂印记 {0} 偏移 {1}——说明：{2}"
   },
   "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_SoulMarkRequiredLocalizedText": {
     "Original": "SoulMarkRequired",
@@ -741,7 +741,7 @@
   },
   "ToyBox_Features_BagOfTricks_QualityOfLife_EnableAchievementsFeature_AllowAchievementsWhileUsingModsT": {
     "Original": "Allow Achievements While Using Mods",
-    "Translated": "使用Mod时允许成就"
+    "Translated": "使用 MOD 时仍可解锁成就"
   },
   "ToyBox_Features_BagOfTricks_QualityOfLife_EnableAchievementsFeature_ThisIsIntendedForYouToBeAbleToEn": {
     "Original": "This is intended for you to be able to enjoy the game while using mods that enhance your quality of life.",
@@ -749,7 +749,7 @@
   },
   "ToyBox_Features_BagOfTricks_QualityOfLife_FixIncorrectMainCharacterFeature_Name": {
     "Original": "Fix Incorrect Main Character",
-    "Translated": "修正不正确的主角"
+    "Translated": "修正主角识别错误"
   },
   "ToyBox_Features_BagOfTricks_QualityOfLife_FixIncorrectMainCharacterFeature_Description": {
     "Original": "Certain situations might cause the game to incorrectly assume someone else is the main character. This tries to restore the original main character.",
@@ -773,7 +773,7 @@
   },
   "ToyBox_Features_BagOfTricks_QualityOfLife_LoadingWithBlueprintErrorsFeature_Name": {
     "Original": "Enable Loading with Blueprint Errors",
-    "Translated": "允许在蓝图错误时加载存档"
+    "Translated": "允许在蓝图（Blueprint）错误时加载存档"
   },
   "ToyBox_Features_BagOfTricks_QualityOfLife_LoadingWithBlueprintErrorsFeature_Description": {
     "Original": "This feature allows loading saves even with missing blueprint mods, which can be dangerous. This can potentially allow you to recover a save, though you'll have to respec at minimum.",
@@ -885,11 +885,11 @@
   },
   "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_Description": {
     "Original": "Allows modifying Scrap, Profit Factor, Navigators Insight and possibly current Veil Thickness.",
-    "Translated": "允许修改废料、利润因素、导航员洞察力，以及可能的当前帷幕厚度。"
+    "Translated": "允许修改废料、利润因素、导航员洞察力，可能还包括当前帷幕厚度。"
   },
   "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_CurrentNavigatorInsightLocalizedText": {
     "Original": "Current Navigator Insight",
-    "Translated": "当前导航员洞察点"
+    "Translated": "当前导航员洞察力"
   },
   "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_AdjustNavigatorInsightByTheFolloLocalizedText": {
     "Original": "Adjust Navigator Insight by the following amount",
@@ -913,7 +913,7 @@
   },
   "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_CurrentProfitFactorLocalizedText": {
     "Original": "Current Profit Factor",
-    "Translated": "当前利润系数"
+    "Translated": "当前利润因素"
   },
   "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_AdjustProfitFactorByTheFollowingLocalizedText": {
     "Original": "Adjust Profit Factor by the following amount",
@@ -1157,7 +1157,7 @@
   },
   "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_ConditionalText": {
     "Original": "Conditional",
-    "Translated": "条件性"
+    "Translated": "有条件"
   },
   "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_QuestStatusText": {
     "Original": "Quest Status",
@@ -1233,7 +1233,7 @@
   },
   "ToyBox_Features_Etudes_EtudesFeature_EvaluationFailedText": {
     "Original": "Evaluation failed",
-    "Translated": null
+    "Translated": "求值失败"
   },
   "ToyBox_Features_Etudes_EtudesFeature_LoadingText": {
     "Original": "Loading Etudes...",
@@ -1301,7 +1301,7 @@
   },
   "ToyBox_Features_FeatureSearch_FeatureSearchFeature_FeatureSearchNotImplementedForTh": {
     "Original": "Feature search not implemented for this feature!",
-    "Translated": "此功能尚未实现功能搜索！"
+    "Translated": "此功能暂不支持功能搜索！"
   },
   "ToyBox_Features_FeatureSearch_FeatureSearchFeature_ShowGUIText": {
     "Original": "Show GUI",
@@ -1349,7 +1349,7 @@
   },
   "ToyBox_Features_LevelUp_IgnoreTalentPrerequisitesFeature_Name": {
     "Original": "Ignore Talent Prerequisites",
-    "Translated": "忽略天赋先决条件"
+    "Translated": "忽略天赋前置条件"
   },
   "ToyBox_Features_LevelUp_IgnoreTalentPrerequisitesFeature_Description": {
     "Original": "Automatically succeeds fact-dependent prerequisite checks, both those asking for a feature to be present and those asking for a feature to not be present.",
@@ -1493,7 +1493,7 @@
   },
   "ToyBox_Features_Loot_OpenMassLootAction_Name": {
     "Original": "Open Mass Loot Window",
-    "Translated": "打开战利品窗口"
+    "Translated": "打开批量拾取窗口"
   },
   "ToyBox_Features_Loot_OpenMassLootAction_Description": {
     "Original": "Lets you open up the area's mass loot screen to grab goodies whenever you want. Normally shown only when you exit the area. Only opens if there is actually any loot available.",
@@ -1665,7 +1665,7 @@
   },
   "ToyBox_Features_PartyTab_PartyBrowseAbilitiesFeature_Description": {
     "Original": "Displays a Browser containing all the abilities of the unit in question and optionally allows removing them or adding new ones.",
-    "Translated": "显示包含该单位全部能力的浏览器，并可选择移除现有能力或添加新能力。"
+    "Translated": "显示包含该单位全部能力的浏览窗口，并可选择移除现有能力或添加新能力。"
   },
   "ToyBox_Features_PartyTab_PartyBrowseBuffsFeature_Name": {
     "Original": "Browse Unit Buffs",
@@ -1673,7 +1673,7 @@
   },
   "ToyBox_Features_PartyTab_PartyBrowseBuffsFeature_Description": {
     "Original": "Displays a Browser containing all the buffs of the unit in question and optionally allows removing them or adding new ones.",
-    "Translated": "显示包含该单位全部状态效果的浏览器，并可选择移除现有效果或添加新效果。"
+    "Translated": "显示包含该单位全部状态效果的浏览窗口，并可选择移除现有效果或添加新效果。"
   },
   "ToyBox_Features_PartyTab_PartyBrowseFeatsFeature_Name": {
     "Original": "Browse Unit Features",
@@ -1681,7 +1681,7 @@
   },
   "ToyBox_Features_PartyTab_PartyBrowseFeatsFeature_Description": {
     "Original": "Displays a Browser containing all the features of the unit in question and optionally allows removing them or adding new ones.",
-    "Translated": "显示包含该单位全部特性的浏览器，并可选择移除现有特性或添加新特性。"
+    "Translated": "显示包含该单位全部特性的浏览窗口，并可选择移除现有特性或添加新特性。"
   },
   "ToyBox_Features_PartyTab_PartyBrowseMechadendritesFeature_Name": {
     "Original": "Browse Unit Mechadendrites",
@@ -1689,7 +1689,7 @@
   },
   "ToyBox_Features_PartyTab_PartyBrowseMechadendritesFeature_Description": {
     "Original": "Displays a Browser containing all the mechadendrites of the unit in question and optionally allows removing them or adding new ones.",
-    "Translated": "显示包含该单位全部机械触手的浏览器，并可选择移除现有项或添加新项。"
+    "Translated": "显示包含该单位全部机械触手的浏览窗口，并可选择移除现有项或添加新项。"
   },
   "ToyBox_Features_PartyTab_PartyFeatureTab_PartyLevelText": {
     "Original": "Party Level",
@@ -1709,7 +1709,7 @@
   },
   "ToyBox_Classes_Features_PartyTab_RenameUnitFeature_Description": {
     "Original": "Allows renaming the specified BaseUnitEntity",
-    "Translated": "可重命名指定的单位实体。"
+    "Translated": "可重命名指定的 BaseUnitEntity。"
   },
   "ToyBox_Features_PartyTab_Stats_ChangeGenderFeature_Name": {
     "Original": "Change Gender",
@@ -1725,7 +1725,7 @@
   },
   "ToyBox_Features_PartyTab_Stats_PortraitEditorFeature_Description": {
     "Original": "Allows changing the portrait of a unit to a custom portrait or another blueprint (built-in) portrait. You need to manually update the UI (change area/reload game) to make this change visible on the top bar.",
-    "Translated": "可将单位头像改为自定义头像或其他蓝图（内置）头像。要让顶部栏显示变化，需手动刷新界面（切换区域或重新载入游戏）。"
+    "Translated": "可将单位头像改为自定义头像或其他蓝图（Blueprint，内置）头像。要让顶部栏显示变化，需手动刷新界面（切换区域或重新载入游戏）。"
   },
   "ToyBox_Features_PartyTab_Stats_PortraitEditorFeature_m_CurrentCustomPortraitLocalizedText": {
     "Original": "Current Custom Portrait",
@@ -1733,7 +1733,7 @@
   },
   "ToyBox_Features_PartyTab_Stats_PortraitEditorFeature_m_CurrentBlueprintPortraitLocalizedText": {
     "Original": "Current Blueprint Portrait",
-    "Translated": "当前蓝图头像"
+    "Translated": "当前蓝图（Blueprint）头像"
   },
   "ToyBox_Features_PartyTab_Stats_PortraitEditorFeature_m_SavePortraitAsPngLocalizedText": {
     "Original": "Save portrait as png",
@@ -1745,7 +1745,7 @@
   },
   "ToyBox_Features_PartyTab_Stats_PortraitEditorFeature_m_ShowBlueprintPortraitPickerLocalizedText": {
     "Original": "Show Blueprint Portrait Picker",
-    "Translated": "显示蓝图头像选择器"
+    "Translated": "显示蓝图（Blueprint）头像选择器"
   },
   "ToyBox_Features_PartyTab_Stats_PortraitEditorFeature_m_NameOfTheNewCustomPortrait_LocalizedText": {
     "Original": "Name of the new Custom Portrait:",
@@ -1761,39 +1761,39 @@
   },
   "ToyBox_Features_PartyTab_Stats_PortraitEditorFeature_m_NameOfTheNewBlueprintportrait_LocalizedText": {
     "Original": "Name of the new Blueprintportrait:",
-    "Translated": "新蓝图头像名称："
+    "Translated": "新蓝图（Blueprint）头像名称："
   },
   "ToyBox_Features_PartyTab_Stats_UnitOverrideSkeletonFeature_Name": {
     "Original": "Enable Skeleton / Bone Editor",
-    "Translated": null
+    "Translated": "启用骨架/骨骼编辑器"
   },
   "ToyBox_Features_PartyTab_Stats_UnitOverrideSkeletonFeature_Description": {
     "Original": "If this is disabled, none of the previously set bone overrides will take effect. Lets you resize and offset individual bones (body parts) and equipment attach points per character.",
-    "Translated": null
+    "Translated": "禁用后，先前设置的所有骨骼覆盖均不会生效。可按角色分别调整单根骨骼（身体部位）和装备挂点的尺寸与偏移。"
   },
   "ToyBox_Features_PartyTab_Stats_UnitOverrideSkeletonFeature_m_GlobalOffsetsText": {
     "Original": "Body parts global offsets",
-    "Translated": null
+    "Translated": "身体部位全局偏移"
   },
   "ToyBox_Features_PartyTab_Stats_UnitOverrideSkeletonFeature_m_GlobalScalesText": {
     "Original": "Body parts global scales",
-    "Translated": null
+    "Translated": "身体部位全局缩放"
   },
   "ToyBox_Features_PartyTab_Stats_UnitOverrideSkeletonFeature_m_LocalSizesText": {
     "Original": "Body parts local sizes",
-    "Translated": null
+    "Translated": "身体部位局部尺寸"
   },
   "ToyBox_Features_PartyTab_Stats_UnitOverrideSkeletonFeature_m_EquipmentOffsetsText": {
     "Original": "Equipment elements offsets",
-    "Translated": null
+    "Translated": "装备部件偏移"
   },
   "ToyBox_Features_PartyTab_Stats_UnitOverrideSkeletonFeature_m_EquipmentSizesText": {
     "Original": "Equipment elements sizes",
-    "Translated": null
+    "Translated": "装备部件尺寸"
   },
   "ToyBox_Features_PartyTab_Stats_UnitOverrideSkeletonFeature_m_NoAvatarText": {
     "Original": "This unit has no editable character avatar / skeleton.",
-    "Translated": null
+    "Translated": "该单位没有可编辑的角色形象/骨架。"
   },
   "ToyBox_Features_PartyTab_Stats_UnitBrowseVoicesFeature_Name": {
     "Original": "Browse Voices",
@@ -1805,7 +1805,7 @@
   },
   "ToyBox_Features_PartyTab_Stats_UnitBrowseVoicesFeature_m_ShowBlueprintVoicePickerLocalizedText": {
     "Original": "Show Blueprint Voice Picker",
-    "Translated": "显示蓝图声音选择器"
+    "Translated": "显示蓝图（Blueprint）语音选择器"
   },
   "ToyBox_Features_PartyTab_Stats_UnitBrowseVoicesFeature_m_ChangingTheVoiceOfANon_customChaLocalizedText": {
     "Original": "Changing the voice of a non-custom character is not tested.",
@@ -1877,15 +1877,15 @@
   },
   "ToyBox_Features_PartyTab_Stats_UnitOverrideMechanicalSizeFeature_Name": {
     "Original": "Enable Mechanical Size Overrides",
-    "Translated": "启用机械尺寸覆盖"
+    "Translated": "启用机制体型覆盖"
   },
   "ToyBox_Features_PartyTab_Stats_UnitOverrideMechanicalSizeFeature_Description": {
     "Original": "If this is disabled, none of the previously set mechanical size overrides will take effect.",
-    "Translated": "禁用后，先前设置的所有机械尺寸覆盖均不会生效。"
+    "Translated": "禁用后，先前设置的所有机制体型覆盖均不会生效。"
   },
   "ToyBox_Features_PartyTab_Stats_UnitOverrideMechanicalSizeFeature_m_CurrentMechanicalSizeLocalizedText": {
     "Original": "Current Mechanical Size",
-    "Translated": "当前机械尺寸"
+    "Translated": "当前机制体型"
   },
   "ToyBox_Features_PartyTab_Stats_UnitOverrideMechanicalSizeFeature_m_OverrideLocalizedText": {
     "Original": "Override",
@@ -1893,15 +1893,15 @@
   },
   "ToyBox_Features_PartyTab_Stats_UnitOverrideVisualSizeFeature_Name": {
     "Original": "Enable Visual Size Overrides",
-    "Translated": "启用视觉尺寸覆盖"
+    "Translated": "启用视觉体型覆盖"
   },
   "ToyBox_Features_PartyTab_Stats_UnitOverrideVisualSizeFeature_Description": {
     "Original": "If this is disabled, none of the previously set visual size overrides will take effect.",
-    "Translated": "禁用后，先前设置的所有视觉尺寸覆盖均不会生效。"
+    "Translated": "禁用后，先前设置的所有视觉体型覆盖均不会生效。"
   },
   "ToyBox_Features_PartyTab_Stats_UnitOverrideVisualSizeFeature_m_VisualOverrideLocalizedText": {
     "Original": "Visual Override",
-    "Translated": "视觉尺寸覆盖"
+    "Translated": "视觉体型覆盖"
   },
   "ToyBox_Features_PatchTool_PatchToolApplyPatchesFeature_Name": {
     "Original": "Apply blueprint patches on load",
@@ -2257,7 +2257,7 @@
   },
   "ToyBox_Features_Quests_QuestEditorFeature_m_ShowUnrevealedText": {
     "Original": "Show Unrevealed Steps",
-    "Translated": "显示未显示的步骤"
+    "Translated": "显示未揭示的步骤"
   },
   "ToyBox_Features_Quests_QuestEditorFeature_m_ShowInspectorText": {
     "Original": "Inspect Quests and Objectives",
@@ -2277,7 +2277,7 @@
   },
   "ToyBox_Features_Quests_QuestEditorFeature_m_FinishText": {
     "Original": "Finish",
-    "Translated": "完成"
+    "Translated": "结束"
   },
   "ToyBox_Features_Quests_QuestEditorFeature_m_ResetTimeText": {
     "Original": "Reset Time",
@@ -2317,7 +2317,7 @@
   },
   "ToyBox_Features_Saves_ChangeSaveIdFeature_m_N_ALocalizedText": {
     "Original": "N/A",
-    "Translated": null
+    "Translated": "N/A"
   },
   "ToyBox_Features_Saves_SavesFeatureTab_Name": {
     "Original": "Saves",
@@ -2429,7 +2429,7 @@
   },
   "ToyBox_Features_SettingsFeatures_Blueprints_ShowDisplayAndInternalNamesSetting_Name": {
     "Original": "Show Display And Internal Names",
-    "Translated": "同时显示显示名称和内部名称"
+    "Translated": "同时显示显示名与内部名"
   },
   "ToyBox_Features_SettingsFeatures_Blueprints_ShowDisplayAndInternalNamesSetting_Description": {
     "Original": "Blueprints have both internal names and display names. By default, ToyBox will try to show the Display name and fall back to the Internal one in case of issues. This feature will display both at the same time.",
@@ -2473,7 +2473,7 @@
   },
   "ToyBox_Features_SettingsFeatures_BrowserSettings_SearchDescriptionsSetting_Description": {
     "Original": "Also search through the descriptions of blueprints",
-    "Translated": "同时搜索蓝图说明。"
+    "Translated": "同时搜索蓝图的描述。"
   },
   "ToyBox_Features_SettingsTab_Game_CopyLocationHotkeySetting_Name": {
     "Original": "Hotkey to copy location to clipboard",
@@ -2649,7 +2649,7 @@
   },
   "ToyBox_Infrastructure_LazyInit_X_Amount_Of_FeaturesFailedInitialization_LocalizedText": {
     "Original": "features failed initialization!",
-    "Translated": null
+    "Translated": "个功能初始化失败！"
   },
   "ToyBox_Features_SettingsFeatures_LogHotkeysToCombatLogSetting_Name": {
     "Original": "Log Hotkey Execution",
@@ -2693,15 +2693,15 @@
   },
   "ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_ImportedText": {
     "Original": "Imported {0} settings from ToyBox 1. Restart the game so every change takes full effect.",
-    "Translated": "已从 ToyBox 1 导入 {0} 项设置。请重新加载 MOD（或重启游戏），使所有更改完全生效。"
+    "Translated": "已从 ToyBox 1 导入 {0} 项设置。请重启游戏，使所有更改完全生效。"
   },
   "ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_PerSaveImportedText": {
     "Original": "Also imported {0} save-specific settings from the loaded save (quick save and then load the new save for chanes to take effect).",
-    "Translated": "还从已载入的存档导入了 {0} 项存档专属设置（单位尺寸/AI 覆盖）。"
+    "Translated": "还从已载入的存档导入了 {0} 项存档专属设置（快速存档后载入新存档，更改方可生效）。"
   },
   "ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_PerSaveSkippedText": {
     "Original": "Load a ToyBox 1 save and import again to also bring over its save-specific settings (unit size / AI overrides / skeleton changes).",
-    "Translated": "请载入一个 ToyBox 1 存档后再次导入，以同时迁移其存档专属设置（单位尺寸/AI 覆盖）。"
+    "Translated": "请载入一个 ToyBox 1 存档后再次导入，以同时迁移其存档专属设置（单位尺寸/AI 覆盖/骨骼修改）。"
   },
   "ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_FailedText": {
     "Original": "Import failed.",
@@ -2793,11 +2793,11 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_ColonizeColonyBA_Name": {
     "Original": "Colonize BlueprintColony",
-    "Translated": null
+    "Translated": "殖民殖民地（BlueprintColony）"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_ColonizeColonyBA_Description": {
     "Original": "Tries to colonize the specified BlueprintColony in the current Star System.",
-    "Translated": null
+    "Translated": "尝试在当前星系中殖民指定的殖民地蓝图（BlueprintColony）。"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_ColonizePlanetBA_ColonizeText": {
     "Original": "Colonize",
@@ -2805,23 +2805,23 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_ColonizePlanetBA_Name": {
     "Original": "Colonize BlueprintPlanet",
-    "Translated": null
+    "Translated": "殖民行星（BlueprintPlanet）"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_ColonizePlanetBA_Description": {
     "Original": "Tries to colonize the specified BlueprintPlanet in the current Star System.",
-    "Translated": null
+    "Translated": "尝试在当前星系中殖民指定的行星蓝图（BlueprintPlanet）。"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_LoadAreaPresetBA_LoadPresetText": {
     "Original": "Load Preset",
-    "Translated": null
+    "Translated": "载入预设"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_LoadAreaPresetBA_Name": {
     "Original": "Load Area Preset",
-    "Translated": null
+    "Translated": "载入区域预设"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_LoadAreaPresetBA_Description": {
     "Original": "Loads a specified BlueprintAreaPreset.",
-    "Translated": null
+    "Translated": "载入指定的区域预设蓝图（BlueprintAreaPreset）。"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintAreaBA_TeleportText": {
     "Original": "Teleport",
@@ -2829,11 +2829,11 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintAreaBA_Name": {
     "Original": "Teleport to BlueprintArea",
-    "Translated": null
+    "Translated": "传送至区域（BlueprintArea）"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintAreaBA_Description": {
     "Original": "Gets the first AreaEnterPoint corresponding to the specified BlueprintArea and loads it.",
-    "Translated": null
+    "Translated": "获取指定区域蓝图（BlueprintArea）对应的第一个区域入口点并载入。"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintAreaEnterPointBA_TeleportText": {
     "Original": "Teleport",
@@ -2841,11 +2841,11 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintAreaEnterPointBA_Name": {
     "Original": "Teleport to BlueprintAreaEnterPoint",
-    "Translated": null
+    "Translated": "传送至区域入口点（BlueprintAreaEnterPoint）"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintAreaEnterPointBA_Description": {
     "Original": "Loads the area of the specified BlueprintAreaEnterPoint.",
-    "Translated": null
+    "Translated": "载入指定区域入口点（BlueprintAreaEnterPoint）所在的区域。"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintSectorMapPointStarSystemBA_TeleportText": {
     "Original": "Teleport",
@@ -2853,11 +2853,11 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintSectorMapPointStarSystemBA_Name": {
     "Original": "Teleport to BlueprintSectorMapPointStarSystem",
-    "Translated": null
+    "Translated": "传送至星系点位（BlueprintSectorMapPointStarSystem）"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintSectorMapPointStarSystemBA_Description": {
     "Original": "Gets the first AreaEnterPoint corresponding to the specified BlueprintSectorMapPointStarSystem and loads it.",
-    "Translated": null
+    "Translated": "获取指定星区地图星系点位（BlueprintSectorMapPointStarSystem）对应的第一个区域入口点并载入。"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintStarSystemMapBA_TeleportText": {
     "Original": "Teleport",
@@ -2865,55 +2865,55 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintStarSystemMapBA_Name": {
     "Original": "Teleport to BlueprintStarSystemMap",
-    "Translated": null
+    "Translated": "传送至星系地图（BlueprintStarSystemMap）"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintStarSystemMapBA_Description": {
     "Original": "Gets the first AreaEnterPoint corresponding to the specified BlueprintStarSystemMap and loads it.",
-    "Translated": null
+    "Translated": "获取指定星系地图（BlueprintStarSystemMap）对应的第一个区域入口点并载入。"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddItemBA_Add_x": {
     "Original": "Add {0} Items",
-    "Translated": null
+    "Translated": "添加 {0} 件物品"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddItemBA_Name": {
     "Original": "Add Item",
-    "Translated": null
+    "Translated": "添加物品"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddItemBA_Description": {
     "Original": "Adds the specified BlueprintItem to your inventory.",
-    "Translated": null
+    "Translated": "将指定的物品蓝图（BlueprintItem）添加到你的物品栏。"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveItemBA_Remove_x": {
     "Original": "Remove {0} Items",
-    "Translated": null
+    "Translated": "移除 {0} 件物品"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveItemBA_Name": {
     "Original": "Remove Item",
-    "Translated": null
+    "Translated": "移除物品"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveItemBA_Description": {
     "Original": "Removes the specified BlueprintItem from your inventory.",
-    "Translated": null
+    "Translated": "从你的物品栏移除指定的物品蓝图（BlueprintItem）。"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeFlagValueBA_Name": {
     "Original": "Modify Flag Value",
-    "Translated": null
+    "Translated": "修改标志值"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeFlagValueBA_Description": {
     "Original": "Increases or decreases the value of the specified BlueprintUnlockableFlag.",
-    "Translated": null
+    "Translated": "增加或减少指定可解锁标志（BlueprintUnlockableFlag）的值。"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeFlagValueBA_FlagIsNotUnlockedText": {
     "Original": "Flag is not unlocked",
-    "Translated": null
+    "Translated": "标志未解锁"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_CompleteEtudeBA_Name": {
     "Original": "Complete Etude",
-    "Translated": null
+    "Translated": "完成剧情状态（Etude）"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_CompleteEtudeBA_Description": {
     "Original": "Complete the specified BlueprintEtude. A failed Etude is often used to mark a failed quest state.",
-    "Translated": null
+    "Translated": "完成指定的剧情状态蓝图（BlueprintEtude）。失败的剧情状态（Etude）常用于标记任务失败状态。"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_CompleteEtudeBA_CompleteText": {
     "Original": "Complete",
@@ -2921,15 +2921,15 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_CompleteEtudeBA_EtudeIsNotStartedText": {
     "Original": "Etude is not started",
-    "Translated": null
+    "Translated": "剧情状态（Etude）尚未开始"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_CompleteQuestBA_Name": {
     "Original": "Complete Quest",
-    "Translated": null
+    "Translated": "完成任务"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_CompleteQuestBA_Description": {
     "Original": "Completes the specified BlueprintQuest by forcing each objective to complete.",
-    "Translated": null
+    "Translated": "通过强制完成每个目标来完成指定的任务蓝图（BlueprintQuest）。"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_CompleteQuestBA_CompleteText": {
     "Original": "Complete",
@@ -2937,15 +2937,15 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_CompleteQuestBA_QuestIsNotStartedText": {
     "Original": "Quest is not started",
-    "Translated": null
+    "Translated": "任务尚未开始"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_CompleteQuestObjectiveBA_Name": {
     "Original": "Complete Quest Objective",
-    "Translated": null
+    "Translated": "完成任务目标"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_CompleteQuestObjectiveBA_Description": {
     "Original": "Completes the specified BlueprintQuestObjective.",
-    "Translated": null
+    "Translated": "完成指定的任务目标蓝图（BlueprintQuestObjective）。"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_CompleteQuestObjectiveBA_CompleteText": {
     "Original": "Complete",
@@ -2953,15 +2953,15 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_CompleteQuestObjectiveBA_QuestObjectiveIsNotStartedText": {
     "Original": "Quest objective is not started",
-    "Translated": null
+    "Translated": "任务目标尚未开始"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_LockFlagBA_Name": {
     "Original": "Lock Flag",
-    "Translated": null
+    "Translated": "锁定标志"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_LockFlagBA_Description": {
     "Original": "Locks the specified BlueprintUnlockableFlag.",
-    "Translated": null
+    "Translated": "锁定指定的可解锁标志（BlueprintUnlockableFlag）。"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_LockFlagBA_LockText": {
     "Original": "Lock",
@@ -2969,15 +2969,15 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_LockFlagBA_FlagIsNotUnlockedText": {
     "Original": "Flag is not unlocked",
-    "Translated": null
+    "Translated": "标志未解锁"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_PlayCutsceneBA_Name": {
     "Original": "Play Cutscene",
-    "Translated": null
+    "Translated": "播放过场动画"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_PlayCutsceneBA_Description": {
     "Original": "Plays the specified Cutscene.",
-    "Translated": null
+    "Translated": "播放指定的过场动画（Cutscene）。"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_PlayCutsceneBA_PlayText": {
     "Original": "Play",
@@ -2985,11 +2985,11 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartEtudeBA_Name": {
     "Original": "Start Etude",
-    "Translated": null
+    "Translated": "开始剧情状态（Etude）"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartEtudeBA_Description": {
     "Original": "Starts the specified BlueprintEtude.",
-    "Translated": null
+    "Translated": "开始指定的剧情状态蓝图（BlueprintEtude）。"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartEtudeBA_StartText": {
     "Original": "Start",
@@ -2997,15 +2997,15 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartEtudeBA_EtudeIsAlreadyStartedOrCompleted": {
     "Original": "Etude is already started or completed",
-    "Translated": null
+    "Translated": "剧情状态（Etude）已开始或已完成"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartQuestBA_Name": {
     "Original": "Start Quest",
-    "Translated": null
+    "Translated": "开始任务"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartQuestBA_Description": {
     "Original": "Starts the specified BlueprintQuest by starting its first objective.",
-    "Translated": null
+    "Translated": "通过开始第一个目标来开始指定的任务蓝图（BlueprintQuest）。"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartQuestBA_StartText": {
     "Original": "Start",
@@ -3013,15 +3013,15 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartQuestBA_QuestAlreadyStartedText": {
     "Original": "Quest already started",
-    "Translated": null
+    "Translated": "任务已开始"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartQuestObjectiveBA_Name": {
     "Original": "Start Quest Objective",
-    "Translated": null
+    "Translated": "开始任务目标"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartQuestObjectiveBA_Description": {
     "Original": "Starts the specified BlueprintQuestObjective.",
-    "Translated": null
+    "Translated": "开始指定的任务目标蓝图（BlueprintQuestObjective）。"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartQuestObjectiveBA_StartText": {
     "Original": "Start",
@@ -3029,15 +3029,15 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartQuestObjectiveBA_QuestObjectiveStateIsNotNoneText": {
     "Original": "QuestObjectiveState is not none",
-    "Translated": null
+    "Translated": "任务目标状态（QuestObjectiveState）不为 None"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnlockAchievementBA_Name": {
     "Original": "Unlock Achievement",
-    "Translated": null
+    "Translated": "解锁成就"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnlockAchievementBA_Description": {
     "Original": "Unlocks the specified achievement.",
-    "Translated": null
+    "Translated": "解锁指定的成就。"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnlockAchievementBA_UnlockText": {
     "Original": "Unlock",
@@ -3045,15 +3045,15 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnlockAchievementBA_AchievementAlreadyUnlockedText": {
     "Original": "Achievement is already unlocked",
-    "Translated": null
+    "Translated": "成就已解锁"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnlockFlagBA_Name": {
     "Original": "Unlock Flag",
-    "Translated": null
+    "Translated": "解锁标志"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnlockFlagBA_Description": {
     "Original": "Unlocks the specified BlueprintUnlockableFlag.",
-    "Translated": null
+    "Translated": "解锁指定的可解锁标志（BlueprintUnlockableFlag）。"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnlockFlagBA_UnlockText": {
     "Original": "Unlock",
@@ -3061,31 +3061,31 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnlockFlagBA_FlagIsNotLockedText": {
     "Original": "Flag is not locked",
-    "Translated": null
+    "Translated": "标志未锁定"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnstartEtudeBA_Name": {
     "Original": "Unstart Etude",
-    "Translated": null
+    "Translated": "取消开始剧情状态（Etude）"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnstartEtudeBA_Description": {
     "Original": "Unstarts the specified BlueprintEtude.",
-    "Translated": null
+    "Translated": "取消开始指定的剧情状态蓝图（BlueprintEtude）。"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnstartEtudeBA_UnstartText": {
     "Original": "Unstart",
-    "Translated": "取消启动"
+    "Translated": "设为未开始"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnstartEtudeBA_EtudeIsNotStartedText": {
     "Original": "Etude is not started or completed",
-    "Translated": null
+    "Translated": "剧情状态（Etude）未开始或已完成"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddAbilityResourceBA_Name": {
     "Original": "Add Ability Resource",
-    "Translated": null
+    "Translated": "添加能力资源"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddAbilityResourceBA_Description": {
     "Original": "Adds the specified BlueprintAbilityResource to the chosen unit.",
-    "Translated": null
+    "Translated": "为所选单位添加指定的能力资源蓝图（BlueprintAbilityResource）。"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddAbilityResourceBA_AddText": {
     "Original": "Add",
@@ -3093,23 +3093,23 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddAbilityResourceBA_UnitAlreadyHasThisAbilityResourc": {
     "Original": "Unit already has this ability resource",
-    "Translated": null
+    "Translated": "单位已拥有该能力资源"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechadendriteBA_Name": {
     "Original": "Add Mechadendrite",
-    "Translated": null
+    "Translated": "添加机械触手"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechadendriteBA_Description": {
     "Original": "Adds the specified mechadendrite to the specified unit.",
-    "Translated": null
+    "Translated": "为指定单位添加指定的机械触手。"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechadendriteBA_m_AddLocalizedText": {
     "Original": "Equip Mechadendrite",
-    "Translated": null
+    "Translated": "装备机械触手"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechadendriteBA_m_UnitAlreadyHasThisMechadendriteLocalizedText": {
     "Original": "Unit already has this Mechadendrite",
-    "Translated": null
+    "Translated": "单位已拥有该机械触手"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechanicEntityFactBA_AddText": {
     "Original": "Add",
@@ -3117,39 +3117,39 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechanicEntityFactBA_Name": {
     "Original": "Add Fact",
-    "Translated": null
+    "Translated": "添加事实（Fact）"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechanicEntityFactBA_Description": {
     "Original": "Adds the specified BlueprintMechanicEntityFact to the chosen unit.",
-    "Translated": null
+    "Translated": "为所选单位添加指定的事实蓝图（BlueprintMechanicEntityFact）。"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechanicEntityFactBA_UnitAlreadyHasThisFactText": {
     "Original": "Unit already has this Fact",
-    "Translated": null
+    "Translated": "单位已拥有该事实（Fact）"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeBuffRankBA_Name": {
     "Original": "Modify Buff Rank",
-    "Translated": null
+    "Translated": "修改状态效果等级"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeBuffRankBA_Description": {
     "Original": "Increases or decreases the value of the specified BlueprintBuff on the unit.",
-    "Translated": null
+    "Translated": "增加或减少单位身上指定状态效果蓝图（BlueprintBuff）的等级。"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeBuffRankBA_ThisBuffHasNoRanksText": {
     "Original": "This buff has no ranks",
-    "Translated": null
+    "Translated": "该状态效果没有等级"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeFeatureRankBA_Name": {
     "Original": "Modify Feature Rank",
-    "Translated": null
+    "Translated": "修改特性等级"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeFeatureRankBA_Description": {
     "Original": "Increases or decreases the value of the specified BlueprintFeature on the unit.",
-    "Translated": null
+    "Translated": "增加或减少单位身上指定特性蓝图（BlueprintFeature）的等级。"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeFeatureRankBA_ThisFeatureHasNoRanksText": {
     "Original": "This feature has no ranks",
-    "Translated": null
+    "Translated": "该特性没有等级"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_Units_ChangeVoiceBA_Name": {
     "Original": "Change Voice",
@@ -3157,7 +3157,7 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_Units_ChangeVoiceBA_Description": {
     "Original": "Changes the voice of the specified unit to the specified BlueprintUnitAsksList.",
-    "Translated": null
+    "Translated": "将指定单位的语音更改为指定的语音列表蓝图（BlueprintUnitAsksList）。"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_Units_ChangeVoiceBA_m_ChangeVoiceLocalizedText": {
     "Original": "Change Voice",
@@ -3165,7 +3165,7 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_Units_ChangeVoiceBA_m_ThisIsTheCurrentVoice_LocalizedText": {
     "Original": "This is the current voice!",
-    "Translated": "这是当前声音！"
+    "Translated": "这是当前语音！"
   },
   "ToyBox_Classes_Infrastructure_Blueprints_BlueprintActions_Units_PlayVoiceBA_Name": {
     "Original": "Play Voice Example",
@@ -3185,11 +3185,11 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveAbilityResourceBA_Name": {
     "Original": "Remove Ability Resource",
-    "Translated": null
+    "Translated": "移除能力资源"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveAbilityResourceBA_Description": {
     "Original": "Removes the specified BlueprintAbilityResource from the chosen unit.",
-    "Translated": null
+    "Translated": "从所选单位移除指定的能力资源蓝图（BlueprintAbilityResource）。"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveAbilityResourceBA_RemoveText": {
     "Original": "Remove",
@@ -3197,23 +3197,23 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveAbilityResourceBA_UnitAlreadyHasThisAbilityResourc": {
     "Original": "Unit does not have this ability resource",
-    "Translated": null
+    "Translated": "单位没有该能力资源"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechadendriteBA_Name": {
     "Original": "Remove Mechadendrite",
-    "Translated": null
+    "Translated": "移除机械触手"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechadendriteBA_Description": {
     "Original": "Removes the specified mechadendrite from the specified unit.",
-    "Translated": null
+    "Translated": "从指定单位移除指定的机械触手。"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechadendriteBA_m_RemoveLocalizedText": {
     "Original": "Unequip Mechadendrite",
-    "Translated": null
+    "Translated": "卸下机械触手"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechadendriteBA_m_UnitDoesn_tHaveThisMechadendriteLocalizedText": {
     "Original": "Unit doesn't have this Mechadendrite",
-    "Translated": null
+    "Translated": "单位没有该机械触手"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechanicEntityFactBA_RemoveText": {
     "Original": "Remove",
@@ -3221,15 +3221,15 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechanicEntityFactBA_Name": {
     "Original": "Remove Fact",
-    "Translated": null
+    "Translated": "移除事实（Fact）"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechanicEntityFactBA_Description": {
     "Original": "Removes the specified BlueprintMechanicEntityFact from the chosen unit.",
-    "Translated": null
+    "Translated": "从所选单位移除指定的事实蓝图（BlueprintMechanicEntityFact）。"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechanicEntityFactBA_UnitDoesNotHaveThisFactText": {
     "Original": "Unit does not have this Fact",
-    "Translated": null
+    "Translated": "单位没有该事实（Fact）"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_SpawnUnitBA_Spawn_x": {
     "Original": "Spawn",
@@ -3237,11 +3237,11 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_SpawnUnitBA_Name": {
     "Original": "Spawn Unit",
-    "Translated": null
+    "Translated": "生成单位"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_SpawnUnitBA_Description": {
     "Original": "Spawns the specified BlueprintUnit in the vicinity.",
-    "Translated": null
+    "Translated": "在附近生成指定的单位蓝图（BlueprintUnit）。"
   },
   "ToyBox_Features_SearchAndPick_BlueprintFilters_m_AllLocalizedText": {
     "Original": "All",
@@ -3253,7 +3253,7 @@
   },
   "ToyBox_Features_SearchAndPick_BlueprintFilters_m_FeaturesLocalizedText": {
     "Original": "Features",
-    "Translated": "功能"
+    "Translated": "特性"
   },
   "ToyBox_Features_SearchAndPick_BlueprintFilters_m_CareersLocalizedText": {
     "Original": "Careers",
@@ -3385,11 +3385,11 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintUI_m_ShowSettingsLocalizedText": {
     "Original": "Show Settings",
-    "Translated": null
+    "Translated": "显示设置"
   },
   "ToyBox_Infrastructure_CharacterPicker_ThereAreNoCharactersInThisList": {
     "Original": "There are no characters in this list!",
-    "Translated": null
+    "Translated": "此列表中没有角色！"
   },
   "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_PartyText": {
     "Original": "Party",
@@ -3401,11 +3401,11 @@
   },
   "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_AllText": {
     "Original": "All Characters",
-    "Translated": null
+    "Translated": "全部角色"
   },
   "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_ActiveText": {
     "Original": "Active",
-    "Translated": null
+    "Translated": "活跃"
   },
   "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_RemoteText": {
     "Original": "Remote",
@@ -3413,7 +3413,7 @@
   },
   "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_CustomCompanionText": {
     "Original": "Custom Companions",
-    "Translated": null
+    "Translated": "自定义同伴"
   },
   "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_PetsText": {
     "Original": "Pets",
@@ -3441,27 +3441,27 @@
   },
   "ToyBox_Infrastructure_Enums_EtudeState_Localizer_m_NotStartedLocalizedText": {
     "Original": "Not Started",
-    "Translated": null
+    "Translated": "未开始"
   },
   "ToyBox_Infrastructure_Enums_EtudeState_Localizer_m_StartedLocalizedText": {
     "Original": "Started",
-    "Translated": null
+    "Translated": "已开始"
   },
   "ToyBox_Infrastructure_Enums_EtudeState_Localizer_m_ActiveLocalizedText": {
     "Original": "Active",
-    "Translated": null
+    "Translated": "生效中"
   },
   "ToyBox_Infrastructure_Enums_EtudeState_Localizer_m_PreCompletedLocalizedText": {
     "Original": "Pre Completed",
-    "Translated": null
+    "Translated": "预完成"
   },
   "ToyBox_Infrastructure_Enums_EtudeState_Localizer_m_CompletedLocalizedText": {
     "Original": "Completed",
-    "Translated": null
+    "Translated": "已完成"
   },
   "ToyBox_Infrastructure_Enums_EtudeState_Localizer_m_CompletionInProgressLocalizedText": {
     "Original": "Completion in Progress",
-    "Translated": null
+    "Translated": "正在完成"
   },
   "ToyBox_Infrastructure_Enums_LogLevel_Localizer_ErrorText": {
     "Original": "Error",
@@ -3493,7 +3493,7 @@
   },
   "ToyBox_Infrastructure_Enums_PartyTabSectionType_Localizer_FeaturesText": {
     "Original": "Features",
-    "Translated": "功能"
+    "Translated": "特性"
   },
   "ToyBox_Infrastructure_Enums_PartyTabSectionType_Localizer_BuffsText": {
     "Original": "Buffs",
@@ -3509,7 +3509,7 @@
   },
   "ToyBox_Infrastructure_Enums_PartyTabSectionType_Localizer_m_MechadendritesLocalizedText": {
     "Original": "Mechadendrites",
-    "Translated": null
+    "Translated": "机械触手"
   },
   "ToyBox_Infrastructure_Enums_UnitSelectType_Localizer_EveryoneText": {
     "Original": "Everyone",
@@ -3541,7 +3541,7 @@
   },
   "ToyBox_Infrastructure_Enums_UnitSelectType_Localizer_m_EnemyShipLocalizedText": {
     "Original": "Enemy Ship",
-    "Translated": null
+    "Translated": "敌方舰船"
   },
   "ToyBox_FeatureTab_m_FeatureFailedInitializationLocalizedText": {
     "Original": "Feature failed initialization",
@@ -3549,39 +3549,39 @@
   },
   "ToyBox_Infrastructure_Inspector_InspectorUI_ShowSearchText": {
     "Original": "Show Search",
-    "Translated": null
+    "Translated": "显示搜索"
   },
   "ToyBox_Infrastructure_Inspector_InspectorUI_ShowSearchSettingsText": {
     "Original": "Show Settings",
-    "Translated": null
+    "Translated": "显示设置"
   },
   "ToyBox_Infrastructure_Inspector_InspectorUI_SearchByNameText": {
     "Original": "Search by Name",
-    "Translated": null
+    "Translated": "按名称搜索"
   },
   "ToyBox_Infrastructure_Inspector_InspectorUI_SearchByTypeText": {
     "Original": "Search by Type",
-    "Translated": null
+    "Translated": "按类型搜索"
   },
   "ToyBox_Infrastructure_Inspector_InspectorUI_SearchByValueText": {
     "Original": "Search by Value",
-    "Translated": null
+    "Translated": "按值搜索"
   },
   "ToyBox_Infrastructure_Inspector_InspectorUI_SearchDepthText": {
     "Original": "Search Depth",
-    "Translated": null
+    "Translated": "搜索深度"
   },
   "ToyBox_Infrastructure_Inspector_InspectorUI_StoppedDrawingEntriesToPreventUI": {
     "Original": "Stopped drawing entries to prevent UI crash",
-    "Translated": null
+    "Translated": "已停止绘制条目以防止界面崩溃"
   },
   "ToyBox_Infrastructure_Utilities_Strings_SharedStrings_ThisCannotBeUsedFromTheMainMenu": {
     "Original": "This cannot be used from the main menu!",
-    "Translated": null
+    "Translated": "无法在主菜单使用此功能！"
   },
   "ToyBox_Infrastructure_Utilities_Strings_SharedStrings_TheCharacterPickerCannotBeUsedFromTheMainMenu": {
     "Original": "The character picker cannot be used from the main menu!",
-    "Translated": null
+    "Translated": "角色选择器无法在主菜单使用！"
   },
   "ToyBox_Infrastructure_Utilities_Strings_SharedStrings_Reset_to_default_Value": {
     "Original": "Reset",
@@ -3589,11 +3589,11 @@
   },
   "ToyBox_Infrastructure_Utilities_Strings_SharedStrings_List_x_Matches": {
     "Original": "Matches",
-    "Translated": null
+    "Translated": "项匹配"
   },
   "ToyBox_Infrastructure_UI_VerticalList_PageText": {
     "Original": "Page",
-    "Translated": null
+    "Translated": "页"
   },
   "ToyBox_Infrastructure_UI_Browser_ShowAllText": {
     "Original": "Show All",
@@ -3605,7 +3605,7 @@
   },
   "ToyBox_Infrastructure_Inspector_InspectorUI_CurrentlyInspectingText": {
     "Original": "Currently Inspecting",
-    "Translated": null
+    "Translated": "正在检查"
   },
   "ToyBox_Main_ResetText": {
     "Original": "Reset",
@@ -3613,7 +3613,7 @@
   },
   "ToyBox_Main_CurrentlyLoadedBPsText": {
     "Original": "Currently loaded blueprints: {0}",
-    "Translated": "当前已加载蓝图：{0}"
+    "Translated": "当前已加载蓝图（Blueprints）：{0}"
   },
   "ToyBox_Infrastructure_UI_Browser_SearchText": {
     "Original": "Search",
@@ -3621,11 +3621,11 @@
   },
   "ToyBox_Infrastructure_UI_Browser_SortAscendingText": {
     "Original": "Sort Ascending",
-    "Translated": null
+    "Translated": "升序排列"
   },
   "ToyBox_Infrastructure_UI_Browser_SortDescendingText": {
     "Original": "Sort Descending",
-    "Translated": null
+    "Translated": "降序排列"
   },
   "ToyBox_Infrastructure_UI_UI_MinimumText": {
     "Original": "min",
@@ -3637,35 +3637,35 @@
   },
   "ToyBox_Infrastructure_Inspector_InspectorUI_SearchInProgres___Text": {
     "Original": "Search in progres...",
-    "Translated": null
+    "Translated": "正在搜索……"
   },
   "ToyBox_Infrastructure_Inspector_InspectorUI_CancelText": {
     "Original": "Cancel",
-    "Translated": null
+    "Translated": "取消"
   },
   "ToyBox_Infrastructure_BlueprintPicker_EnterTargetBlueprintIdText": {
     "Original": "Enter target blueprint id",
-    "Translated": null
+    "Translated": "输入目标蓝图 ID"
   },
   "ToyBox_Infrastructure_BlueprintPicker_PickBlueprintText": {
     "Original": "Pick Blueprint",
-    "Translated": null
+    "Translated": "选取蓝图"
   },
   "ToyBox_Infrastructure_BlueprintPicker_NoBlueprintWithThatGuidFound_Text": {
     "Original": "No blueprint with that guid found.",
-    "Translated": null
+    "Translated": "未找到该 GUID 对应的蓝图。"
   },
   "ToyBox_Infrastructure_BlueprintPicker_ShowListOfBlueprintsText": {
     "Original": "Show List of Blueprints",
-    "Translated": null
+    "Translated": "显示蓝图列表"
   },
   "ToyBox_Infrastructure_BlueprintPicker_CurrentlySelectedBlueprint_Text": {
     "Original": "Currently selected blueprint",
-    "Translated": null
+    "Translated": "当前选中的蓝图"
   },
   "ToyBox_Infrastructure_UnitPicker_CurrentlySelectedUnit_Text": {
     "Original": "Currently selected unit",
-    "Translated": null
+    "Translated": "当前选中的单位"
   },
   "ToyBox_Infrastructure_Utilities_ContextProvider_NoneText": {
     "Original": "None",
@@ -3701,7 +3701,7 @@
   },
   "ToyBox_Infrastructure_Utilities_ContextProvider_PetsNotAllowedForThisFeature_LocalizedText": {
     "Original": "Pets not allowed for this feature!",
-    "Translated": null
+    "Translated": "此功能不允许对宠物使用！"
   },
   "ToyBox_Main_SomethingWentHorriblyWrongAndYou": {
     "Original": "Something went horribly wrong and you've somehow opened the UI before ToyBox finished initialization. Please report this to the mod author!",
@@ -3717,6 +3717,6 @@
   },
   "ToyBox_Main_m_YouNeedToClearTheException_LocalizedText": {
     "Original": "You need to clear the exception!",
-    "Translated": null
+    "Translated": "你需要先清除异常！"
   }
 }
