@@ -89,7 +89,8 @@ internal class SkeletonReplacer {
             { "IO_weapon_in_holstersLZ", new() { Value = 0, Min = -2, Max = 2, Bones = ["L_front_weapon_slot_04_ADJ", "L_front_weapon_slot_05_ADJ"] } },
             { "IS_cloak", new() { Value = 1, Min = 0.5f, Max = 2, Bones = ["C_back_weapon_slot_08_ADJ"] } },
             { "IS_backpack", new() { Value = 1, Min = 0.5f, Max = 2, Bones = ["C_back_w_____slot_08"] } },
-            { "IS_weapon_in_hand", new() { Value = 1, Min = 0.5f, Max = 2, Bones = ["R_WeaponBone", "L_WeaponBone"] } },
+            { "IS_weapon_in_hand_R", new() { Value = 1, Min = 0.5f, Max = 2, Bones = ["R_WeaponBone"] } },
+            { "IS_weapon_in_hand_L", new() { Value = 1, Min = 0.5f, Max = 2, Bones = ["L_WeaponBone"] } },
             { "IS_weapon_in_holsters", new() { Value = 1, Min = 0.5f, Max = 2, Bones = ["R_front_weapon_slot_01", "R_front_weapon_slot_02", "C_front_weapon_slot_03", "L_front_weapon_slot_04", "L_front_weapon_slot_05"] } },
             { "IS_back_weapon_R", new() { Value = 1, Min = 0.5f, Max = 2, Bones = ["R_back_weapon_slot_06", "R_back_weapon_slot_09"] } },
             { "IS_back_weapon_L", new() { Value = 1, Min = 0.5f, Max = 2, Bones = ["L_back_weapon_slot_07", "L_back_weapon_slot_10"] } },
@@ -180,7 +181,8 @@ internal class SkeletonReplacer {
         var m7 = BodyParts.TryGetValue("SZ_hands", out var p7) ? p7.Parameter : 1;
         var big = m1 * m2 * m3;
         var full = big * m4 * m5 * m6 * m7;
-        UpdateWeapon("IS_weapon_in_hand", full);
+        UpdateWeapon("IS_weapon_in_hand_R", full);
+        UpdateWeapon("IS_weapon_in_hand_L", full);
         UpdateWeapon("IS_back_weapon_R", big);
         UpdateWeapon("IS_back_weapon_L", big);
     }
@@ -239,6 +241,15 @@ internal class SkeletonReplacer {
         if (!overrides.TryGetValue(character.UniqueId, out var loadedPartsData)) {
             loadedPartsData = [];
             overrides[character.UniqueId] = loadedPartsData;
+        }
+        if (loadedPartsData.TryGetValue("IS_weapon_in_hand", out var legacyWeaponInHand)) {
+            _ = loadedPartsData.Remove("IS_weapon_in_hand");
+            if (!loadedPartsData.ContainsKey("IS_weapon_in_hand_R")) {
+                loadedPartsData["IS_weapon_in_hand_R"] = legacyWeaponInHand;
+            }
+            if (!loadedPartsData.ContainsKey("IS_weapon_in_hand_L")) {
+                loadedPartsData["IS_weapon_in_hand_L"] = legacyWeaponInHand;
+            }
         }
         if (BodyParts.ContainsKey(whichPart)) {
             BonesModification(loadedPartsData, loadPerSaveData, whichPart);

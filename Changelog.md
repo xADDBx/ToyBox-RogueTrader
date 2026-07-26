@@ -1,3 +1,6 @@
+### ToyBox Rogue - Ver 2.0.9 (built for 1.6.1.511)
+* (***ADDB***) Make Party => Stats => Skeleton Replacer have separate size multipliers for left and right weapon hand
+
 ### ToyBox Rogue - Ver 2.0.8 (built for 1.6.1.511)
 * (***ADDB***) Add TextField next to Slider for Visual Override feature
 * (***ADDB***) Fix Visual Override defaulting to 0 instead of 1
