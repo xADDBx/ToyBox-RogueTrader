@@ -3,6 +3,7 @@ using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.RuleSystem.Rules.Starships;
+using Kingmaker.View.Covers;
 using ToyBox.Infrastructure.Utilities;
 using UnityEngine;
 using static Kingmaker.RuleSystem.RulebookEvent;
@@ -32,7 +33,7 @@ public partial class DiceRollsOverridesFeature : FeatureWithPatch {
         m_NeverRoll1LocalizedText, m_DamageRolls_Take1LocalizedText, m_DamageRolls_Take25LocalizedText, m_DamageRolls_Take50LocalizedText,
         m_OutOfCombat_Take1LocalizedText, m_OutOfCombat_Take25LocalizedText, m_OutOfCombat_Take50LocalizedText, m_SkillChecks_Take1LocalizedText,
         m_SkillChecks_Take25LocalizedText, m_SkillChecks_Take50LocalizedText, m_Take100LocalizedText, m_Take1LocalizedText,
-        m_Take50LocalizedText], GUI.skin.label));
+        m_Take50LocalizedText, m_CoverNeverInterceptsLocalizedText, m_CoverAlwaysInterceptsLocalizedText], GUI.skin.label));
     public override void OnGui() {
         base.OnGui();
         if (IsEnabled) {
@@ -57,6 +58,7 @@ public partial class DiceRollsOverridesFeature : FeatureWithPatch {
                         UI.Label(m_RollWithDisadvantageLocalizedText, Width(labelWidth));
                         UI.SelectionGrid(ref Settings.DiceRollsRollWithDisadvantage, 8, e => e.GetLocalized(), Width(0.7f * EffectiveWindowWidth()));
                     }
+                    UI.Label(m_AttackRolls__LowerIsBetterLocalizedText.Green());
                     using (HorizontalScope()) {
                         UI.Label(m_Take100LocalizedText, Width(labelWidth));
                         UI.SelectionGrid(ref Settings.DiceRollsAlwaysRoll100, 8, e => e.GetLocalized(), Width(0.7f * EffectiveWindowWidth()));
@@ -76,6 +78,15 @@ public partial class DiceRollsOverridesFeature : FeatureWithPatch {
                     using (HorizontalScope()) {
                         UI.Label(m_NeverRoll1LocalizedText, Width(labelWidth));
                         UI.SelectionGrid(ref Settings.DiceRollsNeverRoll1, 8, e => e.GetLocalized(), Width(0.7f * EffectiveWindowWidth()));
+                    }
+                    UI.Label(m_CoverInterception_UsesASeparateRoLocalizedText.Green());
+                    using (HorizontalScope()) {
+                        UI.Label(m_CoverNeverInterceptsLocalizedText, Width(labelWidth));
+                        UI.SelectionGrid(ref Settings.DiceRollsCoverNeverIntercept, 8, e => e.GetLocalized(), Width(0.7f * EffectiveWindowWidth()));
+                    }
+                    using (HorizontalScope()) {
+                        UI.Label(m_CoverAlwaysInterceptsLocalizedText, Width(labelWidth));
+                        UI.SelectionGrid(ref Settings.DiceRollsCoverAlwaysIntercept, 8, e => e.GetLocalized(), Width(0.7f * EffectiveWindowWidth()));
                     }
                     using (HorizontalScope()) {
                         UI.Label(m_OutOfCombat_Take50LocalizedText, Width(labelWidth));
@@ -153,6 +164,20 @@ public partial class DiceRollsOverridesFeature : FeatureWithPatch {
             __instance.ResultIsCrit = true;
         }
     }
+    // Cover interception is rolled separately from the attack roll (RuleRollCoverHit uses its own Dice.D100).
+    // Force its outcome here instead of letting the generic dice overrides leak into it.
+    [HarmonyPatch(typeof(RuleRollCoverHit), nameof(RuleRollCoverHit.OnTrigger)), HarmonyPostfix]
+    private static void RuleRollCoverHit_OnTrigger_Patch(RuleRollCoverHit __instance) {
+        // Invisible cover has a hardcoded 100% chance, i.e. the game never wants the attack to miss it. Leave it alone.
+        if (__instance.HitChanceRule.Los == LosCalculations.CoverType.Invisible) {
+            return;
+        }
+        if (ToyBoxUnitHelper.IsOfSelectedType(__instance.InitiatorUnit, Settings.DiceRollsCoverNeverIntercept)) {
+            __instance.ResultIsHit = false;
+        } else if (ToyBoxUnitHelper.IsOfSelectedType(__instance.InitiatorUnit, Settings.DiceRollsCoverAlwaysIntercept) && !__instance.m_IsAutoMissCover && !__instance.HitChanceRule.IsAutoMiss) {
+            __instance.ResultIsHit = true;
+        }
+    }
     [HarmonyPatch(typeof(RuleRollInitiative), nameof(RuleRollInitiative.ResultD10), MethodType.Getter), HarmonyPostfix]
     private static void RuleRollInitiative_getResultD10_Patch(ref RuleRollD10 __result, RuleRollInitiative __instance) {
         if (ToyBoxUnitHelper.IsOfSelectedType(__instance.InitiatorUnit, Settings.DiceRollsInitiativeAlwaysRoll1)) {
@@ -213,6 +238,10 @@ public partial class DiceRollsOverridesFeature : FeatureWithPatch {
                     __instance.m_RerollAmount = 0;
                     __instance.Reroll();
                 }
+                return;
+            } else if (evt is RuleRollCoverHit) {
+                // Cover interception is decided by its own d100 roll (Dice.D100 inside RuleRollCoverHit).
+                // Leave it untouched here; it is controlled by the dedicated Cover Interception settings below.
                 return;
             } else if (evt is RuleDealDamage) {
                 isDamageRule = true;
@@ -334,4 +363,12 @@ public partial class DiceRollsOverridesFeature : FeatureWithPatch {
     private static partial string m_DamageRolls_Take25LocalizedText { get; }
     [LocalizedString("ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_DamageRolls_Take1LocalizedText", "Damage Rolls: Take 1")]
     private static partial string m_DamageRolls_Take1LocalizedText { get; }
+    [LocalizedString("ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_AttackRolls__LowerIsBetterLocalizedText", "Attack Rolls -> Lower is better")]
+    private static partial string m_AttackRolls__LowerIsBetterLocalizedText { get; }
+    [LocalizedString("ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_CoverInterception_UsesASeparateRoLocalizedText", "Controls whether attacks made by the selected units are redirected to cover instead of their target.")]
+    private static partial string m_CoverInterception_UsesASeparateRoLocalizedText { get; }
+    [LocalizedString("ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_CoverNeverInterceptsLocalizedText", "Cover: Never Redirect")]
+    private static partial string m_CoverNeverInterceptsLocalizedText { get; }
+    [LocalizedString("ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_CoverAlwaysInterceptsLocalizedText", "Cover: Always Redirect")]
+    private static partial string m_CoverAlwaysInterceptsLocalizedText { get; }
 }
