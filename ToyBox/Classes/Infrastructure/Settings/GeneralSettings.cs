@@ -191,6 +191,8 @@ public class GeneralSettings : AbstractJsonSettings {
     public UnitSelectType DiceRollsAlwaysRoll1;
     public UnitSelectType DiceRollsNeverRoll100;
     public UnitSelectType DiceRollsNeverRoll1;
+    public UnitSelectType DiceRollsCoverNeverIntercept;
+    public UnitSelectType DiceRollsCoverAlwaysIntercept;
     public UnitSelectType DiceRollsInitiativeAlwaysRoll10;
     public UnitSelectType DiceRollsInitiativeAlwaysRoll5;
     public UnitSelectType DiceRollsInitiativeAlwaysRoll1;

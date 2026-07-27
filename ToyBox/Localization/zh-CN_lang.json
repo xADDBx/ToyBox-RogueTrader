@@ -567,6 +567,22 @@
     "Original": "Damage Rolls: Take 1",
     "Translated": "伤害掷骰：固定取 1"
   },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_AttackRolls__LowerIsBetterLocalizedText": {
+    "Original": "Attack Rolls -> Lower is better",
+    "Translated": "攻击掷骰 → 数值越低越好"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_CoverInterception_UsesASeparateRoLocalizedText": {
+    "Original": "Cover Interception -> Lower is better for the defender; uses a separate roll, not affected by the dice overrides above",
+    "Translated": "掩体拦截 → 数值越低对防守方越有利；使用独立骰子，不受上方掷骰覆盖影响"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_CoverNeverInterceptsLocalizedText": {
+    "Original": "Cover: Never Intercepts",
+    "Translated": "掩体：永不拦截"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_CoverAlwaysInterceptsLocalizedText": {
+    "Original": "Cover: Always Intercepts",
+    "Translated": "掩体：永远拦截"
+  },
   "ToyBox_Features_BagOfTricks_EnemyStatModifier_EnemyFlatStatModifierFeature_Name": {
     "Original": "Flat Enemy Stat Modifier",
     "Translated": "敌人属性固定加值"
@@ -2317,7 +2333,7 @@
   },
   "ToyBox_Features_Saves_ChangeSaveIdFeature_m_N_ALocalizedText": {
     "Original": "N/A",
-    "Translated": "N/A"
+    "Translated": null
   },
   "ToyBox_Features_Saves_SavesFeatureTab_Name": {
     "Original": "Saves",
