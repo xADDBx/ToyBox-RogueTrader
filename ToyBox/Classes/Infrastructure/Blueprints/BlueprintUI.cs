@@ -29,12 +29,12 @@ public static partial class BlueprintUI {
         return null;
     }
     private static readonly Dictionary<Type, Func<object, object, bool, ActionParameter, bool?>> m_ActionInvokerCache = [];
-    private static bool? InvokeAction(object action, object bp, bool isSearch, BaseUnitEntity? unit) {
+    private static bool? InvokeAction(object action, object bp, bool isSearch, BaseUnitEntity? unit, int? intParam) {
         var bpType = bp.GetType();
         if (!m_ActionInvokerCache.TryGetValue(bpType, out var invoker)) {
             m_ActionInvokerCache[bpType] = invoker = CreateActionInvoker(bpType);
         }
-        return invoker(action, bp, isSearch, new(unit));
+        return invoker(action, bp, isSearch, new(unit, intParam));
     }
     private static Func<object, object, bool, ActionParameter, bool?> CreateActionInvoker(Type bpType) {
         var ifaceType = typeof(IExecutableAction<>).MakeGenericType(bpType);
@@ -55,7 +55,7 @@ public static partial class BlueprintUI {
 
         return lambda.Compile();
     }
-    public static void BlueprintRowGUI<TBlueprint>(Browser<TBlueprint> browser, TBlueprint blueprint, BaseUnitEntity? ch, Type? overrideForActions = null, Func<TBlueprint, BaseUnitEntity?, object?>? maybeItemGetter = null) where TBlueprint : SimpleBlueprint {
+    public static void BlueprintRowGUI<TBlueprint>(Browser<TBlueprint> browser, TBlueprint blueprint, BaseUnitEntity? ch, Type? overrideForActions = null, Func<TBlueprint, BaseUnitEntity?, object?>? maybeItemGetter = null, int? actionIntParam = null) where TBlueprint : SimpleBlueprint {
         if (!m_CachedWidths.TryGetValue(browser, out var widths) || (!browser.IsCachedValid && browser.PagedItems.Count > 0)) {
             var wasDefault = widths == null;
             widths ??= new();
@@ -87,7 +87,7 @@ public static partial class BlueprintUI {
                 }
                 Space(5);
                 foreach (var action in BlueprintActionFeature.GetActionsForBlueprintType(blueprint.GetType(), overrideForActions)) {
-                    _ = InvokeAction(action, blueprint, false, ch);
+                    _ = InvokeAction(action, blueprint, false, ch, actionIntParam);
                 }
                 Space(5);
                 var desc = BPHelper.GetDescription(blueprint);

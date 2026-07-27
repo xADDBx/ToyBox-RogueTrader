@@ -16,6 +16,7 @@ public partial class SearchAndPickFeature : Feature {
     private Browser<string>? m_CollationCategoryBrowser;
     private bool m_ShowCollationCategoryPicker = false;
     private bool m_ShowCharacterFilterPicker = false;
+    private int m_ActionParameter = 1;
     private IBlueprintFilter<SimpleBlueprint> m_BlueprintFilter = null!;
     public override void OnGui() {
         using (HorizontalScope()) {
@@ -70,8 +71,13 @@ public partial class SearchAndPickFeature : Feature {
                                 _ = CharacterPicker.OnFilterPickerGUI();
                             }
                         }
+                        using (HorizontalScope()) {
+                            _ = UI.TextField(ref m_ActionParameter, null, Width(70));
+                            m_ActionParameter = Math.Min(1000, Math.Max(1, m_ActionParameter));
+                            UI.Label((" " + m_ActionParameterLocalizedText).Cyan(), AutoWidth());
+                        }
                         _ = CharacterPicker.OnCharacterPickerGUI();
-                        m_SearchNPickBrowser!.OnGUI(bp => BlueprintUI.BlueprintRowGUI(m_SearchNPickBrowser, bp, CharacterPicker.CurrentUnit), BlueprintUI.BlueprintHeaderGUI);
+                        m_SearchNPickBrowser!.OnGUI(bp => BlueprintUI.BlueprintRowGUI(m_SearchNPickBrowser, bp, CharacterPicker.CurrentUnit, actionIntParam: m_ActionParameter), BlueprintUI.BlueprintHeaderGUI);
                     }
                 } else {
                     UI.Label("????????????????????????".Red().Bold());
@@ -96,6 +102,8 @@ public partial class SearchAndPickFeature : Feature {
 
     [LocalizedString("ToyBox_Features_SearchAndPick_SearchAndPickFeature_m_ShowCharacterFilterPickerLocalizedText", "Show Character Filter Picker")]
     private static partial string m_ShowCharacterFilterPickerLocalizedText { get; }
+    [LocalizedString("ToyBox_Features_SearchAndPick_SearchAndPickFeature_m_ActionParameterLocalizedText", "Number Parameter (used e.g. as the amount of items to add)")]
+    private static partial string m_ActionParameterLocalizedText { get; }
     [LocalizedString("ToyBox_Features_SearchAndPick_SearchAndPickFeature_m_CurrentCollationCategoryLocalizedText", "Current Category")]
     private static partial string m_CurrentCollationCategoryLocalizedText { get; }
     [LocalizedString("ToyBox_Features_SearchAndPick_SearchAndPickFeature_m_Collating_LocalizedText", "Collating!")]

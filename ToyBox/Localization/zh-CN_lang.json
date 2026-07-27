@@ -2317,7 +2317,7 @@
   },
   "ToyBox_Features_Saves_ChangeSaveIdFeature_m_N_ALocalizedText": {
     "Original": "N/A",
-    "Translated": "N/A"
+    "Translated": null
   },
   "ToyBox_Features_Saves_SavesFeatureTab_Name": {
     "Original": "Saves",
@@ -2334,6 +2334,10 @@
   "ToyBox_Features_SearchAndPick_SearchAndPickFeature_m_ShowCharacterFilterPickerLocalizedText": {
     "Original": "Show Character Filter Picker",
     "Translated": "显示角色筛选器选择面板"
+  },
+  "ToyBox_Features_SearchAndPick_SearchAndPickFeature_m_ActionParameterLocalizedText": {
+    "Original": "Number Parameter (used e.g. as the amount of items to add)",
+    "Translated": null
   },
   "ToyBox_Features_SearchAndPick_SearchAndPickFeature_m_CurrentCollationCategoryLocalizedText": {
     "Original": "Current Category",

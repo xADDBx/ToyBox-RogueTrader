@@ -2335,6 +2335,10 @@
     "Original": "Show Character Filter Picker",
     "Translated": null
   },
+  "ToyBox_Features_SearchAndPick_SearchAndPickFeature_m_ActionParameterLocalizedText": {
+    "Original": "Number Parameter (used e.g. as the amount of items to add)",
+    "Translated": null
+  },
   "ToyBox_Features_SearchAndPick_SearchAndPickFeature_m_CurrentCollationCategoryLocalizedText": {
     "Original": "Current Category",
     "Translated": null
