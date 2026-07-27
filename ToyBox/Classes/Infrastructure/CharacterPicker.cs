@@ -39,7 +39,7 @@ public static partial class CharacterPicker {
     private static WeakReference<BaseUnitEntity>? m_CurrentUnit;
     public static BaseUnitEntity? CurrentUnit {
         get {
-            if (m_CurrentUnit is not null && m_CurrentUnit.TryGetTarget(out var unit) && !unit.IsDisposed && !unit.IsDisposingNow && unit.IsInGame) {
+            if (m_CurrentUnit is not null && m_CurrentUnit.TryGetTarget(out var unit) && !unit.IsDisposed && !unit.IsDisposingNow) {
                 return unit;
             } else {
                 return null;
