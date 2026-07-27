@@ -1,3 +1,6 @@
+### ToyBox Rogue - Ver 2.0.11 (built for 1.6.1.511)
+* (***WFMinerva***) Fix general dice roll overrides affecting cover interception rolls and add separate options to make attacks always or never hit cover
+
 ### ToyBox Rogue - Ver 2.0.10 (built for 1.6.1.511)
 * (***ADDB***) Add back int parameter to Search 'n Pick
 * (***ADDB***) Units from character picker no longer need to be in-game
