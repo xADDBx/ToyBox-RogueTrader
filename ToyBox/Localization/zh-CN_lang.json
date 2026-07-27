@@ -567,6 +567,22 @@
     "Original": "Damage Rolls: Take 1",
     "Translated": "伤害掷骰：固定取 1"
   },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_AttackRolls__LowerIsBetterLocalizedText": {
+    "Original": "Attack Rolls -> Lower is better",
+    "Translated": "攻击掷骰 → 数值越低越好"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_CoverInterception_UsesASeparateRoLocalizedText": {
+    "Original": "Controls whether attacks made by the selected units are redirected to cover instead of their target.",
+    "Translated": "控制所选单位的攻击是否被重定向到掩体而非其目标。"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_CoverNeverInterceptsLocalizedText": {
+    "Original": "Cover: Never Redirect",
+    "Translated": "掩体：从不重定向"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_CoverAlwaysInterceptsLocalizedText": {
+    "Original": "Cover: Always Redirect",
+    "Translated": "掩体：始终重定向"
+  },
   "ToyBox_Features_BagOfTricks_EnemyStatModifier_EnemyFlatStatModifierFeature_Name": {
     "Original": "Flat Enemy Stat Modifier",
     "Translated": "敌人属性固定加值"
