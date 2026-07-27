@@ -168,7 +168,7 @@ public partial class DiceRollsOverridesFeature : FeatureWithPatch {
     // Force its outcome here instead of letting the generic dice overrides leak into it.
     [HarmonyPatch(typeof(RuleRollCoverHit), nameof(RuleRollCoverHit.OnTrigger)), HarmonyPostfix]
     private static void RuleRollCoverHit_OnTrigger_Patch(RuleRollCoverHit __instance) {
-        // Invisible cover is a wall; never mess with it.
+        // Invisible cover has a hardcoded 100% chance, i.e. the game never wants the attack to miss it. Leave it alone.
         if (__instance.HitChanceRule.Los == LosCalculations.CoverType.Invisible) {
             return;
         }
@@ -365,10 +365,10 @@ public partial class DiceRollsOverridesFeature : FeatureWithPatch {
     private static partial string m_DamageRolls_Take1LocalizedText { get; }
     [LocalizedString("ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_AttackRolls__LowerIsBetterLocalizedText", "Attack Rolls -> Lower is better")]
     private static partial string m_AttackRolls__LowerIsBetterLocalizedText { get; }
-    [LocalizedString("ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_CoverInterception_UsesASeparateRoLocalizedText", "Cover Interception -> Lower is better for the defender; uses a separate roll, not affected by the dice overrides above")]
+    [LocalizedString("ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_CoverInterception_UsesASeparateRoLocalizedText", "Controls whether attacks made by the selected units are redirected to cover instead of their target.")]
     private static partial string m_CoverInterception_UsesASeparateRoLocalizedText { get; }
-    [LocalizedString("ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_CoverNeverInterceptsLocalizedText", "Cover: Never Intercepts")]
+    [LocalizedString("ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_CoverNeverInterceptsLocalizedText", "Cover: Never Redirect")]
     private static partial string m_CoverNeverInterceptsLocalizedText { get; }
-    [LocalizedString("ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_CoverAlwaysInterceptsLocalizedText", "Cover: Always Intercepts")]
+    [LocalizedString("ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_CoverAlwaysInterceptsLocalizedText", "Cover: Always Redirect")]
     private static partial string m_CoverAlwaysInterceptsLocalizedText { get; }
 }

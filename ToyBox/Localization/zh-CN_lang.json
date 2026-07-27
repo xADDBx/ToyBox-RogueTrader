@@ -572,16 +572,16 @@
     "Translated": "攻击掷骰 → 数值越低越好"
   },
   "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_CoverInterception_UsesASeparateRoLocalizedText": {
-    "Original": "Cover Interception -> Lower is better for the defender; uses a separate roll, not affected by the dice overrides above",
-    "Translated": "掩体拦截 → 数值越低对防守方越有利；使用独立骰子，不受上方掷骰覆盖影响"
+    "Original": "Controls whether attacks made by the selected units are redirected to cover instead of their target.",
+    "Translated": "控制所选单位的攻击是否被重定向到掩体而非其目标。"
   },
   "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_CoverNeverInterceptsLocalizedText": {
-    "Original": "Cover: Never Intercepts",
-    "Translated": "掩体：永不拦截"
+    "Original": "Cover: Never Redirect",
+    "Translated": "掩体：从不重定向"
   },
   "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_CoverAlwaysInterceptsLocalizedText": {
-    "Original": "Cover: Always Intercepts",
-    "Translated": "掩体：永远拦截"
+    "Original": "Cover: Always Redirect",
+    "Translated": "掩体：始终重定向"
   },
   "ToyBox_Features_BagOfTricks_EnemyStatModifier_EnemyFlatStatModifierFeature_Name": {
     "Original": "Flat Enemy Stat Modifier",
