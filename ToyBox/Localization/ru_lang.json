@@ -193,7 +193,7 @@
   },
   "ToyBox_Features_BagOfTricks_Cheats_IgnoreAoeOverlapAbilityRequirementFeature_Description": {
     "Original": "",
-    "Translated": ""
+    "Translated": null
   },
   "ToyBox_Features_BagOfTricks_Cheats_IgnoreEquipmentRestrictionsFeature_Name": {
     "Original": "Ignore Equipment Restrictions",
@@ -209,7 +209,7 @@
   },
   "ToyBox_Features_BagOfTricks_Cheats_IgnoreLineOfSightAbilityRequirementFeature_Description": {
     "Original": "",
-    "Translated": ""
+    "Translated": null
   },
   "ToyBox_Features_BagOfTricks_Cheats_IgnoreTargetTooCloseAbilityRequirementFeature_Name": {
     "Original": "Ignore Ability Requirements - Too Close",
@@ -217,7 +217,7 @@
   },
   "ToyBox_Features_BagOfTricks_Cheats_IgnoreTargetTooCloseAbilityRequirementFeature_Description": {
     "Original": "",
-    "Translated": ""
+    "Translated": null
   },
   "ToyBox_Features_BagOfTricks_Cheats_IgnoreTargetTooFarAbilityRequirementFeature_Name": {
     "Original": "Ignore Ability Requirements - Too Far",
@@ -225,7 +225,7 @@
   },
   "ToyBox_Features_BagOfTricks_Cheats_IgnoreTargetTooFarAbilityRequirementFeature_Description": {
     "Original": "",
-    "Translated": ""
+    "Translated": null
   },
   "ToyBox_Features_BagOfTricks_Cheats_InfiniteChargesOnItemsFeature_Name": {
     "Original": "Infinite Charges on Items",
@@ -566,6 +566,22 @@
   "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_DamageRolls_Take1LocalizedText": {
     "Original": "Damage Rolls: Take 1",
     "Translated": "Броски урона: считать 1"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_AttackRolls__LowerIsBetterLocalizedText": {
+    "Original": "Attack Rolls -> Lower is better",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_CoverInterception_UsesASeparateRoLocalizedText": {
+    "Original": "Controls whether attacks made by the selected units are redirected to cover instead of their target.",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_CoverNeverInterceptsLocalizedText": {
+    "Original": "Cover: Never Redirect",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_CoverAlwaysInterceptsLocalizedText": {
+    "Original": "Cover: Always Redirect",
+    "Translated": null
   },
   "ToyBox_Features_BagOfTricks_EnemyStatModifier_EnemyFlatStatModifierFeature_Name": {
     "Original": "Flat Enemy Stat Modifier",
@@ -2149,7 +2165,7 @@
   },
   "ToyBox_Features_PatchTool_PatchToolStrings_Null": {
     "Original": "Null",
-    "Translated": "Null"
+    "Translated": null
   },
   "ToyBox_Features_PatchTool_PatchToolStrings_NullValue": {
     "Original": "Null (value)",
@@ -2334,6 +2350,10 @@
   "ToyBox_Features_SearchAndPick_SearchAndPickFeature_m_ShowCharacterFilterPickerLocalizedText": {
     "Original": "Show Character Filter Picker",
     "Translated": "Показать выбор фильтра персонажей"
+  },
+  "ToyBox_Features_SearchAndPick_SearchAndPickFeature_m_ActionParameterLocalizedText": {
+    "Original": "Number Parameter (used e.g. as the amount of items to add)",
+    "Translated": null
   },
   "ToyBox_Features_SearchAndPick_SearchAndPickFeature_m_CurrentCollationCategoryLocalizedText": {
     "Original": "Current Category",
@@ -3313,7 +3333,7 @@
   },
   "ToyBox_Features_SearchAndPick_BlueprintFilters_m_CRLocalizedText": {
     "Original": "CR",
-    "Translated": "CR"
+    "Translated": null
   },
   "ToyBox_Features_SearchAndPick_BlueprintFilters_m_RacesLocalizedText": {
     "Original": "Races",

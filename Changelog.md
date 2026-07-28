@@ -1,5 +1,6 @@
 ### ToyBox Rogue - Ver 2.0.11 (built for 1.6.1.511)
-* (***WFMinerva***) Fix general dice roll overrides affecting cover interception rolls and add separate options to make attacks always or never hit cover
+* (***???***) Add temporary placeholder Russian translation that was shared on Nexus? (The original translator was explicitly not named)
+* (***WFMinerva***) Fix dice overrides like "Take 1" causing cover hits. Add separate options to make attacks always or never hit cover.
 
 ### ToyBox Rogue - Ver 2.0.10 (built for 1.6.1.511)
 * (***ADDB***) Add back int parameter to Search 'n Pick
