@@ -1,3 +1,5 @@
+* (***ADDB***) Party => Stats => Skeleton Replacer should now work better with other mods (e.g. ReDress).
+
 ### ToyBox Rogue - Ver 2.0.11 (built for 1.6.1.511)
 * (***???***) Add temporary placeholder Russian translation that was shared on Nexus? (The original translator was explicitly not named)
 * (***WFMinerva***) Fix dice overrides like "Take 1" causing cover hits. Add separate options to make attacks always or never hit cover.

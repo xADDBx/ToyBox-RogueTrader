@@ -7,6 +7,7 @@ namespace ToyBox.Features.PartyTab.Stats;
 
 internal class SkeletonReplacer {
     private readonly string m_Owner;
+    private readonly WeakReference<Character> m_Avatar;
     private readonly Skeleton m_OldSkeleton;
     private readonly Skeleton m_NewSkeleton;
 
@@ -22,14 +23,16 @@ internal class SkeletonReplacer {
     public bool IsValid { get; private set; }
 
     public SkeletonReplacer(BaseUnitEntity character) {
-        if (character?.View?.CharacterAvatar?.Skeleton is not Skeleton skeleton) {
+        if (character?.View?.CharacterAvatar is not Character avatar || avatar.Skeleton is not Skeleton skeleton) {
             m_Owner = "";
+            m_Avatar = new(null!);
             m_OldSkeleton = null!;
             m_NewSkeleton = null!;
             m_BoneActions = [];
             return;
         }
         m_Owner = character.UniqueId;
+        m_Avatar = new(avatar);
         m_OldSkeleton = skeleton;
         m_NewSkeleton = DuplicateSkeleton(skeleton);
 
@@ -117,6 +120,10 @@ internal class SkeletonReplacer {
 
         CreateBodyParts(partsTable);
         IsValid = true;
+    }
+
+    public bool IsFor(BaseUnitEntity character) {
+        return character.UniqueId == m_Owner && m_Avatar.TryGetTarget(out var avatar) && ReferenceEquals(character.View?.CharacterAvatar, avatar);
     }
 
     private void CreateBodyParts(Dictionary<string, PartDataStruct> bodyPartsTable) {

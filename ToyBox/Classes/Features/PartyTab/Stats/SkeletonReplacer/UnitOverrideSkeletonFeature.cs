@@ -1,5 +1,7 @@
 using Kingmaker;
 using Kingmaker.EntitySystem.Entities;
+using Kingmaker.View.Mechanics.Entities;
+using Kingmaker.Visual.CharacterSystem;
 using System.Collections.Concurrent;
 using System.Text;
 using ToyBox.Infrastructure.Utilities;
@@ -37,7 +39,7 @@ public partial class UnitOverrideSkeletonFeature : FeatureWithPatch, INeedContex
     private bool m_ShowEquipmentSizes;
 
     private static SkeletonReplacer? GetReplacer(BaseUnitEntity unit) {
-        if (!m_Replacers.TryGetValue(unit.UniqueId, out var replacer)) {
+        if (!m_Replacers.TryGetValue(unit.UniqueId, out var replacer) || !replacer.IsFor(unit)) {
             replacer = new SkeletonReplacer(unit);
             if (!replacer.IsValid) {
                 return null;
@@ -132,6 +134,27 @@ public partial class UnitOverrideSkeletonFeature : FeatureWithPatch, INeedContex
     }
 
     #region Patches
+    private static void ScheduleReapply(BaseUnitEntity unit) {
+        Main.ScheduleForMainThread(() => GetReplacer(unit)?.ApplyBonesModification(unit));
+    }
+
+    [HarmonyPatch(typeof(AbstractUnitEntityView), nameof(AbstractUnitEntityView.SetupCharacterAvatar)), HarmonyPostfix]
+    private static void AbstractUnitEntityView_SetupCharacterAvatar_Postfix(AbstractUnitEntityView __instance) {
+        if (__instance.EntityData is not BaseUnitEntity unit || !(InSaveSettings?.SkeletonBoneOverrides.ContainsKey(unit.UniqueId) ?? false)) {
+            return;
+        }
+        ScheduleReapply(unit);
+    }
+
+    [HarmonyPatch(typeof(Character), nameof(Character.UpdateCharacter)), HarmonyPostfix]
+    private static void Character_UpdateCharacter_Postfix(Character __instance) {
+        if (__instance.GetComponentInParent<AbstractUnitEntityView>()?.EntityData is not BaseUnitEntity unit
+            || !(InSaveSettings?.SkeletonBoneOverrides.ContainsKey(unit.UniqueId) ?? false)) {
+            return;
+        }
+        ScheduleReapply(unit);
+    }
+
     [HarmonyPatch(typeof(Player), nameof(Player.OnAreaLoaded)), HarmonyPostfix]
     private static void Player_OnAreaLoaded_Postfix() {
         try {
