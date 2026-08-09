@@ -1,3 +1,4 @@
+* (***ADDB***) Bag of Tricks => Remote Companion Dialog: Try to fix issue of Voice Overs not being played by remote units? (Can someone please report whether this is still an issue?)
 * (***ADDB***) Party => Stats => Skeleton Replacer should now work better with other mods (e.g. ReDress).
 
 ### ToyBox Rogue - Ver 2.0.11 (built for 1.6.1.511)

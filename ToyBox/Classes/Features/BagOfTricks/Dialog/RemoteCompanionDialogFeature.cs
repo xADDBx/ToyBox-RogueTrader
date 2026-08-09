@@ -5,8 +5,10 @@ using Kingmaker.Designers.EventConditionActionSystem.Conditions;
 using Kingmaker.DialogSystem;
 using Kingmaker.DialogSystem.Blueprints;
 using Kingmaker.EntitySystem.Entities;
+using Kingmaker.UI.Sound;
 using Kingmaker.UnitLogic.Parts;
 using Kingmaker.Utility.DotNetExtensions;
+using UnityEngine;
 
 namespace ToyBox.Features.BagOfTricks.Dialog;
 
@@ -67,11 +69,13 @@ public partial class RemoteCompanionDialogFeature : FeatureWithPatch {
             Error(ex);
         }
     }
+    private const float m_MaxAudibleDialogDistance = 50f;
     private static bool m_OriginallyIncludedEx;
     private static bool m_OriginallyIncludedRemote;
+    private static WeakReference<BaseUnitEntity>? m_RemoteSpeaker;
     [HarmonyPatch(typeof(Kingmaker.Designers.EventConditionActionSystem.Evaluators.CompanionInParty), nameof(Kingmaker.Designers.EventConditionActionSystem.Evaluators.CompanionInParty.GetAbstractUnitEntityInternal)), HarmonyPrefix]
     private static void CompanionInParty_GetAbstractUnitEntityInternal_Pre_Patch(Kingmaker.Designers.EventConditionActionSystem.Evaluators.CompanionInParty __instance) {
-        if (__instance.Owner is BlueprintCue || __instance.Owner is BlueprintAnswer) {
+        if (__instance.Owner is BlueprintCue or BlueprintAnswer) {
             m_OriginallyIncludedEx = __instance.IncludeExCompanions;
             m_OriginallyIncludedRemote = __instance.IncludeRemote;
             __instance.IncludeExCompanions = GetInstance<ExCompanionDialogFeature>().IsEnabled;
@@ -81,13 +85,14 @@ public partial class RemoteCompanionDialogFeature : FeatureWithPatch {
     }
     [HarmonyPatch(typeof(Kingmaker.Designers.EventConditionActionSystem.Evaluators.CompanionInParty), nameof(Kingmaker.Designers.EventConditionActionSystem.Evaluators.CompanionInParty.GetAbstractUnitEntityInternal)), HarmonyPostfix]
     private static void CompanionInParty_GetAbstractUnitEntityInternal_Post_Patch(Kingmaker.Designers.EventConditionActionSystem.Evaluators.CompanionInParty __instance) {
-        if (__instance.Owner is BlueprintCue || __instance.Owner is BlueprintAnswer) {
+        if (__instance.Owner is BlueprintCue or BlueprintAnswer) {
             __instance.IncludeExCompanions = m_OriginallyIncludedEx;
             __instance.IncludeRemote = m_OriginallyIncludedRemote;
         }
     }
     [HarmonyPatch(typeof(DialogSpeaker), nameof(DialogSpeaker.GetEntity)), HarmonyPostfix]
     public static void DialogSpeaker_GetEntity_Patch(DialogSpeaker __instance, ref BaseUnitEntity __result) {
+        m_RemoteSpeaker = null;
         if (__result == null && __instance.Blueprint != null) {
             var units = Game.Instance.EntitySpawner.CreationQueue.Select((EntitySpawnController.SpawnEntry ce) => ce.Entity).OfType<BaseUnitEntity>();
             var maybeUnit = Game.Instance.Player.AllCrossSceneUnits.Where(u => GetInstance<ExCompanionDialogFeature>().IsEnabled || u.GetCompanionOptional()?.State != CompanionState.ExCompanion)
@@ -95,9 +100,17 @@ public partial class RemoteCompanionDialogFeature : FeatureWithPatch {
             if (maybeUnit != null) {
                 __instance.ReplacedSpeakerWithErrorSpeaker = false;
                 __result = maybeUnit;
+                m_RemoteSpeaker = new(maybeUnit);
                 return;
             }
 
+        }
+    }
+    [HarmonyPatch(typeof(VoiceOverPlayer), nameof(VoiceOverPlayer.PlayVoiceOver), [typeof(Kingmaker.Localization.LocalizedString), typeof(GameObject)]), HarmonyPrefix]
+    private static void VoiceOverPlayer_PlayVoiceOver_Patch(ref GameObject? target) {
+        if (m_RemoteSpeaker?.TryGetTarget(out var remoteSpeaker) == true && target == remoteSpeaker.View?.gameObject
+            && (!remoteSpeaker.IsInGame || (target != null && Vector3.Distance(target.transform.position, Game.Instance.DialogController.DialogPosition) > m_MaxAudibleDialogDistance))) {
+            target = null;
         }
     }
 }
