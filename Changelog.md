@@ -1,5 +1,7 @@
 * (***ADDB***) Bag of Tricks => Remote Companion Dialog: Try to fix issue of Voice Overs not being played by remote units? (Can someone please report whether this is still an issue?)
-* (***ADDB***) Party => Stats => Skeleton Replacer should now work better with other mods (e.g. ReDress).
+* (***ADDB***) Party => Stats => Skeleton Replacer:
+  * Should now work better with other mods (e.g. ReDress).
+  * Add Displacements in x, y and z directions for both weapon bones.
 
 ### ToyBox Rogue - Ver 2.0.11 (built for 1.6.1.511)
 * (***???***) Add temporary placeholder Russian translation that was shared on Nexus? (The original translator was explicitly not named)
