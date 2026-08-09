@@ -95,6 +95,12 @@ internal class SkeletonReplacer {
             { "IS_backpack", new() { Value = 1, Min = 0.5f, Max = 2, Bones = ["C_back_w_____slot_08"] } },
             { "IS_weapon_in_hand_R", new() { Value = 1, Min = 0.5f, Max = 2, Bones = ["R_WeaponBone"] } },
             { "IS_weapon_in_hand_L", new() { Value = 1, Min = 0.5f, Max = 2, Bones = ["L_WeaponBone"] } },
+            { "IS_weapon_in_hand_RX", new() { Value = 1, Min = 0.5f, Max = 2, Bones = ["R_WeaponBone"] } },
+            { "IS_weapon_in_hand_RY", new() { Value = 1, Min = 0.5f, Max = 2, Bones = ["R_WeaponBone"] } },
+            { "IS_weapon_in_hand_RZ", new() { Value = 1, Min = 0.5f, Max = 2, Bones = ["R_WeaponBone"] } },
+            { "IS_weapon_in_hand_LX", new() { Value = 1, Min = 0.5f, Max = 2, Bones = ["L_WeaponBone"] } },
+            { "IS_weapon_in_hand_LY", new() { Value = 1, Min = 0.5f, Max = 2, Bones = ["L_WeaponBone"] } },
+            { "IS_weapon_in_hand_LZ", new() { Value = 1, Min = 0.5f, Max = 2, Bones = ["L_WeaponBone"] } },
             { "IS_weapon_in_holsters", new() { Value = 1, Min = 0.5f, Max = 2, Bones = ["R_front_weapon_slot_01", "R_front_weapon_slot_02", "C_front_weapon_slot_03", "L_front_weapon_slot_04", "L_front_weapon_slot_05"] } },
             { "IS_back_weapon_R", new() { Value = 1, Min = 0.5f, Max = 2, Bones = ["R_back_weapon_slot_06", "R_back_weapon_slot_09"] } },
             { "IS_back_weapon_L", new() { Value = 1, Min = 0.5f, Max = 2, Bones = ["L_back_weapon_slot_07", "L_back_weapon_slot_10"] } },
@@ -207,9 +213,14 @@ internal class SkeletonReplacer {
         }
         foreach (var bone in bodyPart.BonesData) {
             var targetBone = m_NewSkeleton.m_BoneDataForJob[bone.BoneIndex];
-            targetBone.Scale = bone.OriginalValue * bodyPart.Parameter / multiplier;
+            var axisScale = new Vector3(GetParameter($"{part}X"), GetParameter($"{part}Y"), GetParameter($"{part}Z"));
+            targetBone.Scale = Vector3.Scale(bone.OriginalValue, axisScale) * bodyPart.Parameter / multiplier;
             m_NewSkeleton.m_BoneDataForJob[bone.BoneIndex] = targetBone;
         }
+    }
+
+    private float GetParameter(string part) {
+        return BodyParts.TryGetValue(part, out var bodyPart) ? bodyPart.Parameter : 1;
     }
 
     private void BonesModification(Dictionary<string, float> loadedData, bool load, string part) {

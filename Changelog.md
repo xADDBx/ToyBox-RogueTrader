@@ -1,6 +1,8 @@
+### ToyBox Rogue - Ver 2.0.12 (built for 1.6.1.511)
 * (***ADDB***) Bag of Tricks => Remote Companion Dialog: Try to fix issue of Voice Overs not being played by remote units? (Can someone please report whether this is still an issue?)
 * (***ADDB***) Party => Stats => Skeleton Replacer:
   * Should now work better with other mods (e.g. ReDress).
+  * Add modular (x, y, z-directional) scaling for both weapon bones.
   * Add Displacements in x, y and z directions for both weapon bones.
 
 ### ToyBox Rogue - Ver 2.0.11 (built for 1.6.1.511)
