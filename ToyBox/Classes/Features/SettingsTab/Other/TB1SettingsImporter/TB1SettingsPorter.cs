@@ -3,6 +3,7 @@ using System.Xml.Linq;
 using Kingmaker.Blueprints.Root;
 using Kingmaker.EntitySystem.Stats.Base;
 using Kingmaker.Enums;
+using Kingmaker.Utility.GameConst;
 using Newtonsoft.Json.Linq;
 
 namespace ToyBox.Features.SettingsTab.Other;
@@ -207,6 +208,10 @@ internal static class TB1SettingsPorter {
         MapBool("useSkillChecksExpSlider", ref Settings.UseSkillCheckMultiplier);
         MapBool("useChallengesExpSlider", ref Settings.UseChallengesMultiplier);
         MapBool("useSpaceExpSlider", ref Settings.UseSpaceCombatMultiplier);
+        if (TryFloat("fowMultiplier", out var oldVisionRange) && oldVisionRange != 1f) {
+            Settings.VisionRangeMultiplier = oldVisionRange / GameConsts.FogOfWarVisionRadius;
+            applied++;
+        }
         MapNullableFloat("partyMovementSpeedMultiplier", ref Settings.MovementSpeedMultiplier, 1f);
         MapNullableFloat("buffDurationMultiplierValue", ref Settings.BuffDurationMultiplier, 1f);
         var walkBase = BlueprintRoot.Instance?.MaxWalkDistance;

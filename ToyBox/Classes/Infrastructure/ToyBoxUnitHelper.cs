@@ -23,7 +23,7 @@ public static class ToyBoxUnitHelper {
         if (unit == null) {
             return false;
         }
-        if (m_PartyOrPetCache.TryGetValue(unit, out bool result)) {
+        if (m_PartyOrPetCache.TryGetValue(unit, out var result)) {
             return result;
         }
         if (unit.OriginalBlueprint == null || Game.Instance?.Player?.AllCharacters is { Count: 0 }) {

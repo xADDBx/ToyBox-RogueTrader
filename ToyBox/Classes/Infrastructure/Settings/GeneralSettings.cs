@@ -171,6 +171,7 @@ public class GeneralSettings : AbstractJsonSettings {
     public float SpaceCombatMultiplier = 1f;
 
     // - Other Multipliers
+    public float? VisionRangeMultiplier = null;
     public int? MaxWalkDistanceSetting = null;
     public int? MinSprintDistanceSetting = null;
     public float? MovementSpeedMultiplier = null;

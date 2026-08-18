@@ -675,6 +675,14 @@
     "Original": "Adjusts the movement speed of your party in area maps.",
     "Translated": "调整队伍在区域地图中的移动速度。"
   },
+  "ToyBox_Features_BagOfTricks_OtherMultipliers_VisionRangeFeature_Name": {
+    "Original": "Vision Range Multiplier",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_OtherMultipliers_VisionRangeFeature_Description": {
+    "Original": "Multiplies the fog of war reveal range of party members, pets, and player ships.",
+    "Translated": null
+  },
   "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_RunActionHolderLocalizedText": {
     "Original": "RunActionHolder",
     "Translated": null
