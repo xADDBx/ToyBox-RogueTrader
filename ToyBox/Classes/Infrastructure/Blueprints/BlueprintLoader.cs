@@ -309,8 +309,7 @@ public class BlueprintLoader {
                     try {
                         object @lock = new();
                         lock (@lock) {
-                            var shardIndex = Math.Abs(guid.GetHashCode()) % Settings.BlueprintsLoaderNumShards;
-                            var startedLoading = m_StartedLoadingShards[shardIndex];
+                            var startedLoading = GetStartedLoadingShard(guid);
                             if (!startedLoading.TryAdd(guid, @lock)) {
                                 continue;
                             }
@@ -353,11 +352,14 @@ public class BlueprintLoader {
             Error($"Exception loading blueprints:\n{ex}");
         }
     }
+    private ConcurrentDictionary<string, object> GetStartedLoadingShard(string guid) {
+        var shardIndex = (int)((uint)guid.GetHashCode() % (uint)m_StartedLoadingShards.Count);
+        return m_StartedLoadingShards[shardIndex];
+    }
     private static void AddCachedBlueprintPatch(string guid, SimpleBlueprint bp) {
         if (BPLoader.IsLoading || BPLoader.m_Blueprints != null) {
             if (BPLoader.IsLoading) {
-                var shardIndex = Math.Abs(guid.GetHashCode()) % Settings.BlueprintsLoaderNumShards;
-                _ = BPLoader.m_StartedLoadingShards[shardIndex].TryAdd(guid, BPLoader);
+                _ = BPLoader.GetStartedLoadingShard(guid).TryAdd(guid, BPLoader);
             }
             lock (BPLoader.m_BlueprintsToAdd) {
                 _ = BPLoader.m_BlueprintsToAdd.Add(bp);
@@ -375,8 +377,7 @@ public class BlueprintLoader {
         if (!BPLoader.IsLoading) {
             return true;
         }
-        var shardIndex = Math.Abs(guid.GetHashCode()) % Settings.BlueprintsLoaderNumShards;
-        var startedLoading = BPLoader.m_StartedLoadingShards[shardIndex];
+        var startedLoading = BPLoader.GetStartedLoadingShard(guid);
         if (startedLoading.TryAdd(guid, BPLoader)) {
             // If the requested bp was not yet touched by the threaded loader, just load normally
             _ = m_LoadingSequentially.Value.Add(guid);
