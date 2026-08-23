@@ -33,6 +33,7 @@ public partial class PerformanceEnhancementFeatures : FeatureWithPatch {
     private static readonly ConcurrentDictionary<(Type, Type), bool> m_IsOrSubclassOfCache = new();
     private static readonly ConcurrentDictionary<Type, Func<object>?> m_TypeConstructorCache = new();
     private static readonly ConcurrentDictionary<Type, Func<int, Array>> m_ArrayTypeConstructorCache = new();
+    private static readonly ConcurrentDictionary<Guid, Type> m_TypeByGuid = new();
     private static readonly MethodInfo m_Activator_CreateInstance = AccessTools.Method(typeof(Activator), nameof(Activator.CreateInstance), [typeof(Type)]);
     private static readonly MethodInfo m_Array_CreateInstance = AccessTools.Method(typeof(Array), nameof(Array.CreateInstance), [typeof(Type), typeof(int)]);
     private static readonly MethodInfo m_ReflectionBasedSerializer_CreateObject = AccessTools.Method(typeof(ReflectionBasedSerializer), nameof(ReflectionBasedSerializer.CreateObject));
@@ -115,6 +116,28 @@ public partial class PerformanceEnhancementFeatures : FeatureWithPatch {
                 }
             }
             yield return instruction;
+        }
+    }
+    [HarmonyPatch(typeof(PrimitiveSerializer), nameof(PrimitiveSerializer.ReadType))]
+    private static class PrimitiveSerializer_ReadType_Patch {
+        [HarmonyTranspiler]
+        private static List<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions) {
+            var codes = instructions.ToList();
+            var bindToType = AccessTools.Method(typeof(GuidClassBinder), nameof(GuidClassBinder.BindToType));
+            var proxy = AccessTools.Method(typeof(PrimitiveSerializer_ReadType_Patch), nameof(BindToType));
+            var index = codes.FindIndex(instruction => instruction.Calls(bindToType));
+            codes[index - 3].opcode = OpCodes.Ldloc;
+            codes.RemoveRange(index - 2, 2);
+            codes[index - 2].opcode = OpCodes.Call;
+            codes[index - 2].operand = proxy;
+            return codes;
+        }
+        private static Type BindToType(GuidClassBinder binder, string assemblyName, Guid guid) {
+            if (!m_TypeByGuid.TryGetValue(guid, out var type)) {
+                type = binder.BindToType(assemblyName, guid.ToString("N"));
+                _ = m_TypeByGuid.TryAdd(guid, type);
+            }
+            return type;
         }
     }
     public static object CreateInstance(Type type) {
