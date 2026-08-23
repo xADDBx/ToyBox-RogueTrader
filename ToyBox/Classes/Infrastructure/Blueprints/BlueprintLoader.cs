@@ -188,6 +188,10 @@ public class BlueprintLoader {
     private ConcurrentDictionary<string, object>[]? m_StartedLoadingShards;
     private readonly List<Task> m_WorkerTasks = [];
     private ConcurrentQueue<(int start, int end)> m_ChunkQueue = null!;
+    [Obsolete("FasterAreaLoads gets this via reflection ._.; Prefer the HashSet overload. Remove this soon.")]
+    private void Load(Action<List<SimpleBlueprint>> callback, ISet<string>? toLoad) {
+        Load(callback, toLoad as HashSet<string>);
+    }
     private void Load(Action<List<SimpleBlueprint>> callback, HashSet<string>? toLoad = null) {
         // If:
         // 1. Is Loading
@@ -458,7 +462,8 @@ public class BlueprintLoader {
     }
     private static void InitPatch() {
         if (BPLoader.CanStart || ResourcesLibrary.BlueprintsCache.m_PackFile == null) {
-            throw new InvalidOperationException($"Why?: {BPLoader.CanStart}");
+            // Game calls this again on save entry ._.
+            return;
         }
         BPLoader.CanStart = true;
         if (Settings.PreloadBlueprints || (Settings.UseBPIdCache && Settings.AutomaticallyBuildBPIdCache && BlueprintIdCache.NeedsCacheRebuilt)) {

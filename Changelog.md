@@ -1,3 +1,7 @@
+### ToyBox Rogue - Ver 2.0.14 (built for 1.6.1.511)
+* (***ADDB***) Reduce allocations done by base game bp loading (PerformanceEnhancementFeature)
+* (***ADDB***) Improve performance of threaded bp loader
+
 ### ToyBox Rogue - Ver 2.0.13 (built for 1.6.1.511)
 * (***ADDB***) Re-add Bag of Tricks => Other Multipliers => Vision Range Multiplier and make it persist across restarts and area loads.
 
