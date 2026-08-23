@@ -239,24 +239,31 @@ public class BlueprintLoader {
         try {
             var watch = Stopwatch.StartNew();
             var bpCache = ResourcesLibrary.BlueprintsCache;
-            IEnumerable<string> allEntries;
+            string[] allEntries;
             var toc = bpCache.m_LoadedBlueprints;
             if (toLoad == null) {
-                allEntries = toc.OrderBy(e => e.Value.Offset).Select(e => e.Key);
+                allEntries = [.. toc.OrderBy(e => e.Value.Offset).Select(e => e.Key)];
             } else {
-                allEntries = toc.Where(item => toLoad.Contains(item.Key)).OrderBy(e => e.Value.Offset).Select(e => e.Key);
+                allEntries = [.. toc.Where(item => toLoad.Contains(item.Key)).OrderBy(e => e.Value.Offset).Select(e => e.Key)];
             }
-            m_TotalLoading = allEntries.Count();
+            m_TotalLoading = allEntries.Length;
             Log($"Loading {m_TotalLoading} Blueprints");
             m_BlueprintBeingLoaded = [with(m_TotalLoading), .. Enumerable.Repeat<SimpleBlueprint?>(null, m_TotalLoading)];
-            var memStream = new MemoryStream();
+            byte[] bytes;
             lock (bpCache.m_Lock) {
+                bytes = new byte[checked((int)bpCache.m_PackFile.Length)];
                 bpCache.m_PackFile.Position = 0;
-                bpCache.m_PackFile.CopyTo(memStream);
+                var bytesRead = 0;
+                while (bytesRead < bytes.Length) {
+                    var read = bpCache.m_PackFile.Read(bytes, bytesRead, bytes.Length - bytesRead);
+                    if (read == 0) {
+                        throw new EndOfStreamException("Unexpected end of blueprint pack file");
+                    }
+                    bytesRead += read;
+                }
             }
             var chunks = allEntries.Select((entry, index) => (entry, index)).Chunk(Settings.BlueprintsLoaderChunkSize);
             m_ChunkQueue = new(chunks);
-            var bytes = memStream.GetBuffer();
             if (IsThreaded) {
                 for (var i = 0; i < Settings.BlueprintsLoaderNumThreads; i++) {
                     var t = Task.Run(() => HandleChunks(bytes));
