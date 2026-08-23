@@ -188,7 +188,7 @@ public class BlueprintLoader {
     private readonly List<ConcurrentDictionary<string, object>> m_StartedLoadingShards = [];
     private readonly List<Task> m_WorkerTasks = [];
     private ConcurrentQueue<IEnumerable<(string bpToLoad, int index)>> m_ChunkQueue = null!;
-    private void Load(Action<List<SimpleBlueprint>> callback, ISet<string>? toLoad = null) {
+    private void Load(Action<List<SimpleBlueprint>> callback, HashSet<string>? toLoad = null) {
         // If:
         // 1. Is Loading
         // 2. Or: Is not set as startable and has null m_PackFile (if Hotreloading is used, CanStart is false even though it should be possible to load
@@ -199,8 +199,13 @@ public class BlueprintLoader {
 
         m_EstimateLoaded = 0;
         m_StartedLoadingShards.Clear();
-        for (var i = 0; i < Settings.BlueprintsLoaderNumShards; i++) {
-            m_StartedLoadingShards.Add(new());
+        var numberOfShards = Math.Max(1, Settings.BlueprintsLoaderNumShards);
+        var estimatedBlueprintCount = toLoad?.Count ?? ResourcesLibrary.BlueprintsCache.m_LoadedBlueprints.Count;
+        var averageShardCapacity = (estimatedBlueprintCount + numberOfShards - 1) / numberOfShards;
+        var shardCapacity = Math.Max(31, averageShardCapacity + Math.Max(1, averageShardCapacity / 10));
+        var shardConcurrency = Math.Max(1, (Settings.BlueprintsLoaderNumThreads + numberOfShards - 1) / numberOfShards);
+        for (var i = 0; i < numberOfShards; i++) {
+            m_StartedLoadingShards.Add(new(shardConcurrency, shardCapacity));
         }
         m_OnFinishLoading = callback;
         m_WorkerTasks.Clear();
