@@ -210,20 +210,23 @@ public partial class DiceRollsOverridesFeature : FeatureWithPatch {
     }
     [HarmonyPatch(typeof(RuleRollDice), nameof(RuleRollDice.Roll)), HarmonyPostfix]
     private static void RuleRollDice_Roll_Patch(RuleRollDice __instance) {
-        var isDamageRule = false;
-        var partyReplace = 0;
-        if (Settings.DiceRollsSkillChecksTake1 != UnitSelectType.Off) {
-            partyReplace = 1;
-        } else if (Settings.DiceRollsSkillChecksTake25 != UnitSelectType.Off) {
-            partyReplace = 25;
-        } else if (Settings.DiceRollsSkillChecksTake50 != UnitSelectType.Off) {
-            partyReplace = 50;
+        if (__instance.DiceFormula.Dice != DiceType.D100 || __instance.DiceFormula.Rolls > 1) {
+            return;
         }
-
+        var isDamageRule = false;
         foreach (var evt in Rulebook.CurrentContext?.m_EventStack ?? []) {
-            if (evt is RulePerformPartySkillCheck) {
-                __instance.m_Result = partyReplace;
-                return;
+            if (evt is RulePerformPartySkillCheck partySkillCheck) {
+                // Initiator of party skill check is always main character unit.
+                if (ToyBoxUnitHelper.IsOfSelectedType(partySkillCheck.InitiatorUnit, Settings.DiceRollsSkillChecksTake1)) {
+                    __instance.m_Result = 1;
+                    return;
+                } else if (ToyBoxUnitHelper.IsOfSelectedType(partySkillCheck.InitiatorUnit, Settings.DiceRollsSkillChecksTake25)) {
+                    __instance.m_Result = 25;
+                    return;
+                } else if (ToyBoxUnitHelper.IsOfSelectedType(partySkillCheck.InitiatorUnit, Settings.DiceRollsSkillChecksTake50)) {
+                    __instance.m_Result = 50;
+                    return;
+                }
             } else if (evt is RulePerformSkillCheck skillCheck) {
                 if (ToyBoxUnitHelper.IsOfSelectedType(skillCheck.InitiatorUnit, Settings.DiceRollsSkillChecksTake1)) {
                     __instance.m_Result = 1;
@@ -237,6 +240,9 @@ public partial class DiceRollsOverridesFeature : FeatureWithPatch {
                 } else if (ToyBoxUnitHelper.IsOfSelectedType(skillCheck.InitiatorUnit, Settings.DiceRollsRollWithDisadvantage)) {
                     __instance.m_RerollAmount = 0;
                     __instance.Reroll();
+                } else {
+                    isDamageRule = false;
+                    break;
                 }
                 return;
             } else if (evt is RuleRollCoverHit) {
@@ -248,6 +254,10 @@ public partial class DiceRollsOverridesFeature : FeatureWithPatch {
             }
         }
         var initiator = m_OverrideInitiator ?? __instance.InitiatorUnit;
+        // ???
+        if (initiator == null) {
+            return;
+        }
         if (!initiator.IsInCombat) {
             if (ToyBoxUnitHelper.IsOfSelectedType(initiator, Settings.DiceRollsOutOfCombatTake1)) {
                 __instance.m_Result = 1;

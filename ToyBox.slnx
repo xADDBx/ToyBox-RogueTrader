@@ -4,6 +4,8 @@
     <File Path="Changelog.md" />
     <File Path="Credits.md" />
     <File Path="ReadMe.md" />
+    <File Path="ToyBox/Info.json" />
+    <File Path="ToyBox/Repository.json" />
   </Folder>
   <Project Path="ToyBox/ToyBox.csproj" />
 </Solution>
