@@ -1,4 +1,5 @@
 ﻿using Kingmaker;
+using Kingmaker.AreaLogic.Etudes;
 using Kingmaker.Blueprints;
 using Kingmaker.Controllers;
 using Kingmaker.Designers.EventConditionActionSystem.Conditions;
@@ -57,13 +58,18 @@ public partial class RemoteCompanionDialogFeature : FeatureWithPatch {
                         } else if (__instance.Owner is BlueprintAnswer answeBp) {
                             Trace($"Overiding {answeBp.name} Companion {__instance.companion.name} ({__instance.companion.AssetGuid}) In Party to true");
                             __result = true;
+                        } else if (__instance.Owner is BlueprintEtude) {
+                            // We ignore etude; we don't want to change e.g. areas; we only want dialog presence.
                         } else {
                             Log($"Encountered IsCompanionInParty with unhandled owner type: {__instance.Owner.AssetGuid}");
                         }
                     }
                 }
             } else {
-                Log($"Could not override check {__instance.name} on {__instance.Owner?.AssetGuid ?? "Null BP Owner?"} because no unit with blueprint {__instance.companion?.AssetGuid ?? "Null Companion BP?"} was found.");
+                // Only log for missing interesting owners; e.g. BlueprintEtude's should not log spam for missing companions.
+                if (__instance.Owner is BlueprintCue or BlueprintAnswer) {
+                    Log($"Could not override check {__instance.name} on {__instance.Owner?.AssetGuid ?? "Null BP Owner?"} because no unit with blueprint {__instance.companion?.AssetGuid ?? "Null Companion BP?"} was found.");
+                }
             }
         } catch (Exception ex) {
             Error(ex);
