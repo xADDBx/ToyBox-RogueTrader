@@ -1091,6 +1091,10 @@
     "Original": "Dialog & NPCs",
     "Translated": "Диалоги и NPC"
   },
+  "ToyBox_Features_DialogAndNpc_DialogAndNpcFeatureTab_m_MapAndNamesText": {
+    "Original": "Map & Names",
+    "Translated": "Карта и имена"
+  },
   "ToyBox_Features_DialogAndNpc_DialogEditorFeature_Name": {
     "Original": "Dialog Editor",
     "Translated": "Редактор диалогов"
@@ -1130,6 +1134,198 @@
   "ToyBox_Features_DialogAndNpc_DialogEditorFeature_m_RepeatText": {
     "Original": "[Repeat]",
     "Translated": "[Повтор]"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_EnhancedMapToggleFeature_Name": {
+    "Original": "Enhanced Map (Master Toggle)",
+    "Translated": "Улучшенная карта (главный переключатель)"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_EnhancedMapToggleFeature_Description": {
+    "Original": "Master switch for the map marker family (NPC dialog markers, exit markers, interactable-object markers, looted-container hiding). An on-map button and a hotkey flip this switch live; nameplates, fonts, fill and rotation are not affected.",
+    "Translated": "Главный переключатель для семейства маркеров карты (маркеры диалогов NPC, маркеры выходов, маркеры интерактивных объектов, скрытие обысканных контейнеров). Кнопка на карте и горячая клавиша переключают его на лету; таблички с именами, шрифты, заливка и вращение не затрагиваются."
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_EnhancedMapToggleFeature_m_ButtonTooltipText": {
+    "Original": "Enhanced Map markers (NPCs and exits)",
+    "Translated": "Маркеры улучшенной карты (NPC и выходы)"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_HighlightEnhancementFeature_Name": {
+    "Original": "Highlight Enhancement (Fill & Outline)",
+    "Translated": "Улучшение подсветки (заливка и контур)"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_HighlightEnhancementFeature_Description": {
+    "Original": "Fill: interaction highlights render as filled silhouettes instead of outlines (quick flashes such as pings keep their outline). Thickness: scales the outline blur, 1 = vanilla.",
+    "Translated": "Заливка: подсветка взаимодействий отрисовывается заполненными силуэтами вместо контуров (короткие вспышки вроде пингов остаются контурными). Толщина: масштабирует размытие контура, 1 = ванильное значение."
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_HighlightEnhancementFeature_m_ThicknessText": {
+    "Original": "Outline Thickness (1 = vanilla)",
+    "Translated": "Толщина контура (1 = ваниль)"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapExitMarkersFeature_Name": {
+    "Original": "Local Map Exit & Transition Markers",
+    "Translated": "Маркеры выходов и переходов на локальной карте"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapExitMarkersFeature_Description": {
+    "Original": "Shows exit and transition markers (bridges, doors, area exits) on the local map even before they are scouted. Markers explicitly hidden by the area or an etude stay hidden.",
+    "Translated": "Показывает маркеры выходов и переходов (мосты, двери, выходы из области) на локальной карте еще до их разведки. Маркеры, явно скрытые областью или этюдом, остаются скрытыми."
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapExitMarkersFeature_m_HideLootedContainersText": {
+    "Original": "Hide Looted Containers",
+    "Translated": "Скрывать обысканные контейнеры"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapExitMarkersFeature_m_HideLootedContainersDescription": {
+    "Original": "Containers whose loot has already been viewed no longer appear on the map or in Tab highlight. Re-fillable containers also stay hidden while they are flagged as viewed.",
+    "Translated": "Контейнеры, добыча которых уже была просмотрена, больше не отображаются на карте и в подсветке по Tab. Перезаполняемые контейнеры также остаются скрытыми, пока помечены как просмотренные."
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapInteractableMarkersFeature_Name": {
+    "Original": "Local Map Interactable Markers",
+    "Translated": "Маркеры интерактивных объектов на локальной карте"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapInteractableMarkersFeature_Description": {
+    "Original": "Marks interactable objects that open a dialog or hold a skill check (consoles, shrines, cogitators) on the local map: yellow = new dialog or unpassed check, blue = already-seen dialog. Passed and locked-out checks are hidden - nothing to come back for. Plain devices and text-only overlays are not marked.",
+    "Translated": "Помечает на локальной карте интерактивные объекты, которые открывают диалог или содержат проверку навыка (консоли, святилища, когитаторы): желтый = новый диалог или непройденная проверка, синий = уже просмотренный диалог. Пройденные и недоступные проверки скрыты — возвращаться не за чем. Обычные устройства и текстовые оверлеи не помечаются."
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapInteractableMarkersFeature_m_NewDialogText": {
+    "Original": "New dialog",
+    "Translated": "Новый диалог"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapInteractableMarkersFeature_m_RepeatableDialogText": {
+    "Original": "Repeatable dialog",
+    "Translated": "Повторяемый диалог"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapInteractableMarkersFeature_m_SkillCheckAvailableText": {
+    "Original": "Skill check available",
+    "Translated": "Доступна проверка навыка"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapInteractableMarkersFeature_m_LegendText": {
+    "Original": "Dialog / skill-check objects (yellow = new, blue = repeatable)",
+    "Translated": "Объекты с диалогами / проверками навыков (желтый = новое, синий = повторяемое)"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapNpcMarkerDetail_AllText": {
+    "Original": "All",
+    "Translated": "Все"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapNpcMarkerDetail_ActiveText": {
+    "Original": "Only Triggerable",
+    "Translated": "Только доступные"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapNpcMarkerDetail_NewOnlyText": {
+    "Original": "New Only",
+    "Translated": "Только новые"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapNpcMarkersFeature_Name": {
+    "Original": "Local Map NPC Dialog Markers",
+    "Translated": "Маркеры диалогов NPC на локальной карте"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapNpcMarkersFeature_Description": {
+    "Original": "Marks NPCs with dialog on the local map: yellow = new dialog, blue = repeatable, dimmed = no triggerable dialog right now (All mode only).",
+    "Translated": "Помечает NPC с диалогами на локальной карте: желтый = новый диалог, синий = повторяемый, приглушенный = сейчас нет доступного диалога (только в режиме «Все»)."
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapNpcMarkersFeature_m_DetailText": {
+    "Original": "NPC Marker Detail",
+    "Translated": "Детализация маркеров NPC"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapNpcMarkersFeature_m_NewDialogText": {
+    "Original": "New dialog",
+    "Translated": "Новый диалог"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapNpcMarkersFeature_m_RepeatableDialogText": {
+    "Original": "Repeatable dialog",
+    "Translated": "Повторяемый диалог"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapNpcMarkersFeature_m_NoTriggerableDialogText": {
+    "Original": "No triggerable dialog right now (may change later)",
+    "Translated": "Сейчас нет доступного диалога (позже может появиться)"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapNpcMarkersFeature_m_OverlappingFormatText": {
+    "Original": "Overlapping: {0}",
+    "Translated": "Перекрывающиеся: {0}"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapNpcMarkersFeature_m_LegendText": {
+    "Original": "NPC dialog (yellow = new, blue = repeatable)",
+    "Translated": "Диалоги NPC (желтый = новый, синий = повторяемый)"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_MinimapRotation_HeadingUpText": {
+    "Original": "Heading Up (map rotates)",
+    "Translated": "По курсу (карта вращается)"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_MinimapRotation_NorthUpText": {
+    "Original": "North Up (locked)",
+    "Translated": "Север вверху (фиксировано)"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_MapOverlayCorner_TopRightText": {
+    "Original": "Top Right",
+    "Translated": "Верхний правый угол"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_MapOverlayCorner_TopLeftText": {
+    "Original": "Top Left",
+    "Translated": "Верхний левый угол"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_MapOverlayCorner_BottomRightText": {
+    "Original": "Bottom Right",
+    "Translated": "Нижний правый угол"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_MapOverlayCorner_BottomLeftText": {
+    "Original": "Bottom Left",
+    "Translated": "Нижний левый угол"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapOverlayFeature_Name": {
+    "Original": "Local Map Minimap Overlay",
+    "Translated": "Оверлей мини-карты локальной карты"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapOverlayFeature_Description": {
+    "Original": "Shows a small corner minimap of the current area over normal gameplay. By default the map rotates with your heading and the arrow stays fixed; cutscenes and fullscreen windows hide it automatically. Clicks pass through the overlay.",
+    "Translated": "Показывает небольшую мини-карту текущей области в углу экрана поверх обычного геймплея. По умолчанию карта вращается вместе с вашим направлением, а стрелка остается неподвижной; катсцены и полноэкранные окна скрывают ее автоматически. Щелчки проходят сквозь оверлей."
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapOverlayFeature_m_RotationText": {
+    "Original": "Minimap rotation",
+    "Translated": "Вращение мини-карты"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapOverlayFeature_m_OpacityText": {
+    "Original": "Opacity (0.2-1.0)",
+    "Translated": "Прозрачность (0.2-1.0)"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapOverlayFeature_m_ZoomText": {
+    "Original": "Zoom (1-4; higher = tighter)",
+    "Translated": "Масштаб (1-4; больше = ближе)"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapOverlayFeature_m_CornerText": {
+    "Original": "Screen corner",
+    "Translated": "Угол экрана"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_OvertipNameColorsFeature_Name": {
+    "Original": "TAB Name Colors by Dialog State",
+    "Translated": "Цвета имен по состоянию диалогов (Tab)"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_OvertipNameColorsFeature_Description": {
+    "Original": "Colors unit nameplates while Tab is held: yellow = new dialog available, blue = repeatable dialog. Everything else (including teammates) keeps the vanilla color.",
+    "Translated": "Раскрашивает таблички с именами юнитов при удержании Tab: желтый = доступен новый диалог, синий = повторяемый диалог. Все остальные (включая напарников) сохраняют ванильный цвет."
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_OvertipNameColorsFeature_m_UseWenKaiText": {
+    "Original": "Use WenKai font for nameplates (requires FontMod)",
+    "Translated": "Использовать шрифт WenKai для табличек с именами (требуется FontMod)"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_StarMapPlanetColorsFeature_Name": {
+    "Original": "Star Map Planet Name Colors",
+    "Translated": "Цвета названий планет на карте звездной системы"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_StarMapPlanetColorsFeature_Description": {
+    "Original": "Colors planet names on the star system map: amber = active quest or rumour, orange = unexplored points of interest, green = colony, teal = extractor placed, cyan = unmined resources, light grey = fully explored (nothing left), grey-brown = hidden remainder. Unscanned planets can show their real name in white instead of the vanilla '?' mark (spoilers).",
+    "Translated": "Раскрашивает названия планет на карте звездной системы: янтарный = активное задание или слух, оранжевый = неразведанные точки интереса, зеленый = колония, бирюзовый = установлен экстрактор, голубой = неразработанные ресурсы, светло-серый = полностью разведана (ничего не осталось), серо-коричневый = скрытый остаток. Несканированные планеты могут показывать свое настоящее имя белым вместо ванильного знака «?» (спойлеры)."
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_StarMapPlanetColorsFeature_m_ShowUnscannedText": {
+    "Original": "Show names of unscanned planets (white; vanilla hides them behind '?')",
+    "Translated": "Показывать названия несканированных планет (белым; в ваниле они скрыты за знаком «?»)"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_StarMapPlanetColorsFeature_m_QuestText": {
+    "Original": "Color quest/rumour planets (amber)",
+    "Translated": "Раскрашивать планеты с заданиями/слухами (янтарный)"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_StarMapPlanetColorsFeature_m_ResourcesText": {
+    "Original": "Color resource planets (cyan) and extractor planets (teal)",
+    "Translated": "Раскрашивать планеты с ресурсами (голубой) и планеты с экстракторами (бирюзовый)"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_StarMapPlanetColorsFeature_m_DoneText": {
+    "Original": "Color finished planets (light grey = done, grey-brown = hidden remainder)",
+    "Translated": "Раскрашивать пройденные планеты (светло-серый = пройдена, серо-коричневый = скрытый остаток)"
   },
   "ToyBox_Features_DialogAndNpc_InspectDialogControllerFeature_Name": {
     "Original": "Inspect Dialog Controller",

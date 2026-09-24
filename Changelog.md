@@ -1,4 +1,7 @@
 * (***ADDB***) Reduce log spam (related to RemoteCompanionDialog)
+* (***quinnwen***) Add Dialog and NPC > Map & Names section: enhanced map markers (NPC/exit/dialog/skill-check objects), overtip name colors, highlight fill, star map planet name colors
+* (***quinnwen***) Add rotating local-map minimap overlay (zoom, opacity, corner, Q/E heading-up rotation)
+* (***quinnwen***) Harden TMP font asset creation for CJK label fonts (WenKai fallback)
 
 ### ToyBox Rogue - Ver 2.0.14 (built for 1.6.1.511)
 * (***ADDB***) Reduce allocations done by base game bp loading (PerformanceEnhancementFeature)

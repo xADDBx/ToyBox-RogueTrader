@@ -1,4 +1,5 @@
 ﻿using Kingmaker.EntitySystem.Stats.Base;
+using ToyBox.Features.DialogAndNpc.EnhancedMap;
 
 namespace ToyBox.Infrastructure;
 
@@ -234,6 +235,34 @@ public class GeneralSettings : AbstractJsonSettings {
     // Dialog & NPCs
     public bool ShowInactiveInterestingNpcConditions = false;
     public bool InterestingNpcsShowHidden = false;
+
+    // - Map & Names
+    public bool EnhancedMapMaster = true;
+    public bool EnableLocalMapNpcMarkers = false;
+    public LocalMapNpcMarkerDetail LocalMapNpcMarkerDetail = LocalMapNpcMarkerDetail.Active;
+    public bool EnableLocalMapExitMarkers = false;
+    // narrow enough that volume is a non-issue, the cap is a safety net).
+    public bool EnableLocalMapInteractableMarkers = false;
+    public bool EnableOvertipNameColors = false;
+    public bool OvertipNameUseWenKai = false;
+    // ShowUnscannedNames reveals real names vanilla hides behind the "?" sprite.
+    public bool EnableStarMapPlanetColors = false;
+    public bool StarMapShowUnscannedNames = false;
+    public bool StarMapColorQuest = true;
+    public bool StarMapColorResources = true;
+    public bool StarMapColorDone = true;
+    public bool EnableHighlightFill = false;
+    public float HighlightOutlineThickness = 1f;
+    public bool HideLootedContainers = false;
+
+    // - Local map minimap overlay. Stale LocalMapOrientation /
+    // LocalMapOpacity values in older Settings.json files are ignored
+    // harmlessly during deserialization.
+    public bool EnableLocalMapOverlay = false;
+    public MinimapRotation MinimapRotation = MinimapRotation.HeadingUp;
+    public float OverlayOpacity = 0.85f;
+    public float OverlayZoom = 2f;
+    public MapOverlayCorner OverlayCorner = MapOverlayCorner.TopRight;
 
     // Quests
     public bool QuestsHideCompleted = false;

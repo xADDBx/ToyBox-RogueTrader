@@ -68,6 +68,7 @@ public static partial class Main {
             Debug($"BPLoader init took {sw2.ElapsedMilliseconds}ms");
 
             ToyBoxUnitHelper.Initialize();
+            TMPFontAssetCompat.Initialize();
             SaveSpecificSettings.Initialize();
 
             sw2.Start();

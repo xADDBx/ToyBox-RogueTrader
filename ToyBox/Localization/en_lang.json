@@ -1091,6 +1091,10 @@
     "Original": "Dialog & NPCs",
     "Translated": null
   },
+  "ToyBox_Features_DialogAndNpc_DialogAndNpcFeatureTab_m_MapAndNamesText": {
+    "Original": "Map & Names",
+    "Translated": null
+  },
   "ToyBox_Features_DialogAndNpc_DialogEditorFeature_Name": {
     "Original": "Dialog Editor",
     "Translated": null
@@ -1129,6 +1133,198 @@
   },
   "ToyBox_Features_DialogAndNpc_DialogEditorFeature_m_RepeatText": {
     "Original": "[Repeat]",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_EnhancedMapToggleFeature_Name": {
+    "Original": "Enhanced Map (Master Toggle)",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_EnhancedMapToggleFeature_Description": {
+    "Original": "Master switch for the map marker family (NPC dialog markers, exit markers, interactable-object markers, looted-container hiding). An on-map button and a hotkey flip this switch live; nameplates, fonts, fill and rotation are not affected.",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_EnhancedMapToggleFeature_m_ButtonTooltipText": {
+    "Original": "Enhanced Map markers (NPCs and exits)",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_HighlightEnhancementFeature_Name": {
+    "Original": "Highlight Enhancement (Fill & Outline)",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_HighlightEnhancementFeature_Description": {
+    "Original": "Fill: interaction highlights render as filled silhouettes instead of outlines (quick flashes such as pings keep their outline). Thickness: scales the outline blur, 1 = vanilla.",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_HighlightEnhancementFeature_m_ThicknessText": {
+    "Original": "Outline Thickness (1 = vanilla)",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapExitMarkersFeature_Name": {
+    "Original": "Local Map Exit & Transition Markers",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapExitMarkersFeature_Description": {
+    "Original": "Shows exit and transition markers (bridges, doors, area exits) on the local map even before they are scouted. Markers explicitly hidden by the area or an etude stay hidden.",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapExitMarkersFeature_m_HideLootedContainersText": {
+    "Original": "Hide Looted Containers",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapExitMarkersFeature_m_HideLootedContainersDescription": {
+    "Original": "Containers whose loot has already been viewed no longer appear on the map or in Tab highlight. Re-fillable containers also stay hidden while they are flagged as viewed.",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapInteractableMarkersFeature_Name": {
+    "Original": "Local Map Interactable Markers",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapInteractableMarkersFeature_Description": {
+    "Original": "Marks interactable objects that open a dialog or hold a skill check (consoles, shrines, cogitators) on the local map: yellow = new dialog or unpassed check, blue = already-seen dialog. Passed and locked-out checks are hidden - nothing to come back for. Plain devices and text-only overlays are not marked.",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapInteractableMarkersFeature_m_NewDialogText": {
+    "Original": "New dialog",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapInteractableMarkersFeature_m_RepeatableDialogText": {
+    "Original": "Repeatable dialog",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapInteractableMarkersFeature_m_SkillCheckAvailableText": {
+    "Original": "Skill check available",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapInteractableMarkersFeature_m_LegendText": {
+    "Original": "Dialog / skill-check objects (yellow = new, blue = repeatable)",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapNpcMarkerDetail_AllText": {
+    "Original": "All",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapNpcMarkerDetail_ActiveText": {
+    "Original": "Only Triggerable",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapNpcMarkerDetail_NewOnlyText": {
+    "Original": "New Only",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapNpcMarkersFeature_Name": {
+    "Original": "Local Map NPC Dialog Markers",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapNpcMarkersFeature_Description": {
+    "Original": "Marks NPCs with dialog on the local map: yellow = new dialog, blue = repeatable, dimmed = no triggerable dialog right now (All mode only).",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapNpcMarkersFeature_m_DetailText": {
+    "Original": "NPC Marker Detail",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapNpcMarkersFeature_m_NewDialogText": {
+    "Original": "New dialog",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapNpcMarkersFeature_m_RepeatableDialogText": {
+    "Original": "Repeatable dialog",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapNpcMarkersFeature_m_NoTriggerableDialogText": {
+    "Original": "No triggerable dialog right now (may change later)",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapNpcMarkersFeature_m_OverlappingFormatText": {
+    "Original": "Overlapping: {0}",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapNpcMarkersFeature_m_LegendText": {
+    "Original": "NPC dialog (yellow = new, blue = repeatable)",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_MinimapRotation_HeadingUpText": {
+    "Original": "Heading Up (map rotates)",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_MinimapRotation_NorthUpText": {
+    "Original": "North Up (locked)",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_MapOverlayCorner_TopRightText": {
+    "Original": "Top Right",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_MapOverlayCorner_TopLeftText": {
+    "Original": "Top Left",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_MapOverlayCorner_BottomRightText": {
+    "Original": "Bottom Right",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_MapOverlayCorner_BottomLeftText": {
+    "Original": "Bottom Left",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapOverlayFeature_Name": {
+    "Original": "Local Map Minimap Overlay",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapOverlayFeature_Description": {
+    "Original": "Shows a small corner minimap of the current area over normal gameplay. By default the map rotates with your heading and the arrow stays fixed; cutscenes and fullscreen windows hide it automatically. Clicks pass through the overlay.",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapOverlayFeature_m_RotationText": {
+    "Original": "Minimap rotation",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapOverlayFeature_m_OpacityText": {
+    "Original": "Opacity (0.2-1.0)",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapOverlayFeature_m_ZoomText": {
+    "Original": "Zoom (1-4; higher = tighter)",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapOverlayFeature_m_CornerText": {
+    "Original": "Screen corner",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_OvertipNameColorsFeature_Name": {
+    "Original": "TAB Name Colors by Dialog State",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_OvertipNameColorsFeature_Description": {
+    "Original": "Colors unit nameplates while Tab is held: yellow = new dialog available, blue = repeatable dialog. Everything else (including teammates) keeps the vanilla color.",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_OvertipNameColorsFeature_m_UseWenKaiText": {
+    "Original": "Use WenKai font for nameplates (requires FontMod)",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_StarMapPlanetColorsFeature_Name": {
+    "Original": "Star Map Planet Name Colors",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_StarMapPlanetColorsFeature_Description": {
+    "Original": "Colors planet names on the star system map: amber = active quest or rumour, orange = unexplored points of interest, green = colony, teal = extractor placed, cyan = unmined resources, light grey = fully explored (nothing left), grey-brown = hidden remainder. Unscanned planets can show their real name in white instead of the vanilla '?' mark (spoilers).",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_StarMapPlanetColorsFeature_m_ShowUnscannedText": {
+    "Original": "Show names of unscanned planets (white; vanilla hides them behind '?')",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_StarMapPlanetColorsFeature_m_QuestText": {
+    "Original": "Color quest/rumour planets (amber)",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_StarMapPlanetColorsFeature_m_ResourcesText": {
+    "Original": "Color resource planets (cyan) and extractor planets (teal)",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_StarMapPlanetColorsFeature_m_DoneText": {
+    "Original": "Color finished planets (light grey = done, grey-brown = hidden remainder)",
     "Translated": null
   },
   "ToyBox_Features_DialogAndNpc_InspectDialogControllerFeature_Name": {

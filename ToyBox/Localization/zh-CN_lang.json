@@ -1091,6 +1091,10 @@
     "Original": "Dialog & NPCs",
     "Translated": "对话与NPC"
   },
+  "ToyBox_Features_DialogAndNpc_DialogAndNpcFeatureTab_m_MapAndNamesText": {
+    "Original": "Map & Names",
+    "Translated": "地图与名牌"
+  },
   "ToyBox_Features_DialogAndNpc_DialogEditorFeature_Name": {
     "Original": "Dialog Editor",
     "Translated": "对话编辑器"
@@ -1130,6 +1134,198 @@
   "ToyBox_Features_DialogAndNpc_DialogEditorFeature_m_RepeatText": {
     "Original": "[Repeat]",
     "Translated": "[重复]"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_EnhancedMapToggleFeature_Name": {
+    "Original": "Enhanced Map (Master Toggle)",
+    "Translated": "增强地图（主开关）"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_EnhancedMapToggleFeature_Description": {
+    "Original": "Master switch for the map marker family (NPC dialog markers, exit markers, interactable-object markers, looted-container hiding). An on-map button and a hotkey flip this switch live; nameplates, fonts, fill and rotation are not affected.",
+    "Translated": "地图标记家族的主开关（NPC对话标记、出口标记、可交互物标记、隐藏已搜刮容器）。地图内按钮与热键可实时切换；名牌、字体、高亮填充与地图朝向不受影响。"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_EnhancedMapToggleFeature_m_ButtonTooltipText": {
+    "Original": "Enhanced Map markers (NPCs and exits)",
+    "Translated": "增强地图标记（NPC与出口）"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_HighlightEnhancementFeature_Name": {
+    "Original": "Highlight Enhancement (Fill & Outline)",
+    "Translated": "交互高亮增强（填充与描边）"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_HighlightEnhancementFeature_Description": {
+    "Original": "Fill: interaction highlights render as filled silhouettes instead of outlines (quick flashes such as pings keep their outline). Thickness: scales the outline blur, 1 = vanilla.",
+    "Translated": "填充：交互高亮以实心剪影而非轮廓显示（ping 等快速闪烁仍保持轮廓）。粗细：放大描边模糊，1=原版。"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_HighlightEnhancementFeature_m_ThicknessText": {
+    "Original": "Outline Thickness (1 = vanilla)",
+    "Translated": "高亮描边粗细（1=原版）"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapExitMarkersFeature_Name": {
+    "Original": "Local Map Exit & Transition Markers",
+    "Translated": "本地地图显示出口与通道"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapExitMarkersFeature_Description": {
+    "Original": "Shows exit and transition markers (bridges, doors, area exits) on the local map even before they are scouted. Markers explicitly hidden by the area or an etude stay hidden.",
+    "Translated": "在本地地图上显示出口与通道标记（桥、门、区域出口），即使尚未侦察也会显示。被区域或剧情状态明确隐藏的标记仍保持隐藏。"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapExitMarkersFeature_m_HideLootedContainersText": {
+    "Original": "Hide Looted Containers",
+    "Translated": "已搜刮的容器不再显示"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapExitMarkersFeature_m_HideLootedContainersDescription": {
+    "Original": "Containers whose loot has already been viewed no longer appear on the map or in Tab highlight. Re-fillable containers also stay hidden while they are flagged as viewed.",
+    "Translated": "已查看过战利品的容器不再显示在地图与Tab高亮中。可刷新容器在被标记为已查看期间同样保持隐藏。"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapInteractableMarkersFeature_Name": {
+    "Original": "Local Map Interactable Markers",
+    "Translated": "本地地图标记交互物件"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapInteractableMarkersFeature_Description": {
+    "Original": "Marks interactable objects that open a dialog or hold a skill check (consoles, shrines, cogitators) on the local map: yellow = new dialog or unpassed check, blue = already-seen dialog. Passed and locked-out checks are hidden - nothing to come back for. Plain devices and text-only overlays are not marked.",
+    "Translated": "在本地地图上标记会打开对话或含技能检定的交互物件（控制台、祭坛、智械机魂等）：黄色=新对话或未通过的检定，蓝色=已看过的对话；已通过与已锁定的检定默认隐藏（无需回头）。纯文字提示的物品与装置不会标记。"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapInteractableMarkersFeature_m_NewDialogText": {
+    "Original": "New dialog",
+    "Translated": "新对话"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapInteractableMarkersFeature_m_RepeatableDialogText": {
+    "Original": "Repeatable dialog",
+    "Translated": "可重复对话"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapInteractableMarkersFeature_m_SkillCheckAvailableText": {
+    "Original": "Skill check available",
+    "Translated": "可尝试的技能检定"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapInteractableMarkersFeature_m_LegendText": {
+    "Original": "Dialog / skill-check objects (yellow = new, blue = repeatable)",
+    "Translated": "对话/检定物件（黄色=新内容，蓝色=可重复）"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapNpcMarkerDetail_AllText": {
+    "Original": "All",
+    "Translated": "全部"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapNpcMarkerDetail_ActiveText": {
+    "Original": "Only Triggerable",
+    "Translated": "仅可触发"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapNpcMarkerDetail_NewOnlyText": {
+    "Original": "New Only",
+    "Translated": "仅新增"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapNpcMarkersFeature_Name": {
+    "Original": "Local Map NPC Dialog Markers",
+    "Translated": "本地地图标记可对话NPC"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapNpcMarkersFeature_Description": {
+    "Original": "Marks NPCs with dialog on the local map: yellow = new dialog, blue = repeatable, dimmed = no triggerable dialog right now (All mode only).",
+    "Translated": "在本地地图上标记可对话NPC：黄色=新对话，蓝色=可重复对话，暗淡=暂无可触发对话（仅“全部”模式显示）。"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapNpcMarkersFeature_m_DetailText": {
+    "Original": "NPC Marker Detail",
+    "Translated": "NPC标记状态"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapNpcMarkersFeature_m_NewDialogText": {
+    "Original": "New dialog",
+    "Translated": "新对话"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapNpcMarkersFeature_m_RepeatableDialogText": {
+    "Original": "Repeatable dialog",
+    "Translated": "可重复对话"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapNpcMarkersFeature_m_NoTriggerableDialogText": {
+    "Original": "No triggerable dialog right now (may change later)",
+    "Translated": "暂无可触发对话（后续可能变化）"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapNpcMarkersFeature_m_OverlappingFormatText": {
+    "Original": "Overlapping: {0}",
+    "Translated": "重叠：{0}"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapNpcMarkersFeature_m_LegendText": {
+    "Original": "NPC dialog (yellow = new, blue = repeatable)",
+    "Translated": "NPC对话（黄色=新对话，蓝色=可重复对话）"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_MinimapRotation_HeadingUpText": {
+    "Original": "Heading Up (map rotates)",
+    "Translated": "跟随朝向"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_MinimapRotation_NorthUpText": {
+    "Original": "North Up (locked)",
+    "Translated": "朝北锁定"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_MapOverlayCorner_TopRightText": {
+    "Original": "Top Right",
+    "Translated": "右上"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_MapOverlayCorner_TopLeftText": {
+    "Original": "Top Left",
+    "Translated": "左上"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_MapOverlayCorner_BottomRightText": {
+    "Original": "Bottom Right",
+    "Translated": "右下"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_MapOverlayCorner_BottomLeftText": {
+    "Original": "Bottom Left",
+    "Translated": "左下"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapOverlayFeature_Name": {
+    "Original": "Local Map Minimap Overlay",
+    "Translated": "本地地图小地图"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapOverlayFeature_Description": {
+    "Original": "Shows a small corner minimap of the current area over normal gameplay. By default the map rotates with your heading and the arrow stays fixed; cutscenes and fullscreen windows hide it automatically. Clicks pass through the overlay.",
+    "Translated": "在正常游戏画面上显示当前区域的小地图（屏幕角落）。默认地图跟随角色朝向旋转、箭头固定朝上；过场动画和全屏界面打开时自动隐藏。鼠标点击会穿透小地图。"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapOverlayFeature_m_RotationText": {
+    "Original": "Minimap rotation",
+    "Translated": "小地图朝向"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapOverlayFeature_m_OpacityText": {
+    "Original": "Opacity (0.2-1.0)",
+    "Translated": "不透明度（0.2-1.0）"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapOverlayFeature_m_ZoomText": {
+    "Original": "Zoom (1-4; higher = tighter)",
+    "Translated": "缩放（1-4；越大视野越近）"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_LocalMapOverlayFeature_m_CornerText": {
+    "Original": "Screen corner",
+    "Translated": "屏幕角落"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_OvertipNameColorsFeature_Name": {
+    "Original": "TAB Name Colors by Dialog State",
+    "Translated": "TAB名牌按对话状态着色"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_OvertipNameColorsFeature_Description": {
+    "Original": "Colors unit nameplates while Tab is held: yellow = new dialog available, blue = repeatable dialog. Everything else (including teammates) keeps the vanilla color.",
+    "Translated": "按住Tab时为名牌着色：黄色=有新对话，蓝色=可重复对话。其他单位（包括队友）保持原版颜色。"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_OvertipNameColorsFeature_m_UseWenKaiText": {
+    "Original": "Use WenKai font for nameplates (requires FontMod)",
+    "Translated": "名牌使用文楷字体（需安装FontMod）"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_StarMapPlanetColorsFeature_Name": {
+    "Original": "Star Map Planet Name Colors",
+    "Translated": "星系图行星名着色"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_StarMapPlanetColorsFeature_Description": {
+    "Original": "Colors planet names on the star system map: amber = active quest or rumour, orange = unexplored points of interest, green = colony, teal = extractor placed, cyan = unmined resources, light grey = fully explored (nothing left), grey-brown = hidden remainder. Unscanned planets can show their real name in white instead of the vanilla '?' mark (spoilers).",
+    "Translated": "按状态为星系图上的行星名着色：琥珀色=进行中的任务或传闻，橙色=未探索的兴趣点，绿色=殖民地，青蓝色=已放置采集站，蓝绿色=有待采集的资源，浅灰色=已探索完毕（无需再来），灰褐色=仍有隐藏内容。未扫描行星也可以用白色显示真实名称（原版只显示“？”图样，注意剧透）。"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_StarMapPlanetColorsFeature_m_ShowUnscannedText": {
+    "Original": "Show names of unscanned planets (white; vanilla hides them behind '?')",
+    "Translated": "显示未扫描行星的名称（原版只显示“？”）"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_StarMapPlanetColorsFeature_m_QuestText": {
+    "Original": "Color quest/rumour planets (amber)",
+    "Translated": "任务行星着色（琥珀色）"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_StarMapPlanetColorsFeature_m_ResourcesText": {
+    "Original": "Color resource planets (cyan) and extractor planets (teal)",
+    "Translated": "资源行星着色（蓝绿色）与采集站行星着色（青蓝色）"
+  },
+  "ToyBox_Features_DialogAndNpc_EnhancedMap_StarMapPlanetColorsFeature_m_DoneText": {
+    "Original": "Color finished planets (light grey = done, grey-brown = hidden remainder)",
+    "Translated": "已完成行星着色（浅灰=已完毕，灰褐=仍有隐藏内容）"
   },
   "ToyBox_Features_DialogAndNpc_InspectDialogControllerFeature_Name": {
     "Original": "Inspect Dialog Controller",
