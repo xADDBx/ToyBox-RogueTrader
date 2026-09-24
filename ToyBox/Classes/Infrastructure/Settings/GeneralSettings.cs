@@ -223,6 +223,9 @@ public class GeneralSettings : AbstractJsonSettings {
     public bool EnableIgnoreClassLevelsPrerequisites = false;
     public bool EnableTalentSelectionMultiplier = false;
     public int TalentSelectionMultiplier = 1;
+    public int AbilityMultiplier = 1;
+    public int ShipUpgradeMultiplier = 1;
+    public bool MakeSelectionsOptional = false;
 
 
     // Party

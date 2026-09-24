@@ -1,5 +1,9 @@
 * (***ADDB***) Reduce log spam (related to RemoteCompanionDialog)
 * (***quinnwen***) Added a talent selection multiplier to Level Up.
+* (***quinnwen***) Extend the selection multiplier with ability and voidship upgrade multipliers (three sliders)
+* (***quinnwen***) Level Up: Make Selections Optional toggle - skip unwanted picks, with Next-page skip navigation and Finish gating
+* (***quinnwen***) Level Up: exhausted candidate pools pass the Finish gate; auto-advance to the next unmade multiplied slot after a pick
+* (***quinnwen***) Level Up: optional-skip marks are now released when the career view rebinds to a new level-up session (a skipped row no longer stays locked in later sessions), and Make Selections Optional no longer opens the finish gate during custom mercenary creation (all mercs share one blueprint, which fooled the roster check)
 
 ### ToyBox Rogue - Ver 2.0.14 (built for 1.6.1.511)
 * (***ADDB***) Reduce allocations done by base game bp loading (PerformanceEnhancementFeature)

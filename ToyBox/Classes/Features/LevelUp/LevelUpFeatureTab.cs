@@ -10,5 +10,6 @@ public partial class LevelUpFeatureTab : FeatureTab {
         AddFeature(new IgnoreClassLevelsPrerequisitesFeature());
         AddFeature(new RespecFromLevelXFeature());
         AddFeature(new TalentSelectionMultiplierFeature());
+        AddFeature(new MakeSelectionsOptionalFeature());
     }
 }

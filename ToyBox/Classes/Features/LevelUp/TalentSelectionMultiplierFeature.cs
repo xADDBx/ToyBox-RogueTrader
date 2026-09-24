@@ -13,6 +13,9 @@ using System.Reflection.Emit;
 
 namespace ToyBox.Features.LevelUp;
 
+// NOTE: this Harmony category is shared with LevelUpNavigationPatch.cs (optional
+// selections / skip navigation / auto-advance), so those patches toggle
+// together with this feature.
 [HarmonyPatch, ToyBoxPatchCategory("ToyBox.Features.LevelUp.TalentSelectionMultiplierFeature")]
 public partial class TalentSelectionMultiplierFeature : FeatureWithPatch {
     public override ref bool IsEnabled {
@@ -29,27 +32,85 @@ public partial class TalentSelectionMultiplierFeature : FeatureWithPatch {
 
     [LocalizedString("ToyBox_Features_LevelUp_TalentSelectionMultiplierFeature_Name", "Talent Selection Multiplier")]
     public override partial string Name { get; }
-    [LocalizedString("ToyBox_Features_LevelUp_TalentSelectionMultiplierFeature_Description", "Multiplies career talent selections (1 = normal). Learned talents remain after disabling, but extra choices are no longer shown in the career progression after reopening the character screen. Don't change this setting mid-levelup.")]
+    [LocalizedString("ToyBox_Features_LevelUp_TalentSelectionMultiplierFeature_Description", "Multiplies career talent, ability and voidship upgrade selections (1 = normal each). Learned picks remain after disabling, but extra choices are no longer shown in the career progression after reopening the character screen. Don't change this setting mid-levelup.")]
     public override partial string Description { get; }
+
+    [LocalizedString("ToyBox_Features_LevelUp_TalentSelectionMultiplierFeature_TalentsText", "Talents")]
+    private static partial string m_TalentsText { get; }
+    [LocalizedString("ToyBox_Features_LevelUp_TalentSelectionMultiplierFeature_AbilitiesText", "Abilities")]
+    private static partial string m_AbilitiesText { get; }
+    [LocalizedString("ToyBox_Features_LevelUp_TalentSelectionMultiplierFeature_ShipUpgradesText", "Ship Upgrades")]
+    private static partial string m_ShipUpgradesText { get; }
 
     public override void OnGui() {
         base.OnGui();
         if (IsEnabled) {
             using (HorizontalScope()) {
                 Space(25);
+                UI.Label(m_TalentsText, Width(150));
                 _ = UI.Slider(ref Settings.TalentSelectionMultiplier, 1, 10, 1, null, null, Width(150));
+            }
+            using (HorizontalScope()) {
+                Space(25);
+                UI.Label(m_AbilitiesText, Width(150));
+                _ = UI.Slider(ref Settings.AbilityMultiplier, 1, 10, 1, null, null, Width(150));
+            }
+            using (HorizontalScope()) {
+                Space(25);
+                UI.Label(m_ShipUpgradesText, Width(150));
+                _ = UI.Slider(ref Settings.ShipUpgradeMultiplier, 1, 10, 1, null, null, Width(150));
             }
         }
     }
 
-    private static bool IsTalentSelection(BlueprintSelection selection) {
-        return selection is BlueprintSelectionFeature {
-            Group: FeatureGroup.Talent or FeatureGroup.CommonTalent or FeatureGroup.AscensionTalent
-            or FeatureGroup.FirstCareerTalent or FeatureGroup.SecondCareerTalent or FeatureGroup.FirstOrSecondCareerTalent };
+    private static bool IsTalentGroup(FeatureGroup group) {
+        return group is FeatureGroup.Talent
+            or FeatureGroup.CommonTalent
+            or FeatureGroup.AscensionTalent
+            or FeatureGroup.FirstCareerTalent
+            or FeatureGroup.SecondCareerTalent
+            or FeatureGroup.FirstOrSecondCareerTalent;
     }
 
-    private static int GetMultiplier(BaseUnitEntity unit) {
-        return ToyBoxUnitHelper.IsPartyOrPet(unit) ? Math.Max(1, Math.Min(10, Settings.TalentSelectionMultiplier)) : 1;
+    // Character rank ability picks (能力/额外能力). The production enum has no
+    // single 'Ability' member; these four are exactly the ability groups the
+    // game's own RankEntryUtils.GroupsWithFilter lists for career rank entries.
+    private static bool IsAbilityGroup(FeatureGroup group) {
+        return group is FeatureGroup.ActiveAbility
+            or FeatureGroup.FirstCareerAbility
+            or FeatureGroup.SecondCareerAbility
+            or FeatureGroup.FirstOrSecondCareerAbility;
+    }
+
+    // EXACTLY the set the game's own starship mapping recognizes:
+    // TutorialTriggerLevelUpByFeatureGroupExtensions.ToStarshipFeatureGroup
+    // maps ShipUpgrade, ShipActiveAbility, ShipUltimateAbility and
+    // AdvancedAbility. ShipTotalAbility is NOT in that mapping, so it stays
+    // unmanaged.
+    private static bool IsShipGroup(FeatureGroup group) {
+        return group is FeatureGroup.ShipUpgrade
+            or FeatureGroup.ShipActiveAbility
+            or FeatureGroup.ShipUltimateAbility
+            or FeatureGroup.AdvancedAbility;
+    }
+
+    private static int ClampMultiplier(int value) {
+        return Math.Max(1, Math.Min(10, value));
+    }
+
+    private static bool IsManaged(BaseUnitEntity unit, BlueprintSelectionFeature selection) {
+        return ToyBoxUnitHelper.IsPartyOrPet(unit) && (IsTalentGroup(selection.Group) || IsAbilityGroup(selection.Group))
+            || ToyBoxUnitHelper.IsPlayerStarship(unit) && IsShipGroup(selection.Group);
+    }
+
+    private static int GetMultiplier(BaseUnitEntity unit, BlueprintSelectionFeature selection) {
+        if (!IsManaged(unit, selection)) {
+            return 1;
+        }
+        if (IsShipGroup(selection.Group)) {
+            return ClampMultiplier(Settings.ShipUpgradeMultiplier);
+        }
+        return ClampMultiplier(IsAbilityGroup(selection.Group) ? Settings.AbilityMultiplier : Settings.TalentSelectionMultiplier);
     }
 
     private static int GetOccurrence(RankEntrySelectionVM row) {
@@ -77,29 +138,29 @@ public partial class TalentSelectionMultiplierFeature : FeatureWithPatch {
     }
 
     #region Patches
-    // Add extra career talent selections
+    // Add extra career selections for each multiplied group
     [HarmonyPatch(typeof(LevelUpManager), nameof(LevelUpManager.CreatePathSelections)), HarmonyPostfix]
     private static IEnumerable<SelectionState> LevelUpManager_CreatePathSelections_Patch(IEnumerable<SelectionState> __result, LevelUpManager __instance) {
-        var multiplier = GetMultiplier(__instance.TargetUnit);
         foreach (var state in __result) {
             yield return state;
-            if (!__instance.AutoCommit && state.Path is BlueprintCareerPath && IsTalentSelection(state.Blueprint)) {
+            if (!__instance.AutoCommit && state.Path is BlueprintCareerPath && state.Blueprint is BlueprintSelectionFeature selection) {
+                var multiplier = GetMultiplier(__instance.TargetUnit, selection);
                 for (var i = 1; i < multiplier; i++) {
-                    yield return new SelectionStateFeature(__instance, (BlueprintSelectionFeature)state.Blueprint, state.Path, state.PathRank);
+                    yield return new SelectionStateFeature(__instance, selection, state.Path, state.PathRank);
                 }
             }
         }
     }
 
-    // Match talent rows to upcoming and learned selections
+    // Match selection rows to upcoming and learned selections
     [HarmonyPatch(typeof(CareerPathVM), nameof(CareerPathVM.InitializeRankEntries)), HarmonyPostfix]
     private static void CareerPathVM_InitializeRankEntries_Patch(CareerPathVM __instance) {
         var history = __instance.Unit.Progression.GetSelectionsByPath(__instance.CareerPath).ToLookup(s => (s.Level, s.Selection));
         var (min, max) = __instance.GetCurrentLevelupRange();
-        var multiplier = GetMultiplier(__instance.Unit);
         foreach (var rank in __instance.RankEntries) {
             foreach (var group in rank.Selections.GroupBy(row => row.m_SelectionFeature)) {
-                if (!IsTalentSelection(group.Key)) { continue; }
+                if (group.Key == null || !IsManaged(__instance.Unit, group.Key)) { continue; }
+                var multiplier = GetMultiplier(__instance.Unit, group.Key);
                 var count = Math.Max(1, history[(rank.Rank, group.Key)].Count());
                 count = Math.Max(count, rank.Rank >= min && rank.Rank <= max ? multiplier : 1);
                 if (count == group.Count()) { continue; }

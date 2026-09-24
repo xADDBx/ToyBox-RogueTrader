@@ -1383,6 +1383,14 @@
     "Original": "Level Up",
     "Translated": null
   },
+  "ToyBox_Features_LevelUp_MakeSelectionsOptionalFeature_Name": {
+    "Original": "Make Selections Optional",
+    "Translated": null
+  },
+  "ToyBox_Features_LevelUp_MakeSelectionsOptionalFeature_Description": {
+    "Original": "When enabled, you can Finish a level-up without selecting anything - empty slots pass the completion check, and Next skips the current page. Useful when the remaining options are unwanted. Requires the Talent Selection Multiplier feature enabled (its patches drive the gate). Default OFF.",
+    "Translated": null
+  },
   "ToyBox_Features_LevelUp_RespecFromLevelXFeature_Name": {
     "Original": "Respec From Level X",
     "Translated": null
@@ -1432,7 +1440,19 @@
     "Translated": null
   },
   "ToyBox_Features_LevelUp_TalentSelectionMultiplierFeature_Description": {
-    "Original": "Multiplies career talent selections (1 = normal). Learned talents remain after disabling, but extra choices are no longer shown in the career progression after reopening the character screen. Don't change this setting mid-levelup.",
+    "Original": "Multiplies career talent, ability and voidship upgrade selections (1 = normal each). Learned picks remain after disabling, but extra choices are no longer shown in the career progression after reopening the character screen. Don't change this setting mid-levelup.",
+    "Translated": null
+  },
+  "ToyBox_Features_LevelUp_TalentSelectionMultiplierFeature_TalentsText": {
+    "Original": "Talents",
+    "Translated": null
+  },
+  "ToyBox_Features_LevelUp_TalentSelectionMultiplierFeature_AbilitiesText": {
+    "Original": "Abilities",
+    "Translated": null
+  },
+  "ToyBox_Features_LevelUp_TalentSelectionMultiplierFeature_ShipUpgradesText": {
+    "Original": "Ship Upgrades",
     "Translated": null
   },
   "ToyBox_Features_Loot_LootAoEFeature_Name": {

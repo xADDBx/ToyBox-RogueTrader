@@ -1383,6 +1383,14 @@
     "Original": "Level Up",
     "Translated": "升级"
   },
+  "ToyBox_Features_LevelUp_MakeSelectionsOptionalFeature_Name": {
+    "Original": "Make Selections Optional",
+    "Translated": "允许跳过选择"
+  },
+  "ToyBox_Features_LevelUp_MakeSelectionsOptionalFeature_Description": {
+    "Original": "When enabled, you can Finish a level-up without selecting anything - empty slots pass the completion check, and Next skips the current page. Useful when the remaining options are unwanted. Requires the Talent Selection Multiplier feature enabled (its patches drive the gate). Default OFF.",
+    "Translated": "启用后无需选择任何选项即可完成升级——空槽位通过完成校验，Next 可跳过当前页。适用于剩余选项都不想要的情况。需要先启用\"天赋选择倍率\"功能（该机制由其补丁驱动）。默认关闭。"
+  },
   "ToyBox_Features_LevelUp_RespecFromLevelXFeature_Name": {
     "Original": "Respec From Level X",
     "Translated": "从指定等级重新训练"
@@ -1432,8 +1440,20 @@
     "Translated": "天赋选择倍率"
   },
   "ToyBox_Features_LevelUp_TalentSelectionMultiplierFeature_Description": {
-    "Original": "Multiplies career talent selections (1 = normal). Learned talents remain after disabling, but extra choices are no longer shown in the career progression after reopening the character screen. Don't change this setting mid-levelup.",
-    "Translated": "成倍增加职业天赋的选择次数（1 = 正常）。关闭功能后，已习得的天赋仍会保留，但重新打开角色界面后，职业进阶界面将不再显示额外的选择栏位。请勿在升级过程中更改此设置。"
+    "Original": "Multiplies career talent, ability and voidship upgrade selections (1 = normal each). Learned picks remain after disabling, but extra choices are no longer shown in the career progression after reopening the character screen. Don't change this setting mid-levelup.",
+    "Translated": "成倍增加职业天赋、能力和飞船升级的选择次数（1 = 正常）。关闭功能后，已习得的选择项仍会保留，但重新打开角色界面后，职业进阶界面将不再显示额外的选择栏位。请勿在升级过程中更改此设置。"
+  },
+  "ToyBox_Features_LevelUp_TalentSelectionMultiplierFeature_TalentsText": {
+    "Original": "Talents",
+    "Translated": "天赋"
+  },
+  "ToyBox_Features_LevelUp_TalentSelectionMultiplierFeature_AbilitiesText": {
+    "Original": "Abilities",
+    "Translated": "能力"
+  },
+  "ToyBox_Features_LevelUp_TalentSelectionMultiplierFeature_ShipUpgradesText": {
+    "Original": "Ship Upgrades",
+    "Translated": "飞船升级"
   },
   "ToyBox_Features_Loot_LootAoEFeature_Name": {
     "Original": "AoE Loot",

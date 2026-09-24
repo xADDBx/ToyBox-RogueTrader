@@ -35,6 +35,12 @@ public static class ToyBoxUnitHelper {
         m_PartyOrPetCache[unit] = isPartyOrPet;
         return isPartyOrPet;
     }
+
+    // Strict player-ship equality (not IsStarship()) so NPC and enemy
+    // voidships never gain ship-only behavior.
+    public static bool IsPlayerStarship(AbstractUnitEntity? unit) {
+        return unit is StarshipEntity ship && Game.Instance?.Player?.PlayerShip == ship;
+    }
     private static bool IsEnemy(BaseUnitEntity unit) {
         var maybeFaction = unit.GetFactionOptional();
         if (maybeFaction != null) {

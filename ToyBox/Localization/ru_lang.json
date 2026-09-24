@@ -1383,6 +1383,14 @@
     "Original": "Level Up",
     "Translated": "Повышение уровня"
   },
+  "ToyBox_Features_LevelUp_MakeSelectionsOptionalFeature_Name": {
+    "Original": "Make Selections Optional",
+    "Translated": "Необязательный выбор"
+  },
+  "ToyBox_Features_LevelUp_MakeSelectionsOptionalFeature_Description": {
+    "Original": "When enabled, you can Finish a level-up without selecting anything - empty slots pass the completion check, and Next skips the current page. Useful when the remaining options are unwanted. Requires the Talent Selection Multiplier feature enabled (its patches drive the gate). Default OFF.",
+    "Translated": "Когда включено, можно завершить повышение уровня без выбора - пустые слоты проходят проверку завершения, а Next пропускает текущую страницу. Требуется включённая функция \"Множитель выбора\" (её патчи управляют проверкой). По умолчанию выключено."
+  },
   "ToyBox_Features_LevelUp_RespecFromLevelXFeature_Name": {
     "Original": "Respec From Level X",
     "Translated": "Пересоздание с уровня X"
@@ -1432,8 +1440,20 @@
     "Translated": "Множитель выбора талантов"
   },
   "ToyBox_Features_LevelUp_TalentSelectionMultiplierFeature_Description": {
-    "Original": "Multiplies career talent selections (1 = normal). Learned talents remain after disabling, but extra choices are no longer shown in the career progression after reopening the character screen. Don't change this setting mid-levelup.",
-    "Translated": "Умножает число выбираемых талантов карьеры (1 = обычное количество). Изученные таланты сохраняются после отключения функции, но после повторного открытия экрана персонажа дополнительные ячейки выбора больше не отображаются в развитии карьеры. Не меняйте эту настройку во время повышения уровня."
+    "Original": "Multiplies career talent, ability and voidship upgrade selections (1 = normal each). Learned picks remain after disabling, but extra choices are no longer shown in the career progression after reopening the character screen. Don't change this setting mid-levelup.",
+    "Translated": "Умножает число выбираемых талантов, способностей и улучшений корабля (1 = обычное количество). Сделанные выборы сохраняются после отключения функции, но после повторного открытия экрана персонажа дополнительные ячейки выбора больше не отображаются в развитии карьеры. Не меняйте эту настройку во время повышения уровня."
+  },
+  "ToyBox_Features_LevelUp_TalentSelectionMultiplierFeature_TalentsText": {
+    "Original": "Talents",
+    "Translated": "Таланты"
+  },
+  "ToyBox_Features_LevelUp_TalentSelectionMultiplierFeature_AbilitiesText": {
+    "Original": "Abilities",
+    "Translated": "Способности"
+  },
+  "ToyBox_Features_LevelUp_TalentSelectionMultiplierFeature_ShipUpgradesText": {
+    "Original": "Ship Upgrades",
+    "Translated": "Улучшения корабля"
   },
   "ToyBox_Features_Loot_LootAoEFeature_Name": {
     "Original": "AoE Loot",
