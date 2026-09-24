@@ -1347,6 +1347,14 @@
     "Original": "Feature Search",
     "Translated": "Поиск функций"
   },
+  "ToyBox_Features_Inventory_SlotFilterBridgeFeature_Name": {
+    "Original": "Bridge Equip Slot Filter to Inventory Improved",
+    "Translated": "Связать Equip Slot Filter с Inventory Improved"
+  },
+  "ToyBox_Features_Inventory_SlotFilterBridgeFeature_Description": {
+    "Original": "Clicking a doll equipment slot (Equip Slot Filter) also selects the matching slot filter in Inventory Improved - one click filters both. Weapon and quickslot clicks are left to Equip Slot Filter alone (Inventory Improved has no matching group). Requires both mods; does nothing otherwise.",
+    "Translated": "Щелчок по слоту снаряжения на кукле персонажа (Equip Slot Filter) также включает соответствующий фильтр слотов в Inventory Improved — один щелчок фильтрует в обоих модах. Щелчки по слотам оружия и быстрым слотам остаются за Equip Slot Filter (в Inventory Improved нет соответствующей группы). Требуются оба мода; иначе ничего не происходит."
+  },
   "ToyBox_Features_LevelUp_IgnoreArchetypePrerequisitesFeature_Name": {
     "Original": "Ignore Archetypes Prerequisites",
     "Translated": "Игнорировать требования архетипов"

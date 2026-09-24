@@ -85,6 +85,7 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
         AddFeature(new AutoLoadLastSaveOnLaunchFeature(), m_QualityOfLifeText);
         AddFeature(new RefillBeltConsumablesFeature(), m_QualityOfLifeText);
         AddFeature(new ClickToTransferEntireStackFeature(), m_QualityOfLifeText);
+        AddFeature(new ToyBox.Features.Inventory.SlotFilterBridgeFeature(), m_QualityOfLifeText);
         AddFeature(new FixIncorrectMainCharacterFeature(), m_QualityOfLifeText);
         AddFeature(new GameTimeScaleFeature(), m_QualityOfLifeText);
         AddFeature(new GameAlternateTimeScaleFeature(), m_QualityOfLifeText);

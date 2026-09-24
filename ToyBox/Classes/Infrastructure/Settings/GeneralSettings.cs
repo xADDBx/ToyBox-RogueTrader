@@ -111,6 +111,7 @@ public class GeneralSettings : AbstractJsonSettings {
     public bool EnableAutoLoadLastSaveOnLaunch = false;
     public bool EnableRefillBeltConsumables = false;
     public bool EnableClickToTransferEntireStack = false;
+    public bool EnableSlotFilterBridge = true;
     public float GameTimeScaleMultiplier = 1f;
     public bool EnableGameAlternateTimeScale = false;
     public float GameAlternateTimeScaleMultiplier = 3f;

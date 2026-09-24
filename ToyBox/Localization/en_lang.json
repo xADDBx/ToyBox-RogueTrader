@@ -1347,6 +1347,14 @@
     "Original": "Feature Search",
     "Translated": null
   },
+  "ToyBox_Features_Inventory_SlotFilterBridgeFeature_Name": {
+    "Original": "Bridge Equip Slot Filter to Inventory Improved",
+    "Translated": null
+  },
+  "ToyBox_Features_Inventory_SlotFilterBridgeFeature_Description": {
+    "Original": "Clicking a doll equipment slot (Equip Slot Filter) also selects the matching slot filter in Inventory Improved - one click filters both. Weapon and quickslot clicks are left to Equip Slot Filter alone (Inventory Improved has no matching group). Requires both mods; does nothing otherwise.",
+    "Translated": null
+  },
   "ToyBox_Features_LevelUp_IgnoreArchetypePrerequisitesFeature_Name": {
     "Original": "Ignore Archetypes Prerequisites",
     "Translated": null

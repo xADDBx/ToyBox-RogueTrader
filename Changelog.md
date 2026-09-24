@@ -1,4 +1,5 @@
 * (***ADDB***) Reduce log spam (related to RemoteCompanionDialog)
+* (***quinnwen***) Inventory: clicking an EquipSlotFilter doll slot also drives Inventory Improved's category filter (both mods present; no-op otherwise)
 
 ### ToyBox Rogue - Ver 2.0.14 (built for 1.6.1.511)
 * (***ADDB***) Reduce allocations done by base game bp loading (PerformanceEnhancementFeature)
