@@ -1,4 +1,7 @@
 * (***ADDB***) Reduce log spam (related to RemoteCompanionDialog)
+* (***quinnwen***) Level Up (opt-in): shrink career-rail selection circles to 25% of vanilla size
+* (***quinnwen***) Level Up (opt-in): remember feature-picker fold state for the progression-window session
+* (***quinnwen***) Level Up: optionally hide picker entries the character owns with no further rank available
 
 ### ToyBox Rogue - Ver 2.0.14 (built for 1.6.1.511)
 * (***ADDB***) Reduce allocations done by base game bp loading (PerformanceEnhancementFeature)

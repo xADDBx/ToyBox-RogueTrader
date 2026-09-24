@@ -8,6 +8,9 @@ public partial class LevelUpFeatureTab : FeatureTab {
         AddFeature(new IgnoreTalentPrerequisitesFeature());
         AddFeature(new IgnoreStatPrerequisitesFeature());
         AddFeature(new IgnoreClassLevelsPrerequisitesFeature());
+        AddFeature(new FoldPersistenceFeature());
+        AddFeature(new OwnedItemsHideFeature());
+        AddFeature(new CareerRailItemScaleFeature());
         AddFeature(new RespecFromLevelXFeature());
     }
 }

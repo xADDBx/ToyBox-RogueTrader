@@ -1347,6 +1347,14 @@
     "Original": "Feature Search",
     "Translated": "功能搜索"
   },
+  "ToyBox_Features_LevelUp_FoldPersistenceFeature_Name": {
+    "Original": "Keep Picker Group Folds",
+    "Translated": "保持选择列表的折叠状态"
+  },
+  "ToyBox_Features_LevelUp_FoldPersistenceFeature_Description": {
+    "Original": "Remembers expanded/collapsed groups in the level-up feature picker across slot switches, picks and commits for the whole progression-window session (the same lifetime the picker's filter already uses). Favourites view and ship pickers are unaffected.",
+    "Translated": "在升级窗口的条目选择列表中记住各分组的展开/折叠状态：切换选择槽、多次选择或确认升级（连续升多级）后依然保持，直至关闭升级窗口（与列表筛选器的保留时长一致）。收藏视图与舰船列表不受影响。"
+  },
   "ToyBox_Features_LevelUp_IgnoreArchetypePrerequisitesFeature_Name": {
     "Original": "Ignore Archetypes Prerequisites",
     "Translated": "忽略原型前置条件"
@@ -1382,6 +1390,14 @@
   "ToyBox_Features_LevelUp_LevelUpFeatureTab_Name": {
     "Original": "Level Up",
     "Translated": "升级"
+  },
+  "ToyBox_Features_LevelUp_OwnedItemsHideFeature_Name": {
+    "Original": "Hide Owned Features In Picker",
+    "Translated": "隐藏已拥有且无法再选的条目"
+  },
+  "ToyBox_Features_LevelUp_OwnedItemsHideFeature_Description": {
+    "Original": "Hides picker entries you already own and can no longer take (the greyed owned ones, including the ship picker's trailing owned section). Owned entries that can still be ranked up, stat advancements and not-owned prerequisite failures are unaffected. Applies on the next list build.",
+    "Translated": "隐藏你已拥有且无法再选的条目（呈灰色的已拥有条目，包括舰船列表末尾的“已拥有”区）。仍可继续升级的已拥有条目、属性/技能进阶以及因前置条件不满足而灰色的未拥有条目不受影响。下次刷新列表时生效。"
   },
   "ToyBox_Features_LevelUp_RespecFromLevelXFeature_Name": {
     "Original": "Respec From Level X",
@@ -3746,5 +3762,13 @@
   "ToyBox_Main_m_YouNeedToClearTheException_LocalizedText": {
     "Original": "You need to clear the exception!",
     "Translated": "你需要先清除异常！"
+  },
+  "ToyBox_Features_LevelUp_CareerRailItemScaleFeature_Name": {
+    "Original": "缩小职业进度轨条目",
+    "Translated": "缩小职业进度轨条目"
+  },
+  "ToyBox_Features_LevelUp_CareerRailItemScaleFeature_Description": {
+    "Original": "Scales the per-rank selection circles on the career progression rail to 25% of their vanilla size (the vanilla taper is preserved). Useful when multiplied picks crowd the rail. Applies when the character screen is reopened.",
+    "Translated": "将职业进度轨上每级的选点圆圈缩小到原尺寸的 25%（保留原有的逐级递减）。倍率多选挤满进度轨时特别有用。重新打开角色界面后生效。"
   }
 }

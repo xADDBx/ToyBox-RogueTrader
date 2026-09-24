@@ -1347,6 +1347,14 @@
     "Original": "Feature Search",
     "Translated": null
   },
+  "ToyBox_Features_LevelUp_FoldPersistenceFeature_Name": {
+    "Original": "Keep Picker Group Folds",
+    "Translated": null
+  },
+  "ToyBox_Features_LevelUp_FoldPersistenceFeature_Description": {
+    "Original": "Remembers expanded/collapsed groups in the level-up feature picker across slot switches, picks and commits for the whole progression-window session (the same lifetime the picker's filter already uses). Favourites view and ship pickers are unaffected.",
+    "Translated": null
+  },
   "ToyBox_Features_LevelUp_IgnoreArchetypePrerequisitesFeature_Name": {
     "Original": "Ignore Archetypes Prerequisites",
     "Translated": null
@@ -1381,6 +1389,14 @@
   },
   "ToyBox_Features_LevelUp_LevelUpFeatureTab_Name": {
     "Original": "Level Up",
+    "Translated": null
+  },
+  "ToyBox_Features_LevelUp_OwnedItemsHideFeature_Name": {
+    "Original": "Hide Owned Features In Picker",
+    "Translated": null
+  },
+  "ToyBox_Features_LevelUp_OwnedItemsHideFeature_Description": {
+    "Original": "Hides picker entries you already own and can no longer take (the greyed owned ones, including the ship picker's trailing owned section). Owned entries that can still be ranked up, stat advancements and not-owned prerequisite failures are unaffected. Applies on the next list build.",
     "Translated": null
   },
   "ToyBox_Features_LevelUp_RespecFromLevelXFeature_Name": {
@@ -3745,6 +3761,14 @@
   },
   "ToyBox_Main_m_YouNeedToClearTheException_LocalizedText": {
     "Original": "You need to clear the exception!",
+    "Translated": null
+  },
+  "ToyBox_Features_LevelUp_CareerRailItemScaleFeature_Name": {
+    "Original": "Shrink Career Rail Items",
+    "Translated": null
+  },
+  "ToyBox_Features_LevelUp_CareerRailItemScaleFeature_Description": {
+    "Original": "Scales the per-rank selection circles on the career progression rail to 25% of their vanilla size (the vanilla taper is preserved). Useful when multiplied picks crowd the rail. Applies when the character screen is reopened.",
     "Translated": null
   }
 }

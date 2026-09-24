@@ -221,6 +221,9 @@ public class GeneralSettings : AbstractJsonSettings {
     public bool EnableIgnoreTalentPrerequisites = false;
     public bool EnableIgnoreStatPrerequisites = false;
     public bool EnableIgnoreClassLevelsPrerequisites = false;
+    public bool EnableFoldStatePersistence = false;
+    public bool HideOwnedMaxedEntries = false;
+    public bool ShrinkCareerRailItems = false;
 
 
     // Party

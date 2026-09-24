@@ -1347,6 +1347,14 @@
     "Original": "Feature Search",
     "Translated": "Поиск функций"
   },
+  "ToyBox_Features_LevelUp_FoldPersistenceFeature_Name": {
+    "Original": "Keep Picker Group Folds",
+    "Translated": "Запоминать свернутые группы в списке выбора"
+  },
+  "ToyBox_Features_LevelUp_FoldPersistenceFeature_Description": {
+    "Original": "Remembers expanded/collapsed groups in the level-up feature picker across slot switches, picks and commits for the whole progression-window session (the same lifetime the picker's filter already uses). Favourites view and ship pickers are unaffected.",
+    "Translated": "Запоминает развернутые/свернутые группы в списке выбора особенностей при повышении уровня — при переключении слотов, выборах и подтверждениях — на весь сеанс окна развития (тот же срок жизни, что уже используется фильтром списка выбора). Раздел «Избранное» и списки выбора корабля не затрагиваются."
+  },
   "ToyBox_Features_LevelUp_IgnoreArchetypePrerequisitesFeature_Name": {
     "Original": "Ignore Archetypes Prerequisites",
     "Translated": "Игнорировать требования архетипов"
@@ -1382,6 +1390,14 @@
   "ToyBox_Features_LevelUp_LevelUpFeatureTab_Name": {
     "Original": "Level Up",
     "Translated": "Повышение уровня"
+  },
+  "ToyBox_Features_LevelUp_OwnedItemsHideFeature_Name": {
+    "Original": "Hide Owned Features In Picker",
+    "Translated": "Скрывать имеющиеся особенности в списке выбора"
+  },
+  "ToyBox_Features_LevelUp_OwnedItemsHideFeature_Description": {
+    "Original": "Hides picker entries you already own and can no longer take (the greyed owned ones, including the ship picker's trailing owned section). Owned entries that can still be ranked up, stat advancements and not-owned prerequisite failures are unaffected. Applies on the next list build.",
+    "Translated": "Скрывает записи списка выбора, которые уже есть у вас и больше не могут быть взяты (серые записи имеющихся, включая раздел имеющихся в конце списка выбора корабля). Записи имеющихся, которые еще можно повышать по рангам, повышения характеристик и отклоненные по требованиям записи, которых у вас нет, не затрагиваются. Применяется при следующем построении списка."
   },
   "ToyBox_Features_LevelUp_RespecFromLevelXFeature_Name": {
     "Original": "Respec From Level X",
@@ -3746,5 +3762,13 @@
   "ToyBox_Main_m_YouNeedToClearTheException_LocalizedText": {
     "Original": "You need to clear the exception!",
     "Translated": "Вам нужно очистить исключение!"
+  },
+  "ToyBox_Features_LevelUp_CareerRailItemScaleFeature_Name": {
+    "Original": "Уменьшить элементы шкалы карьеры",
+    "Translated": "Уменьшить элементы шкалы карьеры"
+  },
+  "ToyBox_Features_LevelUp_CareerRailItemScaleFeature_Description": {
+    "Original": "Scales the per-rank selection circles on the career progression rail to 25% of their vanilla size (the vanilla taper is preserved). Useful when multiplied picks crowd the rail. Applies when the character screen is reopened.",
+    "Translated": "Уменьшает круги выбора на шкале карьерного прогресса до 25% от исходного размера (постепенное уменьшение оригинала сохраняется). Полезно, когда множественный выбор переполняет шкалу. Применяется после повторного открытия окна персонажа."
   }
 }
