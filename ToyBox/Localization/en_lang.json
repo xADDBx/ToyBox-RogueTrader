@@ -339,6 +339,14 @@
     "Original": "Revives and heals the selected characters + restores action points and ability cooldowns.",
     "Translated": null
   },
+  "ToyBox_Features_BagOfTricks_Common_AugmentPostLoadFixFeature_Name": {
+    "Original": "Fix Augment PostLoad Crash",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Common_AugmentPostLoadFixFeature_Description": {
+    "Original": "Fixes a game bug where UnitAugments.OnPostLoad removes entries while iterating them (InvalidOperationException 'Collection was modified'), which leaves augment-bearing units half-loaded and spams NullReferenceException every frame.",
+    "Translated": null
+  },
   "ToyBox_Features_BagOfTricks_Common_ChangePartyFeature_Name": {
     "Original": "Change Party",
     "Translated": null

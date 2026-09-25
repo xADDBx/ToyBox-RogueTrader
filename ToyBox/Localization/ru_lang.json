@@ -339,6 +339,14 @@
     "Original": "Revives and heals the selected characters + restores action points and ability cooldowns.",
     "Translated": "Воскрешает и лечит выбранных персонажей + восстанавливает очки действий и перезарядку способностей."
   },
+  "ToyBox_Features_BagOfTricks_Common_AugmentPostLoadFixFeature_Name": {
+    "Original": "Fix Augment PostLoad Crash",
+    "Translated": "Исправить краш PostLoad имплантов"
+  },
+  "ToyBox_Features_BagOfTricks_Common_AugmentPostLoadFixFeature_Description": {
+    "Original": "Fixes a game bug where UnitAugments.OnPostLoad removes entries while iterating them (InvalidOperationException 'Collection was modified'), which leaves augment-bearing units half-loaded and spams NullReferenceException every frame.",
+    "Translated": "Исправляет баг игры, при котором UnitAugments.OnPostLoad удаляет записи во время их перебора (InvalidOperationException «Collection was modified»), из-за чего юниты с имплантами остаются наполовину загруженными, а NullReferenceException спамит каждый кадр."
+  },
   "ToyBox_Features_BagOfTricks_Common_ChangePartyFeature_Name": {
     "Original": "Change Party",
     "Translated": "Сменить группу"

@@ -63,6 +63,7 @@ public partial class BagOfTricksFeatureTab : FeatureTab {
 
         AddFeature(new GoToGlobalMapFeature(), m_CommonLocalizedText);
         AddFeature(new ChangePartyFeature(), m_CommonLocalizedText);
+        AddFeature(new AugmentPostLoadFixFeature(), m_CommonLocalizedText);
         AddFeature(new RerollPerceptionFeature(), m_CommonLocalizedText);
         AddFeature(new ResetInteractablesFeature(), m_CommonLocalizedText);
         AddFeature(new ChangeWeatherFeature(), m_CommonLocalizedText);

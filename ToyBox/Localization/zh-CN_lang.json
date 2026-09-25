@@ -339,6 +339,14 @@
     "Original": "Revives and heals the selected characters + restores action points and ability cooldowns.",
     "Translated": "复活并治疗所选角色，同时恢复行动点和能力冷却。"
   },
+  "ToyBox_Features_BagOfTricks_Common_AugmentPostLoadFixFeature_Name": {
+    "Original": "Fix Augment PostLoad Crash",
+    "Translated": "修复植入槽位加载崩溃"
+  },
+  "ToyBox_Features_BagOfTricks_Common_AugmentPostLoadFixFeature_Description": {
+    "Original": "Fixes a game bug where UnitAugments.OnPostLoad removes entries while iterating them (InvalidOperationException 'Collection was modified'), which leaves augment-bearing units half-loaded and spams NullReferenceException every frame.",
+    "Translated": "修复游戏本体bug：带植入槽位的单位加载时（UnitAugments.OnPostLoad）边遍历边删除字典条目导致 InvalidOperationException「Collection was modified」，使单位半初始化并让游戏每帧刷 NullReferenceException（掉帧卡顿）。"
+  },
   "ToyBox_Features_BagOfTricks_Common_ChangePartyFeature_Name": {
     "Original": "Change Party",
     "Translated": "调整队伍"
