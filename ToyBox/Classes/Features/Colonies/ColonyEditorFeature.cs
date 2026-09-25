@@ -8,6 +8,7 @@ using UnityEngine;
 namespace ToyBox.Features.Colonies;
 
 public partial class ColonyEditorFeature : Feature {
+    private bool m_StaleColonyWarned;
     [LocalizedString("ToyBox_Features_Colonies_ColonyEditorFeature_Name", "Colony Editor")]
     public override partial string Name { get; }
     [LocalizedString("ToyBox_Features_Colonies_ColonyEditorFeature_Description", "View and edit your colonies: their stats, traits, ongoing events and projects, and the shared resource pool.")]
@@ -57,21 +58,34 @@ public partial class ColonyEditorFeature : Feature {
             m_SelectedColony = colonies[0];
         }
 
-        using (HorizontalScope()) {
-            using (VerticalScope(GUI.skin.box, Width(320 * Main.UIScale))) {
-                UI.Label(m_ColoniesText.Cyan().Bold());
-                _ = UI.SelectionGrid(ref m_SelectedColony, colonies, 1, cd => BPHelper.GetTitle(cd.Colony.Blueprint), Width(300 * Main.UIScale));
+        // Colony data can go stale (area transition, disposed entities);
+        // a throw inside IMGUI OnGui loops every frame and floods the UMM
+        // log with empty echoes, visibly stalling the game.
+        try {
+            using (HorizontalScope()) {
+                using (VerticalScope(GUI.skin.box, Width(320 * Main.UIScale))) {
+                    UI.Label(m_ColoniesText.Cyan().Bold());
+                    _ = UI.SelectionGrid(ref m_SelectedColony, colonies, 1, cd => BPHelper.GetTitle(cd.Colony.Blueprint), Width(300 * Main.UIScale));
+                }
+                Space(10);
+                using (VerticalScope()) {
+                    ColonyGUI(m_SelectedColony.Colony);
+                }
             }
-            Space(10);
-            using (VerticalScope()) {
-                ColonyGUI(m_SelectedColony.Colony);
-            }
-        }
 
-        Div.DrawDiv();
-        _ = UI.DisclosureToggle(ref m_EditResources, m_EditResourcesText.Cyan().Bold());
-        if (m_EditResources) {
-            ResourcesGUI();
+            Div.DrawDiv();
+            _ = UI.DisclosureToggle(ref m_EditResources, m_EditResourcesText.Cyan().Bold());
+            if (m_EditResources) {
+                ResourcesGUI();
+            }
+        } catch (Exception ex) {
+            // Skip this frame's draw: IMGUI will retry next frame; a
+            // permanently-stale colony shows as a blank panel rather
+            // than a stuck game.
+            if (!m_StaleColonyWarned) {
+                m_StaleColonyWarned = true;
+                Warn($"Colony editor draw failed (stale colony data): {ex.Message}");
+            }
         }
     }
 
@@ -183,7 +197,38 @@ public partial class ColonyEditorFeature : Feature {
         m_ResourceBrowser ??= new(BPHelper.GetSortKey, BPHelper.GetSearchKey);
         if (!m_ResourcesRequested) {
             m_ResourcesRequested = true;
-            _ = BPLoader.GetBlueprintsOfType<BlueprintResource>(bps => Main.ScheduleForMainThread(() => m_ResourceBrowser?.UpdateItems(bps)));
+            // The (threaded) BPLoader deserializes off the main thread and has
+            // wedged the game right after small loads; the colony system keeps
+            // the handful of BlueprintResources deserialized in the live cache,
+            // so scan that synchronously instead. Fall back to BPLoader only
+            // if the scan somehow comes up empty.
+            var resources = new List<BlueprintResource>();
+            var scanCompleted = false;
+            try {
+                // Skip the live cache while the threaded loader may be writing
+                // to it; fall through to the BPLoader branch below instead.
+                if (!BPLoader.IsLoading) {
+                    var loadedBlueprints = Kingmaker.Blueprints.ResourcesLibrary.BlueprintsCache.m_LoadedBlueprints;
+                    // Upstream (BPLoader race fix) serializes game-side access on
+                    // the dictionary itself; take the same lock for this scan.
+                    lock (loadedBlueprints) {
+                        foreach (var cached in loadedBlueprints.Values) {
+                            if (cached.Blueprint is BlueprintResource resource) {
+                                resources.Add(resource);
+                            }
+                        }
+                    }
+                    scanCompleted = true;
+                }
+            } catch (Exception ex) {
+                Warn($"Colony resource cache scan failed:\n{ex}");
+            }
+            Debug($"Colony resources loaded: {resources.Count} (clean={scanCompleted})");
+            if (scanCompleted && resources.Count > 0) {
+                m_ResourceBrowser.UpdateItems(resources);
+            } else {
+                _ = BPLoader.GetBlueprintsOfType<BlueprintResource>(bps => Main.ScheduleForMainThread(() => m_ResourceBrowser?.UpdateItems(bps)));
+            }
         }
         using (HorizontalScope()) {
             UI.Label((m_ResourceAdjustText + ":").Cyan(), AutoWidth());

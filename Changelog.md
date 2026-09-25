@@ -1,4 +1,5 @@
 * (***ADDB***) Reduce log spam (related to RemoteCompanionDialog)
+* (***quinnwen***) Colony editor: guard against stale colony data and load resources from the live blueprint cache instead of the threaded BPLoader
 * (***quinnwen***) Self-heal EntityBounds scene collision exception storm after area transitions
 * (***quinnwen***) Fix UnitAugments.OnPostLoad crash (collection modified while iterating; leaves half-loaded units and NRE spam)
 
