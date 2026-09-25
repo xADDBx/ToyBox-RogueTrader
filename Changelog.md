@@ -1,4 +1,5 @@
 * (***ADDB***) Reduce log spam (related to RemoteCompanionDialog)
+* (***quinnwen***) Self-heal EntityBounds scene collision exception storm after area transitions
 * (***quinnwen***) Fix UnitAugments.OnPostLoad crash (collection modified while iterating; leaves half-loaded units and NRE spam)
 
 ### ToyBox Rogue - Ver 2.0.14 (built for 1.6.1.511)
