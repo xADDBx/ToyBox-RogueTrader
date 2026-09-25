@@ -23,6 +23,16 @@ public sealed class ToyBoxPatchCategoryAttribute : Attribute {
                 harmony.UnpatchAll(harmony.Id);
                 throw;
             }
+            if (toPatch.Count == 0) {
+                // a registered-but-empty category means every patch
+                // class was silently lost (typo, refactoring) — the feature
+                // would run unpatched with no trace. Make it loud instead.
+                Error($"Patch category '{categoryName}' contains zero patch types — the feature will run WITHOUT its patches. Please report to mod author!", false);
+            }
+        } else {
+            // a missing category previously returned silently while
+            // the caller marked the feature patched — a silent kill switch.
+            Error($"Patch category '{categoryName}' not found — the feature will run WITHOUT its patches. Please report to mod author!", false);
         }
     }
     public static void CreateHarmonyCategoryCache() {
