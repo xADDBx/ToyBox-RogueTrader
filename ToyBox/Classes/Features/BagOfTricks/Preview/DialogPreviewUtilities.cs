@@ -105,10 +105,17 @@ public static partial class DialogPreviewUtilities {
     }
     public static string? FormatSoulmarkShift(SoulMarkShift? shift, string format) {
         if (shift != null && shift.Value != 0) {
-            if (shift.Description?.Text is string { Length: > 0 } description) {
-                return string.Format(format, $"{UIUtility.GetSoulMarkDirectionText(shift.Direction)}, {shift.Value}, {description}");
+            var value = shift.Description?.Text is string { Length: > 0 } description
+                ? $"{UIUtility.GetSoulMarkDirectionText(shift.Direction).Text}, {shift.Value}, {description}"
+                : $"{UIUtility.GetSoulMarkDirectionText(shift.Direction).Text}, {shift.Value}";
+            try {
+                return string.Format(format, value);
+            } catch (FormatException) {
+                // A localized format string that lost its {0} (or carries a
+                // stray brace) must never kill the whole preview render -
+                // observed live as repeated FormatExceptions in zh-CN.
+                return $"{format.TrimEnd(' ', '(', '[', '{')} {value}";
             }
-            return string.Format(format, $"{UIUtility.GetSoulMarkDirectionText(shift.Direction)}, {shift.Value}");
         }
         return null;
     }
@@ -126,7 +133,7 @@ public static partial class DialogPreviewUtilities {
             if ((actions?.Length ?? 0) > 0) {
                 line.AddRange(actions.SelectMany(FormatActionAsList));
             }
-            if (FormatSoulmarkShift(alignmentRequirement, m_SoulMarkRequiredLocalizedText + "({0])") is { } soulMarkRequiredText) {
+            if (FormatSoulmarkShift(alignmentRequirement, m_SoulMarkRequiredLocalizedText + "({0})") is { } soulMarkRequiredText) {
                 line.Add(soulMarkRequiredText);
             }
             if (FormatSoulmarkShift(alignment, m_SoulMarkShiftLocalizedText + "({0})") is { } soulMarkShiftText) {

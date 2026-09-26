@@ -1,4 +1,5 @@
 * (***ADDB***) Reduce log spam (related to RemoteCompanionDialog)
+* (***quinnwen***) Fix dialog preview soulmark formatting crash (typo format token, localized direction text, guard FormatException)
 * (***quinnwen***) Object Highlight Toggle: note the Enhanced Controls interaction once instead of silently disabling
 
 ### ToyBox Rogue - Ver 2.0.14 (built for 1.6.1.511)
