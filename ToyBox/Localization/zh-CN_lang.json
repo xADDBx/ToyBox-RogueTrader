@@ -808,8 +808,8 @@
     "Translated": "物体高亮切换模式"
   },
   "ToyBox_Features_BagOfTricks_QualityOfLife_ObjectHighlightToggleFeature_Description": {
-    "Original": "Turns the object highlight key into a toggle (press to switch) outside of combat.",
-    "Translated": "将战斗外的物体高亮键改为切换模式（按一次开启或关闭）。"
+    "Original": "Turns the object highlight key into a toggle (press to switch) outside of combat. Logs a note when Enhanced Controls is also installed (both drive the same highlight controller).",
+    "Translated": "在战斗外将物体高亮键变为切换开关（按一下切换开关）。若同时安装了 Enhanced Controls 会在日志中提示（两者驱动同一个高亮控制器）。"
   },
   "ToyBox_Features_BagOfTricks_QualityOfLife_RefillBeltConsumablesFeature_Name": {
     "Original": "Refill Belt Consumables",

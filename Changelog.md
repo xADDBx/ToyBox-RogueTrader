@@ -1,4 +1,5 @@
 * (***ADDB***) Reduce log spam (related to RemoteCompanionDialog)
+* (***quinnwen***) Object Highlight Toggle: note the Enhanced Controls interaction once instead of silently disabling
 
 ### ToyBox Rogue - Ver 2.0.14 (built for 1.6.1.511)
 * (***ADDB***) Reduce allocations done by base game bp loading (PerformanceEnhancementFeature)
