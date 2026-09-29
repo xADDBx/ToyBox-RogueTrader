@@ -808,8 +808,8 @@
     "Translated": "Режим переключения подсветки объектов"
   },
   "ToyBox_Features_BagOfTricks_QualityOfLife_ObjectHighlightToggleFeature_Description": {
-    "Original": "Turns the object highlight key into a toggle (press to switch) outside of combat. Logs a note when Enhanced Controls is also installed (both drive the same highlight controller).",
-    "Translated": "Превращает клавишу подсветки объектов в переключатель (нажатие — вкл/выкл) вне боя. Записывает в лог примечание, если также установлен Enhanced Controls (оба управляют одним и тем же контроллером подсветки)."
+    "Original": "Turns the object highlight key into a toggle (press to switch) outside of combat.",
+    "Translated": "Превращает клавишу подсветки объектов в переключатель (нажмите для переключения) вне боя."
   },
   "ToyBox_Features_BagOfTricks_QualityOfLife_RefillBeltConsumablesFeature_Name": {
     "Original": "Refill Belt Consumables",

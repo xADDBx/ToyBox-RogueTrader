@@ -105,17 +105,10 @@ public static partial class DialogPreviewUtilities {
     }
     public static string? FormatSoulmarkShift(SoulMarkShift? shift, string format) {
         if (shift != null && shift.Value != 0) {
-            var value = shift.Description?.Text is string { Length: > 0 } description
-                ? $"{UIUtility.GetSoulMarkDirectionText(shift.Direction).Text}, {shift.Value}, {description}"
-                : $"{UIUtility.GetSoulMarkDirectionText(shift.Direction).Text}, {shift.Value}";
-            try {
-                return string.Format(format, value);
-            } catch (FormatException) {
-                // A localized format string that lost its {0} (or carries a
-                // stray brace) must never kill the whole preview render -
-                // observed live as repeated FormatExceptions in zh-CN.
-                return $"{format.TrimEnd(' ', '(', '[', '{')} {value}";
+            if (shift.Description?.Text is string { Length: > 0 } description) {
+                return string.Format(format, $"{UIUtility.GetSoulMarkDirectionText(shift.Direction)}, {shift.Value}, {description}");
             }
+            return string.Format(format, $"{UIUtility.GetSoulMarkDirectionText(shift.Direction)}, {shift.Value}");
         }
         return null;
     }

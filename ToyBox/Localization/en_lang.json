@@ -808,7 +808,7 @@
     "Translated": null
   },
   "ToyBox_Features_BagOfTricks_QualityOfLife_ObjectHighlightToggleFeature_Description": {
-    "Original": "Turns the object highlight key into a toggle (press to switch) outside of combat. Logs a note when Enhanced Controls is also installed (both drive the same highlight controller).",
+    "Original": "Turns the object highlight key into a toggle (press to switch) outside of combat.",
     "Translated": null
   },
   "ToyBox_Features_BagOfTricks_QualityOfLife_RefillBeltConsumablesFeature_Name": {

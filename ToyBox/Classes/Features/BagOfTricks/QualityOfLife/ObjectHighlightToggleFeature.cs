@@ -20,53 +20,9 @@ public partial class ObjectHighlightToggleFeature : FeatureWithPatch, IGameModeH
     private bool m_IsSubscribed = false;
     [LocalizedString("ToyBox_Features_BagOfTricks_QualityOfLife_ObjectHighlightToggleFeature_Name", "Object Highlight Toggle Mode")]
     public override partial string Name { get; }
-    [LocalizedString("ToyBox_Features_BagOfTricks_QualityOfLife_ObjectHighlightToggleFeature_Description", "Turns the object highlight key into a toggle (press to switch) outside of combat. Logs a note when Enhanced Controls is also installed (both drive the same highlight controller).")]
+    [LocalizedString("ToyBox_Features_BagOfTricks_QualityOfLife_ObjectHighlightToggleFeature_Description", "Turns the object highlight key into a toggle (press to switch) outside of combat.")]
     public override partial string Description { get; }
-
-    // EnhancedControls also drives the highlight controller with private
-    // state our patches cannot see: running both can leave the highlight
-    // stuck on or desync EC's state. We deliberately do NOT auto-disable -
-    // the player decides - we just note the combination once per session.
-    private static bool s_ConflictNoted;
-    private static Type? s_EnhancedControlsType;
-    private static int s_ScannedAssemblyCount;
-
-    private static Type? FindEnhancedControls() {
-        // Latch only the POSITIVE verdict: ToyBox loads before
-        // EnhancedControls, so a not-found at mod load must not stick for the
-        // whole session (assemblies are never unloaded once found).
-        if (s_EnhancedControlsType != null) {
-            return s_EnhancedControlsType;
-        }
-        var assemblies = AppDomain.CurrentDomain.GetAssemblies();
-        if (assemblies.Length == s_ScannedAssemblyCount) {
-            // Same assembly count means the same set (assemblies never
-            // unload) - skip the rescan on every re-check.
-            return null;
-        }
-        s_ScannedAssemblyCount = assemblies.Length;
-        foreach (var assembly in assemblies) {
-            s_EnhancedControlsType = assembly.GetType("EnhancedControls.Main", throwOnError: false);
-            if (s_EnhancedControlsType != null) {
-                break;
-            }
-        }
-        return s_EnhancedControlsType;
-    }
-
-    // ToyBox loads before EnhancedControls, so Enable() at mod load cannot
-    // see it yet - OnGameModeStart re-checks (game mode events only fire
-    // once every mod is loaded) and notes the combination.
-    private static void NoteEnhancedControlsConflict() {
-        if (s_ConflictNoted || FindEnhancedControls() == null) {
-            return;
-        }
-        s_ConflictNoted = true;
-        Warn("ToyBox: Object Highlight Toggle and Enhanced Controls both drive the object highlight; if highlighting ever sticks, disable one of them.");
-    }
-
     public override void Enable() {
-        NoteEnhancedControlsConflict();
         base.Enable();
         if (IsEnabled && !m_IsSubscribed) {
             _ = EventBus.Subscribe(this);
@@ -90,7 +46,6 @@ public partial class ObjectHighlightToggleFeature : FeatureWithPatch, IGameModeH
     private static bool m_WasTurnedOff = false;
     private static bool m_JustChangedViaBinding = false;
     public void OnGameModeStart(GameModeType gameMode) {
-        NoteEnhancedControlsConflict();
         if (Game.Instance.Player.IsInCombat) {
             return;
         }
