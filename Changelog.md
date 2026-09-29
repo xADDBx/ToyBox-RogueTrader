@@ -1,3 +1,4 @@
+### ToyBox Rogue - Ver 2.0.15 (built for 1.6.1.511)
 * (***ADDB***) Reduce log spam (related to RemoteCompanionDialog)
 * (***quinnwen***) Added a talent selection multiplier to Level Up.
 * (***quinnwen***) Fix dialog preview soulmark formatting crash (typo format token, localized direction text)
