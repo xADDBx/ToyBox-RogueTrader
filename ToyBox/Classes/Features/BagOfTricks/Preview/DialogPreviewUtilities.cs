@@ -126,7 +126,7 @@ public static partial class DialogPreviewUtilities {
             if ((actions?.Length ?? 0) > 0) {
                 line.AddRange(actions.SelectMany(FormatActionAsList));
             }
-            if (FormatSoulmarkShift(alignmentRequirement, m_SoulMarkRequiredLocalizedText + "({0])") is { } soulMarkRequiredText) {
+            if (FormatSoulmarkShift(alignmentRequirement, m_SoulMarkRequiredLocalizedText + "({0})") is { } soulMarkRequiredText) {
                 line.Add(soulMarkRequiredText);
             }
             if (FormatSoulmarkShift(alignment, m_SoulMarkShiftLocalizedText + "({0})") is { } soulMarkShiftText) {
