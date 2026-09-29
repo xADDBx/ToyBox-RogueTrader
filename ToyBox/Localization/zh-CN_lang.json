@@ -1427,6 +1427,14 @@
     "Original": "Apply Custom Level",
     "Translated": "应用自定义等级"
   },
+  "ToyBox_Features_LevelUp_TalentSelectionMultiplierFeature_Name": {
+    "Original": "Talent Selection Multiplier",
+    "Translated": "天赋选择倍率"
+  },
+  "ToyBox_Features_LevelUp_TalentSelectionMultiplierFeature_Description": {
+    "Original": "Multiplies career talent selections (1 = normal). Learned talents remain after disabling, but extra choices are no longer shown in the career progression after reopening the character screen. Don't change this setting mid-levelup.",
+    "Translated": "成倍增加职业天赋的选择次数（1 = 正常）。关闭功能后，已习得的天赋仍会保留，但重新打开角色界面后，职业进阶界面将不再显示额外的选择栏位。请勿在升级过程中更改此设置。"
+  },
   "ToyBox_Features_Loot_LootAoEFeature_Name": {
     "Original": "AoE Loot",
     "Translated": "范围拾取"
