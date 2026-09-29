@@ -106,9 +106,9 @@ public static partial class DialogPreviewUtilities {
     public static string? FormatSoulmarkShift(SoulMarkShift? shift, string format) {
         if (shift != null && shift.Value != 0) {
             if (shift.Description?.Text is string { Length: > 0 } description) {
-                return string.Format(format, $"{UIUtility.GetSoulMarkDirectionText(shift.Direction)}, {shift.Value}, {description}");
+                return string.Format(format, $"{UIUtility.GetSoulMarkDirectionText(shift.Direction).Text}, {shift.Value}, {description}");
             }
-            return string.Format(format, $"{UIUtility.GetSoulMarkDirectionText(shift.Direction)}, {shift.Value}");
+            return string.Format(format, $"{UIUtility.GetSoulMarkDirectionText(shift.Direction).Text}, {shift.Value}");
         }
         return null;
     }
