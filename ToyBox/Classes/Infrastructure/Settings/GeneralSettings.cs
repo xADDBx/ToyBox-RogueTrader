@@ -221,6 +221,8 @@ public class GeneralSettings : AbstractJsonSettings {
     public bool EnableIgnoreTalentPrerequisites = false;
     public bool EnableIgnoreStatPrerequisites = false;
     public bool EnableIgnoreClassLevelsPrerequisites = false;
+    public bool EnableTalentSelectionMultiplier = false;
+    public int TalentSelectionMultiplier = 1;
 
 
     // Party
