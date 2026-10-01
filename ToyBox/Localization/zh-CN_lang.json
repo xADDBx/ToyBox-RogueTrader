@@ -168,7 +168,7 @@
     "Translated": "高亮隐藏物体"
   },
   "ToyBox_Features_BagOfTricks_Cheats_HighlightHiddenObjectsFeature_Description": {
-    "Original": "Highlights objects even if they would normally be hidden by a perception Check or otherwise. Optionally also highlight objects in Fog Of War and hidden traps.",
+    "Original": "Highlights objects even if they would normally be hidden by an Awareness check or otherwise. Optionally also highlight objects in Fog Of War and hidden traps.",
     "Translated": "高亮通常会因察觉检定等原因而隐藏的物体；还可选择高亮战争迷雾中的物体和隐藏陷阱。"
   },
   "ToyBox_Features_BagOfTricks_Cheats_HighlightHiddenObjectsFeature_AlsoHighlightHiddenTrapsText": {
@@ -718,10 +718,6 @@
   "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_SoulMarkShiftLocalizedText": {
     "Original": "SoulMarkShift",
     "Translated": "灵魂印记偏移"
-  },
-  "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_Check__1__DC_2__Hidden_3__LocalizedText": {
-    "Original": "Check({1}, DC {2}, hidden {3})",
-    "Translated": "检定（{1}，DC {2}，隐藏：{3}）"
   },
   "ToyBox_Features_BagOfTricks_Preview_PreviewDialogConditionsFeature_Name": {
     "Original": "Dialog Conditions",

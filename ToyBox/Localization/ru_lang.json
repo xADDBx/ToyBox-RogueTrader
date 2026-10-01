@@ -168,7 +168,7 @@
     "Translated": "Подсвечивать скрытые объекты"
   },
   "ToyBox_Features_BagOfTricks_Cheats_HighlightHiddenObjectsFeature_Description": {
-    "Original": "Highlights objects even if they would normally be hidden by a perception Check or otherwise. Optionally also highlight objects in Fog Of War and hidden traps.",
+    "Original": "Highlights objects even if they would normally be hidden by an Awareness check or otherwise. Optionally also highlight objects in Fog Of War and hidden traps.",
     "Translated": "Подсвечивает объекты, даже если они обычно скрыты проверкой восприятия. Опционально подсвечивает объекты в тумане войны и скрытые ловушки."
   },
   "ToyBox_Features_BagOfTricks_Cheats_HighlightHiddenObjectsFeature_AlsoHighlightHiddenTrapsText": {
@@ -718,10 +718,6 @@
   "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_SoulMarkShiftLocalizedText": {
     "Original": "SoulMarkShift",
     "Translated": "СдвигМеткиДуши"
-  },
-  "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_Check__1__DC_2__Hidden_3__LocalizedText": {
-    "Original": "Check({1}, DC {2}, hidden {3})",
-    "Translated": "Проверка({1}, СЛ {2}, скрытая {3})"
   },
   "ToyBox_Features_BagOfTricks_Preview_PreviewDialogConditionsFeature_Name": {
     "Original": "Dialog Conditions",

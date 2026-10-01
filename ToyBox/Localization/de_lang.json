@@ -168,8 +168,8 @@
     "Translated": "Versteckte Objekte hervorheben"
   },
   "ToyBox_Features_BagOfTricks_Cheats_HighlightHiddenObjectsFeature_Description": {
-    "Original": "Highlights objects even if they would normally be hidden by a perception Check or otherwise. Optionally also highlight objects in Fog Of War and hidden traps.",
-    "Translated": "Hebt auch Objekte hervor, die normalerweise durch eine Wahrnehmungsprobe oder aus anderen Gründen verborgen sind. Optional werden auch Objekte im Kriegsnebel und versteckte Fallen hervorgehoben."
+    "Original": "Highlights objects even if they would normally be hidden by an Awareness check or otherwise. Optionally also highlight objects in Fog Of War and hidden traps.",
+    "Translated": "Hebt auch Objekte hervor, die normalerweise durch eine Achtsamkeitsprobe oder aus anderen Gründen verborgen sind. Optional werden auch Objekte im Kriegsnebel und versteckte Fallen hervorgehoben."
   },
   "ToyBox_Features_BagOfTricks_Cheats_HighlightHiddenObjectsFeature_AlsoHighlightHiddenTrapsText": {
     "Original": "Also Highlight Hidden Traps",
@@ -329,7 +329,7 @@
   },
   "ToyBox_Features_BagOfTricks_Combat_RestAllFeature_Description": {
     "Original": "Revives and heals all characters + restores action points, ability cooldowns and item charges.",
-    "Translated": "Belebt und heilt alle Charaktere und stellt Aktionspunkte, Fähigkeitsabklingzeiten und Gegenstandsladungen wieder her."
+    "Translated": "Belebt und heilt alle Charaktere, stellt Aktionspunkte und Gegenstandsladungen wieder her und setzt Fähigkeitsabklingzeiten zurück."
   },
   "ToyBox_Features_BagOfTricks_Combat_RestSelectedFeature_Name": {
     "Original": "Rest Selected",
@@ -337,7 +337,7 @@
   },
   "ToyBox_Features_BagOfTricks_Combat_RestSelectedFeature_Description": {
     "Original": "Revives and heals the selected characters + restores action points and ability cooldowns.",
-    "Translated": "Belebt und heilt die ausgewählten Charaktere und stellt Aktionspunkte und Fähigkeitsabklingzeiten wieder her."
+    "Translated": "Belebt und heilt die ausgewählten Charaktere, stellt Aktionspunkte wieder her und setzt Fähigkeitsabklingzeiten zurück."
   },
   "ToyBox_Features_BagOfTricks_Common_ChangePartyFeature_Name": {
     "Original": "Change Party",
@@ -397,11 +397,11 @@
   },
   "ToyBox_Features_BagOfTricks_Dialog_ExCompanionDialogFeature_Name": {
     "Original": "Include Ex-Companions In Remote Companion Dialog",
-    "Translated": "Ehemalige Gefährten in Ferndialoge einbeziehen"
+    "Translated": "Ehemalige Gefährten in Dialoge mit abwesenden Gefährten einbeziehen"
   },
   "ToyBox_Features_BagOfTricks_Dialog_ExCompanionDialogFeature_Description": {
     "Original": "This makes Remote Companion Dialog also include companions who left the party.",
-    "Translated": "Bezieht auch Gefährten, die die Gruppe verlassen haben, in Ferndialoge ein."
+    "Translated": "Bezieht auch Gefährten, die die Gruppe verlassen haben, in Dialoge mit abwesenden Gefährten ein."
   },
   "ToyBox_Features_BagOfTricks_Dialog_IgnoreDialogRestrictionsEverythingFeature_Name": {
     "Original": "Ignore Dialog Restrictions (Everything, Experimental)",
@@ -437,7 +437,7 @@
   },
   "ToyBox_Features_BagOfTricks_Dialog_OverrideStoryOccupationFeature_Name": {
     "Original": "Override Story Occupation",
-    "Translated": "Herkunft für die Handlung überschreiben"
+    "Translated": "Ursprung für die Handlung überschreiben"
   },
   "ToyBox_Features_BagOfTricks_Dialog_OverrideStoryOccupationFeature_Description": {
     "Original": "Make the game recognize you as e.g. having the Sanctioned Psyker instead of whatever you actually picked.",
@@ -589,7 +589,7 @@
   },
   "ToyBox_Features_BagOfTricks_EnemyStatModifier_EnemyFlatStatModifierFeature_Description": {
     "Original": "Allows adding flat stat boosts to enemies, e.g. Enemy Health +20.",
-    "Translated": "Erlaubt feste Boni auf Gegnerwerte, z. B. Gegnergesundheit +20."
+    "Translated": "Erlaubt feste Boni auf Gegnerwerte, z. B. Wunden eines Gegners +20."
   },
   "ToyBox_Features_BagOfTricks_EnemyStatModifier_EnemyStatMultiplierFeature_Name": {
     "Original": "Enemy Stat Multiplier",
@@ -597,7 +597,7 @@
   },
   "ToyBox_Features_BagOfTricks_EnemyStatModifier_EnemyStatMultiplierFeature_Description": {
     "Original": "Allows adding stat multipliers, e.g. Enemy Health x3.",
-    "Translated": "Erlaubt Multiplikatoren für Gegnerwerte, z. B. Gegnergesundheit ×3."
+    "Translated": "Erlaubt Multiplikatoren für Gegnerwerte, z. B. Wunden eines Gegners ×3."
   },
   "ToyBox_Features_BagOfTricks_ExperienceMultipliers_ExperienceMultiplierFeature_Name": {
     "Original": "Experience Multipliers",
@@ -693,7 +693,7 @@
   },
   "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_ShowCheck__0_DC__1__LocalizedText": {
     "Original": "Show Check ({0} DC: {1})",
-    "Translated": "Anzeigeprobe ({0}, SG: {1})"
+    "Translated": "Probe zur Anzeige ({0}, SG: {1})"
   },
   "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_ShowConditionsLocalizedText": {
     "Original": "Show Conditions",
@@ -718,10 +718,6 @@
   "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_SoulMarkShiftLocalizedText": {
     "Original": "SoulMarkShift",
     "Translated": "Überzeugungsänderung"
-  },
-  "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_Check__1__DC_2__Hidden_3__LocalizedText": {
-    "Original": "Check({1}, DC {2}, hidden {3})",
-    "Translated": "Probe({1}, SG {2}, verborgen {3})"
   },
   "ToyBox_Features_BagOfTricks_Preview_PreviewDialogConditionsFeature_Name": {
     "Original": "Dialog Conditions",
@@ -801,7 +797,7 @@
   },
   "ToyBox_Features_BagOfTricks_QualityOfLife_LoadingWithBlueprintErrorsFeature_Description": {
     "Original": "This feature allows loading saves even with missing blueprint mods, which can be dangerous. This can potentially allow you to recover a save, though you'll have to respec at minimum.",
-    "Translated": "Erlaubt das Laden von Spielständen trotz fehlender Blueprint-Mods, was gefährlich sein kann. So lässt sich eventuell ein Spielstand retten; mindestens eine Neuverteilung der Charaktere ist jedoch nötig."
+    "Translated": "Erlaubt das Laden von Spielständen trotz fehlender Blueprint-Mods, was gefährlich sein kann. So lässt sich eventuell ein Spielstand retten; mindestens ein Zurücksetzen des Charakterfortschritts ist jedoch nötig."
   },
   "ToyBox_Features_BagOfTricks_QualityOfLife_ObjectHighlightToggleFeature_Name": {
     "Original": "Object Highlight Toggle Mode",
@@ -909,7 +905,7 @@
   },
   "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_Description": {
     "Original": "Allows modifying Scrap, Profit Factor, Navigators Insight and possibly current Veil Thickness.",
-    "Translated": "Erlaubt das Ändern von Schrott, Profitfaktor, Einsicht des Navigators und gegebenenfalls dem aktuellen Zerfall des Schleiers."
+    "Translated": "Erlaubt es, Schrott, Profitfaktor, Einsicht des Navigators und gegebenenfalls den aktuellen Zerfall des Schleiers zu ändern."
   },
   "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_CurrentNavigatorInsightLocalizedText": {
     "Original": "Current Navigator Insight",
@@ -1237,11 +1233,11 @@
   },
   "ToyBox_Features_Etudes_EtudeRecord_m_ChainedEtude_0___1__HasDifferentLocalizedText": {
     "Original": "Chained etude {0} ({1}) has different parent: {2} than {3} parent: {4}",
-    "Translated": "Verkettete Etüde {0} ({1}) hat ein anderes übergeordnetes Element: {2} als {3} mit übergeordnetem Element: {4}"
+    "Translated": "Verkettete Etüde {0} ({1}): Das übergeordnete Element {2} unterscheidet sich von {4}, dem übergeordneten Element von {3}."
   },
   "ToyBox_Features_Etudes_EtudeRecord_m_LinkedToChild_0___1__WithDiffereLocalizedText": {
     "Original": "Linked to child {0} ({1}) with different parent: {2} than {3} parent {4}",
-    "Translated": "Verknüpft mit untergeordnetem Element {0} ({1}) mit anderem übergeordnetem Element: {2} als {3} mit übergeordnetem Element {4}"
+    "Translated": "Verknüpft mit untergeordnetem Element {0} ({1}): Dessen übergeordnetes Element {2} unterscheidet sich von {4}, dem übergeordneten Element von {3}."
   },
   "ToyBox_Features_Etudes_EtudeRecord_m_NoneLocalizedText": {
     "Original": "None",
@@ -1361,7 +1357,7 @@
   },
   "ToyBox_Features_LevelUp_IgnoreClassLevelsPrerequisitesFeature_Description": {
     "Original": "Automatically succeeds level-dependent prerequisite checks, both those asking for a minimum level and those asking for a feature maximum level.",
-    "Translated": "Lässt stufenabhängige Voraussetzungsprüfungen automatisch bestehen, sowohl für Mindeststufen als auch für Höchststufen einer Charaktereigenschaft."
+    "Translated": "Lässt stufenabhängige Voraussetzungsprüfungen automatisch bestehen, sowohl für Mindest- als auch für Höchststufen."
   },
   "ToyBox_Features_LevelUp_IgnoreStatPrerequisitesFeature_Name": {
     "Original": "Ignore Stat Prerequisites",
@@ -1369,7 +1365,7 @@
   },
   "ToyBox_Features_LevelUp_IgnoreStatPrerequisitesFeature_Description": {
     "Original": "Automatically succeeds stat-dependent prerequisite checks, both those asking for a minimum value and those asking for a feature maximum value.",
-    "Translated": "Lässt werteabhängige Voraussetzungsprüfungen automatisch bestehen, sowohl für Mindestwerte als auch für Höchstwerte einer Charaktereigenschaft."
+    "Translated": "Lässt werteabhängige Voraussetzungsprüfungen automatisch bestehen, sowohl für Mindest- als auch für Höchstwerte."
   },
   "ToyBox_Features_LevelUp_IgnoreTalentPrerequisitesFeature_Name": {
     "Original": "Ignore Talent Prerequisites",
@@ -1385,11 +1381,11 @@
   },
   "ToyBox_Features_LevelUp_RespecFromLevelXFeature_Name": {
     "Original": "Respec From Level X",
-    "Translated": "Neuverteilung ab Stufe X"
+    "Translated": "Charakterfortschritt ab Stufe X zurücksetzen"
   },
   "ToyBox_Features_LevelUp_RespecFromLevelXFeature_Description": {
     "Original": "Allows changing the base respec level for units (including companions). Setting this to level 35 allows repicking the third archetype. Level 15 allows changing both the second and third arche type. Level 0 allows changing all three archetypes.",
-    "Translated": "Erlaubt das Ändern der Ausgangsstufe für die Neuverteilung von Einheiten, einschließlich Gefährten. Stufe 35 erlaubt die Neuwahl des dritten Archetyps, Stufe 15 die des zweiten und dritten, Stufe 0 die aller drei Archetypen."
+    "Translated": "Erlaubt das Ändern der Ausgangsstufe beim Zurücksetzen des Charakterfortschritts, auch für Gefährten. Stufe 35 erlaubt die Neuwahl des dritten Archetyps, Stufe 15 die des zweiten und dritten, Stufe 0 die aller drei Archetypen."
   },
   "ToyBox_Features_LevelUp_RespecFromLevelXFeature_m_TryToKeepThisFeatureActivatedAftLocalizedText": {
     "Original": "Try to keep this feature activated after using it (Click for Explanation)",
@@ -1397,7 +1393,7 @@
   },
   "ToyBox_Features_LevelUp_RespecFromLevelXFeature_m_IfAUnitIsRespeccedWhileThisFeatuLocalizedText": {
     "Original": "If a unit is respecced while this feature is enabled and the feature (or ToyBox) is later disabled, minor level-up UI glitches may occur. During level-up the game uses a base (original) copy of the unit. ToyBox must respec that copy when it's created (which only happens while the feature is active). If this is not done, there can be slight issues like the game thinking you have a feature despite not having it (because the base/original unit was supposed to have that feature, making the new copy having it too). This is not a hard dependency as any issues can be fixed by respeccing the unit after disabling this feature/ToyBox.",
-    "Translated": "Wird eine Einheit bei aktivierter Funktion neu verteilt und die Funktion oder ToyBox später deaktiviert, können kleinere Anzeigefehler beim Stufenaufstieg auftreten. Dabei verwendet das Spiel eine ursprüngliche Kopie der Einheit. ToyBox muss auch diese Kopie bei ihrer Erstellung neu verteilen; dies geschieht nur bei aktiver Funktion. Andernfalls kann das Spiel beispielsweise eine Charaktereigenschaft als vorhanden behandeln, obwohl sie fehlt, weil die ursprüngliche Einheit sie besaß und die neue Kopie sie deshalb ebenfalls erhalten sollte. Es besteht keine zwingende Abhängigkeit: Eine erneute Neuverteilung nach dem Deaktivieren der Funktion oder von ToyBox behebt solche Probleme."
+    "Translated": "Wird der Fortschritt einer Einheit bei aktivierter Funktion zurückgesetzt und die Funktion oder ToyBox später deaktiviert, können kleinere Anzeigefehler beim Stufenaufstieg auftreten. Dabei verwendet das Spiel eine ursprüngliche Kopie der Einheit. ToyBox muss auch den Fortschritt dieser Kopie bei ihrer Erstellung zurücksetzen; dies geschieht nur bei aktiver Funktion. Andernfalls kann das Spiel beispielsweise eine Eigenschaft als vorhanden behandeln, obwohl sie fehlt, weil die ursprüngliche Einheit sie besaß und die neue Kopie sie deshalb ebenfalls besitzt. Es besteht keine zwingende Abhängigkeit: Ein erneutes Zurücksetzen des Charakterfortschritts nach dem Deaktivieren der Funktion oder von ToyBox behebt solche Probleme."
   },
   "ToyBox_Features_LevelUp_RespecFromLevelXFeature_m_NoneLocalizedText": {
     "Original": "None",
@@ -1409,19 +1405,19 @@
   },
   "ToyBox_Features_LevelUp_RespecFromLevelXFeature_m_RespecFromLevel0LocalizedText": {
     "Original": "Respec from Level 0",
-    "Translated": "Neuverteilung ab Stufe 0"
+    "Translated": "Fortschritt ab Stufe 0 zurücksetzen"
   },
   "ToyBox_Features_LevelUp_RespecFromLevelXFeature_m_RespecFromLevel15LocalizedText": {
     "Original": "Respec from Level 15",
-    "Translated": "Neuverteilung ab Stufe 15"
+    "Translated": "Fortschritt ab Stufe 15 zurücksetzen"
   },
   "ToyBox_Features_LevelUp_RespecFromLevelXFeature_m_RespecFromLevel35LocalizedText": {
     "Original": "Respec from Level 35",
-    "Translated": "Neuverteilung ab Stufe 35"
+    "Translated": "Fortschritt ab Stufe 35 zurücksetzen"
   },
   "ToyBox_Features_LevelUp_RespecFromLevelXFeature_m_RespecFromCustomLevelLocalizedText": {
     "Original": "Respec from Custom Level",
-    "Translated": "Neuverteilung ab frei gewählter Stufe"
+    "Translated": "Ab eigener Stufe zurücksetzen"
   },
   "ToyBox_Features_LevelUp_RespecFromLevelXFeature_m_ApplyCustomLevelLocalizedText": {
     "Original": "Apply Custom Level",
@@ -1597,19 +1593,19 @@
   },
   "ToyBox_Features_PartyTab_Actions_RespecUnitAction_Name": {
     "Original": "Respec Unit",
-    "Translated": "Einheit neu verteilen"
+    "Translated": "Fortschritt der Einheit zurücksetzen"
   },
   "ToyBox_Features_PartyTab_Actions_RespecUnitAction_Description": {
     "Original": "Respecs the specified unit and closes the mod UI.",
-    "Translated": "Verteilt die angegebene Einheit neu und schließt die Mod-Oberfläche."
+    "Translated": "Setzt den Fortschritt der angegebenen Einheit zurück und schließt die Mod-Oberfläche."
   },
   "ToyBox_Features_PartyTab_Actions_RespecUnitAction_m_Can_tRespecUnitLocalizedText": {
     "Original": "Can't respec unit. This is either because unit is dead, a pet or below it's original level limit (e.g. the recruit level for companions).",
-    "Translated": "Einheit kann nicht neu verteilt werden. Sie ist entweder tot, ein Vertrauter oder unter ihrer ursprünglichen Mindeststufe (bei Gefährten beispielsweise der Rekrutierungsstufe)."
+    "Translated": "Der Fortschritt dieser Einheit kann nicht zurückgesetzt werden. Sie ist entweder tot, ein Vertrauter oder unter ihrer ursprünglichen Mindeststufe (bei Gefährten beispielsweise der Rekrutierungsstufe)."
   },
   "ToyBox_Features_PartyTab_Actions_RespecUnitAction_m_RespecLocalizedText": {
     "Original": "Respec",
-    "Translated": "Neu verteilen"
+    "Translated": "Fortschritt zurücksetzen"
   },
   "ToyBox_Features_PartyTab_Actions_UnrecruitUnitAction_Name": {
     "Original": "Unrecruit Unit",
@@ -1709,11 +1705,11 @@
   },
   "ToyBox_Features_PartyTab_PartyBrowseFeatsFeature_Name": {
     "Original": "Browse Unit Features",
-    "Translated": "Charaktereigenschaften durchsuchen"
+    "Translated": "Eigenschaften der Einheit durchsuchen"
   },
   "ToyBox_Features_PartyTab_PartyBrowseFeatsFeature_Description": {
     "Original": "Displays a Browser containing all the features of the unit in question and optionally allows removing them or adding new ones.",
-    "Translated": "Zeigt alle Charaktereigenschaften der betreffenden Einheit in einer durchsuchbaren Liste und erlaubt optional das Entfernen oder Hinzufügen von Eigenschaften."
+    "Translated": "Zeigt alle Eigenschaften der betreffenden Einheit in einer durchsuchbaren Liste und erlaubt optional das Entfernen oder Hinzufügen von Eigenschaften."
   },
   "ToyBox_Features_PartyTab_PartyBrowseMechadendritesFeature_Name": {
     "Original": "Browse Unit Mechadendrites",
@@ -2309,7 +2305,7 @@
   },
   "ToyBox_Features_Quests_QuestEditorFeature_m_FinishText": {
     "Original": "Finish",
-    "Translated": "Abschließen"
+    "Translated": "Quest beenden"
   },
   "ToyBox_Features_Quests_QuestEditorFeature_m_ResetTimeText": {
     "Original": "Reset Time",
@@ -3185,7 +3181,7 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeFeatureRankBA_ThisFeatureHasNoRanksText": {
     "Original": "This feature has no ranks",
-    "Translated": "Diese Charaktereigenschaft hat keine Ränge"
+    "Translated": "Diese Eigenschaft hat keine Ränge"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_Units_ChangeVoiceBA_Name": {
     "Original": "Change Voice",
@@ -3289,7 +3285,7 @@
   },
   "ToyBox_Features_SearchAndPick_BlueprintFilters_m_FeaturesLocalizedText": {
     "Original": "Features",
-    "Translated": "Merkmale"
+    "Translated": "Eigenschaften"
   },
   "ToyBox_Features_SearchAndPick_BlueprintFilters_m_CareersLocalizedText": {
     "Original": "Careers",
@@ -3529,7 +3525,7 @@
   },
   "ToyBox_Infrastructure_Enums_PartyTabSectionType_Localizer_FeaturesText": {
     "Original": "Features",
-    "Translated": "Merkmale"
+    "Translated": "Eigenschaften"
   },
   "ToyBox_Infrastructure_Enums_PartyTabSectionType_Localizer_BuffsText": {
     "Original": "Buffs",
