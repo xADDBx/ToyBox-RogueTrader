@@ -117,7 +117,6 @@ public static partial class DialogPreviewUtilities {
         var text = isRecursive ? "\n" + Indent + "<size=65%>[Repeats]</size>" : "";
         var results = new List<string>();
         foreach (var data in answerData) {
-            var cue = data.Item1;
             var depth = data.Item2;
             var actions = data.Item3;
             var alignment = data.Item4;
@@ -131,9 +130,6 @@ public static partial class DialogPreviewUtilities {
             }
             if (FormatSoulmarkShift(alignment, m_SoulMarkShiftLocalizedText + "({0})") is { } soulMarkShiftText) {
                 line.Add(soulMarkShiftText);
-            }
-            if (cue is BlueprintCheck check) {
-                line.Add(string.Format(m_Check__1__DC_2__Hidden_3__LocalizedText, check.Type, check.DC, check.Hidden));
             }
             if (line.Count > 0) {
                 results.Add($"\n" + Indent + $"[{depth}: {line.Join()}]");
@@ -232,6 +228,4 @@ public static partial class DialogPreviewUtilities {
     private static partial string m_SoulMarkRequiredLocalizedText { get; }
     [LocalizedString("ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_SoulMarkShiftLocalizedText", "SoulMarkShift")]
     private static partial string m_SoulMarkShiftLocalizedText { get; }
-    [LocalizedString("ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_Check__1__DC_2__Hidden_3__LocalizedText", "Check({1}, DC {2}, hidden {3})")]
-    private static partial string m_Check__1__DC_2__Hidden_3__LocalizedText { get; }
 }

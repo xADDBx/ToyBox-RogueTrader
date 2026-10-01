@@ -29,7 +29,7 @@ public partial class HighlightHiddenObjectsFeature : FeatureWithPatch {
 
     [LocalizedString("ToyBox_Features_BagOfTricks_Cheats_HighlightHiddenObjectsFeature_Name", "Highlight Hidden Objects")]
     public override partial string Name { get; }
-    [LocalizedString("ToyBox_Features_BagOfTricks_Cheats_HighlightHiddenObjectsFeature_Description", "Highlights objects even if they would normally be hidden by a perception Check or otherwise. Optionally also highlight objects in Fog Of War and hidden traps.")]
+    [LocalizedString("ToyBox_Features_BagOfTricks_Cheats_HighlightHiddenObjectsFeature_Description", "Highlights objects even if they would normally be hidden by an Awareness check or otherwise. Optionally also highlight objects in Fog Of War and hidden traps.")]
     public override partial string Description { get; }
     [LocalizedString("ToyBox_Features_BagOfTricks_Cheats_HighlightHiddenObjectsFeature_AlsoHighlightHiddenTrapsText", "Also Highlight Hidden Traps")]
     private static partial string m_AlsoHighlightHiddenTrapsText { get; }
