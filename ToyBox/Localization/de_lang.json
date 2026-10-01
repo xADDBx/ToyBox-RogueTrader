@@ -1,0 +1,3758 @@
+{
+  "ToyBox_Features_Achievements_AchievementsFeatureTab_Name": {
+    "Original": "Achievements",
+    "Translated": "Erfolge"
+  },
+  "ToyBox_Features_Achievements_BrowseAchievementsFeature_Name": {
+    "Original": "Browse Achievements",
+    "Translated": "Erfolge durchsuchen"
+  },
+  "ToyBox_Features_Achievements_BrowseAchievementsFeature_Description": {
+    "Original": "Once a save is loaded, this allows looking through a list of achievements, supporting inspecting and unlocking them.",
+    "Translated": "Sobald ein Spielstand geladen ist, kannst du hier die Erfolge durchsuchen, inspizieren und freischalten."
+  },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_BagOfTricksText": {
+    "Original": "Bag of Tricks",
+    "Translated": "Trickkiste"
+  },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_QualityOfLifeText": {
+    "Original": "Quality of Life",
+    "Translated": "Komfortfunktionen"
+  },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_CheatsText": {
+    "Original": "Cheats",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_CombatLocalizedText": {
+    "Original": "Combat",
+    "Translated": "Kampf"
+  },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_TeleportLocalizedText": {
+    "Original": "Teleport",
+    "Translated": "Teleportation"
+  },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_CommonLocalizedText": {
+    "Original": "Common",
+    "Translated": "Allgemein"
+  },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_PreviewLocalizedText": {
+    "Original": "Preview",
+    "Translated": "Vorschau"
+  },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_DialogLocalizedText": {
+    "Original": "Dialog",
+    "Translated": "Dialoge"
+  },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_RTFactionReputationLocalizedText": {
+    "Original": "RT Faction Reputation",
+    "Translated": "Ruf bei Fraktionen"
+  },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_RTResourcesLocalizedText": {
+    "Original": "RT Resources",
+    "Translated": "RT-Ressourcen"
+  },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_RTTweaksLocalizedText": {
+    "Original": "RT Tweaks",
+    "Translated": "RT-Anpassungen"
+  },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_CameraLocalizedText": {
+    "Original": "Camera",
+    "Translated": "Kamera"
+  },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_ExperienceMultipliersLocalizedText": {
+    "Original": "Experience Multipliers",
+    "Translated": "Erfahrungsmultiplikatoren"
+  },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_OtherMultipliersLocalizedText": {
+    "Original": "Other Multipliers",
+    "Translated": "Weitere Multiplikatoren"
+  },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_DiceRollsLocalizedText": {
+    "Original": "Dice Rolls",
+    "Translated": "Würfelwürfe"
+  },
+  "ToyBox_Features_BagOfTricks_BagOfTricksFeatureTab_m_EnemyStatModifierLocalizedText": {
+    "Original": "Enemy Stat Modifier",
+    "Translated": "Gegnerwerte anpassen"
+  },
+  "ToyBox_Features_BagOfTricks_Camera_AllowMouse3DraggingToAimCameraFeature_Name": {
+    "Original": "Enable Mouse3 Dragging To Aim The Camera",
+    "Translated": "Kamera mit gedrückter mittlerer Maustaste ausrichten"
+  },
+  "ToyBox_Features_BagOfTricks_Camera_AllowMouse3DraggingToAimCameraFeature_Description": {
+    "Original": "Allows orbiting the camera while holding down Mouse Wheel.",
+    "Translated": "Ermöglicht das Schwenken der Kamera bei gedrücktem Mausrad."
+  },
+  "ToyBox_Features_BagOfTricks_Camera_AllowRotateOnAllMapsAndCutscenesFeature_Name": {
+    "Original": "Enable Rotate on all maps and cutscenes",
+    "Translated": "Kameradrehung auf allen Karten und in Zwischensequenzen erlauben"
+  },
+  "ToyBox_Features_BagOfTricks_Camera_AllowRotateOnAllMapsAndCutscenesFeature_Description": {
+    "Original": "Note: For cutscenes and some situations the rotation keys are disabled so you have to hold down Mouse3 to drag in order to get rotation",
+    "Translated": "Hinweis: In Zwischensequenzen und einigen anderen Situationen sind die Drehtasten deaktiviert. Halte dort die mittlere Maustaste gedrückt und ziehe, um die Kamera zu drehen."
+  },
+  "ToyBox_Features_BagOfTricks_Camera_AllowZoomOnAllMapsAndCutscenesFeature_Name": {
+    "Original": "Enable Zoom on all maps and cutscenes",
+    "Translated": "Kamerazoom auf allen Karten und in Zwischensequenzen erlauben"
+  },
+  "ToyBox_Features_BagOfTricks_Camera_AllowZoomOnAllMapsAndCutscenesFeature_Description": {
+    "Original": "Makes CameraController always allow zoom and ignore ZoomLock.",
+    "Translated": "Erlaubt dem CameraController immer das Zoomen und ignoriert die Zoomsperre."
+  },
+  "ToyBox_Features_BagOfTricks_Camera_CameraElevationOffsetFeature_Name": {
+    "Original": "Modify Camera Elevation Offset",
+    "Translated": "Kamerahöhenversatz ändern"
+  },
+  "ToyBox_Features_BagOfTricks_Camera_CameraElevationOffsetFeature_Description": {
+    "Original": "Adds a flat modifier to the height of the camera above the ground.",
+    "Translated": "Addiert einen festen Wert zur Höhe der Kamera über dem Boden."
+  },
+  "ToyBox_Features_BagOfTricks_Camera_DragCameraElevationFeature_Name": {
+    "Original": "Press CTRL while rotating camera to change height",
+    "Translated": "Beim Drehen der Kamera STRG drücken, um die Höhe zu ändern"
+  },
+  "ToyBox_Features_BagOfTricks_Camera_DragCameraElevationFeature_Description": {
+    "Original": "CTRL + Mouse3 to adjust camera height",
+    "Translated": "STRG + mittlere Maustaste zum Anpassen der Kamerahöhe"
+  },
+  "ToyBox_Features_BagOfTricks_Camera_FOVMultiplierFeature_Name": {
+    "Original": "Field Of View",
+    "Translated": "Sichtfeld"
+  },
+  "ToyBox_Features_BagOfTricks_Camera_FOVMultiplierFeature_Description": {
+    "Original": "Changes the min/max FoV (you can scroll further in and out)",
+    "Translated": "Ändert das minimale und maximale Sichtfeld (du kannst weiter hinein- und herauszoomen)."
+  },
+  "ToyBox_Features_BagOfTricks_Camera_FreeCamFeature_Name": {
+    "Original": "Free Camera",
+    "Translated": "Freie Kamera"
+  },
+  "ToyBox_Features_BagOfTricks_Camera_FreeCamFeature_Description": {
+    "Original": "Makes the game no longer force the camera to ground.",
+    "Translated": "Hebt die Bindung der Kamera an den Boden auf."
+  },
+  "ToyBox_Features_BagOfTricks_Camera_ResetCameraAimToDefaultFeature_Name": {
+    "Original": "Fix Camera",
+    "Translated": "Kamera zurücksetzen"
+  },
+  "ToyBox_Features_BagOfTricks_Camera_ResetCameraAimToDefaultFeature_Description": {
+    "Original": "Resets the camera perspective to what it was before orbiting it.",
+    "Translated": "Setzt die Kameraperspektive auf den Zustand vor dem Schwenken zurück."
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_CompleteUnlimitedActionsPerTurnFeature_Name": {
+    "Original": "Don't use any AP",
+    "Translated": "Keine AP verbrauchen"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_CompleteUnlimitedActionsPerTurnFeature_Description": {
+    "Original": "This allows doing Infinite Actions per turn.",
+    "Translated": "Erlaubt beliebig viele Aktionen pro Zug."
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_EquipmentChangeDuringCombatFeature_Name": {
+    "Original": "Equipment Change during Combat",
+    "Translated": "Ausrüstung im Kampf wechseln"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_EquipmentChangeDuringCombatFeature_Description": {
+    "Original": "Allows changing your equipment while in combat.",
+    "Translated": "Erlaubt das Wechseln der Ausrüstung während des Kampfes."
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_FreeAbilitiesFeature_Name": {
+    "Original": "Free Abilities",
+    "Translated": "Fähigkeiten ohne Kosten"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_FreeAbilitiesFeature_Description": {
+    "Original": "Makes abilities have no cost.",
+    "Translated": "Fähigkeiten verbrauchen keine Ressourcen."
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_HighlightHiddenObjectsFeature_Name": {
+    "Original": "Highlight Hidden Objects",
+    "Translated": "Versteckte Objekte hervorheben"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_HighlightHiddenObjectsFeature_Description": {
+    "Original": "Highlights objects even if they would normally be hidden by a perception Check or otherwise. Optionally also highlight objects in Fog Of War and hidden traps.",
+    "Translated": "Hebt auch Objekte hervor, die normalerweise durch eine Wahrnehmungsprobe oder aus anderen Gründen verborgen sind. Optional werden auch Objekte im Kriegsnebel und versteckte Fallen hervorgehoben."
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_HighlightHiddenObjectsFeature_AlsoHighlightHiddenTrapsText": {
+    "Original": "Also Highlight Hidden Traps",
+    "Translated": "Auch versteckte Fallen hervorheben"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_HighlightHiddenObjectsFeature_AlsoHighlightInFogOfWarText": {
+    "Original": "Also Highlight in Fog of War",
+    "Translated": "Auch im Kriegsnebel hervorheben"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_IgnoreAllAbilityRequirementsFeature_Name": {
+    "Original": "Ignore all Target Requirements for Abilities",
+    "Translated": "Alle Zielanforderungen von Fähigkeiten ignorieren"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_IgnoreAllAbilityRequirementsFeature_Description": {
+    "Original": "Always allows using abilities regardless of target restrictions like Line of Sight, Friendly Fire or something else.",
+    "Translated": "Erlaubt das Verwenden von Fähigkeiten unabhängig von Zielbeschränkungen wie Sichtlinie, Eigenbeschuss oder anderen Anforderungen."
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_IgnoreAoeOverlapAbilityRequirementFeature_Name": {
+    "Original": "Ignore Ability Requirements - AoE Overlap",
+    "Translated": "Fähigkeitsanforderungen ignorieren – Überlappende Wirkungsbereiche"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_IgnoreAoeOverlapAbilityRequirementFeature_Description": {
+    "Original": "",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_IgnoreEquipmentRestrictionsFeature_Name": {
+    "Original": "Ignore Equipment Restrictions",
+    "Translated": "Ausrüstungsanforderungen ignorieren"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_IgnoreEquipmentRestrictionsFeature_Description": {
+    "Original": "Allows equipping items regardless of class, stat, etc. requirements.",
+    "Translated": "Erlaubt das Anlegen von Gegenständen unabhängig von Anforderungen an Klasse, Werte usw."
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_IgnoreLineOfSightAbilityRequirementFeature_Name": {
+    "Original": "Ignore Ability Requirements - Line of Sight",
+    "Translated": "Fähigkeitsanforderungen ignorieren – Sichtlinie"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_IgnoreLineOfSightAbilityRequirementFeature_Description": {
+    "Original": "",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_IgnoreTargetTooCloseAbilityRequirementFeature_Name": {
+    "Original": "Ignore Ability Requirements - Too Close",
+    "Translated": "Fähigkeitsanforderungen ignorieren – Ziel zu nah"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_IgnoreTargetTooCloseAbilityRequirementFeature_Description": {
+    "Original": "",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_IgnoreTargetTooFarAbilityRequirementFeature_Name": {
+    "Original": "Ignore Ability Requirements - Too Far",
+    "Translated": "Fähigkeitsanforderungen ignorieren – Ziel zu weit entfernt"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_IgnoreTargetTooFarAbilityRequirementFeature_Description": {
+    "Original": "",
+    "Translated": null
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_InfiniteChargesOnItemsFeature_Name": {
+    "Original": "Infinite Charges on Items",
+    "Translated": "Unbegrenzte Gegenstandsladungen"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_InfiniteChargesOnItemsFeature_Description": {
+    "Original": "Prevents charges on usable items from being spent.",
+    "Translated": "Verhindert den Verbrauch von Ladungen benutzbarer Gegenstände."
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_InstantRestAfterCombatFeature_Name": {
+    "Original": "Instant Rest after Combat",
+    "Translated": "Nach dem Kampf sofort rasten"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_InstantRestAfterCombatFeature_Description": {
+    "Original": "Restores Item charges and rests Units once the party leaves combat.",
+    "Translated": "Stellt Gegenstandsladungen wieder her und lässt die Einheiten rasten, sobald die Gruppe den Kampf verlässt."
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_NoAbilityCooldownsFeature_Name": {
+    "Original": "No Ability Cooldowns",
+    "Translated": "Keine Abklingzeiten für Fähigkeiten"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_NoAbilityCooldownsFeature_Description": {
+    "Original": "Makes abilities have no cooldown.",
+    "Translated": "Fähigkeiten haben keine Abklingzeit."
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_PartialUnlimitedActionsPerTurnFeature_Name": {
+    "Original": "Don't use AP (Partial)",
+    "Translated": "Keine AP verbrauchen (teilweise)"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_PartialUnlimitedActionsPerTurnFeature_Description": {
+    "Original": "Don't use any AP except for except for abilities which would consume all your AP at once.",
+    "Translated": "Verbraucht keine AP, außer bei Fähigkeiten, die alle verbleibenden AP auf einmal verbrauchen."
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_PreventTrapsFromTriggeringFeature_Name": {
+    "Original": "Prevent Traps from Triggering",
+    "Translated": "Auslösen von Fallen verhindern"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_PreventTrapsFromTriggeringFeature_Description": {
+    "Original": "Entering a trap zone while having traps disabled will prevent that trap from triggering even if you deactivate this option in the future.",
+    "Translated": "Betrittst du eine Fallenzone mit dieser Option, wird die Falle auch dann nicht mehr ausgelöst, wenn du die Option später deaktivierst."
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_RestoreSpellsAndSkillsAfterCombatFeature_Name": {
+    "Original": "Restore Spells and Skills after Combat",
+    "Translated": "Zauber und Fertigkeiten nach dem Kampf wiederherstellen"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_RestoreSpellsAndSkillsAfterCombatFeature_Description": {
+    "Original": "Restores all ability resources once the party leaves combat.",
+    "Translated": "Stellt alle Fähigkeitsressourcen wieder her, sobald die Gruppe den Kampf verlässt."
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_UnlimitedStackingOfModifiersFeature_Name": {
+    "Original": "Unlimited Stacking of Modifiers",
+    "Translated": "Modifikatoren unbegrenzt stapeln"
+  },
+  "ToyBox_Features_BagOfTricks_Cheats_UnlimitedStackingOfModifiersFeature_Description": {
+    "Original": "Makes modifiers like Stats or Damage stack for party members even if they shouldn't.",
+    "Translated": "Lässt Modifikatoren wie Werteboni oder Schaden bei Gruppenmitgliedern auch dann stapeln, wenn dies normalerweise nicht erlaubt ist."
+  },
+  "ToyBox_Features_BagOfTricks_Combat_ImmortalityBuffFeature_Name": {
+    "Original": "Make Immortal",
+    "Translated": "Unsterblich machen"
+  },
+  "ToyBox_Features_BagOfTricks_Combat_ImmortalityBuffFeature_Description": {
+    "Original": "Applies a buff to the selected units which makes them immortal.",
+    "Translated": "Verleiht den ausgewählten Einheiten einen Buff, der sie unsterblich macht."
+  },
+  "ToyBox_Features_BagOfTricks_Combat_KillAllEnemiesFeature_Name": {
+    "Original": "Kill All Enemies",
+    "Translated": "Alle Gegner töten"
+  },
+  "ToyBox_Features_BagOfTricks_Combat_KillAllEnemiesFeature_Description": {
+    "Original": "Kills all enemies that are currently in combat with you.",
+    "Translated": "Tötet alle Gegner, die sich gerade mit dir im Kampf befinden."
+  },
+  "ToyBox_Features_BagOfTricks_Combat_LobotomizeEnemiesFeature_Name": {
+    "Original": "Lobotomize Enemies",
+    "Translated": "Gegner handlungsunfähig machen"
+  },
+  "ToyBox_Features_BagOfTricks_Combat_LobotomizeEnemiesFeature_Description": {
+    "Original": "Makes enemies unable to act, move and perform attack of opportunities.",
+    "Translated": "Verhindert, dass Gegner handeln, sich bewegen oder Gelegenheitsangriffe ausführen."
+  },
+  "ToyBox_Features_BagOfTricks_Combat_MurderHoboFeature_Name": {
+    "Original": "Murder Hobo",
+    "Translated": "Mordlust"
+  },
+  "ToyBox_Features_BagOfTricks_Combat_MurderHoboFeature_Description": {
+    "Original": "When enabled, enemies will be killed when they join combat.",
+    "Translated": "Tötet Gegner, sobald sie dem Kampf beitreten."
+  },
+  "ToyBox_Features_BagOfTricks_Combat_RemoveBuffsFeature_Name": {
+    "Original": "Remove Buffs",
+    "Translated": "Buffs entfernen"
+  },
+  "ToyBox_Features_BagOfTricks_Combat_RemoveBuffsFeature_Description": {
+    "Original": "Removes all non-hidden and non-persistent buffs from all party members and pets.",
+    "Translated": "Entfernt alle sichtbaren, nicht dauerhaften Buffs von Gruppenmitgliedern und Vertrauten."
+  },
+  "ToyBox_Features_BagOfTricks_Combat_RestAllFeature_Name": {
+    "Original": "Rest All",
+    "Translated": "Alle rasten lassen"
+  },
+  "ToyBox_Features_BagOfTricks_Combat_RestAllFeature_Description": {
+    "Original": "Revives and heals all characters + restores action points, ability cooldowns and item charges.",
+    "Translated": "Belebt und heilt alle Charaktere und stellt Aktionspunkte, Fähigkeitsabklingzeiten und Gegenstandsladungen wieder her."
+  },
+  "ToyBox_Features_BagOfTricks_Combat_RestSelectedFeature_Name": {
+    "Original": "Rest Selected",
+    "Translated": "Ausgewählte rasten lassen"
+  },
+  "ToyBox_Features_BagOfTricks_Combat_RestSelectedFeature_Description": {
+    "Original": "Revives and heals the selected characters + restores action points and ability cooldowns.",
+    "Translated": "Belebt und heilt die ausgewählten Charaktere und stellt Aktionspunkte und Fähigkeitsabklingzeiten wieder her."
+  },
+  "ToyBox_Features_BagOfTricks_Common_ChangePartyFeature_Name": {
+    "Original": "Change Party",
+    "Translated": "Gruppe ändern"
+  },
+  "ToyBox_Features_BagOfTricks_Common_ChangePartyFeature_Description": {
+    "Original": "Opens the party member selection screen.",
+    "Translated": "Öffnet die Auswahl der Gruppenmitglieder."
+  },
+  "ToyBox_Features_BagOfTricks_Common_ChangeWeatherFeature_Name": {
+    "Original": "Change Weather",
+    "Translated": "Wetter ändern"
+  },
+  "ToyBox_Features_BagOfTricks_Common_ChangeWeatherFeature_Description": {
+    "Original": "Sets the time until next weather change to 0.",
+    "Translated": "Setzt die Zeit bis zum nächsten Wetterwechsel auf 0."
+  },
+  "ToyBox_Features_BagOfTricks_Common_GiveAllItemsFeature_Name": {
+    "Original": "Give All Items",
+    "Translated": "Alle Gegenstände erhalten"
+  },
+  "ToyBox_Features_BagOfTricks_Common_GiveAllItemsFeature_Description": {
+    "Original": "Adds 1 of each BlueprintItem to the player inventory.",
+    "Translated": "Fügt dem Spielerinventar jeden BlueprintItem-Gegenstand einmal hinzu."
+  },
+  "ToyBox_Features_BagOfTricks_Common_GoToGlobalMapFeature_Name": {
+    "Original": "Go To Global Map",
+    "Translated": "Zur Sektorkarte wechseln"
+  },
+  "ToyBox_Features_BagOfTricks_Common_GoToGlobalMapFeature_Description": {
+    "Original": "Tries to load the sector map area. Don't use in prologue.",
+    "Translated": "Versucht, die Sektorkarte zu laden. Nicht im Prolog verwenden."
+  },
+  "ToyBox_Features_BagOfTricks_Common_OpenReputationTradeWindowFeature_Name": {
+    "Original": "Open Trade Window",
+    "Translated": "Handelsfenster öffnen"
+  },
+  "ToyBox_Features_BagOfTricks_Common_OpenReputationTradeWindowFeature_Description": {
+    "Original": "Opens the faction reputation trade window (when available).",
+    "Translated": "Öffnet das Handelsfenster für den Fraktionsruf, sofern verfügbar."
+  },
+  "ToyBox_Features_BagOfTricks_Common_RerollPerceptionFeature_Name": {
+    "Original": "Reroll Perception",
+    "Translated": "Achtsamkeitsproben erneut würfeln"
+  },
+  "ToyBox_Features_BagOfTricks_Common_RerollPerceptionFeature_Description": {
+    "Original": "Resets the saved results of awareness rolls on map objects.",
+    "Translated": "Setzt die gespeicherten Ergebnisse von Achtsamkeitsproben für Kartenobjekte zurück."
+  },
+  "ToyBox_Features_BagOfTricks_Common_ResetInteractablesFeature_Name": {
+    "Original": "Reset Interactables",
+    "Translated": "Interaktive Objekte zurücksetzen"
+  },
+  "ToyBox_Features_BagOfTricks_Common_ResetInteractablesFeature_Description": {
+    "Original": "Re-enables skill checks on interactable objects in the area.",
+    "Translated": "Ermöglicht erneute Fertigkeitsproben an interaktiven Objekten im Gebiet."
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_ExCompanionDialogFeature_Name": {
+    "Original": "Include Ex-Companions In Remote Companion Dialog",
+    "Translated": "Ehemalige Gefährten in Ferndialoge einbeziehen"
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_ExCompanionDialogFeature_Description": {
+    "Original": "This makes Remote Companion Dialog also include companions who left the party.",
+    "Translated": "Bezieht auch Gefährten, die die Gruppe verlassen haben, in Ferndialoge ein."
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_IgnoreDialogRestrictionsEverythingFeature_Name": {
+    "Original": "Ignore Dialog Restrictions (Everything, Experimental)",
+    "Translated": "Dialogbeschränkungen ignorieren (alle, experimentell)"
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_IgnoreDialogRestrictionsEverythingFeature_Description": {
+    "Original": "Answers that were restricted will be made available.",
+    "Translated": "Macht gesperrte Antworten verfügbar."
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_IgnoreDialogRestrictionsSoulMarkFeature_Name": {
+    "Original": "Ignore Dialog Restrictions (SoulMark)",
+    "Translated": "Dialogbeschränkungen ignorieren (Überzeugung)"
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_IgnoreDialogRestrictionsSoulMarkFeature_Description": {
+    "Original": "Answers that were restricted based on your conviction/soul marks will be made available.",
+    "Translated": "Macht Antworten verfügbar, die aufgrund deiner Überzeugung gesperrt sind."
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_JealousyBegoneFeature_Name": {
+    "Original": "Jealousy Begone!",
+    "Translated": "Schluss mit Eifersucht!"
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_JealousyBegoneFeature_Description": {
+    "Original": "Allow multiple romances at the same time",
+    "Translated": "Erlaubt mehrere Romanzen gleichzeitig."
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_LoveIsFreeFeature_Name": {
+    "Original": "Love Is Free",
+    "Translated": "Liebe kennt keine Grenzen"
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_LoveIsFreeFeature_Description": {
+    "Original": "Allow any gender for any Romance.",
+    "Translated": "Erlaubt jede Romanze unabhängig vom Geschlecht."
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_OverrideStoryOccupationFeature_Name": {
+    "Original": "Override Story Occupation",
+    "Translated": "Herkunft für die Handlung überschreiben"
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_OverrideStoryOccupationFeature_Description": {
+    "Original": "Make the game recognize you as e.g. having the Sanctioned Psyker instead of whatever you actually picked.",
+    "Translated": "Lässt das Spiel dich beispielsweise als sanktionierten Psioniker behandeln, unabhängig von deiner tatsächlichen Auswahl."
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_OverrideStoryOccupationFeature_m_RemoveLocalizedText": {
+    "Original": "Remove",
+    "Translated": "Entfernen"
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_OverrideStoryOccupationFeature_m_AddLocalizedText": {
+    "Original": "Add",
+    "Translated": "Hinzufügen"
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_RemoteCompanionDialogFeature_Name": {
+    "Original": "Expand Dialog To Include Remote Companions",
+    "Translated": "Abwesende Gefährten in Dialoge einbeziehen"
+  },
+  "ToyBox_Features_BagOfTricks_Dialog_RemoteCompanionDialogFeature_Description": {
+    "Original": "Allow remote companions to make comments on dialog you are having.",
+    "Translated": "Erlaubt abwesenden Gefährten, sich zu deinen Gesprächen zu äußern."
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_Name": {
+    "Original": "Dice Roll Overrides",
+    "Translated": "Würfelergebnisse überschreiben"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_Description": {
+    "Original": "Allows changing the results of various dice rolls across the game.",
+    "Translated": "Erlaubt das Ändern verschiedener Würfelergebnisse im Spiel."
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_AdvantageMeansDoingTwoRollsAndTaLocalizedText": {
+    "Original": "Advantage means doing two rolls and taking the better result; which for Initiative and Damage rolls means the higher number and for Skill Checks the lower number.",
+    "Translated": "Vorteil bedeutet, zweimal zu würfeln und das bessere Ergebnis zu nehmen. Bei Initiative- und Schadenswürfen ist dies die höhere Zahl, bei Fertigkeitsproben die niedrigere."
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_AllAttacksHitLocalizedText": {
+    "Original": "All Attacks Hit",
+    "Translated": "Alle Angriffe treffen"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_AllAttacksCritLocalizedText": {
+    "Original": "All Attacks Crit",
+    "Translated": "Alle Angriffe sind kritische Treffer"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_RollWithAdvantageLocalizedText": {
+    "Original": "Roll with Advantage",
+    "Translated": "Mit Vorteil würfeln"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_RollWithDisadvantageLocalizedText": {
+    "Original": "Roll with Disadvantage",
+    "Translated": "Mit Nachteil würfeln"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_Take100LocalizedText": {
+    "Original": "Take 100",
+    "Translated": "Ergebnis 100"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_Take50LocalizedText": {
+    "Original": "Take 50",
+    "Translated": "Ergebnis 50"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_Take1LocalizedText": {
+    "Original": "Take 1",
+    "Translated": "Ergebnis 1"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_NeverRoll100LocalizedText": {
+    "Original": "Never Roll 100",
+    "Translated": "Niemals 100 würfeln"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_NeverRoll1LocalizedText": {
+    "Original": "Never Roll 1",
+    "Translated": "Niemals 1 würfeln"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_OutOfCombat_Take50LocalizedText": {
+    "Original": "Out of Combat: Take 50",
+    "Translated": "Außerhalb des Kampfes: Ergebnis 50"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_OutOfCombat_Take25LocalizedText": {
+    "Original": "Out of Combat: Take 25",
+    "Translated": "Außerhalb des Kampfes: Ergebnis 25"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_OutOfCombat_Take1LocalizedText": {
+    "Original": "Out of Combat: Take 1",
+    "Translated": "Außerhalb des Kampfes: Ergebnis 1"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_Initiative__HigherIsBetterLocalizedText": {
+    "Original": "Initiative -> Higher is better",
+    "Translated": "Initiative -> Höher ist besser"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_Initiative_AlwaysRoll10LocalizedText": {
+    "Original": "Initiative: Always Roll 10",
+    "Translated": "Initiative: Immer 10 würfeln"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_Initiative_AlwaysRoll5LocalizedText": {
+    "Original": "Initiative: Always Roll 5",
+    "Translated": "Initiative: Immer 5 würfeln"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_Initiative_AlwaysRoll1LocalizedText": {
+    "Original": "Initiative: Always Roll 1",
+    "Translated": "Initiative: Immer 1 würfeln"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_SkillChecks__LowerIsBetterLocalizedText": {
+    "Original": "Skill Checks -> Lower is better",
+    "Translated": "Fertigkeitsproben -> Niedriger ist besser"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_SkillChecks_Take50LocalizedText": {
+    "Original": "Skill Checks: Take 50",
+    "Translated": "Fertigkeitsproben: Ergebnis 50"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_SkillChecks_Take25LocalizedText": {
+    "Original": "Skill Checks: Take 25",
+    "Translated": "Fertigkeitsproben: Ergebnis 25"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_SkillChecks_Take1LocalizedText": {
+    "Original": "Skill Checks: Take 1",
+    "Translated": "Fertigkeitsproben: Ergebnis 1"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_Damage__HigherIsBetterLocalizedText": {
+    "Original": "Damage -> Higher is better",
+    "Translated": "Schaden -> Höher ist besser"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_DamageRolls_Take50LocalizedText": {
+    "Original": "Damage Rolls: Take 50",
+    "Translated": "Schadenswürfe: Ergebnis 50"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_DamageRolls_Take25LocalizedText": {
+    "Original": "Damage Rolls: Take 25",
+    "Translated": "Schadenswürfe: Ergebnis 25"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_DamageRolls_Take1LocalizedText": {
+    "Original": "Damage Rolls: Take 1",
+    "Translated": "Schadenswürfe: Ergebnis 1"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_AttackRolls__LowerIsBetterLocalizedText": {
+    "Original": "Attack Rolls -> Lower is better",
+    "Translated": "Angriffswürfe -> Niedriger ist besser"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_CoverInterception_UsesASeparateRoLocalizedText": {
+    "Original": "Controls whether attacks made by the selected units are redirected to cover instead of their target.",
+    "Translated": "Legt fest, ob Angriffe der ausgewählten Einheiten auf Deckung statt auf das eigentliche Ziel umgeleitet werden."
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_CoverNeverInterceptsLocalizedText": {
+    "Original": "Cover: Never Redirect",
+    "Translated": "Deckung: Nie umleiten"
+  },
+  "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_CoverAlwaysInterceptsLocalizedText": {
+    "Original": "Cover: Always Redirect",
+    "Translated": "Deckung: Immer umleiten"
+  },
+  "ToyBox_Features_BagOfTricks_EnemyStatModifier_EnemyFlatStatModifierFeature_Name": {
+    "Original": "Flat Enemy Stat Modifier",
+    "Translated": "Feste Modifikatoren für Gegnerwerte"
+  },
+  "ToyBox_Features_BagOfTricks_EnemyStatModifier_EnemyFlatStatModifierFeature_Description": {
+    "Original": "Allows adding flat stat boosts to enemies, e.g. Enemy Health +20.",
+    "Translated": "Erlaubt feste Boni auf Gegnerwerte, z. B. Gegnergesundheit +20."
+  },
+  "ToyBox_Features_BagOfTricks_EnemyStatModifier_EnemyStatMultiplierFeature_Name": {
+    "Original": "Enemy Stat Multiplier",
+    "Translated": "Multiplikator für Gegnerwerte"
+  },
+  "ToyBox_Features_BagOfTricks_EnemyStatModifier_EnemyStatMultiplierFeature_Description": {
+    "Original": "Allows adding stat multipliers, e.g. Enemy Health x3.",
+    "Translated": "Erlaubt Multiplikatoren für Gegnerwerte, z. B. Gegnergesundheit ×3."
+  },
+  "ToyBox_Features_BagOfTricks_ExperienceMultipliers_ExperienceMultiplierFeature_Name": {
+    "Original": "Experience Multipliers",
+    "Translated": "Erfahrungsmultiplikatoren"
+  },
+  "ToyBox_Features_BagOfTricks_ExperienceMultipliers_ExperienceMultiplierFeature_Description": {
+    "Original": "Provides a general experience multiplier and possible overrides for specific kinds of experience sources.",
+    "Translated": "Bietet einen allgemeinen Erfahrungsmultiplikator sowie separate Werte für bestimmte Erfahrungsquellen."
+  },
+  "ToyBox_Features_BagOfTricks_ExperienceMultipliers_ExperienceMultiplierFeature_m_AllExperienceLocalizedText": {
+    "Original": "All Experience",
+    "Translated": "Alle Erfahrung"
+  },
+  "ToyBox_Features_BagOfTricks_ExperienceMultipliers_ExperienceMultiplierFeature_m_OverrideForCombatLocalizedText": {
+    "Original": "Override for Combat",
+    "Translated": "Für Kämpfe überschreiben"
+  },
+  "ToyBox_Features_BagOfTricks_ExperienceMultipliers_ExperienceMultiplierFeature_m_OverrideForQuestsLocalizedText": {
+    "Original": "Override for Quests",
+    "Translated": "Für Quests überschreiben"
+  },
+  "ToyBox_Features_BagOfTricks_ExperienceMultipliers_ExperienceMultiplierFeature_m_OverrideForSkillChecksLocalizedText": {
+    "Original": "Override for Skill Checks",
+    "Translated": "Für Fertigkeitsproben überschreiben"
+  },
+  "ToyBox_Features_BagOfTricks_ExperienceMultipliers_ExperienceMultiplierFeature_m_OverrideForChallengesLocalizedText": {
+    "Original": "Override for Challenges",
+    "Translated": "Für Herausforderungen überschreiben"
+  },
+  "ToyBox_Features_BagOfTricks_ExperienceMultipliers_ExperienceMultiplierFeature_m_OverrideForSpaceCombatLocalizedText": {
+    "Original": "Override for Space Combat",
+    "Translated": "Für Raumkämpfe überschreiben"
+  },
+  "ToyBox_Features_BagOfTricks_OtherMultipliers_BuffDurationMultiplierFeature_m_ManageExceptionsToBuffDurationMuLocalizedText": {
+    "Original": "Manage Exceptions to Buff Duration Multiplier",
+    "Translated": "Ausnahmen vom Buffdauermultiplikator verwalten"
+  },
+  "ToyBox_Features_BagOfTricks_OtherMultipliers_BuffDurationMultiplierFeature_Name": {
+    "Original": "Buff Duration Multiplier",
+    "Translated": "Buffdauermultiplikator"
+  },
+  "ToyBox_Features_BagOfTricks_OtherMultipliers_BuffDurationMultiplierFeature_Description": {
+    "Original": "Multiplies the duration of buffs assuming they are not excluded and not casted by an enemy.",
+    "Translated": "Multipliziert die Dauer von Buffs, sofern sie nicht ausgeschlossen oder von einem Gegner gewirkt wurden."
+  },
+  "ToyBox_Features_BagOfTricks_OtherMultipliers_BuffDurationMultiplierFeature_m_StopExcludingLocalizedText": {
+    "Original": "Stop Excluding",
+    "Translated": "Nicht mehr ausschließen"
+  },
+  "ToyBox_Features_BagOfTricks_OtherMultipliers_BuffDurationMultiplierFeature_m_ExcludeLocalizedText": {
+    "Original": "Exclude",
+    "Translated": "Ausschließen"
+  },
+  "ToyBox_Features_BagOfTricks_OtherMultipliers_MaxWalkDistanceFeature_Name": {
+    "Original": "Max Walk distance",
+    "Translated": "Maximale Gehentfernung"
+  },
+  "ToyBox_Features_BagOfTricks_OtherMultipliers_MaxWalkDistanceFeature_Description": {
+    "Original": "Adjusts how far of your character you can click and still cause your character to walk instead of run.",
+    "Translated": "Legt fest, wie weit du vom Charakter entfernt klicken kannst, damit er noch geht statt zu laufen."
+  },
+  "ToyBox_Features_BagOfTricks_OtherMultipliers_MinSprintDistanceFeature_Name": {
+    "Original": "Min Sprint distance",
+    "Translated": "Minimale Sprintentfernung"
+  },
+  "ToyBox_Features_BagOfTricks_OtherMultipliers_MinSprintDistanceFeature_Description": {
+    "Original": "Adjusts how far of your character you have to click and still cause your character to spring. If this area overlaps with walk distance then this has priority.",
+    "Translated": "Legt fest, wie weit du vom Charakter entfernt klicken musst, damit er sprintet. Überschneidet sich dieser Bereich mit der Gehentfernung, hat Sprinten Vorrang."
+  },
+  "ToyBox_Features_BagOfTricks_OtherMultipliers_MovementSpeedMultiplierFeature_Name": {
+    "Original": "Movement Speed",
+    "Translated": "Bewegungsgeschwindigkeit"
+  },
+  "ToyBox_Features_BagOfTricks_OtherMultipliers_MovementSpeedMultiplierFeature_Description": {
+    "Original": "Adjusts the movement speed of your party in area maps.",
+    "Translated": "Passt die Bewegungsgeschwindigkeit deiner Gruppe auf Gebietskarten an."
+  },
+  "ToyBox_Features_BagOfTricks_OtherMultipliers_VisionRangeFeature_Name": {
+    "Original": "Vision Range Multiplier",
+    "Translated": "Sichtweitenmultiplikator"
+  },
+  "ToyBox_Features_BagOfTricks_OtherMultipliers_VisionRangeFeature_Description": {
+    "Original": "Multiplies the fog of war reveal range of party members, pets, and player ships.",
+    "Translated": "Multipliziert die Reichweite, in der Gruppenmitglieder, Vertraute und Spielerschiffe den Kriegsnebel aufdecken."
+  },
+  "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_RunActionHolderLocalizedText": {
+    "Original": "RunActionHolder",
+    "Translated": "Aktionssammlung ausführen"
+  },
+  "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_ConditionsHolderLocalizedText": {
+    "Original": "Conditions Holder",
+    "Translated": "Bedingungssammlung"
+  },
+  "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_ShowCheck__0_DC__1__LocalizedText": {
+    "Original": "Show Check ({0} DC: {1})",
+    "Translated": "Anzeigeprobe ({0}, SG: {1})"
+  },
+  "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_ShowConditionsLocalizedText": {
+    "Original": "Show Conditions",
+    "Translated": "Anzeigebedingungen"
+  },
+  "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_SelectConditionsLocalizedText": {
+    "Original": "Select Conditions",
+    "Translated": "Auswahlbedingungen"
+  },
+  "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_EmptyActionLocalizedText": {
+    "Original": "Empty Action",
+    "Translated": "Leere Aktion"
+  },
+  "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_SoulMarkShift_0_By_1__DescriptioLocalizedText": {
+    "Original": "SoulMarkShift {0} by {1} - Description: {2}",
+    "Translated": "Überzeugungsänderung {0} um {1} – Beschreibung: {2}"
+  },
+  "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_SoulMarkRequiredLocalizedText": {
+    "Original": "SoulMarkRequired",
+    "Translated": "Überzeugung erforderlich"
+  },
+  "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_SoulMarkShiftLocalizedText": {
+    "Original": "SoulMarkShift",
+    "Translated": "Überzeugungsänderung"
+  },
+  "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_Check__1__DC_2__Hidden_3__LocalizedText": {
+    "Original": "Check({1}, DC {2}, hidden {3})",
+    "Translated": "Probe({1}, SG {2}, verborgen {3})"
+  },
+  "ToyBox_Features_BagOfTricks_Preview_PreviewDialogConditionsFeature_Name": {
+    "Original": "Dialog Conditions",
+    "Translated": "Dialogbedingungen"
+  },
+  "ToyBox_Features_BagOfTricks_Preview_PreviewDialogConditionsFeature_Description": {
+    "Original": "Shows conditions of answers in dialog.",
+    "Translated": "Zeigt die Bedingungen von Dialogantworten an."
+  },
+  "ToyBox_Features_BagOfTricks_Preview_PreviewDialogResultsFeature_Name": {
+    "Original": "Dialog Results",
+    "Translated": "Dialogergebnisse"
+  },
+  "ToyBox_Features_BagOfTricks_Preview_PreviewDialogResultsFeature_Description": {
+    "Original": "Shows results of cues and answers in dialog.",
+    "Translated": "Zeigt die Ergebnisse von Dialogzeilen und Antworten an."
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_AutoLoadLastSaveOnLaunchFeature_Name": {
+    "Original": "Auto load Last Save on launch",
+    "Translated": "Letzten Spielstand beim Start automatisch laden"
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_AutoLoadLastSaveOnLaunchFeature_Description": {
+    "Original": "Hold down shift during launch to bypass.",
+    "Translated": "Halte beim Start die Umschalttaste gedrückt, um dies zu überspringen."
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_ClickToTransferEntireStackFeature_Name": {
+    "Original": "Click to Transfer Entire Stack",
+    "Translated": "Ganzen Stapel per Klick verschieben"
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_ClickToTransferEntireStackFeature_Description": {
+    "Original": "Enabling this will let you do KEYBIND + Click an item to shift its entire stack.",
+    "Translated": "Ermöglicht das Verschieben eines ganzen Gegenstandsstapels mit TASTENKÜRZEL + Klick."
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_DisableEndTurnKeybindFeature_Name": {
+    "Original": "Disable End Turn Hotkey",
+    "Translated": "Tastenkürzel zum Beenden des Zuges deaktivieren"
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_DisableEndTurnKeybindFeature_Description": {
+    "Original": "Disables the base game end turn hotkey.",
+    "Translated": "Deaktiviert das spielinterne Tastenkürzel zum Beenden des Zuges."
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_EnableAchievementsFeature_AllowAchievementsWhileUsingModsT": {
+    "Original": "Allow Achievements While Using Mods",
+    "Translated": "Erfolge trotz Mods erlauben"
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_EnableAchievementsFeature_ThisIsIntendedForYouToBeAbleToEn": {
+    "Original": "This is intended for you to be able to enjoy the game while using mods that enhance your quality of life.",
+    "Translated": "Damit kannst du Erfolge auch mit Mods erhalten, die den Spielkomfort verbessern."
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_FixIncorrectMainCharacterFeature_Name": {
+    "Original": "Fix Incorrect Main Character",
+    "Translated": "Falsch zugeordneten Hauptcharakter korrigieren"
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_FixIncorrectMainCharacterFeature_Description": {
+    "Original": "Certain situations might cause the game to incorrectly assume someone else is the main character. This tries to restore the original main character.",
+    "Translated": "In bestimmten Situationen kann das Spiel fälschlich einen anderen Charakter als Hauptcharakter behandeln. Diese Funktion versucht, den ursprünglichen Hauptcharakter wiederherzustellen."
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_GameAlternateTimeScaleFeature_Name": {
+    "Original": "Alternate Game Time Scale",
+    "Translated": "Alternative Spielgeschwindigkeit"
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_GameAlternateTimeScaleFeature_Description": {
+    "Original": "Optional alternate time scale which can be swapped to via hotkey.",
+    "Translated": "Optionale alternative Spielgeschwindigkeit, zu der du per Tastenkürzel wechseln kannst."
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_GameTimeScaleFeature_Name": {
+    "Original": "Game Time Scale",
+    "Translated": "Spielgeschwindigkeit"
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_GameTimeScaleFeature_Description": {
+    "Original": "Speeds up or slows down the entire game (movement, animation, everything)",
+    "Translated": "Beschleunigt oder verlangsamt das gesamte Spiel (Bewegung, Animationen, alles)."
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_LoadingWithBlueprintErrorsFeature_Name": {
+    "Original": "Enable Loading with Blueprint Errors",
+    "Translated": "Laden trotz Blueprint-Fehlern erlauben"
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_LoadingWithBlueprintErrorsFeature_Description": {
+    "Original": "This feature allows loading saves even with missing blueprint mods, which can be dangerous. This can potentially allow you to recover a save, though you'll have to respec at minimum.",
+    "Translated": "Erlaubt das Laden von Spielständen trotz fehlender Blueprint-Mods, was gefährlich sein kann. So lässt sich eventuell ein Spielstand retten; mindestens eine Neuverteilung der Charaktere ist jedoch nötig."
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_ObjectHighlightToggleFeature_Name": {
+    "Original": "Object Highlight Toggle Mode",
+    "Translated": "Objekthervorhebung umschalten"
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_ObjectHighlightToggleFeature_Description": {
+    "Original": "Turns the object highlight key into a toggle (press to switch) outside of combat.",
+    "Translated": "Macht die Taste zur Objekthervorhebung außerhalb des Kampfes zum Umschalter (einmal drücken zum Umschalten)."
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_RefillBeltConsumablesFeature_Name": {
+    "Original": "Refill Belt Consumables",
+    "Translated": "Gürtelverbrauchsgegenstände auffüllen"
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_RefillBeltConsumablesFeature_Description": {
+    "Original": "Automatically refill consumables in belt slots if there are some in your inventory.",
+    "Translated": "Füllt Verbrauchsgegenstände in Gürtelfächern automatisch nach, sofern sie im Inventar vorhanden sind."
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_SkipSplashScreenFeature_Name": {
+    "Original": "Skip Splash Screen",
+    "Translated": "Startbildschirm überspringen"
+  },
+  "ToyBox_Features_BagOfTricks_QualityOfLife_SkipSplashScreenFeature_Description": {
+    "Original": "This skips the splash screen that appears when the game starts. Helpful if you need to frequently restart the game.",
+    "Translated": "Überspringt den Startbildschirm beim Spielstart. Hilfreich, wenn du das Spiel häufig neu starten musst."
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_m_CustomizeLocalizedText": {
+    "Original": "Open Customize UI",
+    "Translated": "Anpassungsfenster öffnen"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_m_PsychicPhenomenaLocalizedText": {
+    "Original": "Psychic Phenomena",
+    "Translated": "Psionische Phänomene"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_m_MinorPerilsLocalizedText": {
+    "Original": "Minor Perils",
+    "Translated": "Geringere Gefahren"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_m_MajorPerilsLocalizedText": {
+    "Original": "Major Perils",
+    "Translated": "Größere Gefahren"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_Name": {
+    "Original": "Customize Psychic Phenomena / Perils of the Warp",
+    "Translated": "Psionische Phänomene / Gefahren des Warp anpassen"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_Description": {
+    "Original": "Allows disabling specific psychic phenomenas or perils of the warp.",
+    "Translated": "Erlaubt das Deaktivieren einzelner psionischer Phänomene oder Gefahren des Warp."
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_m_RefreshAvailablePhenomenas_PerilLocalizedText": {
+    "Original": "Refresh Available Phenomenas/Perils (for mod compat)",
+    "Translated": "Verfügbare Phänomene/Gefahren aktualisieren (für Mod-Kompatibilität)"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_m_StopExcludingLocalizedText": {
+    "Original": "Stop Excluding",
+    "Translated": "Nicht mehr ausschließen"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_m_ExcludeLocalizedText": {
+    "Original": "Exclude",
+    "Translated": "Ausschließen"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_DisableRandomWarpEncounterFeature_Name": {
+    "Original": "Disable Random Encounters in Warp",
+    "Translated": "Zufallsbegegnungen im Warp deaktivieren"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_DisableRandomWarpEncounterFeature_Description": {
+    "Original": "Prevents random encounters in warp. Note that this also disables positive and flavor events!",
+    "Translated": "Verhindert Zufallsbegegnungen im Warp. Hinweis: Dies deaktiviert auch positive Ereignisse und Ereignisse ohne spielmechanische Auswirkungen!"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyFactionReputationFeature_Name": {
+    "Original": "Modify Faction Reputation",
+    "Translated": "Fraktionsruf ändern"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyFactionReputationFeature_Description": {
+    "Original": "Allows you to modify the reputation at the various in-game factions.",
+    "Translated": "Erlaubt das Ändern deines Rufs bei den verschiedenen Fraktionen im Spiel."
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyFactionReputationFeature_m_CurrentReputationLocalizedText": {
+    "Original": "Current Reputation",
+    "Translated": "Aktueller Ruf"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyFactionReputationFeature_m_LevelLocalizedText": {
+    "Original": "Level",
+    "Translated": "Stufe"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyFactionReputationFeature_m_ExperienceLocalizedText": {
+    "Original": "Experience",
+    "Translated": "Erfahrung"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyFactionReputationFeature_m_AdjustReputationByTheFollowingAmLocalizedText": {
+    "Original": "Adjust Reputation by the following amount",
+    "Translated": "Ruf um diesen Betrag ändern"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyFactionReputationFeature_m_AddLocalizedText": {
+    "Original": "Add",
+    "Translated": "Hinzufügen"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyFactionReputationFeature_m_RemoveLocalizedText": {
+    "Original": "Remove",
+    "Translated": "Entfernen"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_Name": {
+    "Original": "Modify RT Resources",
+    "Translated": "RT-Ressourcen ändern"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_Description": {
+    "Original": "Allows modifying Scrap, Profit Factor, Navigators Insight and possibly current Veil Thickness.",
+    "Translated": "Erlaubt das Ändern von Schrott, Profitfaktor, Einsicht des Navigators und gegebenenfalls dem aktuellen Zerfall des Schleiers."
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_CurrentNavigatorInsightLocalizedText": {
+    "Original": "Current Navigator Insight",
+    "Translated": "Aktuelle Einsicht des Navigators"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_AdjustNavigatorInsightByTheFolloLocalizedText": {
+    "Original": "Adjust Navigator Insight by the following amount",
+    "Translated": "Einsicht des Navigators um diesen Betrag ändern"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_AddLocalizedText": {
+    "Original": "Add",
+    "Translated": "Hinzufügen"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_RemoveLocalizedText": {
+    "Original": "Remove",
+    "Translated": "Entfernen"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_CurrentScrapLocalizedText": {
+    "Original": "Current Scrap",
+    "Translated": "Aktueller Schrott"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_AdjustScrapByTheFollowingAmountLocalizedText": {
+    "Original": "Adjust Scrap by the following amount",
+    "Translated": "Schrott um diesen Betrag ändern"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_CurrentProfitFactorLocalizedText": {
+    "Original": "Current Profit Factor",
+    "Translated": "Aktueller Profitfaktor"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_AdjustProfitFactorByTheFollowingLocalizedText": {
+    "Original": "Adjust Profit Factor by the following amount",
+    "Translated": "Profitfaktor um diesen Betrag ändern"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_CurrentVeilThicknessLocalizedText": {
+    "Original": "Current Veil Thickness",
+    "Translated": "Aktueller Zerfall des Schleiers"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_SetVeilThicknessToTheFollowingAmLocalizedText": {
+    "Original": "Set Veil Thickness to the following amount",
+    "Translated": "Zerfall des Schleiers auf diesen Wert setzen"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_SetLocalizedText": {
+    "Original": "Set",
+    "Translated": "Setzen"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_PreventPsychicPhenomenaFeature_Name": {
+    "Original": "Prevent Psychic Phenomena",
+    "Translated": "Psionische Phänomene verhindern"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_PreventPsychicPhenomenaFeature_Description": {
+    "Original": "Prevents Psyker Abilities from causing any kind of psychic phenomena. This includes e.g. the Dark Prayer ability and Chaos Sword.",
+    "Translated": "Verhindert, dass Psionikerfähigkeiten psionische Phänomene auslösen. Dazu gehören beispielsweise auch Dunkles Gebet und das Chaosschwert."
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_PreventVeilThicknessFromChangingFeature_Name": {
+    "Original": "Prevent Veil Thickness from Changing",
+    "Translated": "Änderungen am Zerfall des Schleiers verhindern"
+  },
+  "ToyBox_Features_BagOfTricks_RTSpecific_PreventVeilThicknessFromChangingFeature_Description": {
+    "Original": "Forces the current veil thickness to 0.",
+    "Translated": "Setzt den aktuellen Zerfall des Schleiers dauerhaft auf 0."
+  },
+  "ToyBox_Features_BagOfTricks_Teleport_TeleportMainToCursorFeature_Name": {
+    "Original": "Teleport Main Character To Cursor",
+    "Translated": "Hauptcharakter zum Mauszeiger teleportieren"
+  },
+  "ToyBox_Features_BagOfTricks_Teleport_TeleportMainToCursorFeature_Description": {
+    "Original": "Teleports your main character unit to the position your mouse points at.",
+    "Translated": "Teleportiert deinen Hauptcharakter an die Position des Mauszeigers."
+  },
+  "ToyBox_Features_BagOfTricks_Teleport_TeleportPartyToCursorFeature_Name": {
+    "Original": "Teleport Party Characters To Cursor",
+    "Translated": "Gruppe zum Mauszeiger teleportieren"
+  },
+  "ToyBox_Features_BagOfTricks_Teleport_TeleportPartyToCursorFeature_Description": {
+    "Original": "Teleports all party units and pets to the position your mouse points at.",
+    "Translated": "Teleportiert alle Gruppenmitglieder und Vertrauten an die Position des Mauszeigers."
+  },
+  "ToyBox_Features_BagOfTricks_Teleport_TeleportPartyToYouFeature_Name": {
+    "Original": "Teleport Party To You",
+    "Translated": "Gruppe zu dir teleportieren"
+  },
+  "ToyBox_Features_BagOfTricks_Teleport_TeleportPartyToYouFeature_Description": {
+    "Original": "Teleports your party members and pets to the main character unit.",
+    "Translated": "Teleportiert Gruppenmitglieder und Vertraute zum Hauptcharakter."
+  },
+  "ToyBox_Features_BagOfTricks_Teleport_TeleportSelectedToCursorFeature_Name": {
+    "Original": "Teleport Selected Characters To Cursor",
+    "Translated": "Ausgewählte Charaktere zum Mauszeiger teleportieren"
+  },
+  "ToyBox_Features_BagOfTricks_Teleport_TeleportSelectedToCursorFeature_Description": {
+    "Original": "Teleports the selected units to the position your mouse points at.",
+    "Translated": "Teleportiert die ausgewählten Einheiten an die Position des Mauszeigers."
+  },
+  "ToyBox_Features_Colonies_ColoniesFeatureTab_Name": {
+    "Original": "Colonies",
+    "Translated": "Kolonien"
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_Name": {
+    "Original": "Colony Editor",
+    "Translated": "Kolonie-Editor"
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_Description": {
+    "Original": "View and edit your colonies: their stats, traits, ongoing events and projects, and the shared resource pool.",
+    "Translated": "Zeigt und bearbeitet deine Kolonien: Werte, Merkmale, laufende Ereignisse und Projekte sowie den gemeinsamen Ressourcenvorrat."
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_NoColoniesText": {
+    "Original": "You have not founded any colonies yet.",
+    "Translated": "Du hast noch keine Kolonien gegründet."
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_ColoniesText": {
+    "Original": "Colonies",
+    "Translated": "Kolonien"
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_OngoingEventsText": {
+    "Original": "Ongoing Events",
+    "Translated": "Laufende Ereignisse"
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_OngoingProjectsText": {
+    "Original": "Ongoing Projects",
+    "Translated": "Laufende Projekte"
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_FinishText": {
+    "Original": "Finish",
+    "Translated": "Abschließen"
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_ContentmentText": {
+    "Original": "Contentment",
+    "Translated": "Bequemlichkeit"
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_EfficiencyText": {
+    "Original": "Efficiency",
+    "Translated": "Effizienz"
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_SecurityText": {
+    "Original": "Security",
+    "Translated": "Sicherheit"
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_ChangeStatText": {
+    "Original": "Change Colony Stat",
+    "Translated": "Koloniewert ändern"
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_AdjustByText": {
+    "Original": "Adjust the selected stat by this amount",
+    "Translated": "Ausgewählten Wert um diesen Betrag ändern"
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_AddText": {
+    "Original": "Add",
+    "Translated": "Hinzufügen"
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_RemoveText": {
+    "Original": "Remove",
+    "Translated": "Entfernen"
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_TraitsText": {
+    "Original": "Colony Traits",
+    "Translated": "Koloniemerkmale"
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_ShowGuidsText": {
+    "Original": "Show GUIDs",
+    "Translated": "GUIDs anzeigen"
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_InspectText": {
+    "Original": "Inspect",
+    "Translated": "Inspizieren"
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_EditResourcesText": {
+    "Original": "Edit Resources",
+    "Translated": "Ressourcen bearbeiten"
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_ResourceAdjustText": {
+    "Original": "Adjust resource amount by",
+    "Translated": "Ressourcenmenge ändern um"
+  },
+  "ToyBox_Features_Colonies_ColonyEditorFeature_m_CurrentAmountText": {
+    "Original": "Current",
+    "Translated": "Aktuell"
+  },
+  "ToyBox_Features_DialogAndNpc_DialogAndNpcFeatureTab_Name": {
+    "Original": "Dialog & NPCs",
+    "Translated": "Dialoge & NSCs"
+  },
+  "ToyBox_Features_DialogAndNpc_DialogEditorFeature_Name": {
+    "Original": "Dialog Editor",
+    "Translated": "Dialog-Editor"
+  },
+  "ToyBox_Features_DialogAndNpc_DialogEditorFeature_Description": {
+    "Original": "Shows the structure of the currently active dialog (cues, answers, conditions and results).",
+    "Translated": "Zeigt den Aufbau des laufenden Dialogs (Dialogzeilen, Antworten, Bedingungen und Ergebnisse)."
+  },
+  "ToyBox_Features_DialogAndNpc_DialogEditorFeature_m_NoActiveDialogText": {
+    "Original": "No Active Dialog",
+    "Translated": "Kein laufender Dialog"
+  },
+  "ToyBox_Features_DialogAndNpc_DialogEditorFeature_m_CurrentText": {
+    "Original": "Current",
+    "Translated": "Aktuell"
+  },
+  "ToyBox_Features_DialogAndNpc_DialogEditorFeature_m_AnswerText": {
+    "Original": "Answer",
+    "Translated": "Antwort"
+  },
+  "ToyBox_Features_DialogAndNpc_DialogEditorFeature_m_SelectionText": {
+    "Original": "Selection",
+    "Translated": "Auswahl"
+  },
+  "ToyBox_Features_DialogAndNpc_DialogEditorFeature_m_CueText": {
+    "Original": "Cue",
+    "Translated": "Dialogzeile"
+  },
+  "ToyBox_Features_DialogAndNpc_DialogEditorFeature_m_NextText": {
+    "Original": "Next",
+    "Translated": "Weiter"
+  },
+  "ToyBox_Features_DialogAndNpc_DialogEditorFeature_m_CondText": {
+    "Original": "Cond",
+    "Translated": "Bed."
+  },
+  "ToyBox_Features_DialogAndNpc_DialogEditorFeature_m_RepeatText": {
+    "Original": "[Repeat]",
+    "Translated": "[Wiederholung]"
+  },
+  "ToyBox_Features_DialogAndNpc_InspectDialogControllerFeature_Name": {
+    "Original": "Inspect Dialog Controller",
+    "Translated": "DialogController inspizieren"
+  },
+  "ToyBox_Features_DialogAndNpc_InspectDialogControllerFeature_Description": {
+    "Original": "Allows inspecting the current Dialog Controller to e.g. debug issues.",
+    "Translated": "Erlaubt das Inspizieren des aktuellen DialogControllers, beispielsweise zur Fehlersuche."
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_Name": {
+    "Original": "Interesting NPCs in the local area",
+    "Translated": "Interessante NSCs im aktuellen Gebiet"
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_Description": {
+    "Original": "Shows a list of NPCs that may have quest objectives or other interesting interactions. (Warning: Spoilers)",
+    "Translated": "Zeigt NSCs, die Questziele oder andere interessante Interaktionen haben könnten. (Warnung: Spoiler)"
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_ShowInactiveConditionsText": {
+    "Original": "Show Inactive Conditions",
+    "Translated": "Inaktive Bedingungen anzeigen"
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_ShowOtherVersionsText": {
+    "Original": "Show other versions of NPCs",
+    "Translated": "Andere Versionen von NSCs anzeigen"
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_RefreshText": {
+    "Original": "Refresh",
+    "Translated": "Aktualisieren"
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_InterestingnessCoefficientText": {
+    "Original": "Interestingness Coefficient",
+    "Translated": "Interessantheitskoeffizient"
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_UnitText": {
+    "Original": "Unit",
+    "Translated": "Einheit"
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_DialogText": {
+    "Original": "Dialog",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_ConditionsText": {
+    "Original": "Conditions",
+    "Translated": "Bedingungen"
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_ElementsText": {
+    "Original": "Elements",
+    "Translated": "Elemente"
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_ConditionalText": {
+    "Original": "Conditional",
+    "Translated": "Bedingt"
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_QuestStatusText": {
+    "Original": "Quest Status",
+    "Translated": "Queststatus"
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_ObjectiveStatusText": {
+    "Original": "Objective Status",
+    "Translated": "Zielstatus"
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_EtudeStatusText": {
+    "Original": "Etude Status",
+    "Translated": "Etüdenstatus"
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_StatusText": {
+    "Original": "Status",
+    "Translated": null
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_ConditionText": {
+    "Original": "Condition",
+    "Translated": "Bedingung"
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_SourceText": {
+    "Original": "Source",
+    "Translated": "Quelle"
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_CaptionText": {
+    "Original": "Caption",
+    "Translated": "Beschriftung"
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_TrueText": {
+    "Original": "True",
+    "Translated": "Wahr"
+  },
+  "ToyBox_Features_DialogAndNpc_InterestingNpcsFeature_m_FalseText": {
+    "Original": "False",
+    "Translated": "Falsch"
+  },
+  "ToyBox_Features_Etudes_EtudesFeatureTab_Name": {
+    "Original": "Etudes",
+    "Translated": "Etüden"
+  },
+  "ToyBox_Features_Etudes_LegacyEtudesEditorFeature_Name": {
+    "Original": "Etudes Editor",
+    "Translated": "Etüden-Editor"
+  },
+  "ToyBox_Features_Etudes_LegacyEtudesEditorFeature_Description": {
+    "Original": "Allows inspecting the games Etudes/Flags/Elements in a tree view.",
+    "Translated": "Erlaubt das Inspizieren der Etüden, Flags und Elemente des Spiels in einer Baumansicht."
+  },
+  "ToyBox_Features_Etudes_LegacyEtudesEditorFeature_m_ThisFeatureIsAtTheMomentMostlyCoLocalizedText": {
+    "Original": "This feature is at the moment mostly copied from previous ToyBox, so there might be issues. It also does not yet support localization. The UI will get a complete rewrite eventually.",
+    "Translated": "Diese Funktion wurde derzeit weitgehend aus dem bisherigen ToyBox übernommen und kann daher Fehler enthalten. Sie unterstützt noch keine Lokalisierung. Die Oberfläche soll später vollständig überarbeitet werden."
+  },
+  "ToyBox_Features_Etudes_EtudeRecord_m_ChainedEtude_0___1__HasDifferentLocalizedText": {
+    "Original": "Chained etude {0} ({1}) has different parent: {2} than {3} parent: {4}",
+    "Translated": "Verkettete Etüde {0} ({1}) hat ein anderes übergeordnetes Element: {2} als {3} mit übergeordnetem Element: {4}"
+  },
+  "ToyBox_Features_Etudes_EtudeRecord_m_LinkedToChild_0___1__WithDiffereLocalizedText": {
+    "Original": "Linked to child {0} ({1}) with different parent: {2} than {3} parent {4}",
+    "Translated": "Verknüpft mit untergeordnetem Element {0} ({1}) mit anderem übergeordnetem Element: {2} als {3} mit übergeordnetem Element {4}"
+  },
+  "ToyBox_Features_Etudes_EtudeRecord_m_NoneLocalizedText": {
+    "Original": "None",
+    "Translated": "Keine"
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_Name": {
+    "Original": "Etudes Editor",
+    "Translated": "Etüden-Editor"
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_Description": {
+    "Original": "Browse the game's Etudes in a tree view, with state and relationship details.",
+    "Translated": "Durchsuche die Etüden des Spiels in einer Baumansicht mit Angaben zu Status und Beziehungen."
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_EvaluationFailedText": {
+    "Original": "Evaluation failed",
+    "Translated": "Auswertung fehlgeschlagen"
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_LoadingText": {
+    "Original": "Loading Etudes...",
+    "Translated": "Etüden werden geladen ..."
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_RootText": {
+    "Original": "Root",
+    "Translated": "Wurzel"
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_RootNotFoundText": {
+    "Original": "Root etude not found in current snapshot:",
+    "Translated": "Wurzeletüde im aktuellen Datenstand nicht gefunden:"
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_SearchTextLabel": {
+    "Original": "Search",
+    "Translated": "Suchen"
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_FlagsOnlyText": {
+    "Original": "Flags Only",
+    "Translated": "Nur Flags"
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_ShowGuidsText": {
+    "Original": "Show GUIDs",
+    "Translated": "GUIDs anzeigen"
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_ShowCommentsText": {
+    "Original": "Show Comments",
+    "Translated": "Kommentare anzeigen"
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_RefreshText": {
+    "Original": "Refresh",
+    "Translated": "Aktualisieren"
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_AreaFilterText": {
+    "Original": "Area Filter",
+    "Translated": "Gebietsfilter"
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_NoEtudesText": {
+    "Original": "No Etudes",
+    "Translated": "Keine Etüden"
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_CompletesParentText": {
+    "Original": "Completes Parent",
+    "Translated": "Schließt übergeordnetes Element ab"
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_InspectText": {
+    "Original": "Inspect",
+    "Translated": "Inspizieren"
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_ElementsText": {
+    "Original": "Elements",
+    "Translated": "Elemente"
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_ConflictsText": {
+    "Original": "Conflicts",
+    "Translated": "Konflikte"
+  },
+  "ToyBox_Features_Etudes_EtudesFeature_m_EncounteredErrorWhileBuildingEtuLocalizedText": {
+    "Original": "Encountered error while building Etudes Tree!",
+    "Translated": "Fehler beim Erstellen des Etüdenbaums!"
+  },
+  "ToyBox_Features_Etudes_EtudesEditorFeature_m_AllLocalizedText": {
+    "Original": "All",
+    "Translated": "Alle"
+  },
+  "ToyBox_Features_FeatureSearch_FeatureSearchFeature_FeatureSearchNotImplementedForTh": {
+    "Original": "Feature search not implemented for this feature!",
+    "Translated": "Die Funktionssuche ist für diese Funktion nicht implementiert!"
+  },
+  "ToyBox_Features_FeatureSearch_FeatureSearchFeature_ShowGUIText": {
+    "Original": "Show GUI",
+    "Translated": "Oberfläche anzeigen"
+  },
+  "ToyBox_Features_FeatureSearch_FeatureSearchFeature_Name": {
+    "Original": "Default Name",
+    "Translated": "Standardname"
+  },
+  "ToyBox_Features_FeatureSearch_FeatureSearchFeature_Description": {
+    "Original": "Default Description",
+    "Translated": "Standardbeschreibung"
+  },
+  "ToyBox_Features_FeatureSearch_FeatureSearchFeature_m_FilterForUntestedFeaturesLocalizedText": {
+    "Original": "Filter for untested features",
+    "Translated": "Nach ungetesteten Funktionen filtern"
+  },
+  "ToyBox_Features_FeatureSearch_FeatureSearchTab_Name": {
+    "Original": "Feature Search",
+    "Translated": "Funktionssuche"
+  },
+  "ToyBox_Features_LevelUp_IgnoreArchetypePrerequisitesFeature_Name": {
+    "Original": "Ignore Archetypes Prerequisites",
+    "Translated": "Archetypvoraussetzungen ignorieren"
+  },
+  "ToyBox_Features_LevelUp_IgnoreArchetypePrerequisitesFeature_Description": {
+    "Original": "Slightly Buggy UI. This allows picking any one career per stage regardless of prerequisites. Warning: Picking e.g. Exemplar as second archetype will cause issues because you won't have a second archetype ability to upgrade.",
+    "Translated": "Die Oberfläche hat kleinere Fehler. Erlaubt die Auswahl eines beliebigen Archetyps pro Entwicklungsstufe, unabhängig von Voraussetzungen. Warnung: Wählst du beispielsweise Exemplar als zweiten Archetyp, führt das zu Problemen, da du keine Fähigkeit des zweiten Archetyps zum Verbessern hast."
+  },
+  "ToyBox_Features_LevelUp_IgnoreClassLevelsPrerequisitesFeature_Name": {
+    "Original": "Ignore Class Level Prerequisites",
+    "Translated": "Klassenstufenvoraussetzungen ignorieren"
+  },
+  "ToyBox_Features_LevelUp_IgnoreClassLevelsPrerequisitesFeature_Description": {
+    "Original": "Automatically succeeds level-dependent prerequisite checks, both those asking for a minimum level and those asking for a feature maximum level.",
+    "Translated": "Lässt stufenabhängige Voraussetzungsprüfungen automatisch bestehen, sowohl für Mindeststufen als auch für Höchststufen einer Charaktereigenschaft."
+  },
+  "ToyBox_Features_LevelUp_IgnoreStatPrerequisitesFeature_Name": {
+    "Original": "Ignore Stat Prerequisites",
+    "Translated": "Wertevoraussetzungen ignorieren"
+  },
+  "ToyBox_Features_LevelUp_IgnoreStatPrerequisitesFeature_Description": {
+    "Original": "Automatically succeeds stat-dependent prerequisite checks, both those asking for a minimum value and those asking for a feature maximum value.",
+    "Translated": "Lässt werteabhängige Voraussetzungsprüfungen automatisch bestehen, sowohl für Mindestwerte als auch für Höchstwerte einer Charaktereigenschaft."
+  },
+  "ToyBox_Features_LevelUp_IgnoreTalentPrerequisitesFeature_Name": {
+    "Original": "Ignore Talent Prerequisites",
+    "Translated": "Talentvoraussetzungen ignorieren"
+  },
+  "ToyBox_Features_LevelUp_IgnoreTalentPrerequisitesFeature_Description": {
+    "Original": "Automatically succeeds fact-dependent prerequisite checks, both those asking for a feature to be present and those asking for a feature to not be present.",
+    "Translated": "Lässt eigenschaftsabhängige Voraussetzungsprüfungen automatisch bestehen, sowohl wenn eine Charaktereigenschaft vorhanden sein muss als auch wenn sie nicht vorhanden sein darf."
+  },
+  "ToyBox_Features_LevelUp_LevelUpFeatureTab_Name": {
+    "Original": "Level Up",
+    "Translated": "Stufenaufstieg"
+  },
+  "ToyBox_Features_LevelUp_RespecFromLevelXFeature_Name": {
+    "Original": "Respec From Level X",
+    "Translated": "Neuverteilung ab Stufe X"
+  },
+  "ToyBox_Features_LevelUp_RespecFromLevelXFeature_Description": {
+    "Original": "Allows changing the base respec level for units (including companions). Setting this to level 35 allows repicking the third archetype. Level 15 allows changing both the second and third arche type. Level 0 allows changing all three archetypes.",
+    "Translated": "Erlaubt das Ändern der Ausgangsstufe für die Neuverteilung von Einheiten, einschließlich Gefährten. Stufe 35 erlaubt die Neuwahl des dritten Archetyps, Stufe 15 die des zweiten und dritten, Stufe 0 die aller drei Archetypen."
+  },
+  "ToyBox_Features_LevelUp_RespecFromLevelXFeature_m_TryToKeepThisFeatureActivatedAftLocalizedText": {
+    "Original": "Try to keep this feature activated after using it (Click for Explanation)",
+    "Translated": "Diese Funktion nach der Verwendung möglichst aktiviert lassen (Erklärung per Klick)"
+  },
+  "ToyBox_Features_LevelUp_RespecFromLevelXFeature_m_IfAUnitIsRespeccedWhileThisFeatuLocalizedText": {
+    "Original": "If a unit is respecced while this feature is enabled and the feature (or ToyBox) is later disabled, minor level-up UI glitches may occur. During level-up the game uses a base (original) copy of the unit. ToyBox must respec that copy when it's created (which only happens while the feature is active). If this is not done, there can be slight issues like the game thinking you have a feature despite not having it (because the base/original unit was supposed to have that feature, making the new copy having it too). This is not a hard dependency as any issues can be fixed by respeccing the unit after disabling this feature/ToyBox.",
+    "Translated": "Wird eine Einheit bei aktivierter Funktion neu verteilt und die Funktion oder ToyBox später deaktiviert, können kleinere Anzeigefehler beim Stufenaufstieg auftreten. Dabei verwendet das Spiel eine ursprüngliche Kopie der Einheit. ToyBox muss auch diese Kopie bei ihrer Erstellung neu verteilen; dies geschieht nur bei aktiver Funktion. Andernfalls kann das Spiel beispielsweise eine Charaktereigenschaft als vorhanden behandeln, obwohl sie fehlt, weil die ursprüngliche Einheit sie besaß und die neue Kopie sie deshalb ebenfalls erhalten sollte. Es besteht keine zwingende Abhängigkeit: Eine erneute Neuverteilung nach dem Deaktivieren der Funktion oder von ToyBox behebt solche Probleme."
+  },
+  "ToyBox_Features_LevelUp_RespecFromLevelXFeature_m_NoneLocalizedText": {
+    "Original": "None",
+    "Translated": "Keine"
+  },
+  "ToyBox_Features_LevelUp_RespecFromLevelXFeature_m_CurrentRespecLevelOverrideLocalizedText": {
+    "Original": "Current Respec Level Override",
+    "Translated": "Aktuell überschriebene Ausgangsstufe"
+  },
+  "ToyBox_Features_LevelUp_RespecFromLevelXFeature_m_RespecFromLevel0LocalizedText": {
+    "Original": "Respec from Level 0",
+    "Translated": "Neuverteilung ab Stufe 0"
+  },
+  "ToyBox_Features_LevelUp_RespecFromLevelXFeature_m_RespecFromLevel15LocalizedText": {
+    "Original": "Respec from Level 15",
+    "Translated": "Neuverteilung ab Stufe 15"
+  },
+  "ToyBox_Features_LevelUp_RespecFromLevelXFeature_m_RespecFromLevel35LocalizedText": {
+    "Original": "Respec from Level 35",
+    "Translated": "Neuverteilung ab Stufe 35"
+  },
+  "ToyBox_Features_LevelUp_RespecFromLevelXFeature_m_RespecFromCustomLevelLocalizedText": {
+    "Original": "Respec from Custom Level",
+    "Translated": "Neuverteilung ab frei gewählter Stufe"
+  },
+  "ToyBox_Features_LevelUp_RespecFromLevelXFeature_m_ApplyCustomLevelLocalizedText": {
+    "Original": "Apply Custom Level",
+    "Translated": "Gewählte Stufe anwenden"
+  },
+  "ToyBox_Features_LevelUp_TalentSelectionMultiplierFeature_Name": {
+    "Original": "Talent Selection Multiplier",
+    "Translated": "Multiplikator für die Talentauswahl"
+  },
+  "ToyBox_Features_LevelUp_TalentSelectionMultiplierFeature_Description": {
+    "Original": "Multiplies career talent selections (1 = normal). Learned talents remain after disabling, but extra choices are no longer shown in the career progression after reopening the character screen. Don't change this setting mid-levelup.",
+    "Translated": "Multipliziert die Talentauswahl des Archetyps (1 = normal). Erlernte Talente bleiben nach dem Deaktivieren erhalten; zusätzliche Auswahlmöglichkeiten werden jedoch nach erneutem Öffnen des Charakterfensters nicht mehr im Entwicklungsverlauf angezeigt. Diese Einstellung nicht während eines Stufenaufstiegs ändern."
+  },
+  "ToyBox_Features_Loot_LootAoEFeature_Name": {
+    "Original": "AoE Loot",
+    "Translated": "Beute im Umkreis"
+  },
+  "ToyBox_Features_Loot_LootAoEFeature_Description": {
+    "Original": "Opens a loot window containing all the loot within a configurable range (default 15m).",
+    "Translated": "Öffnet ein Beutefenster mit der gesamten Beute in einem einstellbaren Umkreis (standardmäßig 15 m)."
+  },
+  "ToyBox_Features_Loot_LootAoERangeFeature_Name": {
+    "Original": "AoE Loot Range",
+    "Translated": "Beuteradius"
+  },
+  "ToyBox_Features_Loot_LootAoERangeFeature_Description": {
+    "Original": "Modifies the range (in m) in which the AoE Loot collects the loot.",
+    "Translated": "Ändert den Radius (in m), in dem Beute im Umkreis gesammelt wird."
+  },
+  "ToyBox_Features_Loot_LootChecklistFeature_Name": {
+    "Original": "Loot Checklist",
+    "Translated": "Beuteliste"
+  },
+  "ToyBox_Features_Loot_LootChecklistFeature_Description": {
+    "Original": "Displays a list of all the loot left on the map.",
+    "Translated": "Zeigt die gesamte verbleibende Beute auf der Karte an."
+  },
+  "ToyBox_Features_Loot_LootChecklistFeature_m_SearchLocalizedText": {
+    "Original": "Search",
+    "Translated": "Suchen"
+  },
+  "ToyBox_Features_Loot_LootChecklistFeature_m_ContainersLocalizedText": {
+    "Original": "Containers",
+    "Translated": "Behälter"
+  },
+  "ToyBox_Features_Loot_LootChecklistFeature_m_UnitsLocalizedText": {
+    "Original": "Units",
+    "Translated": "Einheiten"
+  },
+  "ToyBox_Features_Loot_LootChecklistFeature_m_SourceIsUnknownLocalizedText": {
+    "Original": "Unknown",
+    "Translated": "Unbekannt"
+  },
+  "ToyBox_Features_Loot_LootChecklistFeature_m_SourceIsGroundLocalizedText": {
+    "Original": "Ground",
+    "Translated": "Boden"
+  },
+  "ToyBox_Features_Loot_LootChecklistFeature_m_NoLootAvailable_LocalizedText": {
+    "Original": "No Loot Available.",
+    "Translated": "Keine Beute verfügbar."
+  },
+  "ToyBox_Features_Loot_LootChecklistFeature_m_NotInAnyArea_LocalizedText": {
+    "Original": "Not in any area!",
+    "Translated": "In keinem Gebiet!"
+  },
+  "ToyBox_Features_Loot_LootChecklistShowHiddenLootSetting_Name": {
+    "Original": "Show Hidden Loot in Checklist",
+    "Translated": "Versteckte Beute in der Liste anzeigen"
+  },
+  "ToyBox_Features_Loot_LootChecklistShowHiddenLootSetting_Description": {
+    "Original": "Also includes containers that are still hidden in the list.",
+    "Translated": "Nimmt auch noch verborgene Behälter in die Liste auf."
+  },
+  "ToyBox_Features_Loot_LootFeatureTab_Name": {
+    "Original": "Loot",
+    "Translated": "Beute"
+  },
+  "ToyBox_Features_Loot_LootFeatureTab_m_LootLocalizedText": {
+    "Original": "Loot",
+    "Translated": "Beute"
+  },
+  "ToyBox_Features_Loot_LootFeatureTab_m_ChecklistLocalizedText": {
+    "Original": "Checklist",
+    "Translated": "Liste"
+  },
+  "ToyBox_Features_Loot_MassLootShowHiddenItemsSetting_Name": {
+    "Original": "Show Hidden Items",
+    "Translated": "Versteckte Gegenstände anzeigen"
+  },
+  "ToyBox_Features_Loot_MassLootShowHiddenItemsSetting_Description": {
+    "Original": "Shows items that are hidden or were not viewed. This might include quest items that the game might not intend for you to loot yet.",
+    "Translated": "Zeigt verborgene oder noch nicht betrachtete Gegenstände. Dazu können Questgegenstände gehören, die du laut Spiel noch nicht erhalten sollst."
+  },
+  "ToyBox_Features_Loot_MassLootShowLivingNPCItemsSetting_Name": {
+    "Original": "Steal from living NPCs",
+    "Translated": "Von lebenden NSCs stehlen"
+  },
+  "ToyBox_Features_Loot_MassLootShowLivingNPCItemsSetting_Description": {
+    "Original": "Includes items from living NPCs. This might include items you are not supposed to get.",
+    "Translated": "Bezieht Gegenstände lebender NSCs ein. Dazu können Gegenstände gehören, die du nicht erhalten sollst."
+  },
+  "ToyBox_Features_Loot_OpenMassLootAction_Name": {
+    "Original": "Open Mass Loot Window",
+    "Translated": "Gesamtbeutefenster öffnen"
+  },
+  "ToyBox_Features_Loot_OpenMassLootAction_Description": {
+    "Original": "Lets you open up the area's mass loot screen to grab goodies whenever you want. Normally shown only when you exit the area. Only opens if there is actually any loot available.",
+    "Translated": "Öffnet jederzeit das Gesamtbeutefenster des Gebiets, das normalerweise erst beim Verlassen erscheint. Wird nur geöffnet, wenn tatsächlich Beute vorhanden ist."
+  },
+  "ToyBox_Features_PartyTab_Actions_AddUnitToPartyAction_Name": {
+    "Original": "Add Unit to Party",
+    "Translated": "Einheit zur Gruppe hinzufügen"
+  },
+  "ToyBox_Features_PartyTab_Actions_AddUnitToPartyAction_Description": {
+    "Original": "Adds the specified unit or pet to the current party and teleports it to you if necessary.",
+    "Translated": "Fügt die angegebene Einheit oder den Vertrauten der aktuellen Gruppe hinzu und teleportiert sie bei Bedarf zu dir."
+  },
+  "ToyBox_Features_PartyTab_Actions_AddUnitToPartyAction_m_UnitIsAlreadyPartOfPartyLocalizedText": {
+    "Original": "Unit is already part of the active party or not recruited",
+    "Translated": "Einheit gehört bereits zur aktiven Gruppe oder wurde nicht rekrutiert"
+  },
+  "ToyBox_Features_PartyTab_Actions_AddUnitToPartyAction_m_AddLocalizedText": {
+    "Original": "Add",
+    "Translated": "Hinzufügen"
+  },
+  "ToyBox_Features_PartyTab_Actions_KillUnitAction_Name": {
+    "Original": "Kill Unit",
+    "Translated": "Einheit töten"
+  },
+  "ToyBox_Features_PartyTab_Actions_KillUnitAction_Description": {
+    "Original": "Kills the specified unit by marking it for death.",
+    "Translated": "Tötet die angegebene Einheit, indem sie zum Tod vorgemerkt wird."
+  },
+  "ToyBox_Features_PartyTab_Actions_KillUnitAction_m_WhatHappenedHereLocalizedText": {
+    "Original": "Something went wrong. You should not be able to see this.",
+    "Translated": "Etwas ist schiefgelaufen. Diese Meldung sollte nicht sichtbar sein."
+  },
+  "ToyBox_Features_PartyTab_Actions_KillUnitAction_m_KillLocalizedText": {
+    "Original": "Kill",
+    "Translated": "Töten"
+  },
+  "ToyBox_Features_PartyTab_Actions_RecruitUnitAction_Name": {
+    "Original": "Recruit Unit",
+    "Translated": "Einheit rekrutieren"
+  },
+  "ToyBox_Features_PartyTab_Actions_RecruitUnitAction_Description": {
+    "Original": "Recruits the specified unit and teleports it to you if possible.",
+    "Translated": "Rekrutiert die angegebene Einheit und teleportiert sie nach Möglichkeit zu dir."
+  },
+  "ToyBox_Features_PartyTab_Actions_RecruitUnitAction_m_UnitIsAlreadyRecruitedLocalizedText": {
+    "Original": "Unit is already recruited",
+    "Translated": "Einheit ist bereits rekrutiert"
+  },
+  "ToyBox_Features_PartyTab_Actions_RecruitUnitAction_m_RecruitLocalizedText": {
+    "Original": "Recruit",
+    "Translated": "Rekrutieren"
+  },
+  "ToyBox_Features_PartyTab_Actions_RemoveUnitFromPartyAction_Name": {
+    "Original": "Remove Unit from Party",
+    "Translated": "Einheit aus der Gruppe entfernen"
+  },
+  "ToyBox_Features_PartyTab_Actions_RemoveUnitFromPartyAction_Description": {
+    "Original": "Removes the specified unit or pet from the current party.",
+    "Translated": "Entfernt die angegebene Einheit oder den Vertrauten aus der aktuellen Gruppe."
+  },
+  "ToyBox_Features_PartyTab_Actions_RemoveUnitFromPartyAction_m_UnitIsNotPartOfPartyLocalizedText": {
+    "Original": "Unit is not part of the active Party",
+    "Translated": "Einheit gehört nicht zur aktiven Gruppe"
+  },
+  "ToyBox_Features_PartyTab_Actions_RemoveUnitFromPartyAction_m_RemoveLocalizedText": {
+    "Original": "Remove",
+    "Translated": "Entfernen"
+  },
+  "ToyBox_Features_PartyTab_Actions_RespecUnitAction_Name": {
+    "Original": "Respec Unit",
+    "Translated": "Einheit neu verteilen"
+  },
+  "ToyBox_Features_PartyTab_Actions_RespecUnitAction_Description": {
+    "Original": "Respecs the specified unit and closes the mod UI.",
+    "Translated": "Verteilt die angegebene Einheit neu und schließt die Mod-Oberfläche."
+  },
+  "ToyBox_Features_PartyTab_Actions_RespecUnitAction_m_Can_tRespecUnitLocalizedText": {
+    "Original": "Can't respec unit. This is either because unit is dead, a pet or below it's original level limit (e.g. the recruit level for companions).",
+    "Translated": "Einheit kann nicht neu verteilt werden. Sie ist entweder tot, ein Vertrauter oder unter ihrer ursprünglichen Mindeststufe (bei Gefährten beispielsweise der Rekrutierungsstufe)."
+  },
+  "ToyBox_Features_PartyTab_Actions_RespecUnitAction_m_RespecLocalizedText": {
+    "Original": "Respec",
+    "Translated": "Neu verteilen"
+  },
+  "ToyBox_Features_PartyTab_Actions_UnrecruitUnitAction_Name": {
+    "Original": "Unrecruit Unit",
+    "Translated": "Rekrutierung aufheben"
+  },
+  "ToyBox_Features_PartyTab_Actions_UnrecruitUnitAction_Description": {
+    "Original": "Unrecruits the specified companion.",
+    "Translated": "Hebt die Rekrutierung des angegebenen Gefährten auf."
+  },
+  "ToyBox_Features_PartyTab_Actions_UnrecruitUnitAction_m_UnitIsNotRecruitedLocalizedText": {
+    "Original": "Unit is not recruited",
+    "Translated": "Einheit ist nicht rekrutiert"
+  },
+  "ToyBox_Features_PartyTab_Actions_UnrecruitUnitAction_m_UnrecruitLocalizedText": {
+    "Original": "Unrecruit",
+    "Translated": "Rekrutierung aufheben"
+  },
+  "ToyBox_Features_PartyTab_Careers_ModifyCharacterLevelFeature_Name": {
+    "Original": "Modify Character Level",
+    "Translated": "Charakterstufe ändern"
+  },
+  "ToyBox_Features_PartyTab_Careers_ModifyCharacterLevelFeature_Description": {
+    "Original": "Allows changing the character level of a unit without changing its experience. Use Increase Unit Level instead to properly adjust experience. This gets reset on save reload.",
+    "Translated": "Erlaubt das Ändern der Charakterstufe einer Einheit ohne Änderung ihrer Erfahrung. Verwende stattdessen „Einheitenstufe erhöhen“, um die Erfahrung entsprechend anzupassen. Dieser Wert wird beim erneuten Laden zurückgesetzt."
+  },
+  "ToyBox_Features_PartyTab_Careers_ModifyCharacterLevelFeature_m_CharacterLevelLocalizedText": {
+    "Original": "Character Level",
+    "Translated": "Charakterstufe"
+  },
+  "ToyBox_Features_PartyTab_Careers_ModifyExperienceFeature_Name": {
+    "Original": "Modify Unit Experience",
+    "Translated": "Erfahrung der Einheit ändern"
+  },
+  "ToyBox_Features_PartyTab_Careers_ModifyExperienceFeature_Description": {
+    "Original": "Allows changing the amount of experience points a unit has.",
+    "Translated": "Erlaubt das Ändern der Erfahrungspunkte einer Einheit."
+  },
+  "ToyBox_Features_PartyTab_Careers_ModifyExperienceFeature_m_ExperienceLocalizedText": {
+    "Original": "Experience",
+    "Translated": "Erfahrung"
+  },
+  "ToyBox_Features_PartyTab_Careers_ModifyExperienceFeature_m_AdjustBasedOnLevelLocalizedText": {
+    "Original": "Adjust based on Level",
+    "Translated": "An Stufe anpassen"
+  },
+  "ToyBox_Features_PartyTab_Careers_ModifyExperienceFeature_m_ThisSetsYourExperienceToMatchTheLocalizedText": {
+    "Original": "This sets your experience to match the current value of character level",
+    "Translated": "Setzt die Erfahrung passend zur aktuellen Charakterstufe."
+  },
+  "ToyBox_Features_PartyTab_Careers_ShowCareersFeature_Name": {
+    "Original": "Show Careers",
+    "Translated": "Archetypen anzeigen"
+  },
+  "ToyBox_Features_PartyTab_Careers_ShowCareersFeature_Description": {
+    "Original": "Lists the careers of a unit and their current level.",
+    "Translated": "Zeigt die Archetypen einer Einheit und deren aktuelle Stufen."
+  },
+  "ToyBox_Features_PartyTab_Careers_ShowCareersFeature_m_LevelLocalizedText": {
+    "Original": "Level",
+    "Translated": "Stufe"
+  },
+  "ToyBox_Features_PartyTab_Careers_ShowCareersFeature_m_CareersLocalizedText": {
+    "Original": "Careers",
+    "Translated": "Archetypen"
+  },
+  "ToyBox_Features_PartyTab_IncreaseUnitLevelFeature_Name": {
+    "Original": "Increase Unit Level",
+    "Translated": "Einheitenstufe erhöhen"
+  },
+  "ToyBox_Features_PartyTab_IncreaseUnitLevelFeature_Description": {
+    "Original": "Allows granting enough experience to increase level by 1.",
+    "Translated": "Vergibt genug Erfahrung, um die Stufe um 1 zu erhöhen."
+  },
+  "ToyBox_Features_PartyTab_IncreaseUnitLevelFeature_Maximum_Abbreviated": {
+    "Original": "max",
+    "Translated": "max."
+  },
+  "ToyBox_Features_PartyTab_IncreaseUnitLevelFeature_Level_Abbreviated": {
+    "Original": "Lvl.",
+    "Translated": "St."
+  },
+  "ToyBox_Features_PartyTab_PartyBrowseAbilitiesFeature_Name": {
+    "Original": "Browse Unit Abilities",
+    "Translated": "Einheitenfähigkeiten durchsuchen"
+  },
+  "ToyBox_Features_PartyTab_PartyBrowseAbilitiesFeature_Description": {
+    "Original": "Displays a Browser containing all the abilities of the unit in question and optionally allows removing them or adding new ones.",
+    "Translated": "Zeigt alle Fähigkeiten der betreffenden Einheit in einer durchsuchbaren Liste und erlaubt optional das Entfernen oder Hinzufügen von Fähigkeiten."
+  },
+  "ToyBox_Features_PartyTab_PartyBrowseBuffsFeature_Name": {
+    "Original": "Browse Unit Buffs",
+    "Translated": "Einheitenbuffs durchsuchen"
+  },
+  "ToyBox_Features_PartyTab_PartyBrowseBuffsFeature_Description": {
+    "Original": "Displays a Browser containing all the buffs of the unit in question and optionally allows removing them or adding new ones.",
+    "Translated": "Zeigt alle Buffs der betreffenden Einheit in einer durchsuchbaren Liste und erlaubt optional das Entfernen oder Hinzufügen von Buffs."
+  },
+  "ToyBox_Features_PartyTab_PartyBrowseFeatsFeature_Name": {
+    "Original": "Browse Unit Features",
+    "Translated": "Charaktereigenschaften durchsuchen"
+  },
+  "ToyBox_Features_PartyTab_PartyBrowseFeatsFeature_Description": {
+    "Original": "Displays a Browser containing all the features of the unit in question and optionally allows removing them or adding new ones.",
+    "Translated": "Zeigt alle Charaktereigenschaften der betreffenden Einheit in einer durchsuchbaren Liste und erlaubt optional das Entfernen oder Hinzufügen von Eigenschaften."
+  },
+  "ToyBox_Features_PartyTab_PartyBrowseMechadendritesFeature_Name": {
+    "Original": "Browse Unit Mechadendrites",
+    "Translated": "Mechadendriten durchsuchen"
+  },
+  "ToyBox_Features_PartyTab_PartyBrowseMechadendritesFeature_Description": {
+    "Original": "Displays a Browser containing all the mechadendrites of the unit in question and optionally allows removing them or adding new ones.",
+    "Translated": "Zeigt alle Mechadendriten der betreffenden Einheit in einer durchsuchbaren Liste und erlaubt optional das Entfernen oder Hinzufügen von Mechadendriten."
+  },
+  "ToyBox_Features_PartyTab_PartyFeatureTab_PartyLevelText": {
+    "Original": "Party Level",
+    "Translated": "Gruppenstufe"
+  },
+  "ToyBox_Features_PartyTab_PartyFeatureTab_InspectParty_forDebugging__Text": {
+    "Original": "Inspect Party (for debugging)",
+    "Translated": "Gruppe inspizieren (zur Fehlersuche)"
+  },
+  "ToyBox_Features_PartyTab_PartyFeatureTab_Name": {
+    "Original": "Party",
+    "Translated": "Gruppe"
+  },
+  "ToyBox_Classes_Features_PartyTab_RenameUnitFeature_Name": {
+    "Original": "Rename Unit",
+    "Translated": "Einheit umbenennen"
+  },
+  "ToyBox_Classes_Features_PartyTab_RenameUnitFeature_Description": {
+    "Original": "Allows renaming the specified BaseUnitEntity",
+    "Translated": "Erlaubt das Umbenennen der angegebenen BaseUnitEntity."
+  },
+  "ToyBox_Features_PartyTab_Stats_ChangeGenderFeature_Name": {
+    "Original": "Change Gender",
+    "Translated": "Geschlecht ändern"
+  },
+  "ToyBox_Features_PartyTab_Stats_ChangeGenderFeature_Description": {
+    "Original": "Toggles the characters gender between male and female.",
+    "Translated": "Wechselt das Geschlecht des Charakters zwischen männlich und weiblich."
+  },
+  "ToyBox_Features_PartyTab_Stats_PortraitEditorFeature_Name": {
+    "Original": "Change Unit Portrait",
+    "Translated": "Einheitenporträt ändern"
+  },
+  "ToyBox_Features_PartyTab_Stats_PortraitEditorFeature_Description": {
+    "Original": "Allows changing the portrait of a unit to a custom portrait or another blueprint (built-in) portrait. You need to manually update the UI (change area/reload game) to make this change visible on the top bar.",
+    "Translated": "Erlaubt das Ändern des Porträts einer Einheit in ein eigenes oder ein integriertes Blueprint-Porträt. Damit die Änderung in der oberen Leiste sichtbar wird, musst du die Oberfläche aktualisieren (Gebiet wechseln oder Spiel neu laden)."
+  },
+  "ToyBox_Features_PartyTab_Stats_PortraitEditorFeature_m_CurrentCustomPortraitLocalizedText": {
+    "Original": "Current Custom Portrait",
+    "Translated": "Aktuelles eigenes Porträt"
+  },
+  "ToyBox_Features_PartyTab_Stats_PortraitEditorFeature_m_CurrentBlueprintPortraitLocalizedText": {
+    "Original": "Current Blueprint Portrait",
+    "Translated": "Aktuelles Blueprint-Porträt"
+  },
+  "ToyBox_Features_PartyTab_Stats_PortraitEditorFeature_m_SavePortraitAsPngLocalizedText": {
+    "Original": "Save portrait as png",
+    "Translated": "Porträt als PNG speichern"
+  },
+  "ToyBox_Features_PartyTab_Stats_PortraitEditorFeature_m_ShowCustomPortraitPickerLocalizedText": {
+    "Original": "Show Custom Portrait Picker",
+    "Translated": "Auswahl eigener Porträts anzeigen"
+  },
+  "ToyBox_Features_PartyTab_Stats_PortraitEditorFeature_m_ShowBlueprintPortraitPickerLocalizedText": {
+    "Original": "Show Blueprint Portrait Picker",
+    "Translated": "Blueprint-Porträtauswahl anzeigen"
+  },
+  "ToyBox_Features_PartyTab_Stats_PortraitEditorFeature_m_NameOfTheNewCustomPortrait_LocalizedText": {
+    "Original": "Name of the new Custom Portrait:",
+    "Translated": "Name des neuen eigenen Porträts:"
+  },
+  "ToyBox_Features_PartyTab_Stats_PortraitEditorFeature_m_UnknownID_LocalizedText": {
+    "Original": "Unknown Custom Portrait ID!",
+    "Translated": "Unbekannte ID für eigenes Porträt!"
+  },
+  "ToyBox_Features_PartyTab_Stats_PortraitEditorFeature_m_ChangePortraitLocalizedText": {
+    "Original": "Change Portrait",
+    "Translated": "Porträt ändern"
+  },
+  "ToyBox_Features_PartyTab_Stats_PortraitEditorFeature_m_NameOfTheNewBlueprintportrait_LocalizedText": {
+    "Original": "Name of the new Blueprintportrait:",
+    "Translated": "Name des neuen Blueprint-Porträts:"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideSkeletonFeature_Name": {
+    "Original": "Enable Skeleton / Bone Editor",
+    "Translated": "Skelett-/Knocheneditor aktivieren"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideSkeletonFeature_Description": {
+    "Original": "If this is disabled, none of the previously set bone overrides will take effect. Lets you resize and offset individual bones (body parts) and equipment attach points per character.",
+    "Translated": "Ist diese Funktion deaktiviert, wirken zuvor festgelegte Knochenanpassungen nicht. Erlaubt das Ändern von Größe und Versatz einzelner Knochen (Körperteile) und Ausrüstungsbefestigungen pro Charakter."
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideSkeletonFeature_m_GlobalOffsetsText": {
+    "Original": "Body parts global offsets",
+    "Translated": "Globale Versätze der Körperteile"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideSkeletonFeature_m_GlobalScalesText": {
+    "Original": "Body parts global scales",
+    "Translated": "Globale Skalierungen der Körperteile"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideSkeletonFeature_m_LocalSizesText": {
+    "Original": "Body parts local sizes",
+    "Translated": "Lokale Größen der Körperteile"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideSkeletonFeature_m_EquipmentOffsetsText": {
+    "Original": "Equipment elements offsets",
+    "Translated": "Versätze der Ausrüstungsteile"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideSkeletonFeature_m_EquipmentSizesText": {
+    "Original": "Equipment elements sizes",
+    "Translated": "Größen der Ausrüstungsteile"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideSkeletonFeature_m_NoAvatarText": {
+    "Original": "This unit has no editable character avatar / skeleton.",
+    "Translated": "Diese Einheit hat kein bearbeitbares Charaktermodell bzw. Skelett."
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitBrowseVoicesFeature_Name": {
+    "Original": "Browse Voices",
+    "Translated": "Stimmen durchsuchen"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitBrowseVoicesFeature_Description": {
+    "Original": "Allows browsing and changing the different voices on a unit.",
+    "Translated": "Erlaubt das Durchsuchen und Ändern der Stimmen einer Einheit."
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitBrowseVoicesFeature_m_ShowBlueprintVoicePickerLocalizedText": {
+    "Original": "Show Blueprint Voice Picker",
+    "Translated": "Blueprint-Stimmenauswahl anzeigen"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitBrowseVoicesFeature_m_ChangingTheVoiceOfANon_customChaLocalizedText": {
+    "Original": "Changing the voice of a non-custom character is not tested.",
+    "Translated": "Das Ändern der Stimme eines vorgegebenen Charakters wurde nicht getestet."
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitBrowseVoicesFeature_m_UsingANon_defaultVoiceToACustomCLocalizedText": {
+    "Original": "Using a non-default voice on a custom character is not tested.",
+    "Translated": "Die Verwendung einer nicht standardmäßigen Stimme für einen eigenen Charakter wurde nicht getestet."
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitBrowseVoicesFeature_m_TheButton_1_WillPlayTryToPlayARaLocalizedText": {
+    "Original": "The button \"{0}\" will play try to play a random PartyMemberUnconscious sound.",
+    "Translated": "Die Schaltfläche „{0}“ versucht, eine zufällige Sprachausgabe für ein bewusstloses Gruppenmitglied (PartyMemberUnconscious) abzuspielen."
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitDisableVoiceoverAndBarksFeature_Name": {
+    "Original": "Disable Voiceover and Barks for Character",
+    "Translated": "Vertonung und Kurzkommentare für Charakter deaktivieren"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitDisableVoiceoverAndBarksFeature_Description": {
+    "Original": "Prevents this character from talking with his voice.",
+    "Translated": "Verhindert die Sprachausgabe dieses Charakters."
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitModifySoulMarksFeature_Name": {
+    "Original": "Modify Soul Marks",
+    "Translated": "Überzeugung ändern"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitModifySoulMarksFeature_Description": {
+    "Original": "Allows modifying the alignment of the character.",
+    "Translated": "Erlaubt das Ändern der Überzeugung des Charakters."
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitModifySoulMarksFeature_m_UnitsOtherThanTheMainCharacterDoLocalizedText": {
+    "Original": "Units other than the main character don't really have an alignment. Assign the milestone features like SoulMarkCorruption2_Feature, though they might not work on other units.",
+    "Translated": "Andere Einheiten als der Hauptcharakter haben keine eigentliche Überzeugung. Weise stattdessen Meilensteineigenschaften wie SoulMarkCorruption2_Feature zu; diese funktionieren aber möglicherweise nicht bei anderen Einheiten."
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitModifySoulMarksFeature_m_SoulMarksLocalizedText": {
+    "Original": "Soul Marks",
+    "Translated": "Überzeugung"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitModifyStatsFeature_Name": {
+    "Original": "Modify Unit Stats",
+    "Translated": "Einheitenwerte ändern"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitModifyStatsFeature_Description": {
+    "Original": "Allows modifying the various stats of a unit.",
+    "Translated": "Erlaubt das Ändern der verschiedenen Werte einer Einheit."
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitModifyStatsFeature_m_TryToKeepThisFeatureActivatedAftLocalizedText": {
+    "Original": "Try to keep this feature activated after using it (Click for Explanation)",
+    "Translated": "Diese Funktion nach der Verwendung möglichst aktiviert lassen (Erklärung per Klick)"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitModifyStatsFeature_m_OverridenByLocalizedText": {
+    "Original": "Overriden by",
+    "Translated": "Überschrieben durch"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitModifyStatsFeature_m_WhenThisIsTurnedOff_TheChangedStLocalizedText": {
+    "Original": "When this is turned off, the changed stats will be \"forgotten\" after reloading the save because base stats are recalculated on save load.",
+    "Translated": "Nach dem Deaktivieren werden geänderte Werte beim erneuten Laden des Spielstands verworfen, da das Spiel die Basiswerte beim Laden neu berechnet."
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideAiControlBehaviourFeature_Name": {
+    "Original": "Override AI Control Behaviour",
+    "Translated": "KI-Steuerung überschreiben"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideAiControlBehaviourFeature_Description": {
+    "Original": "Allows toggling whether a unit should be controlled by the AI or by the player.",
+    "Translated": "Erlaubt das Umschalten zwischen KI- und Spielersteuerung einer Einheit."
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideAiControlBehaviourFeature_m_MakeCharacterAIControlledLocalizedText": {
+    "Original": "AI should controll this Character",
+    "Translated": "KI soll diesen Charakter steuern"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideMechanicalSizeFeature_Name": {
+    "Original": "Enable Mechanical Size Overrides",
+    "Translated": "Spielmechanische Größenanpassungen aktivieren"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideMechanicalSizeFeature_Description": {
+    "Original": "If this is disabled, none of the previously set mechanical size overrides will take effect.",
+    "Translated": "Ist diese Funktion deaktiviert, wirken zuvor festgelegte spielmechanische Größenanpassungen nicht."
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideMechanicalSizeFeature_m_CurrentMechanicalSizeLocalizedText": {
+    "Original": "Current Mechanical Size",
+    "Translated": "Aktuelle spielmechanische Größe"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideMechanicalSizeFeature_m_OverrideLocalizedText": {
+    "Original": "Override",
+    "Translated": "Überschreiben"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideVisualSizeFeature_Name": {
+    "Original": "Enable Visual Size Overrides",
+    "Translated": "Visuelle Größenanpassungen aktivieren"
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideVisualSizeFeature_Description": {
+    "Original": "If this is disabled, none of the previously set visual size overrides will take effect.",
+    "Translated": "Ist diese Funktion deaktiviert, wirken zuvor festgelegte visuelle Größenanpassungen nicht."
+  },
+  "ToyBox_Features_PartyTab_Stats_UnitOverrideVisualSizeFeature_m_VisualOverrideLocalizedText": {
+    "Original": "Visual Override",
+    "Translated": "Visuelle Anpassung"
+  },
+  "ToyBox_Features_PatchTool_PatchToolApplyPatchesFeature_Name": {
+    "Original": "Apply blueprint patches on load",
+    "Translated": "Blueprint-Patches beim Laden anwenden"
+  },
+  "ToyBox_Features_PatchTool_PatchToolApplyPatchesFeature_Description": {
+    "Original": "When enabled, blueprint patches created with the Patch Tool are applied when the game loads its blueprints. Disable to run with unmodified blueprints without deleting your patches.",
+    "Translated": "Wendet mit dem Patch-Werkzeug erstellte Blueprint-Patches an, wenn das Spiel seine Blueprints lädt. Deaktiviere dies, um unveränderte Blueprints zu verwenden, ohne deine Patches zu löschen."
+  },
+  "ToyBox_Features_PatchTool_PatchToolDangerousPatchesFeature_Name": {
+    "Original": "Allow dangerous PatchTool patches",
+    "Translated": "Gefährliche Patches erlauben"
+  },
+  "ToyBox_Features_PatchTool_PatchToolDangerousPatchesFeature_Description": {
+    "Original": "Master switch for dangerous patches. These edit shared prefabs/GameObjects globally and cannot be recommended. Off by default; enable only if you know what you're doing.",
+    "Translated": "Hauptschalter für gefährliche Patches. Sie ändern gemeinsam verwendete Prefabs/GameObjects global und sind nicht zu empfehlen. Standardmäßig deaktiviert; nur aktivieren, wenn du weißt, was du tust."
+  },
+  "ToyBox_Features_PatchTool_PatchToolFeatureTab_Name": {
+    "Original": "Patch Tool",
+    "Translated": "Patch-Werkzeug"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_WarningLabel": {
+    "Original": "Warning:",
+    "Translated": "Warnung:"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_NoteLabel": {
+    "Original": "Note:",
+    "Translated": "Hinweis:"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_PowerfulFeatureWarning": {
+    "Original": "This is a very powerful feature. You won't break your game by simply changing the damage of a weapon,",
+    "Translated": "Diese Funktion ist sehr mächtig. Allein das Ändern des Schadens einer Waffe wird dein Spiel nicht beschädigen,"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_PowerfulFeatureWarning2": {
+    "Original": "but this feature allows doing a lot of things that could potentially cause issues.",
+    "Translated": "aber diese Funktion ermöglicht viele Änderungen, die Probleme verursachen können."
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_KeepABackup": {
+    "Original": "Beware of that and always keep a backup.",
+    "Translated": "Behalte das im Hinterkopf und lege immer eine Sicherungskopie an."
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_RestartAdvised": {
+    "Original": "After finishing creating a patch, it is advised to restart the game before playing on a proper save.",
+    "Translated": "Nach dem Erstellen eines Patches empfiehlt sich ein Neustart des Spiels, bevor du mit einem regulären Spielstand weiterspielst."
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_NewFeatureWarning": {
+    "Original": "This feature is new. Please reach out if anything seems buggy or you encounter any issues.",
+    "Translated": "Diese Funktion ist neu. Bitte melde dich, wenn etwas fehlerhaft erscheint oder Probleme auftreten."
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ManageExistingPatches": {
+    "Original": "Manage existing patches",
+    "Translated": "Vorhandene Patches verwalten"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Tabs": {
+    "Original": "Tabs",
+    "Translated": "Reiter"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_CreateNewTab": {
+    "Original": "Create New Tab",
+    "Translated": "Neuen Reiter erstellen"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_NewTab": {
+    "Original": "New Tab",
+    "Translated": "Neuer Reiter"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Close": {
+    "Original": "Close",
+    "Translated": "Schließen"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_NoTabsOpen": {
+    "Original": "No tabs open.",
+    "Translated": "Keine Reiter geöffnet."
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_PatchesNotLoaded": {
+    "Original": "Patches not loaded yet...",
+    "Translated": "Patches noch nicht geladen ..."
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Blueprint": {
+    "Original": "Blueprint",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_PatchId": {
+    "Original": "PatchId",
+    "Translated": "Patch-ID"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Applied": {
+    "Original": "Applied?",
+    "Translated": "Angewendet?"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Yes": {
+    "Original": "Yes",
+    "Translated": "Ja"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_No": {
+    "Original": "No",
+    "Translated": "Nein"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Failed": {
+    "Original": "Failed!",
+    "Translated": "Fehlgeschlagen!"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Enable": {
+    "Original": "Enable",
+    "Translated": "Aktivieren"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Disable": {
+    "Original": "Disable",
+    "Translated": "Deaktivieren"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_OpenInTab": {
+    "Original": "Open in Tab",
+    "Translated": "In Reiter öffnen"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Delete": {
+    "Original": "Delete",
+    "Translated": "Löschen"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ShowBrowserPicker": {
+    "Original": "Show Browser Picker",
+    "Translated": "Listenauswahl anzeigen"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ShowBrowser": {
+    "Original": "Show Browser (starts loading all blueprints of the selected type)",
+    "Translated": "Liste anzeigen (lädt alle Blueprints des ausgewählten Typs)"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_BpCategory": {
+    "Original": "BP Category",
+    "Translated": "Blueprint-Kategorie"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ShowPatchManager": {
+    "Original": "Show Patch Manager",
+    "Translated": "Patch-Verwaltung anzeigen"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Inspect": {
+    "Original": "Inspect",
+    "Translated": "Inspizieren"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Remove": {
+    "Original": "Remove",
+    "Translated": "Entfernen"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ApplyChanges": {
+    "Original": "Apply Changes",
+    "Translated": "Änderungen anwenden"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_CurrentPatchInfo": {
+    "Original": "Current Patch targets bp: {0}({1}) and has {2} operations.",
+    "Translated": "Der aktuelle Patch betrifft Blueprint: {0}({1}) und enthält {2} Operationen."
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_OperationRow": {
+    "Original": "Operation: {0}",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_FieldRow": {
+    "Original": "Field: {0}",
+    "Translated": "Feld: {0}"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ConfigureFieldsToShow": {
+    "Original": "Configure which types of fields to show:",
+    "Translated": "Anzuzeigende Feldtypen auswählen:"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Primitives": {
+    "Original": "Primitives",
+    "Translated": "Primitive Typen"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Enums": {
+    "Original": "Enums",
+    "Translated": "Aufzählungstypen"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_BlueprintReferences": {
+    "Original": "Blueprint References",
+    "Translated": "Blueprint-Referenzen"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Collections": {
+    "Original": "Collections",
+    "Translated": "Sammlungen"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ComplexTypes": {
+    "Original": "Complex Types",
+    "Translated": "Komplexe Typen"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ShowUnityObjects": {
+    "Original": "Show Unity Objects",
+    "Translated": "Unity-Objekte anzeigen"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_OtherSettings": {
+    "Original": "Other Settings:",
+    "Translated": "Weitere Einstellungen:"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ShowDeleteButton": {
+    "Original": "Show Delete Button",
+    "Translated": "Löschen-Schaltfläche anzeigen"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ShowCreateButton": {
+    "Original": "Show Create Button",
+    "Translated": "Erstellen-Schaltfläche anzeigen"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_CollapseOnPatch": {
+    "Original": "Close all opened fields on patch",
+    "Translated": "Alle geöffneten Felder beim Patchen schließen"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_EnableDangerousForThisPatch": {
+    "Original": "Enable Dangerous Patches for this Patch",
+    "Translated": "Gefährliche Patches für diesen Patch erlauben"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ShowFieldsEditor": {
+    "Original": "Show Fields Editor",
+    "Translated": "Feldeditor anzeigen"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_AlreadyOpenedElsewhere": {
+    "Original": "Already opened on another level!",
+    "Translated": "Bereits auf einer anderen Ebene geöffnet!"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Create": {
+    "Original": "Create",
+    "Translated": "Erstellen"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_NewItem": {
+    "Original": "New Item:",
+    "Translated": "Neues Element:"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ShowValues": {
+    "Original": "Show Values",
+    "Translated": "Werte anzeigen"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Change": {
+    "Original": "Change",
+    "Translated": "Ändern"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_UnityObject": {
+    "Original": "Unity Object",
+    "Translated": "Unity-Objekt"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_DumpToToyBoxFolder": {
+    "Original": "Dump to ToyBox folder",
+    "Translated": "In ToyBox-Ordner exportieren"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_EditReference": {
+    "Original": "Edit Reference",
+    "Translated": "Referenz bearbeiten"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_NonGenericReference": {
+    "Original": "Non-Generic Reference. If you're seeing this please report to mod author!",
+    "Translated": "Nicht generische Referenz. Bitte melde dies dem Mod-Autor!"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Null": {
+    "Original": "Null",
+    "Translated": null
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_NullValue": {
+    "Original": "Null (value)",
+    "Translated": "Null (Wert)"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_Entries": {
+    "Original": "Entries",
+    "Translated": "Einträge"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ShowEntries": {
+    "Original": "Show Entries",
+    "Translated": "Einträge anzeigen"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_AddItem": {
+    "Original": "Add Item",
+    "Translated": "Element hinzufügen"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_AddBefore": {
+    "Original": "Add Before",
+    "Translated": "Davor hinzufügen"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_AddAfter": {
+    "Original": "Add After",
+    "Translated": "Danach hinzufügen"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ShowFields": {
+    "Original": "Show fields",
+    "Translated": "Felder anzeigen"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_AddAsNewEntry": {
+    "Original": "Add as new entry",
+    "Translated": "Als neuen Eintrag hinzufügen"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ExceptionInToString": {
+    "Original": "Exception in ToString",
+    "Translated": "Ausnahme in ToString"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_FailedToParse": {
+    "Original": "Failed to parse value {0} to type {1}",
+    "Translated": "Wert {0} konnte nicht in Typ {1} umgewandelt werden."
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ExchangeUnityObject": {
+    "Original": "Exchange",
+    "Translated": "Austauschen"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_AssetGuid": {
+    "Original": "Asset Guid",
+    "Translated": "Asset-GUID"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_AssetFileId": {
+    "Original": "File Id",
+    "Translated": "Datei-ID"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_CurrentAsset": {
+    "Original": "Current asset: guid={0} fileid={1}",
+    "Translated": "Aktuelles Asset: guid={0} fileid={1}"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_CurrentAssetUnknown": {
+    "Original": "Current asset is not registered in the asset list (its id is unknown).",
+    "Translated": "Das aktuelle Asset ist nicht in der Asset-Liste registriert (seine ID ist unbekannt)."
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_CouldNotResolveAsset": {
+    "Original": "Could not resolve a Unity asset for the given guid/fileid.",
+    "Translated": "Für die angegebene GUID/Datei-ID konnte kein Unity-Asset gefunden werden."
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_IncompatibleAssetType": {
+    "Original": "Resolved asset is a {0}, which is not assignable to this {1} field.",
+    "Translated": "Das gefundene Asset ist vom Typ {0} und kann diesem Feld vom Typ {1} nicht zugewiesen werden."
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ComponentsHeader": {
+    "Original": "Components:",
+    "Translated": "Komponenten:"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ChildrenHeader": {
+    "Original": "Children:",
+    "Translated": "Untergeordnete Objekte:"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ComponentRow": {
+    "Original": "Component: {0} [{1}]",
+    "Translated": "Komponente: {0} [{1}]"
+  },
+  "ToyBox_Features_PatchTool_PatchToolStrings_ChildRow": {
+    "Original": "Child [{0}]: {1}",
+    "Translated": "Untergeordnetes Objekt [{0}]: {1}"
+  },
+  "ToyBox_Features_PatchTool_PatchToolTabUI_m_ShowBlueprintPickerLocalizedText": {
+    "Original": "Show Blueprint Picker",
+    "Translated": "Blueprint-Auswahl anzeigen"
+  },
+  "ToyBox_Features_Quests_QuestEditorFeature_Name": {
+    "Original": "Quest Editor",
+    "Translated": "Quest-Editor"
+  },
+  "ToyBox_Features_Quests_QuestEditorFeature_Description": {
+    "Original": "Browse your quests and objectives and force their state: start or complete objectives, restart failed ones, etc.",
+    "Translated": "Durchsuche Quests und Ziele und erzwinge deren Status: Ziele starten oder abschließen, fehlgeschlagene Ziele neu starten usw."
+  },
+  "ToyBox_Features_Quests_QuestEditorFeature_m_NoQuestsText": {
+    "Original": "You have no quests in your quest book yet.",
+    "Translated": "Dein Questbuch enthält noch keine Quests."
+  },
+  "ToyBox_Features_Quests_QuestEditorFeature_m_HideCompletedText": {
+    "Original": "Hide Completed",
+    "Translated": "Abgeschlossene ausblenden"
+  },
+  "ToyBox_Features_Quests_QuestEditorFeature_m_ShowUnrevealedText": {
+    "Original": "Show Unrevealed Steps",
+    "Translated": "Unentdeckte Schritte anzeigen"
+  },
+  "ToyBox_Features_Quests_QuestEditorFeature_m_ShowInspectorText": {
+    "Original": "Inspect Quests and Objectives",
+    "Translated": "Quests und Ziele inspizieren"
+  },
+  "ToyBox_Features_Quests_QuestEditorFeature_m_InspectText": {
+    "Original": "Inspect",
+    "Translated": "Inspizieren"
+  },
+  "ToyBox_Features_Quests_QuestEditorFeature_m_StartText": {
+    "Original": "Start",
+    "Translated": "Starten"
+  },
+  "ToyBox_Features_Quests_QuestEditorFeature_m_CompleteText": {
+    "Original": "Complete",
+    "Translated": "Abschließen"
+  },
+  "ToyBox_Features_Quests_QuestEditorFeature_m_FinishText": {
+    "Original": "Finish",
+    "Translated": "Abschließen"
+  },
+  "ToyBox_Features_Quests_QuestEditorFeature_m_ResetTimeText": {
+    "Original": "Reset Time",
+    "Translated": "Zeit zurücksetzen"
+  },
+  "ToyBox_Features_Quests_QuestEditorFeature_m_RestartText": {
+    "Original": "Restart",
+    "Translated": "Neu starten"
+  },
+  "ToyBox_Features_Quests_QuestEditorFeature_m_AddendumText": {
+    "Original": "Addendum",
+    "Translated": "Nachtrag"
+  },
+  "ToyBox_Features_Quests_QuestsFeatureTab_Name": {
+    "Original": "Quests",
+    "Translated": null
+  },
+  "ToyBox_Features_Saves_BrowseSavesFeature_Name": {
+    "Original": "Browse Saves",
+    "Translated": "Spielstände durchsuchen"
+  },
+  "ToyBox_Features_Saves_BrowseSavesFeature_Description": {
+    "Original": "Allows looking through all available save games and viewing their char name, party level, area, save name and game id",
+    "Translated": "Erlaubt das Durchsuchen aller verfügbaren Spielstände mit Charaktername, Gruppenstufe, Gebiet, Spielstandname und Spiel-ID."
+  },
+  "ToyBox_Features_Saves_BrowseSavesFeature_m_LevelLocalizedText": {
+    "Original": "Level",
+    "Translated": "Stufe"
+  },
+  "ToyBox_Features_Saves_ChangeSaveIdFeature_Name": {
+    "Original": "Change Game Id",
+    "Translated": "Spiel-ID ändern"
+  },
+  "ToyBox_Features_Saves_ChangeSaveIdFeature_Description": {
+    "Original": "Allows changing the game id of the current session, which causes saves after this to be grouped under a different header.",
+    "Translated": "Erlaubt das Ändern der Spiel-ID der aktuellen Sitzung. Danach gespeicherte Spielstände werden unter einer anderen Überschrift gruppiert."
+  },
+  "ToyBox_Features_Saves_ChangeSaveIdFeature_m_N_ALocalizedText": {
+    "Original": "N/A",
+    "Translated": "Nicht verfügbar"
+  },
+  "ToyBox_Features_Saves_SavesFeatureTab_Name": {
+    "Original": "Saves",
+    "Translated": "Spielstände"
+  },
+  "ToyBox_Features_SearchAndPick_SearchAndPickFeature_Name": {
+    "Original": "Search 'n Pick",
+    "Translated": "Suchen & Auswählen"
+  },
+  "ToyBox_Features_SearchAndPick_SearchAndPickFeature_Description": {
+    "Original": "Allows browsing through all the blueprints in the game and doing various actions with them.",
+    "Translated": "Erlaubt das Durchsuchen aller Blueprints des Spiels und das Ausführen verschiedener Aktionen mit ihnen."
+  },
+  "ToyBox_Features_SearchAndPick_SearchAndPickFeature_m_ShowCharacterFilterPickerLocalizedText": {
+    "Original": "Show Character Filter Picker",
+    "Translated": "Charakterfilterauswahl anzeigen"
+  },
+  "ToyBox_Features_SearchAndPick_SearchAndPickFeature_m_ActionParameterLocalizedText": {
+    "Original": "Number Parameter (used e.g. as the amount of items to add)",
+    "Translated": "Zahlenparameter (z. B. die Anzahl hinzuzufügender Gegenstände)"
+  },
+  "ToyBox_Features_SearchAndPick_SearchAndPickFeature_m_CurrentCollationCategoryLocalizedText": {
+    "Original": "Current Category",
+    "Translated": "Aktuelle Kategorie"
+  },
+  "ToyBox_Features_SearchAndPick_SearchAndPickFeature_m_Collating_LocalizedText": {
+    "Original": "Collating!",
+    "Translated": "Wird gruppiert!"
+  },
+  "ToyBox_Features_SearchAndPick_SearchAndPickFeature_m_ShowCategoryPickerLocalizedText": {
+    "Original": "Show Category Picker",
+    "Translated": "Kategorieauswahl anzeigen"
+  },
+  "ToyBox_Features_SearchAndPick_SearchAndPickFeatureTab_Name": {
+    "Original": "Search 'n Pick",
+    "Translated": "Suchen & Auswählen"
+  },
+  "ToyBox_Features_SearchAndPick_SortCollationCategoriesByCountSetting_Name": {
+    "Original": "Sort by Count",
+    "Translated": "Nach Anzahl sortieren"
+  },
+  "ToyBox_Features_SearchAndPick_SortCollationCategoriesByCountSetting_Description": {
+    "Original": "Whether to sort collation categories by their amount of blueprints instead of names.",
+    "Translated": "Sortiert die Gruppen nach der Anzahl ihrer Blueprints statt nach Namen."
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_BlueprintsLoaderChunkSizeSetting_Name": {
+    "Original": "Chunk Size",
+    "Translated": "Blockgröße"
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_BlueprintsLoaderChunkSizeSetting_Description": {
+    "Original": "Affects the amount of blueprints a thread loads at once. A lower number means better load balancing but more synchronization overhead.",
+    "Translated": "Legt fest, wie viele Blueprints ein Thread auf einmal lädt. Ein kleinerer Wert verbessert die Lastverteilung, erhöht aber den Synchronisierungsaufwand."
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_BlueprintsLoaderNumShardSetting_Name": {
+    "Original": "Amount of Shards",
+    "Translated": "Anzahl der Shards"
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_BlueprintsLoaderNumShardSetting_Description": {
+    "Original": "This affects the amount of dictionaries that will be used to reduce synchronization overhead when threaded loading.",
+    "Translated": "Legt fest, wie viele Dictionaries verwendet werden, um den Synchronisierungsaufwand beim parallelen Laden zu verringern."
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_BlueprintsLoaderNumThreadSetting_Name": {
+    "Original": "Amount of Threads",
+    "Translated": "Anzahl der Threads"
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_BlueprintsLoaderNumThreadSetting_Description": {
+    "Original": "This affects the amount of threads that will be used to simultaneously load blueprints. Larger is not necessarily better.",
+    "Translated": "Legt fest, wie viele Threads gleichzeitig Blueprints laden. Mehr ist nicht unbedingt besser."
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_BPIdCacheFeature_Name": {
+    "Original": "Enable BlueprintId Cache",
+    "Translated": "Blueprint-ID-Cache aktivieren"
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_BPIdCacheFeature_Description": {
+    "Original": "When enabled, ToyBox will create a cache for ids of different blueprint types. Certain menus like Search 'n Pick will then try to load only blueprints of the specified type (e.g. BlueprintFeature), thereby speeding up load times.",
+    "Translated": "ToyBox erstellt einen Cache mit den IDs verschiedener Blueprint-Typen. Menüs wie „Suchen & Auswählen“ laden dann möglichst nur Blueprints des angegebenen Typs (z. B. BlueprintFeature), wodurch sich Ladezeiten verkürzen."
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_BPIdCacheFeature_ResetCache_inCaseOfIssues_Text": {
+    "Original": "Reset BlueprintId Cache (in case of issues)",
+    "Translated": "Blueprint-ID-Cache zurücksetzen (bei Problemen)"
+  },
+  "ToyBox_Features_SettingsFeatures_BlueprintLoaderSettings_PerformanceEnhancementFeatures_PerformanceEnhancementText": {
+    "Original": "Performance Enhancement",
+    "Translated": "Leistungsverbesserung"
+  },
+  "ToyBox_Features_SettingsFeatures_BlueprintLoaderSettings_PerformanceEnhancementFeatures_EnhancesBlueprintLoadingPerforma": {
+    "Original": "Enhances Blueprint loading performance",
+    "Translated": "Verbessert die Ladeleistung für Blueprints."
+  },
+  "ToyBox_Features_SettingsFeatures_BlueprintLoaderSettings_PreloadBlueprintsFeature_PreloadBlueprintsText": {
+    "Original": "Preload Blueprints",
+    "Translated": "Blueprints vorladen"
+  },
+  "ToyBox_Features_SettingsFeatures_BlueprintLoaderSettings_PreloadBlueprintsFeature_AlwaysLoadAllBlueprintsOnGameSta": {
+    "Original": "Always load all Blueprints on game Start. This increases initial load times and RAM usage, but can decrease game loading times once finished.",
+    "Translated": "Lädt beim Spielstart immer alle Blueprints. Dies verlängert den ersten Ladevorgang und erhöht den RAM-Verbrauch, kann danach aber weitere Ladezeiten verkürzen."
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_ShowBlueprintAssetIdsSetting_Name": {
+    "Original": "Show Blueprint AssetGuids",
+    "Translated": "Blueprint-Asset-GUIDs anzeigen"
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_ShowBlueprintAssetIdsSetting_Description": {
+    "Original": "Whether Browsers should display the asset id of a blueprint.",
+    "Translated": "Legt fest, ob Listen die Asset-ID eines Blueprints anzeigen."
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_ShowBlueprintTypeSetting_Name": {
+    "Original": "Show Blueprint Type",
+    "Translated": "Blueprint-Typ anzeigen"
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_ShowBlueprintTypeSetting_Description": {
+    "Original": "Whether Browsers should display the type of a blueprint.",
+    "Translated": "Legt fest, ob Listen den Typ eines Blueprints anzeigen."
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_ShowDisplayAndInternalNamesSetting_Name": {
+    "Original": "Show Display And Internal Names",
+    "Translated": "Anzeigenamen und interne Namen anzeigen"
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_ShowDisplayAndInternalNamesSetting_Description": {
+    "Original": "Blueprints have both internal names and display names. By default, ToyBox will try to show the Display name and fall back to the Internal one in case of issues. This feature will display both at the same time.",
+    "Translated": "Blueprints haben interne Namen und Anzeigenamen. ToyBox verwendet standardmäßig den Anzeigenamen und bei Problemen den internen Namen. Diese Funktion zeigt beide gleichzeitig."
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_ThreadedBlueprintsLoaderSetting_Name": {
+    "Original": "Enable threaded Blueprint Loader (Needs Restart!)",
+    "Translated": "Parallelen Blueprint-Lader aktivieren (Neustart erforderlich!)"
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_ThreadedBlueprintsLoaderSetting_Description": {
+    "Original": "Massively speeds up blueprint loading; but can have very rare bugs (especially after updates).",
+    "Translated": "Beschleunigt das Laden von Blueprints erheblich, kann aber sehr selten Fehler verursachen, besonders nach Updates."
+  },
+  "ToyBox_Features_SettingsFeatures_BrowserSettings_PageLimitSetting_Name": {
+    "Original": "Page Limit",
+    "Translated": "Einträge pro Seite"
+  },
+  "ToyBox_Features_SettingsFeatures_BrowserSettings_PageLimitSetting_Description": {
+    "Original": "Restricts the amount of items a page of a list/browser can display",
+    "Translated": "Begrenzt die Anzahl der Einträge, die eine Seite einer Liste anzeigen kann."
+  },
+  "ToyBox_Features_SettingsFeatures_BrowserSettings_SearchAsYouTypeFeature_Name": {
+    "Original": "Search as you type",
+    "Translated": "Beim Tippen suchen"
+  },
+  "ToyBox_Features_SettingsFeatures_BrowserSettings_SearchAsYouTypeFeature_Description": {
+    "Original": "Automatically start a new search after a configurable delay even while you are typing",
+    "Translated": "Startet nach einer einstellbaren Verzögerung automatisch eine neue Suche, auch während du noch tippst."
+  },
+  "ToyBox_Features_SettingsFeatures_BrowserSettings_SearchDelaySetting_Name": {
+    "Original": "Search Delay",
+    "Translated": "Suchverzögerung"
+  },
+  "ToyBox_Features_SettingsFeatures_BrowserSettings_SearchDelaySetting_Description": {
+    "Original": "This is the time in seconds that is waited before a new search is automatically started",
+    "Translated": "Wartezeit in Sekunden, bevor automatisch eine neue Suche gestartet wird."
+  },
+  "ToyBox_Features_SettingsFeatures_BrowserSettings_SearchDescriptionsSetting_Name": {
+    "Original": "Search Descriptions",
+    "Translated": "Beschreibungen durchsuchen"
+  },
+  "ToyBox_Features_SettingsFeatures_BrowserSettings_SearchDescriptionsSetting_Description": {
+    "Original": "Also search through the descriptions of blueprints",
+    "Translated": "Durchsucht auch die Beschreibungen von Blueprints."
+  },
+  "ToyBox_Features_SettingsTab_Game_CopyLocationHotkeySetting_Name": {
+    "Original": "Hotkey to copy location to clipboard",
+    "Translated": "Tastenkürzel zum Kopieren der Position"
+  },
+  "ToyBox_Features_SettingsTab_Game_CopyLocationHotkeySetting_m___ToyBox_FailedToCopyLocation_NoHLocalizedText": {
+    "Original": "[ToyBox] Failed to copy location: No hit for raycast.",
+    "Translated": "[ToyBox] Position konnte nicht kopiert werden: Der Raycast hat nichts getroffen."
+  },
+  "ToyBox_Features_SettingsTab_Game_CopyLocationHotkeySetting_m___ToyBox_CopiedLocationToClipboarLocalizedText": {
+    "Original": "[ToyBox] Copied Location to clipboard:",
+    "Translated": "[ToyBox] Position in die Zwischenablage kopiert:"
+  },
+  "ToyBox_Features_SettingsTab_Game_DisplayGuidsInTooltipsFeature_Name": {
+    "Original": "Display GUIDs in most Tooltips",
+    "Translated": "GUIDs in den meisten Tooltips anzeigen"
+  },
+  "ToyBox_Features_SettingsTab_Game_DisplayGuidsInTooltipsFeature_Description": {
+    "Original": "Displays the guids of the items etc. in their tooltips and allows copying them by pressing LMB + Hotkey.",
+    "Translated": "Zeigt die GUIDs von Gegenständen usw. in deren Tooltips und erlaubt das Kopieren mit linker Maustaste + Tastenkürzel."
+  },
+  "ToyBox_Features_SettingsTab_Game_DisplayGuidsInTooltipsFeature_m_CopiedGuidToClipboard_LocalizedText": {
+    "Original": "Copied Guid to clipboard:",
+    "Translated": "GUID in die Zwischenablage kopiert:"
+  },
+  "ToyBox_Features_SettingsTab_Game_EnableGameDevelopmentModeSetting_Name": {
+    "Original": "Enable Game Development Mode",
+    "Translated": "Entwicklermodus des Spiels aktivieren"
+  },
+  "ToyBox_Features_SettingsTab_Game_EnableGameDevelopmentModeSetting_Description": {
+    "Original": "This turns on the developer console which lets you access cheat commands, access a console and more.",
+    "Translated": "Aktiviert die Entwicklerkonsole mit Zugriff auf Cheatbefehle, Konsole und weitere Funktionen."
+  },
+  "ToyBox_Features_SettingsTab_Inspector_InspectorDrawLimitSetting_Name": {
+    "Original": "Inspector Draw Limit",
+    "Translated": "Anzeigelimit des Inspektors"
+  },
+  "ToyBox_Features_SettingsTab_Inspector_InspectorDrawLimitSetting_Description": {
+    "Original": "Limits the amount of items/rows that are drawn to prevent freezing the ui. Items exceeding the limit are discarded.",
+    "Translated": "Begrenzt die Anzahl angezeigter Einträge bzw. Zeilen, damit die Oberfläche nicht einfriert. Einträge über dem Limit werden verworfen."
+  },
+  "ToyBox_Features_SettingsTab_Inspector_InspectorIndentWidthSetting_Name": {
+    "Original": "Indent Width",
+    "Translated": "Einrückungsbreite"
+  },
+  "ToyBox_Features_SettingsTab_Inspector_InspectorIndentWidthSetting_Description": {
+    "Original": "Amount of space that is indented for each nested level in the inspector",
+    "Translated": "Abstand, um den jede Verschachtelungsebene im Inspektor eingerückt wird."
+  },
+  "ToyBox_Features_SettingsTab_Inspector_InspectorNameFractionOfWidthSetting_Name": {
+    "Original": "Name section relative width",
+    "Translated": "Relativer Breitenanteil des Namensbereichs"
+  },
+  "ToyBox_Features_SettingsTab_Inspector_InspectorNameFractionOfWidthSetting_Description": {
+    "Original": "The fraction of the screen width the name part of inspector takes (0.3 means 30%).",
+    "Translated": "Anteil der Fensterbreite für den Namensbereich des Inspektors (0,3 bedeutet 30 %)."
+  },
+  "ToyBox_Features_SettingsTab_Inspector_InspectorSearcherBatchSizeSetting_Name": {
+    "Original": "Inspector Searcher Batch Size",
+    "Translated": "Suchblockgröße des Inspektors"
+  },
+  "ToyBox_Features_SettingsTab_Inspector_InspectorSearcherBatchSizeSetting_Description": {
+    "Original": "Lower numbers mean less ui lag during search but longer search time.",
+    "Translated": "Kleinere Werte verringern Verzögerungen der Oberfläche während der Suche, verlängern aber die Suchdauer."
+  },
+  "ToyBox_Features_SettingsTab_Inspector_InspectorShowCompilerGeneratedFields_Name": {
+    "Original": "Show compiler generated fields",
+    "Translated": "Vom Compiler erzeugte Felder anzeigen"
+  },
+  "ToyBox_Features_SettingsTab_Inspector_InspectorShowCompilerGeneratedFields_Description": {
+    "Original": "Show fields that are marked as compiler generated in Inspector (e.g. backing fields of properties)",
+    "Translated": "Zeigt im Inspektor Felder, die als vom Compiler erzeugt markiert sind (z. B. die Speicherfelder von Properties)."
+  },
+  "ToyBox_Features_SettingsTab_Inspector_InspectorShowEnumerableFieldsSetting_Name": {
+    "Original": "Show fields on enumerable",
+    "Translated": "Felder von IEnumerable anzeigen"
+  },
+  "ToyBox_Features_SettingsTab_Inspector_InspectorShowEnumerableFieldsSetting_Description": {
+    "Original": "Whether to also show other fields besides the actual collection items of IEnumerable types.",
+    "Translated": "Zeigt neben den eigentlichen Sammlungseinträgen auch andere Felder von IEnumerable-Typen an."
+  },
+  "ToyBox_Features_SettingsTab_Inspector_InspectorShowNullAndEmptyMembersSetting_Name": {
+    "Original": "Show members that are null or empty",
+    "Translated": "Leere oder nullwertige Member anzeigen"
+  },
+  "ToyBox_Features_SettingsTab_Inspector_InspectorShowNullAndEmptyMembersSetting_Description": {
+    "Original": "Shows Fields/Properties that are either null or an empty collection",
+    "Translated": "Zeigt Felder und Properties an, die null oder eine leere Sammlung sind."
+  },
+  "ToyBox_Features_SettingsTab_Inspector_InspectorShowStaticMembersSetting_Name": {
+    "Original": "Show static fields and properties",
+    "Translated": "Statische Felder und Properties anzeigen"
+  },
+  "ToyBox_Features_SettingsTab_Inspector_InspectorShowStaticMembersSetting_Description": {
+    "Original": "Whether to show static members of types.",
+    "Translated": "Legt fest, ob statische Member von Typen angezeigt werden."
+  },
+  "ToyBox_Features_SettingsTab_Inspector_InspectorSlimModeSetting_Name": {
+    "Original": "Slim Mode",
+    "Translated": "Kompaktmodus"
+  },
+  "ToyBox_Features_SettingsTab_Inspector_InspectorSlimModeSetting_Description": {
+    "Original": "If you hate whitespace and alignment",
+    "Translated": "Für eine kompakte Ansicht ohne zusätzlichen Leerraum und Ausrichtung."
+  },
+  "ToyBox_Features_SettingsFeatures_LanguagePickerFeature_LanguagePickerText": {
+    "Original": "Language Picker",
+    "Translated": "Sprachauswahl"
+  },
+  "ToyBox_Features_SettingsFeatures_LanguagePickerFeature_PickYourCurrentUiLocaleText": {
+    "Original": "Pick your current ui locale",
+    "Translated": "Wähle die Sprache der Oberfläche."
+  },
+  "ToyBox_Features_SettingsFeatures_LanguagePickerFeature_CurrentCultureText": {
+    "Original": "Current Language",
+    "Translated": "Aktuelle Sprache"
+  },
+  "ToyBox_Features_SettingsFeatures_CharacterPickerNearbyRangeSetting_Name": {
+    "Original": "Nearby Range",
+    "Translated": "Umkreis"
+  },
+  "ToyBox_Features_SettingsFeatures_CharacterPickerNearbyRangeSetting_Description": {
+    "Original": "Modifies the range for the Nearby Character Picker category",
+    "Translated": "Ändert den Radius für die Kategorie „In der Nähe“ der Charakterauswahl."
+  },
+  "ToyBox_Features_FontFix_FontFixFeature_Name": {
+    "Original": "Fix game fonts",
+    "Translated": "Spielschriftarten korrigieren"
+  },
+  "ToyBox_Features_FontFix_FontFixFeature_Description": {
+    "Original": "There is a Unity bug that causes some systen fonts to become weird in IMGUI (the mod GUI). This feature fixes that.",
+    "Translated": "Ein Unity-Fehler führt dazu, dass einige Systemschriftarten in IMGUI (der Mod-Oberfläche) fehlerhaft erscheinen. Diese Funktion behebt das."
+  },
+  "ToyBox_Features_SettingsTab_Other_GlyphSettingsFeature_Name": {
+    "Original": "Glyphs",
+    "Translated": "Symbole"
+  },
+  "ToyBox_Features_SettingsTab_Other_GlyphSettingsFeature_Description": {
+    "Original": "ToyBox uses some non-ascii characters (▼ ▶ ✎ ✔ ✖) in its UI. If the game font can't render them, ToyBox falls back to plain ASCII.",
+    "Translated": "ToyBox verwendet einige Nicht-ASCII-Zeichen (▼ ▶ ✎ ✔ ✖) in der Oberfläche. Kann die Spielschrift sie nicht darstellen, verwendet ToyBox stattdessen einfache ASCII-Zeichen."
+  },
+  "ToyBox_Features_SettingsTab_Other_GlyphSettingsFeature_CheckLabel": {
+    "Original": "Auto-detect glyph support",
+    "Translated": "Symbolunterstützung automatisch erkennen"
+  },
+  "ToyBox_Features_SettingsTab_Other_GlyphSettingsFeature_CheckDescription": {
+    "Original": "Probe the game font on the first UI frame and pick glyphs or ASCII automatically.",
+    "Translated": "Prüft die Spielschrift beim ersten Anzeigen der Oberfläche und wählt automatisch Symbole oder ASCII-Zeichen."
+  },
+  "ToyBox_Features_SettingsTab_Other_GlyphSettingsFeature_UseDefaultLabel": {
+    "Original": "Use fancy glyphs",
+    "Translated": "Grafische Symbole verwenden"
+  },
+  "ToyBox_Features_SettingsTab_Other_GlyphSettingsFeature_UseDefaultDescription": {
+    "Original": "Off falls back to plain ASCII. Only used when auto-detect is disabled.",
+    "Translated": "Deaktiviert: einfache ASCII-Zeichen verwenden. Wird nur berücksichtigt, wenn die automatische Erkennung deaktiviert ist."
+  },
+  "ToyBox_Features_SettingsTab_Other_ImguiColorFixFeature_Name": {
+    "Original": "Fix IMGUI Colors",
+    "Translated": "IMGUI-Farben korrigieren"
+  },
+  "ToyBox_Features_SettingsTab_Other_ImguiColorFixFeature_Description": {
+    "Original": "A Unity Engine Update somehow switched the Color Space of the Mod UI, making colors look washed out. This is a bandaid fix for that issue.",
+    "Translated": "Ein Unity-Update hat den Farbraum der Mod-Oberfläche geändert, wodurch Farben ausgewaschen wirken. Dies ist eine vorläufige Korrektur."
+  },
+  "ToyBox_Features_SettingsTab_Other_LazyInitFeature_Name": {
+    "Original": "Lazy Init",
+    "Translated": "Verzögerte Initialisierung"
+  },
+  "ToyBox_Features_SettingsTab_Other_LazyInitFeature_Description": {
+    "Original": "The mod tries to speed up initial game load time by only doing important initialization on the main thread and doing the rest on a separate thread.",
+    "Translated": "Verkürzt den ersten Ladevorgang, indem nur wichtige Initialisierungsschritte im Hauptthread und die übrigen in einem separaten Thread ausgeführt werden."
+  },
+  "ToyBox_Infrastructure_LazyInit_X_Amount_Of_FeaturesFailedInitialization_LocalizedText": {
+    "Original": "features failed initialization!",
+    "Translated": "Funktionen konnten nicht initialisiert werden!"
+  },
+  "ToyBox_Features_SettingsFeatures_LogHotkeysToCombatLogSetting_Name": {
+    "Original": "Log Hotkey Execution",
+    "Translated": "Tastenkürzel-Ausführung protokollieren"
+  },
+  "ToyBox_Features_SettingsFeatures_LogHotkeysToCombatLogSetting_Description": {
+    "Original": "When ticked this shows ToyBox commands in the combat log which is helpful for you to know when you used the shortcut.",
+    "Translated": "Zeigt ToyBox-Befehle im Kampfprotokoll an, damit du erkennst, wann ein Tastenkürzel ausgeführt wurde."
+  },
+  "ToyBox_Features_SettingsFeatures_LogLevelSetting_Name": {
+    "Original": "Log Level",
+    "Translated": "Protokollierungsstufe"
+  },
+  "ToyBox_Features_SettingsFeatures_LogLevelSetting_Description": {
+    "Original": "Decides what type of messages get written to the log file.",
+    "Translated": "Legt fest, welche Arten von Meldungen in die Protokolldatei geschrieben werden."
+  },
+  "ToyBox_Features_SettingsTab_Other_ShowRiskyTogglesFeature_Name": {
+    "Original": "Display Risky Options",
+    "Translated": "Riskante Optionen anzeigen"
+  },
+  "ToyBox_Features_SettingsTab_Other_ShowRiskyTogglesFeature_Description": {
+    "Original": "ToyBox hides some options by default. Activating this will unhide those features.",
+    "Translated": "ToyBox blendet einige Optionen standardmäßig aus. Diese Einstellung macht sie sichtbar."
+  },
+  "ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_Name": {
+    "Original": "Import ToyBox 1 Settings",
+    "Translated": "ToyBox-1-Einstellungen importieren"
+  },
+  "ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_Description": {
+    "Original": "Imports settings from an installed ToyBox 1 (the Settings.xml in its mod folder) into ToyBox 2. Settings whose meaning changed or that no longer exist are skipped.",
+    "Translated": "Importiert Einstellungen einer installierten ToyBox-1-Version (Settings.xml im Mod-Ordner) in ToyBox 2. Einstellungen mit geänderter Bedeutung oder ohne Entsprechung werden übersprungen."
+  },
+  "ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_PathText": {
+    "Original": "ToyBox 1 Settings.xml",
+    "Translated": "Settings.xml von ToyBox 1"
+  },
+  "ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_ImportText": {
+    "Original": "Import",
+    "Translated": "Importieren"
+  },
+  "ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_ImportedText": {
+    "Original": "Imported {0} settings from ToyBox 1. Restart the game so every change takes full effect.",
+    "Translated": "{0} Einstellungen aus ToyBox 1 importiert. Starte das Spiel neu, damit alle Änderungen vollständig wirksam werden."
+  },
+  "ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_PerSaveImportedText": {
+    "Original": "Also imported {0} save-specific settings from the loaded save (quick save and then load the new save for chanes to take effect).",
+    "Translated": "Außerdem {0} spielstandspezifische Einstellungen aus dem geladenen Spielstand importiert (erst schnellspeichern, dann den neuen Spielstand laden, damit die Änderungen wirksam werden)."
+  },
+  "ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_PerSaveSkippedText": {
+    "Original": "Load a ToyBox 1 save and import again to also bring over its save-specific settings (unit size / AI overrides / skeleton changes).",
+    "Translated": "Lade einen ToyBox-1-Spielstand und importiere erneut, um auch dessen spielstandspezifische Einstellungen zu übernehmen (Einheitengröße, KI-Anpassungen und Skelettänderungen)."
+  },
+  "ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_FailedText": {
+    "Original": "Import failed.",
+    "Translated": "Import fehlgeschlagen."
+  },
+  "ToyBox_Features_SettingsFeatures_SettingsFeaturesTab_UpdateText": {
+    "Original": "Update",
+    "Translated": null
+  },
+  "ToyBox_Features_SettingsFeatures_SettingsFeaturesTab_VersionAndFileIntegrityCategory": {
+    "Original": "Version and File Integrity",
+    "Translated": "Version und Dateiintegrität"
+  },
+  "ToyBox_Features_SettingsFeatures_SettingsFeaturesTab_BlueprintsCategory": {
+    "Original": "Blueprints",
+    "Translated": null
+  },
+  "ToyBox_Features_SettingsFeatures_SettingsFeaturesTab_LanguageCategory": {
+    "Original": "Language",
+    "Translated": "Sprache"
+  },
+  "ToyBox_Features_SettingsFeatures_SettingsFeaturesTab_ListsAndBrowsersText": {
+    "Original": "Lists and Browsers",
+    "Translated": "Listen"
+  },
+  "ToyBox_Features_SettingsFeatures_SettingsFeaturesTab_InspectorText": {
+    "Original": "Inspector",
+    "Translated": "Inspektor"
+  },
+  "ToyBox_Features_SettingsFeatures_SettingsFeaturesTab_OtherText": {
+    "Original": "Other",
+    "Translated": "Sonstiges"
+  },
+  "ToyBox_Features_SettingsFeatures_SettingsFeaturesTab_SettingsText": {
+    "Original": "Settings",
+    "Translated": "Einstellungen"
+  },
+  "ToyBox_Features_SettingsFeatures_SettingsFeaturesTab_m_GameLocalizedText": {
+    "Original": "Game",
+    "Translated": "Spiel"
+  },
+  "ToyBox_Features_UpdateAndIntegrity_UpdateCompatabilityFeature_EnableIntegrityCheckText": {
+    "Original": "Enable Integrity Check",
+    "Translated": "Integritätsprüfung aktivieren"
+  },
+  "ToyBox_Features_UpdateAndIntegrity_UpdateCompatabilityFeature_CheckTheIntegrityOfToyBoxFilesTe": {
+    "Original": "Check the integrity of ToyBox files",
+    "Translated": "Prüft die Integrität der ToyBox-Dateien."
+  },
+  "ToyBox_Features_UpdateAndIntegrity_UpdaterFeature_RestartToFinishUpdateText": {
+    "Original": "Restart to finish update",
+    "Translated": "Neustarten, um das Update abzuschließen"
+  },
+  "ToyBox_Features_UpdateAndIntegrity_UpdaterFeature_TryReinstallCurrentVersionText": {
+    "Original": "Try reinstall current version",
+    "Translated": "Aktuelle Version erneut installieren"
+  },
+  "ToyBox_Features_UpdateAndIntegrity_UpdaterFeature_TryUpdatingToNewestVersionText": {
+    "Original": "Try updating to newest version",
+    "Translated": "Auf die neueste Version aktualisieren"
+  },
+  "ToyBox_Features_UpdateAndIntegrity_UpdaterFeature_DownloadProgress_Text": {
+    "Original": "Download Progress:",
+    "Translated": "Downloadfortschritt:"
+  },
+  "ToyBox_Features_SettingsFeatures_UpdateAndIntegrity_UpdaterFeature_UpdateModText": {
+    "Original": "Update Mod",
+    "Translated": "Mod aktualisieren"
+  },
+  "ToyBox_Features_SettingsFeatures_UpdateAndIntegrity_UpdaterFeature_ReinstallTheCurrentModVersionOrU": {
+    "Original": "Reinstall the current mod version or update to the latest available version",
+    "Translated": "Installiert die aktuelle Mod-Version erneut oder aktualisiert auf die neueste verfügbare Version."
+  },
+  "ToyBox_Features_UpdateAndIntegrity_VersionCompatabilityFeature_Name": {
+    "Original": "Enable Version Compatibility Check",
+    "Translated": "Versionskompatibilitätsprüfung aktivieren"
+  },
+  "ToyBox_Features_UpdateAndIntegrity_VersionCompatabilityFeature_Description": {
+    "Original": "Check whether the current mod version is compatible with the current game version",
+    "Translated": "Prüft, ob die aktuelle Mod-Version mit der aktuellen Spielversion kompatibel ist."
+  },
+  "ToyBox_Features_SettingsFeatures_UpdateAndIntegrity_VersionCompatabilityFeature_ModVersionIsNotCompatibleWithThi": {
+    "Original": "Mod Version is not compatible with this game version!",
+    "Translated": "Die Mod-Version ist mit dieser Spielversion nicht kompatibel!"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ColonizeColonyBA_ColonizeText": {
+    "Original": "Colonize",
+    "Translated": "Kolonisieren"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ColonizeColonyBA_Name": {
+    "Original": "Colonize BlueprintColony",
+    "Translated": "BlueprintColony kolonisieren"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ColonizeColonyBA_Description": {
+    "Original": "Tries to colonize the specified BlueprintColony in the current Star System.",
+    "Translated": "Versucht, die angegebene BlueprintColony im aktuellen Sternensystem zu kolonisieren."
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ColonizePlanetBA_ColonizeText": {
+    "Original": "Colonize",
+    "Translated": "Kolonisieren"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ColonizePlanetBA_Name": {
+    "Original": "Colonize BlueprintPlanet",
+    "Translated": "BlueprintPlanet kolonisieren"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ColonizePlanetBA_Description": {
+    "Original": "Tries to colonize the specified BlueprintPlanet in the current Star System.",
+    "Translated": "Versucht, den angegebenen BlueprintPlanet im aktuellen Sternensystem zu kolonisieren."
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_LoadAreaPresetBA_LoadPresetText": {
+    "Original": "Load Preset",
+    "Translated": "Voreinstellung laden"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_LoadAreaPresetBA_Name": {
+    "Original": "Load Area Preset",
+    "Translated": "Gebietsvoreinstellung laden"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_LoadAreaPresetBA_Description": {
+    "Original": "Loads a specified BlueprintAreaPreset.",
+    "Translated": "Lädt die angegebene BlueprintAreaPreset."
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintAreaBA_TeleportText": {
+    "Original": "Teleport",
+    "Translated": "Teleportieren"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintAreaBA_Name": {
+    "Original": "Teleport to BlueprintArea",
+    "Translated": "Zu BlueprintArea teleportieren"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintAreaBA_Description": {
+    "Original": "Gets the first AreaEnterPoint corresponding to the specified BlueprintArea and loads it.",
+    "Translated": "Sucht den ersten AreaEnterPoint der angegebenen BlueprintArea und lädt ihn."
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintAreaEnterPointBA_TeleportText": {
+    "Original": "Teleport",
+    "Translated": "Teleportieren"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintAreaEnterPointBA_Name": {
+    "Original": "Teleport to BlueprintAreaEnterPoint",
+    "Translated": "Zu BlueprintAreaEnterPoint teleportieren"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintAreaEnterPointBA_Description": {
+    "Original": "Loads the area of the specified BlueprintAreaEnterPoint.",
+    "Translated": "Lädt das Gebiet des angegebenen BlueprintAreaEnterPoint."
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintSectorMapPointStarSystemBA_TeleportText": {
+    "Original": "Teleport",
+    "Translated": "Teleportieren"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintSectorMapPointStarSystemBA_Name": {
+    "Original": "Teleport to BlueprintSectorMapPointStarSystem",
+    "Translated": "Zu BlueprintSectorMapPointStarSystem teleportieren"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintSectorMapPointStarSystemBA_Description": {
+    "Original": "Gets the first AreaEnterPoint corresponding to the specified BlueprintSectorMapPointStarSystem and loads it.",
+    "Translated": "Sucht den ersten AreaEnterPoint des angegebenen BlueprintSectorMapPointStarSystem und lädt ihn."
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintStarSystemMapBA_TeleportText": {
+    "Original": "Teleport",
+    "Translated": "Teleportieren"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintStarSystemMapBA_Name": {
+    "Original": "Teleport to BlueprintStarSystemMap",
+    "Translated": "Zu BlueprintStarSystemMap teleportieren"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_TeleportBlueprintStarSystemMapBA_Description": {
+    "Original": "Gets the first AreaEnterPoint corresponding to the specified BlueprintStarSystemMap and loads it.",
+    "Translated": "Sucht den ersten AreaEnterPoint der angegebenen BlueprintStarSystemMap und lädt ihn."
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddItemBA_Add_x": {
+    "Original": "Add {0} Items",
+    "Translated": "{0} Gegenstände hinzufügen"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddItemBA_Name": {
+    "Original": "Add Item",
+    "Translated": "Gegenstand hinzufügen"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddItemBA_Description": {
+    "Original": "Adds the specified BlueprintItem to your inventory.",
+    "Translated": "Fügt den angegebenen BlueprintItem deinem Inventar hinzu."
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveItemBA_Remove_x": {
+    "Original": "Remove {0} Items",
+    "Translated": "{0} Gegenstände entfernen"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveItemBA_Name": {
+    "Original": "Remove Item",
+    "Translated": "Gegenstand entfernen"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveItemBA_Description": {
+    "Original": "Removes the specified BlueprintItem from your inventory.",
+    "Translated": "Entfernt den angegebenen BlueprintItem aus deinem Inventar."
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeFlagValueBA_Name": {
+    "Original": "Modify Flag Value",
+    "Translated": "Flag-Wert ändern"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeFlagValueBA_Description": {
+    "Original": "Increases or decreases the value of the specified BlueprintUnlockableFlag.",
+    "Translated": "Erhöht oder verringert den Wert des angegebenen BlueprintUnlockableFlag."
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeFlagValueBA_FlagIsNotUnlockedText": {
+    "Original": "Flag is not unlocked",
+    "Translated": "Flag ist nicht freigeschaltet"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_CompleteEtudeBA_Name": {
+    "Original": "Complete Etude",
+    "Translated": "Etüde abschließen"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_CompleteEtudeBA_Description": {
+    "Original": "Complete the specified BlueprintEtude. A failed Etude is often used to mark a failed quest state.",
+    "Translated": "Schließt die angegebene BlueprintEtude ab. Eine fehlgeschlagene Etüde kennzeichnet häufig den Status einer fehlgeschlagenen Quest."
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_CompleteEtudeBA_CompleteText": {
+    "Original": "Complete",
+    "Translated": "Abschließen"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_CompleteEtudeBA_EtudeIsNotStartedText": {
+    "Original": "Etude is not started",
+    "Translated": "Etüde wurde nicht gestartet"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_CompleteQuestBA_Name": {
+    "Original": "Complete Quest",
+    "Translated": "Quest abschließen"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_CompleteQuestBA_Description": {
+    "Original": "Completes the specified BlueprintQuest by forcing each objective to complete.",
+    "Translated": "Schließt die angegebene BlueprintQuest ab, indem alle ihre Ziele als abgeschlossen gesetzt werden."
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_CompleteQuestBA_CompleteText": {
+    "Original": "Complete",
+    "Translated": "Abschließen"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_CompleteQuestBA_QuestIsNotStartedText": {
+    "Original": "Quest is not started",
+    "Translated": "Quest wurde nicht gestartet"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_CompleteQuestObjectiveBA_Name": {
+    "Original": "Complete Quest Objective",
+    "Translated": "Questziel abschließen"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_CompleteQuestObjectiveBA_Description": {
+    "Original": "Completes the specified BlueprintQuestObjective.",
+    "Translated": "Schließt das angegebene BlueprintQuestObjective ab."
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_CompleteQuestObjectiveBA_CompleteText": {
+    "Original": "Complete",
+    "Translated": "Abschließen"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_CompleteQuestObjectiveBA_QuestObjectiveIsNotStartedText": {
+    "Original": "Quest objective is not started",
+    "Translated": "Questziel wurde nicht gestartet"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_LockFlagBA_Name": {
+    "Original": "Lock Flag",
+    "Translated": "Flag sperren"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_LockFlagBA_Description": {
+    "Original": "Locks the specified BlueprintUnlockableFlag.",
+    "Translated": "Sperrt das angegebene BlueprintUnlockableFlag."
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_LockFlagBA_LockText": {
+    "Original": "Lock",
+    "Translated": "Sperren"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_LockFlagBA_FlagIsNotUnlockedText": {
+    "Original": "Flag is not unlocked",
+    "Translated": "Flag ist nicht freigeschaltet"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_PlayCutsceneBA_Name": {
+    "Original": "Play Cutscene",
+    "Translated": "Zwischensequenz abspielen"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_PlayCutsceneBA_Description": {
+    "Original": "Plays the specified Cutscene.",
+    "Translated": "Spielt die angegebene Zwischensequenz ab."
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_PlayCutsceneBA_PlayText": {
+    "Original": "Play",
+    "Translated": "Abspielen"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartEtudeBA_Name": {
+    "Original": "Start Etude",
+    "Translated": "Etüde starten"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartEtudeBA_Description": {
+    "Original": "Starts the specified BlueprintEtude.",
+    "Translated": "Startet die angegebene BlueprintEtude."
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartEtudeBA_StartText": {
+    "Original": "Start",
+    "Translated": "Starten"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartEtudeBA_EtudeIsAlreadyStartedOrCompleted": {
+    "Original": "Etude is already started or completed",
+    "Translated": "Etüde ist bereits gestartet oder abgeschlossen"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartQuestBA_Name": {
+    "Original": "Start Quest",
+    "Translated": "Quest starten"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartQuestBA_Description": {
+    "Original": "Starts the specified BlueprintQuest by starting its first objective.",
+    "Translated": "Startet die angegebene BlueprintQuest, indem ihr erstes Ziel gestartet wird."
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartQuestBA_StartText": {
+    "Original": "Start",
+    "Translated": "Starten"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartQuestBA_QuestAlreadyStartedText": {
+    "Original": "Quest already started",
+    "Translated": "Quest wurde bereits gestartet"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartQuestObjectiveBA_Name": {
+    "Original": "Start Quest Objective",
+    "Translated": "Questziel starten"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartQuestObjectiveBA_Description": {
+    "Original": "Starts the specified BlueprintQuestObjective.",
+    "Translated": "Startet das angegebene BlueprintQuestObjective."
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartQuestObjectiveBA_StartText": {
+    "Original": "Start",
+    "Translated": "Starten"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartQuestObjectiveBA_QuestObjectiveStateIsNotNoneText": {
+    "Original": "QuestObjectiveState is not none",
+    "Translated": "QuestObjectiveState ist nicht None"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnlockAchievementBA_Name": {
+    "Original": "Unlock Achievement",
+    "Translated": "Erfolg freischalten"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnlockAchievementBA_Description": {
+    "Original": "Unlocks the specified achievement.",
+    "Translated": "Schaltet den angegebenen Erfolg frei."
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnlockAchievementBA_UnlockText": {
+    "Original": "Unlock",
+    "Translated": "Freischalten"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnlockAchievementBA_AchievementAlreadyUnlockedText": {
+    "Original": "Achievement is already unlocked",
+    "Translated": "Erfolg ist bereits freigeschaltet"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnlockFlagBA_Name": {
+    "Original": "Unlock Flag",
+    "Translated": "Flag freischalten"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnlockFlagBA_Description": {
+    "Original": "Unlocks the specified BlueprintUnlockableFlag.",
+    "Translated": "Schaltet das angegebene BlueprintUnlockableFlag frei."
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnlockFlagBA_UnlockText": {
+    "Original": "Unlock",
+    "Translated": "Freischalten"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnlockFlagBA_FlagIsNotLockedText": {
+    "Original": "Flag is not locked",
+    "Translated": "Flag ist nicht gesperrt"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnstartEtudeBA_Name": {
+    "Original": "Unstart Etude",
+    "Translated": "Etüdenstart rückgängig machen"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnstartEtudeBA_Description": {
+    "Original": "Unstarts the specified BlueprintEtude.",
+    "Translated": "Macht den Start der angegebenen BlueprintEtude rückgängig."
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnstartEtudeBA_UnstartText": {
+    "Original": "Unstart",
+    "Translated": "Start rückgängig machen"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnstartEtudeBA_EtudeIsNotStartedText": {
+    "Original": "Etude is not started or completed",
+    "Translated": "Etüde ist weder gestartet noch abgeschlossen"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddAbilityResourceBA_Name": {
+    "Original": "Add Ability Resource",
+    "Translated": "Fähigkeitsressource hinzufügen"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddAbilityResourceBA_Description": {
+    "Original": "Adds the specified BlueprintAbilityResource to the chosen unit.",
+    "Translated": "Fügt die angegebene BlueprintAbilityResource der ausgewählten Einheit hinzu."
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddAbilityResourceBA_AddText": {
+    "Original": "Add",
+    "Translated": "Hinzufügen"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddAbilityResourceBA_UnitAlreadyHasThisAbilityResourc": {
+    "Original": "Unit already has this ability resource",
+    "Translated": "Einheit besitzt diese Fähigkeitsressource bereits"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechadendriteBA_Name": {
+    "Original": "Add Mechadendrite",
+    "Translated": "Mechadendrit hinzufügen"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechadendriteBA_Description": {
+    "Original": "Adds the specified mechadendrite to the specified unit.",
+    "Translated": "Fügt den angegebenen Mechadendriten der angegebenen Einheit hinzu."
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechadendriteBA_m_AddLocalizedText": {
+    "Original": "Equip Mechadendrite",
+    "Translated": "Mechadendrit ausrüsten"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechadendriteBA_m_UnitAlreadyHasThisMechadendriteLocalizedText": {
+    "Original": "Unit already has this Mechadendrite",
+    "Translated": "Einheit besitzt diesen Mechadendriten bereits"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechanicEntityFactBA_AddText": {
+    "Original": "Add",
+    "Translated": "Hinzufügen"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechanicEntityFactBA_Name": {
+    "Original": "Add Fact",
+    "Translated": "Charaktereigenschaft hinzufügen"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechanicEntityFactBA_Description": {
+    "Original": "Adds the specified BlueprintMechanicEntityFact to the chosen unit.",
+    "Translated": "Fügt die angegebene BlueprintMechanicEntityFact der ausgewählten Einheit hinzu."
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechanicEntityFactBA_UnitAlreadyHasThisFactText": {
+    "Original": "Unit already has this Fact",
+    "Translated": "Einheit besitzt diese Charaktereigenschaft bereits"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeBuffRankBA_Name": {
+    "Original": "Modify Buff Rank",
+    "Translated": "Buffrang ändern"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeBuffRankBA_Description": {
+    "Original": "Increases or decreases the value of the specified BlueprintBuff on the unit.",
+    "Translated": "Erhöht oder verringert den Wert des angegebenen BlueprintBuff auf der Einheit."
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeBuffRankBA_ThisBuffHasNoRanksText": {
+    "Original": "This buff has no ranks",
+    "Translated": "Dieser Buff hat keine Ränge"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeFeatureRankBA_Name": {
+    "Original": "Modify Feature Rank",
+    "Translated": "Eigenschaftsrang ändern"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeFeatureRankBA_Description": {
+    "Original": "Increases or decreases the value of the specified BlueprintFeature on the unit.",
+    "Translated": "Erhöht oder verringert den Wert der angegebenen BlueprintFeature auf der Einheit."
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_ChangeFeatureRankBA_ThisFeatureHasNoRanksText": {
+    "Original": "This feature has no ranks",
+    "Translated": "Diese Charaktereigenschaft hat keine Ränge"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_Units_ChangeVoiceBA_Name": {
+    "Original": "Change Voice",
+    "Translated": "Stimme ändern"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_Units_ChangeVoiceBA_Description": {
+    "Original": "Changes the voice of the specified unit to the specified BlueprintUnitAsksList.",
+    "Translated": "Ändert die Stimme der angegebenen Einheit auf die angegebene BlueprintUnitAsksList."
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_Units_ChangeVoiceBA_m_ChangeVoiceLocalizedText": {
+    "Original": "Change Voice",
+    "Translated": "Stimme ändern"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_Units_ChangeVoiceBA_m_ThisIsTheCurrentVoice_LocalizedText": {
+    "Original": "This is the current voice!",
+    "Translated": "Dies ist die aktuelle Stimme!"
+  },
+  "ToyBox_Classes_Infrastructure_Blueprints_BlueprintActions_Units_PlayVoiceBA_Name": {
+    "Original": "Play Voice Example",
+    "Translated": "Stimmbeispiel abspielen"
+  },
+  "ToyBox_Classes_Infrastructure_Blueprints_BlueprintActions_Units_PlayVoiceBA_Description": {
+    "Original": "Plays the PartyMemberUnconscious sound with the specified voice (if that sound doesn't exist for said voice nothing happens).",
+    "Translated": "Spielt mit der angegebenen Stimme die Sprachausgabe für ein bewusstloses Gruppenmitglied (PartyMemberUnconscious) ab. Fehlt diese Sprachausgabe für die Stimme, geschieht nichts."
+  },
+  "ToyBox_Classes_Infrastructure_Blueprints_BlueprintActions_Units_PlayVoiceBA_m_PlayExampleLocalizedText": {
+    "Original": "Play Example",
+    "Translated": "Beispiel abspielen"
+  },
+  "ToyBox_Classes_Infrastructure_Blueprints_BlueprintActions_Units_PlayVoiceBA_m_CanOnlyPlayAnExampleOfTheCurrentLocalizedText": {
+    "Original": "Can only play an example of the current voice!",
+    "Translated": "Ein Beispiel kann nur für die aktuelle Stimme abgespielt werden!"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveAbilityResourceBA_Name": {
+    "Original": "Remove Ability Resource",
+    "Translated": "Fähigkeitsressource entfernen"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveAbilityResourceBA_Description": {
+    "Original": "Removes the specified BlueprintAbilityResource from the chosen unit.",
+    "Translated": "Entfernt die angegebene BlueprintAbilityResource von der ausgewählten Einheit."
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveAbilityResourceBA_RemoveText": {
+    "Original": "Remove",
+    "Translated": "Entfernen"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveAbilityResourceBA_UnitAlreadyHasThisAbilityResourc": {
+    "Original": "Unit does not have this ability resource",
+    "Translated": "Einheit besitzt diese Fähigkeitsressource nicht"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechadendriteBA_Name": {
+    "Original": "Remove Mechadendrite",
+    "Translated": "Mechadendrit entfernen"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechadendriteBA_Description": {
+    "Original": "Removes the specified mechadendrite from the specified unit.",
+    "Translated": "Entfernt den angegebenen Mechadendriten von der angegebenen Einheit."
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechadendriteBA_m_RemoveLocalizedText": {
+    "Original": "Unequip Mechadendrite",
+    "Translated": "Mechadendrit ablegen"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechadendriteBA_m_UnitDoesn_tHaveThisMechadendriteLocalizedText": {
+    "Original": "Unit doesn't have this Mechadendrite",
+    "Translated": "Einheit besitzt diesen Mechadendriten nicht"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechanicEntityFactBA_RemoveText": {
+    "Original": "Remove",
+    "Translated": "Entfernen"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechanicEntityFactBA_Name": {
+    "Original": "Remove Fact",
+    "Translated": "Charaktereigenschaft entfernen"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechanicEntityFactBA_Description": {
+    "Original": "Removes the specified BlueprintMechanicEntityFact from the chosen unit.",
+    "Translated": "Entfernt die angegebene BlueprintMechanicEntityFact von der ausgewählten Einheit."
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechanicEntityFactBA_UnitDoesNotHaveThisFactText": {
+    "Original": "Unit does not have this Fact",
+    "Translated": "Einheit besitzt diese Charaktereigenschaft nicht"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_SpawnUnitBA_Spawn_x": {
+    "Original": "Spawn",
+    "Translated": "Erzeugen"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_SpawnUnitBA_Name": {
+    "Original": "Spawn Unit",
+    "Translated": "Einheit erzeugen"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintActions_SpawnUnitBA_Description": {
+    "Original": "Spawns the specified BlueprintUnit in the vicinity.",
+    "Translated": "Erzeugt die angegebene BlueprintUnit in der Nähe."
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_AllLocalizedText": {
+    "Original": "All",
+    "Translated": "Alle"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_FactsLocalizedText": {
+    "Original": "Facts",
+    "Translated": "Charaktereigenschaften"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_FeaturesLocalizedText": {
+    "Original": "Features",
+    "Translated": "Merkmale"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_CareersLocalizedText": {
+    "Original": "Careers",
+    "Translated": "Archetypen"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_ProgressionLocalizedText": {
+    "Original": "Progression",
+    "Translated": "Entwicklung"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_AbilitiesLocalizedText": {
+    "Original": "Abilities",
+    "Translated": "Fähigkeiten"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_SpellsLocalizedText": {
+    "Original": "Spells",
+    "Translated": "Zauber"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_BrainsLocalizedText": {
+    "Original": "Brains",
+    "Translated": "KI-Verhalten"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_AbilityRsrc_LocalizedText": {
+    "Original": "Ability Rsrc.",
+    "Translated": "Fähigkeitsress."
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_BuffsLocalizedText": {
+    "Original": "Buffs",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_ItemsLocalizedText": {
+    "Original": "Items",
+    "Translated": "Gegenstände"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_EquipmentLocalizedText": {
+    "Original": "Equipment",
+    "Translated": "Ausrüstung"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_WeaponsLocalizedText": {
+    "Original": "Weapons",
+    "Translated": "Waffen"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_ArmorsLocalizedText": {
+    "Original": "Armors",
+    "Translated": "Rüstungen"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_UsableLocalizedText": {
+    "Original": "Usable",
+    "Translated": "Benutzbar"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_UnitsLocalizedText": {
+    "Original": "Units",
+    "Translated": "Einheiten"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_UnitsCRLocalizedText": {
+    "Original": "Units CR",
+    "Translated": "Einheiten nach CR"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_CRLocalizedText": {
+    "Original": "CR",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_RacesLocalizedText": {
+    "Original": "Races",
+    "Translated": "Spezies"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_AreasLocalizedText": {
+    "Original": "Areas",
+    "Translated": "Gebiete"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_AreaEntryLocalizedText": {
+    "Original": "Area Entry",
+    "Translated": "Gebietseingänge"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_SystemMapLocalizedText": {
+    "Original": "System Map",
+    "Translated": "Systemkarte"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_SectorMapPointsLocalizedText": {
+    "Original": "Sector Map Points",
+    "Translated": "Sektorkartenpunkte"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_CutscenesLocalizedText": {
+    "Original": "Cutscenes",
+    "Translated": "Zwischensequenzen"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_QuestsLocalizedText": {
+    "Original": "Quests",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_QuestObj_LocalizedText": {
+    "Original": "Quest Obj.",
+    "Translated": "Questziele"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_EtudesLocalizedText": {
+    "Original": "Etudes",
+    "Translated": "Etüden"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_FlagsLocalizedText": {
+    "Original": "Flags",
+    "Translated": null
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_DailogsLocalizedText": {
+    "Original": "Dailogs",
+    "Translated": "Dialoge"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_AnswersLocalizedText": {
+    "Original": "Answers",
+    "Translated": "Antworten"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_PlanetsLocalizedText": {
+    "Original": "Planets",
+    "Translated": "Planeten"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_ColoniesLocalizedText": {
+    "Original": "Colonies",
+    "Translated": "Kolonien"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_AreaPresetsLocalizedText": {
+    "Original": "Area Presets",
+    "Translated": "Gebietsvoreinstellungen"
+  },
+  "ToyBox_Features_SearchAndPick_BlueprintFilters_m_CuesLocalizedText": {
+    "Original": "Cues",
+    "Translated": "Dialogzeilen"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintFilter_AllLocalizedText": {
+    "Original": "All",
+    "Translated": "Alle"
+  },
+  "ToyBox_Infrastructure_Blueprints_BlueprintUI_m_ShowSettingsLocalizedText": {
+    "Original": "Show Settings",
+    "Translated": "Einstellungen anzeigen"
+  },
+  "ToyBox_Infrastructure_CharacterPicker_ThereAreNoCharactersInThisList": {
+    "Original": "There are no characters in this list!",
+    "Translated": "Diese Liste enthält keine Charaktere!"
+  },
+  "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_PartyText": {
+    "Original": "Party",
+    "Translated": "Gruppe"
+  },
+  "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_PartyAndPetsText": {
+    "Original": "Party & Pets",
+    "Translated": "Gruppe & Vertraute"
+  },
+  "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_AllText": {
+    "Original": "All Characters",
+    "Translated": "Alle Charaktere"
+  },
+  "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_ActiveText": {
+    "Original": "Active",
+    "Translated": "Aktiv"
+  },
+  "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_RemoteText": {
+    "Original": "Remote",
+    "Translated": "Abwesend"
+  },
+  "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_CustomCompanionText": {
+    "Original": "Custom Companions",
+    "Translated": "Eigene Gefährten"
+  },
+  "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_PetsText": {
+    "Original": "Pets",
+    "Translated": "Vertraute"
+  },
+  "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_NearbyText": {
+    "Original": "Nearby",
+    "Translated": "In der Nähe"
+  },
+  "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_FriendlyText": {
+    "Original": "Friendly",
+    "Translated": "Verbündet"
+  },
+  "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_EnemiesText": {
+    "Original": "Enemies",
+    "Translated": "Gegner"
+  },
+  "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_AllUnitsText": {
+    "Original": "All Units",
+    "Translated": "Alle Einheiten"
+  },
+  "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_m_StarshipsLocalizedText": {
+    "Original": "Starships",
+    "Translated": "Raumschiffe"
+  },
+  "ToyBox_Infrastructure_Enums_EtudeState_Localizer_m_NotStartedLocalizedText": {
+    "Original": "Not Started",
+    "Translated": "Nicht gestartet"
+  },
+  "ToyBox_Infrastructure_Enums_EtudeState_Localizer_m_StartedLocalizedText": {
+    "Original": "Started",
+    "Translated": "Gestartet"
+  },
+  "ToyBox_Infrastructure_Enums_EtudeState_Localizer_m_ActiveLocalizedText": {
+    "Original": "Active",
+    "Translated": "Aktiv"
+  },
+  "ToyBox_Infrastructure_Enums_EtudeState_Localizer_m_PreCompletedLocalizedText": {
+    "Original": "Pre Completed",
+    "Translated": "Vorab abgeschlossen"
+  },
+  "ToyBox_Infrastructure_Enums_EtudeState_Localizer_m_CompletedLocalizedText": {
+    "Original": "Completed",
+    "Translated": "Abgeschlossen"
+  },
+  "ToyBox_Infrastructure_Enums_EtudeState_Localizer_m_CompletionInProgressLocalizedText": {
+    "Original": "Completion in Progress",
+    "Translated": "Abschluss läuft"
+  },
+  "ToyBox_Infrastructure_Enums_LogLevel_Localizer_ErrorText": {
+    "Original": "Error",
+    "Translated": "Fehler"
+  },
+  "ToyBox_Infrastructure_Enums_LogLevel_Localizer_WarningText": {
+    "Original": "Warning",
+    "Translated": "Warnung"
+  },
+  "ToyBox_Infrastructure_Enums_LogLevel_Localizer_InfoText": {
+    "Original": "Info",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Enums_LogLevel_Localizer_DebugText": {
+    "Original": "Debug",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Enums_LogLevel_Localizer_TraceText": {
+    "Original": "Trace",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Enums_PartyTabSectionType_Localizer_ClassesText": {
+    "Original": "Careers",
+    "Translated": "Archetypen"
+  },
+  "ToyBox_Infrastructure_Enums_PartyTabSectionType_Localizer_StatsText": {
+    "Original": "Stats",
+    "Translated": "Werte"
+  },
+  "ToyBox_Infrastructure_Enums_PartyTabSectionType_Localizer_FeaturesText": {
+    "Original": "Features",
+    "Translated": "Merkmale"
+  },
+  "ToyBox_Infrastructure_Enums_PartyTabSectionType_Localizer_BuffsText": {
+    "Original": "Buffs",
+    "Translated": null
+  },
+  "ToyBox_Infrastructure_Enums_PartyTabSectionType_Localizer_AbilitiesText": {
+    "Original": "Abilities",
+    "Translated": "Fähigkeiten"
+  },
+  "ToyBox_Infrastructure_Enums_PartyTabSectionType_Localizer_InspectText": {
+    "Original": "Inspect",
+    "Translated": "Inspizieren"
+  },
+  "ToyBox_Infrastructure_Enums_PartyTabSectionType_Localizer_m_MechadendritesLocalizedText": {
+    "Original": "Mechadendrites",
+    "Translated": "Mechadendriten"
+  },
+  "ToyBox_Infrastructure_Enums_UnitSelectType_Localizer_EveryoneText": {
+    "Original": "Everyone",
+    "Translated": "Alle"
+  },
+  "ToyBox_Infrastructure_Enums_UnitSelectType_Localizer_EnemiesText": {
+    "Original": "Enemies",
+    "Translated": "Gegner"
+  },
+  "ToyBox_Infrastructure_Enums_UnitSelectType_Localizer_FriendlyText": {
+    "Original": "Friendly",
+    "Translated": "Verbündet"
+  },
+  "ToyBox_Infrastructure_Enums_UnitSelectType_Localizer_PartyText": {
+    "Original": "Party",
+    "Translated": "Gruppe"
+  },
+  "ToyBox_Infrastructure_Enums_UnitSelectType_Localizer_MainCharacterText": {
+    "Original": "Main Character",
+    "Translated": "Hauptcharakter"
+  },
+  "ToyBox_Infrastructure_Enums_UnitSelectType_Localizer_OffText": {
+    "Original": "Off",
+    "Translated": "Aus"
+  },
+  "ToyBox_Infrastructure_Enums_UnitSelectType_Localizer_m_ShipLocalizedText": {
+    "Original": "Ship",
+    "Translated": "Schiff"
+  },
+  "ToyBox_Infrastructure_Enums_UnitSelectType_Localizer_m_EnemyShipLocalizedText": {
+    "Original": "Enemy Ship",
+    "Translated": "Gegnerisches Schiff"
+  },
+  "ToyBox_FeatureTab_m_FeatureFailedInitializationLocalizedText": {
+    "Original": "Feature failed initialization",
+    "Translated": "Funktion konnte nicht initialisiert werden"
+  },
+  "ToyBox_Infrastructure_Inspector_InspectorUI_ShowSearchText": {
+    "Original": "Show Search",
+    "Translated": "Suche anzeigen"
+  },
+  "ToyBox_Infrastructure_Inspector_InspectorUI_ShowSearchSettingsText": {
+    "Original": "Show Settings",
+    "Translated": "Einstellungen anzeigen"
+  },
+  "ToyBox_Infrastructure_Inspector_InspectorUI_SearchByNameText": {
+    "Original": "Search by Name",
+    "Translated": "Nach Name suchen"
+  },
+  "ToyBox_Infrastructure_Inspector_InspectorUI_SearchByTypeText": {
+    "Original": "Search by Type",
+    "Translated": "Nach Typ suchen"
+  },
+  "ToyBox_Infrastructure_Inspector_InspectorUI_SearchByValueText": {
+    "Original": "Search by Value",
+    "Translated": "Nach Wert suchen"
+  },
+  "ToyBox_Infrastructure_Inspector_InspectorUI_SearchDepthText": {
+    "Original": "Search Depth",
+    "Translated": "Suchtiefe"
+  },
+  "ToyBox_Infrastructure_Inspector_InspectorUI_StoppedDrawingEntriesToPreventUI": {
+    "Original": "Stopped drawing entries to prevent UI crash",
+    "Translated": "Anzeige weiterer Einträge gestoppt, um einen Absturz der Oberfläche zu verhindern"
+  },
+  "ToyBox_Infrastructure_Utilities_Strings_SharedStrings_ThisCannotBeUsedFromTheMainMenu": {
+    "Original": "This cannot be used from the main menu!",
+    "Translated": "Im Hauptmenü nicht verfügbar!"
+  },
+  "ToyBox_Infrastructure_Utilities_Strings_SharedStrings_TheCharacterPickerCannotBeUsedFromTheMainMenu": {
+    "Original": "The character picker cannot be used from the main menu!",
+    "Translated": "Die Charakterauswahl ist im Hauptmenü nicht verfügbar!"
+  },
+  "ToyBox_Infrastructure_Utilities_Strings_SharedStrings_Reset_to_default_Value": {
+    "Original": "Reset",
+    "Translated": "Zurücksetzen"
+  },
+  "ToyBox_Infrastructure_Utilities_Strings_SharedStrings_List_x_Matches": {
+    "Original": "Matches",
+    "Translated": "Treffer"
+  },
+  "ToyBox_Infrastructure_UI_VerticalList_PageText": {
+    "Original": "Page",
+    "Translated": "Seite"
+  },
+  "ToyBox_Infrastructure_UI_Browser_ShowAllText": {
+    "Original": "Show All",
+    "Translated": "Alle anzeigen"
+  },
+  "ToyBox_Main_ModFilesAreCorrupted_Text": {
+    "Original": "Mod files are corrupted!",
+    "Translated": "Mod-Dateien sind beschädigt!"
+  },
+  "ToyBox_Infrastructure_Inspector_InspectorUI_CurrentlyInspectingText": {
+    "Original": "Currently Inspecting",
+    "Translated": "Aktuell inspiziert"
+  },
+  "ToyBox_Main_ResetText": {
+    "Original": "Reset",
+    "Translated": "Zurücksetzen"
+  },
+  "ToyBox_Main_CurrentlyLoadedBPsText": {
+    "Original": "Currently loaded blueprints: {0}",
+    "Translated": "Aktuell geladene Blueprints: {0}"
+  },
+  "ToyBox_Infrastructure_UI_Browser_SearchText": {
+    "Original": "Search",
+    "Translated": "Suchen"
+  },
+  "ToyBox_Infrastructure_UI_Browser_SortAscendingText": {
+    "Original": "Sort Ascending",
+    "Translated": "Aufsteigend sortieren"
+  },
+  "ToyBox_Infrastructure_UI_Browser_SortDescendingText": {
+    "Original": "Sort Descending",
+    "Translated": "Absteigend sortieren"
+  },
+  "ToyBox_Infrastructure_UI_UI_MinimumText": {
+    "Original": "min",
+    "Translated": "min."
+  },
+  "ToyBox_Infrastructure_UI_UI_MaximumText": {
+    "Original": "max",
+    "Translated": "max."
+  },
+  "ToyBox_Infrastructure_Inspector_InspectorUI_SearchInProgres___Text": {
+    "Original": "Search in progres...",
+    "Translated": "Suche läuft ..."
+  },
+  "ToyBox_Infrastructure_Inspector_InspectorUI_CancelText": {
+    "Original": "Cancel",
+    "Translated": "Abbrechen"
+  },
+  "ToyBox_Infrastructure_BlueprintPicker_EnterTargetBlueprintIdText": {
+    "Original": "Enter target blueprint id",
+    "Translated": "ID des Ziel-Blueprints eingeben"
+  },
+  "ToyBox_Infrastructure_BlueprintPicker_PickBlueprintText": {
+    "Original": "Pick Blueprint",
+    "Translated": "Blueprint auswählen"
+  },
+  "ToyBox_Infrastructure_BlueprintPicker_NoBlueprintWithThatGuidFound_Text": {
+    "Original": "No blueprint with that guid found.",
+    "Translated": "Kein Blueprint mit dieser GUID gefunden."
+  },
+  "ToyBox_Infrastructure_BlueprintPicker_ShowListOfBlueprintsText": {
+    "Original": "Show List of Blueprints",
+    "Translated": "Blueprint-Liste anzeigen"
+  },
+  "ToyBox_Infrastructure_BlueprintPicker_CurrentlySelectedBlueprint_Text": {
+    "Original": "Currently selected blueprint",
+    "Translated": "Aktuell ausgewählter Blueprint"
+  },
+  "ToyBox_Infrastructure_UnitPicker_CurrentlySelectedUnit_Text": {
+    "Original": "Currently selected unit",
+    "Translated": "Aktuell ausgewählte Einheit"
+  },
+  "ToyBox_Infrastructure_Utilities_ContextProvider_NoneText": {
+    "Original": "None",
+    "Translated": "Keine"
+  },
+  "ToyBox_FeatureWithBindableAction_m_DeleteLocalizedText": {
+    "Original": "Delete",
+    "Translated": "Löschen"
+  },
+  "ToyBox_FeatureWithBindableAction_m_RebindLocalizedText": {
+    "Original": "Rebind",
+    "Translated": "Neu belegen"
+  },
+  "ToyBox_FeatureWithBindableAction_m_BindLocalizedText": {
+    "Original": "Bind",
+    "Translated": "Belegen"
+  },
+  "ToyBox_FeatureWithBindableAction_m_CancelLocalizedText": {
+    "Original": "Cancel",
+    "Translated": "Abbrechen"
+  },
+  "ToyBox_FeatureWithBindableAction_m_ApplyLocalizedText": {
+    "Original": "Apply",
+    "Translated": "Anwenden"
+  },
+  "ToyBox_FeatureWithBindableAction_In_Progress_Keybind": {
+    "Original": "Currently",
+    "Translated": "Aktuell"
+  },
+  "ToyBox_FeatureWithBindableAction_m_CurrentKeybindConflictsWithExistLocalizedText": {
+    "Original": "Current keybind conflicts with existing binding!",
+    "Translated": "Das aktuelle Tastenkürzel kollidiert mit einer bestehenden Belegung!"
+  },
+  "ToyBox_Infrastructure_Utilities_ContextProvider_PetsNotAllowedForThisFeature_LocalizedText": {
+    "Original": "Pets not allowed for this feature!",
+    "Translated": "Vertraute sind für diese Funktion nicht erlaubt!"
+  },
+  "ToyBox_Main_SomethingWentHorriblyWrongAndYou": {
+    "Original": "Something went horribly wrong and you've somehow opened the UI before ToyBox finished initialization. Please report this to the mod author!",
+    "Translated": "Ein schwerwiegender Fehler ist aufgetreten: Die Oberfläche wurde geöffnet, bevor ToyBox vollständig initialisiert war. Bitte melde dies dem Mod-Autor!"
+  },
+  "ToyBox_Main_m_ThisModWillAutomaticallyConntectLocalizedText": {
+    "Original": "This mod will automatically conntect to the internet for various tasks. Here are the respective options (in the future found in the Settings tab).",
+    "Translated": "Diese Mod verbindet sich für verschiedene Aufgaben automatisch mit dem Internet. Hier findest du die entsprechenden Optionen (später im Reiter „Einstellungen“)."
+  },
+  "ToyBox_Main_m_IUnderstandLocalizedText": {
+    "Original": "I understand",
+    "Translated": "Verstanden"
+  },
+  "ToyBox_Main_m_YouNeedToClearTheException_LocalizedText": {
+    "Original": "You need to clear the exception!",
+    "Translated": "Die Ausnahme muss zurückgesetzt werden!"
+  }
+}
