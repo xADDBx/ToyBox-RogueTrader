@@ -1,7 +1,15 @@
+### ToyBox Rogue - Ver 2.0.16 (built for 1.6.1.511)
+* (***ADDB***) Fix MovementSpeedMultiplier sometimes applying twice
+* (***ADDB***) Harden Updater in case of download failure
+* (***ADDB***) Fix disabling + re-enabling of disable psychich phenomena stuff not working properly
+* (***ADDB***) Quest Editor now relies on explicit IsRevealed property for objectives
+* [LLM-Based]: Added German Translation and completed the existing Russian Translation 
+
 ### ToyBox Rogue - Ver 2.0.15 (built for 1.6.1.511)
 * (***ADDB***) Reduce log spam (related to RemoteCompanionDialog)
 * (***quinnwen***) Added a talent selection multiplier to Level Up.
 * (***quinnwen***) Fix dialog preview soulmark formatting crash (typo format token, localized direction text)
+* (***ADDB***) Fix BPLoader Race introduced by v2.0.14
 
 ### ToyBox Rogue - Ver 2.0.14 (built for 1.6.1.511)
 * (***ADDB***) Reduce allocations done by base game bp loading (PerformanceEnhancementFeature)

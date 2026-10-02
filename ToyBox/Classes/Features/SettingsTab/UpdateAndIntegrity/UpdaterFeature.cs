@@ -21,6 +21,7 @@ public partial class UpdaterFeature : Feature {
                         m_EnqueuedStart = true;
                         new Action(() => {
                             IsDoingUpdate = true;
+                            m_EnqueuedStart = false;
                             _ = Task.Run(() => Update(false, false));
                         }).ScheduleForMainThread();
                     }
@@ -32,6 +33,7 @@ public partial class UpdaterFeature : Feature {
                         m_EnqueuedStart = true;
                         new Action(() => {
                             IsDoingUpdate = true;
+                            m_EnqueuedStart = false;
                             _ = Task.Run(() => Update(true, false));
                         }).ScheduleForMainThread();
                     }

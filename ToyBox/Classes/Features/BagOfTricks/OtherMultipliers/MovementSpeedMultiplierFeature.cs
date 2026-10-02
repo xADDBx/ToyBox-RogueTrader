@@ -1,8 +1,9 @@
-﻿using Kingmaker.EntitySystem.Entities;
+﻿using Kingmaker.Controllers.Units;
+using Kingmaker.EntitySystem.Entities;
 using Kingmaker.Mechanics.Entities;
-using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Commands;
 using Kingmaker.UnitLogic.Parts;
+using System.Reflection.Emit;
 using UnityEngine;
 using Warhammer.SpaceCombat.StarshipLogic;
 
@@ -25,7 +26,7 @@ public partial class MovementSpeedMultiplierFeature : FeatureWithPatch {
     public override void OnGui() {
         var tmp = Settings.MovementSpeedMultiplier ?? 1f;
         using (HorizontalScope()) {
-            if (UI.LogSlider(ref tmp, 0f, 20f, 1f, 2, null, AutoWidth(), GUILayout.MinWidth(50), GUILayout.MinWidth(150))) {
+            if (UI.LogSlider(ref tmp, 0.01f, 20f, 1f, 2, null, AutoWidth(), GUILayout.MinWidth(50), GUILayout.MinWidth(150))) {
                 if (tmp == 1f) {
                     Settings.MovementSpeedMultiplier = null;
                     Disable();
@@ -51,26 +52,36 @@ public partial class MovementSpeedMultiplierFeature : FeatureWithPatch {
             __result *= Settings.MovementSpeedMultiplier ?? 1f;
         }
     }
-    [HarmonyPatch(typeof(UnitHelper), nameof(UnitHelper.CreateMoveCommandUnit)), HarmonyPostfix]
-    private static void UnitHelper_CreateMoveCommandUnit_Patch(AbstractUnitEntity unit, ref UnitMoveToProperParams __result) {
-        if (!unit.IsStarship() && ToyBoxUnitHelper.IsPartyOrPet(unit)) {
-            if (__result.OverrideSpeed != null) {
-                __result.OverrideSpeed *= Settings.MovementSpeedMultiplier ?? 1;
-            }
-        }
-    }
-    [HarmonyPatch(typeof(UnitHelper), nameof(UnitHelper.CreateMoveCommandParamsRT)), HarmonyPostfix]
-    private static void UnitHelper_CreateMoveCommandParamsRT_Patch(BaseUnitEntity unit, ref UnitMoveToParams __result) {
-        if (!unit.IsStarship() && ToyBoxUnitHelper.IsPartyOrPet(unit)) {
-            if (__result.OverrideSpeed != null) {
-                __result.OverrideSpeed *= Settings.MovementSpeedMultiplier ?? 1;
-            }
-        }
-    }
     [HarmonyPatch(typeof(PartMovable), nameof(PartMovable.CalculateCurrentSpeed)), HarmonyPostfix]
-    private static void UnitHelper_CreateMoveCommandParamsRT_Patch(PartMovable __instance, ref float __result) {
+    private static void PartMovable_CalculateCurrentSpeed_Patch(PartMovable __instance, ref float __result) {
         if (__instance.Owner is BaseUnitEntity unit && !unit.IsStarship() && ToyBoxUnitHelper.IsPartyOrPet(unit)) {
-            __result *= Settings.MovementSpeedMultiplier ?? 1;
+            var command = __instance.ConcreteOwner?.GetOptional<PartUnitCommands>()?.Current;
+            if (command?.OverrideSpeed.HasValue == true || command?.Executor.AnimationManager?.NewSpeed >= 0f) {
+                __result *= Settings.MovementSpeedMultiplier ?? 1;
+            }
         }
+    }
+    [HarmonyPatch(typeof(UnitFollowUnitController), nameof(UnitFollowUnitController.HandleMoveCommand)), HarmonyTranspiler]
+    private static IEnumerable<CodeInstruction> UnitFollowUnitController_HandleMoveCommand_Patch(IEnumerable<CodeInstruction> instructions) {
+        var getSpeed = AccessTools.PropertyGetter(typeof(PartMovable), nameof(PartMovable.CurrentSpeedMps));
+        var foundCalls = 0;
+        foreach (var instruction in instructions) {
+            yield return instruction;
+            if (instruction.Calls(getSpeed)) {
+                foundCalls++;
+                if (foundCalls == 3) {
+                    yield return new(OpCodes.Ldarg_0);
+                    yield return CodeInstruction.Call((float speed, AbstractUnitEntity unit) => UnscaleFollowSpeed(speed, unit));
+                }
+            }
+        }
+        ThrowIfTrue(foundCalls != 3);
+    }
+    private static float UnscaleFollowSpeed(float speed, AbstractUnitEntity unit) {
+        var multiplier = Settings.MovementSpeedMultiplier ?? 1f;
+        if (unit is BaseUnitEntity && !unit.IsStarship() && ToyBoxUnitHelper.IsPartyOrPet(unit) && multiplier > 0f) {
+            return speed / multiplier;
+        }
+        return speed;
     }
 }

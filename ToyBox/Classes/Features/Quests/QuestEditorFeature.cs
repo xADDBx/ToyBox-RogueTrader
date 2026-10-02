@@ -140,7 +140,7 @@ public partial class QuestEditorFeature : Feature {
     }
 
     private static bool IsRevealed(QuestBookEntityEntry objective) {
-        return objective.State is QuestObjectiveState.Started or QuestObjectiveState.Completed;
+        return objective.IsVisible;
     }
 
     private static string ObjectiveTitle(QuestBookEntityEntry objective) {

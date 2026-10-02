@@ -40,6 +40,12 @@ public partial class CustomizePsychicPhenomenaFeature : FeatureWithPatch, INeedE
             return ref Settings.EnableCustomizePsychicPhenomena;
         }
     }
+    public override void Enable() {
+        base.Enable();
+        if (IsEnabled && BlueprintRootReferenceHelper.RootRef.Cached != null) {
+            RemovePhenomena();
+        }
+    }
     public override void Disable() {
         base.Disable();
         RestorePhenomena();
