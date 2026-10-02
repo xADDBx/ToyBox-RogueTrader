@@ -82,7 +82,7 @@ public partial class EnemyFlatStatModifierFeature : FeatureWithPatch {
                             }
                             Space(5);
                             if (UI.TextField(ref mod, null, Width(m_FieldWith))) {
-                                if (mod == 1) {
+                                if (mod == 0) {
                                     Settings.FlatEnemyMods.Remove(stat);
                                 } else {
                                     Settings.FlatEnemyMods[stat] = mod;

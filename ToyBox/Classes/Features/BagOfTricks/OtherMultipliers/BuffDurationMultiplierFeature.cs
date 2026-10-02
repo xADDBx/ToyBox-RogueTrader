@@ -85,10 +85,11 @@ public partial class BuffDurationMultiplierFeature : FeatureWithPatch {
             return "ToyBox.Features.BagOfTricks.OtherMultipliers.BuffDurationMultiplierFeature";
         }
     }
-    [HarmonyPatch(typeof(BuffCollection), nameof(BuffCollection.Add), [typeof(BlueprintBuff), typeof(MechanicEntity), typeof(MechanicsContext), typeof(BuffDuration)]), HarmonyPostfix]
-    private static void BuffCollection_Add_Patch(BlueprintBuff blueprint, MechanicEntity caster, ref BuffDuration duration) {
+    [HarmonyPatch(typeof(BuffCollection), nameof(BuffCollection.Add), [typeof(BlueprintBuff), typeof(MechanicEntity), typeof(MechanicsContext), typeof(BuffDuration)]), HarmonyPrefix]
+    private static void BuffCollection_Add_Patch(BuffCollection __instance, BlueprintBuff blueprint, MechanicEntity caster, ref BuffDuration duration) {
         try {
-            if (!duration.Rounds.HasValue || caster == null || caster.IsPlayerEnemy || Settings.BuffDurationMultiplierExclusions.Contains(blueprint.AssetGuid) || duration.IsPermanent) {
+            var actualCaster = caster ?? __instance.Owner;
+            if (!duration.Rounds.HasValue || actualCaster == null || actualCaster.IsPlayerEnemy || Settings.BuffDurationMultiplierExclusions.Contains(blueprint.AssetGuid) || duration.IsPermanent) {
                 return;
             }
             var newRounds = new Kingmaker.Utility.Rounds(Mathf.FloorToInt(duration.Rounds.Value.Value * (Settings.BuffDurationMultiplier ?? 1)));

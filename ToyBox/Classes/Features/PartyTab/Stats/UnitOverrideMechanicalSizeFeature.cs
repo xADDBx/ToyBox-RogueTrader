@@ -1,6 +1,8 @@
-﻿using Kingmaker.Blueprints.Root;
+﻿using Kingmaker;
+using Kingmaker.Blueprints.Root;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.Enums;
+using Kingmaker.UnitLogic.Parts;
 using Kingmaker.View;
 using ToyBox.Infrastructure.Utilities;
 
@@ -28,6 +30,23 @@ public partial class UnitOverrideMechanicalSizeFeature : FeatureWithPatch, INeed
         return ContextProvider.BaseUnitEntity(out context);
     }
 
+    public override void Disable() {
+        base.Disable();
+        if (Game.Instance?.State is { } state && InSaveSettings is { } settings) {
+            foreach (var unit in state.AllBaseUnits) {
+                if (settings.MechanicalSizeOverrides.ContainsKey(unit.UniqueId)) {
+                    RestoreSize(unit);
+                }
+            }
+        }
+    }
+    private static void RestoreSize(BaseUnitEntity unit) {
+        if (unit.GetOptional<UnitPartSizeModifier>() is { } modifier) {
+            modifier.UpdateSize();
+        } else {
+            unit.State.Size = unit.OriginalSize;
+        }
+    }
     public override void OnGui() {
         if (GetContext(out var unit)) {
             using (HorizontalScope()) {
@@ -64,7 +83,7 @@ public partial class UnitOverrideMechanicalSizeFeature : FeatureWithPatch, INeed
                                 unit.State.Size = m_CurrentlySelected.Value;
                             } else {
                                 InSaveSettings?.MechanicalSizeOverrides.Remove(unit.UniqueId);
-                                unit.State.Size = unit.OriginalSize;
+                                RestoreSize(unit);
                             }
                             InSaveSettings?.Save();
                             unit.ViewTransform.localScale = unit.View.m_OriginalScale * (unit.View.m_Scale = unit.View.GetSizeScale());

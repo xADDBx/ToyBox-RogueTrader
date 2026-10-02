@@ -1,3 +1,8 @@
+### ToyBox Rogue - Ver 2.0.17 (built for 1.6.1.511)
+* (***ADDB***) Disabling Size Overrides now restore the size
+* (***ADDB***) Fix static +1 flat stat modifier not working
+* (***ADDB***) Fix BuffDurationMultiplier issue?
+
 ### ToyBox Rogue - Ver 2.0.16 (built for 1.6.1.511)
 * (***ADDB***) Fix MovementSpeedMultiplier sometimes applying twice
 * (***ADDB***) Harden Updater in case of download failure
