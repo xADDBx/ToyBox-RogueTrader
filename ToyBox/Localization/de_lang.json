@@ -321,7 +321,7 @@
   },
   "ToyBox_Features_BagOfTricks_Combat_RemoveBuffsFeature_Description": {
     "Original": "Removes all non-hidden and non-persistent buffs from all party members and pets.",
-    "Translated": "Entfernt alle sichtbaren, nicht dauerhaften Buffs von Gruppenmitgliedern und Vertrauten."
+    "Translated": "Entfernt bei allen Gruppenmitgliedern und Vertrauten sichtbare Buffs, sofern diese nicht über den Tod hinaus bestehen bleiben."
   },
   "ToyBox_Features_BagOfTricks_Combat_RestAllFeature_Name": {
     "Original": "Rest All",
@@ -865,7 +865,7 @@
   },
   "ToyBox_Features_BagOfTricks_RTSpecific_DisableRandomWarpEncounterFeature_Description": {
     "Original": "Prevents random encounters in warp. Note that this also disables positive and flavor events!",
-    "Translated": "Verhindert Zufallsbegegnungen im Warp. Hinweis: Dies deaktiviert auch positive Ereignisse und Ereignisse ohne spielmechanische Auswirkungen!"
+    "Translated": "Verhindert Zufallsbegegnungen im Warp. Hinweis: Dies deaktiviert auch positive und atmosphärische Ereignisse!"
   },
   "ToyBox_Features_BagOfTricks_RTSpecific_ModifyFactionReputationFeature_Name": {
     "Original": "Modify Faction Reputation",
@@ -957,7 +957,7 @@
   },
   "ToyBox_Features_BagOfTricks_RTSpecific_PreventPsychicPhenomenaFeature_Description": {
     "Original": "Prevents Psyker Abilities from causing any kind of psychic phenomena. This includes e.g. the Dark Prayer ability and Chaos Sword.",
-    "Translated": "Verhindert, dass Psionikerfähigkeiten psionische Phänomene auslösen. Dazu gehören beispielsweise auch Dunkles Gebet und das Chaosschwert."
+    "Translated": "Verhindert, dass Psionikerfähigkeiten psionische Phänomene auslösen. Dazu gehören beispielsweise auch die Fähigkeit „Dunkles Gebet“ und das Schwert „Grenze des Unwiderruflichen“."
   },
   "ToyBox_Features_BagOfTricks_RTSpecific_PreventVeilThicknessFromChangingFeature_Name": {
     "Original": "Prevent Veil Thickness from Changing",
@@ -1229,7 +1229,7 @@
   },
   "ToyBox_Features_Etudes_LegacyEtudesEditorFeature_m_ThisFeatureIsAtTheMomentMostlyCoLocalizedText": {
     "Original": "This feature is at the moment mostly copied from previous ToyBox, so there might be issues. It also does not yet support localization. The UI will get a complete rewrite eventually.",
-    "Translated": "Diese Funktion wurde derzeit weitgehend aus dem bisherigen ToyBox übernommen und kann daher Fehler enthalten. Sie unterstützt noch keine Lokalisierung. Die Oberfläche soll später vollständig überarbeitet werden."
+    "Translated": "Diese Funktion wurde weitgehend aus dem bisherigen ToyBox übernommen und kann daher Fehler enthalten. Sie unterstützt noch keine Lokalisierung. Die Oberfläche soll später vollständig überarbeitet werden."
   },
   "ToyBox_Features_Etudes_EtudeRecord_m_ChainedEtude_0___1__HasDifferentLocalizedText": {
     "Original": "Chained etude {0} ({1}) has different parent: {2} than {3} parent: {4}",
@@ -1353,7 +1353,7 @@
   },
   "ToyBox_Features_LevelUp_IgnoreClassLevelsPrerequisitesFeature_Name": {
     "Original": "Ignore Class Level Prerequisites",
-    "Translated": "Klassenstufenvoraussetzungen ignorieren"
+    "Translated": "Charakterstufenvoraussetzungen ignorieren"
   },
   "ToyBox_Features_LevelUp_IgnoreClassLevelsPrerequisitesFeature_Description": {
     "Original": "Automatically succeeds level-dependent prerequisite checks, both those asking for a minimum level and those asking for a feature maximum level.",
@@ -1601,7 +1601,7 @@
   },
   "ToyBox_Features_PartyTab_Actions_RespecUnitAction_m_Can_tRespecUnitLocalizedText": {
     "Original": "Can't respec unit. This is either because unit is dead, a pet or below it's original level limit (e.g. the recruit level for companions).",
-    "Translated": "Der Fortschritt dieser Einheit kann nicht zurückgesetzt werden. Sie ist entweder tot, ein Vertrauter oder unter ihrer ursprünglichen Mindeststufe (bei Gefährten beispielsweise der Rekrutierungsstufe)."
+    "Translated": "Der Fortschritt dieser Einheit kann nicht zurückgesetzt werden. Sie ist entweder tot, ein Vertrauter oder hat ihre ursprüngliche Mindeststufe noch nicht überschritten (bei Gefährten beispielsweise die Rekrutierungsstufe)."
   },
   "ToyBox_Features_PartyTab_Actions_RespecUnitAction_m_RespecLocalizedText": {
     "Original": "Respec",
@@ -2277,7 +2277,7 @@
   },
   "ToyBox_Features_Quests_QuestEditorFeature_m_NoQuestsText": {
     "Original": "You have no quests in your quest book yet.",
-    "Translated": "Dein Questbuch enthält noch keine Quests."
+    "Translated": "Dein Tagebuch enthält noch keine Quests."
   },
   "ToyBox_Features_Quests_QuestEditorFeature_m_HideCompletedText": {
     "Original": "Hide Completed",
@@ -3333,7 +3333,7 @@
   },
   "ToyBox_Features_SearchAndPick_BlueprintFilters_m_UsableLocalizedText": {
     "Original": "Usable",
-    "Translated": "Benutzbar"
+    "Translated": "Verwendbar"
   },
   "ToyBox_Features_SearchAndPick_BlueprintFilters_m_UnitsLocalizedText": {
     "Original": "Units",

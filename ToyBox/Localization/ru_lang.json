@@ -77,7 +77,7 @@
   },
   "ToyBox_Features_BagOfTricks_Camera_AllowMouse3DraggingToAimCameraFeature_Name": {
     "Original": "Enable Mouse3 Dragging To Aim The Camera",
-    "Translated": "Включить перетаскивание Mouse3 для наведения камеры"
+    "Translated": "Вращать камеру средней кнопкой мыши"
   },
   "ToyBox_Features_BagOfTricks_Camera_AllowMouse3DraggingToAimCameraFeature_Description": {
     "Original": "Allows orbiting the camera while holding down Mouse Wheel.",
@@ -89,7 +89,7 @@
   },
   "ToyBox_Features_BagOfTricks_Camera_AllowRotateOnAllMapsAndCutscenesFeature_Description": {
     "Original": "Note: For cutscenes and some situations the rotation keys are disabled so you have to hold down Mouse3 to drag in order to get rotation",
-    "Translated": "Примечание: для катсцен и некоторых ситуаций клавиши вращения отключены, поэтому нужно удерживать Mouse3 для вращения"
+    "Translated": "Примечание: в катсценах и некоторых других ситуациях клавиши вращения отключены. Для вращения камеры удерживайте среднюю кнопку мыши и перемещайте мышь."
   },
   "ToyBox_Features_BagOfTricks_Camera_AllowZoomOnAllMapsAndCutscenesFeature_Name": {
     "Original": "Enable Zoom on all maps and cutscenes",
@@ -113,7 +113,7 @@
   },
   "ToyBox_Features_BagOfTricks_Camera_DragCameraElevationFeature_Description": {
     "Original": "CTRL + Mouse3 to adjust camera height",
-    "Translated": "CTRL + Mouse3 для настройки высоты камеры"
+    "Translated": "CTRL + средняя кнопка мыши для настройки высоты камеры"
   },
   "ToyBox_Features_BagOfTricks_Camera_FOVMultiplierFeature_Name": {
     "Original": "Field Of View",
@@ -121,7 +121,7 @@
   },
   "ToyBox_Features_BagOfTricks_Camera_FOVMultiplierFeature_Description": {
     "Original": "Changes the min/max FoV (you can scroll further in and out)",
-    "Translated": "Изменяет мин/макс поле зрения (можно прокручивать дальше внутрь и наружу)"
+    "Translated": "Изменяет минимальное и максимальное поле зрения (позволяет сильнее приближать и отдалять камеру)."
   },
   "ToyBox_Features_BagOfTricks_Camera_FreeCamFeature_Name": {
     "Original": "Free Camera",
@@ -133,7 +133,7 @@
   },
   "ToyBox_Features_BagOfTricks_Camera_ResetCameraAimToDefaultFeature_Name": {
     "Original": "Fix Camera",
-    "Translated": "Исправить камеру"
+    "Translated": "Сбросить положение камеры"
   },
   "ToyBox_Features_BagOfTricks_Camera_ResetCameraAimToDefaultFeature_Description": {
     "Original": "Resets the camera perspective to what it was before orbiting it.",
@@ -169,7 +169,7 @@
   },
   "ToyBox_Features_BagOfTricks_Cheats_HighlightHiddenObjectsFeature_Description": {
     "Original": "Highlights objects even if they would normally be hidden by an Awareness check or otherwise. Optionally also highlight objects in Fog Of War and hidden traps.",
-    "Translated": "Подсвечивает объекты, даже если они обычно скрыты проверкой восприятия. Опционально подсвечивает объекты в тумане войны и скрытые ловушки."
+    "Translated": "Подсвечивает объекты, скрытые до успешной проверки наблюдательности или по другим причинам. Дополнительно позволяет подсвечивать объекты в тумане войны и скрытые ловушки."
   },
   "ToyBox_Features_BagOfTricks_Cheats_HighlightHiddenObjectsFeature_AlsoHighlightHiddenTrapsText": {
     "Original": "Also Highlight Hidden Traps",
@@ -241,7 +241,7 @@
   },
   "ToyBox_Features_BagOfTricks_Cheats_InstantRestAfterCombatFeature_Description": {
     "Original": "Restores Item charges and rests Units once the party leaves combat.",
-    "Translated": "Восстанавливает заряды предметов и отдыхает юнитами после выхода группы из боя."
+    "Translated": "Восстанавливает заряды предметов и применяет отдых к юнитам после выхода отряда из боя."
   },
   "ToyBox_Features_BagOfTricks_Cheats_NoAbilityCooldownsFeature_Name": {
     "Original": "No Ability Cooldowns",
@@ -273,7 +273,7 @@
   },
   "ToyBox_Features_BagOfTricks_Cheats_RestoreSpellsAndSkillsAfterCombatFeature_Description": {
     "Original": "Restores all ability resources once the party leaves combat.",
-    "Translated": "Восстанавливает все ресурсы способностей после выхода группы из боя."
+    "Translated": "Восстанавливает все ресурсы способностей после выхода отряда из боя."
   },
   "ToyBox_Features_BagOfTricks_Cheats_UnlimitedStackingOfModifiersFeature_Name": {
     "Original": "Unlimited Stacking of Modifiers",
@@ -281,7 +281,7 @@
   },
   "ToyBox_Features_BagOfTricks_Cheats_UnlimitedStackingOfModifiersFeature_Description": {
     "Original": "Makes modifiers like Stats or Damage stack for party members even if they shouldn't.",
-    "Translated": "Заставляет модификаторы вроде характеристик или урона складываться у членов группы, даже если не должны."
+    "Translated": "Заставляет модификаторы вроде характеристик или урона складываться у членов отряда, даже если не должны."
   },
   "ToyBox_Features_BagOfTricks_Combat_ImmortalityBuffFeature_Name": {
     "Original": "Make Immortal",
@@ -297,7 +297,7 @@
   },
   "ToyBox_Features_BagOfTricks_Combat_KillAllEnemiesFeature_Description": {
     "Original": "Kills all enemies that are currently in combat with you.",
-    "Translated": "Убивает всех врагов, currently сражающихся с вами."
+    "Translated": "Убивает всех врагов, которые сейчас сражаются с вами."
   },
   "ToyBox_Features_BagOfTricks_Combat_LobotomizeEnemiesFeature_Name": {
     "Original": "Lobotomize Enemies",
@@ -321,31 +321,31 @@
   },
   "ToyBox_Features_BagOfTricks_Combat_RemoveBuffsFeature_Description": {
     "Original": "Removes all non-hidden and non-persistent buffs from all party members and pets.",
-    "Translated": "Удаляет все не скрытые и не постоянные баффы со всех членов группы и питомцев."
+    "Translated": "Удаляет у всех членов отряда и фамильяров видимые баффы, кроме тех, которые сохраняются после смерти."
   },
   "ToyBox_Features_BagOfTricks_Combat_RestAllFeature_Name": {
     "Original": "Rest All",
-    "Translated": "Отдохнуть всеми"
+    "Translated": "Отдых для всех"
   },
   "ToyBox_Features_BagOfTricks_Combat_RestAllFeature_Description": {
     "Original": "Revives and heals all characters + restores action points, ability cooldowns and item charges.",
-    "Translated": "Воскрешает и лечит всех персонажей + восстанавливает очки действий, перезарядку способностей и заряды предметов."
+    "Translated": "Воскрешает и лечит всех персонажей, восстанавливает очки действий и заряды предметов, сбрасывает перезарядку способностей."
   },
   "ToyBox_Features_BagOfTricks_Combat_RestSelectedFeature_Name": {
     "Original": "Rest Selected",
-    "Translated": "Отдохнуть выбранными"
+    "Translated": "Отдых для выбранных"
   },
   "ToyBox_Features_BagOfTricks_Combat_RestSelectedFeature_Description": {
     "Original": "Revives and heals the selected characters + restores action points and ability cooldowns.",
-    "Translated": "Воскрешает и лечит выбранных персонажей + восстанавливает очки действий и перезарядку способностей."
+    "Translated": "Воскрешает и лечит выбранных персонажей, восстанавливает очки действий и сбрасывает перезарядку способностей."
   },
   "ToyBox_Features_BagOfTricks_Common_ChangePartyFeature_Name": {
     "Original": "Change Party",
-    "Translated": "Сменить группу"
+    "Translated": "Сменить состав отряда"
   },
   "ToyBox_Features_BagOfTricks_Common_ChangePartyFeature_Description": {
     "Original": "Opens the party member selection screen.",
-    "Translated": "Открывает экран выбора членов группы."
+    "Translated": "Открывает экран выбора состава отряда."
   },
   "ToyBox_Features_BagOfTricks_Common_ChangeWeatherFeature_Name": {
     "Original": "Change Weather",
@@ -381,11 +381,11 @@
   },
   "ToyBox_Features_BagOfTricks_Common_RerollPerceptionFeature_Name": {
     "Original": "Reroll Perception",
-    "Translated": "Перебросить восприятие"
+    "Translated": "Повторить проверки наблюдательности"
   },
   "ToyBox_Features_BagOfTricks_Common_RerollPerceptionFeature_Description": {
     "Original": "Resets the saved results of awareness rolls on map objects.",
-    "Translated": "Сбрасывает сохраненные результаты проверок внимательности на объектах карты."
+    "Translated": "Сбрасывает сохраненные результаты проверок наблюдательности на объектах карты."
   },
   "ToyBox_Features_BagOfTricks_Common_ResetInteractablesFeature_Name": {
     "Original": "Reset Interactables",
@@ -397,11 +397,11 @@
   },
   "ToyBox_Features_BagOfTricks_Dialog_ExCompanionDialogFeature_Name": {
     "Original": "Include Ex-Companions In Remote Companion Dialog",
-    "Translated": "Включать бывших компаньонов в удаленный диалог"
+    "Translated": "Включать бывших спутников в диалоги с отсутствующими спутниками"
   },
   "ToyBox_Features_BagOfTricks_Dialog_ExCompanionDialogFeature_Description": {
     "Original": "This makes Remote Companion Dialog also include companions who left the party.",
-    "Translated": "Заставляет удаленный диалог спутников включать также покинувших группу."
+    "Translated": "Позволяет участвовать в диалогах с отсутствующими спутниками также тем, кто покинул отряд."
   },
   "ToyBox_Features_BagOfTricks_Dialog_IgnoreDialogRestrictionsEverythingFeature_Name": {
     "Original": "Ignore Dialog Restrictions (Everything, Experimental)",
@@ -413,11 +413,11 @@
   },
   "ToyBox_Features_BagOfTricks_Dialog_IgnoreDialogRestrictionsSoulMarkFeature_Name": {
     "Original": "Ignore Dialog Restrictions (SoulMark)",
-    "Translated": "Игнорировать ограничения диалогов (Метка души)"
+    "Translated": "Игнорировать ограничения диалогов (убеждения)"
   },
   "ToyBox_Features_BagOfTricks_Dialog_IgnoreDialogRestrictionsSoulMarkFeature_Description": {
     "Original": "Answers that were restricted based on your conviction/soul marks will be made available.",
-    "Translated": "Ответы, ограниченные на основе ваших убеждений/меток души, станут доступны."
+    "Translated": "Делает доступными ответы, заблокированные из-за ваших убеждений."
   },
   "ToyBox_Features_BagOfTricks_Dialog_JealousyBegoneFeature_Name": {
     "Original": "Jealousy Begone!",
@@ -437,11 +437,11 @@
   },
   "ToyBox_Features_BagOfTricks_Dialog_OverrideStoryOccupationFeature_Name": {
     "Original": "Override Story Occupation",
-    "Translated": "Переопределить предысторию занятия"
+    "Translated": "Переопределить призвание для сюжета"
   },
   "ToyBox_Features_BagOfTricks_Dialog_OverrideStoryOccupationFeature_Description": {
     "Original": "Make the game recognize you as e.g. having the Sanctioned Psyker instead of whatever you actually picked.",
-    "Translated": "Заставляет игру считать вас, например, Санкционированным Псайкером вместо того, что вы выбрали."
+    "Translated": "Игра будет учитывать в сюжете выбранное здесь призвание, например санкционированного псайкера, вместо вашего фактического выбора."
   },
   "ToyBox_Features_BagOfTricks_Dialog_OverrideStoryOccupationFeature_m_RemoveLocalizedText": {
     "Original": "Remove",
@@ -453,11 +453,11 @@
   },
   "ToyBox_Features_BagOfTricks_Dialog_RemoteCompanionDialogFeature_Name": {
     "Original": "Expand Dialog To Include Remote Companions",
-    "Translated": "Расширить диалог, включив удаленных компаньонов"
+    "Translated": "Включать отсутствующих спутников в диалоги"
   },
   "ToyBox_Features_BagOfTricks_Dialog_RemoteCompanionDialogFeature_Description": {
     "Original": "Allow remote companions to make comments on dialog you are having.",
-    "Translated": "Разрешить удаленным спутникам комментировать ваши диалоги."
+    "Translated": "Позволяет отсутствующим спутникам комментировать ваши диалоги."
   },
   "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_Name": {
     "Original": "Dice Roll Overrides",
@@ -569,23 +569,23 @@
   },
   "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_AttackRolls__LowerIsBetterLocalizedText": {
     "Original": "Attack Rolls -> Lower is better",
-    "Translated": null
+    "Translated": "Броски атаки -> меньше лучше"
   },
   "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_CoverInterception_UsesASeparateRoLocalizedText": {
     "Original": "Controls whether attacks made by the selected units are redirected to cover instead of their target.",
-    "Translated": null
+    "Translated": "Определяет, будут ли атаки выбранных юнитов перенаправляться в укрытие вместо намеченной цели."
   },
   "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_CoverNeverInterceptsLocalizedText": {
     "Original": "Cover: Never Redirect",
-    "Translated": null
+    "Translated": "Укрытие: никогда не перенаправлять"
   },
   "ToyBox_Features_BagOfTricks_DiceRolls_DiceRollsOverridesFeature_m_CoverAlwaysInterceptsLocalizedText": {
     "Original": "Cover: Always Redirect",
-    "Translated": null
+    "Translated": "Укрытие: всегда перенаправлять"
   },
   "ToyBox_Features_BagOfTricks_EnemyStatModifier_EnemyFlatStatModifierFeature_Name": {
     "Original": "Flat Enemy Stat Modifier",
-    "Translated": "Плоский модификатор характеристик врагов"
+    "Translated": "Фиксированный модификатор характеристик врагов"
   },
   "ToyBox_Features_BagOfTricks_EnemyStatModifier_EnemyFlatStatModifierFeature_Description": {
     "Original": "Allows adding flat stat boosts to enemies, e.g. Enemy Health +20.",
@@ -661,11 +661,11 @@
   },
   "ToyBox_Features_BagOfTricks_OtherMultipliers_MinSprintDistanceFeature_Name": {
     "Original": "Min Sprint distance",
-    "Translated": "Мин. дистанция бега"
+    "Translated": "Мин. дистанция спринта"
   },
   "ToyBox_Features_BagOfTricks_OtherMultipliers_MinSprintDistanceFeature_Description": {
     "Original": "Adjusts how far of your character you have to click and still cause your character to spring. If this area overlaps with walk distance then this has priority.",
-    "Translated": "Настраивает, как далеко от персонажа нужно кликнуть, чтобы он бежал. Если эта область перекрывается с ходьбой, приоритет у бега."
+    "Translated": "Настраивает, как далеко от персонажа нужно щелкнуть, чтобы он перешел на спринт. При пересечении с дистанцией ходьбы спринт имеет приоритет."
   },
   "ToyBox_Features_BagOfTricks_OtherMultipliers_MovementSpeedMultiplierFeature_Name": {
     "Original": "Movement Speed",
@@ -673,35 +673,35 @@
   },
   "ToyBox_Features_BagOfTricks_OtherMultipliers_MovementSpeedMultiplierFeature_Description": {
     "Original": "Adjusts the movement speed of your party in area maps.",
-    "Translated": "Настраивает скорость передвижения вашей группы на картах локаций."
+    "Translated": "Настраивает скорость передвижения вашего отряда на картах локаций."
   },
   "ToyBox_Features_BagOfTricks_OtherMultipliers_VisionRangeFeature_Name": {
     "Original": "Vision Range Multiplier",
-    "Translated": null
+    "Translated": "Множитель дальности обзора"
   },
   "ToyBox_Features_BagOfTricks_OtherMultipliers_VisionRangeFeature_Description": {
     "Original": "Multiplies the fog of war reveal range of party members, pets, and player ships.",
-    "Translated": null
+    "Translated": "Умножает радиус рассеивания тумана войны для членов отряда, фамильяров и кораблей игрока."
   },
   "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_RunActionHolderLocalizedText": {
     "Original": "RunActionHolder",
-    "Translated": "Держатель RunAction"
+    "Translated": "Выполнить набор действий"
   },
   "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_ConditionsHolderLocalizedText": {
     "Original": "Conditions Holder",
-    "Translated": "Держатель условий"
+    "Translated": "Набор условий"
   },
   "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_ShowCheck__0_DC__1__LocalizedText": {
     "Original": "Show Check ({0} DC: {1})",
-    "Translated": "Показать проверку ({0} СЛ: {1})"
+    "Translated": "Проверка для отображения ({0}, СЛ: {1})"
   },
   "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_ShowConditionsLocalizedText": {
     "Original": "Show Conditions",
-    "Translated": "Показать условия"
+    "Translated": "Условия отображения"
   },
   "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_SelectConditionsLocalizedText": {
     "Original": "Select Conditions",
-    "Translated": "Выбрать условия"
+    "Translated": "Условия выбора"
   },
   "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_EmptyActionLocalizedText": {
     "Original": "Empty Action",
@@ -709,15 +709,15 @@
   },
   "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_SoulMarkShift_0_By_1__DescriptioLocalizedText": {
     "Original": "SoulMarkShift {0} by {1} - Description: {2}",
-    "Translated": "СдвигМеткиДуши {0} на {1} - Описание: {2}"
+    "Translated": "Изменение убеждения {0} на {1} — описание: {2}"
   },
   "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_SoulMarkRequiredLocalizedText": {
     "Original": "SoulMarkRequired",
-    "Translated": "ТребуетсяМеткаДуши"
+    "Translated": "Требование к убеждению"
   },
   "ToyBox_Features_BagOfTricks_Preview_DialogPreviewUtilities_m_SoulMarkShiftLocalizedText": {
     "Original": "SoulMarkShift",
-    "Translated": "СдвигМеткиДуши"
+    "Translated": "Изменение убеждения"
   },
   "ToyBox_Features_BagOfTricks_Preview_PreviewDialogConditionsFeature_Name": {
     "Original": "Dialog Conditions",
@@ -741,7 +741,7 @@
   },
   "ToyBox_Features_BagOfTricks_QualityOfLife_AutoLoadLastSaveOnLaunchFeature_Description": {
     "Original": "Hold down shift during launch to bypass.",
-    "Translated": "Удерживайте shift при запуске, чтобы обойти."
+    "Translated": "Удерживайте Shift при запуске, чтобы пропустить автозагрузку."
   },
   "ToyBox_Features_BagOfTricks_QualityOfLife_ClickToTransferEntireStackFeature_Name": {
     "Original": "Click to Transfer Entire Stack",
@@ -749,7 +749,7 @@
   },
   "ToyBox_Features_BagOfTricks_QualityOfLife_ClickToTransferEntireStackFeature_Description": {
     "Original": "Enabling this will let you do KEYBIND + Click an item to shift its entire stack.",
-    "Translated": "Включение позволит по KEYBIND + клик на предмете перенести всю стопку."
+    "Translated": "Позволяет перенести всю стопку предметов, удерживая назначенную горячую клавишу и щелкнув по предмету."
   },
   "ToyBox_Features_BagOfTricks_QualityOfLife_DisableEndTurnKeybindFeature_Name": {
     "Original": "Disable End Turn Hotkey",
@@ -797,7 +797,7 @@
   },
   "ToyBox_Features_BagOfTricks_QualityOfLife_LoadingWithBlueprintErrorsFeature_Description": {
     "Original": "This feature allows loading saves even with missing blueprint mods, which can be dangerous. This can potentially allow you to recover a save, though you'll have to respec at minimum.",
-    "Translated": "Эта функция позволяет загружать сохранения даже с отсутствующими модами чертежей, что может быть опасно. Потенциально позволяет восстановить сохранение, хотя как минимум придется пересоздать персонажей."
+    "Translated": "Позволяет загружать сохранения даже при отсутствии модов, добавляющих чертежи, что может быть опасно. Это может помочь восстановить сохранение, но как минимум потребуется сбросить развитие персонажей."
   },
   "ToyBox_Features_BagOfTricks_QualityOfLife_ObjectHighlightToggleFeature_Name": {
     "Original": "Object Highlight Toggle Mode",
@@ -829,27 +829,27 @@
   },
   "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_m_PsychicPhenomenaLocalizedText": {
     "Original": "Psychic Phenomena",
-    "Translated": "Психические феномены"
+    "Translated": "Пси-морок"
   },
   "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_m_MinorPerilsLocalizedText": {
     "Original": "Minor Perils",
-    "Translated": "Малые опасности"
+    "Translated": "Малые угрозы варпа"
   },
   "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_m_MajorPerilsLocalizedText": {
     "Original": "Major Perils",
-    "Translated": "Большие опасности"
+    "Translated": "Существенные угрозы варпа"
   },
   "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_Name": {
     "Original": "Customize Psychic Phenomena / Perils of the Warp",
-    "Translated": "Настройка психических феноменов / Опасностей Варпа"
+    "Translated": "Настройка пси-морока и угроз варпа"
   },
   "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_Description": {
     "Original": "Allows disabling specific psychic phenomenas or perils of the warp.",
-    "Translated": "Позволяет отключать конкретные психические феномены или опасности варпа."
+    "Translated": "Позволяет отключать отдельные проявления пси-морока или угрозы варпа."
   },
   "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_m_RefreshAvailablePhenomenas_PerilLocalizedText": {
     "Original": "Refresh Available Phenomenas/Perils (for mod compat)",
-    "Translated": "Обновить феномены/опасности (для совместимости)"
+    "Translated": "Обновить список проявлений пси-морока и угроз варпа (для совместимости с модами)"
   },
   "ToyBox_Features_BagOfTricks_RTSpecific_CustomizePsychicPhenomenaFeature_m_StopExcludingLocalizedText": {
     "Original": "Stop Excluding",
@@ -905,15 +905,15 @@
   },
   "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_Description": {
     "Original": "Allows modifying Scrap, Profit Factor, Navigators Insight and possibly current Veil Thickness.",
-    "Translated": "Позволяет изменять Лом, Фактор Прибыли, Проницательность Навигатора и, возможно, текущую Толщину Завесы."
+    "Translated": "Позволяет изменять металлолом, фактор прибыли, интуицию навигатора и, если доступно, текущее истончение завесы."
   },
   "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_CurrentNavigatorInsightLocalizedText": {
     "Original": "Current Navigator Insight",
-    "Translated": "Текущая Проницательность Навигатора"
+    "Translated": "Текущая интуиция навигатора"
   },
   "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_AdjustNavigatorInsightByTheFolloLocalizedText": {
     "Original": "Adjust Navigator Insight by the following amount",
-    "Translated": "Изменить Проницательность Навигатора на значение"
+    "Translated": "Изменить интуицию навигатора на значение"
   },
   "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_AddLocalizedText": {
     "Original": "Add",
@@ -925,27 +925,27 @@
   },
   "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_CurrentScrapLocalizedText": {
     "Original": "Current Scrap",
-    "Translated": "Текущий Лом"
+    "Translated": "Текущий металлолом"
   },
   "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_AdjustScrapByTheFollowingAmountLocalizedText": {
     "Original": "Adjust Scrap by the following amount",
-    "Translated": "Изменить Лом на значение"
+    "Translated": "Изменить металлолом на значение"
   },
   "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_CurrentProfitFactorLocalizedText": {
     "Original": "Current Profit Factor",
-    "Translated": "Текущий Фактор Прибыли"
+    "Translated": "Текущий фактор прибыли"
   },
   "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_AdjustProfitFactorByTheFollowingLocalizedText": {
     "Original": "Adjust Profit Factor by the following amount",
-    "Translated": "Изменить Фактор Прибыли на значение"
+    "Translated": "Изменить фактор прибыли на значение"
   },
   "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_CurrentVeilThicknessLocalizedText": {
     "Original": "Current Veil Thickness",
-    "Translated": "Текущая Толщина Завесы"
+    "Translated": "Текущее истончение завесы"
   },
   "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_SetVeilThicknessToTheFollowingAmLocalizedText": {
     "Original": "Set Veil Thickness to the following amount",
-    "Translated": "Установить Толщину Завесы на значение"
+    "Translated": "Установить истончение завесы на значение"
   },
   "ToyBox_Features_BagOfTricks_RTSpecific_ModifyResourcesFeature_m_SetLocalizedText": {
     "Original": "Set",
@@ -953,19 +953,19 @@
   },
   "ToyBox_Features_BagOfTricks_RTSpecific_PreventPsychicPhenomenaFeature_Name": {
     "Original": "Prevent Psychic Phenomena",
-    "Translated": "Предотвратить псих. феномены"
+    "Translated": "Предотвратить пси-морок"
   },
   "ToyBox_Features_BagOfTricks_RTSpecific_PreventPsychicPhenomenaFeature_Description": {
     "Original": "Prevents Psyker Abilities from causing any kind of psychic phenomena. This includes e.g. the Dark Prayer ability and Chaos Sword.",
-    "Translated": "Предотвращает вызов псайкерскими способностями любых психических феноменов. Включая Темную Молитву и Меч Хаоса."
+    "Translated": "Предотвращает любые проявления пси-морока от способностей псайкеров. Это также относится, например, к способности «Темный молебен» и мечу «Предел необратимости»."
   },
   "ToyBox_Features_BagOfTricks_RTSpecific_PreventVeilThicknessFromChangingFeature_Name": {
     "Original": "Prevent Veil Thickness from Changing",
-    "Translated": "Предотвратить изменение толщины завесы"
+    "Translated": "Предотвратить изменение истончения завесы"
   },
   "ToyBox_Features_BagOfTricks_RTSpecific_PreventVeilThicknessFromChangingFeature_Description": {
     "Original": "Forces the current veil thickness to 0.",
-    "Translated": "Принудительно устанавливает текущую толщину завесы в 0."
+    "Translated": "Принудительно удерживает текущее истончение завесы на нуле."
   },
   "ToyBox_Features_BagOfTricks_Teleport_TeleportMainToCursorFeature_Name": {
     "Original": "Teleport Main Character To Cursor",
@@ -977,19 +977,19 @@
   },
   "ToyBox_Features_BagOfTricks_Teleport_TeleportPartyToCursorFeature_Name": {
     "Original": "Teleport Party Characters To Cursor",
-    "Translated": "Телепортировать персонажей группы к курсору"
+    "Translated": "Телепортировать персонажей отряда к курсору"
   },
   "ToyBox_Features_BagOfTricks_Teleport_TeleportPartyToCursorFeature_Description": {
     "Original": "Teleports all party units and pets to the position your mouse points at.",
-    "Translated": "Телепортирует все юниты группы и питомцев в точку под курсором."
+    "Translated": "Телепортирует все юниты отряда и фамильяров в точку под курсором."
   },
   "ToyBox_Features_BagOfTricks_Teleport_TeleportPartyToYouFeature_Name": {
     "Original": "Teleport Party To You",
-    "Translated": "Телепортировать группу к себе"
+    "Translated": "Телепортировать отряд к себе"
   },
   "ToyBox_Features_BagOfTricks_Teleport_TeleportPartyToYouFeature_Description": {
     "Original": "Teleports your party members and pets to the main character unit.",
-    "Translated": "Телепортирует членов группы и питомцев к главному герою."
+    "Translated": "Телепортирует членов отряда и фамильяров к главному герою."
   },
   "ToyBox_Features_BagOfTricks_Teleport_TeleportSelectedToCursorFeature_Name": {
     "Original": "Teleport Selected Characters To Cursor",
@@ -1033,7 +1033,7 @@
   },
   "ToyBox_Features_Colonies_ColonyEditorFeature_m_ContentmentText": {
     "Original": "Contentment",
-    "Translated": "Удовлетворенность"
+    "Translated": "Довольство"
   },
   "ToyBox_Features_Colonies_ColonyEditorFeature_m_EfficiencyText": {
     "Original": "Efficiency",
@@ -1061,7 +1061,7 @@
   },
   "ToyBox_Features_Colonies_ColonyEditorFeature_m_TraitsText": {
     "Original": "Colony Traits",
-    "Translated": "Черты колоний"
+    "Translated": "Особенности колонии"
   },
   "ToyBox_Features_Colonies_ColonyEditorFeature_m_ShowGuidsText": {
     "Original": "Show GUIDs",
@@ -1081,7 +1081,7 @@
   },
   "ToyBox_Features_Colonies_ColonyEditorFeature_m_CurrentAmountText": {
     "Original": "Current",
-    "Translated": "Текущий"
+    "Translated": "Текущее количество"
   },
   "ToyBox_Features_DialogAndNpc_DialogAndNpcFeatureTab_Name": {
     "Original": "Dialog & NPCs",
@@ -1101,7 +1101,7 @@
   },
   "ToyBox_Features_DialogAndNpc_DialogEditorFeature_m_CurrentText": {
     "Original": "Current",
-    "Translated": "Текущий"
+    "Translated": "Текущая реплика"
   },
   "ToyBox_Features_DialogAndNpc_DialogEditorFeature_m_AnswerText": {
     "Original": "Answer",
@@ -1233,11 +1233,11 @@
   },
   "ToyBox_Features_Etudes_EtudeRecord_m_ChainedEtude_0___1__HasDifferentLocalizedText": {
     "Original": "Chained etude {0} ({1}) has different parent: {2} than {3} parent: {4}",
-    "Translated": "Связанный этюд {0} ({1}) имеет другого родителя: {2}, чем родитель {3}: {4}"
+    "Translated": "Этюд {0} ({1}) в цепочке имеет родителя {2}, отличного от родителя {4} у {3}."
   },
   "ToyBox_Features_Etudes_EtudeRecord_m_LinkedToChild_0___1__WithDiffereLocalizedText": {
     "Original": "Linked to child {0} ({1}) with different parent: {2} than {3} parent {4}",
-    "Translated": "Связан с дочерним {0} ({1}) с другим родителем: {2}, чем родитель {3}: {4}"
+    "Translated": "Связь с дочерним этюдом {0} ({1}): его родитель {2} отличается от родителя {4} у {3}."
   },
   "ToyBox_Features_Etudes_EtudeRecord_m_NoneLocalizedText": {
     "Original": "None",
@@ -1309,7 +1309,7 @@
   },
   "ToyBox_Features_Etudes_EtudesFeature_ConflictsText": {
     "Original": "Conflicts",
-    "Translated": "конфликты"
+    "Translated": "Конфликты"
   },
   "ToyBox_Features_Etudes_EtudesFeature_m_EncounteredErrorWhileBuildingEtuLocalizedText": {
     "Original": "Encountered error while building Etudes Tree!",
@@ -1349,15 +1349,15 @@
   },
   "ToyBox_Features_LevelUp_IgnoreArchetypePrerequisitesFeature_Description": {
     "Original": "Slightly Buggy UI. This allows picking any one career per stage regardless of prerequisites. Warning: Picking e.g. Exemplar as second archetype will cause issues because you won't have a second archetype ability to upgrade.",
-    "Translated": "Немного багованный UI. Позволяет выбирать любую карьеру на этапе независимо от требований. Внимание: выбор, например, Экземпляра вторым архетипом вызовет проблемы."
+    "Translated": "В интерфейсе возможны небольшие ошибки. Позволяет выбирать любой архетип на каждом этапе независимо от требований. Внимание: например, выбор гранд-магистра вторым архетипом вызовет проблемы, так как у вас не будет способности второго архетипа для улучшения."
   },
   "ToyBox_Features_LevelUp_IgnoreClassLevelsPrerequisitesFeature_Name": {
     "Original": "Ignore Class Level Prerequisites",
-    "Translated": "Игнорировать требования уровня класса"
+    "Translated": "Игнорировать требования к уровню персонажа"
   },
   "ToyBox_Features_LevelUp_IgnoreClassLevelsPrerequisitesFeature_Description": {
     "Original": "Automatically succeeds level-dependent prerequisite checks, both those asking for a minimum level and those asking for a feature maximum level.",
-    "Translated": "Автоматически проходит проверки требований, зависящие от уровня, как требующих минимальный уровень, так и максимальный уровень особенности."
+    "Translated": "Автоматически выполняет требования к уровню, включая ограничения как минимального, так и максимального уровня."
   },
   "ToyBox_Features_LevelUp_IgnoreStatPrerequisitesFeature_Name": {
     "Original": "Ignore Stat Prerequisites",
@@ -1365,7 +1365,7 @@
   },
   "ToyBox_Features_LevelUp_IgnoreStatPrerequisitesFeature_Description": {
     "Original": "Automatically succeeds stat-dependent prerequisite checks, both those asking for a minimum value and those asking for a feature maximum value.",
-    "Translated": "Автоматически проходит проверки требований, зависящие от характеристик, как требующих минимальное значение, так и максимальное."
+    "Translated": "Автоматически выполняет требования к характеристикам, включая ограничения как минимальных, так и максимальных значений."
   },
   "ToyBox_Features_LevelUp_IgnoreTalentPrerequisitesFeature_Name": {
     "Original": "Ignore Talent Prerequisites",
@@ -1373,7 +1373,7 @@
   },
   "ToyBox_Features_LevelUp_IgnoreTalentPrerequisitesFeature_Description": {
     "Original": "Automatically succeeds fact-dependent prerequisite checks, both those asking for a feature to be present and those asking for a feature to not be present.",
-    "Translated": "Автоматически проходит проверки требований, зависящие от наличия факта, как требующих наличие особенности, так и ее отсутствие."
+    "Translated": "Автоматически выполняет требования к наличию или отсутствию определенных особенностей у персонажа."
   },
   "ToyBox_Features_LevelUp_LevelUpFeatureTab_Name": {
     "Original": "Level Up",
@@ -1381,11 +1381,11 @@
   },
   "ToyBox_Features_LevelUp_RespecFromLevelXFeature_Name": {
     "Original": "Respec From Level X",
-    "Translated": "Пересоздание с уровня X"
+    "Translated": "Сброс развития с уровня X"
   },
   "ToyBox_Features_LevelUp_RespecFromLevelXFeature_Description": {
     "Original": "Allows changing the base respec level for units (including companions). Setting this to level 35 allows repicking the third archetype. Level 15 allows changing both the second and third arche type. Level 0 allows changing all three archetypes.",
-    "Translated": "Позволяет менять базовый уровень пересоздания для юнитов (включая спутников). Установка на 35 уровень позволяет перевыбрать третий архетип. 15 уровень — второй и третий. 0 уровень — все три архетипа."
+    "Translated": "Позволяет менять исходный уровень при сбросе развития юнитов, включая спутников. Уровень 35 позволяет заново выбрать третий архетип, уровень 15 — второй и третий, уровень 0 — все три."
   },
   "ToyBox_Features_LevelUp_RespecFromLevelXFeature_m_TryToKeepThisFeatureActivatedAftLocalizedText": {
     "Original": "Try to keep this feature activated after using it (Click for Explanation)",
@@ -1393,7 +1393,7 @@
   },
   "ToyBox_Features_LevelUp_RespecFromLevelXFeature_m_IfAUnitIsRespeccedWhileThisFeatuLocalizedText": {
     "Original": "If a unit is respecced while this feature is enabled and the feature (or ToyBox) is later disabled, minor level-up UI glitches may occur. During level-up the game uses a base (original) copy of the unit. ToyBox must respec that copy when it's created (which only happens while the feature is active). If this is not done, there can be slight issues like the game thinking you have a feature despite not having it (because the base/original unit was supposed to have that feature, making the new copy having it too). This is not a hard dependency as any issues can be fixed by respeccing the unit after disabling this feature/ToyBox.",
-    "Translated": "Если юнит пересоздан с включенной функцией, а затем функция (или ToyBox) отключена, могут возникнуть мелкие глитчи интерфейса повышения уровня. Игра использует базовую копию юнита. ToyBox должен пересоздать её при создании (что происходит только с активной функцией). Иначе могут быть проблемы, например игра думает, что у вас есть особенность, хотя её нет. Это не критично — исправляется повторным пересозданием после отключения."
+    "Translated": "Если сбросить развитие юнита при включенной функции, а затем отключить ее или ToyBox, возможны небольшие ошибки интерфейса повышения уровня. При повышении уровня игра использует исходную копию юнита. ToyBox должен сбросить развитие этой копии при ее создании, что происходит только при включенной функции. Иначе игра может считать, что у юнита есть особенность, которой у него нет: она была у исходного юнита и поэтому сохранилась у копии. Постоянно включать функцию не обязательно: такие проблемы исправляются повторным сбросом развития после отключения функции или ToyBox."
   },
   "ToyBox_Features_LevelUp_RespecFromLevelXFeature_m_NoneLocalizedText": {
     "Original": "None",
@@ -1401,27 +1401,27 @@
   },
   "ToyBox_Features_LevelUp_RespecFromLevelXFeature_m_CurrentRespecLevelOverrideLocalizedText": {
     "Original": "Current Respec Level Override",
-    "Translated": "Текущее переопределение уровня пересоздания"
+    "Translated": "Текущий исходный уровень для сброса развития"
   },
   "ToyBox_Features_LevelUp_RespecFromLevelXFeature_m_RespecFromLevel0LocalizedText": {
     "Original": "Respec from Level 0",
-    "Translated": "Пересоздать с 0 уровня"
+    "Translated": "Сброс развития с уровня 0"
   },
   "ToyBox_Features_LevelUp_RespecFromLevelXFeature_m_RespecFromLevel15LocalizedText": {
     "Original": "Respec from Level 15",
-    "Translated": "Пересоздать с 15 уровня"
+    "Translated": "Сброс развития с уровня 15"
   },
   "ToyBox_Features_LevelUp_RespecFromLevelXFeature_m_RespecFromLevel35LocalizedText": {
     "Original": "Respec from Level 35",
-    "Translated": "Пересоздать с 35 уровня"
+    "Translated": "Сброс развития с уровня 35"
   },
   "ToyBox_Features_LevelUp_RespecFromLevelXFeature_m_RespecFromCustomLevelLocalizedText": {
     "Original": "Respec from Custom Level",
-    "Translated": "Пересоздать с пользовательского уровня"
+    "Translated": "Сброс развития с заданного уровня"
   },
   "ToyBox_Features_LevelUp_RespecFromLevelXFeature_m_ApplyCustomLevelLocalizedText": {
     "Original": "Apply Custom Level",
-    "Translated": "Применить пользовательский уровень"
+    "Translated": "Применить заданный уровень"
   },
   "ToyBox_Features_LevelUp_TalentSelectionMultiplierFeature_Name": {
     "Original": "Talent Selection Multiplier",
@@ -1429,11 +1429,11 @@
   },
   "ToyBox_Features_LevelUp_TalentSelectionMultiplierFeature_Description": {
     "Original": "Multiplies career talent selections (1 = normal). Learned talents remain after disabling, but extra choices are no longer shown in the career progression after reopening the character screen. Don't change this setting mid-levelup.",
-    "Translated": "Умножает число выбираемых талантов карьеры (1 = обычное количество). Изученные таланты сохраняются после отключения функции, но после повторного открытия экрана персонажа дополнительные ячейки выбора больше не отображаются в развитии карьеры. Не меняйте эту настройку во время повышения уровня."
+    "Translated": "Умножает число выбираемых талантов архетипа (1 = обычное количество). Изученные таланты сохраняются после отключения функции, но после повторного открытия экрана персонажа дополнительные ячейки выбора больше не отображаются в развитии архетипа. Не меняйте эту настройку во время повышения уровня."
   },
   "ToyBox_Features_Loot_LootAoEFeature_Name": {
     "Original": "AoE Loot",
-    "Translated": "AoE сбор"
+    "Translated": "Сбор добычи поблизости"
   },
   "ToyBox_Features_Loot_LootAoEFeature_Description": {
     "Original": "Opens a loot window containing all the loot within a configurable range (default 15m).",
@@ -1441,11 +1441,11 @@
   },
   "ToyBox_Features_Loot_LootAoERangeFeature_Name": {
     "Original": "AoE Loot Range",
-    "Translated": "Дальность AoE сбора"
+    "Translated": "Радиус сбора добычи"
   },
   "ToyBox_Features_Loot_LootAoERangeFeature_Description": {
     "Original": "Modifies the range (in m) in which the AoE Loot collects the loot.",
-    "Translated": "Изменяет дальность (в м), в которой AoE сбор собирает добычу."
+    "Translated": "Изменяет радиус (в метрах), в котором функция «Сбор добычи поблизости» собирает добычу."
   },
   "ToyBox_Features_Loot_LootChecklistFeature_Name": {
     "Original": "Loot Checklist",
@@ -1489,7 +1489,7 @@
   },
   "ToyBox_Features_Loot_LootChecklistShowHiddenLootSetting_Description": {
     "Original": "Also includes containers that are still hidden in the list.",
-    "Translated": "Также включает контейнеры, которые все еще скрыты в списке."
+    "Translated": "Также включает в список контейнеры, которые пока скрыты."
   },
   "ToyBox_Features_Loot_LootFeatureTab_Name": {
     "Original": "Loot",
@@ -1509,7 +1509,7 @@
   },
   "ToyBox_Features_Loot_MassLootShowHiddenItemsSetting_Description": {
     "Original": "Shows items that are hidden or were not viewed. This might include quest items that the game might not intend for you to loot yet.",
-    "Translated": "Показывает предметы, которые скрыты или не просмотрены. Это могут быть квестовые предметы, которые игра не планировала давать."
+    "Translated": "Показывает скрытые или еще не просмотренные предметы. Среди них могут быть предметы заданий, которые игра пока не предполагает отдавать игроку."
   },
   "ToyBox_Features_Loot_MassLootShowLivingNPCItemsSetting_Name": {
     "Original": "Steal from living NPCs",
@@ -1529,15 +1529,15 @@
   },
   "ToyBox_Features_PartyTab_Actions_AddUnitToPartyAction_Name": {
     "Original": "Add Unit to Party",
-    "Translated": "Добавить юнита в группу"
+    "Translated": "Добавить юнита в отряд"
   },
   "ToyBox_Features_PartyTab_Actions_AddUnitToPartyAction_Description": {
     "Original": "Adds the specified unit or pet to the current party and teleports it to you if necessary.",
-    "Translated": "Добавляет указанный юнит или питомца в текущую группу и телепортирует к вам при необходимости."
+    "Translated": "Добавляет указанного юнита или фамильяра в текущий отряд и при необходимости телепортирует его к вам."
   },
   "ToyBox_Features_PartyTab_Actions_AddUnitToPartyAction_m_UnitIsAlreadyPartOfPartyLocalizedText": {
     "Original": "Unit is already part of the active party or not recruited",
-    "Translated": "Юнит уже в активной группе или не нанят"
+    "Translated": "Юнит уже в активном отряде или не нанят"
   },
   "ToyBox_Features_PartyTab_Actions_AddUnitToPartyAction_m_AddLocalizedText": {
     "Original": "Add",
@@ -1549,7 +1549,7 @@
   },
   "ToyBox_Features_PartyTab_Actions_KillUnitAction_Description": {
     "Original": "Kills the specified unit by marking it for death.",
-    "Translated": "Убивает указанный юнит, помечая его на смерть."
+    "Translated": "Убивает указанного юнита, помечая его для смерти."
   },
   "ToyBox_Features_PartyTab_Actions_KillUnitAction_m_WhatHappenedHereLocalizedText": {
     "Original": "Something went wrong. You should not be able to see this.",
@@ -1565,7 +1565,7 @@
   },
   "ToyBox_Features_PartyTab_Actions_RecruitUnitAction_Description": {
     "Original": "Recruits the specified unit and teleports it to you if possible.",
-    "Translated": "Нанимает указанный юнит и телепортирует к вам, если возможно."
+    "Translated": "Нанимает указанного юнита и по возможности телепортирует его к вам."
   },
   "ToyBox_Features_PartyTab_Actions_RecruitUnitAction_m_UnitIsAlreadyRecruitedLocalizedText": {
     "Original": "Unit is already recruited",
@@ -1577,15 +1577,15 @@
   },
   "ToyBox_Features_PartyTab_Actions_RemoveUnitFromPartyAction_Name": {
     "Original": "Remove Unit from Party",
-    "Translated": "Удалить юнита из группы"
+    "Translated": "Удалить юнита из отряда"
   },
   "ToyBox_Features_PartyTab_Actions_RemoveUnitFromPartyAction_Description": {
     "Original": "Removes the specified unit or pet from the current party.",
-    "Translated": "Удаляет указанный юнит или питомца из группы."
+    "Translated": "Удаляет указанного юнита или фамильяра из текущего отряда."
   },
   "ToyBox_Features_PartyTab_Actions_RemoveUnitFromPartyAction_m_UnitIsNotPartOfPartyLocalizedText": {
     "Original": "Unit is not part of the active Party",
-    "Translated": "Юнит не в активной группе"
+    "Translated": "Юнит не в активном отряде"
   },
   "ToyBox_Features_PartyTab_Actions_RemoveUnitFromPartyAction_m_RemoveLocalizedText": {
     "Original": "Remove",
@@ -1593,19 +1593,19 @@
   },
   "ToyBox_Features_PartyTab_Actions_RespecUnitAction_Name": {
     "Original": "Respec Unit",
-    "Translated": "Пересоздать юнита"
+    "Translated": "Сбросить развитие юнита"
   },
   "ToyBox_Features_PartyTab_Actions_RespecUnitAction_Description": {
     "Original": "Respecs the specified unit and closes the mod UI.",
-    "Translated": "Пересоздает указанный юнит и закрывает UI мода."
+    "Translated": "Сбрасывает развитие указанного юнита и закрывает интерфейс мода."
   },
   "ToyBox_Features_PartyTab_Actions_RespecUnitAction_m_Can_tRespecUnitLocalizedText": {
     "Original": "Can't respec unit. This is either because unit is dead, a pet or below it's original level limit (e.g. the recruit level for companions).",
-    "Translated": "Нельзя пересоздать юнита. Возможно, юнит мертв, питомец или ниже своего исходного лимита уровня (например, уровень найма для спутников)."
+    "Translated": "Нельзя сбросить развитие юнита: он мертв, является фамильяром или не превышает исходный предел уровня (например, уровень найма спутника)."
   },
   "ToyBox_Features_PartyTab_Actions_RespecUnitAction_m_RespecLocalizedText": {
     "Original": "Respec",
-    "Translated": "Пересоздать"
+    "Translated": "Сбросить развитие"
   },
   "ToyBox_Features_PartyTab_Actions_UnrecruitUnitAction_Name": {
     "Original": "Unrecruit Unit",
@@ -1629,7 +1629,7 @@
   },
   "ToyBox_Features_PartyTab_Careers_ModifyCharacterLevelFeature_Description": {
     "Original": "Allows changing the character level of a unit without changing its experience. Use Increase Unit Level instead to properly adjust experience. This gets reset on save reload.",
-    "Translated": "Позволяет менять уровень персонажа без изменения опыта. Используйте Повышение уровня юнита для корректной настройки опыта. Сбрасывается при перезагрузке сохранения."
+    "Translated": "Позволяет менять уровень персонажа без изменения опыта. Используйте «Повысить уровень юнита», чтобы также скорректировать опыт. Значение сбрасывается при повторной загрузке сохранения."
   },
   "ToyBox_Features_PartyTab_Careers_ModifyCharacterLevelFeature_m_CharacterLevelLocalizedText": {
     "Original": "Character Level",
@@ -1657,11 +1657,11 @@
   },
   "ToyBox_Features_PartyTab_Careers_ShowCareersFeature_Name": {
     "Original": "Show Careers",
-    "Translated": "Показать карьеры"
+    "Translated": "Показать архетипы"
   },
   "ToyBox_Features_PartyTab_Careers_ShowCareersFeature_Description": {
     "Original": "Lists the careers of a unit and their current level.",
-    "Translated": "Перечисляет карьеры юнита и их текущий уровень."
+    "Translated": "Перечисляет архетипы юнита и их текущие уровни."
   },
   "ToyBox_Features_PartyTab_Careers_ShowCareersFeature_m_LevelLocalizedText": {
     "Original": "Level",
@@ -1669,7 +1669,7 @@
   },
   "ToyBox_Features_PartyTab_Careers_ShowCareersFeature_m_CareersLocalizedText": {
     "Original": "Careers",
-    "Translated": "Карьеры"
+    "Translated": "Архетипы"
   },
   "ToyBox_Features_PartyTab_IncreaseUnitLevelFeature_Name": {
     "Original": "Increase Unit Level",
@@ -1713,23 +1713,23 @@
   },
   "ToyBox_Features_PartyTab_PartyBrowseMechadendritesFeature_Name": {
     "Original": "Browse Unit Mechadendrites",
-    "Translated": "Просмотр механодендритов юнита"
+    "Translated": "Просмотр мехадендритов юнита"
   },
   "ToyBox_Features_PartyTab_PartyBrowseMechadendritesFeature_Description": {
     "Original": "Displays a Browser containing all the mechadendrites of the unit in question and optionally allows removing them or adding new ones.",
-    "Translated": "Отображает браузер со всеми механодендритами выбранного юнита и позволяет удалять или добавлять новые."
+    "Translated": "Отображает браузер со всеми мехадендритами выбранного юнита и позволяет удалять или добавлять новые."
   },
   "ToyBox_Features_PartyTab_PartyFeatureTab_PartyLevelText": {
     "Original": "Party Level",
-    "Translated": "Уровень группы"
+    "Translated": "Уровень отряда"
   },
   "ToyBox_Features_PartyTab_PartyFeatureTab_InspectParty_forDebugging__Text": {
     "Original": "Inspect Party (for debugging)",
-    "Translated": "Осмотреть группу (для отладки)"
+    "Translated": "Осмотреть отряд (для отладки)"
   },
   "ToyBox_Features_PartyTab_PartyFeatureTab_Name": {
     "Original": "Party",
-    "Translated": "Группа"
+    "Translated": "Отряд"
   },
   "ToyBox_Classes_Features_PartyTab_RenameUnitFeature_Name": {
     "Original": "Rename Unit",
@@ -1845,7 +1845,7 @@
   },
   "ToyBox_Features_PartyTab_Stats_UnitBrowseVoicesFeature_m_TheButton_1_WillPlayTryToPlayARaLocalizedText": {
     "Original": "The button \"{0}\" will play try to play a random PartyMemberUnconscious sound.",
-    "Translated": "Кнопка \"{0}\" попытается воспроизвести случайный звук бессознательности."
+    "Translated": "Кнопка «{0}» попытается воспроизвести случайную реплику о потере сознания членом отряда (PartyMemberUnconscious)."
   },
   "ToyBox_Features_PartyTab_Stats_UnitDisableVoiceoverAndBarksFeature_Name": {
     "Original": "Disable Voiceover and Barks for Character",
@@ -1857,19 +1857,19 @@
   },
   "ToyBox_Features_PartyTab_Stats_UnitModifySoulMarksFeature_Name": {
     "Original": "Modify Soul Marks",
-    "Translated": "Изменить метки души"
+    "Translated": "Изменить убеждения"
   },
   "ToyBox_Features_PartyTab_Stats_UnitModifySoulMarksFeature_Description": {
     "Original": "Allows modifying the alignment of the character.",
-    "Translated": "Позволяет изменять мировоззрение персонажа."
+    "Translated": "Позволяет изменять убеждения персонажа."
   },
   "ToyBox_Features_PartyTab_Stats_UnitModifySoulMarksFeature_m_UnitsOtherThanTheMainCharacterDoLocalizedText": {
     "Original": "Units other than the main character don't really have an alignment. Assign the milestone features like SoulMarkCorruption2_Feature, though they might not work on other units.",
-    "Translated": "Юниты кроме главного героя не имеют мировоззрения. Назначьте особенности вроде SoulMarkCorruption2_Feature, хотя они могут не работать на других юнитах."
+    "Translated": "Убеждения учитываются только у главного героя. Другим юнитам можно назначить особенности соответствующих ступеней, например SoulMarkCorruption2_Feature, но они могут не работать."
   },
   "ToyBox_Features_PartyTab_Stats_UnitModifySoulMarksFeature_m_SoulMarksLocalizedText": {
     "Original": "Soul Marks",
-    "Translated": "Метки души"
+    "Translated": "Убеждения"
   },
   "ToyBox_Features_PartyTab_Stats_UnitModifyStatsFeature_Name": {
     "Original": "Modify Unit Stats",
@@ -1905,15 +1905,15 @@
   },
   "ToyBox_Features_PartyTab_Stats_UnitOverrideMechanicalSizeFeature_Name": {
     "Original": "Enable Mechanical Size Overrides",
-    "Translated": "Включить переопределения механического размера"
+    "Translated": "Включить изменение размера для игровой механики"
   },
   "ToyBox_Features_PartyTab_Stats_UnitOverrideMechanicalSizeFeature_Description": {
     "Original": "If this is disabled, none of the previously set mechanical size overrides will take effect.",
-    "Translated": "Если отключено, ни одно из переопределений механического размера не вступит в силу."
+    "Translated": "Если отключено, ранее заданные изменения размера, учитываемого игровой механикой, не применяются."
   },
   "ToyBox_Features_PartyTab_Stats_UnitOverrideMechanicalSizeFeature_m_CurrentMechanicalSizeLocalizedText": {
     "Original": "Current Mechanical Size",
-    "Translated": "Текущий механический размер"
+    "Translated": "Текущий размер для игровой механики"
   },
   "ToyBox_Features_PartyTab_Stats_UnitOverrideMechanicalSizeFeature_m_OverrideLocalizedText": {
     "Original": "Override",
@@ -1945,7 +1945,7 @@
   },
   "ToyBox_Features_PatchTool_PatchToolDangerousPatchesFeature_Description": {
     "Original": "Master switch for dangerous patches. These edit shared prefabs/GameObjects globally and cannot be recommended. Off by default; enable only if you know what you're doing.",
-    "Translated": "Главный переключатель опасных патчей. Они глобально редактируют префабы/GameObjects и не рекомендуются. По умолчанию выкл."
+    "Translated": "Главный переключатель опасных патчей. Они глобально изменяют общие префабы и GameObjects, поэтому использовать их не рекомендуется. По умолчанию отключено; включайте, только если понимаете последствия."
   },
   "ToyBox_Features_PatchTool_PatchToolFeatureTab_Name": {
     "Original": "Patch Tool",
@@ -1977,7 +1977,7 @@
   },
   "ToyBox_Features_PatchTool_PatchToolStrings_NewFeatureWarning": {
     "Original": "This feature is new. Please reach out if anything seems buggy or you encounter any issues.",
-    "Translated": "Это новая функция. Сообщите, если что-то багует."
+    "Translated": "Это новая функция. Сообщите автору мода о любых ошибках или проблемах."
   },
   "ToyBox_Features_PatchTool_PatchToolStrings_ManageExistingPatches": {
     "Original": "Manage existing patches",
@@ -2049,7 +2049,7 @@
   },
   "ToyBox_Features_PatchTool_PatchToolStrings_ShowBrowserPicker": {
     "Original": "Show Browser Picker",
-    "Translated": "Показать выбор браузера"
+    "Translated": "Показать выбор из списка"
   },
   "ToyBox_Features_PatchTool_PatchToolStrings_ShowBrowser": {
     "Original": "Show Browser (starts loading all blueprints of the selected type)",
@@ -2057,7 +2057,7 @@
   },
   "ToyBox_Features_PatchTool_PatchToolStrings_BpCategory": {
     "Original": "BP Category",
-    "Translated": "Категория ЧР"
+    "Translated": "Категория чертежей"
   },
   "ToyBox_Features_PatchTool_PatchToolStrings_ShowPatchManager": {
     "Original": "Show Patch Manager",
@@ -2077,7 +2077,7 @@
   },
   "ToyBox_Features_PatchTool_PatchToolStrings_CurrentPatchInfo": {
     "Original": "Current Patch targets bp: {0}({1}) and has {2} operations.",
-    "Translated": "Текущий патч нацелен на чр: {0}({1}) и имеет {2} операций."
+    "Translated": "Текущий патч изменяет чертеж {0}({1}). Количество операций: {2}."
   },
   "ToyBox_Features_PatchTool_PatchToolStrings_OperationRow": {
     "Original": "Operation: {0}",
@@ -2149,7 +2149,7 @@
   },
   "ToyBox_Features_PatchTool_PatchToolStrings_NewItem": {
     "Original": "New Item:",
-    "Translated": "Новый предмет:"
+    "Translated": "Новый элемент:"
   },
   "ToyBox_Features_PatchTool_PatchToolStrings_ShowValues": {
     "Original": "Show Values",
@@ -2193,7 +2193,7 @@
   },
   "ToyBox_Features_PatchTool_PatchToolStrings_AddItem": {
     "Original": "Add Item",
-    "Translated": "Добавить предмет"
+    "Translated": "Добавить элемент"
   },
   "ToyBox_Features_PatchTool_PatchToolStrings_AddBefore": {
     "Original": "Add Before",
@@ -2217,11 +2217,11 @@
   },
   "ToyBox_Features_PatchTool_PatchToolStrings_FailedToParse": {
     "Original": "Failed to parse value {0} to type {1}",
-    "Translated": "Не удалось разобрать значение {0} в тип {1}"
+    "Translated": "Не удалось преобразовать значение {0} в тип {1}"
   },
   "ToyBox_Features_PatchTool_PatchToolStrings_ExchangeUnityObject": {
     "Original": "Exchange",
-    "Translated": "Обменять"
+    "Translated": "Заменить"
   },
   "ToyBox_Features_PatchTool_PatchToolStrings_AssetGuid": {
     "Original": "Asset Guid",
@@ -2241,11 +2241,11 @@
   },
   "ToyBox_Features_PatchTool_PatchToolStrings_CouldNotResolveAsset": {
     "Original": "Could not resolve a Unity asset for the given guid/fileid.",
-    "Translated": "Не удалось разрешить Unity ассет для данного guid/fileid."
+    "Translated": "Не удалось найти ассет Unity по указанным GUID и ID файла."
   },
   "ToyBox_Features_PatchTool_PatchToolStrings_IncompatibleAssetType": {
     "Original": "Resolved asset is a {0}, which is not assignable to this {1} field.",
-    "Translated": "Ассет {0} нельзя присвоить полю {1}."
+    "Translated": "Найденный ассет имеет тип {0} и не может быть присвоен полю типа {1}."
   },
   "ToyBox_Features_PatchTool_PatchToolStrings_ComponentsHeader": {
     "Original": "Components:",
@@ -2253,7 +2253,7 @@
   },
   "ToyBox_Features_PatchTool_PatchToolStrings_ChildrenHeader": {
     "Original": "Children:",
-    "Translated": "Дети:"
+    "Translated": "Дочерние объекты:"
   },
   "ToyBox_Features_PatchTool_PatchToolStrings_ComponentRow": {
     "Original": "Component: {0} [{1}]",
@@ -2261,7 +2261,7 @@
   },
   "ToyBox_Features_PatchTool_PatchToolStrings_ChildRow": {
     "Original": "Child [{0}]: {1}",
-    "Translated": "Дочерний [{0}]: {1}"
+    "Translated": "Дочерний объект [{0}]: {1}"
   },
   "ToyBox_Features_PatchTool_PatchToolTabUI_m_ShowBlueprintPickerLocalizedText": {
     "Original": "Show Blueprint Picker",
@@ -2277,7 +2277,7 @@
   },
   "ToyBox_Features_Quests_QuestEditorFeature_m_NoQuestsText": {
     "Original": "You have no quests in your quest book yet.",
-    "Translated": "У вас пока нет заданий в книге заданий."
+    "Translated": "В вашем журнале пока нет заданий."
   },
   "ToyBox_Features_Quests_QuestEditorFeature_m_HideCompletedText": {
     "Original": "Hide Completed",
@@ -2305,7 +2305,7 @@
   },
   "ToyBox_Features_Quests_QuestEditorFeature_m_FinishText": {
     "Original": "Finish",
-    "Translated": "Завершить"
+    "Translated": "Завершить задание"
   },
   "ToyBox_Features_Quests_QuestEditorFeature_m_ResetTimeText": {
     "Original": "Reset Time",
@@ -2329,7 +2329,7 @@
   },
   "ToyBox_Features_Saves_BrowseSavesFeature_Description": {
     "Original": "Allows looking through all available save games and viewing their char name, party level, area, save name and game id",
-    "Translated": "Позволяет просматривать все доступные сохранения и видеть имя персонажа, уровень группы, локацию, имя сохранения и ID игры"
+    "Translated": "Позволяет просматривать все доступные сохранения и видеть имя персонажа, уровень отряда, локацию, имя сохранения и ID игры"
   },
   "ToyBox_Features_Saves_BrowseSavesFeature_m_LevelLocalizedText": {
     "Original": "Level",
@@ -2365,7 +2365,7 @@
   },
   "ToyBox_Features_SearchAndPick_SearchAndPickFeature_m_ActionParameterLocalizedText": {
     "Original": "Number Parameter (used e.g. as the amount of items to add)",
-    "Translated": null
+    "Translated": "Числовой параметр (например, количество добавляемых предметов)"
   },
   "ToyBox_Features_SearchAndPick_SearchAndPickFeature_m_CurrentCollationCategoryLocalizedText": {
     "Original": "Current Category",
@@ -2373,7 +2373,7 @@
   },
   "ToyBox_Features_SearchAndPick_SearchAndPickFeature_m_Collating_LocalizedText": {
     "Original": "Collating!",
-    "Translated": "Сопоставление!"
+    "Translated": "Группировка..."
   },
   "ToyBox_Features_SearchAndPick_SearchAndPickFeature_m_ShowCategoryPickerLocalizedText": {
     "Original": "Show Category Picker",
@@ -2389,7 +2389,7 @@
   },
   "ToyBox_Features_SearchAndPick_SortCollationCategoriesByCountSetting_Description": {
     "Original": "Whether to sort collation categories by their amount of blueprints instead of names.",
-    "Translated": "Сортировать ли категории сопоставления по количеству чертежей, а не по именам."
+    "Translated": "Сортирует категории по количеству чертежей, а не по названиям."
   },
   "ToyBox_Features_SettingsFeatures_Blueprints_BlueprintsLoaderChunkSizeSetting_Name": {
     "Original": "Chunk Size",
@@ -2421,7 +2421,7 @@
   },
   "ToyBox_Features_SettingsFeatures_Blueprints_BPIdCacheFeature_Description": {
     "Original": "When enabled, ToyBox will create a cache for ids of different blueprint types. Certain menus like Search 'n Pick will then try to load only blueprints of the specified type (e.g. BlueprintFeature), thereby speeding up load times.",
-    "Translated": "Когда включено, ToyBox создает кэш ID разных типов чертежей. Некоторые меню, например Поиск и выбор, будут загружать только чертежи указанного типа, ускоряя загрузку."
+    "Translated": "ToyBox создает кэш ID разных типов чертежей. Меню вроде «Поиск и выбор» затем стараются загружать только чертежи указанного типа (например, BlueprintFeature), что ускоряет загрузку."
   },
   "ToyBox_Features_SettingsFeatures_Blueprints_BPIdCacheFeature_ResetCache_inCaseOfIssues_Text": {
     "Original": "Reset BlueprintId Cache (in case of issues)",
@@ -2477,11 +2477,11 @@
   },
   "ToyBox_Features_SettingsFeatures_BrowserSettings_PageLimitSetting_Name": {
     "Original": "Page Limit",
-    "Translated": "Лимит страниц"
+    "Translated": "Записей на странице"
   },
   "ToyBox_Features_SettingsFeatures_BrowserSettings_PageLimitSetting_Description": {
     "Original": "Restricts the amount of items a page of a list/browser can display",
-    "Translated": "Ограничивает количество предметов на странице списка/браузера"
+    "Translated": "Ограничивает количество записей на одной странице списка или браузера."
   },
   "ToyBox_Features_SettingsFeatures_BrowserSettings_SearchAsYouTypeFeature_Name": {
     "Original": "Search as you type",
@@ -2545,7 +2545,7 @@
   },
   "ToyBox_Features_SettingsTab_Inspector_InspectorDrawLimitSetting_Description": {
     "Original": "Limits the amount of items/rows that are drawn to prevent freezing the ui. Items exceeding the limit are discarded.",
-    "Translated": "Ограничивает количество отрисовываемых предметов/строк для предотвращения зависания интерфейса. Превышающие лимит отбрасываются."
+    "Translated": "Ограничивает количество отображаемых записей и строк, чтобы интерфейс не зависал. Записи сверх лимита отбрасываются."
   },
   "ToyBox_Features_SettingsTab_Inspector_InspectorIndentWidthSetting_Name": {
     "Original": "Indent Width",
@@ -2577,11 +2577,11 @@
   },
   "ToyBox_Features_SettingsTab_Inspector_InspectorShowCompilerGeneratedFields_Description": {
     "Original": "Show fields that are marked as compiler generated in Inspector (e.g. backing fields of properties)",
-    "Translated": "Показывать поля, помеченные как созданные компилятором в инспекторе"
+    "Translated": "Показывает в инспекторе поля, помеченные как созданные компилятором (например, поля, хранящие значения свойств)."
   },
   "ToyBox_Features_SettingsTab_Inspector_InspectorShowEnumerableFieldsSetting_Name": {
     "Original": "Show fields on enumerable",
-    "Translated": "Показывать поля у перечислений"
+    "Translated": "Показывать поля объектов IEnumerable"
   },
   "ToyBox_Features_SettingsTab_Inspector_InspectorShowEnumerableFieldsSetting_Description": {
     "Original": "Whether to also show other fields besides the actual collection items of IEnumerable types.",
@@ -2625,11 +2625,11 @@
   },
   "ToyBox_Features_SettingsFeatures_CharacterPickerNearbyRangeSetting_Name": {
     "Original": "Nearby Range",
-    "Translated": "Дальность поблизости"
+    "Translated": "Радиус поиска поблизости"
   },
   "ToyBox_Features_SettingsFeatures_CharacterPickerNearbyRangeSetting_Description": {
     "Original": "Modifies the range for the Nearby Character Picker category",
-    "Translated": "Изменяет дальность для категории выбора персонажей поблизости"
+    "Translated": "Изменяет радиус для категории «Рядом» в списке выбора персонажей."
   },
   "ToyBox_Features_FontFix_FontFixFeature_Name": {
     "Original": "Fix game fonts",
@@ -2681,7 +2681,7 @@
   },
   "ToyBox_Infrastructure_LazyInit_X_Amount_Of_FeaturesFailedInitialization_LocalizedText": {
     "Original": "features failed initialization!",
-    "Translated": "ошибка инициализации функций!"
+    "Translated": "функц. с ошибкой инициализации!"
   },
   "ToyBox_Features_SettingsFeatures_LogHotkeysToCombatLogSetting_Name": {
     "Original": "Log Hotkey Execution",
@@ -2725,15 +2725,15 @@
   },
   "ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_ImportedText": {
     "Original": "Imported {0} settings from ToyBox 1. Restart the game so every change takes full effect.",
-    "Translated": "Импортировано {0} настроек из ToyBox 1. Перезапустите игру для применения."
+    "Translated": "Импортировано настроек из ToyBox 1: {0}. Перезапустите игру, чтобы все изменения вступили в силу."
   },
   "ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_PerSaveImportedText": {
     "Original": "Also imported {0} save-specific settings from the loaded save (quick save and then load the new save for chanes to take effect).",
-    "Translated": "Также импортировано {0} специфичных для сохранения настроек из загруженного сохранения (быстрое сохранение и загрузка нового сохранения для вступления изменений)."
+    "Translated": "Также импортировано настроек из загруженного сохранения: {0}. Сделайте быстрое сохранение и загрузите его, чтобы изменения вступили в силу."
   },
   "ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_PerSaveSkippedText": {
     "Original": "Load a ToyBox 1 save and import again to also bring over its save-specific settings (unit size / AI overrides / skeleton changes).",
-    "Translated": "Загрузите сохранение ToyBox 1 и снова импортируйте, чтобы перенести специфичные для сохранения настройки."
+    "Translated": "Загрузите сохранение ToyBox 1 и повторите импорт, чтобы перенести его настройки (размер юнитов, управление ИИ и изменения скелета)."
   },
   "ToyBox_Features_SettingsTab_Other_TB1SettingsImporterFeature_FailedText": {
     "Original": "Import failed.",
@@ -2905,7 +2905,7 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddItemBA_Add_x": {
     "Original": "Add {0} Items",
-    "Translated": "Добавить {0} предметов"
+    "Translated": "Добавить предметы: {0}"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddItemBA_Name": {
     "Original": "Add Item",
@@ -2917,7 +2917,7 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveItemBA_Remove_x": {
     "Original": "Remove {0} Items",
-    "Translated": "Удалить {0} предметов"
+    "Translated": "Удалить предметы: {0}"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveItemBA_Name": {
     "Original": "Remove Item",
@@ -3013,7 +3013,7 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_PlayCutsceneBA_PlayText": {
     "Original": "Play",
-    "Translated": "Играть"
+    "Translated": "Воспроизвести"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartEtudeBA_Name": {
     "Original": "Start Etude",
@@ -3061,7 +3061,7 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_StartQuestObjectiveBA_QuestObjectiveStateIsNotNoneText": {
     "Original": "QuestObjectiveState is not none",
-    "Translated": "Состояние цели задания не none"
+    "Translated": "Состояние цели задания не равно None"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnlockAchievementBA_Name": {
     "Original": "Unlock Achievement",
@@ -3109,7 +3109,7 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_UnstartEtudeBA_EtudeIsNotStartedText": {
     "Original": "Etude is not started or completed",
-    "Translated": "Этюд не начат или не завершен"
+    "Translated": "Этюд не был ни начат, ни завершен"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddAbilityResourceBA_Name": {
     "Original": "Add Ability Resource",
@@ -3129,19 +3129,19 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechadendriteBA_Name": {
     "Original": "Add Mechadendrite",
-    "Translated": "Добавить механодендрит"
+    "Translated": "Добавить мехадендрит"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechadendriteBA_Description": {
     "Original": "Adds the specified mechadendrite to the specified unit.",
-    "Translated": "Добавляет указанный механодендрит указанному юниту."
+    "Translated": "Добавляет указанный мехадендрит указанному юниту."
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechadendriteBA_m_AddLocalizedText": {
     "Original": "Equip Mechadendrite",
-    "Translated": "Экипировать механодендрит"
+    "Translated": "Экипировать мехадендрит"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechadendriteBA_m_UnitAlreadyHasThisMechadendriteLocalizedText": {
     "Original": "Unit already has this Mechadendrite",
-    "Translated": "У юнита уже есть этот механодендрит"
+    "Translated": "У юнита уже есть этот мехадендрит"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_AddMechanicEntityFactBA_AddText": {
     "Original": "Add",
@@ -3205,7 +3205,7 @@
   },
   "ToyBox_Classes_Infrastructure_Blueprints_BlueprintActions_Units_PlayVoiceBA_Description": {
     "Original": "Plays the PartyMemberUnconscious sound with the specified voice (if that sound doesn't exist for said voice nothing happens).",
-    "Translated": "Воспроизводит звук бессознательности указанным голосом (если звука нет — ничего не происходит)."
+    "Translated": "Воспроизводит указанным голосом реплику о потере сознания членом отряда (PartyMemberUnconscious). Если такой реплики нет, ничего не происходит."
   },
   "ToyBox_Classes_Infrastructure_Blueprints_BlueprintActions_Units_PlayVoiceBA_m_PlayExampleLocalizedText": {
     "Original": "Play Example",
@@ -3233,19 +3233,19 @@
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechadendriteBA_Name": {
     "Original": "Remove Mechadendrite",
-    "Translated": "Удалить механодендрит"
+    "Translated": "Удалить мехадендрит"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechadendriteBA_Description": {
     "Original": "Removes the specified mechadendrite from the specified unit.",
-    "Translated": "Удаляет указанный механодендрит с юнита."
+    "Translated": "Удаляет указанный мехадендрит с юнита."
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechadendriteBA_m_RemoveLocalizedText": {
     "Original": "Unequip Mechadendrite",
-    "Translated": "Снять механодендрит"
+    "Translated": "Снять мехадендрит"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechadendriteBA_m_UnitDoesn_tHaveThisMechadendriteLocalizedText": {
     "Original": "Unit doesn't have this Mechadendrite",
-    "Translated": "У юнита нет этого механодендрита"
+    "Translated": "У юнита нет этого мехадендрита"
   },
   "ToyBox_Infrastructure_Blueprints_BlueprintActions_RemoveMechanicEntityFactBA_RemoveText": {
     "Original": "Remove",
@@ -3289,7 +3289,7 @@
   },
   "ToyBox_Features_SearchAndPick_BlueprintFilters_m_CareersLocalizedText": {
     "Original": "Careers",
-    "Translated": "Карьеры"
+    "Translated": "Архетипы"
   },
   "ToyBox_Features_SearchAndPick_BlueprintFilters_m_ProgressionLocalizedText": {
     "Original": "Progression",
@@ -3305,7 +3305,7 @@
   },
   "ToyBox_Features_SearchAndPick_BlueprintFilters_m_BrainsLocalizedText": {
     "Original": "Brains",
-    "Translated": "Мозги"
+    "Translated": "Поведение ИИ"
   },
   "ToyBox_Features_SearchAndPick_BlueprintFilters_m_AbilityRsrc_LocalizedText": {
     "Original": "Ability Rsrc.",
@@ -3321,7 +3321,7 @@
   },
   "ToyBox_Features_SearchAndPick_BlueprintFilters_m_EquipmentLocalizedText": {
     "Original": "Equipment",
-    "Translated": "Снаряжение"
+    "Translated": "Экипировка"
   },
   "ToyBox_Features_SearchAndPick_BlueprintFilters_m_WeaponsLocalizedText": {
     "Original": "Weapons",
@@ -3333,7 +3333,7 @@
   },
   "ToyBox_Features_SearchAndPick_BlueprintFilters_m_UsableLocalizedText": {
     "Original": "Usable",
-    "Translated": "Используемый"
+    "Translated": "Используемые"
   },
   "ToyBox_Features_SearchAndPick_BlueprintFilters_m_UnitsLocalizedText": {
     "Original": "Units",
@@ -3341,7 +3341,7 @@
   },
   "ToyBox_Features_SearchAndPick_BlueprintFilters_m_UnitsCRLocalizedText": {
     "Original": "Units CR",
-    "Translated": "CR Юнитов"
+    "Translated": "Юниты по CR"
   },
   "ToyBox_Features_SearchAndPick_BlueprintFilters_m_CRLocalizedText": {
     "Original": "CR",
@@ -3377,7 +3377,7 @@
   },
   "ToyBox_Features_SearchAndPick_BlueprintFilters_m_QuestObj_LocalizedText": {
     "Original": "Quest Obj.",
-    "Translated": "Цель задания"
+    "Translated": "Цели заданий"
   },
   "ToyBox_Features_SearchAndPick_BlueprintFilters_m_EtudesLocalizedText": {
     "Original": "Etudes",
@@ -3425,11 +3425,11 @@
   },
   "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_PartyText": {
     "Original": "Party",
-    "Translated": "Группа"
+    "Translated": "Отряд"
   },
   "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_PartyAndPetsText": {
     "Original": "Party & Pets",
-    "Translated": "Группа и питомцы"
+    "Translated": "Отряд и фамильяры"
   },
   "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_AllText": {
     "Original": "All Characters",
@@ -3437,11 +3437,11 @@
   },
   "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_ActiveText": {
     "Original": "Active",
-    "Translated": "Активно"
+    "Translated": "Активные"
   },
   "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_RemoteText": {
     "Original": "Remote",
-    "Translated": "Удаленный"
+    "Translated": "Отсутствующие"
   },
   "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_CustomCompanionText": {
     "Original": "Custom Companions",
@@ -3449,7 +3449,7 @@
   },
   "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_PetsText": {
     "Original": "Pets",
-    "Translated": "Питомцы"
+    "Translated": "Фамильяры"
   },
   "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_NearbyText": {
     "Original": "Nearby",
@@ -3457,7 +3457,7 @@
   },
   "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_FriendlyText": {
     "Original": "Friendly",
-    "Translated": "Дружественный"
+    "Translated": "Союзники"
   },
   "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_EnemiesText": {
     "Original": "Enemies",
@@ -3469,27 +3469,27 @@
   },
   "ToyBox_Infrastructure_Enums_CharacterListType_Localizer_m_StarshipsLocalizedText": {
     "Original": "Starships",
-    "Translated": "Звездолеты"
+    "Translated": "Пустотные корабли"
   },
   "ToyBox_Infrastructure_Enums_EtudeState_Localizer_m_NotStartedLocalizedText": {
     "Original": "Not Started",
-    "Translated": "Не начато"
+    "Translated": "Не начат"
   },
   "ToyBox_Infrastructure_Enums_EtudeState_Localizer_m_StartedLocalizedText": {
     "Original": "Started",
-    "Translated": "Начато"
+    "Translated": "Начат"
   },
   "ToyBox_Infrastructure_Enums_EtudeState_Localizer_m_ActiveLocalizedText": {
     "Original": "Active",
-    "Translated": "Активно"
+    "Translated": "Активен"
   },
   "ToyBox_Infrastructure_Enums_EtudeState_Localizer_m_PreCompletedLocalizedText": {
     "Original": "Pre Completed",
-    "Translated": "Предзавершено"
+    "Translated": "Предварительно завершен"
   },
   "ToyBox_Infrastructure_Enums_EtudeState_Localizer_m_CompletedLocalizedText": {
     "Original": "Completed",
-    "Translated": "Завершено"
+    "Translated": "Завершен"
   },
   "ToyBox_Infrastructure_Enums_EtudeState_Localizer_m_CompletionInProgressLocalizedText": {
     "Original": "Completion in Progress",
@@ -3517,7 +3517,7 @@
   },
   "ToyBox_Infrastructure_Enums_PartyTabSectionType_Localizer_ClassesText": {
     "Original": "Careers",
-    "Translated": "Карьеры"
+    "Translated": "Архетипы"
   },
   "ToyBox_Infrastructure_Enums_PartyTabSectionType_Localizer_StatsText": {
     "Original": "Stats",
@@ -3541,7 +3541,7 @@
   },
   "ToyBox_Infrastructure_Enums_PartyTabSectionType_Localizer_m_MechadendritesLocalizedText": {
     "Original": "Mechadendrites",
-    "Translated": "Механодендриты"
+    "Translated": "Мехадендриты"
   },
   "ToyBox_Infrastructure_Enums_UnitSelectType_Localizer_EveryoneText": {
     "Original": "Everyone",
@@ -3553,11 +3553,11 @@
   },
   "ToyBox_Infrastructure_Enums_UnitSelectType_Localizer_FriendlyText": {
     "Original": "Friendly",
-    "Translated": "Дружественный"
+    "Translated": "Союзники"
   },
   "ToyBox_Infrastructure_Enums_UnitSelectType_Localizer_PartyText": {
     "Original": "Party",
-    "Translated": "Группа"
+    "Translated": "Отряд"
   },
   "ToyBox_Infrastructure_Enums_UnitSelectType_Localizer_MainCharacterText": {
     "Original": "Main Character",
@@ -3605,7 +3605,7 @@
   },
   "ToyBox_Infrastructure_Inspector_InspectorUI_StoppedDrawingEntriesToPreventUI": {
     "Original": "Stopped drawing entries to prevent UI crash",
-    "Translated": "Остановка отрисовки записей для предотвращения краша интерфейса"
+    "Translated": "Отображение дальнейших записей остановлено во избежание сбоя интерфейса"
   },
   "ToyBox_Infrastructure_Utilities_Strings_SharedStrings_ThisCannotBeUsedFromTheMainMenu": {
     "Original": "This cannot be used from the main menu!",
@@ -3733,7 +3733,7 @@
   },
   "ToyBox_Infrastructure_Utilities_ContextProvider_PetsNotAllowedForThisFeature_LocalizedText": {
     "Original": "Pets not allowed for this feature!",
-    "Translated": "Питомцы не разрешены для этой функции!"
+    "Translated": "Фамильяры не разрешены для этой функции!"
   },
   "ToyBox_Main_SomethingWentHorriblyWrongAndYou": {
     "Original": "Something went horribly wrong and you've somehow opened the UI before ToyBox finished initialization. Please report this to the mod author!",
