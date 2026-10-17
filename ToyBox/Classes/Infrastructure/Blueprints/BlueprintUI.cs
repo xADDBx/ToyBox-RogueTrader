@@ -107,6 +107,7 @@ public static partial class BlueprintUI {
                 Feature.GetInstance<ShowBlueprintAssetIdsSetting>().OnGui();
                 Feature.GetInstance<ShowBlueprintTypeSetting>().OnGui();
                 Feature.GetInstance<SearchDescriptionsSetting>().OnGui();
+                Feature.GetInstance<AllowAllFeatureRankChangesSetting>().OnGui();
                 Feature.GetInstance<PageLimitSetting>().OnGui();
                 Feature.GetInstance<SearchAsYouTypeFeature>().OnGui();
                 Feature.GetInstance<SearchDelaySetting>().OnGui();

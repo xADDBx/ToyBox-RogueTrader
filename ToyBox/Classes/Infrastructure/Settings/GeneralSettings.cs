@@ -58,6 +58,7 @@ public class GeneralSettings : AbstractJsonSettings {
     public bool ToggleBPsShowDisplayAndInternalName = false;
     public bool ToggleShowBlueprintAssetIds = true;
     public bool ToggleShowBlueprintType = false;
+    public bool ToggleAllowAllFeatureRankChanges = false;
 
     // - Blueprints Settings
     public bool EnableThreadedBlueprintLoader = true;

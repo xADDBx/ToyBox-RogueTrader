@@ -1,6 +1,12 @@
-﻿using Kingmaker.EntitySystem.Entities;
+﻿using Kingmaker.Code.UnitLogic.FactLogic;
+using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.EntitySystem.Entities;
+using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Progression.Features;
+using Kingmaker.UnitLogic.Progression.Features.Advancements;
+using Kingmaker.UnitLogic.Progression.Paths;
 using ToyBox.Classes.Infrastructure.Features;
+using ToyBox.Features.SettingsFeatures.Blueprints;
 using ToyBox.Infrastructure.Utilities;
 
 namespace ToyBox.Infrastructure.Blueprints.BlueprintActions;
@@ -15,14 +21,18 @@ public partial class ChangeFeatureRankBA : BlueprintActionFeature, IBlueprintAct
         canIncrease = false;
         rank = 0;
         if (parameter.UnitParam is BaseUnitEntity unit) {
-            if (unit.Facts.Get(blueprint) is { } fact && blueprint.Ranks > 1) {
+            if (unit.Facts.Get(blueprint) is { } fact && (blueprint.Ranks > 1 || Feature.GetInstance<AllowAllFeatureRankChangesSetting>().IsEnabled || ScalesWithRank(blueprint))) {
                 rank = fact.GetRank();
                 canDecrease = rank > 1;
-                canIncrease = rank < blueprint.Ranks;
+                canIncrease = blueprint is not BlueprintPath || rank < blueprint.Ranks;
                 return true;
             }
         }
         return false;
+    }
+    private static bool ScalesWithRank(BlueprintFeature blueprint) {
+        return blueprint.ComponentsArray.Any(c => c is StatAdvancement or AddStatBonus or IncreaseResourceAmount or RankChangedTrigger or AddRandomUniqueFactOnEachRank
+            or SavingThrowBonusAgainstAbilityType or SavingThrowBonusAgainstDescriptor or SavingThrowBonusAgainstFact or SavingThrowBonusAgainstOwner);
     }
     public bool Execute(BlueprintFeature blueprint, ActionParameter parameter) {
         LogExecution(blueprint, parameter);

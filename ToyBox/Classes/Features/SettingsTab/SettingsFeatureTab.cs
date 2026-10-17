@@ -41,6 +41,7 @@ public partial class SettingsFeaturesTab : FeatureTab {
         AddFeature(new ShowBlueprintAssetIdsSetting(), m_ListsAndBrowsersText);
         AddFeature(new ShowBlueprintTypeSetting(), m_ListsAndBrowsersText);
         AddFeature(new SearchDescriptionsSetting(), m_ListsAndBrowsersText);
+        AddFeature(new AllowAllFeatureRankChangesSetting(), m_ListsAndBrowsersText);
 
         AddFeature(new IntegrityCheckerFeature(), m_VersionAndFileIntegrityText);
         AddFeature(new VersionCompatabilityFeature(), m_VersionAndFileIntegrityText);

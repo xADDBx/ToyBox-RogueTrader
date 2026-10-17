@@ -2391,6 +2391,14 @@
     "Original": "Whether to sort collation categories by their amount of blueprints instead of names.",
     "Translated": null
   },
+  "ToyBox_Features_SettingsFeatures_Blueprints_AllowAllFeatureRankChangesSetting_Name": {
+    "Original": "Allow Rank Changes For All Features",
+    "Translated": null
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_AllowAllFeatureRankChangesSetting_Description": {
+    "Original": "Allows changing the rank of every feature instead of only those which have multiple ranks or scale with their rank.",
+    "Translated": null
+  },
   "ToyBox_Features_SettingsFeatures_Blueprints_BlueprintsLoaderChunkSizeSetting_Name": {
     "Original": "Chunk Size",
     "Translated": null

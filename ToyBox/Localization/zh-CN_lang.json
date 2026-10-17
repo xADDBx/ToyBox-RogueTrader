@@ -2391,6 +2391,14 @@
     "Original": "Whether to sort collation categories by their amount of blueprints instead of names.",
     "Translated": "是否按各类别包含的蓝图数量排序，而不是按名称排序。"
   },
+  "ToyBox_Features_SettingsFeatures_Blueprints_AllowAllFeatureRankChangesSetting_Name": {
+    "Original": "Allow Rank Changes For All Features",
+    "Translated": "允许修改所有特性的等级"
+  },
+  "ToyBox_Features_SettingsFeatures_Blueprints_AllowAllFeatureRankChangesSetting_Description": {
+    "Original": "Allows changing the rank of every feature instead of only those which have multiple ranks or scale with their rank.",
+    "Translated": "允许修改任意特性的等级，而不仅限于拥有多个等级或效果随等级变化的特性。"
+  },
   "ToyBox_Features_SettingsFeatures_Blueprints_BlueprintsLoaderChunkSizeSetting_Name": {
     "Original": "Chunk Size",
     "Translated": "分块大小"

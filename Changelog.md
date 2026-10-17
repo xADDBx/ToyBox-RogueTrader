@@ -1,7 +1,10 @@
+
 ### ToyBox Rogue - Ver 2.0.17 (built for 1.6.1.511)
 * (***ADDB***) Disabling Size Overrides now restore the size
 * (***ADDB***) Fix static +1 flat stat modifier not working
 * (***ADDB***) Fix BuffDurationMultiplier issue?
+* (***ADDB***) Allow changing the rank of features which scale with their rank (e.g. Skill Advancements), also beyond their max rank
+* (***ADDB***) Add setting to allow changing the rank of every feature
 
 ### ToyBox Rogue - Ver 2.0.16 (built for 1.6.1.511)
 * (***ADDB***) Fix MovementSpeedMultiplier sometimes applying twice
