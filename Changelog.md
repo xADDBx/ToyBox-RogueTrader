@@ -1,3 +1,5 @@
+### ToyBox Rogue - Ver 2.0.18 (built for 1.6.1.511)
+* (***ADDB***) Unrecruit button now shows for recruited non-story companions in party or on ship again.
 
 ### ToyBox Rogue - Ver 2.0.17 (built for 1.6.1.511)
 * (***ADDB***) Disabling Size Overrides now restore the size

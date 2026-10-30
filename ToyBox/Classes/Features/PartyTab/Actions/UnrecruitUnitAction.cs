@@ -16,14 +16,17 @@ public partial class UnrecruitUnitAction : FeatureWithAction, INeedContextFeatur
     public override partial string Description { get; }
     public override bool CanExecute(ActionParameter parameter) {
         if (parameter.UnitParam is BaseUnitEntity unit && Game.Instance.Player.AllCharacters.Contains(unit) && !unit.IsMainCharacter && !unit.IsStoryCompanion()) {
-            var state = unit.GetCompanionOptional();
-            return state != null && state.State != CompanionState.Remote && state.State != CompanionState.InParty && state.State != CompanionState.InPartyDetached;
+            return unit.GetCompanionOptional() != null;
         }
         return false;
     }
     public override void ExecuteAction(ActionParameter parameter) {
         LogExecution(parameter);
         var unit = parameter.UnitParam!;
+        var state = unit.GetCompanionOptional()?.State;
+        if (state == CompanionState.InParty || state == CompanionState.InPartyDetached) {
+            Game.Instance.Player.RemoveCompanion(unit);
+        }
         unit.GetCompanionOptional()?.SetState(CompanionState.None);
         unit.Remove<UnitPartCompanion>();
         Game.Instance.Player.FixPartyAfterChange();
