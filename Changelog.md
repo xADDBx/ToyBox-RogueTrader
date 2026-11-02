@@ -1,3 +1,7 @@
+
+### ToyBox Rogue - Ver 2.0.19 (built for 1.6.1.511)
+* (***ADDB***) Remote Companion Dialog no longer applies to a few dialog nodes where it broke quest logic
+
 ### ToyBox Rogue - Ver 2.0.18 (built for 1.6.1.511)
 * (***ADDB***) Unrecruit button now shows for recruited non-story companions in party or on ship again.
 

@@ -31,6 +31,17 @@ public partial class RemoteCompanionDialogFeature : FeatureWithPatch {
             return "ToyBox.Features.BagOfTricks.Dialog.RemoteCompanionDialogFeature";
         }
     }
+    // Cues/answers where forcing "companion present" breaks things (as of 1.6.1.511)
+    private static readonly HashSet<string> m_ExcludedOwners = [
+        "a2df1be30d44405aaedeea0e78f3e044", // Cue_0042 (BloodBath): skips ShowPartySelection(Required=[Idira]) -> wrong encounter
+        "b3b27bdcaeab40b4988732e2e338d291", // Cue_22: absent Solomorne's cutscene kill is skipped
+        "b0110bb6c61541e19a29e62cfe024ab3", // Cue_64: locks in the Quetza-al outpost Yrliet execution ending
+        "0da824e58041429e84f0c6af5a111bee", // Cue_0002: absent Heinrix confiscates the Halo device, skipping the player's choice
+        "4ebea8a93a8c4fafba893bf75aad0c71", // Answer_15: HeinrixKillsMar kill is skipped
+        "5a2851a4fd50ef54a87f7b43a50ac06d", // Cue_0003: SororitasKillsIdira kill is skipped
+        "e629fcedd272457d8ee16ad54aee8e21", // Answer_0007: same SororitasKillsIdira path
+        "84c118a0d3981c3479bf026a02fa0b74", // Answer_0045: same SororitasKillsIdira path
+    ];
     [HarmonyPatch(typeof(CompanionInParty), nameof(CompanionInParty.CheckCondition)), HarmonyPostfix]
     private static void CompanionInParty_CheckCondition_Patch(CompanionInParty __instance, ref bool __result) {
         // No need to override if the result is already true
@@ -45,6 +56,10 @@ public partial class RemoteCompanionDialogFeature : FeatureWithPatch {
         // We don't want to match when the game only checks for Ex companions since this is basically a check for companions which left the party then
         // Example is 6aeb6812dcc1464a9b087786556c9b18 which checks whether Pascal left as a companion. Really weird design from Owlcat right there.
         if (__instance.MatchWhenEx && !__instance.MatchWhenActive && !__instance.MatchWhenDetached && !__instance.MatchWhenRemote) {
+            return;
+        }
+        var owner = __instance.Owner;
+        if (owner != null && m_ExcludedOwners.Contains(owner.AssetGuid)) {
             return;
         }
         try {
