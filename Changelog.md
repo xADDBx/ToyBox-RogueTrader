@@ -1,3 +1,5 @@
+### ToyBox Rogue - Ver 2.0.20 (built for 1.6.1.511)
+* (***ADDB***) Adjust pipeline to strip languages from nexus builds to not have to use Nexus AI Generated tag.
 
 ### ToyBox Rogue - Ver 2.0.19 (built for 1.6.1.511)
 * (***ADDB***) Remote Companion Dialog no longer applies to a few dialog nodes where it broke quest logic

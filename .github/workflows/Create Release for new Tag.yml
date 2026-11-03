@@ -2,7 +2,7 @@ name: Create Release for new Tag
 
 on:
   push:
-    tags:        
+    tags:
       - '**'
 
 jobs:
@@ -28,9 +28,39 @@ jobs:
       with:
         name: ${{ env.zipFile }}
         path: ${{ env.outDir }}
-    
+
     - name: Create Release
       uses: ncipollo/release-action@v1
       with:
         artifacts: ${{ env.zipFilePath }}\*.zip
         name: ${{ env.ZipFile }} built for Rogue Trader ${{ env.gameVersionNum }}${{ env.gameVersionSuffix }}
+        body: ${{ github.event.head_commit.message }}
+        prerelease: true
+
+    - name: Extract Version from zipFile
+      shell: pwsh
+      run: |
+        $version = ($env:zipFile -split '-')[-1]
+        echo "MOD_VERSION=$version" >> $env:GITHUB_ENV
+
+    - name: Create English-only zip for NexusMods
+      shell: pwsh
+      run: |
+        $stage = Join-Path $env:RUNNER_TEMP 'NexusMain'
+        Copy-Item -Path $env:outDir -Destination $stage -Recurse
+        Get-ChildItem -Path (Join-Path $stage 'Localization') -File | Where-Object { $_.Name -ne 'en_lang.json' } | Remove-Item
+        $zip = Join-Path $env:RUNNER_TEMP "$env:zipFile.zip"
+        Compress-Archive -Path "$stage\*" -DestinationPath $zip
+        echo "NEXUS_ZIP=$zip" >> $env:GITHUB_ENV
+
+    - name: Upload to NexusMods
+      uses: Nexus-Mods/upload-action@v1.0.0-beta.10
+      with:
+        api_key: ${{ secrets.NEXUSMODS_API_KEY }}
+        file_id: 7679994
+        filename: ${{ env.NEXUS_ZIP }}
+        version: ${{ env.MOD_VERSION }}
+        display_name: ToyBox
+        mod_id: 23141283790849
+        update_mod_version: false
+        changelog: ${{ github.event.head_commit.message }}
