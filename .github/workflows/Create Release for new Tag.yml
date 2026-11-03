@@ -60,7 +60,10 @@ jobs:
         file_id: 7679994
         filename: ${{ env.NEXUS_ZIP }}
         version: ${{ env.MOD_VERSION }}
-        display_name: ToyBox
+        display_name: ToyBox 2.0 Beta
+        description: |-
+          ToyBox 2.0 is a complete rewrite.
+          Settings don't map 1:1. On first game start the mod will ask you if you want to import your previous settings on a best effort basis. Restart your game after the settings-import to prevent any issues.
         mod_id: 23141283790849
         update_mod_version: false
         changelog: ${{ github.event.head_commit.message }}
